@@ -17,7 +17,7 @@ const WEAPONS = {
     fireRate: 7,        // bullets per second
     reloadTime: 2000,    // ms
     bulletSpeed: 500,    // units per second
-    magazine: 35,        // current ammo in mag (can be changed at runtime)
+    magazine: 350,        // current ammo in mag (can be changed at runtime)
     maxMagazine: 35      // max ammo per mag
   },
 
