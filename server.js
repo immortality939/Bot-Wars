@@ -1,5 +1,6 @@
 import { WebSocketServer } from "ws";
 import http from "http";
+import { getWeaponOnline } from "./weapon_online.js";
 
 const PORT = process.env.PORT || 3000;
 
@@ -14,12 +15,13 @@ wss.on("connection", (ws) => {
   const color = `hsl(${Math.random() * 360}, 70%, 60%)`;
 
   clients.set(id, {
-    id,
-    x: 350,
-    y: 350,
-    color,
-    health: 100
-  });
+  id,
+  x: 350,
+  y: 350,
+  color,
+  health: 100,
+  weaponName: "uzi"  // default weapon
+});
 
   // Send own id to client
   ws.send(JSON.stringify({ type: "init", id }));
@@ -59,17 +61,24 @@ wss.on("connection", (ws) => {
       }
 
       // Handle bullet fired by a player
-      if (data.type === "bullet") {
-        broadcast({
-          type: "bullet",
-          ownerId: id,
-          x: data.x,
-          y: data.y,
-          vx: data.vx,
-          vy: data.vy,
-          damage: data.damage
-        });
-      }
+      // Handle bullet fired by a player
+if (data.type === "bullet") {
+  // Validate weapon damage (prevent cheating)
+  const player = clients.get(id);
+  const expectedWeapon = getWeaponOnline(player.weaponName || "uzi");
+  const expectedDamage = expectedWeapon ? expectedWeapon.damage : 4;
+  
+  // Use server-side damage, ignore client's damage value
+  broadcast({
+    type: "bullet",
+    ownerId: id,
+    x: data.x,
+    y: data.y,
+    vx: data.vx,
+    vy: data.vy,
+    damage: expectedDamage
+  });
+}
 
       // Handle player hit (damage)
       // Handle player hit (damage)
