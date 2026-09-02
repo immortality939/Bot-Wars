@@ -6,20 +6,20 @@ const PORT = process.env.PORT || 3000;
 const server = http.createServer();
 const wss = new WebSocketServer({ server });
 
-const clients = new Map(); // id -> { id, x, y, color }
+const clients = new Map(); // id -> { id, x, y, color, health }
 let nextId = 1;
 
 wss.on("connection", (ws) => {
   const id = nextId++;
   const color = `hsl(${Math.random() * 360}, 70%, 60%)`;
 
-clients.set(id, {
-  id,
-  x: 350,
-  y: 350,
-  color,
-  health: 100
-});
+  clients.set(id, {
+    id,
+    x: 350,
+    y: 350,
+    color,
+    health: 100
+  });
 
   // Send own id to client
   ws.send(JSON.stringify({ type: "init", id }));
@@ -41,50 +41,51 @@ clients.set(id, {
   });
 
   ws.on("message", (msg) => {
-  try {
-    const data = JSON.parse(msg);
+    try {
+      const data = JSON.parse(msg);
 
-    if (data.type === "move" && clients.has(id)) {
-      const p = clients.get(id);
-      p.x = data.x;
-      p.y = data.y;
+      // Handle player movement
+      if (data.type === "move" && clients.has(id)) {
+        const p = clients.get(id);
+        p.x = data.x;
+        p.y = data.y;
 
-      broadcastExcept(ws, {
-        type: "playerMove",
-        id,
-        x: p.x,
-        y: p.y
-      });
+        broadcastExcept(ws, {
+          type: "playerMove",
+          id,
+          x: p.x,
+          y: p.y
+        });
+      }
+
+      // Handle bullet fired by a player
+      if (data.type === "bullet") {
+        broadcast({
+          type: "bullet",
+          ownerId: id,
+          x: data.x,
+          y: data.y,
+          vx: data.vx,
+          vy: data.vy,
+          damage: data.damage
+        });
+      }
+
+      // Handle player hit (damage)
+      if (data.type === "hit" && clients.has(data.targetId)) {
+        const target = clients.get(data.targetId);
+        target.health = Math.max(0, target.health - data.damage);
+
+        broadcast({
+          type: "playerHealth",
+          id: data.targetId,
+          health: target.health
+        });
+      }
+    } catch (e) {
+      console.error(e);
     }
-
-    // Client fired a bullet -> broadcast to everyone
-    if (data.type === "bullet") {
-      broadcast({
-        type: "bullet",
-        ownerId: id,
-        x: data.x,
-        y: data.y,
-        vx: data.vx,
-        vy: data.vy,
-        damage: data.damage
-      });
-    }
-
-    // Player was hit -> update health on server and inform everyone
-    if (data.type === "hit" && clients.has(data.targetId)) {
-      const target = clients.get(data.targetId);
-      target.health = Math.max(0, target.health - data.damage);
-
-      broadcast({
-        type: "playerHealth",
-        id: data.targetId,
-        health: target.health
-      });
-    }
-  } catch (e) {
-    console.error(e);
-  }
-});
+  });
 
   ws.on("close", () => {
     clients.delete(id);
