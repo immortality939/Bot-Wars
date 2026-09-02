@@ -1,4 +1,4 @@
-// weapon_online.js - Server-side weapons (anti-cheat)
+// weapon_online.js - Works for both browser and server
 
 const WEAPONS_ONLINE = {
   uzi: {
@@ -18,7 +18,7 @@ const WEAPONS_ONLINE = {
     reloadTime: 2000,
     bulletSpeed: 500,
     magazine: 350,
-    maxMagazine: 35
+    maxMagazine: 350
   },
 
   pistol: {
@@ -44,16 +44,24 @@ const WEAPONS_ONLINE = {
   }
 };
 
-function getWeaponOnline(name) {
+function getWeapon(name) {
   const w = WEAPONS_ONLINE[name];
   if (!w) return null;
   return JSON.parse(JSON.stringify(w));
 }
 
-function getAllWeaponsOnline() {
+function getAllWeapons() {
   return Object.keys(WEAPONS_ONLINE);
 }
 
+// For browser (global variables)
+if (typeof window !== "undefined") {
+  window.WEAPONS = WEAPONS_ONLINE;
+  window.getWeapon = getWeapon;
+  window.getAllWeapons = getAllWeapons;
+}
+
+// For Node.js/server
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { WEAPONS_ONLINE, getWeaponOnline, getAllWeaponsOnline };
+  module.exports = { WEAPONS_ONLINE, getWeapon, getAllWeapons };
 }
