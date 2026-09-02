@@ -13,12 +13,13 @@ wss.on("connection", (ws) => {
   const id = nextId++;
   const color = `hsl(${Math.random() * 360}, 70%, 60%)`;
 
-  clients.set(id, {
-    id,
-    x: 350,
-    y: 350,
-    color
-  });
+clients.set(id, {
+  id,
+  x: 350,
+  y: 350,
+  color,
+  health: 100
+});
 
   // Send own id to client
   ws.send(JSON.stringify({ type: "init", id }));
@@ -40,24 +41,50 @@ wss.on("connection", (ws) => {
   });
 
   ws.on("message", (msg) => {
-    try {
-      const data = JSON.parse(msg);
-      if (data.type === "move" && clients.has(id)) {
-        const p = clients.get(id);
-        p.x = data.x;
-        p.y = data.y;
+  try {
+    const data = JSON.parse(msg);
 
-        broadcastExcept(ws, {
-          type: "playerMove",
-          id,
-          x: p.x,
-          y: p.y
-        });
-      }
-    } catch (e) {
-      console.error(e);
+    if (data.type === "move" && clients.has(id)) {
+      const p = clients.get(id);
+      p.x = data.x;
+      p.y = data.y;
+
+      broadcastExcept(ws, {
+        type: "playerMove",
+        id,
+        x: p.x,
+        y: p.y
+      });
     }
-  });
+
+    // Client fired a bullet -> broadcast to everyone
+    if (data.type === "bullet") {
+      broadcast({
+        type: "bullet",
+        ownerId: id,
+        x: data.x,
+        y: data.y,
+        vx: data.vx,
+        vy: data.vy,
+        damage: data.damage
+      });
+    }
+
+    // Player was hit -> update health on server and inform everyone
+    if (data.type === "hit" && clients.has(data.targetId)) {
+      const target = clients.get(data.targetId);
+      target.health = Math.max(0, target.health - data.damage);
+
+      broadcast({
+        type: "playerHealth",
+        id: data.targetId,
+        health: target.health
+      });
+    }
+  } catch (e) {
+    console.error(e);
+  }
+});
 
   ws.on("close", () => {
     clients.delete(id);
