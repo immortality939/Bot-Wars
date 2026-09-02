@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Shooting Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+
+<div id="ui">
+  <div>Health: <span id="healthDisplay">100</span></div>
+  <div>Armor: <span id="armorDisplay">2</span></div>
+  <div>Weapon: <span id="weaponDisplay">uzi</span></div>
+  <div>Ammo: <span id="ammoDisplay">25 / 25</span></div>
+  <div style="margin-top:6px;">
+    <button id="prevWeaponBtn">◀</button>
+    <button id="nextWeaponBtn">▶</button>
+  </div>
+</div>
+
+<!-- Manual reload button (placed near right analog) -->
+<button id="reloadBtn" class="reloadBtn">R</button>
+
+  <!-- Rotate to landscape overlay -->
+  <div id="rotateOverlay">
+    <div class="rotateBox">
+      <div class="rotateIcon">↻</div>
+      <div>Please rotate your device to landscape</div>
+    </div>
+  </div>
+
+  <!-- Load order: weapon -> character -> game -->
+  <script src="weapon.js"></script>
+  <script src="character.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

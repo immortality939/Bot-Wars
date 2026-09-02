@@ -1,0 +1,108 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #111;
+  font-family: system-ui, sans-serif;
+  color: #eee;
+  touch-action: none;
+}
+
+#gameCanvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+#ui {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0,0,0,0.5);
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  pointer-events: auto;
+  user-select: none;
+}
+
+#ui button {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #eee;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 0 2px;
+  touch-action: manipulation;
+}
+
+#joystickHints {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.7;
+}
+
+/* Rotate overlay */
+#rotateOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none; /* shown via JS when portrait */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.rotateBox {
+  text-align: center;
+  color: #ddd;
+}
+
+.rotateIcon {
+  font-size: 48px;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+/* Show overlay when portrait */
+@media (orientation: portrait) {
+  #rotateOverlay {
+    display: flex;
+  }
+}
+/* Manual reload button near right analog */
+.reloadBtn {
+  position: fixed;
+  right: 25%;            /* adjust if needed */
+  bottom: 22%;           /* roughly same height as joysticks */
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  z-index: 1000;
+}
+
+/* Slightly adjust for very wide screens if needed */
+@media (min-width: 900px) {
+  .reloadBtn {
+    right: 30%;
+    bottom: 30%;
+  }
+}
