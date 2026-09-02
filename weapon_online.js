@@ -1,4 +1,4 @@
-// weapon_online.js - Works for both browser and server
+// weapon_online.js - Works for both browser and server (NO import/export)
 
 const WEAPONS_ONLINE = {
   uzi: {
@@ -72,7 +72,7 @@ if (typeof window !== "undefined") {
   window.getAllWeaponsOnline = getAllWeaponsOnline;
 }
 
-// For Node.js/server
+// For Node.js/server (CommonJS)
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { WEAPONS_ONLINE, getWeapon, getWeaponOnline, getAllWeapons, getAllWeaponsOnline };
 }
