@@ -72,16 +72,49 @@ wss.on("connection", (ws) => {
       }
 
       // Handle player hit (damage)
-      if (data.type === "hit" && clients.has(data.targetId)) {
-        const target = clients.get(data.targetId);
-        target.health = Math.max(0, target.health - data.damage);
+      // Handle player hit (damage)
+// Handle player hit (damage)
+if (data.type === "hit" && clients.has(data.targetId)) {
+  const target = clients.get(data.targetId);
+  target.health = Math.max(0, target.health - data.damage);
+
+  broadcast({
+    type: "playerHealth",
+    id: data.targetId,
+    health: target.health
+  });
+
+  // If player died, broadcast death event
+  if (target.health <= 0) {
+    broadcast({
+      type: "playerDied",
+      id: data.targetId
+    });
+
+    // Respawn player after 1 second
+    setTimeout(() => {
+      if (clients.has(data.targetId)) {
+        const respawnedPlayer = clients.get(data.targetId);
+        respawnedPlayer.health = 100;
+        respawnedPlayer.x = 350;
+        respawnedPlayer.y = 350;
 
         broadcast({
           type: "playerHealth",
           id: data.targetId,
-          health: target.health
+          health: 100
+        });
+
+        broadcast({
+          type: "playerMove",
+          id: data.targetId,
+          x: 350,
+          y: 350
         });
       }
+    }, 1000);
+  }
+}
     } catch (e) {
       console.error(e);
     }
