@@ -1,0 +1,88 @@
+import { WebSocketServer } from "ws";
+import http from "http";
+
+const PORT = process.env.PORT || 3000;
+
+const server = http.createServer();
+const wss = new WebSocketServer({ server });
+
+const clients = new Map(); // id -> { id, x, y, color }
+let nextId = 1;
+
+wss.on("connection", (ws) => {
+  const id = nextId++;
+  const color = `hsl(${Math.random() * 360}, 70%, 60%)`;
+
+  clients.set(id, {
+    id,
+    x: 350,
+    y: 350,
+    color
+  });
+
+  // Send own id to client
+  ws.send(JSON.stringify({ type: "init", id }));
+
+  // Send existing players to new client
+  for (const [pid, data] of clients) {
+    if (pid === id) continue;
+    ws.send(JSON.stringify({
+      type: "playerAdd",
+      player: { ...data }
+    }));
+  }
+
+  // Tell others about new player
+  const newData = clients.get(id);
+  broadcastExcept(ws, {
+    type: "playerAdd",
+    player: { ...newData }
+  });
+
+  ws.on("message", (msg) => {
+    try {
+      const data = JSON.parse(msg);
+      if (data.type === "move" && clients.has(id)) {
+        const p = clients.get(id);
+        p.x = data.x;
+        p.y = data.y;
+
+        broadcastExcept(ws, {
+          type: "playerMove",
+          id,
+          x: p.x,
+          y: p.y
+        });
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  });
+
+  ws.on("close", () => {
+    clients.delete(id);
+    broadcast({
+      type: "playerRemove",
+      id
+    });
+  });
+});
+
+function broadcast(msg) {
+  const data = JSON.stringify(msg);
+  for (const client of wss.clients) {
+    if (client.readyState === 1) client.send(data);
+  }
+}
+
+function broadcastExcept(excludeWs, msg) {
+  const data = JSON.stringify(msg);
+  for (const client of wss.clients) {
+    if (client === excludeWs) continue;
+    if (client.readyState === 1) client.send(data);
+  }
+}
+
+server.listen(PORT, () => {
+  console.log("Server listening on port", PORT);
+});
