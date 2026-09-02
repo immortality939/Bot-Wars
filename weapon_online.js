@@ -1,4 +1,4 @@
-// weapon_online.js - Works for both browser and server (NO import/export)
+// weapon_online.js - Works for both browser and server
 
 const WEAPONS_ONLINE = {
   uzi: {
