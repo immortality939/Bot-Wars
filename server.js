@@ -1,6 +1,6 @@
 import { WebSocketServer } from "ws";
 import http from "http";
-import { getWeaponOnline } from "./weapon_online.js";
+import { getWeapon } from "./weapon_online.js";
 
 const PORT = process.env.PORT || 3000;
 
@@ -65,7 +65,7 @@ wss.on("connection", (ws) => {
 if (data.type === "bullet") {
   // Validate weapon damage (prevent cheating)
   const player = clients.get(id);
-  const expectedWeapon = getWeaponOnline(player.weaponName || "uzi");
+  const expectedWeapon = getWeapon(player.weaponName || "uzi");
   const expectedDamage = expectedWeapon ? expectedWeapon.damage : 4;
   
   // Use server-side damage, ignore client's damage value
