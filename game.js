@@ -100,7 +100,7 @@ const bullets = [];
 const enemies = [];
 let lastTime = performance.now();
 let enemySpawnTimer = 0;
-const enemySpawnInterval = 1500; // ms
+const enemySpawnInterval = 999999999; // ms (basically never spawn)
 
 // Input state for dual analog sticks
 const input = {
@@ -130,26 +130,62 @@ function connectToServer() {
   };
 
   ws.onmessage = (event) => {
-    const msg = JSON.parse(event.data);
+  const msg = JSON.parse(event.data);
 
-    if (msg.type === "init") {
-      myId = msg.id;
-    } else if (msg.type === "playerAdd") {
-      otherPlayers.set(msg.player.id, {
-        x: msg.player.x,
-        y: msg.player.y,
-        color: msg.player.color
-      });
-    } else if (msg.type === "playerMove") {
-      const p = otherPlayers.get(msg.id);
-      if (p) {
-        p.x = msg.x;
-        p.y = msg.y;
-      }
-    } else if (msg.type === "playerRemove") {
-      otherPlayers.delete(msg.id);
+  if (msg.type === "init") {
+    myId = msg.id;
+  } else if (msg.type === "playerAdd") {
+    otherPlayers.set(msg.player.id, {
+      x: msg.player.x,
+      y: msg.player.y,
+      color: msg.player.color,
+      health: msg.player.health || 100
+    });
+  } else if (msg.type === "playerMove") {
+    const p = otherPlayers.get(msg.id);
+    if (p) {
+      p.x = msg.x;
+      p.y = msg.y;
     }
-  };
+  } else if (msg.type === "playerRemove") {
+    otherPlayers.delete(msg.id);
+  } else if (msg.type === "bullet") {
+    // Add bullet from other player
+    if (msg.ownerId !== myId) {
+      bullets.push({
+        x: msg.x,
+        y: msg.y,
+        vx: msg.vx,
+        vy: msg.vy,
+        radius: 4,
+        damage: msg.damage,
+        ownerId: msg.ownerId
+      });
+    }
+  } else if (msg.type === "playerHealth") {
+    console.log("Received playerHealth:", msg.id, "health:", msg.health, "myId:", myId);
+
+    const p = otherPlayers.get(msg.id);
+    if (p) {
+      p.health = msg.health;
+    }
+    if (msg.id === myId) {
+      // Update local player health
+      player.currentHealth = msg.health;
+      healthDisplay.textContent = player.currentHealth;
+      console.log("My health updated to:", player.currentHealth);
+
+      if (player.currentHealth <= 0) {
+        // Respawn logic (same as your existing death logic)
+        player.currentHealth = player.health;
+        healthDisplay.textContent = player.currentHealth;
+        playerPos.x = WORLD_SIZE / 2;
+        playerPos.y = WORLD_SIZE / 2;
+        console.log("Respawned! Health reset to:", player.currentHealth);
+      }
+    }
+  }
+};
 
   ws.onclose = () => {
     console.log("Disconnected from server");
@@ -330,8 +366,20 @@ function fireBullet() {
         y: playerPos.y,
         vx, vy,
         radius: 4,
-        damage: w.damage
+        damage: w.damage,
+        ownerId: myId || null
       });
+    }
+    // Send bullet to server (for multiplayer)
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify({
+        type: "bullet",
+        x: playerPos.x,
+        y: playerPos.y,
+        vx: shootDir.x * w.bulletSpeed,
+        vy: shootDir.y * w.bulletSpeed,
+        damage: w.damage
+      }));
     }
   } else {
     bullets.push({
@@ -340,8 +388,20 @@ function fireBullet() {
       vx: shootDir.x * w.bulletSpeed,
       vy: shootDir.y * w.bulletSpeed,
       radius: 4,
-      damage: w.damage
+      damage: w.damage,
+      ownerId: myId || null
     });
+    // Send bullet to server (for multiplayer)
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify({
+        type: "bullet",
+        x: playerPos.x,
+        y: playerPos.y,
+        vx: shootDir.x * w.bulletSpeed,
+        vy: shootDir.y * w.bulletSpeed,
+        damage: w.damage
+      }));
+    }
   }
 }
 
@@ -355,42 +415,113 @@ function update(dt) {
   // Clamp player inside 700x700 world
   playerPos.x = Math.max(playerPos.radius, Math.min(WORLD_SIZE - playerPos.radius, playerPos.x));
   playerPos.y = Math.max(playerPos.radius, Math.min(WORLD_SIZE - playerPos.radius, playerPos.y));
-// Send position to server (if connected)
-if (ws && ws.readyState === WebSocket.OPEN && myId != null) {
-  ws.send(JSON.stringify({
-    type: "move",
-    x: playerPos.x,
-    y: playerPos.y
-  }));
-}
+
+  // Send position to server (if connected)
+  if (ws && ws.readyState === WebSocket.OPEN && myId != null) {
+    ws.send(JSON.stringify({
+      type: "move",
+      x: playerPos.x,
+      y: playerPos.y
+    }));
+  }
+
   if (input.isShooting) {
     fireBullet();
   }
 
   // Bullets
-  for (let i = bullets.length - 1; i >= 0; i--) {
-    const b = bullets[i];
-    b.x += b.vx * dt;
-    b.y += b.vy * dt;
+  // Bullets
+for (let i = bullets.length - 1; i >= 0; i--) {
+  const b = bullets[i];
+  b.x += b.vx * dt;
+  b.y += b.vy * dt;
 
-    if (b.x < 0 || b.x > WORLD_SIZE || b.y < 0 || b.y > WORLD_SIZE) {
+  if (b.x < 0 || b.x > WORLD_SIZE || b.y < 0 || b.y > WORLD_SIZE) {
+    bullets.splice(i, 1);
+    continue;
+  }
+
+  // Enemy collision
+  for (let j = enemies.length - 1; j >= 0; j--) {
+    const e = enemies[j];
+    const dx = b.x - e.x;
+    const dy = b.y - e.y;
+    const dist = Math.hypot(dx, dy);
+    if (dist < b.radius + e.radius) {
+      e.health -= b.damage;
       bullets.splice(i, 1);
-      continue;
-    }
-
-    for (let j = enemies.length - 1; j >= 0; j--) {
-      const e = enemies[j];
-      const dx = b.x - e.x;
-      const dy = b.y - e.y;
-      const dist = Math.hypot(dx, dy);
-      if (dist < b.radius + e.radius) {
-        e.health -= b.damage;
-        bullets.splice(i, 1);
-        if (e.health <= 0) enemies.splice(j, 1);
-        break;
-      }
+      if (e.health <= 0) enemies.splice(j, 1);
+      break;
     }
   }
+
+  // Other player collision (shooter checking if their bullet hits others)
+  for (const [id, p] of otherPlayers) {
+    if (b.ownerId != null && b.ownerId === id) continue; // don't hit owner
+
+    const dx = b.x - p.x;
+    const dy = b.y - p.y;
+    const dist = Math.hypot(dx, dy);
+    if (dist < b.radius + playerPos.radius) {
+      // Hit another player
+      if (ws && ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({
+          type: "hit",
+          targetId: id,
+          damage: b.damage
+        }));
+      }
+      bullets.splice(i, 1);
+      break;
+    }
+  }
+
+  // Check if enemy bullets hit ME (local player)
+  if (b.ownerId != null && b.ownerId !== myId) {
+    const dx = b.x - playerPos.x;
+    const dy = b.y - playerPos.y;
+    const dist = Math.hypot(dx, dy);
+
+    if (dist < b.radius + playerPos.radius) {
+      // I got hit
+      if (ws && ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({
+          type: "hit",
+          targetId: myId,
+          damage: b.damage
+        }));
+      }
+      bullets.splice(i, 1);
+      break;
+    }
+  }
+}
+  
+  
+  // Check if enemy bullets hit ME (local player)
+for (let i = bullets.length - 1; i >= 0; i--) {
+  const b = bullets[i];
+
+  // Skip my own bullets
+  if (b.ownerId != null && b.ownerId === myId) continue;
+
+  const dx = b.x - playerPos.x;
+  const dy = b.y - playerPos.y;
+  const dist = Math.hypot(dx, dy);
+
+  if (dist < b.radius + playerPos.radius) {
+    // I got hit
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify({
+        type: "hit",
+        targetId: myId,
+        damage: b.damage
+      }));
+    }
+    bullets.splice(i, 1);
+    break;
+  }
+}
 
   // Enemies
   for (const e of enemies) {
@@ -527,8 +658,6 @@ function draw() {
   }
 
   // Restore context so UI/joysticks are drawn in screen space
-  ctx.restore();
-  // Restore context so UI/joysticks are in screen space
   ctx.restore();
 
   // Joysticks (screen space, not affected by camera/zoom)
