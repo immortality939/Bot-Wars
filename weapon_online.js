@@ -50,18 +50,29 @@ function getWeapon(name) {
   return JSON.parse(JSON.stringify(w));
 }
 
+function getWeaponOnline(name) {
+  return getWeapon(name);
+}
+
 function getAllWeapons() {
   return Object.keys(WEAPONS_ONLINE);
+}
+
+function getAllWeaponsOnline() {
+  return getAllWeapons();
 }
 
 // For browser (global variables)
 if (typeof window !== "undefined") {
   window.WEAPONS = WEAPONS_ONLINE;
+  window.WEAPONS_ONLINE = WEAPONS_ONLINE;
   window.getWeapon = getWeapon;
+  window.getWeaponOnline = getWeaponOnline;
   window.getAllWeapons = getAllWeapons;
+  window.getAllWeaponsOnline = getAllWeaponsOnline;
 }
 
 // For Node.js/server
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { WEAPONS_ONLINE, getWeapon, getAllWeapons };
+  module.exports = { WEAPONS_ONLINE, getWeapon, getWeaponOnline, getAllWeapons, getAllWeaponsOnline };
 }
