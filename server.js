@@ -72,6 +72,21 @@ wss.on("connection", (ws) => {
   hitEffect: data.hitEffect
 });
       }
+      
+      // Handle shooting sound
+if (data.type === "shootSound") {
+
+  broadcastExcept(ws, {
+
+    type: "shootSound",
+
+    sound: data.sound,
+
+    ownerId: id
+
+  });
+
+}
 
       // Handle player hit (damage)
       // Handle player hit (damage)
