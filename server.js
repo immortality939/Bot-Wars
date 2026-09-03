@@ -1,197 +1,490 @@
 import { WebSocketServer } from "ws";
 import http from "http";
+import { getWeapon } from "./weapon_online.js";
+
 
 const PORT = process.env.PORT || 3000;
 
 const server = http.createServer();
-const wss = new WebSocketServer({ server });
 
-const clients = new Map(); // id -> { id, x, y, color, health, shield }
+const wss = new WebSocketServer({
+  server
+});
+
+
+const clients = new Map();
+
 let nextId = 1;
 
+
+
 wss.on("connection", (ws) => {
+
+
   const id = nextId++;
-  const color = `hsl(${Math.random() * 360}, 70%, 60%)`;
+
+
+  const color =
+    `hsl(${Math.random() * 360},70%,60%)`;
+
 
   clients.set(id, {
-  id,
-  x: 350,
-  y: 350,
-  color,
-  health: 100,
-  shield: 100,
-  armor: 1
-});
 
-  // Send own id to client
-  ws.send(JSON.stringify({ type: "init", id }));
+    id,
 
-  // Send existing players to new client
-  for (const [pid, data] of clients) {
-    if (pid === id) continue;
+    x:350,
+    y:350,
+
+    color,
+
+    health:100,
+
+    shield:100,
+
+    armor:10
+
+  });
+
+
+
+  ws.send(JSON.stringify({
+
+    type:"init",
+
+    id
+
+  }));
+
+
+
+  // send existing players
+
+  for(const [pid,data] of clients){
+
+    if(pid===id) continue;
+
+
     ws.send(JSON.stringify({
-      type: "playerAdd",
-      player: { ...data }
+
+      type:"playerAdd",
+
+      player:{...data}
+
     }));
-  }
-
-  // Tell others about new player
-  const newData = clients.get(id);
-  broadcastExcept(ws, {
-    type: "playerAdd",
-    player: { ...newData }
-  });
-
-  ws.on("message", (msg) => {
-    try {
-      const data = JSON.parse(msg);
-
-      // Handle player movement
-      if (data.type === "move" && clients.has(id)) {
-        const p = clients.get(id);
-        p.x = data.x;
-        p.y = data.y;
-        p.shield = data.shield;
-
-        broadcastExcept(ws, {
-  type: "playerMove",
-  id,
-  x: p.x,
-  y: p.y,
-  shield: p.shield
-});
-      }
-
-      // Handle bullet fired by a player
-      if (data.type === "bullet") {
-        broadcast({
-          type: "bullet",
-          ownerId: id,
-          x: data.x,
-          y: data.y,
-          vx: data.vx,
-          vy: data.vy,
-          damage: data.damage
-        });
-      }
-
-      // Handle player hit (damage)
-      // Handle player hit (damage)
-// Handle player hit (damage)
-if (data.type === "hit" && clients.has(data.targetId)) {
-
-  const target = clients.get(data.targetId);
-
-  let damage = data.damage;
-
-
-  // 1. Shield absorbs raw damage first
-  if (target.shield > 0) {
-
-    target.shield -= damage;
-
-    if (target.shield < 0) {
-
-      damage = Math.abs(target.shield);
-      target.shield = 0;
-
-    } else {
-
-      damage = 0;
-
-    }
-  }
-
-
-  // 2. Armor protects health only
-  if (damage > 0) {
-
-    damage -= target.armor;
-
-    if (damage < 1) {
-      damage = 1;
-    }
-
-    target.health = Math.max(
-      0,
-      target.health - damage
-    );
 
   }
 
 
-  broadcast({
-    type:"playerHealth",
-    id:data.targetId,
-    health:target.health,
-    shield:target.shield
+
+  broadcastExcept(ws,{
+
+    type:"playerAdd",
+
+    player:{...clients.get(id)}
+
   });
 
 
 
 
-  // If player died, broadcast death event
-  if (target.health <= 0) {
-    broadcast({
-      type: "playerDied",
-      id: data.targetId
-    });
 
-    // Respawn player after 1 second
-    setTimeout(() => {
-      if (clients.has(data.targetId)) {
-        const respawnedPlayer = clients.get(data.targetId);
-        respawnedPlayer.health = 100;
-        respawnedPlayer.shield = 100;
-        respawnedPlayer.x = 350;
-        respawnedPlayer.y = 350;
+ws.on("message",(msg)=>{
 
-        broadcast({
-  type:"playerHealth",
-  id: data.targetId,
-  health:100,
-  shield:100
+
+try{
+
+
+const data = JSON.parse(msg);
+
+
+
+// PLAYER MOVEMENT
+
+if(data.type==="move" && clients.has(id)){
+
+
+const p = clients.get(id);
+
+
+p.x=data.x;
+
+p.y=data.y;
+
+
+// shield stays server controlled
+
+broadcastExcept(ws,{
+
+type:"playerMove",
+
+id,
+
+x:p.x,
+
+y:p.y,
+
+shield:p.shield
+
 });
 
-        broadcast({
-          type: "playerMove",
-          id: data.targetId,
-          x: 350,
-          y: 350
-        });
-      }
-    }, 1000);
-  }
-}
-    } catch (e) {
-      console.error(e);
-    }
-  });
 
-  ws.on("close", () => {
-    clients.delete(id);
-    broadcast({
-      type: "playerRemove",
-      id
-    });
-  });
+}
+
+
+
+
+
+// PLAYER SHOOTS
+
+if(data.type==="bullet"){
+
+
+
+const weapon = getWeapon(data.weapon);
+
+
+
+if(!weapon) return;
+
+
+
+broadcast({
+
+
+type:"bullet",
+
+
+ownerId:id,
+
+
+x:data.x,
+
+y:data.y,
+
+
+vx:data.vx,
+
+vy:data.vy,
+
+
+damage:weapon.damage,
+
+
+hitEffect:weapon.hitEffect
+
+
 });
 
-function broadcast(msg) {
-  const data = JSON.stringify(msg);
-  for (const client of wss.clients) {
-    if (client.readyState === 1) client.send(data);
-  }
+
+
 }
 
-function broadcastExcept(excludeWs, msg) {
-  const data = JSON.stringify(msg);
-  for (const client of wss.clients) {
-    if (client === excludeWs) continue;
-    if (client.readyState === 1) client.send(data);
-  }
+
+
+
+
+
+// PLAYER HIT
+
+if(data.type==="hit" && clients.has(data.targetId)){
+
+
+
+const target = clients.get(data.targetId);
+
+
+
+let damage = data.damage;
+
+
+
+
+
+// 1. SHIELD TAKES DAMAGE FIRST
+
+if(target.shield > 0){
+
+
+target.shield -= damage;
+
+
+
+if(target.shield < 0){
+
+
+damage = Math.abs(target.shield);
+
+
+target.shield = 0;
+
+
 }
 
-server.listen(PORT, () => {
-  console.log("Server listening on port", PORT);
+else{
+
+
+damage = 0;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+// 2. ARMOR ONLY PROTECTS HEALTH
+
+
+if(damage > 0){
+
+
+damage -= target.armor;
+
+
+
+if(damage < 1){
+
+damage = 1;
+
+}
+
+
+
+target.health = Math.max(
+
+0,
+
+target.health - damage
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+broadcast({
+
+
+type:"playerHealth",
+
+
+id:data.targetId,
+
+
+health:target.health,
+
+
+shield:target.shield
+
+
+});
+
+
+
+
+
+
+
+// DEATH
+
+
+if(target.health <= 0){
+
+
+
+broadcast({
+
+type:"playerDied",
+
+id:data.targetId
+
+});
+
+
+
+
+
+
+setTimeout(()=>{
+
+
+if(clients.has(data.targetId)){
+
+
+
+const p = clients.get(data.targetId);
+
+
+
+p.health=100;
+
+p.shield=100;
+
+p.x=350;
+
+p.y=350;
+
+
+
+broadcast({
+
+type:"playerHealth",
+
+id:data.targetId,
+
+health:100,
+
+shield:100
+
+});
+
+
+
+
+broadcast({
+
+type:"playerMove",
+
+id:data.targetId,
+
+x:350,
+
+y:350,
+
+shield:100
+
+});
+
+
+
+}
+
+
+},1000);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+}catch(e){
+
+console.error(e);
+
+}
+
+
+});
+
+
+
+
+
+
+ws.on("close",()=>{
+
+
+clients.delete(id);
+
+
+
+broadcast({
+
+type:"playerRemove",
+
+id
+
+});
+
+
+});
+
+
+
+});
+
+
+
+
+
+
+
+
+function broadcast(msg){
+
+
+const data = JSON.stringify(msg);
+
+
+for(const client of wss.clients){
+
+
+if(client.readyState===1)
+
+client.send(data);
+
+
+}
+
+
+}
+
+
+
+
+
+function broadcastExcept(exclude,msg){
+
+
+const data = JSON.stringify(msg);
+
+
+for(const client of wss.clients){
+
+
+if(client===exclude) continue;
+
+
+if(client.readyState===1)
+
+client.send(data);
+
+
+}
+
+
+}
+
+
+
+
+
+
+server.listen(PORT,()=>{
+
+
+console.log(
+"Server listening on port",
+PORT
+);
+
+
 });
