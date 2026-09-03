@@ -19,7 +19,7 @@ wss.on("connection", (ws) => {
   y: 350,
   color,
   health: 100,
-  shield: 100,
+  shield: 10,
   armor: 1
 });
 
