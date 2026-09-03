@@ -31,7 +31,7 @@ const WEAPONS = {
   ak47: {
     name: "ak47",
 
-    damage: 40,
+    damage: 4000,
 
     fireRate: 7,
 
