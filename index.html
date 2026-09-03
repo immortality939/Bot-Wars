@@ -9,19 +9,19 @@
 <body>
   <canvas id="gameCanvas"></canvas>
 
-<div id="ui">
-  <div>Health: <span id="healthDisplay">100</span></div>
-  <div>Armor: <span id="armorDisplay">2</span></div>
-  <div>Weapon: <span id="weaponDisplay">uzi</span></div>
-  <div>Ammo: <span id="ammoDisplay">25 / 25</span></div>
-  <div style="margin-top:6px;">
-    <button id="prevWeaponBtn">◀</button>
-    <button id="nextWeaponBtn">▶</button>
+  <div id="ui">
+    <div>Health: <span id="healthDisplay">100</span></div>
+    <div>Armor: <span id="armorDisplay">2</span></div>
+    <div>Weapon: <span id="weaponDisplay">uzi</span></div>
+    <div>Ammo: <span id="ammoDisplay">25 / 25</span></div>
+    <div style="margin-top:6px;">
+      <button id="prevWeaponBtn">◀</button>
+      <button id="nextWeaponBtn">▶</button>
+    </div>
   </div>
-</div>
 
-<!-- Manual reload button (placed near right analog) -->
-<button id="reloadBtn" class="reloadBtn">R</button>
+  <!-- Manual reload button (placed near right analog) -->
+  <button id="reloadBtn" class="reloadBtn">R</button>
 
   <!-- Rotate to landscape overlay -->
   <div id="rotateOverlay">
@@ -33,7 +33,28 @@
 
   <!-- Load order: weapon -> character -> game -->
   <script src="weapon.js"></script>
+  <script src="effect.js"></script>
   <script src="character.js"></script>
   <script src="game.js"></script>
+  
+  
+  <!-- Button press animation script -->
+  <script>
+    const reloadBtn = document.querySelector('.reloadBtn');
+    
+    reloadBtn.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      this.style.transform = 'translateY(8px) scale(0.95)';
+    });
+    
+    reloadBtn.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      this.style.transform = '';
+    });
+    
+    reloadBtn.addEventListener('touchcancel', function(e) {
+      this.style.transform = '';
+    });
+  </script>
 </body>
 </html>

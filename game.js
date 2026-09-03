@@ -56,8 +56,6 @@ const reloadBtn = document.getElementById("reloadBtn");
 
 // Create player character
 const player = attachWeaponToCharacter(getCharacter("player"));
-player.shield = 100;
-cameraZoom = player.zoom || 2;
 // Load player image
 const playerImage = new Image();
 playerImage.src = player.image || "soldier.png";
@@ -151,21 +149,18 @@ ws.onmessage = (event) => {
     myId = msg.id;
   } else if (msg.type === "playerAdd") {
     otherPlayers.set(msg.player.id, {
-  x: msg.player.x,
-  y: msg.player.y,
-  color: msg.player.color,
-  health: msg.player.health || 100,
-  shield: msg.player.shield || 100
-});
+      x: msg.player.x,
+      y: msg.player.y,
+      color: msg.player.color,
+      health: msg.player.health || 100
+    });
   } else if (msg.type === "playerMove") {
     const p = otherPlayers.get(msg.id);
     if (p) {
       p.x = msg.x;
       p.y = msg.y;
-      p.shield = msg.shield;
     }
-}
-else if (msg.type === "playerRemove") {
+  } else if (msg.type === "playerRemove") {
     otherPlayers.delete(msg.id);
   } else if (msg.type === "bullet") {
 
@@ -185,57 +180,32 @@ else if (msg.type === "playerRemove") {
 
     }
   } else if (msg.type === "playerHealth") {
+    console.log("Received playerHealth:", msg.id, "health:", msg.health, "myId:", myId);
 
-  console.log(
-    "Received playerHealth:",
-    msg.id,
-    "health:",
-    msg.health,
-    "myId:",
-    myId
-  );
+    const p = otherPlayers.get(msg.id);
+    if (p) {
+      p.health = msg.health;
+    }
+    if (msg.id === myId) {
+      // Update local player health
+      player.currentHealth = msg.health;
+      healthDisplay.textContent = player.currentHealth;
+      console.log("My health updated to:", player.currentHealth);
+    }
+  } else if (msg.type === "playerDied") {
+    console.log("Player died:", msg.id);
+    // Clear bullets when anyone dies to prevent old bullets from interfering
+    bullets.length = 0;
 
-  const p = otherPlayers.get(msg.id);
-
-  if (p) {
-    p.health = msg.health;
-    p.shield = msg.shield;
+    // If I died, respawn locally
+    if (msg.id === myId) {
+      player.currentHealth = 100;
+      healthDisplay.textContent = player.currentHealth;
+      playerPos.x = WORLD_SIZE / 2;
+      playerPos.y = WORLD_SIZE / 2;
+      console.log("Respawned! Health reset to:", player.currentHealth);
+    }
   }
-
-  if (msg.id === myId) {
-
-    player.currentHealth = msg.health;
-    player.shield = msg.shield;
-
-    healthDisplay.textContent = player.currentHealth;
-
-    console.log(
-      "My health:",
-      player.currentHealth,
-      "Shield:",
-      player.shield
-    );
-  }
-
-} else if (msg.type === "playerDied") {
-
-  console.log("Player died:", msg.id);
-
-  bullets.length = 0;
-
-  if (msg.id === myId) {
-
-    player.currentHealth = 100;
-    player.shield = 100;
-
-    healthDisplay.textContent = player.currentHealth;
-
-    playerPos.x = WORLD_SIZE / 2;
-    playerPos.y = WORLD_SIZE / 2;
-
-    console.log("Respawned!");
-  }
-}
 };
 
   ws.onclose = () => {
@@ -429,20 +399,11 @@ function fireBullet() {
         y: 0
       };
 
-  // Add recoil spread
-  const recoil = w.recoil || 0;
-  const randomAngle = (Math.random() - 0.5) * 2 * recoil;
-  const cosRecoil = Math.cos(randomAngle);
-  const sinRecoil = Math.sin(randomAngle);
-  shootDir.x = shootDir.x * cosRecoil - shootDir.y * sinRecoil;
-  shootDir.y = shootDir.x * sinRecoil + shootDir.y * cosRecoil;
-
 
 
   const bulletData = {
 
     type: "bullet",
-    weapon: player.weaponName,
 
     x: playerPos.x,
 
@@ -536,11 +497,10 @@ function update(dt) {
   if (ws && ws.readyState === WebSocket.OPEN && myId != null) {
 
     ws.send(JSON.stringify({
-  type: "move",
-  x: playerPos.x,
-  y: playerPos.y,
-  shield: player.shield
-}));
+      type: "move",
+      x: playerPos.x,
+      y: playerPos.y
+    }));
 
   }
 
@@ -701,24 +661,9 @@ if (
     if (dist < playerPos.radius + e.radius) {
 
 
-     
+      const dmg = Math.max(1, 10 - player.armor);
 
-      let dmg = Math.max(1, 10 - player.armor);
-
-if (player.shield > 0) {
-
-  player.shield -= dmg;
-
-  if(player.shield < 0){
-    dmg = Math.abs(player.shield);
-    player.shield = 0;
-  } else {
-    dmg = 0;
-  }
-
-}
-
-player.currentHealth -= dmg;
+      player.currentHealth -= dmg;
 
       healthDisplay.textContent = player.currentHealth;
 
@@ -786,49 +731,6 @@ function drawJoystick(centerX, centerY, vector, color) {
   ctx.fill();
 }
 
-function drawHealthBar(x, y, health, shield) {
-
-  const width = 30;
-  const height = 4;
-
-  // SHIELD BAR (purple)
-  if (shield > 0) {
-    ctx.fillStyle = "#222";
-    ctx.fillRect(
-      x - width / 2,
-      y - 32,
-      width,
-      height
-    );
-
-    ctx.fillStyle = "#9d4dff";
-    ctx.fillRect(
-      x - width / 2,
-      y - 32,
-      width * (shield / 100),
-      height
-    );
-  }
-
-
-  // HEALTH BAR (green)
-  ctx.fillStyle = "#222";
-  ctx.fillRect(
-    x - width / 2,
-    y - 25,
-    width,
-    height
-  );
-
-  ctx.fillStyle = "#00ff44";
-  ctx.fillRect(
-    x - width / 2,
-    y - 25,
-    width * (health / 100),
-    height
-  );
-}
-
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -854,7 +756,21 @@ function draw() {
   ctx.drawImage(mapImage, worldOffsetX, worldOffsetY, WORLD_SIZE, WORLD_SIZE);
 
   // Grid
-  
+  ctx.strokeStyle = "#222";
+  ctx.lineWidth = 1;
+  const gridSize = 40;
+  for (let x = 0; x <= WORLD_SIZE; x += gridSize) {
+    ctx.beginPath();
+    ctx.moveTo(worldOffsetX + x, worldOffsetY);
+    ctx.lineTo(worldOffsetX + x, worldOffsetY + WORLD_SIZE);
+    ctx.stroke();
+  }
+  for (let y = 0; y <= WORLD_SIZE; y += gridSize) {
+    ctx.beginPath();
+    ctx.moveTo(worldOffsetX, worldOffsetY + y);
+    ctx.lineTo(worldOffsetX + WORLD_SIZE, worldOffsetY + y);
+    ctx.stroke();
+  }
 
   // World border
   ctx.strokeStyle = "#444";
@@ -871,114 +787,13 @@ function draw() {
     ctx.shadowOffsetX = 4;
     ctx.shadowOffsetY = 6;
     ctx.drawImage(
-  playerImage,
-  -imgSize / 2,
-  -imgSize / 2,
-  imgSize,
-  imgSize
-);
-
-// remove shadow before drawing health bar
-ctx.shadowColor = "transparent";
-ctx.shadowBlur = 0;
-ctx.shadowOffsetX = 0;
-ctx.shadowOffsetY = 0;
-
-drawHealthBar(
-  0,
-  0,
-  player.currentHealth,
-  player.shield
-);
-    // Dark galaxy violet robotic aim arrow
-const aim = input.shootVector;
-const aimLength = Math.hypot(aim.x, aim.y);
-
-if (aimLength > JOYSTICK_DEADZONE) {
-
-  const angle = Math.atan2(aim.y, aim.x);
-
-  ctx.save();
-
-  ctx.rotate(angle);
-ctx.translate(11, 0);
-
-  // soft galaxy glow
-  ctx.shadowColor = "#5b00aa";
-  ctx.shadowBlur = 8;
-
-
-  // robotic triangle shape
-  ctx.beginPath();
-  ctx.moveTo(15, 0);      // front point
-  ctx.lineTo(4, -6);      // top
-  ctx.lineTo(4, 6);       // bottom
-  ctx.closePath();
-
-
-  const galaxy = ctx.createLinearGradient(4, -8, 16, 8);
-  galaxy.addColorStop(0, "#b56cff");
-  galaxy.addColorStop(0.35, "#4b0082");
-  galaxy.addColorStop(0.75, "#24004d");
-  galaxy.addColorStop(1, "#100020");
-
-  ctx.fillStyle = galaxy;
-  ctx.fill();
-
-
-  // small robotic energy core
-  ctx.beginPath();
-  ctx.moveTo(7, 0);
-  ctx.lineTo(12, 0);
-  ctx.strokeStyle = "#d8a6ff";
-  ctx.lineWidth = 1;
-  ctx.stroke();
-
-
-  ctx.restore();
-}
+      playerImage,
+      -imgSize / 2,
+      -imgSize / 2,
+      imgSize,
+      imgSize
+    );
     ctx.restore();
-    // 3D Dome Energy Shield
-if (player.shield > 0) {
-
-  const shieldSize = playerPos.radius + 10;
-
-  ctx.save();
-
-  // Top-down flat shield centered on player
-  ctx.beginPath();
-  ctx.arc(
-    0,
-    0,
-    shieldSize,
-    0,
-    Math.PI * 2
-  );
-
-  const dome = ctx.createRadialGradient(
-    0,
-    0,
-    0,
-    0,
-    0,
-    shieldSize
-  );
-
-  dome.addColorStop(0, "rgba(220,170,255,0.35)");
-  dome.addColorStop(0.5, "rgba(120,40,255,0.25)");
-  dome.addColorStop(1, "rgba(40,0,90,0.15)");
-
-  ctx.fillStyle = dome;
-  ctx.shadowColor = "#9d4dff";
-  ctx.shadowBlur = 20;
-  ctx.fill();
-
-
-  // outer shield border
-
-
-  ctx.restore();
-}
   } else {
     ctx.fillStyle = "#4af";
     ctx.beginPath();
@@ -988,49 +803,18 @@ if (player.shield > 0) {
 
   // Bullets
   // Bullets
-// Galaxy violet glowing laser bullet
+ctx.fillStyle = "#ff6";
+
 for (const b of bullets) {
-
-  const angle = Math.atan2(b.vy, b.vx);
-
-  ctx.save();
-
-  ctx.translate(
+  ctx.beginPath();
+  ctx.arc(
     worldOffsetX + b.x,
-    worldOffsetY + b.y
+    worldOffsetY + b.y,
+    b.radius,
+    0,
+    Math.PI * 2
   );
-
-  ctx.rotate(angle);
-
-  // glow
-  ctx.shadowColor = "#b56cff";
-  ctx.shadowBlur = 12;
-
-
-  // bullet body (straight line)
-  ctx.beginPath();
-  ctx.moveTo(-8, 0);
-  ctx.lineTo(10, 0);
-
-  const bulletGlow = ctx.createLinearGradient(-8, 0, 10, 0);
-  bulletGlow.addColorStop(0, "#4b0082");
-  bulletGlow.addColorStop(0.5, "#d8a6ff");
-  bulletGlow.addColorStop(1, "#ffffff");
-
-  ctx.strokeStyle = bulletGlow;
-  ctx.lineWidth = 3;
-  ctx.lineCap = "round";
-  ctx.stroke();
-
-
-  // bright tip
-  ctx.beginPath();
-  ctx.arc(10, 0, 2, 0, Math.PI * 2);
-  ctx.fillStyle = "#ffffff";
   ctx.fill();
-
-
-  ctx.restore();
 }
 
 
@@ -1058,73 +842,13 @@ drawHitEffects(
       ctx.shadowOffsetX = 4;
       ctx.shadowOffsetY = 6;
       ctx.drawImage(
- playerImage,
- worldOffsetX + p.x - imgSize / 2,
- worldOffsetY + p.y - imgSize / 2,
- imgSize,
- imgSize
-);
-
-// remove image shadow
-ctx.shadowColor = "transparent";
-ctx.shadowBlur = 0;
-ctx.shadowOffsetX = 0;
-ctx.shadowOffsetY = 0;
-
-drawHealthBar(
-  worldOffsetX + p.x,
-  worldOffsetY + p.y,
-  p.health,
-  p.shield
-);
-
-ctx.restore();
-
-
-// OTHER PLAYER SHIELD
-if (p.shield > 0) {
-
-  ctx.save();
-
-  const shieldSize = playerPos.radius + 10;
-
-  const dome = ctx.createRadialGradient(
-    worldOffsetX + p.x - 5,
-    worldOffsetY + p.y - 8,
-    2,
-    worldOffsetX + p.x,
-    worldOffsetY + p.y,
-    shieldSize
-  );
-
-
-  dome.addColorStop(0,"rgba(220,170,255,0.35)");
-  dome.addColorStop(0.5,"rgba(120,40,255,0.25)");
-  dome.addColorStop(1,"rgba(40,0,90,0.1)");
-
-
-  ctx.beginPath();
-  ctx.arc(
-    worldOffsetX + p.x,
-    worldOffsetY + p.y,
-    shieldSize,
-    0,
-    Math.PI*2
-  );
-
-
-  ctx.fillStyle=dome;
-  ctx.shadowColor="#9d4dff";
-  ctx.shadowBlur=20;
-  ctx.fill();
-
-
-
-
-
-  ctx.restore();
-
-}
+        playerImage,
+        worldOffsetX + p.x - imgSize / 2,
+        worldOffsetY + p.y - imgSize / 2,
+        imgSize,
+        imgSize
+      );
+      ctx.restore();
     } else {
       ctx.fillStyle = p.color;
       ctx.beginPath();

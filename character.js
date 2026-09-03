@@ -9,7 +9,8 @@ const DEFAULT_CHARACTER = {
   currentHealth: 100,
   isReloading: false,
   reloadFinishTime: 0,
-  lastShotTime: 0
+  lastShotTime: 0,
+  image: "soldier.png"
 };
 
 const CHARACTERS = {

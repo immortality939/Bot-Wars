@@ -80,8 +80,8 @@ html, body {
 /* Manual reload button near right analog */
 .reloadBtn {
   position: fixed;
-  right: 25%;            /* adjust if needed */
-  bottom: 22%;           /* roughly same height as joysticks */
+  right: 22%;            /* adjust if needed */
+  bottom: 5%;           /* roughly same height as joysticks */
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -106,3 +106,35 @@ html, body {
     bottom: 30%;
   }
 }
+/* Manual reload button near right analog */
+/* Manual reload button near right analog */
+.reloadBtn {
+  position: fixed;
+  bottom: 10%;
+  right: 20%;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #e8e8e8, #b0b0b0, #666666);
+  border: none;
+  border-radius: 50%;
+  color: #0066ff;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.5),
+    inset 0 -5px 15px rgba(0, 0, 0, 0.3),
+    inset 0 5px 10px rgba(255, 255, 255, 0.8);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+  outline: 2px solid #555555;
+  outline-offset: -2px;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
