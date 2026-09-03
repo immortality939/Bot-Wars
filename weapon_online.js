@@ -9,7 +9,7 @@ const WEAPONS = {
     name: "uzi",
 
     // Damage handled by server
-    damage: 400,
+    damage: 4,
 
     fireRate: 10,
 
