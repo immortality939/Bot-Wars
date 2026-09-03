@@ -148,6 +148,8 @@ if(!weapon){
 console.log("Weapon fired:", data.weapon);
 console.log("Damage:", weapon.damage);
 
+clients.get(id).lastDamage = weapon.damage;
+
 
 broadcast({
 
@@ -163,7 +165,7 @@ vx:data.vx,
 
 vy:data.vy,
 
-damage:data.damage,
+damage:weapon.damage,
 
 hitEffect:weapon.hitEffect
 
@@ -184,7 +186,14 @@ if(data.type==="hit" && clients.has(data.targetId)){
 const target = clients.get(data.targetId);
 
 
-let damage = data.damage;
+let damage = 0;
+
+for (const [pid, player] of clients) {
+  if (pid === id) {
+    damage = player.lastDamage || 1;
+    break;
+  }
+}
 
 
 console.log("Incoming damage:", damage);
