@@ -163,7 +163,7 @@ vx:data.vx,
 
 vy:data.vy,
 
-damage:weapon.damage,
+damage:data.damage,
 
 hitEffect:weapon.hitEffect
 
@@ -364,86 +364,6 @@ shield:100
 
 
 
-// DEATH
-
-
-if(target.health <= 0){
-
-
-
-broadcast({
-
-type:"playerDied",
-
-id:data.targetId
-
-});
-
-
-
-
-
-
-setTimeout(()=>{
-
-
-if(clients.has(data.targetId)){
-
-
-
-const p = clients.get(data.targetId);
-
-
-
-p.health=100;
-
-p.shield=100;
-
-p.x=350;
-
-p.y=350;
-
-
-
-broadcast({
-
-type:"playerHealth",
-
-id:data.targetId,
-
-health:100,
-
-shield:100
-
-});
-
-
-
-
-broadcast({
-
-type:"playerMove",
-
-id:data.targetId,
-
-x:350,
-
-y:350,
-
-shield:100
-
-});
-
-
-
-}
-
-
-},1000);
-
-
-
-}
 
 
 
