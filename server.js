@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 const server = http.createServer();
 const wss = new WebSocketServer({ server });
 
-const clients = new Map(); // id -> { id, x, y, color, health }
+const clients = new Map(); // id -> { id, x, y, color, health, shield }
 let nextId = 1;
 
 wss.on("connection", (ws) => {
@@ -14,12 +14,13 @@ wss.on("connection", (ws) => {
   const color = `hsl(${Math.random() * 360}, 70%, 60%)`;
 
   clients.set(id, {
-    id,
-    x: 350,
-    y: 350,
-    color,
-    health: 100
-  });
+  id,
+  x: 350,
+  y: 350,
+  color,
+  health: 100,
+  shield: 100
+});
 
   // Send own id to client
   ws.send(JSON.stringify({ type: "init", id }));
@@ -49,13 +50,15 @@ wss.on("connection", (ws) => {
         const p = clients.get(id);
         p.x = data.x;
         p.y = data.y;
+        p.shield = data.shield;
 
         broadcastExcept(ws, {
-          type: "playerMove",
-          id,
-          x: p.x,
-          y: p.y
-        });
+  type: "playerMove",
+  id,
+  x: p.x,
+  y: p.y,
+  shield: p.shield
+});
       }
 
       // Handle bullet fired by a player
@@ -76,13 +79,29 @@ wss.on("connection", (ws) => {
 // Handle player hit (damage)
 if (data.type === "hit" && clients.has(data.targetId)) {
   const target = clients.get(data.targetId);
-  target.health = Math.max(0, target.health - data.damage);
+  let damage = data.damage;
+
+if (target.shield > 0) {
+
+  target.shield -= damage;
+
+  if (target.shield < 0) {
+    damage = Math.abs(target.shield);
+    target.shield = 0;
+  } else {
+    damage = 0;
+  }
+
+}
+
+target.health = Math.max(0, target.health - damage);
 
   broadcast({
-    type: "playerHealth",
-    id: data.targetId,
-    health: target.health
-  });
+ type:"playerHealth",
+ id:data.targetId,
+ health:target.health,
+ shield:target.shield
+});
 
   // If player died, broadcast death event
   if (target.health <= 0) {
@@ -96,6 +115,7 @@ if (data.type === "hit" && clients.has(data.targetId)) {
       if (clients.has(data.targetId)) {
         const respawnedPlayer = clients.get(data.targetId);
         respawnedPlayer.health = 100;
+        respawnedPlayer.shield = 100;
         respawnedPlayer.x = 350;
         respawnedPlayer.y = 350;
 
