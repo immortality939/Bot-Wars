@@ -31,7 +31,7 @@ const WEAPONS = {
   ak47: {
     name: "ak47",
 
-    damage: 4,
+    damage: 40,
 
     fireRate: 7,
 
@@ -39,7 +39,7 @@ const WEAPONS = {
 
     bulletSpeed: 500,
 
-    magazine: 35,
+    magazine: 350,
     maxMagazine: 35,
 
     fireSound: "ak47.ogg",
