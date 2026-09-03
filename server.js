@@ -142,6 +142,9 @@ if(data.type==="bullet"){
 
 const weapon = getWeapon(data.weapon);
 
+console.log("Weapon fired:", data.weapon);
+console.log("Damage:", weapon.damage);
+
 
 
 if(!weapon) return;
