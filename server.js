@@ -192,24 +192,24 @@ hitEffect:weapon.hitEffect
 if(data.type==="hit" && clients.has(data.targetId)){
 
 
-
 const target = clients.get(data.targetId);
-
 
 
 let damage = data.damage;
 
 
+console.log("Incoming damage:", damage);
+console.log("Shield before:", target.shield);
+console.log("Armor:", target.armor);
 
 
 
-// 1. SHIELD TAKES DAMAGE FIRST
+// SHIELD FIRST
 
 if(target.shield > 0){
 
 
 target.shield -= damage;
-
 
 
 if(target.shield < 0){
@@ -222,7 +222,6 @@ target.shield = 0;
 
 
 }
-
 else{
 
 
@@ -231,6 +230,135 @@ damage = 0;
 
 }
 
+}
+
+
+
+
+console.log("Damage after shield:", damage);
+
+
+
+// ARMOR ONLY PROTECTS HEALTH
+
+if(damage > 0){
+
+
+damage -= target.armor;
+
+
+if(damage < 1){
+
+damage = 1;
+
+}
+
+
+target.health -= damage;
+
+
+if(target.health < 0){
+
+target.health = 0;
+
+}
+
+
+}
+
+
+
+console.log("Final HP damage:", damage);
+console.log("Health left:", target.health);
+console.log("Shield left:", target.shield);
+
+
+
+broadcast({
+
+type:"playerHealth",
+
+id:data.targetId,
+
+health:target.health,
+
+shield:target.shield
+
+});
+
+
+
+
+
+if(target.health <= 0){
+
+
+broadcast({
+
+type:"playerDied",
+
+id:data.targetId
+
+});
+
+
+
+setTimeout(()=>{
+
+
+if(clients.has(data.targetId)){
+
+
+const p = clients.get(data.targetId);
+
+
+p.health=100;
+
+p.shield=100;
+
+p.x=350;
+
+p.y=350;
+
+
+
+broadcast({
+
+type:"playerHealth",
+
+id:data.targetId,
+
+health:100,
+
+shield:100
+
+});
+
+
+
+broadcast({
+
+type:"playerMove",
+
+id:data.targetId,
+
+x:350,
+
+y:350,
+
+shield:100
+
+});
+
+
+}
+
+
+},1000);
+
+
+
+}
 
 
 }
