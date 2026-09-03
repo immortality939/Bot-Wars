@@ -20,7 +20,7 @@ wss.on("connection", (ws) => {
   color,
   health: 100,
   shield: 100,
-  armor: 2
+  armor: 10
 });
 
   // Send own id to client
@@ -79,37 +79,56 @@ wss.on("connection", (ws) => {
       // Handle player hit (damage)
 // Handle player hit (damage)
 if (data.type === "hit" && clients.has(data.targetId)) {
- const target = clients.get(data.targetId);
 
-// Apply armor reduction
-let damage = data.damage - target.armor;
+  const target = clients.get(data.targetId);
 
-// Minimum 1 damage
-if (damage < 1) {
-  damage = 1;
-}
+  let damage = data.damage;
 
-if (target.shield > 0) {
 
-  target.shield -= damage;
+  // 1. Shield absorbs raw damage first
+  if (target.shield > 0) {
 
-  if (target.shield < 0) {
-    damage = Math.abs(target.shield);
-    target.shield = 0;
-  } else {
-    damage = 0;
+    target.shield -= damage;
+
+    if (target.shield < 0) {
+
+      damage = Math.abs(target.shield);
+      target.shield = 0;
+
+    } else {
+
+      damage = 0;
+
+    }
   }
 
-}
 
-target.health = Math.max(0, target.health - damage);
+  // 2. Armor protects health only
+  if (damage > 0) {
+
+    damage -= target.armor;
+
+    if (damage < 1) {
+      damage = 1;
+    }
+
+    target.health = Math.max(
+      0,
+      target.health - damage
+    );
+
+  }
+
 
   broadcast({
- type:"playerHealth",
- id:data.targetId,
- health:target.health,
- shield:target.shield
-});
+    type:"playerHealth",
+    id:data.targetId,
+    health:target.health,
+    shield:target.shield
+  });
+
+
+
 
   // If player died, broadcast death event
   if (target.health <= 0) {
