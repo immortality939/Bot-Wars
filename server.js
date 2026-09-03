@@ -51,24 +51,26 @@ wss.on("connection", (ws) => {
         p.y = data.y;
 
         broadcastExcept(ws, {
-          type: "playerMove",
-          id,
-          x: p.x,
-          y: p.y
-        });
+  type: "playerMove",
+  id,
+  x: p.x,
+  y: p.y,
+  health: p.health
+});
       }
 
       // Handle bullet fired by a player
       if (data.type === "bullet") {
         broadcast({
-          type: "bullet",
-          ownerId: id,
-          x: data.x,
-          y: data.y,
-          vx: data.vx,
-          vy: data.vy,
-          damage: data.damage
-        });
+  type: "bullet",
+  ownerId: id,
+  x: data.x,
+  y: data.y,
+  vx: data.vx,
+  vy: data.vy,
+  damage: data.damage,
+  hitEffect: data.hitEffect
+});
       }
 
       // Handle player hit (damage)
@@ -119,11 +121,12 @@ if (data.type === "hit" && clients.has(data.targetId)) {
 
 
       broadcast({
-        type: "playerMove",
-        id: data.targetId,
-        x: 350,
-        y: 350
-      });
+  type: "playerMove",
+  id: data.targetId,
+  x: 350,
+  y: 350,
+  health: 100
+});
 
 
     }, 1000);
