@@ -24,9 +24,8 @@ wss.on("connection", (ws) => {
 
     id,
 
-    x: 350,
-
-    y: 350,
+    x: Math.random() * 600 + 50,
+y: Math.random() * 600 + 50,
 
     color,
 
@@ -68,14 +67,10 @@ wss.on("connection", (ws) => {
 
 
   // INFORM OTHER PLAYERS
-
-  broadcastExcept(ws,{
-
-    type:"playerAdd",
-
-    player:{...clients.get(id)}
-
-  });
+broadcastExcept(ws,{
+  type:"playerAdd",
+  player:{...clients.get(id)}
+});
 
 
 
