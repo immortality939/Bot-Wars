@@ -138,47 +138,36 @@ shield:p.shield
 
 if(data.type==="bullet"){
 
-
-
 const weapon = getWeapon(data.weapon);
+
+if(!weapon){
+  console.log("Unknown weapon:", data.weapon);
+  return;
+}
 
 console.log("Weapon fired:", data.weapon);
 console.log("Damage:", weapon.damage);
 
 
-
-if(!weapon) return;
-
-
-
 broadcast({
-
 
 type:"bullet",
 
-
 ownerId:id,
-
 
 x:data.x,
 
 y:data.y,
 
-
 vx:data.vx,
 
 vy:data.vy,
 
-
 damage:weapon.damage,
-
 
 hitEffect:weapon.hitEffect
 
-
 });
-
-
 
 }
 
