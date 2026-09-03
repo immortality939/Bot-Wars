@@ -357,58 +357,6 @@ shield:100
 
 
 
-// 2. ARMOR ONLY PROTECTS HEALTH
-
-
-if(damage > 0){
-
-
-damage -= target.armor;
-
-
-
-if(damage < 1){
-
-damage = 1;
-
-}
-
-
-
-target.health = Math.max(
-
-0,
-
-target.health - damage
-
-);
-
-
-
-}
-
-
-
-
-
-
-
-broadcast({
-
-
-type:"playerHealth",
-
-
-id:data.targetId,
-
-
-health:target.health,
-
-
-shield:target.shield
-
-
-});
 
 
 
@@ -499,17 +447,7 @@ shield:100
 
 
 
-}
 
-
-
-
-
-}catch(e){
-
-console.error(e);
-
-}
 
 
 });
