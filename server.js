@@ -18,9 +18,9 @@ wss.on("connection", (ws) => {
   x: 350,
   y: 350,
   color,
-  health: 100,
+  health: 1000,
   shield: 100,
-  armor: 1
+  armor: 200
 });
 
   // Send own id to client
@@ -123,7 +123,7 @@ target.health = Math.max(0, target.health - damage);
       if (clients.has(data.targetId)) {
         const respawnedPlayer = clients.get(data.targetId);
         respawnedPlayer.health = 100;
-        respawnedPlayer.shield = 100;
+        respawnedPlayer.shield = 1000;
         respawnedPlayer.x = 350;
         respawnedPlayer.y = 350;
 
