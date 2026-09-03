@@ -20,7 +20,7 @@ wss.on("connection", (ws) => {
   color,
   health: 100,
   shield: 100,
-  armor: 200
+  armor: 2
 });
 
   // Send own id to client
