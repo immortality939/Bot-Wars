@@ -71,10 +71,9 @@ html, body {
   user-select: none;
 }
 
-/* Show overlay when portrait */
 @media (orientation: portrait) {
   #rotateOverlay {
-    display: flex;
+    display: none;
   }
 }
 /* Manual reload button near right analog */
