@@ -24,8 +24,9 @@ wss.on("connection", (ws) => {
 
     id,
 
-    x: Math.random() * 600 + 50,
-y: Math.random() * 600 + 50,
+    x: 350,
+
+    y: 350,
 
     color,
 
@@ -67,10 +68,14 @@ y: Math.random() * 600 + 50,
 
 
   // INFORM OTHER PLAYERS
-broadcastExcept(ws,{
-  type:"playerAdd",
-  player:{...clients.get(id)}
-});
+
+  broadcastExcept(ws,{
+
+    type:"playerAdd",
+
+    player:{...clients.get(id)}
+
+  });
 
 
 
@@ -203,16 +208,22 @@ broadcastExcept(ws,{
 
       if(data.type==="hit"){
 
+  console.log(
+    "PLAYER HIT",
+    data.targetId,
+    "damage:",
+    data.damage
+  );
 
 
-        const target = clients.get(data.targetId);
+  const target = clients.get(data.targetId);
 
 
-        if(!target) return;
+  if(!target) return;
 
 
 
-        target.health -= data.damage;
+  target.health -= data.damage;
 
 
 
