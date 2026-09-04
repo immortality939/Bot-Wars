@@ -24,7 +24,8 @@ wss.on("connection", (ws) => {
     x: 350,
     y: 350,
     color,
-    health: baseChar.health
+    health: baseChar.health,
+    armor: baseChar.armor
   });
 
   // SEND ID
@@ -135,11 +136,15 @@ wss.on("connection", (ws) => {
       // DAMAGE
       // =========================
 
-      if (data.type === "hit") {
+            if (data.type === "hit") {
         const target = clients.get(data.targetId);
         if (!target) return;
 
-        target.health -= data.damage;
+        // Armor reduces damage: final = damage - armor, minimum 1
+        let finalDamage = data.damage - target.armor;
+        if (finalDamage < 1) finalDamage = 1;
+
+        target.health -= finalDamage;
 
         if (target.health < 0) target.health = 0;
 
@@ -159,8 +164,9 @@ wss.on("connection", (ws) => {
             const respawn = clients.get(data.targetId);
             if (!respawn) return;
 
-            const baseChar = CHARACTERS["player"] || CHARACTERS.player;
-respawn.health = baseChar.health; // 1000
+            const baseChar = CHARACTERS.player;
+
+            respawn.health = baseChar.health;
             respawn.x = 350;
             respawn.y = 350;
 
