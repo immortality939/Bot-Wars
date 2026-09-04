@@ -1,162 +1,228 @@
-// character_server.js
+import { WebSocketServer } from "ws";
+import http from "http";
+import { WEAPONS } from "./weapon_server.js";
+import { CHARACTERS } from "./character_server.js";
 
-const DEFAULT_CHARACTER = {
-  name: "player",
-  health: 100,
-  armor: 20,
-  movementSpeed: 100,
-  weaponName: "uzi",
-  currentHealth: 100,
-  isReloading: false,
-  reloadFinishTime: 0,
-  lastShotTime: 0,
-  image: "soldier.png",
-  cameraZoom: 1.0
-};
+const PORT = process.env.PORT || 3000;
 
+const server = http.createServer();
+const wss = new WebSocketServer({ server });
 
-const CHARACTERS = {
+const clients = new Map();
 
+let nextId = 1;
 
-  // DEFAULT CHARACTER
-  player: {
-    ...DEFAULT_CHARACTER
-  },
+wss.on("connection", (ws) => {
+  const id = nextId++;
 
+  const color = `hsl(${Math.random() * 360},70%,60%)`;
 
-  // FAST CHARACTER
-  scout: {
-    name: "scout",
-    health: 80,
-    armor: 1,
-    movementSpeed: 160,
-    weaponName: "uzi",
-    currentHealth: 80,
-    isReloading: false,
-    reloadFinishTime: 0,
-    lastShotTime: 0,
-    image: "scout.png",
-    cameraZoom: 1.2
-  },
+  const baseChar = CHARACTERS.player;
 
+  clients.set(id, {
+    id,
+    x: 350,
+    y: 350,
+    color,
+    health: baseChar.health,
+    armor: baseChar.armor
+  });
 
-  // NORMAL SOLDIER
-  soldier: {
-    name: "soldier",
-    health: 120,
-    armor: 3,
-    movementSpeed: 100,
-    weaponName: "ak47",
-    currentHealth: 120,
-    isReloading: false,
-    reloadFinishTime: 0,
-    lastShotTime: 0,
-    image: "soldier.png",
-    cameraZoom: 1.0
-  },
+  // SEND ID
+  ws.send(JSON.stringify({
+    type: "init",
+    id
+  }));
+
+  // SEND ONLINE WEAPON CONFIG
+  ws.send(JSON.stringify({
+    type: "weaponConfig",
+    weapons: WEAPONS
+  }));
+
+  // SEND ONLINE CHARACTER CONFIG
+  ws.send(JSON.stringify({
+    type: "characterConfig",
+    characters: CHARACTERS
+  }));
 
 
-  // HEAVY TANK CHARACTER
-  tank: {
-    name: "tank",
-    health: 250,
-    armor: 8,
-    movementSpeed: 60,
-    weaponName: "shotgun",
-    currentHealth: 250,
-    isReloading: false,
-    reloadFinishTime: 0,
-    lastShotTime: 0,
-    image: "tank.png",
-    cameraZoom: 0.8
+  // SEND OLD PLAYERS
+  for (const [pid, player] of clients) {
+    if (pid === id) continue;
+
+    ws.send(JSON.stringify({
+      type: "playerAdd",
+      player: { ...player }
+    }));
   }
 
-};
+  // INFORM OTHER PLAYERS
+  broadcastExcept(ws, {
+    type: "playerAdd",
+    player: { ...clients.get(id) }
+  });
 
+  ws.on("message", (msg) => {
+    try {
+      const data = JSON.parse(msg);
 
+      // =========================
+      // PLAYER MOVEMENT
+      // =========================
 
-function getCharacter(name) {
+      if (data.type === "move") {
+        const player = clients.get(id);
+        if (!player) return;
 
-  const base = CHARACTERS[name];
+        player.x = data.x;
+        player.y = data.y;
 
+        broadcastExcept(ws, {
+          type: "playerMove",
+          id: id,
+          x: player.x,
+          y: player.y,
+          health: player.health
+        });
+      }
 
-  if (!base) {
+      // =========================
+      // BULLETS
+      // SHOTGUN + NORMAL
+      // =========================
 
-    throw new Error(
-      "Character not found: " + name
-    );
+      if (data.type === "bullet") {
+        broadcastExcept(ws, {
+          type: "bullet",
+          ownerId: id,
+          x: data.x,
+          y: data.y,
+          vx: data.vx,
+          vy: data.vy,
+          damage: data.damage || 0,
+          hitEffect: data.hitEffect || "9mm"
+        });
+      }
 
-  }
+      // =========================
+      // SHOOT SOUND
+      // =========================
 
+      if (data.type === "shootSound") {
+        broadcastExcept(ws, {
+          type: "shootSound",
+          sound: data.sound,
+          ownerId: id
+        });
+      }
 
-  const char = JSON.parse(
-    JSON.stringify(base)
-  );
+      // =========================
+      // MUZZLE FLASH
+      // =========================
 
+      if (data.type === "muzzleFlash") {
+        broadcastExcept(ws, {
+          type: "muzzleFlash",
+          ownerId: id,
+          x: data.x,
+          y: data.y,
+          dirX: data.dirX,
+          dirY: data.dirY
+        });
+      }
 
-  char.currentHealth = char.health;
+      // =========================
+      // DAMAGE
+      // =========================
 
-  char.isReloading = false;
+            if (data.type === "hit") {
+        const target = clients.get(data.targetId);
+        if (!target) return;
 
-  char.reloadFinishTime = 0;
+        // Armor reduces damage: final = damage - armor, minimum 1
+        let finalDamage = data.damage - target.armor;
+        if (finalDamage < 1) finalDamage = 1;
 
-  char.lastShotTime = 0;
+        target.health -= finalDamage;
 
+        if (target.health < 0) target.health = 0;
 
-  return char;
+        broadcast({
+          type: "playerHealth",
+          id: data.targetId,
+          health: target.health
+        });
 
+        if (target.health <= 0) {
+          broadcast({
+            type: "playerDied",
+            id: data.targetId
+          });
+
+          setTimeout(() => {
+            const respawn = clients.get(data.targetId);
+            if (!respawn) return;
+
+            const baseChar = CHARACTERS.player;
+
+            respawn.health = baseChar.health;
+            respawn.x = 350;
+            respawn.y = 350;
+
+            broadcast({
+              type: "playerHealth",
+              id: data.targetId,
+              health: baseChar.health
+            });
+
+            broadcast({
+              type: "playerMove",
+              id: data.targetId,
+              x: 350,
+              y: 350,
+              health: baseChar.health
+            });
+          }, 1000);
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  });
+
+  ws.on("close", () => {
+    clients.delete(id);
+
+    broadcast({
+      type: "playerRemove",
+      id: id
+    });
+  });
+});
+
+function broadcast(message) {
+  const data = JSON.stringify(message);
+
+  wss.clients.forEach(client => {
+    if (client.readyState === 1) {
+      client.send(data);
+    }
+  });
 }
 
+function broadcastExcept(exclude, message) {
+  const data = JSON.stringify(message);
 
+  wss.clients.forEach(client => {
+    if (client === exclude) return;
 
-
-
-function attachWeaponToCharacter(character) {
-
-
-  if (typeof getWeapon === "undefined") {
-
-    throw new Error(
-      "weapon.js not loaded or getWeapon() missing"
-    );
-
-  }
-
-
-  const weapon = getWeapon(
-    character.weaponName
-  );
-
-
-  if (!weapon) {
-
-    throw new Error(
-      "Weapon not found: " +
-      character.weaponName
-    );
-
-  }
-
-
-  character.weapon = weapon;
-
-
-  return character;
-
+    if (client.readyState === 1) {
+      client.send(data);
+    }
+  });
 }
 
-
-
-
-
-// GET ALL CHARACTERS
-function getAllCharacters(){
-
-  return Object.keys(CHARACTERS);
-
-}
-
-
-
-// Export as ES modules (for server-side use)
-export { CHARACTERS, getCharacter, attachWeaponToCharacter, getAllCharacters };
+server.listen(PORT, () => {
+  console.log("Server listening on port", PORT);
+});
