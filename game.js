@@ -13,6 +13,7 @@ if (typeof getAllWeapons === "undefined") {
 
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
+
 // Load map image
 const mapImage = new Image();
 mapImage.src = "map.jpg";
@@ -20,6 +21,7 @@ let mapLoaded = false;
 mapImage.onload = () => {
   mapLoaded = true;
 };
+
 // Camera & zoom
 const WORLD_SIZE = 700;      // 700 x 700 world
 let cameraZoom = 2;        // zoom level: 1.0 = normal, >1 = zoomed in
@@ -56,6 +58,8 @@ const reloadBtn = document.getElementById("reloadBtn");
 
 // Create player character
 const player = attachWeaponToCharacter(getCharacter("player"));
+cameraZoom = player.cameraZoom || 2;
+
 // Load player image
 const playerImage = new Image();
 playerImage.src = player.image || "soldier.png";
@@ -63,6 +67,7 @@ let imageLoaded = false;
 playerImage.onload = () => {
   imageLoaded = true;
 };
+
 healthDisplay.textContent = player.currentHealth;
 armorDisplay.textContent = player.armor;
 weaponDisplay.textContent = player.weaponName;
@@ -110,10 +115,22 @@ reloadBtn.addEventListener("touchstart", (e) => {
 
 // Game state
 const bullets = [];
+let laserBlinkTime = 0;
 const enemies = [];
+const muzzleFlashes = []; // <-- new
+let isOnline = false;
+let onlineWeapons = null; // will hold server weapon config when online
 let lastTime = performance.now();
 let enemySpawnTimer = 0;
 const enemySpawnInterval = 999999999; // ms (basically never spawn)
+
+// Load muzzle flash sprite sheet
+const muzzleImage = new Image();
+muzzleImage.src = "muzzleflash.png";
+let muzzleImageLoaded = false;
+muzzleImage.onload = () => {
+  muzzleImageLoaded = true;
+};
 
 // Input state for dual analog sticks
 const input = {
@@ -127,6 +144,7 @@ const input = {
 
 const JOYSTICK_RADIUS = 60;
 const JOYSTICK_DEADZONE = 0.15;
+
 // ONLINE MULTIPLAYER (WebSocket)
 // Replace with your Render URL (use wss://)
 const SERVER_URL = "wss://bot-wars-1.onrender.com";
@@ -140,9 +158,10 @@ function connectToServer() {
 
   ws.onopen = () => {
     console.log("Connected to server");
+    isOnline = true;
   };
 
-ws.onmessage = (event) => {
+  ws.onmessage = (event) => {
   const msg = JSON.parse(event.data);
 
   if (msg.type === "init") {
@@ -159,14 +178,22 @@ ws.onmessage = (event) => {
     if (p) {
       p.x = msg.x;
       p.y = msg.y;
+      if (msg.health !== undefined) {
+        p.health = msg.health;
+      }
     }
   } else if (msg.type === "playerRemove") {
     otherPlayers.delete(msg.id);
-  } else if (msg.type === "bullet") {
-
-    // Add bullet from another player
+  } else if (msg.type === "shootSound") {
     if (msg.ownerId !== myId) {
-
+      const audio = new Audio(msg.sound);
+      audio.volume = 1.0;
+      audio.play().catch(err => {
+        console.log("Sound error:", err);
+      });
+    }
+  } else if (msg.type === "bullet") {
+    if (msg.ownerId !== myId) {
       bullets.push({
         x: msg.x,
         y: msg.y,
@@ -177,33 +204,56 @@ ws.onmessage = (event) => {
         hitEffect: msg.hitEffect,
         ownerId: msg.ownerId
       });
-
     }
   } else if (msg.type === "playerHealth") {
-    console.log("Received playerHealth:", msg.id, "health:", msg.health, "myId:", myId);
-
     const p = otherPlayers.get(msg.id);
     if (p) {
       p.health = msg.health;
     }
     if (msg.id === myId) {
-      // Update local player health
       player.currentHealth = msg.health;
       healthDisplay.textContent = player.currentHealth;
-      console.log("My health updated to:", player.currentHealth);
     }
   } else if (msg.type === "playerDied") {
-    console.log("Player died:", msg.id);
-    // Clear bullets when anyone dies to prevent old bullets from interfering
     bullets.length = 0;
 
-    // If I died, respawn locally
     if (msg.id === myId) {
       player.currentHealth = 100;
       healthDisplay.textContent = player.currentHealth;
       playerPos.x = WORLD_SIZE / 2;
       playerPos.y = WORLD_SIZE / 2;
-      console.log("Respawned! Health reset to:", player.currentHealth);
+    }
+  } else if (msg.type === "muzzleFlash") {
+    if (msg.ownerId !== myId) {
+      // Spawn muzzle flash for other player
+      muzzleFlashes.push({
+        x: msg.x,
+        y: msg.y,
+        dirX: msg.dirX,
+        dirY: msg.dirY,
+        life: 0.15,
+        frameTime: 0,
+        currentFrame: 0,
+        config: {
+          frameWidth: 268,
+          frameHeight: 140,
+          numFrames: 3,
+          fps: 25,
+          width: 20,
+          height: 20,
+          scale: 1
+        }
+      });
+    }
+  } else if (msg.type === "weaponConfig") {
+    // Server sends full weapon data for online play
+    onlineWeapons = msg.weapons;
+
+    // Re-attach weapon using server config
+    if (onlineWeapons && onlineWeapons[player.weaponName]) {
+      player.weapon = onlineWeapons[player.weaponName];
+      updateWeaponDisplay();
+      updateAmmoDisplay();
     }
   }
 };
@@ -219,6 +269,7 @@ ws.onmessage = (event) => {
 
 // Try to connect
 connectToServer();
+
 // Split screen a bit more toward the sides for left/right sticks
 const LEFT_ZONE_MAX_RATIO = 0.55;
 const RIGHT_ZONE_MIN_RATIO = 0.45;
@@ -345,367 +396,328 @@ function finishReloadIfReady() {
 }
 
 function fireBullet() {
-
   const now = performance.now();
 
   finishReloadIfReady();
 
   if (player.isReloading) return;
 
-
-  const w = player.weapon;
-
+  // Use online weapon stats if playing online
+  const w = (isOnline && onlineWeapons && onlineWeapons[player.weaponName])
+    ? onlineWeapons[player.weaponName]
+    : player.weapon;
 
   if (w.magazine <= 0) {
     tryReload();
     return;
   }
 
-
   const timeSinceLastShot = now - player.lastShotTime;
-
   const minInterval = 1000 / w.fireRate;
-
 
   if (timeSinceLastShot < minInterval) return;
 
-
   player.lastShotTime = now;
-
   w.magazine--;
-
   updateAmmoDisplay();
 
-
-
-  // FIRE SOUND
+  // FIRE SOUND LOCAL
   const audio = new Audio(w.fireSound);
+  audio.volume = 1.0;
   audio.play();
 
-
-
-  const dir = input.shootVector;
-
-  const mag = Math.hypot(dir.x, dir.y);
-
-
-  const shootDir = mag > JOYSTICK_DEADZONE
-    ? {
-        x: dir.x / mag,
-        y: dir.y / mag
-      }
-    : {
-        x: 1,
-        y: 0
-      };
-
-
-
-  const bulletData = {
-
-    type: "bullet",
-
-    x: playerPos.x,
-
-    y: playerPos.y,
-
-    vx: shootDir.x * w.bulletSpeed,
-
-    vy: shootDir.y * w.bulletSpeed,
-
-    damage: w.damage,
-
-    hitEffect: w.hitEffect,
-
-    ownerId: myId
-
-  };
-
-
-
-  bullets.push({
-
-    x: bulletData.x,
-
-    y: bulletData.y,
-
-    vx: bulletData.vx,
-
-    vy: bulletData.vy,
-
-    radius: 4,
-
-    damage: bulletData.damage,
-
-    hitEffect: bulletData.hitEffect,
-
-    ownerId: myId
-
-  });
-
-
-
-  // SEND TO SERVER
-
+  // SEND SOUND TO OTHER PLAYERS
   if (ws && ws.readyState === WebSocket.OPEN) {
-
-    ws.send(JSON.stringify(bulletData));
-
+    ws.send(JSON.stringify({
+      type: "shootSound",
+      sound: w.fireSound,
+      ownerId: myId
+    }));
   }
 
+  const dir = input.shootVector;
+  const mag = Math.hypot(dir.x, dir.y);
+  let shootDir = mag > JOYSTICK_DEADZONE
+    ? { x: dir.x / mag, y: dir.y / mag }
+    : { x: 1, y: 0 };
+
+  // WEAPON RECOIL
+  if (w.recoil) {
+    const recoilAngle = (Math.random() - 0.5) * w.recoil;
+    const cos = Math.cos(recoilAngle);
+    const sin = Math.sin(recoilAngle);
+    shootDir = {
+      x: shootDir.x * cos - shootDir.y * sin,
+      y: shootDir.x * sin + shootDir.y * cos
+    };
+  }
+
+  // Spawn muzzle flash
+  if (w.muzzleFlash && muzzleImageLoaded) {
+    const flashDist = 20; // distance in front of character
+
+  if (w.muzzleFlash && muzzleImageLoaded) {
+    const flashDist = 20;
+
+    muzzleFlashes.push({
+      x: playerPos.x + shootDir.x * flashDist,
+      y: playerPos.y + shootDir.y * flashDist,
+      dirX: shootDir.x,
+      dirY: shootDir.y,
+      life: w.muzzleFlash.numFrames / w.muzzleFlash.fps,
+      frameTime: 0,
+      currentFrame: 0,
+      config: w.muzzleFlash
+    });
+
+    // SEND MUZZLE FLASH TO OTHER PLAYERS
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify({
+        type: "muzzleFlash",
+        x: playerPos.x + shootDir.x * flashDist,
+        y: playerPos.y + shootDir.y * flashDist,
+        dirX: shootDir.x,
+        dirY: shootDir.y,
+        ownerId: myId
+      }));
+    }
+  }
+  }
+
+  // CREATE BULLETS
+  if (w.pellets) {
+    // SHOTGUN MULTIPLE PELLETS
+    for (let i = 0; i < w.pellets; i++) {
+      const spreadAngle = (Math.random() - 0.5) * w.spread;
+      const cos = Math.cos(spreadAngle);
+      const sin = Math.sin(spreadAngle);
+
+      const pelletDir = {
+        x: shootDir.x * cos - shootDir.y * sin,
+        y: shootDir.x * sin + shootDir.y * cos
+      };
+
+      bullets.push({
+        x: playerPos.x,
+        y: playerPos.y,
+        vx: pelletDir.x * w.bulletSpeed,
+        vy: pelletDir.y * w.bulletSpeed,
+        radius: 4,
+        damage: w.damage,
+        hitEffect: w.hitEffect,
+        ownerId: myId
+      });
+
+      // SEND EACH PELLET ONLINE
+      if (ws && ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({
+          type: "bullet",
+          x: playerPos.x,
+          y: playerPos.y,
+          vx: pelletDir.x * w.bulletSpeed,
+          vy: pelletDir.y * w.bulletSpeed,
+          damage: w.damage,
+          hitEffect: w.hitEffect,
+          ownerId: myId
+        }));
+      }
+    }
+  } else {
+    // NORMAL SINGLE BULLET
+    const bulletData = {
+      type: "bullet",
+      x: playerPos.x,
+      y: playerPos.y,
+      vx: shootDir.x * w.bulletSpeed,
+      vy: shootDir.y * w.bulletSpeed,
+      damage: w.damage,
+      hitEffect: w.hitEffect,
+      ownerId: myId
+    };
+
+    // LOCAL BULLET
+    bullets.push({
+      x: bulletData.x,
+      y: bulletData.y,
+      vx: bulletData.vx,
+      vy: bulletData.vy,
+      radius: 4,
+      damage: bulletData.damage,
+      hitEffect: bulletData.hitEffect,
+      ownerId: myId
+    });
+
+    // SEND BULLET TO OTHER PLAYERS
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify(bulletData));
+    }
+  }
 }
 
 function update(dt) {
   finishReloadIfReady();
+  laserBlinkTime += dt;
 
   // UPDATE HIT EFFECT ANIMATION
   updateHitEffects(dt);
 
+  // Update muzzle flashes
+  for (let i = muzzleFlashes.length - 1; i >= 0; i--) {
+    const f = muzzleFlashes[i];
+    f.life -= dt;
+    f.frameTime += dt;
+
+    const frameDuration = 1 / f.config.fps;
+    if (f.frameTime >= frameDuration) {
+      f.frameTime -= frameDuration;
+      f.currentFrame++;
+      if (f.currentFrame >= f.config.numFrames) {
+        f.currentFrame = f.config.numFrames - 1;
+      }
+    }
+
+    if (f.life <= 0) {
+      muzzleFlashes.splice(i, 1);
+    }
+  }
 
   const moveSpeed = player.movementSpeed;
   playerPos.x += input.moveVector.x * moveSpeed * dt;
   playerPos.y += input.moveVector.y * moveSpeed * dt;
 
-
   // Clamp player inside 700x700 world
   playerPos.x = Math.max(playerPos.radius, Math.min(WORLD_SIZE - playerPos.radius, playerPos.x));
   playerPos.y = Math.max(playerPos.radius, Math.min(WORLD_SIZE - playerPos.radius, playerPos.y));
 
-
   // Player collision - push away from other players
   for (const [id, p] of otherPlayers) {
-
     const dx = playerPos.x - p.x;
     const dy = playerPos.y - p.y;
     const dist = Math.hypot(dx, dy);
     const minDist = playerPos.radius * 2;
 
     if (dist < minDist && dist > 0) {
-
       const pushX = dx / dist;
       const pushY = dy / dist;
       const overlap = minDist - dist;
 
       playerPos.x += pushX * overlap * 0.5;
       playerPos.y += pushY * overlap * 0.5;
-
     }
   }
 
-
   // Send position to server
   if (ws && ws.readyState === WebSocket.OPEN && myId != null) {
-
     ws.send(JSON.stringify({
       type: "move",
       x: playerPos.x,
       y: playerPos.y
     }));
-
   }
-
 
   if (input.isShooting) {
     fireBullet();
   }
 
-
-
   // Bullets - movement and collision
   for (let i = bullets.length - 1; i >= 0; i--) {
-
     const b = bullets[i];
 
     b.x += b.vx * dt;
     b.y += b.vy * dt;
 
-
-
     // Remove bullets out of bounds + wall hit effect
-if (
-    b.x < 0 ||
-    b.x > WORLD_SIZE ||
-    b.y < 0 ||
-    b.y > WORLD_SIZE
-) {
+    if (
+      b.x < 0 ||
+      b.x > WORLD_SIZE ||
+      b.y < 0 ||
+      b.y > WORLD_SIZE
+    ) {
+      let hitX = b.x;
+      let hitY = b.y;
 
+      hitX = Math.max(0, Math.min(WORLD_SIZE, hitX));
+      hitY = Math.max(0, Math.min(WORLD_SIZE, hitY));
 
-    // calculate exact wall impact position
-    let hitX = b.x;
-    let hitY = b.y;
+      createHitEffect(hitX, hitY, b.hitEffect);
 
+      bullets.splice(i, 1);
+      continue;
+    }
 
-    // keep effect inside the map border
-    hitX = Math.max(0, Math.min(WORLD_SIZE, hitX));
-    hitY = Math.max(0, Math.min(WORLD_SIZE, hitY));
-
-
-    // CREATE WALL HIT EFFECT
-    createHitEffect(
-        hitX,
-        hitY,
-        b.hitEffect
-    );
-
-
-    bullets.splice(i, 1);
-    continue;
-
-}
-
-
-
-    // MY bullet
+    // MY bullet - ONLY BULLET OWNER DEALS DAMAGE
     if (b.ownerId === myId) {
-
-
       for (const [id, p] of otherPlayers) {
-
         const dx = b.x - p.x;
         const dy = b.y - p.y;
         const dist = Math.hypot(dx, dy);
 
-
         if (dist < b.radius + playerPos.radius) {
-
-
-          // CREATE HIT EFFECT
-          createHitEffect(
-    b.x,
-    b.y,
-    b.hitEffect
-);
-
+          createHitEffect(b.x, b.y, b.hitEffect);
 
           if (ws && ws.readyState === WebSocket.OPEN) {
-
             ws.send(JSON.stringify({
               type: "hit",
               targetId: id,
               damage: b.damage
             }));
-
           }
-
 
           bullets.splice(i, 1);
           break;
-
         }
       }
-
-
     } else {
-
-
-      // ENEMY bullet hits me
-
+      // ENEMY bullet hits me (visual only, no hit message)
       const dx = b.x - playerPos.x;
       const dy = b.y - playerPos.y;
       const dist = Math.hypot(dx, dy);
 
-
-
       if (dist < b.radius + playerPos.radius) {
-
-
-        // CREATE HIT EFFECT
-        createHitEffect(
-    b.x,
-    b.y,
-    b.hitEffect
-);
-
-
-
-        if (ws && ws.readyState === WebSocket.OPEN) {
-
-          ws.send(JSON.stringify({
-            type: "hit",
-            targetId: myId,
-            damage: b.damage
-          }));
-
-        }
-
+        createHitEffect(b.x, b.y, b.hitEffect);
 
         bullets.splice(i, 1);
         break;
-
       }
-
     }
-
   }
-
-
-
 
   // Enemies
   for (const e of enemies) {
-
     const dx = playerPos.x - e.x;
     const dy = playerPos.y - e.y;
-
     const len = Math.hypot(dx, dy) || 1;
-
 
     e.x += (dx / len) * e.speed * dt;
     e.y += (dy / len) * e.speed * dt;
 
-
-
     const dist = Math.hypot(playerPos.x - e.x, playerPos.y - e.y);
 
-
     if (dist < playerPos.radius + e.radius) {
-
-
       const dmg = Math.max(1, 10 - player.armor);
-
       player.currentHealth -= dmg;
-
       healthDisplay.textContent = player.currentHealth;
 
-
-
       if (player.currentHealth <= 0) {
-
         player.currentHealth = player.health;
-
         healthDisplay.textContent = player.currentHealth;
-
         enemies.length = 0;
-
         bullets.length = 0;
-
         playerPos.x = WORLD_SIZE / 2;
         playerPos.y = WORLD_SIZE / 2;
-
       }
-
 
       e.x -= (dx / len) * 40;
       e.y -= (dy / len) * 40;
-
     }
-
   }
-
-
-
 
   enemySpawnTimer += dt * 1000;
 
-
   if (enemySpawnTimer >= enemySpawnInterval) {
-
     enemySpawnTimer = 0;
-
     spawnEnemy();
-
   }
-
 }
 
 function drawJoystick(centerX, centerY, vector, color) {
@@ -748,44 +760,27 @@ function draw() {
   ctx.scale(cameraZoom, cameraZoom);
 
   // Now draw world so that player is at (0,0) in this transformed space
-  // That means: world offset = (-playerPos.x, -playerPos.y)
   const worldOffsetX = -playerPos.x;
   const worldOffsetY = -playerPos.y;
 
   // World background (map.jpg)
   ctx.drawImage(mapImage, worldOffsetX, worldOffsetY, WORLD_SIZE, WORLD_SIZE);
 
-  // Grid
-  ctx.strokeStyle = "#222";
-  ctx.lineWidth = 1;
-  const gridSize = 40;
-  for (let x = 0; x <= WORLD_SIZE; x += gridSize) {
-    ctx.beginPath();
-    ctx.moveTo(worldOffsetX + x, worldOffsetY);
-    ctx.lineTo(worldOffsetX + x, worldOffsetY + WORLD_SIZE);
-    ctx.stroke();
-  }
-  for (let y = 0; y <= WORLD_SIZE; y += gridSize) {
-    ctx.beginPath();
-    ctx.moveTo(worldOffsetX, worldOffsetY + y);
-    ctx.lineTo(worldOffsetX + WORLD_SIZE, worldOffsetY + y);
-    ctx.stroke();
-  }
-
   // World border
   ctx.strokeStyle = "#444";
   ctx.lineWidth = 2;
   ctx.strokeRect(worldOffsetX, worldOffsetY, WORLD_SIZE, WORLD_SIZE);
 
-  // Player (at origin now, because of the transform)
-  // Player (at origin now, because of the transform)
+  // Player
   if (imageLoaded) {
     const imgSize = playerPos.radius * 2;
+
     ctx.save();
     ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
     ctx.shadowBlur = 7;
     ctx.shadowOffsetX = 4;
     ctx.shadowOffsetY = 6;
+
     ctx.drawImage(
       playerImage,
       -imgSize / 2,
@@ -793,7 +788,41 @@ function draw() {
       imgSize,
       imgSize
     );
+
     ctx.restore();
+
+    // GUN AIM POINTER / LASER
+    const aim = input.shootVector;
+    const aimLength = Math.hypot(aim.x, aim.y);
+
+    if (aimLength > JOYSTICK_DEADZONE && Math.floor(laserBlinkTime * 20) % 2 === 0) {
+      const dirX = aim.x / aimLength;
+      const dirY = aim.y / aimLength;
+
+      ctx.save();
+      ctx.shadowColor = "red";
+      ctx.shadowBlur = 8;
+
+      ctx.beginPath();
+      ctx.moveTo(dirX * 12, dirY * 12);
+      ctx.lineTo(dirX * 100, dirY * 100);
+
+      ctx.strokeStyle = "rgba(255,0,0,0.9)";
+      ctx.lineWidth = 0.5;
+      ctx.lineCap = "round";
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    // PLAYER HEALTH BAR
+    const hpPercent = Math.max(0, player.currentHealth / player.health);
+
+    ctx.fillStyle = "#300";
+    ctx.fillRect(-20, -playerPos.radius - 15, 40, 5);
+
+    ctx.fillStyle = "#00ff55";
+    ctx.fillRect(-20, -playerPos.radius - 15, 40 * hpPercent, 5);
   } else {
     ctx.fillStyle = "#4af";
     ctx.beginPath();
@@ -801,29 +830,85 @@ function draw() {
     ctx.fill();
   }
 
+  // Muzzle flashes
+  if (muzzleImageLoaded) {
+    for (const f of muzzleFlashes) {
+      const cfg = f.config;
+
+      ctx.save();
+
+      // Position in world space
+      ctx.translate(
+        worldOffsetX + f.x,
+        worldOffsetY + f.y
+      );
+
+      // Rotate to face shoot direction
+      const angle = Math.atan2(f.dirY, f.dirX);
+      ctx.rotate(angle);
+
+      // Source rectangle in sprite sheet
+      const sx = f.currentFrame * cfg.frameWidth;
+      const sy = 0;
+      const sWidth = cfg.frameWidth;
+      const sHeight = cfg.frameHeight;
+
+      // Final drawn size
+      const drawWidth = cfg.width * cfg.scale;
+      const drawHeight = cfg.height * cfg.scale;
+
+      // Draw centered
+      ctx.drawImage(
+        muzzleImage,
+        sx, sy, sWidth, sHeight,
+        -drawWidth / 2,
+        -drawHeight / 2,
+        drawWidth,
+        drawHeight
+      );
+
+      ctx.restore();
+    }
+  }
+
   // Bullets
-  // Bullets
-ctx.fillStyle = "#ff6";
+  for (const b of bullets) {
+    const angle = Math.atan2(b.vy, b.vx);
 
-for (const b of bullets) {
-  ctx.beginPath();
-  ctx.arc(
-    worldOffsetX + b.x,
-    worldOffsetY + b.y,
-    b.radius,
-    0,
-    Math.PI * 2
-  );
-  ctx.fill();
-}
+    ctx.save();
+    ctx.translate(
+      worldOffsetX + b.x,
+      worldOffsetY + b.y
+    );
+    ctx.rotate(angle);
 
+    ctx.shadowColor = "#b56cff";
+    ctx.shadowBlur = 12;
 
-// HIT EFFECTS
-drawHitEffects(
-  ctx,
-  worldOffsetX,
-  worldOffsetY
-);
+    ctx.beginPath();
+    ctx.moveTo(-8, 0);
+    ctx.lineTo(10, 0);
+
+    const bulletGlow = ctx.createLinearGradient(-8, 0, 10, 0);
+    bulletGlow.addColorStop(0, "#4b0082");
+    bulletGlow.addColorStop(0.5, "#d8a6ff");
+    bulletGlow.addColorStop(1, "#ffffff");
+
+    ctx.strokeStyle = bulletGlow;
+    ctx.lineWidth = 3;
+    ctx.lineCap = "round";
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(10, 0, 2, 0, Math.PI * 2);
+    ctx.fillStyle = "#ffffff";
+    ctx.fill();
+
+    ctx.restore();
+  }
+
+  // HIT EFFECTS
+  drawHitEffects(ctx, worldOffsetX, worldOffsetY);
 
   // Enemies
   ctx.fillStyle = "#f44";
@@ -832,15 +917,18 @@ drawHitEffects(
     ctx.arc(worldOffsetX + e.x, worldOffsetY + e.y, e.radius, 0, Math.PI * 2);
     ctx.fill();
   }
-    // Draw other players
+
+  // Draw other players
   for (const [id, p] of otherPlayers) {
+    const imgSize = playerPos.radius * 2;
+
     if (imageLoaded) {
-      const imgSize = playerPos.radius * 2;
       ctx.save();
       ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
       ctx.shadowBlur = 7;
       ctx.shadowOffsetX = 4;
       ctx.shadowOffsetY = 6;
+
       ctx.drawImage(
         playerImage,
         worldOffsetX + p.x - imgSize / 2,
@@ -848,19 +936,39 @@ drawHitEffects(
         imgSize,
         imgSize
       );
+
       ctx.restore();
     } else {
       ctx.fillStyle = p.color;
       ctx.beginPath();
-      ctx.arc(worldOffsetX + p.x, worldOffsetY + p.y, playerPos.radius, 0, Math.PI * 2);
+      ctx.arc(
+        worldOffsetX + p.x,
+        worldOffsetY + p.y,
+        playerPos.radius,
+        0,
+        Math.PI * 2
+      );
       ctx.fill();
     }
+
+    // OTHER PLAYER HEALTH BAR
+    const hp = Math.max(0, Math.min(100, p.health || 100));
+    const barWidth = 30;
+    const barHeight = 4;
+    const barX = worldOffsetX + p.x - barWidth / 2;
+    const barY = worldOffsetY + p.y - playerPos.radius - 10;
+
+    ctx.fillStyle = "#550000";
+    ctx.fillRect(barX, barY, barWidth, barHeight);
+
+    ctx.fillStyle = "#00ff55";
+    ctx.fillRect(barX, barY, barWidth * (hp / 100), barHeight);
   }
 
   // Restore context so UI/joysticks are drawn in screen space
   ctx.restore();
 
-  // Joysticks (screen space, not affected by camera/zoom)
+  // Joysticks
   if (input.moveTouchId !== null) {
     drawJoystick(leftAnalogCenter.x, leftAnalogCenter.y, input.moveVector, "rgba(68,170,255,0.9)");
   } else {
