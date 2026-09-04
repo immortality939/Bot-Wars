@@ -17,12 +17,14 @@ wss.on("connection", (ws) => {
 
   const color = `hsl(${Math.random() * 360},70%,60%)`;
 
+  const baseChar = CHARACTERS.player;
+
   clients.set(id, {
     id,
     x: 350,
     y: 350,
     color,
-    health: 100
+    health: baseChar.health
   });
 
   // SEND ID
@@ -165,7 +167,7 @@ respawn.health = baseChar.health; // 1000
             broadcast({
               type: "playerHealth",
               id: data.targetId,
-              health: 100
+              health: baseChar.health
             });
 
             broadcast({
@@ -173,7 +175,7 @@ respawn.health = baseChar.health; // 1000
               id: data.targetId,
               x: 350,
               y: 350,
-              health: 100
+              health: baseChar.health
             });
           }, 1000);
         }
