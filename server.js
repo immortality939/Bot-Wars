@@ -230,6 +230,8 @@ function broadcastExcept(exclude, message) {
   });
 }
 
+console.log("WEAPONS config:", JSON.stringify(WEAPONS, null, 2));
+
 server.listen(PORT, () => {
   console.log("Server listening on port", PORT);
 });
