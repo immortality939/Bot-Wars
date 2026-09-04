@@ -157,7 +157,8 @@ wss.on("connection", (ws) => {
             const respawn = clients.get(data.targetId);
             if (!respawn) return;
 
-            respawn.health = 100;
+            const baseChar = CHARACTERS["player"] || CHARACTERS.player;
+respawn.health = baseChar.health; // 1000
             respawn.x = 350;
             respawn.y = 350;
 
