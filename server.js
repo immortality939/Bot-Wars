@@ -6,458 +6,199 @@ const PORT = process.env.PORT || 3000;
 const server = http.createServer();
 const wss = new WebSocketServer({ server });
 
-
 const clients = new Map();
 
 let nextId = 1;
 
-
-
 wss.on("connection", (ws) => {
-
   const id = nextId++;
 
   const color = `hsl(${Math.random() * 360},70%,60%)`;
 
-
   clients.set(id, {
-
     id,
-
     x: 350,
-
     y: 350,
-
     color,
-
     health: 100
-
   });
-
-
 
   // SEND ID
-
   ws.send(JSON.stringify({
-
-    type:"init",
-
+    type: "init",
     id
-
   }));
 
-
-
   // SEND OLD PLAYERS
-
-  for (const [pid,player] of clients) {
-
-    if(pid === id) continue;
-
+  for (const [pid, player] of clients) {
+    if (pid === id) continue;
 
     ws.send(JSON.stringify({
-
-      type:"playerAdd",
-
-      player:{...player}
-
+      type: "playerAdd",
+      player: { ...player }
     }));
-
   }
 
-
-
   // INFORM OTHER PLAYERS
-
-  broadcastExcept(ws,{
-
-    type:"playerAdd",
-
-    player:{...clients.get(id)}
-
+  broadcastExcept(ws, {
+    type: "playerAdd",
+    player: { ...clients.get(id) }
   });
 
-
-
-  ws.on("message",(msg)=>{
-
-
+  ws.on("message", (msg) => {
     try {
-
-
       const data = JSON.parse(msg);
-
-
 
       // =========================
       // PLAYER MOVEMENT
       // =========================
 
-      if(data.type==="move"){
-
-
+      if (data.type === "move") {
         const player = clients.get(id);
-
-        if(!player) return;
-
+        if (!player) return;
 
         player.x = data.x;
         player.y = data.y;
 
-
-
-        broadcastExcept(ws,{
-
-          type:"playerMove",
-
-          id:id,
-
-          x:player.x,
-
-          y:player.y,
-
-          health:player.health
-
+        broadcastExcept(ws, {
+          type: "playerMove",
+          id: id,
+          x: player.x,
+          y: player.y,
+          health: player.health
         });
-
-
       }
-
-
-
-
 
       // =========================
       // BULLETS
       // SHOTGUN + NORMAL
       // =========================
 
-
-      if(data.type==="bullet"){
-
-
-        broadcastExcept(ws,{
-
-
-          type:"bullet",
-
-
-          ownerId:id,
-
-
-          x:data.x,
-
-          y:data.y,
-
-
-          vx:data.vx,
-
-          vy:data.vy,
-
-
-          damage:data.damage || 0,
-
-
-          hitEffect:data.hitEffect || "9mm"
-
-
+      if (data.type === "bullet") {
+        broadcastExcept(ws, {
+          type: "bullet",
+          ownerId: id,
+          x: data.x,
+          y: data.y,
+          vx: data.vx,
+          vy: data.vy,
+          damage: data.damage || 0,
+          hitEffect: data.hitEffect || "9mm"
         });
-
-
-
       }
-
-
-
-
 
       // =========================
       // SHOOT SOUND
       // =========================
 
-
-      if(data.type==="shootSound"){
-
-
-        broadcastExcept(ws,{
-
-
-          type:"shootSound",
-
-
-          sound:data.sound,
-
-
-          ownerId:id
-
-
+      if (data.type === "shootSound") {
+        broadcastExcept(ws, {
+          type: "shootSound",
+          sound: data.sound,
+          ownerId: id
         });
-
-
       }
 
+      // =========================
+      // MUZZLE FLASH
+      // =========================
 
-
-
-
+      if (data.type === "muzzleFlash") {
+        broadcastExcept(ws, {
+          type: "muzzleFlash",
+          ownerId: id,
+          x: data.x,
+          y: data.y,
+          dirX: data.dirX,
+          dirY: data.dirY
+        });
+      }
 
       // =========================
       // DAMAGE
       // =========================
 
+      if (data.type === "hit") {
+        const target = clients.get(data.targetId);
+        if (!target) return;
 
-      if(data.type==="hit"){
+        target.health -= data.damage;
 
-  console.log(
-    "PLAYER HIT",
-    data.targetId,
-    "damage:",
-    data.damage
-  );
-
-
-  const target = clients.get(data.targetId);
-
-
-  if(!target) return;
-
-
-
-  target.health -= data.damage;
-
-
-
-        if(target.health < 0)
-
-          target.health = 0;
-
-
-
+        if (target.health < 0) target.health = 0;
 
         broadcast({
-
-
-          type:"playerHealth",
-
-
-          id:data.targetId,
-
-
-          health:target.health
-
-
+          type: "playerHealth",
+          id: data.targetId,
+          health: target.health
         });
 
-
-
-
-
-
-        if(target.health <= 0){
-
-
-
+        if (target.health <= 0) {
           broadcast({
-
-
-            type:"playerDied",
-
-
-            id:data.targetId
-
-
+            type: "playerDied",
+            id: data.targetId
           });
 
-
-
-
-
-          setTimeout(()=>{
-
-
+          setTimeout(() => {
             const respawn = clients.get(data.targetId);
-
-
-            if(!respawn) return;
-
-
+            if (!respawn) return;
 
             respawn.health = 100;
-
             respawn.x = 350;
-
             respawn.y = 350;
 
-
-
-
             broadcast({
-
-
-              type:"playerHealth",
-
-
-              id:data.targetId,
-
-
-              health:100
-
-
+              type: "playerHealth",
+              id: data.targetId,
+              health: 100
             });
 
-
-
-
             broadcast({
-
-
-              type:"playerMove",
-
-
-              id:data.targetId,
-
-
-              x:350,
-
-
-              y:350,
-
-
-              health:100
-
-
+              type: "playerMove",
+              id: data.targetId,
+              x: 350,
+              y: 350,
+              health: 100
             });
-
-
-
-          },1000);
-
-
-
+          }, 1000);
         }
-
-
-
       }
-
-
-
-    }
-
-    catch(err){
-
+    } catch (err) {
       console.log(err);
-
     }
-
-
-
   });
 
-
-
-
-
-
-
-  ws.on("close",()=>{
-
-
+  ws.on("close", () => {
     clients.delete(id);
 
-
-
     broadcast({
-
-
-      type:"playerRemove",
-
-
-      id:id
-
-
+      type: "playerRemove",
+      id: id
     });
-
-
-
   });
-
-
-
 });
 
-
-
-
-
-
-
-
-function broadcast(message){
-
-
+function broadcast(message) {
   const data = JSON.stringify(message);
 
-
-
-  wss.clients.forEach(client=>{
-
-
-    if(client.readyState === 1){
-
+  wss.clients.forEach(client => {
+    if (client.readyState === 1) {
       client.send(data);
-
     }
-
-
   });
-
-
 }
 
-
-
-
-
-
-function broadcastExcept(exclude,message){
-
-
+function broadcastExcept(exclude, message) {
   const data = JSON.stringify(message);
 
+  wss.clients.forEach(client => {
+    if (client === exclude) return;
 
-
-  wss.clients.forEach(client=>{
-
-
-    if(client===exclude) return;
-
-
-
-    if(client.readyState===1){
-
+    if (client.readyState === 1) {
       client.send(data);
-
     }
-
-
   });
-
-
 }
 
-
-
-
-
-
-server.listen(PORT,()=>{
-
-
- console.log(
- "Server listening on port",
- PORT
- );
-
-
+server.listen(PORT, () => {
+  console.log("Server listening on port", PORT);
 });
