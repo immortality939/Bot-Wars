@@ -32,10 +32,17 @@ wss.on("connection", (ws) => {
   }));
 
   // SEND ONLINE WEAPON CONFIG
-ws.send(JSON.stringify({
-  type: "weaponConfig",
-  weapons: WEAPONS
-}));
+  ws.send(JSON.stringify({
+    type: "weaponConfig",
+    weapons: WEAPONS
+  }));
+
+  // SEND ONLINE CHARACTER CONFIG
+  ws.send(JSON.stringify({
+    type: "characterConfig",
+    characters: CHARACTERS
+  }));
+
 
   // SEND OLD PLAYERS
   for (const [pid, player] of clients) {
