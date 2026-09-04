@@ -144,6 +144,13 @@ wss.on("connection", (ws) => {
         let finalDamage = data.damage - target.armor;
         if (finalDamage < 1) finalDamage = 1;
 
+        console.log("HIT:", {
+          targetId: data.targetId,
+          rawDamage: data.damage,
+          targetArmor: target.armor,
+          finalDamage
+        });
+
         target.health -= finalDamage;
 
         if (target.health < 0) target.health = 0;
