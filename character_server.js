@@ -3,7 +3,7 @@
 const DEFAULT_CHARACTER = {
   name: "player",
   health: 100,
-  armor: 2,
+  armor: 1,
   movementSpeed: 100,
   weaponName: "uzi",
   currentHealth: 100,
