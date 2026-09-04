@@ -1,7 +1,6 @@
 // weapon_server.js
 
 const WEAPONS = {
-
   uzi: {
     name: "uzi",
     damage: 400,
@@ -95,7 +94,6 @@ const WEAPONS = {
       scale: 1
     }
   }
-
 };
 
 function getWeapon(name) {
@@ -106,10 +104,4 @@ function getAllWeapons() {
   return Object.values(WEAPONS);
 }
 
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = {
-    WEAPONS,
-    getWeapon,
-    getAllWeapons
-  };
-}
+export { WEAPONS, getWeapon, getAllWeapons };
