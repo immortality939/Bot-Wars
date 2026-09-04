@@ -3,13 +3,13 @@
 const WEAPONS = {
   uzi: {
     name: "uzi",
-    damage: 40,
+    damage: 3,
     fireRate: 10,
     reloadTime: 2000,
     bulletSpeed: 500,
-    magazine: 250,
-    maxMagazine: 250,
-    fireSound: "ak47.ogg",
+    magazine: 25,
+    maxMagazine: 25,
+    fireSound: "uzi.ogg",
     hitEffect: "9mm",
     recoil: 0.05,
     muzzleFlash: {
@@ -26,7 +26,7 @@ const WEAPONS = {
 
   ak47: {
     name: "ak47",
-    damage: 400,
+    damage: 6,
     fireRate: 7,
     reloadTime: 2000,
     bulletSpeed: 500,
