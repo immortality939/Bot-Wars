@@ -1,6 +1,6 @@
 import { WebSocketServer } from "ws";
 import http from "http";
-import { ONLINE_WEAPONS } from "./weapon_server.js";
+import { WEAPONS } from "./weapon_server.js";
 
 const PORT = process.env.PORT || 3000;
 
@@ -31,10 +31,10 @@ wss.on("connection", (ws) => {
   }));
 
   // SEND ONLINE WEAPON CONFIG
-  ws.send(JSON.stringify({
-    type: "weaponConfig",
-    weapons: ONLINE_WEAPONS
-  }));
+ws.send(JSON.stringify({
+  type: "weaponConfig",
+  weapons: WEAPONS
+}));
 
   // SEND OLD PLAYERS
   for (const [pid, player] of clients) {
