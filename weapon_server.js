@@ -9,7 +9,7 @@ const WEAPONS = {
     bulletSpeed: 500,
     magazine: 250,
     maxMagazine: 250,
-    fireSound: "uzi.ogg",
+    fireSound: "ak47.ogg",
     hitEffect: "9mm",
     recoil: 0.05,
     muzzleFlash: {
