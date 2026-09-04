@@ -6,7 +6,7 @@ const DEFAULT_CHARACTER = {
   armor: 2,
   movementSpeed: 100,
   weaponName: "uzi",
-  currentHealth: 100,
+  currentHealth: 1000,
   isReloading: false,
   reloadFinishTime: 0,
   lastShotTime: 0,
