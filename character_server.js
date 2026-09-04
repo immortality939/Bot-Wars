@@ -2,11 +2,11 @@
 
 const DEFAULT_CHARACTER = {
   name: "player",
-  health: 1000,
+  health: 100,
   armor: 2,
   movementSpeed: 100,
   weaponName: "uzi",
-  currentHealth: 1000,
+  currentHealth: 100,
   isReloading: false,
   reloadFinishTime: 0,
   lastShotTime: 0,
