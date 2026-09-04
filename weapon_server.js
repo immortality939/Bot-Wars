@@ -8,7 +8,7 @@ const WEAPONS = {
     reloadTime: 2000,
     bulletSpeed: 500,
     magazine: 250,
-    maxMagazine: 25,
+    maxMagazine: 250,
     fireSound: "uzi.ogg",
     hitEffect: "9mm",
     recoil: 0.05,
