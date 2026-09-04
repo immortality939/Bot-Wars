@@ -1,6 +1,7 @@
 import { WebSocketServer } from "ws";
 import http from "http";
 import { WEAPONS } from "./weapon_server.js";
+import { CHARACTERS } from "./character_server.js";
 
 const PORT = process.env.PORT || 3000;
 
