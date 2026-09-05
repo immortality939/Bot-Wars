@@ -26,7 +26,8 @@ wss.on("connection", (ws) => {
   color,
   health: baseChar.health,
   armor: baseChar.armor,
-  alive: true
+  alive: true,
+  deadUntil: null
 });
 
   // SEND ID
@@ -80,12 +81,13 @@ wss.on("connection", (ws) => {
         player.y = data.y;
 
         broadcastExcept(ws, {
-          type: "playerMove",
-          id: id,
-          x: player.x,
-          y: player.y,
-          health: player.health
-        });
+  type: "playerMove",
+  id: id,
+  x: player.x,
+  y: player.y,
+  health: player.health,
+  alive: player.alive
+});
       }
 
       // =========================
@@ -144,63 +146,73 @@ wss.on("connection", (ws) => {
   // Ignore damage while dead
   if (!target.alive) return;
 
-        // Armor reduces damage: final = damage - armor, minimum 1
-        let finalDamage = data.damage - target.armor;
-        if (finalDamage < 1) finalDamage = 1;
+  // Armor reduces damage: final = damage - armor, minimum 1
+  let finalDamage = data.damage - target.armor;
+  if (finalDamage < 1) finalDamage = 1;
 
-        console.log("HIT:", {
-          targetId: data.targetId,
-          rawDamage: data.damage,
-          targetArmor: target.armor,
-          finalDamage
-        });
-
-        target.health -= finalDamage;
-
-        if (target.health < 0) target.health = 0;
-
-        broadcast({
-          type: "playerHealth",
-          id: data.targetId,
-          health: target.health
-        });
-
-        if (target.health <= 0) {
-
-  target.alive = false;
-
-  broadcast({
-    type: "playerDied",
-    id: data.targetId
+  console.log("HIT:", {
+    targetId: data.targetId,
+    rawDamage: data.damage,
+    targetArmor: target.armor,
+    finalDamage
   });
 
-          setTimeout(() => {
-            const respawn = clients.get(data.targetId);
-            if (!respawn) return;
+  target.health -= finalDamage;
 
-            const baseChar = CHARACTERS.player;
+  if (target.health < 0) target.health = 0;
 
-            respawn.health = baseChar.health;
-            respawn.x = 350;
-            respawn.y = 350;
-            respawn.alive = true;
+  broadcast({
+    type: "playerHealth",
+    id: data.targetId,
+    health: target.health
+  });
 
-            broadcast({
-              type: "playerHealth",
-              id: data.targetId,
-              health: baseChar.health
-            });
+  if (target.health <= 0 && target.alive) {
+    target.alive = false;
+    target.deadUntil = Date.now() + 10000; // 10 seconds
 
-            broadcast({
-              type: "playerMove",
-              id: data.targetId,
-              x: 350,
-              y: 350,
-              health: baseChar.health
-            });
-          }, 1000);
-        }
-      }
+    // Tell everyone this player died
+    broadcast({
+      type: "playerDied",
+      id: data.targetId,
+      deadUntil: target.deadUntil
+    });
+
+    // Schedule respawn after 10 seconds
+    setTimeout(() => {
+      const respawn = clients.get(data.targetId);
+      if (!respawn) return;
+      if (!respawn.deadUntil) return; // safety
+
+      // Only respawn if still dead and time has passed
+      if (Date.now() < respawn.deadUntil) return;
+
+      const baseChar = CHARACTERS.player;
+
+      respawn.health = baseChar.health;
+      respawn.x = 350;
+      respawn.y = 350;
+      respawn.alive = true;
+      respawn.deadUntil = null;
+
+      // Tell everyone the player is back with full health at center
+      broadcast({
+        type: "playerHealth",
+        id: data.targetId,
+        health: baseChar.health
+      });
+
+      broadcast({
+        type: "playerMove",
+        id: data.targetId,
+        x: 350,
+        y: 350,
+        health: baseChar.health,
+        alive: true
+      });
+    }, 10000);
+  }
+}
     } catch (err) {
       console.log(err);
     }
