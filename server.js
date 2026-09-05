@@ -168,40 +168,86 @@ wss.on("connection", (ws) => {
         if (target.health <= 0) {
 
   target.alive = false;
+  target.health = 0;
 
+
+  // remove player from other players view
   broadcast({
-    type: "playerDied",
+    type: "playerRemove",
     id: data.targetId
   });
 
-          setTimeout(() => {
-            const respawn = clients.get(data.targetId);
-            if (!respawn) return;
 
-            const baseChar = CHARACTERS.player;
+  // tell dead player to start countdown
+  wss.clients.forEach(client => {
+    if (client === ws) {
+      client.send(JSON.stringify({
+        type: "respawnCountdown",
+        time: 10
+      }));
+    }
+  });
 
-            respawn.health = baseChar.health;
-            respawn.x = 350;
-            respawn.y = 350;
-            respawn.alive = true;
 
-            broadcast({
-              type: "playerHealth",
-              id: data.targetId,
-              health: baseChar.health
-            });
+  let countdown = 10;
 
-            broadcast({
-              type: "playerMove",
-              id: data.targetId,
-              x: 350,
-              y: 350,
-              health: baseChar.health
-            });
-          }, 1000);
-        }
+
+  const timer = setInterval(() => {
+
+    countdown--;
+
+
+    wss.clients.forEach(client => {
+
+      if (client === ws) {
+
+        client.send(JSON.stringify({
+          type: "respawnCountdown",
+          time: countdown
+        }));
+
       }
-    } catch (err) {
+
+    });
+
+
+    if (countdown <= 0) {
+
+      clearInterval(timer);
+
+
+      const respawn = clients.get(data.targetId);
+      if (!respawn) return;
+
+
+      const baseChar = CHARACTERS.player;
+
+
+      respawn.health = baseChar.health;
+      respawn.x = 350;
+      respawn.y = 350;
+      respawn.alive = true;
+
+
+      // send player back
+      ws.send(JSON.stringify({
+        type: "respawn",
+        x: 350,
+        y: 350,
+        health: baseChar.health
+      }));
+
+
+      // tell others player returned
+      broadcastExcept(ws,{
+        type:"playerAdd",
+        player:{...respawn}
+      });
+
+    }
+
+  },1000);
+} catch (err) {
       console.log(err);
     }
   });
