@@ -3,15 +3,16 @@
 const WEAPONS = {
   uzi: {
     name: "uzi",
-    damage: 3,
+    damage: 400,
     fireRate: 10,
     reloadTime: 2000,
     bulletSpeed: 500,
     magazine: 250,
-    maxMagazine: 250,
+    maxMagazine: 25,
     fireSound: "uzi.ogg",
     hitEffect: "9mm",
     recoil: 0.05,
+    bulletPiercing: 2,
     muzzleFlash: {
       image: "muzzleflash.png",
       frameWidth: 268,
@@ -26,7 +27,7 @@ const WEAPONS = {
 
   ak47: {
     name: "ak47",
-    damage: 6,
+    damage: 400,
     fireRate: 7,
     reloadTime: 2000,
     bulletSpeed: 500,
@@ -35,6 +36,7 @@ const WEAPONS = {
     fireSound: "ak47.ogg",
     hitEffect: "9mm",
     recoil: 0.12,
+    bulletPiercing: 2,
     muzzleFlash: {
       image: "muzzleflash.png",
       frameWidth: 32,
@@ -58,6 +60,7 @@ const WEAPONS = {
     fireSound: "pistol.ogg",
     hitEffect: "9mm",
     recoil: 2,
+    bulletPiercing: 2,
     muzzleFlash: {
       image: "muzzleflash.png",
       frameWidth: 32,
@@ -83,6 +86,7 @@ const WEAPONS = {
     fireSound: "shotgun.ogg",
     hitEffect: "shotgun",
     recoil: 0.2,
+    bulletPiercing: 2,
     muzzleFlash: {
       image: "muzzleflash.png",
       frameWidth: 268,
