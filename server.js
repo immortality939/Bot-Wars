@@ -93,6 +93,8 @@ wss.on("connection", (ws) => {
       // =========================
 
       if (data.type === "bullet") {
+        console.log("BULLET from", id, "at", data.x, data.y, "vx", data.vx, "vy", data.vy);
+
         broadcastExcept(ws, {
           type: "bullet",
           ownerId: id,
