@@ -146,9 +146,13 @@ wss.on("connection", (ws) => {
   // Ignore damage while dead
   if (!target.alive) return;
 
-  // Armor reduces damage: final = damage - armor, minimum 1
-  let finalDamage = data.damage - target.armor;
-  if (finalDamage < 1) finalDamage = 1;
+  // Armor reduces damage, but bulletPiercing ignores part of the armor
+// effectiveArmor = max(0, target.armor - bulletPiercing)
+// finalDamage = damage - effectiveArmor, minimum 1
+const piercing = data.piercing || 0;
+const effectiveArmor = Math.max(0, target.armor - piercing);
+let finalDamage = data.damage - effectiveArmor;
+if (finalDamage < 1) finalDamage = 1;
 
   console.log("HIT:", {
     targetId: data.targetId,
