@@ -20,13 +20,14 @@ wss.on("connection", (ws) => {
   const baseChar = CHARACTERS.player;
 
   clients.set(id, {
-    id,
-    x: 350,
-    y: 350,
-    color,
-    health: baseChar.health,
-    armor: baseChar.armor
-  });
+  id,
+  x: 350,
+  y: 350,
+  color,
+  health: baseChar.health,
+  armor: baseChar.armor,
+  alive: true
+});
 
   // SEND ID
   ws.send(JSON.stringify({
@@ -137,8 +138,11 @@ wss.on("connection", (ws) => {
       // =========================
 
             if (data.type === "hit") {
-        const target = clients.get(data.targetId);
-        if (!target) return;
+  const target = clients.get(data.targetId);
+  if (!target) return;
+
+  // Ignore damage while dead
+  if (!target.alive) return;
 
         // Armor reduces damage: final = damage - armor, minimum 1
         let finalDamage = data.damage - target.armor;
@@ -162,10 +166,13 @@ wss.on("connection", (ws) => {
         });
 
         if (target.health <= 0) {
-          broadcast({
-            type: "playerDied",
-            id: data.targetId
-          });
+
+  target.alive = false;
+
+  broadcast({
+    type: "playerDied",
+    id: data.targetId
+  });
 
           setTimeout(() => {
             const respawn = clients.get(data.targetId);
@@ -176,6 +183,7 @@ wss.on("connection", (ws) => {
             respawn.health = baseChar.health;
             respawn.x = 350;
             respawn.y = 350;
+            respawn.alive = true;
 
             broadcast({
               type: "playerHealth",
