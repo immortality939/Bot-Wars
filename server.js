@@ -198,7 +198,7 @@ wss.on("connection", (ws) => {
               y: 350,
               health: baseChar.health
             });
-          }, 1000);
+          }, 10000);
         }
       }
     } catch (err) {
