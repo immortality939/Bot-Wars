@@ -3,7 +3,7 @@
 const WEAPONS = {
   uzi: {
     name: "uzi",
-    damage: 4,
+    damage: 400,
     fireRate: 10,
     reloadTime: 2000,
     bulletSpeed: 500,
@@ -27,7 +27,7 @@ const WEAPONS = {
 
   ak47: {
     name: "ak47",
-    damage: 4,
+    damage: 400,
     fireRate: 7,
     reloadTime: 2000,
     bulletSpeed: 500,
