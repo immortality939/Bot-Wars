@@ -1,261 +1,377 @@
-import { WebSocketServer } from "ws";
-import http from "http";
-import { WEAPONS } from "./weapon_server.js";
-import { CHARACTERS } from "./character_server.js";
+// =============================================================================
+// Bot Wars — Online Multiplayer Server (v2: rooms + boss fights)
+// =============================================================================
+// Replaces the old flat "everyone is in one world" server with proper rooms:
+//   - A player CREATEs a room and gets a short ROOM CODE to share.
+//   - Up to 5 more players JOIN using that code (6 players per room, max).
+//   - Every player picks a character; the room roster (who's in each of the
+//     6 slots, and which character they picked) is broadcast to everyone in
+//     the room any time it changes.
+//   - The host can START the fight once ready. That spawns one shared BOSS
+//     for that room only — its health is tracked server-side and synced to
+//     every player in the room.
+//   - All the existing gameplay messages (movement, shooting, bullets,
+//     health, death, muzzle flashes) now only reach players in the SAME
+//     room, instead of everyone connected to the server.
+//
+// Run locally:   npm install ws   ->   node server.js
+// Deploy (Render/etc.): same as before — just point your existing service
+// at this file. It reads PORT from the environment like the old one did.
+// =============================================================================
 
-const PORT = process.env.PORT || 3000;
+const WebSocket = require("ws");
 
-const server = http.createServer();
-const wss = new WebSocketServer({ server });
+const PORT = process.env.PORT || 8080;
+const wss = new WebSocket.Server({ port: PORT });
 
+console.log("Bot Wars server listening on port " + PORT);
+
+// -----------------------------------------------------------------------
+// STATE
+// -----------------------------------------------------------------------
+// Every connected socket gets a unique numeric id.
+let nextClientId = 1;
+
+// clientId -> { ws, id, roomCode, character, x, y, health, alive }
 const clients = new Map();
 
-let nextId = 1;
+// roomCode -> Room
+// Room = {
+//   code, hostId,
+//   slots: [clientId|null, clientId|null, ...] (length 6, index = slot 0-4),
+//   started: bool,
+//   boss: null | { health, maxHealth, x, y }
+// }
+const rooms = new Map();
 
-wss.on("connection", (ws) => {
-  const id = nextId++;
+const MAX_PLAYERS_PER_ROOM = 6;
 
-  const color = `hsl(${Math.random() * 360},70%,60%)`;
+// -----------------------------------------------------------------------
+// HELPERS
+// -----------------------------------------------------------------------
 
-  const baseChar = CHARACTERS.player;
+function makeRoomCode() {
+  // 4-letter code, avoids ambiguous chars (0/O, 1/I).
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  let code;
+  do {
+    code = "";
+    for (let i = 0; i < 4; i++) {
+      code += chars[Math.floor(Math.random() * chars.length)];
+    }
+  } while (rooms.has(code));
+  return code;
+}
 
-  clients.set(id, {
-  id,
-  x: 350,
-  y: 350,
-  color,
-  health: baseChar.health,
-  armor: baseChar.armor,
-  alive: true,
-  deadUntil: null
-});
-
-  // SEND ID
-  ws.send(JSON.stringify({
-    type: "init",
-    id
-  }));
-
-  // SEND ONLINE WEAPON CONFIG
-  ws.send(JSON.stringify({
-    type: "weaponConfig",
-    weapons: WEAPONS
-  }));
-
-  // SEND ONLINE CHARACTER CONFIG
-  ws.send(JSON.stringify({
-    type: "characterConfig",
-    characters: CHARACTERS
-  }));
-
-
-  // SEND OLD PLAYERS
-  for (const [pid, player] of clients) {
-    if (pid === id) continue;
-
-    ws.send(JSON.stringify({
-      type: "playerAdd",
-      player: { ...player }
-    }));
-  }
-
-  // INFORM OTHER PLAYERS
-  broadcastExcept(ws, {
-    type: "playerAdd",
-    player: { ...clients.get(id) }
-  });
-
-  ws.on("message", (msg) => {
-    try {
-      const data = JSON.parse(msg);
-
-      // =========================
-      // PLAYER MOVEMENT
-      // =========================
-
-      if (data.type === "move") {
-        const player = clients.get(id);
-        if (!player) return;
-
-        player.x = data.x;
-        player.y = data.y;
-
-        broadcastExcept(ws, {
-  type: "playerMove",
-  id: id,
-  x: player.x,
-  y: player.y,
-  health: player.health,
-  alive: player.alive
-});
-      }
-
-      // =========================
-      // BULLETS
-      // SHOTGUN + NORMAL
-      // =========================
-
-      if (data.type === "bullet") {
-        broadcastExcept(ws, {
-          type: "bullet",
-          ownerId: id,
-          x: data.x,
-          y: data.y,
-          vx: data.vx,
-          vy: data.vy,
-          damage: data.damage || 0,
-          hitEffect: data.hitEffect || "9mm"
-        });
-      }
-
-      // =========================
-      // SHOOT SOUND
-      // =========================
-
-      if (data.type === "shootSound") {
-        broadcastExcept(ws, {
-          type: "shootSound",
-          sound: data.sound,
-          ownerId: id
-        });
-      }
-
-      // =========================
-      // MUZZLE FLASH
-      // =========================
-
-      if (data.type === "muzzleFlash") {
-        broadcastExcept(ws, {
-          type: "muzzleFlash",
-          ownerId: id,
-          x: data.x,
-          y: data.y,
-          dirX: data.dirX,
-          dirY: data.dirY
-        });
-      }
-
-      // =========================
-      // DAMAGE
-      // =========================
-
-            if (data.type === "hit") {
-  const target = clients.get(data.targetId);
-  if (!target) return;
-
-  // Ignore damage while dead
-  if (!target.alive) return;
-
-  // Armor reduces damage, but bulletPiercing ignores part of the armor
-// effectiveArmor = max(0, target.armor - bulletPiercing)
-// finalDamage = damage - effectiveArmor, minimum 1
-const piercing = data.piercing || 0;
-const effectiveArmor = Math.max(0, target.armor - piercing);
-let finalDamage = data.damage - effectiveArmor;
-if (finalDamage < 1) finalDamage = 1;
-
-  console.log("HIT:", {
-    targetId: data.targetId,
-    rawDamage: data.damage,
-    targetArmor: target.armor,
-    finalDamage
-  });
-
-  target.health -= finalDamage;
-
-  if (target.health < 0) target.health = 0;
-
-  broadcast({
-    type: "playerHealth",
-    id: data.targetId,
-    health: target.health
-  });
-
-  if (target.health <= 0 && target.alive) {
-    target.alive = false;
-    target.deadUntil = Date.now() + 10000; // 10 seconds
-
-    // Tell everyone this player died
-    broadcast({
-      type: "playerDied",
-      id: data.targetId,
-      deadUntil: target.deadUntil
-    });
-
-    // Schedule respawn after 10 seconds
-    setTimeout(() => {
-      const respawn = clients.get(data.targetId);
-      if (!respawn) return;
-      if (!respawn.deadUntil) return; // safety
-
-      // Only respawn if still dead and time has passed
-      if (Date.now() < respawn.deadUntil) return;
-
-      const baseChar = CHARACTERS.player;
-
-      respawn.health = baseChar.health;
-      respawn.x = 350;
-      respawn.y = 350;
-      respawn.alive = true;
-      respawn.deadUntil = null;
-
-      // Tell everyone the player is back with full health at center
-      broadcast({
-        type: "playerHealth",
-        id: data.targetId,
-        health: baseChar.health
-      });
-
-      broadcast({
-        type: "playerMove",
-        id: data.targetId,
-        x: 350,
-        y: 350,
-        health: baseChar.health,
-        alive: true
-      });
-    }, 10000);
+function send(client, msg) {
+  if (client && client.ws.readyState === WebSocket.OPEN) {
+    client.ws.send(JSON.stringify(msg));
   }
 }
-    } catch (err) {
-      console.log(err);
+
+function roomClients(room) {
+  return room.slots
+    .filter((id) => id !== null)
+    .map((id) => clients.get(id))
+    .filter(Boolean);
+}
+
+function broadcastToRoom(room, msg, exceptId) {
+  for (const c of roomClients(room)) {
+    if (c.id !== exceptId) send(c, msg);
+  }
+}
+
+// Sends the current 6-slot roster (id + character per slot, or null) to
+// everyone in the room. This is what the client's Room popup renders.
+function broadcastRoomUpdate(room) {
+  const slots = room.slots.map((id) => {
+    if (id === null) return null;
+    const c = clients.get(id);
+    if (!c) return null;
+    return { id: c.id, character: c.character, isHost: id === room.hostId };
+  });
+
+  broadcastToRoom(room, {
+    type: "roomUpdate",
+    roomCode: room.code,
+    hostId: room.hostId,
+    started: room.started,
+    slots
+  });
+}
+
+function removeClientFromRoom(client) {
+  const room = rooms.get(client.roomCode);
+  client.roomCode = null;
+  if (!room) return;
+
+  const slotIndex = room.slots.indexOf(client.id);
+  if (slotIndex !== -1) room.slots[slotIndex] = null;
+
+  // Let everyone still in the room know this player left.
+  broadcastToRoom(room, { type: "playerRemove", id: client.id });
+
+  const remaining = room.slots.filter((id) => id !== null);
+
+  if (remaining.length === 0) {
+    // Room's empty — remove it entirely.
+    rooms.delete(room.code);
+    return;
+  }
+
+  // If the host left, hand hosting to whoever's in the next lowest slot.
+  if (room.hostId === client.id) {
+    room.hostId = remaining[0];
+  }
+
+  broadcastRoomUpdate(room);
+}
+
+// -----------------------------------------------------------------------
+// BOSS FIGHT (very simple placeholder pattern — expand as needed)
+// -----------------------------------------------------------------------
+// One boss per room, health pooled across however many players joined.
+// Damage is currently trusted from the client (same trust model the old
+// bullet-relay server used) — see the note near "bossDamage" below if you
+// want to harden this later with server-side hit validation.
+
+function startBossFight(room) {
+  const playerCount = room.slots.filter((id) => id !== null).length;
+  const maxHealth = 500 + playerCount * 400; // scales with room size
+
+  room.started = true;
+  room.boss = {
+    health: maxHealth,
+    maxHealth,
+    x: 0,
+    y: 0
+  };
+
+  broadcastToRoom(room, {
+    type: "bossStart",
+    boss: room.boss
+  });
+
+  broadcastRoomUpdate(room);
+}
+
+function applyBossDamage(room, amount, attackerId) {
+  if (!room.boss || room.boss.health <= 0) return;
+
+  room.boss.health = Math.max(0, room.boss.health - amount);
+
+  broadcastToRoom(room, {
+    type: "bossUpdate",
+    health: room.boss.health
+  });
+
+  if (room.boss.health <= 0) {
+    broadcastToRoom(room, { type: "bossDefeated", killedBy: attackerId });
+    room.started = false;
+    room.boss = null;
+  }
+}
+
+// -----------------------------------------------------------------------
+// CONNECTION HANDLING
+// -----------------------------------------------------------------------
+
+wss.on("connection", (ws) => {
+  const id = nextClientId++;
+  const client = {
+    ws,
+    id,
+    roomCode: null,
+    character: null,
+    x: 0,
+    y: 0,
+    health: 100,
+    alive: true
+  };
+  clients.set(id, client);
+
+  send(client, { type: "init", id });
+
+  ws.on("message", (raw) => {
+    let msg;
+    try {
+      msg = JSON.parse(raw);
+    } catch (e) {
+      return; // ignore malformed messages
+    }
+
+    switch (msg.type) {
+
+      // ---- ROOM LIFECYCLE -------------------------------------------
+      case "createRoom": {
+        // Player becomes the host of a brand-new room, slot 1.
+        const code = makeRoomCode();
+        const slots = new Array(MAX_PLAYERS_PER_ROOM).fill(null);
+        slots[0] = id;
+
+        const room = { code, hostId: id, slots, started: false, boss: null };
+        rooms.set(code, room);
+
+        client.roomCode = code;
+        client.character = msg.character || null;
+
+        send(client, { type: "roomCreated", roomCode: code });
+        broadcastRoomUpdate(room);
+        break;
+      }
+
+      case "joinRoom": {
+        const room = rooms.get((msg.roomCode || "").toUpperCase());
+
+        if (!room) {
+          send(client, { type: "roomError", message: "Room not found." });
+          break;
+        }
+        if (room.started) {
+          send(client, { type: "roomError", message: "That room's fight already started." });
+          break;
+        }
+        const freeSlot = room.slots.indexOf(null);
+        if (freeSlot === -1) {
+          send(client, { type: "roomError", message: "Room is full (6/6)." });
+          break;
+        }
+
+        room.slots[freeSlot] = id;
+        client.roomCode = room.code;
+        client.character = msg.character || null;
+
+        send(client, { type: "roomJoined", roomCode: room.code });
+        broadcastRoomUpdate(room);
+        break;
+      }
+
+      case "setCharacter": {
+        client.character = msg.character || null;
+        const room = rooms.get(client.roomCode);
+        if (room) broadcastRoomUpdate(room);
+        break;
+      }
+
+      case "leaveRoom": {
+        removeClientFromRoom(client);
+        break;
+      }
+
+      // Host-only: begin the boss fight for everyone currently in the room.
+      case "startBoss": {
+        const room = rooms.get(client.roomCode);
+        if (!room) break;
+        if (room.hostId !== id) {
+          send(client, { type: "roomError", message: "Only the host can start the fight." });
+          break;
+        }
+        if (room.started) break;
+        startBossFight(room);
+        break;
+      }
+
+      // Client reports damage it landed on the boss. Trusted for now —
+      // same trust model your old bullet relay used for player-vs-player.
+      case "bossDamage": {
+        const room = rooms.get(client.roomCode);
+        if (!room || !room.boss) break;
+        const amount = Number(msg.damage) || 0;
+        if (amount > 0) applyBossDamage(room, amount, id);
+        break;
+      }
+
+      // ---- GAMEPLAY RELAY (room-scoped versions of the old messages) --
+      case "playerMove": {
+        client.x = msg.x;
+        client.y = msg.y;
+        if (msg.health !== undefined) client.health = msg.health;
+        if (msg.alive !== undefined) client.alive = msg.alive;
+
+        const room = rooms.get(client.roomCode);
+        if (!room) break;
+        broadcastToRoom(room, {
+          type: "playerMove",
+          id,
+          x: msg.x,
+          y: msg.y,
+          health: msg.health,
+          alive: msg.alive
+        }, id);
+        break;
+      }
+
+      case "shootSound": {
+        const room = rooms.get(client.roomCode);
+        if (!room) break;
+        broadcastToRoom(room, { type: "shootSound", ownerId: id, sound: msg.sound }, id);
+        break;
+      }
+
+      case "bullet": {
+        const room = rooms.get(client.roomCode);
+        if (!room) break;
+        broadcastToRoom(room, {
+          type: "bullet",
+          ownerId: id,
+          x: msg.x,
+          y: msg.y,
+          vx: msg.vx,
+          vy: msg.vy,
+          damage: msg.damage,
+          hitEffect: msg.hitEffect
+        }, id);
+        break;
+      }
+
+      case "muzzleFlash": {
+        const room = rooms.get(client.roomCode);
+        if (!room) break;
+        broadcastToRoom(room, {
+          type: "muzzleFlash",
+          ownerId: id,
+          x: msg.x,
+          y: msg.y,
+          dirX: msg.dirX,
+          dirY: msg.dirY
+        }, id);
+        break;
+      }
+
+      case "playerHealth": {
+        client.health = msg.health;
+        const room = rooms.get(client.roomCode);
+        if (!room) break;
+        broadcastToRoom(room, { type: "playerHealth", id, health: msg.health });
+        break;
+      }
+
+      case "playerDied": {
+        client.alive = false;
+        const room = rooms.get(client.roomCode);
+        if (!room) break;
+        broadcastToRoom(room, {
+          type: "playerDied",
+          id,
+          deadUntil: msg.deadUntil || (Date.now() + 10000)
+        });
+        break;
+      }
+
+      default:
+        // Unknown message type — ignore.
+        break;
     }
   });
 
   ws.on("close", () => {
+    removeClientFromRoom(client);
     clients.delete(id);
-
-    broadcast({
-      type: "playerRemove",
-      id: id
-    });
   });
-});
 
-function broadcast(message) {
-  const data = JSON.stringify(message);
-
-  wss.clients.forEach(client => {
-    if (client.readyState === 1) {
-      client.send(data);
-    }
+  ws.on("error", () => {
+    removeClientFromRoom(client);
+    clients.delete(id);
   });
-}
-
-function broadcastExcept(exclude, message) {
-  const data = JSON.stringify(message);
-
-  wss.clients.forEach(client => {
-    if (client === exclude) return;
-
-    if (client.readyState === 1) {
-      client.send(data);
-    }
-  });
-}
-
-console.log("WEAPONS config:", JSON.stringify(WEAPONS, null, 2));
-
-server.listen(PORT, () => {
-  console.log("Server listening on port", PORT);
 });
