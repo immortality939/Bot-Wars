@@ -19,10 +19,10 @@
 // at this file. It reads PORT from the environment like the old one did.
 // =============================================================================
 
-const WebSocket = require("ws");
+import { WebSocketServer, WebSocket } from "ws";
 
 const PORT = process.env.PORT || 8080;
-const wss = new WebSocket.Server({ port: PORT });
+const wss = new WebSocketServer({ port: PORT });
 
 console.log("Bot Wars server listening on port " + PORT);
 
@@ -305,7 +305,13 @@ wss.on("connection", (ws) => {
       case "shootSound": {
         const room = rooms.get(client.roomCode);
         if (!room) break;
-        broadcastToRoom(room, { type: "shootSound", ownerId: id, sound: msg.sound }, id);
+        broadcastToRoom(room, {
+          type: "shootSound",
+          ownerId: id,
+          sound: msg.sound,
+          x: msg.x,
+          y: msg.y
+        }, id);
         break;
       }
 
