@@ -1,7 +1,7 @@
 // =============================================================================
 // Bot Wars — Online Multiplayer Server (v3: accounts + rooms + boss fights)
 // =============================================================================
-// This file now does two jobs on the same port:
+// This file now does two jobs on the same port :
 //
 //   1) A small HTTP JSON API for player accounts:
 //        POST /api/signup   — create an account (unverified until confirmed)
