@@ -1,0 +1,18 @@
+[
+  {
+    "username": "testplayer",
+    "password": "123456abc",
+    "email": "test@email.com",
+    "verified": true,
+
+    "level": 1,
+    "xp": 0,
+    "coins": 100,
+
+    "map": "start",
+    "x": 500,
+    "y": 300,
+
+    "inventory": []
+  }
+]
