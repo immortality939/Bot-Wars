@@ -376,12 +376,15 @@ wss.on("connection", (ws) => {
           break;
         }
 
-        await sendVerificationEmail(result.player.email, result.player.username, result.verifyToken);
+        const sendResult = await sendVerificationEmail(result.player.email, result.player.username, result.verifyToken);
 
         send(client, {
           type: "registerResult",
           success: true,
-          message: "Account created! Check your email for a confirmation link before logging in."
+          message: sendResult.sent
+            ? "Account created! Check your email for a confirmation link before logging in."
+            : "Account created, but the confirmation email couldn't be sent. Use this link to verify: "
+              + `${process.env.PUBLIC_URL || ""}/verify?token=${result.verifyToken}`
         });
         break;
       }
@@ -392,11 +395,14 @@ wss.on("connection", (ws) => {
           send(client, { type: "resendVerificationResult", success: false, message: result.message });
           break;
         }
-        await sendVerificationEmail(result.email, result.username, result.verifyToken);
+        const sendResult = await sendVerificationEmail(result.email, result.username, result.verifyToken);
         send(client, {
           type: "resendVerificationResult",
           success: true,
-          message: "Confirmation email sent again — check your inbox."
+          message: sendResult.sent
+            ? "Confirmation email sent again — check your inbox."
+            : "Couldn't send the email. Use this link to verify: "
+              + `${process.env.PUBLIC_URL || ""}/verify?token=${result.verifyToken}`
         });
         break;
       }
