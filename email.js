@@ -1,46 +1,60 @@
 // =============================================================================
 // Email sending — account verification + password reset links.
 // =============================================================================
-// Uses Resend's HTTPS API (NOT SMTP). Render's free web services block
-// outbound SMTP ports (25/465/587), so plain nodemailer+Gmail no longer works
-// on a free instance. Resend sends over regular HTTPS instead, so it works
-// fine on the free tier.
+// Uses SendGrid's HTTPS API (NOT SMTP). Render's free web services block
+// outbound SMTP ports (25/465/587), so this sends over regular HTTPS instead,
+// which works fine on the free tier.
 //
-// Setup:
-//   1. Sign up at https://resend.com (free tier is generous for this use case)
-//   2. Create an API key: https://resend.com/api-keys
-//   3. Set these on your host (Render -> your service -> Environment):
+// Setup (no domain required — uses Single Sender Verification):
+//   1. Sign up at https://sendgrid.com (free tier: 100 emails/day forever)
+//   2. Verify a single sender: Settings -> Sender Authentication ->
+//      "Verify a Single Sender" -> enter an email address you own (e.g. your
+//      Gmail) -> SendGrid emails you a confirmation link -> click it.
+//      This lets you send FROM that address TO any recipient, without
+//      owning/verifying a domain.
+//   3. Create an API key: Settings -> API Keys -> Create API Key
+//      (Full Access, or "Mail Send" restricted access is enough)
+//   4. Set these on your host (Render -> your service -> Environment):
 //
-//        RESEND_API_KEY   the API key from step 2
-//        EMAIL_FROM       the "from" address, e.g. "Bot Wars <onboarding@resend.dev>"
-//                          (Resend gives you a free "onboarding@resend.dev"
-//                          sender for testing without verifying your own
-//                          domain — see resend.com/docs for verifying a
-//                          custom domain later)
-//        PUBLIC_URL       the public https URL of THIS server, e.g.
-//                          "https://bot-wars-1.onrender.com" (no trailing
-//                          slash). Used to build the /verify and /reset
-//                          links in emails.
-//        GAME_URL         the URL players play the game at, e.g.
-//                          "https://your-game.onrender.com" (no trailing
-//                          slash). After verifying/resetting, the
-//                          confirmation page links back here with #login so
-//                          the client can reopen Log In.
+//        SENDGRID_API_KEY   the API key from step 3
+//        EMAIL_FROM         the exact address you verified in step 2, e.g.
+//                            "Bot Wars <youraccount@gmail.com>"
+//                            (must match the verified single sender address)
+//        PUBLIC_URL         the public https URL of THIS server, e.g.
+//                            "https://bot-wars-1.onrender.com" (no trailing
+//                            slash). Used to build the /verify and /reset
+//                            links in emails.
+//        GAME_URL           the URL players play the game at, e.g.
+//                            "https://your-game.onrender.com" (no trailing
+//                            slash). After verifying/resetting, the
+//                            confirmation page links back here with #login so
+//                            the client can reopen Log In.
 //
-// If RESEND_API_KEY isn't set (e.g. while developing locally), nothing
+// If SENDGRID_API_KEY isn't set (e.g. while developing locally), nothing
 // crashes — the email is printed to the server console instead, with the
 // link right there so you can still test the flow by hand.
 // =============================================================================
 
-const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
-const EMAIL_FROM = process.env.EMAIL_FROM || "Bot Wars <onboarding@resend.dev>";
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY || "";
+const EMAIL_FROM_RAW = process.env.EMAIL_FROM || "Bot Wars <no-reply@example.com>";
 
-const emailConfigured = Boolean(RESEND_API_KEY);
+const emailConfigured = Boolean(SENDGRID_API_KEY);
+
+// SendGrid wants { email, name } separately rather than a combined
+// "Name <email>" string, so parse whatever format was put in EMAIL_FROM.
+function parseFromAddress(raw) {
+  const match = raw.match(/^(.*)<(.+)>$/);
+  if (match) {
+    return { name: match[1].trim().replace(/^"|"$/g, ""), email: match[2].trim() };
+  }
+  return { email: raw.trim() };
+}
+const EMAIL_FROM = parseFromAddress(EMAIL_FROM_RAW);
 
 async function sendMail({ to, subject, html, text }) {
   if (!emailConfigured) {
     console.log("=====================================================");
-    console.log("[email.js] RESEND_API_KEY not set — printing instead of sending:");
+    console.log("[email.js] SENDGRID_API_KEY not set — printing instead of sending:");
     console.log("To:", to);
     console.log("Subject:", subject);
     console.log(text || html);
@@ -49,24 +63,26 @@ async function sendMail({ to, subject, html, text }) {
   }
 
   try {
-    const res = await fetch("https://api.resend.com/emails", {
+    const res = await fetch("https://api.sendgrid.com/v3/mail/send", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${RESEND_API_KEY}`,
+        "Authorization": `Bearer ${SENDGRID_API_KEY}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
+        personalizations: [{ to: [{ email: to }] }],
         from: EMAIL_FROM,
-        to: [to],
         subject,
-        html,
-        text
+        content: [
+          { type: "text/plain", value: text || "" },
+          { type: "text/html", value: html || "" }
+        ]
       })
     });
 
     if (!res.ok) {
       const errBody = await res.text();
-      console.error("[email.js] Resend API error:", res.status, errBody);
+      console.error("[email.js] SendGrid API error:", res.status, errBody);
       return { sent: false, reason: "send_failed" };
     }
 
