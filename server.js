@@ -37,7 +37,7 @@ import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import WebSocket from "ws";
+import WebSocket, { WebSocketServer } from "ws";
 
 // Your package.json has "type": "module", so this file is loaded as an
 // ES module — that's why we use import instead of require() above.
@@ -329,7 +329,7 @@ const httpServer = http.createServer((req, res) => {
 // -----------------------------------------------------------------------
 // WEBSOCKET — attached to the same HTTP server/port as the API above
 // -----------------------------------------------------------------------
-const wss = new WebSocket.Server({ server: httpServer });
+const wss = new WebSocketServer({ server: httpServer });
 
 httpServer.listen(PORT, () => {
   console.log("Bot Wars server (HTTP API + WS) listening on port " + PORT);
