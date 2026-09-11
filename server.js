@@ -1,42 +1,334 @@
 // =============================================================================
-// Bot Wars — Online Multiplayer Server (v2: rooms + boss fights)
+// Bot Wars — Online Multiplayer Server (v3: accounts + rooms + boss fights)
 // =============================================================================
-// Replaces the old flat "everyone is in one world" server with proper rooms:
-//   - A player CREATEs a room and gets a short ROOM CODE to share.
-//   - Up to 5 more players JOIN using that code (6 players per room, max).
-//   - Every player picks a character; the room roster (who's in each of the
-//     6 slots, and which character they picked) is broadcast to everyone in
-//     the room any time it changes.
-//   - The host can START the fight once ready. That spawns one shared BOSS
-//     for that room only — its health is tracked server-side and synced to
-//     every player in the room.
-//   - All the existing gameplay messages (movement, shooting, bullets,
-//     health, death, muzzle flashes) now only reach players in the SAME
-//     room, instead of everyone connected to the server.
+// This file now does two jobs on the same port:
+//
+//   1) A small HTTP JSON API for player accounts:
+//        POST /api/signup   — create an account (unverified until confirmed)
+//        GET  /api/verify   — confirm an account from its emailed link
+//        POST /api/login    — log in, returns the player's saved progress
+//        POST /api/save     — push the player's latest save data up
+//        POST /api/forgot   — start a password reset
+//        POST /api/reset    — finish a password reset with a new password
+//
+//   2) The original WebSocket room/boss-fight relay (unchanged below the
+//      ACCOUNTS section) — rooms, movement, bullets, boss HP, etc.
+//
+// Accounts are stored in accounts.json next to this file. That's plenty
+// for now and survives restarts; swap loadAccounts()/saveAccounts() for a
+// real database later without touching anything else.
+//
+// EMAIL: there is no real email service wired in. /api/signup and
+// /api/forgot hand back the confirmation/reset link directly in their
+// JSON response instead of emailing it, and the game's front-end shows
+// that link inside a simulated "inbox" popup so the whole flow can be
+// tested end-to-end. Search for "TODO(EMAIL)" below for exactly where to
+// plug in a real mail service (e.g. nodemailer + SMTP, SendGrid, Mailgun)
+// once you have one — at that point, stop returning the link in the
+// response and only send it by email instead.
 //
 // Run locally:   npm install ws   ->   node server.js
 // Deploy (Render/etc.): same as before — just point your existing service
 // at this file. It reads PORT from the environment like the old one did.
 // =============================================================================
 
-import WebSocket from "ws";
-
-import {
-    createPlayer,
-    loginPlayer,
-    savePlayer,
-    getPlayer
-} from "./database.js";
-
-
+const http = require("http");
+const crypto = require("crypto");
+const fs = require("fs");
+const path = require("path");
+const WebSocket = require("ws");
 
 const PORT = process.env.PORT || 8080;
-const wss = new WebSocket.Server({ port: PORT });
-
-console.log("Bot Wars server listening on port " + PORT);
 
 // -----------------------------------------------------------------------
-// STATE
+// ACCOUNTS — storage
+// -----------------------------------------------------------------------
+const ACCOUNTS_FILE = path.join(__dirname, "accounts.json");
+
+function loadAccounts() {
+  try {
+    return JSON.parse(fs.readFileSync(ACCOUNTS_FILE, "utf8"));
+  } catch (e) {
+    return {}; // no file yet, or unreadable — start fresh
+  }
+}
+
+// accounts: usernameLower -> {
+//   username, email, passwordSalt, passwordHash,
+//   verified, verifyToken,
+//   resetToken, resetTokenExpires,
+//   save: {...} | null   <- the player's last localStorage save blob
+// }
+const accounts = loadAccounts();
+
+let writeTimer = null;
+function saveAccounts() {
+  // Debounced so a burst of writes (e.g. several /api/save calls in a
+  // row) doesn't hammer the disk.
+  clearTimeout(writeTimer);
+  writeTimer = setTimeout(() => {
+    fs.writeFile(ACCOUNTS_FILE, JSON.stringify(accounts, null, 2), (err) => {
+      if (err) console.error("Failed to write accounts.json:", err);
+    });
+  }, 200);
+}
+
+// sessionToken -> usernameLower. In-memory on purpose — if the server
+// restarts, players just log in again; nothing else is lost since their
+// save data already lives in accounts.json.
+const sessions = new Map();
+
+// -----------------------------------------------------------------------
+// ACCOUNTS — helpers
+// -----------------------------------------------------------------------
+function hashPassword(password, salt) {
+  return crypto.pbkdf2Sync(password, salt, 100000, 64, "sha256").toString("hex");
+}
+function makeToken() {
+  return crypto.randomBytes(24).toString("hex");
+}
+function isValidUsername(name) {
+  return typeof name === "string" && /^[A-Za-z0-9_]{3,20}$/.test(name);
+}
+function isValidPassword(pw) {
+  return typeof pw === "string" && pw.length > 8 && /[A-Za-z]/.test(pw) && /[0-9]/.test(pw);
+}
+function isValidEmail(email) {
+  return typeof email === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+function findAccountByEmail(email) {
+  const lower = String(email).toLowerCase();
+  return Object.values(accounts).find((a) => a.email.toLowerCase() === lower);
+}
+function baseUrlFromReq(req) {
+  const proto = req.headers["x-forwarded-proto"] || "http";
+  return proto + "://" + req.headers.host;
+}
+
+// -----------------------------------------------------------------------
+// HTTP API plumbing
+// -----------------------------------------------------------------------
+function readJsonBody(req, callback) {
+  let body = "";
+  req.on("data", (chunk) => {
+    body += chunk;
+    if (body.length > 1e6) req.destroy(); // guard against huge bodies
+  });
+  req.on("end", () => {
+    try {
+      callback(null, body ? JSON.parse(body) : {});
+    } catch (e) {
+      callback(e);
+    }
+  });
+}
+
+function sendJson(res, status, obj) {
+  res.writeHead(status, {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "GET,POST,OPTIONS"
+  });
+  res.end(JSON.stringify(obj));
+}
+
+const httpServer = http.createServer((req, res) => {
+  const url = new URL(req.url, "http://placeholder");
+  const pathName = url.pathname;
+
+  if (req.method === "OPTIONS") {
+    sendJson(res, 204, {});
+    return;
+  }
+
+  if (pathName === "/" && req.method === "GET") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Bot Wars server is running.");
+    return;
+  }
+
+  // ---- SIGN UP ---------------------------------------------------------
+  if (pathName === "/api/signup" && req.method === "POST") {
+    readJsonBody(req, (err, body) => {
+      if (err) return sendJson(res, 400, { ok: false, message: "Bad request." });
+
+      const username = String(body.username || "").trim();
+      const password = String(body.password || "");
+      const email = String(body.email || "").trim();
+      const key = username.toLowerCase();
+
+      if (!isValidUsername(username)) {
+        return sendJson(res, 400, { ok: false, message: "Username must be 3-20 characters: letters, numbers, underscore." });
+      }
+      if (!isValidPassword(password)) {
+        return sendJson(res, 400, { ok: false, message: "Password must be more than 8 characters and include letters and numbers." });
+      }
+      if (!isValidEmail(email)) {
+        return sendJson(res, 400, { ok: false, message: "Enter a valid email address." });
+      }
+      if (accounts[key]) {
+        return sendJson(res, 400, { ok: false, message: "That username is already taken." });
+      }
+      if (findAccountByEmail(email)) {
+        return sendJson(res, 400, { ok: false, message: "That email is already registered." });
+      }
+
+      const salt = crypto.randomBytes(16).toString("hex");
+      const verifyToken = makeToken();
+
+      accounts[key] = {
+        username,
+        email,
+        passwordSalt: salt,
+        passwordHash: hashPassword(password, salt),
+        verified: false,
+        verifyToken,
+        resetToken: null,
+        resetTokenExpires: 0,
+        save: null
+      };
+      saveAccounts();
+
+      // TODO(EMAIL): email `email` this link instead of returning it.
+      const verifyLink = baseUrlFromReq(req) + "/api/verify?token=" + verifyToken;
+      sendJson(res, 200, { ok: true, verifyLink });
+    });
+    return;
+  }
+
+  // ---- CONFIRM ACCOUNT (the link from the signup email) ---------------
+  if (pathName === "/api/verify" && req.method === "GET") {
+    const token = url.searchParams.get("token");
+    const account = Object.values(accounts).find((a) => a.verifyToken === token);
+
+    if (!account) return sendJson(res, 400, { ok: false, message: "Invalid or expired confirmation link." });
+
+    account.verified = true;
+    account.verifyToken = null;
+    saveAccounts();
+    sendJson(res, 200, { ok: true });
+    return;
+  }
+
+  // ---- LOG IN ------------------------------------------------------------
+  if (pathName === "/api/login" && req.method === "POST") {
+    readJsonBody(req, (err, body) => {
+      if (err) return sendJson(res, 400, { ok: false, message: "Bad request." });
+
+      const username = String(body.username || "").trim();
+      const password = String(body.password || "");
+      const key = username.toLowerCase();
+      const account = accounts[key];
+
+      if (!account) return sendJson(res, 400, { ok: false, message: "No account with that username." });
+      if (!account.verified) return sendJson(res, 400, { ok: false, message: "Confirm your email before logging in." });
+
+      const hash = hashPassword(password, account.passwordSalt);
+      if (hash !== account.passwordHash) {
+        return sendJson(res, 400, { ok: false, message: "Wrong password." });
+      }
+
+      const sessionToken = makeToken();
+      sessions.set(sessionToken, key);
+
+      sendJson(res, 200, {
+        ok: true,
+        username: account.username,
+        sessionToken,
+        save: account.save // player's last progress, or null if brand-new
+      });
+    });
+    return;
+  }
+
+  // ---- SAVE PROGRESS (client calls this while signed in, any time its
+  // local save data changes) ---------------------------------------------
+  if (pathName === "/api/save" && req.method === "POST") {
+    readJsonBody(req, (err, body) => {
+      if (err) return sendJson(res, 400, { ok: false, message: "Bad request." });
+
+      const key = sessions.get(body.sessionToken);
+      if (!key || key !== String(body.username || "").trim().toLowerCase()) {
+        return sendJson(res, 401, { ok: false, message: "Not logged in." });
+      }
+
+      accounts[key].save = body.save || {};
+      saveAccounts();
+      sendJson(res, 200, { ok: true });
+    });
+    return;
+  }
+
+  // ---- FORGOT PASSWORD ---------------------------------------------------
+  if (pathName === "/api/forgot" && req.method === "POST") {
+    readJsonBody(req, (err, body) => {
+      if (err) return sendJson(res, 400, { ok: false, message: "Bad request." });
+
+      const identifier = String(body.identifier || "").trim();
+      const account = accounts[identifier.toLowerCase()] || findAccountByEmail(identifier);
+
+      if (!account) {
+        // Don't reveal whether that username/email exists.
+        return sendJson(res, 200, { ok: true });
+      }
+
+      const resetToken = makeToken();
+      account.resetToken = resetToken;
+      account.resetTokenExpires = Date.now() + 30 * 60 * 1000; // 30 minutes
+      saveAccounts();
+
+      // TODO(EMAIL): email account.email this link instead of returning it.
+      // (Purely a display link — the token in it is read client-side and
+      // sent to /api/reset; nothing needs to GET this URL.)
+      const resetLink = baseUrlFromReq(req) + "/reset-password?token=" + resetToken;
+      sendJson(res, 200, { ok: true, resetLink, email: account.email });
+    });
+    return;
+  }
+
+  // ---- RESET PASSWORD -----------------------------------------------------
+  if (pathName === "/api/reset" && req.method === "POST") {
+    readJsonBody(req, (err, body) => {
+      if (err) return sendJson(res, 400, { ok: false, message: "Bad request." });
+
+      const token = String(body.token || "");
+      const newPassword = String(body.newPassword || "");
+      const account = Object.values(accounts).find(
+        (a) => a.resetToken === token && a.resetTokenExpires > Date.now()
+      );
+
+      if (!account) return sendJson(res, 400, { ok: false, message: "Invalid or expired reset link." });
+      if (!isValidPassword(newPassword)) {
+        return sendJson(res, 400, { ok: false, message: "Password must be more than 8 characters and include letters and numbers." });
+      }
+
+      const salt = crypto.randomBytes(16).toString("hex");
+      account.passwordSalt = salt;
+      account.passwordHash = hashPassword(newPassword, salt);
+      account.resetToken = null;
+      account.resetTokenExpires = 0;
+      saveAccounts();
+
+      sendJson(res, 200, { ok: true });
+    });
+    return;
+  }
+
+  sendJson(res, 404, { ok: false, message: "Not found." });
+});
+
+// -----------------------------------------------------------------------
+// WEBSOCKET — attached to the same HTTP server/port as the API above
+// -----------------------------------------------------------------------
+const wss = new WebSocket.Server({ server: httpServer });
+
+httpServer.listen(PORT, () => {
+  console.log("Bot Wars server (HTTP API + WS) listening on port " + PORT);
+});
+
+// -----------------------------------------------------------------------
+// STATE (rooms / gameplay relay — unchanged from before)
 // -----------------------------------------------------------------------
 // Every connected socket gets a unique numeric id.
 let nextClientId = 1;
@@ -191,18 +483,13 @@ wss.on("connection", (ws) => {
   const client = {
     ws,
     id,
-
-    username: null,
-
     roomCode: null,
     character: null,
-
     x: 0,
     y: 0,
-
     health: 100,
     alive: true
-};
+  };
   clients.set(id, client);
 
   send(client, { type: "init", id });
@@ -216,56 +503,7 @@ wss.on("connection", (ws) => {
     }
 
     switch (msg.type) {
-// ---- ACCOUNT SYSTEM --------------------------------
 
-case "register": {
-
-    const result = createPlayer(
-        msg.username,
-        msg.password,
-        msg.email
-    );
-
-    send(client,{
-        type:"registerResult",
-        result
-    });
-
-    break;
-}
-
-
-case "login": {
-
-    const result = loginPlayer(
-        msg.username,
-        msg.password
-    );
-
-
-    if(result.success){
-
-        client.username = msg.username;
-
-
-        send(client,{
-            type:"loginSuccess",
-            player: result.player
-        });
-
-
-    }else{
-
-        send(client,{
-            type:"loginFailed",
-            message:result.message
-        });
-
-    }
-
-
-    break;
-}
       // ---- ROOM LIFECYCLE -------------------------------------------
       case "createRoom": {
         // Player becomes the host of a brand-new room, slot 1.
