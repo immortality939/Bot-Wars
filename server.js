@@ -1,7 +1,7 @@
 // =============================================================================
 // Bot Wars — Online Multiplayer Server (v3: accounts + rooms + boss fights)
 // =============================================================================
-// This file now does two jobs on the same port :
+// This file now does two jobs on the same port:
 //
 //   1) A small HTTP JSON API for player accounts:
 //        POST /api/signup   — create an account (unverified until confirmed)
@@ -32,11 +32,19 @@
 // at this file. It reads PORT from the environment like the old one did.
 // =============================================================================
 
-const http = require("http");
-const crypto = require("crypto");
-const fs = require("fs");
-const path = require("path");
-const WebSocket = require("ws");
+import http from "http";
+import crypto from "crypto";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import WebSocket from "ws";
+
+// Your package.json has "type": "module", so this file is loaded as an
+// ES module — that's why we use import instead of require() above.
+// ES modules don't get __dirname for free like CommonJS files do, so
+// it's derived here from the module's own URL instead.
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 8080;
 
