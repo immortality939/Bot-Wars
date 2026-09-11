@@ -19,10 +19,19 @@
 // at this file. It reads PORT from the environment like the old one did.
 // =============================================================================
 
-import { WebSocketServer, WebSocket } from "ws";
+import WebSocket from "ws";
+
+import {
+    createPlayer,
+    loginPlayer,
+    savePlayer,
+    getPlayer
+} from "./database.js";
+
+
 
 const PORT = process.env.PORT || 8080;
-const wss = new WebSocketServer({ port: PORT });
+const wss = new WebSocket.Server({ port: PORT });
 
 console.log("Bot Wars server listening on port " + PORT);
 
@@ -182,13 +191,18 @@ wss.on("connection", (ws) => {
   const client = {
     ws,
     id,
+
+    username: null,
+
     roomCode: null,
     character: null,
+
     x: 0,
     y: 0,
+
     health: 100,
     alive: true
-  };
+};
   clients.set(id, client);
 
   send(client, { type: "init", id });
@@ -202,7 +216,56 @@ wss.on("connection", (ws) => {
     }
 
     switch (msg.type) {
+// ---- ACCOUNT SYSTEM --------------------------------
 
+case "register": {
+
+    const result = createPlayer(
+        msg.username,
+        msg.password,
+        msg.email
+    );
+
+    send(client,{
+        type:"registerResult",
+        result
+    });
+
+    break;
+}
+
+
+case "login": {
+
+    const result = loginPlayer(
+        msg.username,
+        msg.password
+    );
+
+
+    if(result.success){
+
+        client.username = msg.username;
+
+
+        send(client,{
+            type:"loginSuccess",
+            player: result.player
+        });
+
+
+    }else{
+
+        send(client,{
+            type:"loginFailed",
+            message:result.message
+        });
+
+    }
+
+
+    break;
+}
       // ---- ROOM LIFECYCLE -------------------------------------------
       case "createRoom": {
         // Player becomes the host of a brand-new room, slot 1.
