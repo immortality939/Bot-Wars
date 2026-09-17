@@ -1,138 +1,88 @@
+// category: "weapon" marks a weapon as lootable — it can be put in the
+// storage grid inventory and can be dropped by an enemy bot when it dies
+// (add its name to a bot's spawnItem list in bot.js, e.g. spawnItem:
+// "shield,speedup,powerup,health,ak47"). spawnChance is that weapon's own
+// independent drop-roll chance (0.5 = 50%), same system item.js already
+// uses for spawnItem/spawnChance on regular pickups (see item.js).
+//
+// CONNECTED STATS — physicalDamage above already combines with the
+// character's own physicalDamage at attack-time (see getAttackDamage() in
+// character.js). Any of these other stats are also optional on a weapon
+// entry (or an armor.js entry) — if set, character.js's
+// combineEquipmentStats() adds it straight onto the matching character
+// stat the moment the weapon is equipped, plain addition (e.g. hpRegen:
+// 0.3 on a character already at hpRegen: 0.01 becomes 0.31):
+//   magicalAttack, criticalChance, criticalDamage, mana, movementSpeed,
+//   physicalDefense, magicalDefense, hpRegen, manaRegen,
+//   vit, dex, int, pow (see character.js's applyAttributeBonus() for
+//   what vit/dex/int/pow convert into).
+// None of these are set on the entries below yet — add whichever ones a
+// given weapon should grant.
 const WEAPONS = {
 
   uzi: {
     name: "uzi",
 
-    damage: 4,
-
-    fireRate: 10,
-
-    reloadTime: 2000,
-
-    bulletSpeed: 500,
-
-    magazine: 25,
-    maxMagazine: 25,
-
-    fireSound: "uzi.ogg",
-
-    hitEffect: "9mm",
-
-    recoil: 0.05,
-
-    muzzleFlash: {
-      image: "muzzleflash.png",
-      frameWidth: 268,
-      frameHeight: 140,
-      numFrames: 3,
-      fps: 25,
-      width: 20,
-      height: 20,
-      scale: 1
-    }
+    physicalDamage: 15,
+    physicalDefense:5,
+    // knockback: how far (world units) an enemy standing dead-center of
+    // the blast gets shoved back. Falls off toward the edge of the old
+    // AoE radius the same way damage does — see getAoeFalloff() in
+    // game.js — so a bot right at the edge only gets a light shove, not
+    // the full push.
+    knockback: 12,
+    imagerange: "image/maxrange.png",
+    imageradius: "image/radius.png",
+    pow:0,
+    category: "weapon",
+    spawnChance: 1.0,
+    description: "a rapid fire gun with a very light damage and small capacity of magazine",
   },
 
 
   ak47: {
     name: "ak47",
 
-    damage: 400,
+    physicalDamage: 15,
 
-    fireRate: 7,
+    knockback: 18,
+    imagerange: "image/maxrange.png",
+    imageradius: "image/radius.png",
 
-    reloadTime: 2000,
-
-    bulletSpeed: 500,
-
-    magazine: 35,
-    maxMagazine: 35,
-
-    fireSound: "ak47.ogg",
-
-    hitEffect: "9mm",
-
-    recoil: 0.12,
-
-    muzzleFlash: {
-      image: "muzzleflash.png",
-      frameWidth: 32,
-      frameHeight: 32,
-      numFrames: 6,
-      fps: 60,
-      width: 48,
-      height: 48,
-      scale: 1
-    }
+    category: "weapon",
+    spawnChance: 0.5,
   },
 
 
-  pistol: {
-    name: "pistol",
+  sniper: {
+    name: "sniper",
 
-    damage: 8,
+    physicalDamage: 40,
 
-    fireRate: 4,
+    knockback: 30,
+    imagerange: "image/maxrange.png",
+    imageradius: "image/radius.png",
 
-    reloadTime: 1500,
-
-    bulletSpeed: 600,
-
-    magazine: 12,
-    maxMagazine: 12,
-
-    fireSound: "pistol.ogg",
-
-    hitEffect: "9mm",
-
-    recoil: 2,
-
-    muzzleFlash: {
-      image: "muzzleflash.png",
-      frameWidth: 32,
-      frameHeight: 32,
-      numFrames: 6,
-      fps: 60,
-      width: 48,
-      height: 48,
-      scale: 1
-    }
+    category: "weapon",
+    spawnChance: 0.5,
   },
 
 
   shotgun: {
     name: "shotgun",
 
-    damage: 6,
+    physicalDamage: 600,
 
-    fireRate: 2,
-
-    reloadTime: 2500,
-
-    bulletSpeed: 450,
+    knockback: 35,
+    imagerange: "image/maxrange.png",
+    imageradius: "image/radius.png",
 
     pellets: 5,
 
     spread: 0.25,
 
-    magazine: 6,
-    maxMagazine: 6,
-
-    fireSound: "shotgun.ogg",
-
-    hitEffect: "shotgun",
-
-    recoil: 0.2,
-
-    muzzleFlash: {
-      image: "muzzleflash.png",
-      frameWidth: 268,
-      frameHeight: 140,
-      numFrames: 3,
-      fps: 60,
-      width: 20,
-      height: 20,
-      scale: 1
-    }
+    category: "weapon",
+    spawnChance: 0.5,
   }
 
 };
