@@ -19,12 +19,203 @@
 // at this file. It reads PORT from the environment like the old one did.
 // =============================================================================
 
+const http = require("http");
+const crypto = require("crypto");
 const WebSocket = require("ws");
 
 const PORT = process.env.PORT || 8080;
-const wss = new WebSocket.Server({ port: PORT });
 
-console.log("Bot Wars server listening on port " + PORT);
+// -----------------------------------------------------------------------
+// MAP DOWNLOAD SYSTEM
+// -----------------------------------------------------------------------
+
+const mapDownloads = new Map();
+const MAP_DOWNLOAD_TTL = 10 * 60 * 1000; // 10 minutes
+const MAX_MAP_SIZE = 2 * 1024 * 1024; // 2 MB
+
+function cleanMapFileName(name) {
+  const cleaned = String(name || "map")
+    .replace(/[^a-zA-Z0-9 _-]/g, "")
+    .trim()
+    .replace(/\s+/g, "_");
+
+  return (cleaned || "map").slice(0, 100) + ".js";
+}
+
+const httpServer = http.createServer((req, res) => {
+
+  // -------------------------------------------------------------
+  // CREATE MAP DOWNLOAD
+  // -------------------------------------------------------------
+  if (req.method === "POST" && req.url === "/download-map") {
+
+    let body = "";
+    let bodySize = 0;
+
+    req.on("data", (chunk) => {
+      bodySize += chunk.length;
+
+      if (bodySize > MAX_MAP_SIZE) {
+        req.destroy();
+        return;
+      }
+
+      body += chunk.toString("utf8");
+    });
+
+    req.on("end", () => {
+
+      try {
+        const data = JSON.parse(body);
+
+        if (typeof data.content !== "string") {
+          res.writeHead(400, {
+            "Content-Type": "application/json"
+          });
+
+          res.end(JSON.stringify({
+            error: "Invalid map content."
+          }));
+
+          return;
+        }
+
+        if (
+          Buffer.byteLength(data.content, "utf8") >
+          MAX_MAP_SIZE
+        ) {
+          res.writeHead(413, {
+            "Content-Type": "application/json"
+          });
+
+          res.end(JSON.stringify({
+            error: "Map file is too large."
+          }));
+
+          return;
+        }
+
+        const token = crypto
+          .randomBytes(16)
+          .toString("hex");
+
+        const fileName = cleanMapFileName(
+          data.fileName
+        );
+
+        mapDownloads.set(token, {
+          content: data.content,
+          fileName: fileName,
+          expires: Date.now() + MAP_DOWNLOAD_TTL
+        });
+
+        res.writeHead(200, {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-store"
+        });
+
+        res.end(JSON.stringify({
+          url: "/download-map/" + token
+        }));
+
+      } catch (err) {
+
+        res.writeHead(400, {
+          "Content-Type": "application/json"
+        });
+
+        res.end(JSON.stringify({
+          error: "Invalid request."
+        }));
+      }
+    });
+
+    return;
+  }
+
+
+  // -------------------------------------------------------------
+  // ACTUAL MAP FILE DOWNLOAD
+  // -------------------------------------------------------------
+  if (
+    req.method === "GET" &&
+    req.url.startsWith("/download-map/")
+  ) {
+
+    const token = req.url
+      .slice("/download-map/".length)
+      .split("?")[0];
+
+    const download = mapDownloads.get(token);
+
+    if (
+      !download ||
+      download.expires < Date.now()
+    ) {
+
+      mapDownloads.delete(token);
+
+      res.writeHead(404, {
+        "Content-Type": "text/plain; charset=utf-8"
+      });
+
+      res.end("Download expired or not found.");
+
+      return;
+    }
+
+    mapDownloads.delete(token);
+
+    const fileBuffer = Buffer.from(
+      download.content,
+      "utf8"
+    );
+
+    res.writeHead(200, {
+      "Content-Type":
+        "application/javascript; charset=utf-8",
+
+      "Content-Disposition":
+        'attachment; filename="' +
+        download.fileName +
+        '"',
+
+      "Content-Length":
+        fileBuffer.length,
+
+      "Cache-Control":
+        "no-store"
+    });
+
+    res.end(fileBuffer);
+
+    return;
+  }
+
+
+  // -------------------------------------------------------------
+  // UNKNOWN HTTP REQUEST
+  // -------------------------------------------------------------
+  res.writeHead(404, {
+    "Content-Type":
+      "text/plain; charset=utf-8"
+  });
+
+  res.end("Not found.");
+});
+
+
+// IMPORTANT:
+// WebSocket now uses the same HTTP server.
+const wss = new WebSocket.Server({
+  server: httpServer
+});
+
+httpServer.listen(PORT, () => {
+  console.log(
+    "Bot Wars server listening on port " + PORT
+  );
+});
 
 // -----------------------------------------------------------------------
 // STATE

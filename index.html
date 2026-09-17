@@ -5763,41 +5763,149 @@
     mapEditorGenerateBtn.addEventListener("click", openMapGeneratePopup);
     mapGenerateCancelBtn.addEventListener("click", closeMapGeneratePopup);
 
-    mapGenerateDownloadBtn.addEventListener("click", () => {
-      const typedName = mapGenerateNameInput.value.trim();
-      const safeName = (typedName.replace(/[^a-zA-Z0-9 _-]/g, "").trim().replace(/\s+/g, "_")) || "map";
-      const fileName = safeName + ".js";
+    mapGenerateDownloadBtn.addEventListener("click", async () => {
 
-      const obstacleLines = mapEditorObstacles.map((o) =>
-        "    { x: " + Math.round(o.x) + ", y: " + Math.round(o.y) +
-        ", width: " + Math.round(o.width) + ", height: " + Math.round(o.height) +
-        ", type: \"" + o.type + "\" }"
-      ).join(",\n");
+  const typedName =
+    mapGenerateNameInput.value.trim();
 
-      const fileContent =
-        "// " + safeName + " — built with Map Maker\n" +
-        "const CUSTOM_MAP = {\n" +
-        "  name: \"" + safeName + "\",\n" +
-        "  worldWidth: " + Math.round(mapEditorWidth) + ",\n" +
-        "  worldHeight: " + Math.round(mapEditorHeight) + ",\n" +
-        "  obstacles: [\n" + obstacleLines + "\n  ]\n" +
-        "};\n\n" +
-        "if (typeof module !== \"undefined\" && module.exports) {\n" +
-        "  module.exports = CUSTOM_MAP;\n" +
-        "}\n";
+  const safeName =
+    (
+      typedName
+        .replace(/[^a-zA-Z0-9 _-]/g, "")
+        .trim()
+        .replace(/\s+/g, "_")
+    ) || "map";
 
-      const blob = new Blob([fileContent], { type: "text/javascript" });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = fileName;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      setTimeout(() => URL.revokeObjectURL(url), 2000);
+  const fileName = safeName + ".js";
 
-      closeMapGeneratePopup();
-    });
+
+  // -------------------------------------------------------------
+  // BUILD OBSTACLE DATA
+  // -------------------------------------------------------------
+
+  const obstacleLines =
+    mapEditorObstacles.map((o) =>
+      "    { x: " +
+      Math.round(o.x) +
+      ", y: " +
+      Math.round(o.y) +
+      ", width: " +
+      Math.round(o.width) +
+      ", height: " +
+      Math.round(o.height) +
+      ", type: \"" +
+      o.type +
+      "\" }"
+    ).join(",\n");
+
+
+  // -------------------------------------------------------------
+  // BUILD MAP FILE
+  // -------------------------------------------------------------
+
+  const fileContent =
+    "// " +
+    safeName +
+    " — built with Map Maker\n" +
+
+    "const CUSTOM_MAP = {\n" +
+
+    "  name: \"" +
+    safeName +
+    "\",\n" +
+
+    "  worldWidth: " +
+    Math.round(mapEditorWidth) +
+    ",\n" +
+
+    "  worldHeight: " +
+    Math.round(mapEditorHeight) +
+    ",\n" +
+
+    "  obstacles: [\n" +
+
+    obstacleLines +
+
+    "\n  ]\n" +
+
+    "};\n\n" +
+
+    "if (typeof module !== \"undefined\" && module.exports) {\n" +
+
+    "  module.exports = CUSTOM_MAP;\n" +
+
+    "}\n";
+
+
+  // -------------------------------------------------------------
+  // SEND MAP TO SERVER
+  // -------------------------------------------------------------
+
+  try {
+
+    const response = await fetch(
+      "/download-map",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type":
+            "application/json"
+        },
+
+        body: JSON.stringify({
+          fileName: fileName,
+          content: fileContent
+        })
+      }
+    );
+
+
+    if (!response.ok) {
+      throw new Error(
+        "Download server error"
+      );
+    }
+
+
+    const data =
+      await response.json();
+
+
+    // -----------------------------------------------------------
+    // START REAL HTTP DOWNLOAD
+    // -----------------------------------------------------------
+
+    const link =
+      document.createElement("a");
+
+    link.href = data.url;
+
+    link.download = fileName;
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    link.remove();
+
+
+    // Close popup after starting download
+    closeMapGeneratePopup();
+
+
+  } catch (err) {
+
+    console.error(
+      "Map download failed:",
+      err
+    );
+
+    alert(
+      "Map download failed. Please try again."
+    );
+  }
+});
 
     // ---- Open/close from the Loadout hub — same pattern as openCdm()/
     // closeCdm() above. Opening always starts from a blank slate. ----
