@@ -21,7 +21,7 @@
 
 import http from "http";
 import crypto from "crypto";
-import WebSocket from "ws";
+import WebSocket, { WebSocketServer } from "ws";
 
 const PORT = process.env.PORT || 8080;
 
@@ -207,7 +207,7 @@ const httpServer = http.createServer((req, res) => {
 
 // IMPORTANT:
 // WebSocket now uses the same HTTP server.
-const wss = new WebSocket.Server({
+const wss = new WebSocketServer({
   server: httpServer
 });
 
