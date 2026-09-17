@@ -19,9 +19,9 @@
 // at this file. It reads PORT from the environment like the old one did.
 // =============================================================================
 
-const http = require("http");
-const crypto = require("crypto");
-const WebSocket = require("ws");
+import http from "http";
+import crypto from "crypto";
+import WebSocket from "ws";
 
 const PORT = process.env.PORT || 8080;
 
