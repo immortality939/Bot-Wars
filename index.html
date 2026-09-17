@@ -5765,16 +5765,13 @@
 
     mapGenerateDownloadBtn.addEventListener("click", async () => {
 
-  const typedName =
-    mapGenerateNameInput.value.trim();
+  const typedName = mapGenerateNameInput.value.trim();
 
   const safeName =
-    (
-      typedName
-        .replace(/[^a-zA-Z0-9 _-]/g, "")
-        .trim()
-        .replace(/\s+/g, "_")
-    ) || "map";
+    (typedName
+      .replace(/[^a-zA-Z0-9 _-]/g, "")
+      .trim()
+      .replace(/\s+/g, "_")) || "map";
 
   const fileName = safeName + ".js";
 
@@ -5783,20 +5780,13 @@
   // BUILD OBSTACLE DATA
   // -------------------------------------------------------------
 
-  const obstacleLines =
-    mapEditorObstacles.map((o) =>
-      "    { x: " +
-      Math.round(o.x) +
-      ", y: " +
-      Math.round(o.y) +
-      ", width: " +
-      Math.round(o.width) +
-      ", height: " +
-      Math.round(o.height) +
-      ", type: \"" +
-      o.type +
-      "\" }"
-    ).join(",\n");
+  const obstacleLines = mapEditorObstacles.map((o) =>
+    "    { x: " + Math.round(o.x) +
+    ", y: " + Math.round(o.y) +
+    ", width: " + Math.round(o.width) +
+    ", height: " + Math.round(o.height) +
+    ", type: \"" + o.type + "\" }"
+  ).join(",\n");
 
 
   // -------------------------------------------------------------
@@ -5804,53 +5794,72 @@
   // -------------------------------------------------------------
 
   const fileContent =
-    "// " +
-    safeName +
-    " — built with Map Maker\n" +
-
+    "// " + safeName + " — built with Map Maker\n" +
     "const CUSTOM_MAP = {\n" +
-
-    "  name: \"" +
-    safeName +
-    "\",\n" +
-
-    "  worldWidth: " +
-    Math.round(mapEditorWidth) +
-    ",\n" +
-
-    "  worldHeight: " +
-    Math.round(mapEditorHeight) +
-    ",\n" +
-
+    "  name: \"" + safeName + "\",\n" +
+    "  worldWidth: " + Math.round(mapEditorWidth) + ",\n" +
+    "  worldHeight: " + Math.round(mapEditorHeight) + ",\n" +
     "  obstacles: [\n" +
-
     obstacleLines +
-
     "\n  ]\n" +
-
     "};\n\n" +
-
     "if (typeof module !== \"undefined\" && module.exports) {\n" +
-
     "  module.exports = CUSTOM_MAP;\n" +
-
     "}\n";
 
 
   // -------------------------------------------------------------
-  // SEND MAP TO SERVER
+  // GET THE HTTP ADDRESS OF THE SAME RENDER SERVER
+  // -------------------------------------------------------------
+
+  let downloadServer;
+
+  try {
+
+    if (
+      typeof ws === "undefined" ||
+      !ws ||
+      !ws.url
+    ) {
+      throw new Error("Server connection not available.");
+    }
+
+    downloadServer =
+      new URL(ws.url).origin;
+
+    // Converts:
+    // wss://your-server.onrender.com
+    // into:
+    // https://your-server.onrender.com
+
+  } catch (err) {
+
+    console.error(
+      "Could not find server address:",
+      err
+    );
+
+    alert(
+      "Server connection is not ready. Please try again."
+    );
+
+    return;
+  }
+
+
+  // -------------------------------------------------------------
+  // SEND MAP TO RENDER SERVER
   // -------------------------------------------------------------
 
   try {
 
     const response = await fetch(
-      "/download-map",
+      downloadServer + "/download-map",
       {
         method: "POST",
 
         headers: {
-          "Content-Type":
-            "application/json"
+          "Content-Type": "application/json"
         },
 
         body: JSON.stringify({
@@ -5863,7 +5872,8 @@
 
     if (!response.ok) {
       throw new Error(
-        "Download server error"
+        "Server returned HTTP " +
+        response.status
       );
     }
 
@@ -5872,15 +5882,24 @@
       await response.json();
 
 
+    if (!data.url) {
+      throw new Error(
+        "Server did not return download URL."
+      );
+    }
+
+
     // -----------------------------------------------------------
-    // START REAL HTTP DOWNLOAD
+    // REAL HTTPS DOWNLOAD
     // -----------------------------------------------------------
+
+    const downloadUrl =
+      downloadServer + data.url;
 
     const link =
       document.createElement("a");
 
-    link.href = data.url;
-
+    link.href = downloadUrl;
     link.download = fileName;
 
     document.body.appendChild(link);
@@ -5890,7 +5909,6 @@
     link.remove();
 
 
-    // Close popup after starting download
     closeMapGeneratePopup();
 
 
@@ -5905,6 +5923,7 @@
       "Map download failed. Please try again."
     );
   }
+
 });
 
     // ---- Open/close from the Loadout hub — same pattern as openCdm()/
