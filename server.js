@@ -7,13 +7,50 @@
 // client works out its own damage (the "victim" applies a hit it is sent),
 // so this is fine for playing with friends but is NOT cheat-proof.
 //
+// ONLINE GAME DATA: the numbers used in online mode (weapons, armor,
+// characters, skills, ...) live in the ./server/*_server.js files. They are
+// loaded here and sent to each player inside the "init" message, so they are
+// never downloaded as editable files. Offline mode keeps using the public
+// armor.js / weapon.js / ... files.
+//
 // Run:  npm install && npm start        (PORT env var, default 8080)
 // =============================================================================
+
+// The *_server.js files are copies of the game's browser files, so give Node
+// harmless stand-ins for the few browser globals they touch when loading.
+global.window = global.window || {};
+global.Image = global.Image || function () {};
+global.Audio = global.Audio || function () {};
+global.document = global.document || {
+  createElement() { return { style: {}, getContext() { return {}; } }; },
+  getElementById() { return null; }
+};
+
 const http = require("http");
 const { WebSocketServer } = require("ws");
 
+// ---- ONLINE GAME DATA (edit the *_server.js files, not this) ----------------
+const GAME_DATA = Object.assign(
+  {},
+  require("./server/weapon_server.js"),
+  require("./server/armor_server.js"),
+  require("./server/attackmode_server.js"),
+  require("./server/character_server.js"),
+  require("./server/skill_server.js"),
+  require("./server/upgrade_server.js"),
+  require("./server/shop_server.js"),
+  require("./server/item_server.js"),
+  require("./server/level_server.js")
+);
+JSON.stringify(GAME_DATA); // fail loudly at startup if anything isn't plain data
+console.log("Online game data loaded: " + Object.keys(GAME_DATA).join(", "));
+
 const PORT = process.env.PORT || 8080;
 const MAX_PLAYERS = 8;
+
+// Safety net against absurd hits (tune if a legit skill ever needs more).
+const MAX_DAMAGE_PER_HIT = 5000;
+const MAX_HITS_PER_SECOND = 60;   // per attacker; extra hits are dropped
 
 // Plain HTTP response so hosts (Render etc.) can health-check the service.
 const server = http.createServer((req, res) => {
@@ -66,21 +103,25 @@ wss.on("connection", (ws) => {
         return;
       }
       const id = nextId++;
+      const chars = GAME_DATA.CHARACTERS || {};
+      const wanted = String(msg.character || "soldier").slice(0, 24);
       me = {
         id, ws,
         name: "Player " + id,
-        character: String(msg.character || "soldier").slice(0, 24),
+        character: chars[wanted] ? wanted : (Object.keys(chars)[0] || "soldier"),
         x: 0, y: 0,
         health: 100, maxHealth: 100,
         alive: true,
-        level: 1
+        level: 1,
+        hitWindowStart: 0, hitCount: 0
       };
       players.set(id, me);
       send(ws, {
         type: "init",
         id,
         name: me.name,
-        players: [...players.values()].filter((p) => p.id !== id).map(publicInfo)
+        players: [...players.values()].filter((p) => p.id !== id).map(publicInfo),
+        data: GAME_DATA   // the online numbers (from the *_server.js files)
       });
       broadcast({ type: "playerAdd", player: publicInfo(me) }, id);
       console.log(`+ ${me.name} (${me.character}) — ${players.size} online`);
@@ -117,11 +158,17 @@ wss.on("connection", (ws) => {
       case "hit": {
         const target = players.get(num(msg.targetId, -1));
         if (!target || target.id === me.id) break;
+
+        // rate limit per attacker
+        const now = Date.now();
+        if (now - me.hitWindowStart >= 1000) { me.hitWindowStart = now; me.hitCount = 0; }
+        if (++me.hitCount > MAX_HITS_PER_SECOND) break;
+
         send(target.ws, {
           type: "hit",
           from: me.id,
-          physicalDamage: Math.max(0, num(msg.physicalDamage)),
-          magicalDamage: Math.max(0, num(msg.magicalDamage)),
+          physicalDamage: Math.min(MAX_DAMAGE_PER_HIT, Math.max(0, num(msg.physicalDamage))),
+          magicalDamage: Math.min(MAX_DAMAGE_PER_HIT, Math.max(0, num(msg.magicalDamage))),
           isCritical: !!msg.isCritical,
           srcX: num(msg.srcX), srcY: num(msg.srcY),
           knockback: Math.max(0, Math.min(200, num(msg.knockback)))
