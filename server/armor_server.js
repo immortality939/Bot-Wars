@@ -104,7 +104,7 @@ const ARMOR_TYPES = {
     name: "armor2",
     image: "image/armor2.png",
     radius: 10,
-
+    health:400,
     physicalDefense: 3,
     health: 300,
 
