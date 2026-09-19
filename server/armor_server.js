@@ -87,7 +87,7 @@ const ARMOR_TYPES = {
     dex:2,
     int:2,
     mana: 200,
-    health:2000,
+    health:200,
     pow:10,
     hpRegen: 0.1,
     manaRegen: 0.01,
