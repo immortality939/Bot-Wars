@@ -1,10 +1,13 @@
 {
-  "name": "shooter-multiplayer",
+  "name": "bot-wars-server",
   "version": "1.0.0",
-  "type": "module",
+  "description": "Bot-Wars game server: accounts, rooms and coop boss fight",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "dependencies": {
     "ws": "^8.18.0"
