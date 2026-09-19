@@ -518,13 +518,22 @@ window.startGameOnline = async function (characterName) {
   if (typeof applyEquippedSkillsToPlayer === "function") applyEquippedSkillsToPlayer();
 
   netSpawnProtectUntil = performance.now() + NET_SPAWN_PROTECT_MS;
-  netStateTimer = 0;
-  netSendState();
-  return true;
+netStateTimer = 0;
+netSendState();
+
+if (typeof startOnlineAutoSave === "function") {
+  startOnlineAutoSave();
+}
+
+return true;
 };
 
 // Leave the arena and close the connection (EXIT button / disconnect).
 window.exitOnlineGame = function () {
+  saveOnlinePlayerData();
+  stopOnlineAutoSave();
+
+  // existing lines...
   if (netRespawnInterval) {
     clearInterval(netRespawnInterval);
     netRespawnInterval = null;
@@ -543,3 +552,445 @@ window.exitOnlineGame = function () {
   gameMode = null;
   netStatus("");
 };
+// =============================================================================
+// ONLINE ACCOUNT SYSTEM — Supabase
+// =============================================================================
+
+let onlineAccountScreen = null;
+
+console.log("ONLINE.JS: account section reached");
+
+// ============================================================
+// SUPABASE ONLINE PLAYER DATA
+// ============================================================
+
+async function loadOnlinePlayerData() {
+  if (!window.supabaseClient) {
+    console.log("Supabase client not loaded.");
+    return false;
+  }
+
+  const {
+    data: { user },
+    error: userError
+  } = await window.supabaseClient.auth.getUser();
+
+  if (userError || !user) {
+    console.log("No online user to load.");
+    return false;
+  }
+
+  try {
+    const { data, error } = await window.supabaseClient
+      .from("player_data")
+      .select("game_data")
+      .eq("id", user.id)
+      .maybeSingle();
+
+    if (error) {
+      console.error("Load online player data error:", error);
+      return false;
+    }
+
+    if (data && data.game_data) {
+      if (typeof window.applyLoadedSaveData === "function") {
+        window.applyLoadedSaveData(data.game_data);
+      }
+
+      console.log("Online player data loaded.");
+      return true;
+    }
+
+    // First time this account is being used.
+    // Create its player_data row using the current local progress.
+    if (typeof window.captureSaveData === "function") {
+      const initialSaveData = window.captureSaveData();
+
+      const { error: insertError } = await window.supabaseClient
+        .from("player_data")
+        .insert({
+          id: user.id,
+          username: user.email || "",
+          game_data: initialSaveData
+        });
+
+      if (insertError) {
+        console.error("Create online player data error:", insertError);
+        return false;
+      }
+
+      console.log("New online player data created.");
+      return true;
+    }
+
+    console.log("No saved online player data yet.");
+    return false;
+
+  } catch (err) {
+    console.error("Load online player data exception:", err);
+    return false;
+  }
+}
+
+
+async function saveOnlinePlayerData() {
+  if (!window.supabaseClient) {
+    console.log("Supabase client not loaded.");
+    return false;
+  }
+
+  const {
+    data: { user },
+    error: userError
+  } = await window.supabaseClient.auth.getUser();
+
+  if (userError || !user) {
+    console.log("No online user to save.");
+    return false;
+  }
+
+  if (typeof window.captureSaveData !== "function") {
+    console.log("captureSaveData() is not available.");
+    return false;
+  }
+
+  try {
+    const saveData = window.captureSaveData();
+
+    const { error } = await window.supabaseClient
+      .from("player_data")
+      .upsert({
+        id: user.id,
+        username: user.email || "",
+        game_data: saveData
+      }, {
+        onConflict: "id"
+      });
+
+    if (error) {
+      console.error("Save online player data error:", error);
+      return false;
+    }
+
+    console.log("Online player data saved.");
+    return true;
+
+  } catch (err) {
+    console.error("Save online player data exception:", err);
+    return false;
+  }
+}
+
+
+window.loadOnlinePlayerData = loadOnlinePlayerData;
+window.saveOnlinePlayerData = saveOnlinePlayerData;
+
+// ============================================================
+// AUTOMATIC ONLINE SAVE
+// ============================================================
+
+let onlineAutoSaveTimer = null;
+
+function startOnlineAutoSave() {
+  stopOnlineAutoSave();
+
+  onlineAutoSaveTimer = setInterval(() => {
+    if (window.getGameMode && window.getGameMode() === "online") {
+      saveOnlinePlayerData();
+    }
+  }, 30000);
+}
+
+function stopOnlineAutoSave() {
+  if (onlineAutoSaveTimer) {
+    clearInterval(onlineAutoSaveTimer);
+    onlineAutoSaveTimer = null;
+  }
+}
+
+window.startOnlineAutoSave = startOnlineAutoSave;
+window.stopOnlineAutoSave = stopOnlineAutoSave;
+
+function openOnlineAccountScreen() {
+  if (onlineAccountScreen) {
+    onlineAccountScreen.style.display = "flex";
+    return;
+  }
+
+  onlineAccountScreen = document.createElement("div");
+  onlineAccountScreen.id = "onlineAccountScreen";
+  onlineAccountScreen.style.cssText =
+    "position:fixed;inset:0;z-index:30000;background:#050505;color:#fff;" +
+    "display:flex;align-items:center;justify-content:center;" +
+    "font-family:'Courier New',monospace;padding:20px;box-sizing:border-box;";
+
+  onlineAccountScreen.innerHTML = `
+    <div style="
+      width:min(420px,100%);
+      background:#101010;
+      border:2px solid #4df;
+      border-radius:12px;
+      box-shadow:0 0 25px rgba(68,221,255,.35);
+      padding:24px;
+      box-sizing:border-box;
+    ">
+      <div style="
+        text-align:center;
+        color:#4df;
+        font-size:24px;
+        font-weight:bold;
+        letter-spacing:3px;
+        margin-bottom:24px;
+      ">ONLINE ACCOUNT</div>
+
+      <input id="onlineEmailInput"
+        type="email"
+        autocomplete="email"
+        placeholder="Email / Gmail"
+        style="
+          width:100%;
+          padding:14px;
+          margin-bottom:12px;
+          box-sizing:border-box;
+          background:#181818;
+          color:#fff;
+          border:1px solid #555;
+          border-radius:6px;
+          font:16px Arial;
+        ">
+
+      <input id="onlinePasswordInput"
+        type="password"
+        autocomplete="current-password"
+        placeholder="Password"
+        style="
+          width:100%;
+          padding:14px;
+          margin-bottom:16px;
+          box-sizing:border-box;
+          background:#181818;
+          color:#fff;
+          border:1px solid #555;
+          border-radius:6px;
+          font:16px Arial;
+        ">
+
+      <button id="onlineLoginBtn" style="
+        width:100%;
+        padding:13px;
+        margin-bottom:10px;
+        background:#168aad;
+        color:#fff;
+        border:0;
+        border-radius:6px;
+        font:bold 16px Arial;
+      ">LOGIN</button>
+
+      <button id="onlineCreateBtn" style="
+        width:100%;
+        padding:13px;
+        margin-bottom:10px;
+        background:#333;
+        color:#fff;
+        border:1px solid #777;
+        border-radius:6px;
+        font:bold 16px Arial;
+      ">CREATE ACCOUNT</button>
+
+      <button id="onlineForgotBtn" style="
+        width:100%;
+        padding:10px;
+        margin-bottom:8px;
+        background:none;
+        color:#4df;
+        border:0;
+        font:14px Arial;
+      ">FORGOT PASSWORD?</button>
+
+      <button id="onlineChangeBtn" style="
+        width:100%;
+        padding:10px;
+        margin-bottom:14px;
+        background:none;
+        color:#aaa;
+        border:0;
+        font:14px Arial;
+      ">CHANGE PASSWORD</button>
+
+      <button id="onlineAccountBackBtn" style="
+        width:100%;
+        padding:11px;
+        background:#222;
+        color:#fff;
+        border:1px solid #555;
+        border-radius:6px;
+        font:bold 14px Arial;
+      ">BACK</button>
+
+      <div id="onlineAccountMessage" style="
+        min-height:20px;
+        margin-top:16px;
+        text-align:center;
+        color:#aaa;
+        font:14px Arial;
+      "></div>
+    </div>
+  `;
+
+  document.body.appendChild(onlineAccountScreen);
+
+  const emailInput = document.getElementById("onlineEmailInput");
+  const passwordInput = document.getElementById("onlinePasswordInput");
+  const message = document.getElementById("onlineAccountMessage");
+
+  function showAccountMessage(text, good = false) {
+    message.textContent = text;
+    message.style.color = good ? "#6f6" : "#ff8888";
+  }
+
+  document.getElementById("onlineLoginBtn").onclick = async () => {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+
+    if (!email || !password) {
+      showAccountMessage("Enter your email and password.");
+      return;
+    }
+
+    showAccountMessage("Logging in...", true);
+
+    const { data, error } = await window.supabaseClient.auth.signInWithPassword({
+      email,
+      password
+    });
+
+    if (error) {
+      showAccountMessage(error.message);
+      return;
+    }
+
+    if (!data.user) {
+      showAccountMessage("Login failed.");
+      return;
+    }
+
+    showAccountMessage("Login successful.", true);
+
+    setTimeout(() => {
+      onlineAccountScreen.style.display = "none";
+      await loadOnlinePlayerData();
+openCharacterSelectFromHub("online");
+    }, 500);
+  };
+
+  document.getElementById("onlineCreateBtn").onclick = async () => {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+
+    if (!email || !password) {
+      showAccountMessage("Enter an email and password.");
+      return;
+    }
+
+    if (password.length < 6) {
+      showAccountMessage("Password must be at least 6 characters.");
+      return;
+    }
+
+    showAccountMessage("Creating account...", true);
+
+    const { data, error } = await window.supabaseClient.auth.signUp({
+      email,
+      password
+    });
+
+    if (error) {
+      showAccountMessage(error.message);
+      return;
+    }
+
+    if (data.session) {
+      showAccountMessage("Account created successfully.", true);
+
+      setTimeout(() => {
+        onlineAccountScreen.style.display = "none";
+        await loadOnlinePlayerData();
+openCharacterSelectFromHub("online");
+      }, 500);
+    } else {
+      showAccountMessage(
+        "Account created. Check your email to confirm your account.",
+        true
+      );
+    }
+  };
+
+  document.getElementById("onlineForgotBtn").onclick = async () => {
+    const email = emailInput.value.trim();
+
+    if (!email) {
+      showAccountMessage("Enter your email first.");
+      return;
+    }
+
+    showAccountMessage("Sending password reset email...", true);
+
+    const redirectUrl = window.location.href.split("#")[0];
+
+    const { error } =
+      await window.supabaseClient.auth.resetPasswordForEmail(email, {
+        redirectTo: redirectUrl
+      });
+
+    if (error) {
+      showAccountMessage(error.message);
+      return;
+    }
+
+    showAccountMessage(
+      "Password reset email sent. Check your inbox.",
+      true
+    );
+  };
+
+  document.getElementById("onlineChangeBtn").onclick = async () => {
+    const newPassword = passwordInput.value;
+
+    if (!newPassword || newPassword.length < 6) {
+      showAccountMessage("Enter a new password (minimum 6 characters).");
+      return;
+    }
+
+    const {
+      data: { user }
+    } = await window.supabaseClient.auth.getUser();
+
+    if (!user) {
+      showAccountMessage("You must be logged in to change your password.");
+      return;
+    }
+
+    showAccountMessage("Changing password...", true);
+
+    const { error } =
+      await window.supabaseClient.auth.updateUser({
+        password: newPassword
+      });
+
+    if (error) {
+      showAccountMessage(error.message);
+      return;
+    }
+
+    showAccountMessage("Password changed successfully.", true);
+    passwordInput.value = "";
+  };
+
+  document.getElementById("onlineAccountBackBtn").onclick = () => {
+    onlineAccountScreen.style.display = "none";
+    startMenu.style.display = "flex";
+    showAccountMessage("");
+  };
+}
+
+window.openOnlineAccountScreen = openOnlineAccountScreen;
