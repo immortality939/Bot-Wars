@@ -1,9 +1,7 @@
 {
-  "name": "bot-wars-online-server",
+  "name": "metal-wars-online-server",
   "version": "1.0.0",
-  "description": "Relay server for Bot Wars online PvP arena",
   "main": "server.js",
   "scripts": { "start": "node server.js" },
-  "engines": { "node": ">=18" },
   "dependencies": { "ws": "^8.18.0" }
 }
