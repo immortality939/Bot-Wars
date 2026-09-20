@@ -1,20 +1,24 @@
 // =============================================================================
-// LEVEL1.js — map made with the Map Creator
+// levels_server.js — LEVEL0 (world map) + LEVEL1 merged into one file
 // =============================================================================
 // To play it offline: put this file in the game's data/ folder and add
-//   <script src="data/LEVEL1.js"></script>
-// to index.html (before custommaps.js). It then shows up in Choose Map.
+//   <script src="data/levels_server.js"></script>
+// to index.html (before custommaps.js). Both maps then show up in Choose Map.
+// This REPLACES LEVEL1_server.js and worldmap_server.js - don't load them too.
 //
 // worldWidth / worldHeight = size of the map, mapImage = its background picture.
 // obstacles: x, y = top-left corner, width / height = its size,
 //   name = obstacle type (see obstacle.js), image = its picture.
 // bots (enemies): x, y = where it starts (its center), name = bot type (see bot.js).
 // portals (entrances): walk-through spots, no collision. Standing on one shows an ENTER
-//   button. Type the NAME of the map it leads to inside  entrance: ""  — for example
-//   entrance: "grassland"  (the name of the map in grassland.js). Empty = goes nowhere.
+//   button. entrance: "" = goes nowhere, otherwise the NAME of the map it leads to.
+//   LEVEL0 (west edge)   -> LEVEL1
+//   LEVEL1 (bottom edge) -> LEVEL0
 window.CUSTOM_MAPS = window.CUSTOM_MAPS || {};
-window.CUSTOM_MAPS["worldmap"] = {
-  name: "LEVEL1",
+
+// ---------------------------------- LEVEL0 ----------------------------------
+window.CUSTOM_MAPS["LEVEL0"] = {
+  name: "LEVEL0",
   worldWidth: 1500,
   worldHeight: 1500,
   mapImage: "image/map6.png",
@@ -152,9 +156,173 @@ window.CUSTOM_MAPS["worldmap"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL1" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+  ]
+};
+
+// ---------------------------------- LEVEL1 ----------------------------------
+window.CUSTOM_MAPS["LEVEL1"] = {
+  name: "LEVEL1",
+  worldWidth: 1500,
+  worldHeight: 1500,
+  mapImage: "image/blevel3.png",
+  obstacles: [
+    { name: "tree1", x: 256, y: 1435, width: 73, height: 65, image: "image/tree1.png" },
+    { name: "rock11", x: 0, y: 1404, width: 118, height: 96, image: "image/rock11.png" },
+    { name: "tree4", x: 8, y: 1381, width: 50, height: 50, image: "image/tree4.png" },
+    { name: "tree7", x: 52, y: 1350, width: 61, height: 60, image: "image/tree7.png" },
+    { name: "tree2", x: 94, y: 1331, width: 87, height: 93, image: "image/tree2.png" },
+    { name: "tree3", x: 116, y: 1392, width: 96, height: 75, image: "image/tree3.png" },
+    { name: "tree9", x: 185, y: 1395, width: 102, height: 84, image: "image/tree9.png" },
+    { name: "tree9", x: 151, y: 1339, width: 111, height: 106, image: "image/tree9.png" },
+    { name: "tree6", x: 596, y: 1409, width: 97, height: 91, image: "image/tree6.png" },
+    { name: "tree8", x: 586, y: 1363, width: 97, height: 71, image: "image/tree8.png" },
+    { name: "tree14", x: 659, y: 1394, width: 50, height: 50, image: "image/tree14.png" },
+    { name: "tree5", x: 568, y: 1316, width: 76, height: 56, image: "image/tree5.png" },
+    { name: "rock9", x: 681, y: 1385, width: 124, height: 115, image: "image/rock9.png" },
+    { name: "rock2", x: 779, y: 1400, width: 50, height: 50, image: "image/rock2.png" },
+    { name: "rock6", x: 803, y: 1409, width: 80, height: 91, image: "image/rock6.png" },
+    { name: "rock10", x: 665, y: 1294, width: 104, height: 123, image: "image/rock10.png" },
+    { name: "tree9", x: 610, y: 1293, width: 86, height: 115, image: "image/tree9.png" },
+    { name: "tree9", x: 747, y: 1367, width: 50, height: 50, image: "image/tree9.png" },
+    { name: "tree12", x: 1156, y: 1438, width: 74, height: 62, image: "image/tree12.png" },
+    { name: "tree12", x: 1166, y: 1380, width: 103, height: 83, image: "image/tree12.png" },
+    { name: "tree11", x: 1220, y: 1434, width: 83, height: 66, image: "image/tree11.png" },
+    { name: "tree4", x: 1235, y: 1336, width: 67, height: 65, image: "image/tree4.png" },
+    { name: "rock8", x: 1289, y: 1388, width: 110, height: 112, image: "image/rock8.png" },
+    { name: "tree13", x: 1251, y: 1370, width: 98, height: 95, image: "image/tree13.png" },
+    { name: "rock7", x: 1389, y: 1368, width: 111, height: 132, image: "image/rock7.png" },
+    { name: "tree3", x: 1349, y: 1360, width: 94, height: 73, image: "image/tree3.png" },
+    { name: "tree3", x: 1409, y: 1301, width: 91, height: 86, image: "image/tree3.png" },
+    { name: "rock3", x: 1254, y: 949, width: 97, height: 90, image: "image/rock3.png" },
+    { name: "tree4", x: 1248, y: 998, width: 69, height: 64, image: "image/tree4.png" },
+    { name: "rock4", x: 1196, y: 927, width: 85, height: 99, image: "image/rock4.png" },
+    { name: "tree10", x: 1162, y: 997, width: 68, height: 50, image: "image/tree10.png" },
+    { name: "tree2", x: 1217, y: 1019, width: 50, height: 50, image: "image/tree2.png" },
+    { name: "tree2", x: 1170, y: 960, width: 50, height: 50, image: "image/tree2.png" },
+    { name: "tree2", x: 1184, y: 1046, width: 50, height: 50, image: "image/tree2.png" },
+    { name: "tree2", x: 1229, y: 1062, width: 50, height: 50, image: "image/tree2.png" },
+    { name: "tree3", x: 1260, y: 1048, width: 50, height: 50, image: "image/tree3.png" },
+    { name: "tree3", x: 1298, y: 1023, width: 50, height: 50, image: "image/tree3.png" },
+    { name: "tree3", x: 1147, y: 1021, width: 50, height: 50, image: "image/tree3.png" },
+    { name: "tree4", x: 1104, y: 950, width: 90, height: 74, image: "image/tree4.png" },
+    { name: "tree5", x: 1140, y: 1081, width: 67, height: 77, image: "image/tree5.png" },
+    { name: "tree4", x: 992, y: 981, width: 108, height: 123, image: "image/tree4.png" },
+    { name: "tree7", x: 989, y: 896, width: 121, height: 116, image: "image/tree7.png" },
+    { name: "tree7", x: 1063, y: 868, width: 122, height: 114, image: "image/tree7.png" },
+    { name: "tree7", x: 986, y: 834, width: 102, height: 109, image: "image/tree7.png" },
+    { name: "tree6", x: 1065, y: 815, width: 70, height: 88, image: "image/tree6.png" },
+    { name: "tree6", x: 1004, y: 778, width: 88, height: 103, image: "image/tree6.png" },
+    { name: "tree6", x: 1040, y: 740, width: 97, height: 108, image: "image/tree6.png" },
+    { name: "tree12", x: 1399, y: 531, width: 101, height: 106, image: "image/tree12.png" },
+    { name: "tree12", x: 1390, y: 482, width: 93, height: 82, image: "image/tree12.png" },
+    { name: "tree12", x: 1349, y: 527, width: 87, height: 81, image: "image/tree12.png" },
+    { name: "tree10", x: 493, y: 888, width: 80, height: 86, image: "image/tree10.png" },
+    { name: "tree10", x: 479, y: 911, width: 72, height: 86, image: "image/tree10.png" },
+    { name: "tree10", x: 414, y: 906, width: 94, height: 87, image: "image/tree10.png" },
+    { name: "tree7", x: 372, y: 926, width: 86, height: 86, image: "image/tree7.png" },
+    { name: "tree7", x: 323, y: 949, width: 98, height: 90, image: "image/tree7.png" },
+    { name: "tree7", x: 305, y: 887, width: 100, height: 84, image: "image/tree7.png" },
+    { name: "tree9", x: 0, y: 730, width: 106, height: 98, image: "image/tree9.png" },
+    { name: "tree9", x: 62, y: 774, width: 79, height: 83, image: "image/tree9.png" },
+    { name: "tree9", x: 84, y: 714, width: 106, height: 96, image: "image/tree9.png" },
+    { name: "tree13", x: 145, y: 748, width: 98, height: 102, image: "image/tree13.png" },
+    { name: "tree13", x: 57, y: 696, width: 87, height: 79, image: "image/tree13.png" },
+    { name: "tree12", x: 161, y: 700, width: 92, height: 81, image: "image/tree12.png" },
+    { name: "tree12", x: 216, y: 737, width: 86, height: 75, image: "image/tree12.png" },
+    { name: "car3", x: 1390, y: 367, width: 110, height: 61, image: "image/car3.png" },
+    { name: "rock1", x: 1134, y: 163, width: 90, height: 83, image: "image/rock1.png" },
+    { name: "car6", x: 1110, y: 227, width: 72, height: 97, image: "image/car6.png" },
+    { name: "rock5", x: 1069, y: 158, width: 71, height: 97, image: "image/rock5.png" },
+    { name: "car4", x: 1407, y: 4, width: 90, height: 58, image: "image/car4.png" },
+    { name: "car1", x: 978, y: 433, width: 100, height: 55, image: "image/car1.png" },
+    { name: "car5", x: 1048, y: 443, width: 52, height: 96, image: "image/car5.png" },
+    { name: "car2", x: 1089, y: 491, width: 88, height: 63, image: "image/car2.png" },
+    { name: "car5", x: 1133, y: 535, width: 50, height: 89, image: "image/car5.png" },
+    { name: "car4", x: 995, y: 143, width: 85, height: 50, image: "image/car4.png" },
+    { name: "car3", x: 1329, y: 26, width: 101, height: 68, image: "image/car3.png" },
+    { name: "car2", x: 1313, y: 0, width: 87, height: 58, image: "image/car2.png" },
+    { name: "tree15", x: 0, y: 0, width: 95, height: 108, image: "image/tree15.png" },
+    { name: "tree11", x: 61, y: 0, width: 61, height: 59, image: "image/tree11.png" },
+    { name: "car5", x: 767, y: 234, width: 62, height: 93, image: "image/car5.png" },
+    { name: "car5", x: 720, y: 235, width: 67, height: 86, image: "image/car5.png" },
+    { name: "car3", x: 749, y: 299, width: 85, height: 61, image: "image/car3.png" },
+    { name: "car4", x: 785, y: 333, width: 93, height: 50, image: "image/car4.png" },
+    { name: "rock11", x: 816, y: 281, width: 95, height: 79, image: "image/rock11.png" },
+    { name: "rock10", x: 628, y: 238, width: 125, height: 91, image: "image/rock10.png" },
+    { name: "rock6", x: 631, y: 560, width: 95, height: 92, image: "image/rock6.png" },
+    { name: "rock4", x: 690, y: 601, width: 74, height: 75, image: "image/rock4.png" },
+    { name: "rock2", x: 726, y: 629, width: 65, height: 93, image: "image/rock2.png" },
+    { name: "tree14", x: 589, y: 548, width: 86, height: 83, image: "image/tree14.png" },
+    { name: "tree14", x: 600, y: 588, width: 69, height: 79, image: "image/tree14.png" },
+    { name: "tree14", x: 619, y: 624, width: 77, height: 89, image: "image/tree14.png" },
+    { name: "tree11", x: 551, y: 510, width: 79, height: 77, image: "image/tree11.png" },
+    { name: "tree12", x: 516, y: 490, width: 76, height: 67, image: "image/tree12.png" },
+    { name: "tree6", x: 162, y: 284, width: 82, height: 91, image: "image/tree6.png" },
+    { name: "tree7", x: 204, y: 312, width: 79, height: 81, image: "image/tree7.png" },
+    { name: "tree6", x: 235, y: 280, width: 87, height: 76, image: "image/tree6.png" },
+    { name: "tree6", x: 239, y: 325, width: 116, height: 94, image: "image/tree6.png" },
+    { name: "tree7", x: 141, y: 335, width: 81, height: 90, image: "image/tree7.png" },
+    { name: "tree7", x: 63, y: 318, width: 83, height: 93, image: "image/tree7.png" },
+    { name: "tree9", x: 0, y: 307, width: 80, height: 82, image: "image/tree9.png" },
+    { name: "tree9", x: 81, y: 290, width: 80, height: 84, image: "image/tree9.png" },
+    { name: "tree5", x: 1079, y: 1000, width: 98, height: 104, image: "image/tree5.png" },
+    { name: "tree12", x: 512, y: 539, width: 77, height: 78, image: "image/tree12.png" }
+  ],
+  bots: [
+    { name: "shooter", x: 686, y: 438 },
+    { name: "guard", x: 779, y: 825 },
+    { name: "rusher", x: 674, y: 1026 },
+    { name: "assaulter", x: 436, y: 735 },
+    { name: "assaulter", x: 852, y: 733 },
+    { name: "assaulter", x: 883, y: 1159 },
+    { name: "assaulter", x: 983, y: 321 },
+    { name: "assaulter", x: 832, y: 467 },
+    { name: "assaulter", x: 551, y: 1149 },
+    { name: "assaulter", x: 1067, y: 685 },
+    { name: "assaulter", x: 849, y: 178 },
+    { name: "shooter", x: 680, y: 743 },
+    { name: "shooter", x: 316, y: 1247 },
+    { name: "shooter", x: 539, y: 306 },
+    { name: "shooter", x: 369, y: 822 },
+    { name: "shooter", x: 254, y: 1103 },
+    { name: "shooter", x: 719, y: 1227 },
+    { name: "shooter", x: 236, y: 911 },
+    { name: "shooter", x: 270, y: 616 },
+    { name: "shooter", x: 484, y: 401 },
+    { name: "guard", x: 111, y: 1311 },
+    { name: "guard", x: 126, y: 507 },
+    { name: "guard", x: 98, y: 1016 },
+    { name: "guard", x: 342, y: 475 },
+    { name: "shooter", x: 968, y: 1317 },
+    { name: "guard", x: 1041, y: 1203 },
+    { name: "guard", x: 874, y: 988 },
+    { name: "rusher", x: 1193, y: 930 },
+    { name: "rusher", x: 1394, y: 833 },
+    { name: "rusher", x: 1357, y: 1328 },
+    { name: "rusher", x: 1136, y: 1368 },
+    { name: "rusher", x: 958, y: 566 },
+    { name: "rusher", x: 1326, y: 666 },
+    { name: "rusher", x: 1284, y: 408 },
+    { name: "guard", x: 1294, y: 783 },
+    { name: "guard", x: 1183, y: 390 },
+    { name: "rusher", x: 1423, y: 1097 },
+    { name: "guard", x: 1237, y: 78 },
+    { name: "guard", x: 477, y: 570 },
+    { name: "guard", x: 705, y: 131 },
+    { name: "guard", x: 226, y: 192 },
+    { name: "guard", x: 529, y: 75 },
+    { name: "shooter", x: 68, y: 202 },
+    { name: "shooter", x: 513, y: 195 },
+    { name: "shooter", x: 835, y: 60 },
+    { name: "shooter", x: 362, y: 179 }
+  ],
+  portals: [
+    { name: "entrance", x: 450, y: 1450, width: 89, height: 50, image: "image/entrance.png", entrance: "LEVEL0" },
+    { name: "entrance", x: 229, y: 2, width: 105, height: 50, image: "image/entrance.png", entrance: "" },
+    { name: "entrance", x: 1450, y: 200, width: 50, height: 87, image: "image/entrance.png", entrance: "" }
   ]
 };
