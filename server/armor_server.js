@@ -87,7 +87,7 @@ const ARMOR_TYPES = {
     dex:2,
     int:2,
     mana: 200,
-    health:200,
+    health:2000,
     pow:10,
     hpRegen: 0.1,
     manaRegen: 0.01,
@@ -104,7 +104,7 @@ const ARMOR_TYPES = {
     name: "armor2",
     image: "image/armor2.png",
     radius: 10,
-    health:400,
+
     physicalDefense: 3,
     health: 300,
 

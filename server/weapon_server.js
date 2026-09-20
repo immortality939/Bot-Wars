@@ -37,7 +37,6 @@ const WEAPONS = {
 
     physicalDamage: 15,
     physicalDefense:5,
-    vit:5,
     // knockback: how far (world units) an enemy standing dead-center of
     // the blast gets shoved back. Falls off toward the edge of the old
     // AoE radius the same way damage does — see getAoeFalloff() in
