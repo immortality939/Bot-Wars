@@ -61,7 +61,8 @@ const GAME_DATA = Object.assign(
   require("./server/upgrade_server.js"),
   require("./server/shop_server.js"),
   require("./server/item_server.js"),
-  require("./server/level_server.js")
+  require("./server/level_server.js"),
+  require("./server/bot_server.js")
 );
 // MAPS. Load every *_server.js file in ./server/ (the data files above are
 // already loaded, so this only adds the map files). A map file sets
@@ -312,6 +313,34 @@ wss.on("connection", (ws) => {
           isCritical: !!msg.isCritical,
           srcX: num(msg.srcX), srcY: num(msg.srcY),
           from: me.id
+        });
+        break;
+      }
+
+      // PvE: the room's bot HOST says one of its enemies just hit a
+      // specific player (bullet landed or melee connected — see bot.js /
+      // online.js's netBotMortarLanded()/netBotMeleeHit()). Only the
+      // current host is trusted to deal this damage (anyone else could
+      // otherwise fake enemy hits on people); forward it straight to the
+      // victim, same rate-limit idea as "hit" above. Not gated by
+      // CHANNEL_SAFE — that only turns off player-vs-player damage, PvE
+      // still applies in both channels.
+      case "botHitPlayer": {
+        if (me.room.hostId !== me.id) break;
+        const target = me.room.get(num(msg.targetId, -1));
+        if (!target || target.id === me.id) break;
+
+        const now = Date.now();
+        if (now - me.botHitWindowStart >= 1000) { me.botHitWindowStart = now; me.botHitCount = 0; }
+        if (++me.botHitCount > MAX_HITS_PER_SECOND) break;
+
+        send(target.ws, {
+          type: "botHitPlayer",
+          physicalDamage: Math.min(MAX_DAMAGE_PER_HIT, Math.max(0, num(msg.physicalDamage))),
+          magicalDamage: Math.min(MAX_DAMAGE_PER_HIT, Math.max(0, num(msg.magicalDamage))),
+          isCritical: !!msg.isCritical,
+          srcX: num(msg.srcX), srcY: num(msg.srcY),
+          knockback: Math.max(0, Math.min(200, num(msg.knockback)))
         });
         break;
       }
