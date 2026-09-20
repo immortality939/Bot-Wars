@@ -40,7 +40,8 @@ const GAME_DATA = Object.assign(
   require("./server/upgrade_server.js"),
   require("./server/shop_server.js"),
   require("./server/item_server.js"),
-  require("./server/level_server.js")
+  require("./server/level_server.js"),
+  require("./server/obstacles_server.js")
 );
 JSON.stringify(GAME_DATA); // fail loudly at startup if anything isn't plain data
 console.log("Online game data loaded: " + Object.keys(GAME_DATA).join(", "));
