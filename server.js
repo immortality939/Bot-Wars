@@ -17,6 +17,17 @@
 // client works out its own damage (the "victim" applies a hit it is sent),
 // so this is fine for playing with friends but is NOT cheat-proof.
 //
+// ENEMIES (PvE): the server doesn't run enemy AI either. One player per room
+// (the "bot host" — whoever has been in that room longest) runs the normal
+// enemy simulation locally and streams a snapshot of it ("bots" message,
+// ~10x/sec); this server caches and relays that to everyone else in the
+// room, exactly like it relays player positions. A hit on an enemy from any
+// player ("botHit") is relayed to the host, who applies it and whose next
+// snapshot carries the result back out to the room — so everyone sees the
+// same enemies, in the same place, dying at the same time. If the host
+// leaves, hosting duty is silently handed to whoever's left (see
+// reassignHost below).
+//
 // ONLINE GAME DATA: the numbers used in online mode (weapons, armor,
 // characters, skills, ...) live in the ./server/*_server.js files. They are
 // loaded here and sent to each player inside the "init" message, so they are
@@ -103,12 +114,36 @@ const players = new Map(); // id -> { id, ws, server, channel, room, name, chara
 
 // rooms: "server:channel:map" -> Map(id -> player). Only players in the same
 // room see and can hit each other.
+//
+// ENEMY BOTS (PvE): the server itself never simulates enemies — one player
+// per room ("the host") runs the exact same enemy AI the game already runs
+// offline, and streams a snapshot of it here (see "bots" below) for this
+// server to relay to everyone else in the room. Each room Map carries two
+// extra properties for this: hostId (who's currently hosting) and lastBots
+// (the most recent snapshot, handed to anyone who joins mid-match so they
+// aren't staring at an empty map until the next tick).
 const rooms = new Map();
 function getRoom(serverId, channel, mapKey) {
   const k = serverId + ":" + channel + ":" + mapKey;
   let r = rooms.get(k);
-  if (!r) { r = new Map(); rooms.set(k, r); }
+  if (!r) { r = new Map(); r.hostId = null; r.lastBots = null; rooms.set(k, r); }
   return r;
+}
+// Picks anyone else left in the room to take over as bot host.
+function pickNewHost(room, excludeId) {
+  for (const p of room.values()) if (p.id !== excludeId) return p;
+  return null;
+}
+// Hands bot-hosting duty to `next` (or clears it if the room is now empty),
+// wipes the stale snapshot, and tells everyone so nobody is left looking at
+// enemies that are no longer being simulated by anyone.
+function reassignHost(room, leavingId) {
+  if (room.hostId !== leavingId) return;
+  const next = pickNewHost(room, leavingId);
+  room.hostId = next ? next.id : null;
+  room.lastBots = null;
+  if (next) send(next.ws, { type: "botHost", host: true });
+  broadcast(room, { type: "botsReset" }, next ? next.id : -1);
 }
 function countPlayers(test) {
   let n = 0;
@@ -195,10 +230,13 @@ wss.on("connection", (ws) => {
         health: 100, maxHealth: 100,
         alive: true,
         level: 1,
-        hitWindowStart: 0, hitCount: 0
+        hitWindowStart: 0, hitCount: 0,
+        botHitWindowStart: 0, botHitCount: 0
       };
+      const isFirstInRoom = room.size === 0;
       players.set(id, me);
       room.set(id, me);
+      if (isFirstInRoom) { room.hostId = id; room.lastBots = null; }
       send(ws, {
         type: "init",
         id,
@@ -207,7 +245,12 @@ wss.on("connection", (ws) => {
         channel,
         pvp: channel === CHANNEL_PVP,
         players: [...room.values()].filter((p) => p.id !== id).map(publicInfo),
-        data: GAME_DATA   // the online numbers + the world map
+        data: GAME_DATA,   // the online numbers + the world map
+        // PvE: am I responsible for simulating this room's enemies, and (if
+        // not) here's the most recent snapshot so I'm not staring at an
+        // empty map until the host's next tick — see "bots" below.
+        botHost: room.hostId === id,
+        bots: room.lastBots || []
       });
       broadcast(room, { type: "playerAdd", player: publicInfo(me) }, id);
       console.log(`+ ${me.name} (${me.character}) — server ${serverId} channel ${channel} — ${players.size} online`);
@@ -240,18 +283,61 @@ wss.on("connection", (ws) => {
         broadcast(me.room, msg, me.id);
         break;
 
+      // PvE: the room's enemy host streams its enemies' position/health/
+      // alive state here (~10x/sec) — cache it (so late joiners see the
+      // current fight instantly) and relay it to everyone else in the room.
+      case "bots":
+        if (me.room.hostId !== me.id || !Array.isArray(msg.list)) break;
+        me.room.lastBots = msg.list;
+        broadcast(me.room, { type: "bots", list: msg.list }, me.id);
+        break;
+
+      // Any player (including the host) can hit an enemy; only the host's
+      // own simulation is allowed to actually apply the damage, so relay
+      // this straight to them (same rate-limit idea as player "hit" above).
+      case "botHit": {
+        const hostId = me.room.hostId;
+        if (hostId == null || hostId === me.id) break;
+        const host = me.room.get(hostId);
+        if (!host) break;
+
+        const now = Date.now();
+        if (now - me.botHitWindowStart >= 1000) { me.botHitWindowStart = now; me.botHitCount = 0; }
+        if (++me.botHitCount > MAX_HITS_PER_SECOND) break;
+
+        send(host.ws, {
+          type: "botHit",
+          idx: Math.trunc(num(msg.idx, -1)),
+          amount: Math.min(MAX_DAMAGE_PER_HIT, Math.max(0, num(msg.amount))),
+          isCritical: !!msg.isCritical,
+          srcX: num(msg.srcX), srcY: num(msg.srcY),
+          from: me.id
+        });
+        break;
+      }
+
       // Walked through a portal: move to that map's room (same server + channel).
       case "map": {
         const key = String(msg.map || "");
         const now = Date.now();
         if (!MAPS[key] || key === me.map || now - me.lastMapChange < 300) break;
         me.lastMapChange = now;
-        me.room.delete(me.id);
-        broadcast(me.room, { type: "playerRemove", id: me.id });
+        const oldRoom = me.room;
+        oldRoom.delete(me.id);
+        broadcast(oldRoom, { type: "playerRemove", id: me.id });
+        reassignHost(oldRoom, me.id);   // hand off enemy-hosting if I was hosting that map
+
         me.map = key;
         me.room = getRoom(me.server, me.channel, key);
+        const isFirstInNewRoom = me.room.size === 0;
         me.room.set(me.id, me);
-        send(ws, { type: "mapChanged", map: key, players: [...me.room.values()].filter((p) => p.id !== me.id).map(publicInfo) });
+        if (isFirstInNewRoom) { me.room.hostId = me.id; me.room.lastBots = null; }
+        send(ws, {
+          type: "mapChanged", map: key,
+          players: [...me.room.values()].filter((p) => p.id !== me.id).map(publicInfo),
+          botHost: me.room.hostId === me.id,
+          bots: me.room.lastBots || []
+        });
         broadcast(me.room, { type: "playerAdd", player: publicInfo(me) }, me.id);
         break;
       }
@@ -300,6 +386,7 @@ wss.on("connection", (ws) => {
     players.delete(me.id);
     me.room.delete(me.id);
     broadcast(me.room, { type: "playerRemove", id: me.id });
+    reassignHost(me.room, me.id);   // hand off enemy-hosting if I was hosting
     console.log(`- ${me.name} — server ${me.server} channel ${me.channel} — ${players.size} online`);
   });
 
