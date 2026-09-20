@@ -1,9 +1,16 @@
 // =============================================================================
 // Bot Wars — Online Server (PvP arena relay)
 // =============================================================================
-// Everyone who taps Online joins the same arena. The server is a thin relay:
-// it hands out ids, keeps a list of who is in the arena, and forwards each
-// player's position / bullets / effects / sounds / hits to the others. Each
+// The game has 5 SERVERS (max 500 players each). Every server has 2 CHANNELS:
+//   CHANNEL 0 — PvP: players can damage each other.
+//   CHANNEL 1 — safe: hits between players are ignored (dropped here).
+// A player joins one server + channel; only players in that same server +
+// channel see each other (each pair is its own "room"). Everyone plays on the
+// map in ./server/worldmap_server.js, which is sent to the client on join.
+//
+// The server is a thin relay: it hands out ids, keeps a list of who is in the
+// room, and forwards each player's position / bullets / effects / sounds /
+// hits to the others in that room. Each
 // client works out its own damage (the "victim" applies a hit it is sent),
 // so this is fine for playing with friends but is NOT cheat-proof.
 //
@@ -40,21 +47,40 @@ const GAME_DATA = Object.assign(
   require("./server/upgrade_server.js"),
   require("./server/shop_server.js"),
   require("./server/item_server.js"),
-  require("./server/level_server.js"),
-  require("./server/obstacles_server.js")
+  require("./server/level_server.js")
 );
+// The map everyone plays on. worldmap_server.js sets window.CUSTOM_MAPS.worldmap
+// (the Map Creator format); it is sent to the client inside the init message.
+require("./server/worldmap_server.js");
+const WORLD_MAP = global.window.CUSTOM_MAPS && global.window.CUSTOM_MAPS.worldmap;
+if (!WORLD_MAP) throw new Error("server/worldmap_server.js must define window.CUSTOM_MAPS[\"worldmap\"]");
+GAME_DATA.WORLD_MAP = WORLD_MAP;
 JSON.stringify(GAME_DATA); // fail loudly at startup if anything isn't plain data
 console.log("Online game data loaded: " + Object.keys(GAME_DATA).join(", "));
 
 const PORT = process.env.PORT || 8080;
-const MAX_PLAYERS = 8;
+const SERVER_COUNT = 5;          // SERVER 1 .. SERVER 5
+const SERVER_MAX_PLAYERS = 500;  // per server (both channels together)
+const CHANNEL_PVP = 0;           // players can damage each other
+const CHANNEL_SAFE = 1;          // no player-vs-player damage
 
 // Safety net against absurd hits (tune if a legit skill ever needs more).
 const MAX_DAMAGE_PER_HIT = 5000;
 const MAX_HITS_PER_SECOND = 60;   // per attacker; extra hits are dropped
 
-// Plain HTTP response so hosts (Render etc.) can health-check the service.
+// Plain HTTP: /servers gives the lobby its "0/500" counts; anything else is a
+// health check so hosts (Render etc.) know the service is alive.
 const server = http.createServer((req, res) => {
+  const path = (req.url || "").split("?")[0];
+  if (path === "/servers") {
+    res.writeHead(200, {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Cache-Control": "no-store"
+    });
+    res.end(JSON.stringify(serverList()));
+    return;
+  }
   res.writeHead(200, { "Content-Type": "text/plain" });
   res.end("Bot Wars server OK — players online: " + players.size + "\n");
 });
@@ -62,7 +88,30 @@ const server = http.createServer((req, res) => {
 const wss = new WebSocketServer({ server, maxPayload: 8 * 1024 });
 
 let nextId = 1;
-const players = new Map(); // id -> { id, ws, name, character, x, y, health, maxHealth, alive, level }
+const players = new Map(); // id -> { id, ws, server, channel, room, name, character, x, y, ... }
+
+// rooms: "server:channel" -> Map(id -> player). Only players in the same room
+// see and can hit each other.
+const rooms = new Map();
+for (let s = 1; s <= SERVER_COUNT; s++) {
+  for (const c of [CHANNEL_PVP, CHANNEL_SAFE]) rooms.set(s + ":" + c, new Map());
+}
+const getRoom = (serverId, channel) => rooms.get(serverId + ":" + channel);
+const serverPlayerCount = (serverId) =>
+  getRoom(serverId, CHANNEL_PVP).size + getRoom(serverId, CHANNEL_SAFE).size;
+
+function serverList() {
+  const list = [];
+  for (let s = 1; s <= SERVER_COUNT; s++) {
+    list.push({
+      id: s,
+      players: serverPlayerCount(s),
+      max: SERVER_MAX_PLAYERS,
+      channels: [getRoom(s, CHANNEL_PVP).size, getRoom(s, CHANNEL_SAFE).size]
+    });
+  }
+  return { max: SERVER_MAX_PLAYERS, servers: list };
+}
 
 const num = (v, fallback = 0) => (typeof v === "number" && isFinite(v) ? v : fallback);
 
@@ -70,9 +119,10 @@ function send(ws, obj) {
   if (ws.readyState === 1) ws.send(JSON.stringify(obj));
 }
 
-function broadcast(obj, exceptId) {
+// Sends to everyone in `room` (a Map of players) except `exceptId`.
+function broadcast(room, obj, exceptId) {
   const data = JSON.stringify(obj);
-  for (const p of players.values()) {
+  for (const p of room.values()) {
     if (p.id !== exceptId && p.ws.readyState === 1) p.ws.send(data);
   }
 }
@@ -98,16 +148,27 @@ wss.on("connection", (ws) => {
     // ---- JOIN ---------------------------------------------------------
     if (msg.type === "join") {
       if (me) return;
-      if (players.size >= MAX_PLAYERS) {
-        send(ws, { type: "full", max: MAX_PLAYERS });
+
+      const serverId = Math.trunc(num(msg.server, 0));
+      const channel = Math.trunc(num(msg.channel, -1));
+      if (serverId < 1 || serverId > SERVER_COUNT || (channel !== CHANNEL_PVP && channel !== CHANNEL_SAFE)) {
+        send(ws, { type: "joinError", reason: "That server or channel does not exist" });
         ws.close();
         return;
       }
+      if (serverPlayerCount(serverId) >= SERVER_MAX_PLAYERS) {
+        send(ws, { type: "full", max: SERVER_MAX_PLAYERS });
+        ws.close();
+        return;
+      }
+
+      const room = getRoom(serverId, channel);
       const id = nextId++;
       const chars = GAME_DATA.CHARACTERS || {};
       const wanted = String(msg.character || "soldier").slice(0, 24);
       me = {
         id, ws,
+        server: serverId, channel, room,
         name: "Player " + id,
         character: chars[wanted] ? wanted : (Object.keys(chars)[0] || "soldier"),
         x: 0, y: 0,
@@ -117,15 +178,19 @@ wss.on("connection", (ws) => {
         hitWindowStart: 0, hitCount: 0
       };
       players.set(id, me);
+      room.set(id, me);
       send(ws, {
         type: "init",
         id,
         name: me.name,
-        players: [...players.values()].filter((p) => p.id !== id).map(publicInfo),
-        data: GAME_DATA   // the online numbers (from the *_server.js files)
+        server: serverId,
+        channel,
+        pvp: channel === CHANNEL_PVP,
+        players: [...room.values()].filter((p) => p.id !== id).map(publicInfo),
+        data: GAME_DATA   // the online numbers + the world map
       });
-      broadcast({ type: "playerAdd", player: publicInfo(me) }, id);
-      console.log(`+ ${me.name} (${me.character}) — ${players.size} online`);
+      broadcast(room, { type: "playerAdd", player: publicInfo(me) }, id);
+      console.log(`+ ${me.name} (${me.character}) — server ${serverId} channel ${channel} — ${room.size} in room, ${players.size} online`);
       return;
     }
 
@@ -140,7 +205,7 @@ wss.on("connection", (ws) => {
         me.maxHealth = num(msg.maxHealth, me.maxHealth);
         me.level = num(msg.level, me.level);
         me.alive = !!msg.alive;
-        broadcast({
+        broadcast(me.room, {
           type: "state", id: me.id,
           x: me.x, y: me.y, health: me.health, maxHealth: me.maxHealth,
           level: me.level, alive: me.alive
@@ -152,12 +217,14 @@ wss.on("connection", (ws) => {
       case "fx":
       case "sound":
         msg.from = me.id;
-        broadcast(msg, me.id);
+        broadcast(me.room, msg, me.id);
         break;
 
       // Attacker says "I hit targetId" -> only that player is told.
       case "hit": {
-        const target = players.get(num(msg.targetId, -1));
+        // CHANNEL 1 is a no-damage channel: drop every player-vs-player hit.
+        if (me.channel !== CHANNEL_PVP) break;
+        const target = me.room.get(num(msg.targetId, -1));   // same server + channel only
         if (!target || target.id === me.id) break;
 
         // rate limit per attacker
@@ -179,9 +246,9 @@ wss.on("connection", (ws) => {
 
       // Victim reports who killed them -> everyone sees the kill feed.
       case "died": {
-        const killer = players.get(num(msg.killerId, -1));
+        const killer = me.room.get(num(msg.killerId, -1));
         me.alive = false;
-        broadcast({
+        broadcast(me.room, {
           type: "kill",
           victimId: me.id, victimName: me.name,
           killerId: killer ? killer.id : null,
@@ -195,8 +262,9 @@ wss.on("connection", (ws) => {
   ws.on("close", () => {
     if (!me) return;
     players.delete(me.id);
-    broadcast({ type: "playerRemove", id: me.id });
-    console.log(`- ${me.name} — ${players.size} online`);
+    me.room.delete(me.id);
+    broadcast(me.room, { type: "playerRemove", id: me.id });
+    console.log(`- ${me.name} — server ${me.server} channel ${me.channel} — ${players.size} online`);
   });
 
   ws.on("error", () => {});

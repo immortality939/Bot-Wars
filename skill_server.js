@@ -309,8 +309,7 @@ const SKILLS = {
 //
 // EXAMPLE: player.physicalDamage (current combined total) is 100,
 // skill.physicalDamage is 100 -> getSkillEffectiveStats(skill, player)
-// returns physicalDamage: 200 for that skill's activation — PLUS the
-// physicalDamage of the weapon the player has equipped (see below).
+// returns physicalDamage: 200 for that skill's activation.
 //
 // Only fields the skill itself actually sets get combined — a skill with
 // no physicalDamage field simply has no physicalDamage (0), it does NOT
@@ -337,16 +336,6 @@ function getSkillEffectiveStats(skill, player) {
       const playerValue = (player && typeof player[statName] === "number") ? player[statName] : 0;
       effective[statName] = skill[statName] + playerValue;
     }
-  }
-
-  // WEAPON DAMAGE — the equipped weapon's physicalDamage is NOT stored on the
-  // player (it is only added at attack-time, see getAttackDamage() in
-  // character.js), so it has to be added here too or skills would ignore the
-  // weapon. Total skill physical damage = skill + player + equipped weapon.
-  // EXAMPLE: skill 100 + player 11 + shotgun 600 = 711.
-  if (typeof effective.physicalDamage === "number" && player && player.weapon &&
-      typeof player.weapon.physicalDamage === "number") {
-    effective.physicalDamage += player.weapon.physicalDamage;
   }
 
   return effective;
