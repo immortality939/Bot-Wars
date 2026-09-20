@@ -5,8 +5,11 @@
 //   CHANNEL 0 — PvP: players can damage each other.
 //   CHANNEL 1 — safe: hits between players are ignored (dropped here).
 // A player joins one server + channel; only players in that same server +
-// channel see each other (each pair is its own "room"). Everyone plays on the
-// map in ./server/worldmap_server.js, which is sent to the client on join.
+// channel AND map see each other (each combination is its own "room").
+// Maps: every ./server/*_server.js file that defines window.CUSTOM_MAPS[...]
+// (worldmap_server.js, or any other map file you drop in) is sent to the client
+// on join. Players start on "worldmap" and can walk through portals
+// (entrance: "MapName") to the other maps.
 //
 // The server is a thin relay: it hands out ids, keeps a list of who is in the
 // room, and forwards each player's position / bullets / effects / sounds /
@@ -49,12 +52,20 @@ const GAME_DATA = Object.assign(
   require("./server/item_server.js"),
   require("./server/level_server.js")
 );
-// The map everyone plays on. worldmap_server.js sets window.CUSTOM_MAPS.worldmap
-// (the Map Creator format); it is sent to the client inside the init message.
-require("./server/worldmap_server.js");
-const WORLD_MAP = global.window.CUSTOM_MAPS && global.window.CUSTOM_MAPS.worldmap;
-if (!WORLD_MAP) throw new Error("server/worldmap_server.js must define window.CUSTOM_MAPS[\"worldmap\"]");
-GAME_DATA.WORLD_MAP = WORLD_MAP;
+// MAPS. Load every *_server.js file in ./server/ (the data files above are
+// already loaded, so this only adds the map files). A map file sets
+// window.CUSTOM_MAPS["key"] = { name, worldWidth, ... } (Map Creator format).
+const fs = require("fs");
+const path = require("path");
+for (const f of fs.readdirSync(path.join(__dirname, "server")).filter((n) => /_server\.js$/.test(n)).sort()) {
+  require("./server/" + f);
+}
+const MAPS = (global.window && global.window.CUSTOM_MAPS) || {};
+if (!Object.keys(MAPS).length) throw new Error("No map found: server/worldmap_server.js must define window.CUSTOM_MAPS[\"worldmap\"]");
+const START_MAP = MAPS.worldmap ? "worldmap" : Object.keys(MAPS)[0];   // where everyone spawns
+GAME_DATA.WORLD_MAPS = MAPS;
+GAME_DATA.START_MAP = START_MAP;
+console.log("Maps loaded: " + Object.keys(MAPS).join(", ") + " (start: " + START_MAP + ")");
 JSON.stringify(GAME_DATA); // fail loudly at startup if anything isn't plain data
 console.log("Online game data loaded: " + Object.keys(GAME_DATA).join(", "));
 
@@ -90,15 +101,21 @@ const wss = new WebSocketServer({ server, maxPayload: 8 * 1024 });
 let nextId = 1;
 const players = new Map(); // id -> { id, ws, server, channel, room, name, character, x, y, ... }
 
-// rooms: "server:channel" -> Map(id -> player). Only players in the same room
-// see and can hit each other.
+// rooms: "server:channel:map" -> Map(id -> player). Only players in the same
+// room see and can hit each other.
 const rooms = new Map();
-for (let s = 1; s <= SERVER_COUNT; s++) {
-  for (const c of [CHANNEL_PVP, CHANNEL_SAFE]) rooms.set(s + ":" + c, new Map());
+function getRoom(serverId, channel, mapKey) {
+  const k = serverId + ":" + channel + ":" + mapKey;
+  let r = rooms.get(k);
+  if (!r) { r = new Map(); rooms.set(k, r); }
+  return r;
 }
-const getRoom = (serverId, channel) => rooms.get(serverId + ":" + channel);
-const serverPlayerCount = (serverId) =>
-  getRoom(serverId, CHANNEL_PVP).size + getRoom(serverId, CHANNEL_SAFE).size;
+function countPlayers(test) {
+  let n = 0;
+  for (const p of players.values()) if (test(p)) n++;
+  return n;
+}
+const serverPlayerCount = (serverId) => countPlayers((p) => p.server === serverId);
 
 function serverList() {
   const list = [];
@@ -107,7 +124,10 @@ function serverList() {
       id: s,
       players: serverPlayerCount(s),
       max: SERVER_MAX_PLAYERS,
-      channels: [getRoom(s, CHANNEL_PVP).size, getRoom(s, CHANNEL_SAFE).size]
+      channels: [
+        countPlayers((p) => p.server === s && p.channel === CHANNEL_PVP),
+        countPlayers((p) => p.server === s && p.channel === CHANNEL_SAFE)
+      ]
     });
   }
   return { max: SERVER_MAX_PLAYERS, servers: list };
@@ -162,13 +182,13 @@ wss.on("connection", (ws) => {
         return;
       }
 
-      const room = getRoom(serverId, channel);
+      const room = getRoom(serverId, channel, START_MAP);
       const id = nextId++;
       const chars = GAME_DATA.CHARACTERS || {};
       const wanted = String(msg.character || "soldier").slice(0, 24);
       me = {
         id, ws,
-        server: serverId, channel, room,
+        server: serverId, channel, map: START_MAP, room, lastMapChange: 0,
         name: "Player " + id,
         character: chars[wanted] ? wanted : (Object.keys(chars)[0] || "soldier"),
         x: 0, y: 0,
@@ -190,7 +210,7 @@ wss.on("connection", (ws) => {
         data: GAME_DATA   // the online numbers + the world map
       });
       broadcast(room, { type: "playerAdd", player: publicInfo(me) }, id);
-      console.log(`+ ${me.name} (${me.character}) — server ${serverId} channel ${channel} — ${room.size} in room, ${players.size} online`);
+      console.log(`+ ${me.name} (${me.character}) — server ${serverId} channel ${channel} — ${players.size} online`);
       return;
     }
 
@@ -219,6 +239,22 @@ wss.on("connection", (ws) => {
         msg.from = me.id;
         broadcast(me.room, msg, me.id);
         break;
+
+      // Walked through a portal: move to that map's room (same server + channel).
+      case "map": {
+        const key = String(msg.map || "");
+        const now = Date.now();
+        if (!MAPS[key] || key === me.map || now - me.lastMapChange < 300) break;
+        me.lastMapChange = now;
+        me.room.delete(me.id);
+        broadcast(me.room, { type: "playerRemove", id: me.id });
+        me.map = key;
+        me.room = getRoom(me.server, me.channel, key);
+        me.room.set(me.id, me);
+        send(ws, { type: "mapChanged", map: key, players: [...me.room.values()].filter((p) => p.id !== me.id).map(publicInfo) });
+        broadcast(me.room, { type: "playerAdd", player: publicInfo(me) }, me.id);
+        break;
+      }
 
       // Attacker says "I hit targetId" -> only that player is told.
       case "hit": {
