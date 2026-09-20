@@ -108,7 +108,7 @@ const server = http.createServer((req, res) => {
   res.end("Bot Wars server OK — players online: " + players.size + "\n");
 });
 
-const wss = new WebSocketServer({ server, maxPayload: 8 * 1024 });
+const wss = new WebSocketServer({ server, maxPayload: 64 * 1024 });
 
 let nextId = 1;
 const players = new Map(); // id -> { id, ws, server, channel, room, name, character, x, y, ... }
