@@ -77,6 +77,32 @@ if (!Object.keys(MAPS).length) throw new Error("No map found: server/worldmap_se
 const START_MAP = MAPS.worldmap ? "worldmap" : Object.keys(MAPS)[0];   // where everyone spawns
 GAME_DATA.WORLD_MAPS = MAPS;
 GAME_DATA.START_MAP = START_MAP;
+
+// ---- ONLINE GAME CODE -------------------------------------------------------
+// The *_server.js files below are complete copies of the game's data files.
+// Besides their tables, the game RUNS their functions in online mode (see
+// netInstallServerCode() in online.js), so every number and formula inside
+// them is the real online rule and players can't change it. To keep the join
+// message small, comment-only lines are stripped before sending.
+const CODE_FILES = {
+  weapon: "weapon_server.js",
+  armor: "armor_server.js",
+  attackmode: "attackmode_server.js",
+  skill: "skill_server.js",
+  upgrade: "upgrade_server.js",
+  item: "item_server.js",
+  level: "level_server.js",
+  character: "character_server.js"
+};
+GAME_DATA.CODE = {};
+for (const key of Object.keys(CODE_FILES)) {
+  const src = fs.readFileSync(path.join(__dirname, "server", CODE_FILES[key]), "utf8");
+  GAME_DATA.CODE[key] = src
+    .split("\n")
+    .filter((line) => !/^\s*\/\//.test(line))
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n");
+}
 console.log("Maps loaded: " + Object.keys(MAPS).join(", ") + " (start: " + START_MAP + ")");
 JSON.stringify(GAME_DATA); // fail loudly at startup if anything isn't plain data
 console.log("Online game data loaded: " + Object.keys(GAME_DATA).join(", "));
