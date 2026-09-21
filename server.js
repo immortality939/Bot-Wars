@@ -127,7 +127,7 @@ const rooms = new Map();
 function getRoom(serverId, channel, mapKey) {
   const k = serverId + ":" + channel + ":" + mapKey;
   let r = rooms.get(k);
-  if (!r) { r = new Map(); r.hostId = null; r.lastBots = null; rooms.set(k, r); }
+  if (!r) { r = new Map(); r.hostId = null; r.lastBots = null; r.drops = new Map(); r.nextDropId = 1; rooms.set(k, r); }
   return r;
 }
 // Picks anyone else left in the room to take over as bot host.
@@ -146,6 +146,11 @@ function reassignHost(room, leavingId) {
   if (next) send(next.ws, { type: "botHost", host: true });
   broadcast(room, { type: "botsReset" }, next ? next.id : -1);
 }
+// Loot lying on the ground in a room (dropped by enemies). The server keeps it
+// so people who join / come back later still see it. Cleared when the room empties.
+const MAX_ROOM_DROPS = 400;
+function dropList(room) { return [...room.drops.values()]; }
+function clearDropsIfEmpty(room) { if (room.size === 0) room.drops.clear(); }
 function countPlayers(test) {
   let n = 0;
   for (const p of players.values()) if (test(p)) n++;
@@ -251,7 +256,8 @@ wss.on("connection", (ws) => {
         // not) here's the most recent snapshot so I'm not staring at an
         // empty map until the host's next tick — see "bots" below.
         botHost: room.hostId === id,
-        bots: room.lastBots || []
+        bots: room.lastBots || [],
+        drops: dropList(room)
       });
       broadcast(room, { type: "playerAdd", player: publicInfo(me) }, id);
       console.log(`+ ${me.name} (${me.character}) — server ${serverId} channel ${channel} — ${players.size} online`);
@@ -345,6 +351,31 @@ wss.on("connection", (ws) => {
         break;
       }
 
+      // PvE loot: only the room's enemy host may create ground items (it's
+      // the one that knows an enemy just died). The server numbers them and
+      // tells EVERYONE (host included) so all clients hold identical drops.
+      case "dropAdd": {
+        if (me.room.hostId !== me.id || !Array.isArray(msg.drops)) break;
+        const added = [];
+        for (const d of msg.drops.slice(0, 20)) {
+          if (!d || typeof d.t !== "string" || d.t.length > 40) continue;
+          const drop = { id: me.room.nextDropId++, t: d.t, x: num(d.x), y: num(d.y) };
+          me.room.drops.set(drop.id, drop);
+          added.push(drop);
+        }
+        while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
+        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added }, -1);
+        break;
+      }
+
+      // Someone picked an item up: it's gone for everybody (and for late joiners).
+      case "dropTake": {
+        const id = Math.trunc(num(msg.id, -1));
+        if (!me.room.drops.delete(id)) break;
+        broadcast(me.room, { type: "dropGone", id }, me.id);
+        break;
+      }
+
       // Walked through a portal: move to that map's room (same server + channel).
       case "map": {
         const key = String(msg.map || "");
@@ -355,6 +386,7 @@ wss.on("connection", (ws) => {
         oldRoom.delete(me.id);
         broadcast(oldRoom, { type: "playerRemove", id: me.id });
         reassignHost(oldRoom, me.id);   // hand off enemy-hosting if I was hosting that map
+        clearDropsIfEmpty(oldRoom);
 
         me.map = key;
         me.room = getRoom(me.server, me.channel, key);
@@ -365,7 +397,8 @@ wss.on("connection", (ws) => {
           type: "mapChanged", map: key,
           players: [...me.room.values()].filter((p) => p.id !== me.id).map(publicInfo),
           botHost: me.room.hostId === me.id,
-          bots: me.room.lastBots || []
+          bots: me.room.lastBots || [],
+          drops: dropList(me.room)
         });
         broadcast(me.room, { type: "playerAdd", player: publicInfo(me) }, me.id);
         break;
@@ -416,6 +449,7 @@ wss.on("connection", (ws) => {
     me.room.delete(me.id);
     broadcast(me.room, { type: "playerRemove", id: me.id });
     reassignHost(me.room, me.id);   // hand off enemy-hosting if I was hosting
+    clearDropsIfEmpty(me.room);
     console.log(`- ${me.name} — server ${me.server} channel ${me.channel} — ${players.size} online`);
   });
 
