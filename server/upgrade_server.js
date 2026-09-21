@@ -1,13 +1,18 @@
 // =============================================================================
 // upgrade_server.js  —  ONLINE MODE copy of upgrade.js
 // =============================================================================
-// Edit the numbers in here to change how the game behaves in ONLINE mode.
+// This is the WHOLE online version of upgrade.js: in online mode the game runs
+// THIS file (its numbers AND its functions/formulas), not upgrade.js. Edit
+// anything in here to change how the game behaves in ONLINE mode.
 // upgrade.js (the public file) only controls OFFLINE mode.
 //
-// This file lives on the SERVER (Render), NOT in the public game website, so
-// players cannot open or edit it. server.js sends these tables to each player
-// when they join an online match; the game then uses them instead of the
-// offline tables until the player leaves.
+// This file lives on the SERVER (Render / GitHub), NOT in the public game
+// website, so players cannot open or edit it. server.js sends it to each
+// player when they join an online match; the game swaps it in for as long as
+// the player is online, then puts the offline version back (see online.js).
+//
+// KEEP IT IN STEP WITH upgrade.js: when upgrade.js gets a new function or a fix,
+// copy that change in here too, or online mode keeps running the old version.
 // =============================================================================
 
 // upgrade.js
@@ -167,6 +172,100 @@ function getAllUpgradeItems() {
   return [...Object.values(STONE_TYPES), ...Object.values(ORB_TYPES)];
 }
 
+// ---------------------------------------------------------------------------
+// UPGRADING GEAR (gear.data.upgradeLevel, 0-9) — moved here from index.html so
+// online mode can run upgrade_server.js's copy instead of the player's own.
+//   - Success chance for the NEXT level = the stone's own upgradeChance
+//     (e.g. specialstone's 100%) minus UPGRADE_CHANCE_STEP for every level the
+//     gear already has. So +0 -> +1 rolls at the stone's full upgradeChance,
+//     +1 -> +2 rolls at (upgradeChance - 12%), +2 -> +3 at
+//     (upgradeChance - 24%), and so on, never dropping below 0%.
+//   - Every SUCCESSFUL weapon upgrade multiplies the weapon's CURRENT damage
+//     by a percentage tiered by the level it lands on (each upgrade compounds
+//     off the previous result, not the original base damage): landing on +1
+//     to +3 adds 15% of current damage, +4 to +6 adds 20%, and +7 to +9 adds
+//     25% (see getUpgradeDamagePercent below). E.g. 25 damage +1 (15%) ->
+//     28.75, then +2 (15% of 28.75) -> 33.06, and so on.
+//   - Every SUCCESSFUL armor upgrade adds defense AND max health, both
+//     tiered by the level it lands on: landing on +1 to +3 adds +1 defense /
+//     +5 health, +4 to +6 adds +2 defense / +10 health, and +7 to +9 adds +3
+//     defense / +15 health (see getUpgradeArmorBonus / getUpgradeArmorHealthBonus).
+//   - Capped at MAX_UPGRADE_LEVEL — the button/roll refuses once there.
+//   - A stone is consumed on every attempt, success or failure — that part
+//     stays in index.html since it's just removing an inventory item.
+// ---------------------------------------------------------------------------
+const MAX_UPGRADE_LEVEL = 9;
+const UPGRADE_CHANCE_STEP = 0.12;      // shaved off success chance per existing level
+
+// Percentage of the weapon's CURRENT damage added per successful upgrade,
+// tiered by which level it lands on (not the level upgraded from).
+function getUpgradeDamagePercent(nextLevel) {
+  if (nextLevel <= 3) return 0.15;
+  if (nextLevel <= 6) return 0.20;
+  return 0.25;
+}
+
+// Flat defense added per successful armor upgrade, tiered by landing level.
+function getUpgradeArmorBonus(nextLevel) {
+  if (nextLevel <= 3) return 1;
+  if (nextLevel <= 6) return 2;
+  return 3;
+}
+
+// Flat max-health added per successful armor upgrade, tiered by landing level.
+function getUpgradeArmorHealthBonus(nextLevel) {
+  if (nextLevel <= 3) return 5;
+  if (nextLevel <= 6) return 10;
+  return 15;
+}
+
+// Success chance for taking `currentLevel` up to `currentLevel + 1`, given
+// the stone's own base upgradeChance (e.g. 1.0 for specialstone).
+function getUpgradeChanceAtLevel(baseChance, currentLevel) {
+  return Math.max(0, (baseChance || 0) - UPGRADE_CHANCE_STEP * currentLevel);
+}
+
+// Rolls ONE upgrade attempt on a weapon or armor item and returns the result;
+// does not touch the stone — index.html still consumes that itself.
+//   gearType   — "weapon" or "armor" (see entryType() in index.html)
+//   gearData   — the item's current gear.data object (not mutated)
+//   baseChance — the stone's own upgradeChance (relic.data.upgradeChance)
+// Returns { success, maxed, data }: `data` is the NEW gear.data to store on
+// success, or the ORIGINAL gearData unchanged on a fail/maxed/no-op result.
+function rollGearUpgrade(gearType, gearData, baseChance) {
+  const currentLevel = (gearData && gearData.upgradeLevel) || 0;
+  if (currentLevel >= MAX_UPGRADE_LEVEL) return { success: false, maxed: true, data: gearData };
+
+  const chance = getUpgradeChanceAtLevel(baseChance, currentLevel);
+  const success = Math.random() < chance;
+  if (!success) return { success: false, maxed: false, data: gearData };
+
+  const nextLevel = currentLevel + 1;
+  let data = gearData;
+
+  if (gearType === "weapon" && typeof gearData.physicalDamage === "number") {
+    // Compounding percentage bump — taken off the weapon's CURRENT damage, so
+    // each successive upgrade builds on the last result. Rounded to 2 decimal
+    // places to avoid drifting into long floats (25 -> 28.75 -> 33.06 -> ...).
+    const bonusPct = getUpgradeDamagePercent(nextLevel);
+    const newDamage = Math.round(gearData.physicalDamage * (1 + bonusPct) * 100) / 100;
+    data = { ...gearData, physicalDamage: newDamage, upgradeLevel: nextLevel };
+  } else if (gearType === "armor" && typeof gearData.defense === "number") {
+    data = {
+      ...gearData,
+      defense: gearData.defense + getUpgradeArmorBonus(nextLevel),
+      health: (gearData.health || 0) + getUpgradeArmorHealthBonus(nextLevel),
+      upgradeLevel: nextLevel
+    };
+  }
+  // gearType/field mismatch (e.g. a weapon with no physicalDamage field):
+  // the roll still succeeded (and the stone is still spent by index.html),
+  // but there's no numeric field to raise, so upgradeLevel does NOT advance
+  // — matches the original index.html behavior exactly.
+
+  return { success: true, maxed: false, data };
+}
+
 
 
 if (typeof module !== "undefined" && module.exports) {
@@ -179,7 +278,14 @@ if (typeof module !== "undefined" && module.exports) {
     getOrb,
     getAllOrbs,
     getUpgradeItem,
-    getAllUpgradeItems
+    getAllUpgradeItems,
+    MAX_UPGRADE_LEVEL,
+    UPGRADE_CHANCE_STEP,
+    getUpgradeDamagePercent,
+    getUpgradeArmorBonus,
+    getUpgradeArmorHealthBonus,
+    getUpgradeChanceAtLevel,
+    rollGearUpgrade
   };
 
 }
