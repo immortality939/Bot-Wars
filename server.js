@@ -148,9 +148,20 @@ function reassignHost(room, leavingId) {
 }
 // Loot lying on the ground in a room (dropped by enemies). The server keeps it
 // so people who join / come back later still see it. Cleared when the room empties.
+// Loot stays even when the room is empty (so someone logging in later still finds
+// it) until it is DROP_MAX_AGE_MS old. NOTE: it lives in the server's memory, so it
+// is lost whenever the server restarts / goes to sleep (Render free plan).
 const MAX_ROOM_DROPS = 400;
-function dropList(room) { return [...room.drops.values()]; }
-function clearDropsIfEmpty(room) { if (room.size === 0) room.drops.clear(); }
+const DROP_MAX_AGE_MS = 72 * 60 * 60 * 1000;
+function pruneDrops(room) {
+  const cutoff = Date.now() - DROP_MAX_AGE_MS;
+  for (const [id, d] of room.drops) if (d.at < cutoff) room.drops.delete(id);
+}
+function dropList(room) {
+  pruneDrops(room);
+  return [...room.drops.values()].map(({ id, t, x, y }) => ({ id, t, x, y }));
+}
+function clearDropsIfEmpty() { /* intentionally keeps loot in empty rooms */ }
 function countPlayers(test) {
   let n = 0;
   for (const p of players.values()) if (test(p)) n++;
@@ -359,12 +370,12 @@ wss.on("connection", (ws) => {
         const added = [];
         for (const d of msg.drops.slice(0, 20)) {
           if (!d || typeof d.t !== "string" || d.t.length > 40) continue;
-          const drop = { id: me.room.nextDropId++, t: d.t, x: num(d.x), y: num(d.y) };
+          const drop = { id: me.room.nextDropId++, t: d.t, x: num(d.x), y: num(d.y), at: Date.now() };
           me.room.drops.set(drop.id, drop);
           added.push(drop);
         }
         while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
-        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added }, -1);
+        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y }) => ({ id, t, x, y })) }, -1);
         break;
       }
 
