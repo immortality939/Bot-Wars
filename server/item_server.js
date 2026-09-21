@@ -1,13 +1,18 @@
 // =============================================================================
 // item_server.js  —  ONLINE MODE copy of item.js
 // =============================================================================
-// Edit the numbers in here to change how the game behaves in ONLINE mode.
+// This is the WHOLE online version of item.js: in online mode the game runs
+// THIS file (its numbers AND its functions/formulas), not item.js. Edit
+// anything in here to change how the game behaves in ONLINE mode.
 // item.js (the public file) only controls OFFLINE mode.
 //
-// This file lives on the SERVER (Render), NOT in the public game website, so
-// players cannot open or edit it. server.js sends these tables to each player
-// when they join an online match; the game then uses them instead of the
-// offline tables until the player leaves.
+// This file lives on the SERVER (Render / GitHub), NOT in the public game
+// website, so players cannot open or edit it. server.js sends it to each
+// player when they join an online match; the game swaps it in for as long as
+// the player is online, then puts the offline version back (see online.js).
+//
+// KEEP IT IN STEP WITH item.js: when item.js gets a new function or a fix,
+// copy that change in here too, or online mode keeps running the old version.
 // =============================================================================
 
 // item.js
@@ -524,7 +529,9 @@ function applyItemEffect(player, typeName) {
     case "powerup": {
       if (!player.activeEffects.powerup) {
         player.baseMaxHealth = player.health;
-        player.baseWeaponDamage = player.weapon.physicalDamage;
+        // player.weapon can be null (no weapon equipped yet) -- only
+        // remember/buff weapon damage when there actually is a weapon.
+        player.baseWeaponDamage = player.weapon ? player.weapon.physicalDamage : undefined;
 
         player.health = player.baseMaxHealth * def.healthMultiplier;
         player.currentHealth = player.currentHealth * def.healthMultiplier;
@@ -534,9 +541,11 @@ function applyItemEffect(player, typeName) {
         // doesn't clone it). Mutating .physicalDamage directly would
         // permanently buff that weapon for everyone. Give the player
         // their own shallow copy instead, so only their weapon is affected.
-        player.weapon = Object.assign({}, player.weapon, {
-          physicalDamage: player.baseWeaponDamage * def.damageMultiplier
-        });
+        if (player.weapon && typeof player.baseWeaponDamage === "number") {
+          player.weapon = Object.assign({}, player.weapon, {
+            physicalDamage: player.baseWeaponDamage * def.damageMultiplier
+          });
+        }
       }
 
       player.activeEffects.powerup = {
@@ -572,9 +581,11 @@ function updateActiveEffects(player) {
     // being "healed back" proportionally when max health halves again.
     player.currentHealth = Math.min(player.currentHealth, player.health);
 
-    player.weapon = Object.assign({}, player.weapon, {
-      physicalDamage: player.baseWeaponDamage
-    });
+    if (player.weapon && typeof player.baseWeaponDamage === "number") {
+      player.weapon = Object.assign({}, player.weapon, {
+        physicalDamage: player.baseWeaponDamage
+      });
+    }
 
     delete player.activeEffects.powerup;
   }

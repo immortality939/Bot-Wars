@@ -1,13 +1,18 @@
 // =============================================================================
 // skill_server.js  —  ONLINE MODE copy of skill.js
 // =============================================================================
-// Edit the numbers in here to change how the game behaves in ONLINE mode.
+// This is the WHOLE online version of skill.js: in online mode the game runs
+// THIS file (its numbers AND its functions/formulas), not skill.js. Edit
+// anything in here to change how the game behaves in ONLINE mode.
 // skill.js (the public file) only controls OFFLINE mode.
 //
-// This file lives on the SERVER (Render), NOT in the public game website, so
-// players cannot open or edit it. server.js sends these tables to each player
-// when they join an online match; the game then uses them instead of the
-// offline tables until the player leaves.
+// This file lives on the SERVER (Render / GitHub), NOT in the public game
+// website, so players cannot open or edit it. server.js sends it to each
+// player when they join an online match; the game swaps it in for as long as
+// the player is online, then puts the offline version back (see online.js).
+//
+// KEEP IT IN STEP WITH skill.js: when skill.js gets a new function or a fix,
+// copy that change in here too, or online mode keeps running the old version.
 // =============================================================================
 
 // skill.js
@@ -309,7 +314,8 @@ const SKILLS = {
 //
 // EXAMPLE: player.physicalDamage (current combined total) is 100,
 // skill.physicalDamage is 100 -> getSkillEffectiveStats(skill, player)
-// returns physicalDamage: 200 for that skill's activation.
+// returns physicalDamage: 200 for that skill's activation — PLUS the
+// physicalDamage of the weapon the player has equipped (see below).
 //
 // Only fields the skill itself actually sets get combined — a skill with
 // no physicalDamage field simply has no physicalDamage (0), it does NOT
@@ -336,6 +342,16 @@ function getSkillEffectiveStats(skill, player) {
       const playerValue = (player && typeof player[statName] === "number") ? player[statName] : 0;
       effective[statName] = skill[statName] + playerValue;
     }
+  }
+
+  // WEAPON DAMAGE — the equipped weapon's physicalDamage is NOT stored on the
+  // player (it is only added at attack-time, see getAttackDamage() in
+  // character.js), so it has to be added here too or skills would ignore the
+  // weapon. Total skill physical damage = skill + player + equipped weapon.
+  // EXAMPLE: skill 100 + player 11 + shotgun 600 = 711.
+  if (typeof effective.physicalDamage === "number" && player && player.weapon &&
+      typeof player.weapon.physicalDamage === "number") {
+    effective.physicalDamage += player.weapon.physicalDamage;
   }
 
   return effective;

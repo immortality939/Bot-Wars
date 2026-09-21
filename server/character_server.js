@@ -1,13 +1,18 @@
 // =============================================================================
 // character_server.js  —  ONLINE MODE copy of character.js
 // =============================================================================
-// Edit the numbers in here to change how the game behaves in ONLINE mode.
+// This is the WHOLE online version of character.js: in online mode the game runs
+// THIS file (its numbers AND its functions/formulas), not character.js. Edit
+// anything in here to change how the game behaves in ONLINE mode.
 // character.js (the public file) only controls OFFLINE mode.
 //
-// This file lives on the SERVER (Render), NOT in the public game website, so
-// players cannot open or edit it. server.js sends these tables to each player
-// when they join an online match; the game then uses them instead of the
-// offline tables until the player leaves.
+// This file lives on the SERVER (Render / GitHub), NOT in the public game
+// website, so players cannot open or edit it. server.js sends it to each
+// player when they join an online match; the game swaps it in for as long as
+// the player is online, then puts the offline version back (see online.js).
+//
+// KEEP IT IN STEP WITH character.js: when character.js gets a new function or a fix,
+// copy that change in here too, or online mode keeps running the old version.
 // =============================================================================
 
 // character.js
@@ -19,13 +24,71 @@
 // just a single flat value. Load order:
 // weapon.js -> armor.js -> character.js -> ...
 
+// ---------------------------------------------------------------------------
+// ATTRIBUTE_RATES — what ONE point of each attribute is worth. Every place
+// that turns vit/dex/int/pow into stats (applyAttributeBonus(), the
+// getBase...() helpers below, game.js's match start/respawn and index.html's
+// character popup) reads these through attrRate(), so the numbers live here
+// and nowhere else.
+//   vit — +5 health, +0.25 physicalDefense per point
+//   dex — +0.5 physicalDefense, +0.35 criticalDamage per point
+//   int — +2 mana, +1 magicalAttack, +0.5 magicalDefense per point
+//   pow — +1 physicalDamage per point
+// These are the OFFLINE numbers. In ONLINE mode the server sends its own
+// ATTRIBUTE_RATES (server/game_server.js) and online.js swaps them in for
+// as long as the player is online, then puts these back.
+// ---------------------------------------------------------------------------
+const ATTRIBUTE_RATES = {
+  vit: { health: 5, physicalDefense: 0.25 },
+  dex: { physicalDefense: 0.5, criticalDamage: 0.35 },
+  int: { mana: 2, magicalAttack: 1, magicalDefense: 0.5 },
+  pow: { physicalDamage: 1 }
+};
+
+// Reads the CURRENT table (offline or server) so a swap takes effect at once.
+function attrRate(attr, stat) {
+  const t = ATTRIBUTE_RATES[attr];
+  return (t && typeof t[stat] === "number") ? t[stat] : 0;
+}
+
+// ---------------------------------------------------------------------------
+// GAME_RULES — the leveling numbers. Everything below (and game.js/index.html/
+// online.js) reads them through gameRule(), never as loose constants:
+//   EXP_BASE / EXP_GROWTH_RATE — exp to reach the next level: starts at
+//                                EXP_BASE and multiplies by EXP_GROWTH_RATE
+//                                for every level after that (see getExpForLevel)
+//   MAX_LEVEL                  — level cap
+//   STAT_POINTS_PER_LEVEL      — spendable points granted per level gained
+//   AUTO_STAT_GROWTH_PER_LEVEL — free +N to ALL FOUR of vit/dex/int/pow per level
+//   HEALTH_GROWTH_RATE         — health multiplier per level (1.1 = +10%, compounding)
+// These are the OFFLINE numbers. In ONLINE mode the server sends its own
+// GAME_RULES (server/game_server.js) and online.js swaps them in for as long
+// as the player is online, then puts these back.
+// ---------------------------------------------------------------------------
+const GAME_RULES = {
+  EXP_BASE: 300,
+  EXP_GROWTH_RATE: 1.5,
+  MAX_LEVEL: 40,
+  STAT_POINTS_PER_LEVEL: 5,
+  AUTO_STAT_GROWTH_PER_LEVEL: 3,
+  HEALTH_GROWTH_RATE: 1.1
+};
+// Untouched copy: only used if a table from the server ever lacks a rule,
+// so a missing number can't turn into NaN / level cap 0.
+const GAME_RULE_DEFAULTS = Object.assign({}, GAME_RULES);
+
+function gameRule(name) {
+  const v = GAME_RULES[name];
+  return (typeof v === "number" && isFinite(v)) ? v : GAME_RULE_DEFAULTS[name];
+}
+
 const CHARACTERS = {
 
 
   // FAST CHARACTER
   police: {
     name: "police",
-    health: 8000,
+    health: 80,
     armor: "armor1",
     movementSpeed: 115,
     weaponName: "uzi",
@@ -195,14 +258,12 @@ const CHARACTERS = {
 // the same way — see getCharacterProgress()/persistCharacterProgress()
 // in index.html.
 // ---------------------------------------------------------------------------
-const EXP_BASE = 300;
-const EXP_GROWTH_RATE = 1.5;
-const MAX_LEVEL = 40;
-const STAT_POINTS_PER_LEVEL = 5;
-const AUTO_STAT_GROWTH_PER_LEVEL = 3;
+// (EXP_BASE, EXP_GROWTH_RATE, MAX_LEVEL, STAT_POINTS_PER_LEVEL and
+// AUTO_STAT_GROWTH_PER_LEVEL are in GAME_RULES at the top of this file —
+// read them with gameRule("NAME").)
 
 function getExpForLevel(level) {
-  return Math.round(EXP_BASE * Math.pow(EXP_GROWTH_RATE, (level || 1) - 1));
+  return Math.round(gameRule("EXP_BASE") * Math.pow(gameRule("EXP_GROWTH_RATE"), (level || 1) - 1));
 }
 
 // ---------------------------------------------------------------------------
@@ -218,10 +279,8 @@ function getExpForLevel(level) {
 // never reach this function — getCharacter() below clamps char.level to
 // MAX_LEVEL first, so health always tops out at the level-40 number too.
 // ---------------------------------------------------------------------------
-const HEALTH_GROWTH_RATE = 1.1;
-
 function getHealthForLevel(baseHealth, level) {
-  return Math.round((baseHealth || 0) * Math.pow(HEALTH_GROWTH_RATE, (level || 1) - 1));
+  return Math.round((baseHealth || 0) * Math.pow(gameRule("HEALTH_GROWTH_RATE"), (level || 1) - 1));
 }
 
 // ---------------------------------------------------------------------------
@@ -239,7 +298,7 @@ function getBaseMaxHealthForLevel(charName, level) {
   const def = (typeof CHARACTERS !== "undefined") ? CHARACTERS[charName] : null;
   const baseHealth = def ? def.health : 0;
   const vit = (def && typeof def.vit === "number") ? def.vit : 0;
-  return getHealthForLevel(baseHealth, level) + (vit * 5);
+  return getHealthForLevel(baseHealth, level) + (vit * attrRate("vit", "health"));
 }
 
 // ---------------------------------------------------------------------------
@@ -260,7 +319,7 @@ function getBasePhysicalDefense(charName) {
   const basePhysicalDefense = (def && typeof def.physicalDefense === "number") ? def.physicalDefense : 0;
   const vit = (def && typeof def.vit === "number") ? def.vit : 0;
   const dex = (def && typeof def.dex === "number") ? def.dex : 0;
-  return basePhysicalDefense + (vit * 0.25) + (dex * 0.5);
+  return basePhysicalDefense + (vit * attrRate("vit", "physicalDefense")) + (dex * attrRate("dex", "physicalDefense"));
 }
 
 // ---------------------------------------------------------------------------
@@ -284,7 +343,7 @@ function getBasePhysicalDamage(charName) {
   const def = (typeof CHARACTERS !== "undefined") ? CHARACTERS[charName] : null;
   const basePhysicalDamage = (def && typeof def.physicalDamage === "number") ? def.physicalDamage : 0;
   const pow = (def && typeof def.pow === "number") ? def.pow : 0;
-  return basePhysicalDamage + (pow * 1);
+  return basePhysicalDamage + (pow * attrRate("pow", "physicalDamage"));
 }
 
 function addCharacterExp(character, amount) {
@@ -297,20 +356,22 @@ function addCharacterExp(character, amount) {
   if (typeof character.maxExp !== "number") character.maxExp = getExpForLevel(character.level);
   if (typeof character.statPoints !== "number") character.statPoints = 0;
 
+  const maxLevel = gameRule("MAX_LEVEL");
+
   // MAX LEVEL — a character already at MAX_LEVEL (40) has nowhere
   // further to go, so kills stop granting it exp entirely instead of
   // piling up exp it can never spend.
-  if (character.level >= MAX_LEVEL) {
-    character.level = MAX_LEVEL;
+  if (character.level >= maxLevel) {
+    character.level = maxLevel;
     character.exp = 0;
-    character.maxExp = getExpForLevel(MAX_LEVEL);
+    character.maxExp = getExpForLevel(maxLevel);
     return { leveledUp: false, levelsGained: 0 };
   }
 
   character.exp += amount;
 
   let levelsGained = 0;
-  while (character.level < MAX_LEVEL && character.exp >= character.maxExp) {
+  while (character.level < maxLevel && character.exp >= character.maxExp) {
     character.exp -= character.maxExp;
     character.level += 1;
     character.maxExp = getExpForLevel(character.level);
@@ -320,10 +381,10 @@ function addCharacterExp(character, amount) {
   // A single big enough kill could cascade past MAX_LEVEL in the loop
   // above — clamp back down and drop whatever exp was left over, same
   // as the already-capped case above.
-  if (character.level >= MAX_LEVEL) {
-    character.level = MAX_LEVEL;
+  if (character.level >= maxLevel) {
+    character.level = maxLevel;
     character.exp = 0;
-    character.maxExp = getExpForLevel(MAX_LEVEL);
+    character.maxExp = getExpForLevel(maxLevel);
   }
 
   // STAT POINTS — 5 per level gained (see STAT_POINTS_PER_LEVEL above),
@@ -346,9 +407,9 @@ function addCharacterExp(character, amount) {
   // in sync too, so a later armor swap or level-based health recompute
   // can't silently erase this growth.
   if (levelsGained > 0) {
-    character.statPoints = (character.statPoints || 0) + (levelsGained * STAT_POINTS_PER_LEVEL);
+    character.statPoints = (character.statPoints || 0) + (levelsGained * gameRule("STAT_POINTS_PER_LEVEL"));
 
-    const autoPoints = levelsGained * AUTO_STAT_GROWTH_PER_LEVEL;
+    const autoPoints = levelsGained * gameRule("AUTO_STAT_GROWTH_PER_LEVEL");
     character.spentVit = (character.spentVit || 0) + autoPoints;
     character.spentDex = (character.spentDex || 0) + autoPoints;
     character.spentInt = (character.spentInt || 0) + autoPoints;
@@ -427,6 +488,7 @@ const EQUIPMENT_STAT_MAP = {
 // combineEquipmentStats() below). Keeping this in one place means a
 // point of vit from gear does exactly what a point of vit on the
 // character itself does, regardless of where it came from:
+// The per-point numbers are in ATTRIBUTE_RATES (top of this file):
 //   vit — +5 health, +0.25 physicalDefense per point
 //   dex — +0.5 physicalDefense, +0.35 criticalDamage per point
 //   int — +2 mana, +1 magicalAttack, +0.5 magicalDefense per point
@@ -441,13 +503,13 @@ function applyAttributeBonus(character, vit, dex, int, pow) {
   character.int = (character.int || 0) + int;
   character.pow = (character.pow || 0) + pow;
 
-  character.health = (character.health || 0) + (vit * 5);
-  character.physicalDefense = (character.physicalDefense || 0) + (vit * 0.25) + (dex * 0.5);
-  character.criticalDamage = (character.criticalDamage || 0) + (dex * 0.02);
-  character.mana = (character.mana || 0) + (int * 2);
-  character.magicalAttack = (character.magicalAttack || 0) + (int * 1);
-  character.magicalDefense = (character.magicalDefense || 0) + (int * 0.5);
-  character.physicalDamage = (character.physicalDamage || 0) + (pow * 1);
+  character.health = (character.health || 0) + (vit * attrRate("vit", "health"));
+  character.physicalDefense = (character.physicalDefense || 0) + (vit * attrRate("vit", "physicalDefense")) + (dex * attrRate("dex", "physicalDefense"));
+  character.criticalDamage = (character.criticalDamage || 0) + (dex * attrRate("dex", "criticalDamage"));
+  character.mana = (character.mana || 0) + (int * attrRate("int", "mana"));
+  character.magicalAttack = (character.magicalAttack || 0) + (int * attrRate("int", "magicalAttack"));
+  character.magicalDefense = (character.magicalDefense || 0) + (int * attrRate("int", "magicalDefense"));
+  character.physicalDamage = (character.physicalDamage || 0) + (pow * attrRate("pow", "physicalDamage"));
 
   return character;
 }
@@ -510,7 +572,7 @@ function getCharacter(name) {
   // level 40 with level-40 health, same as if it had actually been
   // earned through play.
   char.level = typeof char.level === "number" ? char.level : 1;
-  if (char.level > MAX_LEVEL) char.level = MAX_LEVEL;
+  if (char.level > gameRule("MAX_LEVEL")) char.level = gameRule("MAX_LEVEL");
   char.exp = typeof char.exp === "number" ? char.exp : 0;
   char.maxExp = getExpForLevel(char.level);
 
@@ -1034,12 +1096,14 @@ if (typeof module !== "undefined" && module.exports) {
     combineEquipmentStats,
     applyAttributeBonus,
     EQUIPMENT_STAT_MAP,
-    MAX_LEVEL,
-    STAT_POINTS_PER_LEVEL,
-    AUTO_STAT_GROWTH_PER_LEVEL
+    ATTRIBUTE_RATES,
+    attrRate,
+    GAME_RULES,
+    gameRule
   };
 
 }
+
 
 // ---- export for server.js (Node) ----
 if (typeof module !== "undefined") module.exports = { CHARACTERS, EQUIPMENT_STAT_MAP };
