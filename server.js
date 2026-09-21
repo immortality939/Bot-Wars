@@ -127,7 +127,7 @@ const rooms = new Map();
 function getRoom(serverId, channel, mapKey) {
   const k = serverId + ":" + channel + ":" + mapKey;
   let r = rooms.get(k);
-  if (!r) { r = new Map(); r.hostId = null; r.lastBots = null; r.lastBotsAt = 0; r.drops = new Map(); r.nextDropId = 1; rooms.set(k, r); }
+  if (!r) { r = new Map(); r.hostId = null; r.lastBots = null; r.drops = new Map(); r.nextDropId = 1; rooms.set(k, r); }
   return r;
 }
 // Picks anyone else left in the room to take over as bot host.
@@ -143,21 +143,8 @@ function reassignHost(room, leavingId) {
   const next = pickNewHost(room, leavingId);
   room.hostId = next ? next.id : null;
   room.lastBots = null;
-  room.lastBotsAt = Date.now();
   if (next) send(next.ws, { type: "botHost", host: true });
   broadcast(room, { type: "botsReset" }, next ? next.id : -1);
-}
-// GHOST HOST FIX: if the current host stopped streaming enemies (app force-closed,
-// phone asleep, dead connection not noticed yet), enemies would freeze for everyone.
-// A newcomer takes over hosting right away when the host has been silent for a while.
-const HOST_SILENT_MS = 5000;
-function takeOverIfHostSilent(room, newcomer) {
-  if (room.hostId == null || room.hostId === newcomer.id) return;
-  if (Date.now() - room.lastBotsAt <= HOST_SILENT_MS) return;
-  room.hostId = newcomer.id;
-  room.lastBots = null;
-  room.lastBotsAt = Date.now();
-  broadcast(room, { type: "botsReset" }, newcomer.id);
 }
 // Loot lying on the ground in a room (dropped by enemies). The server keeps it
 // so people who join / come back later still see it. Cleared when the room empties.
@@ -266,8 +253,7 @@ wss.on("connection", (ws) => {
       const isFirstInRoom = room.size === 0;
       players.set(id, me);
       room.set(id, me);
-      if (isFirstInRoom) { room.hostId = id; room.lastBots = null; room.lastBotsAt = Date.now(); }
-      else takeOverIfHostSilent(room, me);
+      if (isFirstInRoom) { room.hostId = id; room.lastBots = null; }
       send(ws, {
         type: "init",
         id,
@@ -315,13 +301,23 @@ wss.on("connection", (ws) => {
         broadcast(me.room, msg, me.id);
         break;
 
+      // A player took damage: tell everyone else in the room so they see the
+      // floating damage number above that player too (attacker + onlookers).
+      case "dmgNum":
+        broadcast(me.room, {
+          type: "dmgNum", from: me.id,
+          x: num(msg.x), y: num(msg.y),
+          amount: Math.min(MAX_DAMAGE_PER_HIT, Math.max(0, Math.round(num(msg.amount)))),
+          isCritical: !!msg.isCritical
+        }, me.id);
+        break;
+
       // PvE: the room's enemy host streams its enemies' position/health/
       // alive state here (~10x/sec) — cache it (so late joiners see the
       // current fight instantly) and relay it to everyone else in the room.
       case "bots":
         if (me.room.hostId !== me.id || !Array.isArray(msg.list)) break;
         me.room.lastBots = msg.list;
-        me.room.lastBotsAt = Date.now();
         broadcast(me.room, { type: "bots", list: msg.list }, me.id);
         break;
 
@@ -418,8 +414,7 @@ wss.on("connection", (ws) => {
         me.room = getRoom(me.server, me.channel, key);
         const isFirstInNewRoom = me.room.size === 0;
         me.room.set(me.id, me);
-        if (isFirstInNewRoom) { me.room.hostId = me.id; me.room.lastBots = null; me.room.lastBotsAt = Date.now(); }
-        else takeOverIfHostSilent(me.room, me);
+        if (isFirstInNewRoom) { me.room.hostId = me.id; me.room.lastBots = null; }
         send(ws, {
           type: "mapChanged", map: key,
           players: [...me.room.values()].filter((p) => p.id !== me.id).map(publicInfo),
@@ -490,16 +485,6 @@ setInterval(() => {
     ws.isAlive = false;
     ws.ping();
   }
-}, 10000);   // ghost players (force-closed app) disappear within ~20s
-
-// Enemy host went silent while others are in the room -> hand hosting to someone else.
-setInterval(() => {
-  const now = Date.now();
-  for (const room of rooms.values()) {
-    if (room.hostId != null && room.size > 1 && now - room.lastBotsAt > 6000) {
-      reassignHost(room, room.hostId);
-    }
-  }
-}, 3000);
+}, 30000);
 
 server.listen(PORT, () => console.log("Bot Wars server listening on port " + PORT));
