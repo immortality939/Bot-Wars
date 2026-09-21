@@ -443,7 +443,7 @@ function applyAttributeBonus(character, vit, dex, int, pow) {
 
   character.health = (character.health || 0) + (vit * 5);
   character.physicalDefense = (character.physicalDefense || 0) + (vit * 0.25) + (dex * 0.5);
-  character.criticalDamage = (character.criticalDamage || 0) + (dex * 0.35);
+  character.criticalDamage = (character.criticalDamage || 0) + (dex * 0.02);
   character.mana = (character.mana || 0) + (int * 2);
   character.magicalAttack = (character.magicalAttack || 0) + (int * 1);
   character.magicalDefense = (character.magicalDefense || 0) + (int * 0.5);
