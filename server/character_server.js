@@ -61,6 +61,11 @@ function attrRate(attr, stat) {
 //   STAT_POINTS_PER_LEVEL      — spendable points granted per level gained
 //   AUTO_STAT_GROWTH_PER_LEVEL — free +N to ALL FOUR of vit/dex/int/pow per level
 //   HEALTH_GROWTH_RATE         — health multiplier per level (1.1 = +10%, compounding)
+//   PARTY_MAX_SIZE              — most players one party can ever hold (see
+//                                 online.js's party system)
+//   PARTY_EXP_SHARE_RANGE       — world units a party member must be within
+//                                 a kill to get a share of its exp (see
+//                                 computePartyExpShare() below)
 // These are the OFFLINE numbers. In ONLINE mode the server sends its own
 // GAME_RULES (server/game_server.js) and online.js swaps them in for as long
 // as the player is online, then puts these back.
@@ -71,7 +76,9 @@ const GAME_RULES = {
   MAX_LEVEL: 40,
   STAT_POINTS_PER_LEVEL: 5,
   AUTO_STAT_GROWTH_PER_LEVEL: 3,
-  HEALTH_GROWTH_RATE: 1.1
+  HEALTH_GROWTH_RATE: 1.1,
+  PARTY_MAX_SIZE: 6,
+  PARTY_EXP_SHARE_RANGE: 300
 };
 // Untouched copy: only used if a table from the server ever lacks a rule,
 // so a missing number can't turn into NaN / level cap 0.
@@ -427,6 +434,122 @@ function addCharacterExp(character, amount) {
   }
 
   return { leveledUp: levelsGained > 0, levelsGained };
+}
+
+// ---------------------------------------------------------------------------
+// PARTY EXP SHARING — online mode only (see online.js's party system: up to
+// PARTY_MAX_SIZE (6) players, formed via the INVITE PARTY button). When a
+// party member kills an enemy, the kill's expGet is split evenly between
+// every party member within PARTY_EXP_SHARE_RANGE (300) world units of the
+// kill, INCLUDING the killer — a member further away than that gets nothing
+// from that particular kill. Both numbers are read through gameRule(), so a
+// server config change doesn't need a code change.
+//
+// This function is pure math only — no character objects, no network calls.
+// online.js is what actually calls it (once per online kill, from inside an
+// addCharacterExp() override — see "damageBot"'s override in online.js for
+// the same pattern), applies the killer's own share locally, and sends each
+// other member's share to them over the network ("partyExpAward" — see
+// server.js) to apply on their own end.
+//
+//   killerId        — id of whoever landed the kill.
+//   killerX/killerY  — where the kill happened (the killer's own position).
+//   amount           — the bot's total expGet for this kill.
+//   partyPositions   — every party member online.js can currently place on
+//                       the map, as [{ id, x, y }, ...]. MUST include the
+//                       killer's own entry (their distance to themselves is
+//                       always 0, so they're always in range). A member
+//                       online.js can't currently place (on a different map,
+//                       or hasn't sent a "state" yet) should simply be left
+//                       out of this array — leaving them out has the exact
+//                       same effect as them being out of range: no share.
+//   range            — optional override; defaults to
+//                       gameRule("PARTY_EXP_SHARE_RANGE").
+//
+// Returns an array of { id, share } — ONLY for members within range (a
+// member left out of the return got 0, not a 0-share entry). Shares are
+// floor()'d to whole numbers so exp is never fractional; whatever remainder
+// that floor() leaves over (amount doesn't always divide evenly by the
+// in-range headcount) is folded into the KILLER's own share, so the party's
+// shares always add up to exactly `amount` — never more, never less.
+// ---------------------------------------------------------------------------
+function computePartyExpShare(killerId, killerX, killerY, amount, partyPositions, range) {
+  if (typeof amount !== "number" || amount <= 0 || !Array.isArray(partyPositions)) return [];
+  const shareRange = (typeof range === "number" && range >= 0) ? range : gameRule("PARTY_EXP_SHARE_RANGE");
+
+  const inRangeIds = [];
+  for (const m of partyPositions) {
+    if (!m || typeof m.x !== "number" || typeof m.y !== "number") continue;
+    const dist = Math.hypot(m.x - killerX, m.y - killerY);
+    if (dist <= shareRange) inRangeIds.push(m.id);
+  }
+  if (!inRangeIds.length) return [];
+
+  const base = Math.floor(amount / inRangeIds.length);
+  const remainder = amount - (base * inRangeIds.length);
+
+  return inRangeIds.map((id) => ({ id, share: base + (id === killerId ? remainder : 0) }));
+}
+
+
+
+// ---------------------------------------------------------------------------
+// PARTY FRIENDLY FIRE — online mode only, same party system as
+// computePartyExpShare() above (up to PARTY_MAX_SIZE members, formed via the
+// INVITE PARTY button, membership tracked as server.js's authoritative
+// `partyId` on each player). Two players count as teammates here ONLY when
+// both have a non-null partyId AND it's the same one — a player with no
+// party (partyId null/undefined) can still be hit by anyone, same as today.
+//
+// Pure check only — no network calls, no character mutation. The actual
+// hit path (online.js's netHitPlayers() for players, server.js's "hit"
+// relay) is what should call this BEFORE rolling/sending any damage, so a
+// blocked hit never becomes a bullet-lands / dmgNum / knockback event either.
+// ---------------------------------------------------------------------------
+function isPartyFriendlyFire(attackerPartyId, targetPartyId) {
+  return attackerPartyId != null && targetPartyId != null && attackerPartyId === targetPartyId;
+}
+
+// Convenience wrapper for callers that already have both player-ish objects
+// in hand (anything carrying a `.partyId`, e.g. online.js's local player
+// mirror or server.js's connection records) instead of the two ids alone.
+function canCharacterDamageTarget(attacker, target) {
+  if (!attacker || !target || attacker === target) return false;
+  return !isPartyFriendlyFire(attacker.partyId, target.partyId);
+}
+
+
+
+// ---------------------------------------------------------------------------
+// PARTY LOOT TURN — alternates WHO a party's shared ground loot goes to
+// instead of it always being whoever clicks/walks over it first. Turn order
+// follows `party.members` (same array server.js's party object already
+// keeps — see "parties" Map in server.js), and the current turn is stored
+// right on that party object as `party.lootTurnIndex` so it persists for as
+// long as the party exists, no extra state to wire up elsewhere.
+//
+//   isPartyLootTurn(party, playerId) — true if it's currently playerId's
+//     turn to loot (or if `party` is null/has no members, since a solo
+//     player or a broken party record should never be blocked from
+//     looting). Call this before honoring a party member's "dropTake".
+//
+//   advancePartyLootTurn(party) — moves the turn to the next member, wrapping
+//     back to the start after the last one. Call this once, right after a
+//     party member's loot claim is accepted, so the NEXT drop goes to
+//     whoever's next in line rather than the same person again.
+//
+// Both are pure/cheap — safe to call every time a drop is claimed.
+// ---------------------------------------------------------------------------
+function isPartyLootTurn(party, playerId) {
+  if (!party || !Array.isArray(party.members) || !party.members.length) return true;
+  const idx = (typeof party.lootTurnIndex === "number" ? party.lootTurnIndex : 0) % party.members.length;
+  return party.members[idx] === playerId;
+}
+
+function advancePartyLootTurn(party) {
+  if (!party || !Array.isArray(party.members) || !party.members.length) return;
+  const idx = (typeof party.lootTurnIndex === "number" ? party.lootTurnIndex : 0) % party.members.length;
+  party.lootTurnIndex = (idx + 1) % party.members.length;
 }
 
 
@@ -1083,6 +1206,11 @@ if (typeof module !== "undefined" && module.exports) {
     getAllCharacters,
     getExpForLevel,
     addCharacterExp,
+    computePartyExpShare,
+    isPartyFriendlyFire,
+    canCharacterDamageTarget,
+    isPartyLootTurn,
+    advancePartyLootTurn,
     getHealthForLevel,
     getBaseMaxHealthForLevel,
     getBasePhysicalDefense,
