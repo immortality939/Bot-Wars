@@ -133,8 +133,10 @@ const PARTY_MAX_SIZE = 6;  // must match GAME_RULES.PARTY_MAX_SIZE in server/cha
 
 // Friendly-fire helper, same pure function online.js's client code uses
 // (see character_server.js's "PARTY FRIENDLY FIRE" section) — pulled from
-// GAME_DATA so both sides never drift apart.
-const { isPartyFriendlyFire } = GAME_DATA;
+// GAME_DATA so both sides never drift apart. advancePartyLootTurn/
+// getPartyLootTurnId are the "PARTY LOOT TURN" helpers right below it —
+// see their use in the "dropTake" case further down.
+const { isPartyFriendlyFire, advancePartyLootTurn, getPartyLootTurnId } = GAME_DATA;
 
 function getParty(p) {
   return p.partyId != null ? parties.get(p.partyId) : null;
@@ -144,11 +146,26 @@ function partyRosterPayload(party) {
   return {
     type: "partyUpdate",
     partyId: party.id,
+    lootTurnId: getPartyLootTurnId(party),
     members: party.members.map((id) => {
       const m = players.get(id);
       return { id, name: m ? m.name : ("Player " + id) };
     })
   };
+}
+
+// Tells every member whose turn it currently is to receive the party's next
+// shared ground drop (see "PARTY LOOT TURN" in character_server.js). Sent
+// after every accepted "dropTake" claim, in addition to the roster-level
+// lootTurnId partyRosterPayload() already includes for join/leave/kick —
+// this is the lightweight one that doesn't need a full roster resend just
+// because someone picked up an item.
+function broadcastPartyLootTurn(party) {
+  const lootTurnId = getPartyLootTurnId(party);
+  for (const id of party.members) {
+    const m = players.get(id);
+    if (m) send(m.ws, { type: "partyLootTurn", lootTurnId });
+  }
 }
 
 function broadcastPartyUpdate(party) {
@@ -228,9 +245,7 @@ function pruneDrops(room) {
 }
 function dropList(room) {
   pruneDrops(room);
-  return [...room.drops.values()].map((d) => d.k === "inv"
-    ? { id: d.id, k: "inv", invType: d.invType, name: d.name, data: d.data, qty: d.qty, x: d.x, y: d.y }
-    : { id: d.id, t: d.t, x: d.x, y: d.y });
+  return [...room.drops.values()].map(({ id, t, x, y }) => ({ id, t, x, y }));
 }
 function clearDropsIfEmpty() { /* intentionally keeps loot in empty rooms */ }
 function countPlayers(test) {
@@ -462,53 +477,42 @@ wss.on("connection", (ws) => {
         break;
       }
 
-      // Manual drop: any player (not just the bot host) dragging a weapon/
-      // armor/stone out of their Inventory/Equip popup onto open ground.
-      // Unlike bot loot above, this carries the actual inventory entry
-      // (name/data/qty) along instead of a looked-up type name, so armor
-      // stats etc. survive being dropped and picked back up. Server numbers
-      // it and echoes it to EVERYONE including the dropper, same as bot
-      // loot, so the ground copy only ever exists once, server-confirmed.
-      case "invDropAdd": {
-        const entry = msg.entry;
-        if (!entry || typeof entry.name !== "string" || !entry.name || entry.name.length > 60) break;
-        let data = entry.data;
-        try {
-          if (data != null && JSON.stringify(data).length > 4000) data = null;
-        } catch (e) { data = null; }
-        const drop = {
-          id: me.room.nextDropId++,
-          k: "inv",
-          invType: typeof entry.invType === "string" ? entry.invType.slice(0, 30) : "",
-          name: entry.name.slice(0, 60),
-          data,
-          qty: Math.max(1, Math.min(999, Math.trunc(num(entry.qty, 1)))),
-          x: num(msg.x), y: num(msg.y), at: Date.now()
-        };
-        me.room.drops.set(drop.id, drop);
-        while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
-        broadcast(me.room, {
-          type: "invDropAdd",
-          drop: { id: drop.id, k: "inv", invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty, x: drop.x, y: drop.y }
-        }, -1);
-        break;
-      }
-
       // Someone picked an item up: it's gone for everybody (and for late
       // joiners). Any party member (or solo player) can claim any ground
       // drop — first valid claim wins. "dropStillThere" only fires now if
       // the drop is already gone by the time this message arrives (e.g. a
       // party member beat you to it a moment ago); see the id check right
       // above it.
+      //
+      // PARTY LOOT TURN: claiming the drop (removing it from the ground) and
+      // OWNING it are different things once you're in a 2+ member party —
+      // see "PARTY LOOT TURN" in character_server.js. me always does the
+      // claiming here (someone has to physically walk over it), but the
+      // item itself goes to whoever's turn it currently is, which rotates
+      // by one on every accepted claim regardless of who made it. Solo /
+      // no party: getPartyLootTurnId returns null, so this behaves exactly
+      // like before (item stays with whoever picked it up).
       case "dropTake": {
         const id = Math.trunc(num(msg.id, -1));
-        if (!me.room.drops.has(id)) {
+        const drop = me.room.drops.get(id);
+        if (!drop) {
           send(ws, { type: "dropStillThere", id, taken: true });
           break;
         }
 
         me.room.drops.delete(id);
         broadcast(me.room, { type: "dropGone", id }, me.id);
+
+        const party = getParty(me);
+        const turnId = getPartyLootTurnId(party);
+        advancePartyLootTurn(party);
+        if (party) broadcastPartyLootTurn(party);
+
+        if (turnId != null && turnId !== me.id) {
+          const owner = players.get(turnId);
+          if (owner) send(owner.ws, { type: "partyLootAward", t: drop.t, fromName: me.name });
+          send(ws, { type: "partyLootGiven", t: drop.t, toName: owner ? owner.name : "a party member" });
+        }
         break;
       }
 
