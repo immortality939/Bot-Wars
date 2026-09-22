@@ -552,6 +552,17 @@ function advancePartyLootTurn(party) {
   party.lootTurnIndex = (idx + 1) % party.members.length;
 }
 
+// Read-only peek at whose turn it currently is, without advancing anything —
+// for telling every member's client who's up next (server.js includes this
+// in its "partyUpdate" roster broadcast; online.js mirrors it as
+// netParty.lootTurnId). Returns null for no/solo party, same as
+// isPartyLootTurn() treating that case as unrestricted.
+function getPartyLootTurnId(party) {
+  if (!party || !Array.isArray(party.members) || party.members.length < 2) return null;
+  const idx = (typeof party.lootTurnIndex === "number" ? party.lootTurnIndex : 0) % party.members.length;
+  return party.members[idx];
+}
+
 
 
 // ---------------------------------------------------------------------------
@@ -1211,6 +1222,7 @@ if (typeof module !== "undefined" && module.exports) {
     canCharacterDamageTarget,
     isPartyLootTurn,
     advancePartyLootTurn,
+    getPartyLootTurnId,
     getHealthForLevel,
     getBaseMaxHealthForLevel,
     getBasePhysicalDefense,
@@ -1232,6 +1244,3 @@ if (typeof module !== "undefined" && module.exports) {
 
 }
 
-
-// ---- export for server.js (Node) ----
-if (typeof module !== "undefined") module.exports = { CHARACTERS, EQUIPMENT_STAT_MAP };
