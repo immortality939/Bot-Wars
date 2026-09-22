@@ -77,32 +77,6 @@ if (!Object.keys(MAPS).length) throw new Error("No map found: server/worldmap_se
 const START_MAP = MAPS.worldmap ? "worldmap" : Object.keys(MAPS)[0];   // where everyone spawns
 GAME_DATA.WORLD_MAPS = MAPS;
 GAME_DATA.START_MAP = START_MAP;
-
-// ---- ONLINE GAME CODE -------------------------------------------------------
-// The *_server.js files below are complete copies of the game's data files.
-// Besides their tables, the game RUNS their functions in online mode (see
-// netInstallServerCode() in online.js), so every number and formula inside
-// them is the real online rule and players can't change it. To keep the join
-// message small, comment-only lines are stripped before sending.
-const CODE_FILES = {
-  weapon: "weapon_server.js",
-  armor: "armor_server.js",
-  attackmode: "attackmode_server.js",
-  skill: "skill_server.js",
-  upgrade: "upgrade_server.js",
-  item: "item_server.js",
-  level: "level_server.js",
-  character: "character_server.js"
-};
-GAME_DATA.CODE = {};
-for (const key of Object.keys(CODE_FILES)) {
-  const src = fs.readFileSync(path.join(__dirname, "server", CODE_FILES[key]), "utf8");
-  GAME_DATA.CODE[key] = src
-    .split("\n")
-    .filter((line) => !/^\s*\/\//.test(line))
-    .join("\n")
-    .replace(/\n{3,}/g, "\n\n");
-}
 console.log("Maps loaded: " + Object.keys(MAPS).join(", ") + " (start: " + START_MAP + ")");
 JSON.stringify(GAME_DATA); // fail loudly at startup if anything isn't plain data
 console.log("Online game data loaded: " + Object.keys(GAME_DATA).join(", "));
@@ -150,61 +124,10 @@ const players = new Map(); // id -> { id, ws, server, channel, room, name, chara
 // (the most recent snapshot, handed to anyone who joins mid-match so they
 // aren't staring at an empty map until the next tick).
 const rooms = new Map();
-
-// ---------------------------------------------------------------------------
-// DROP PERSISTENCE — ground loot used to live only in room.drops (in-memory),
-// so it vanished whenever the process restarted (Render free plan sleeps
-// after inactivity, which is exactly "player logs out" for a single-player
-// room). It's now mirrored to ./drops.json on every change and reloaded here
-// on boot, so a drop a player never picked up is still there next login.
-// ---------------------------------------------------------------------------
-const DROPS_FILE = path.join(__dirname, "drops.json");
-function loadDropsFile() {
-  try {
-    if (!fs.existsSync(DROPS_FILE)) return {};
-    return JSON.parse(fs.readFileSync(DROPS_FILE, "utf8")) || {};
-  } catch (e) {
-    console.error("drops.json failed to load, starting empty:", e);
-    return {};
-  }
-}
-const persistedDrops = loadDropsFile(); // roomKey -> { nextDropId, drops: [{id,t,x,y,at}] }
-let dropsSaveTimer = null;
-function saveDropsFileSoon() {
-  // Coalesce bursts (e.g. several bots dying at once) into one disk write.
-  if (dropsSaveTimer) return;
-  dropsSaveTimer = setTimeout(() => {
-    dropsSaveTimer = null;
-    try { fs.writeFileSync(DROPS_FILE, JSON.stringify(persistedDrops)); }
-    catch (e) { console.error("drops.json failed to save:", e); }
-  }, 500);
-}
-// Mirrors one room's current drops into persistedDrops + schedules a save.
-function persistRoomDrops(key, room) {
-  persistedDrops[key] = {
-    nextDropId: room.nextDropId,
-    drops: [...room.drops.values()]
-  };
-  saveDropsFileSoon();
-}
-
 function getRoom(serverId, channel, mapKey) {
   const k = serverId + ":" + channel + ":" + mapKey;
   let r = rooms.get(k);
-  if (!r) {
-    r = new Map();
-    r.hostId = null;
-    r.lastBots = null;
-    r.drops = new Map();
-    r.nextDropId = 1;
-    r.key = k;
-    const saved = persistedDrops[k];
-    if (saved && Array.isArray(saved.drops)) {
-      for (const d of saved.drops) r.drops.set(d.id, d);
-      r.nextDropId = Math.max(saved.nextDropId || 1, ...saved.drops.map((d) => d.id + 1), 1);
-    }
-    rooms.set(k, r);
-  }
+  if (!r) { r = new Map(); r.hostId = null; r.lastBots = null; r.drops = new Map(); r.nextDropId = 1; rooms.set(k, r); }
   return r;
 }
 // Picks anyone else left in the room to take over as bot host.
@@ -224,18 +147,15 @@ function reassignHost(room, leavingId) {
   broadcast(room, { type: "botsReset" }, next ? next.id : -1);
 }
 // Loot lying on the ground in a room (dropped by enemies). The server keeps it
-// so people who join / come back later still see it. Loot stays even when the
-// room is empty (so someone logging in later still finds it) until it is
-// DROP_MAX_AGE_MS old. Mirrored to ./drops.json (see persistRoomDrops above)
-// so it also survives a server restart / sleep (Render free plan), not just
-// the room staying in memory.
+// so people who join / come back later still see it. Cleared when the room empties.
+// Loot stays even when the room is empty (so someone logging in later still finds
+// it) until it is DROP_MAX_AGE_MS old. NOTE: it lives in the server's memory, so it
+// is lost whenever the server restarts / goes to sleep (Render free plan).
 const MAX_ROOM_DROPS = 400;
 const DROP_MAX_AGE_MS = 72 * 60 * 60 * 1000;
 function pruneDrops(room) {
   const cutoff = Date.now() - DROP_MAX_AGE_MS;
-  let changed = false;
-  for (const [id, d] of room.drops) if (d.at < cutoff) { room.drops.delete(id); changed = true; }
-  if (changed) persistRoomDrops(room.key, room);
+  for (const [id, d] of room.drops) if (d.at < cutoff) room.drops.delete(id);
 }
 function dropList(room) {
   pruneDrops(room);
@@ -466,10 +386,7 @@ wss.on("connection", (ws) => {
           added.push(drop);
         }
         while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
-        if (added.length) {
-          broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y }) => ({ id, t, x, y })) }, -1);
-          persistRoomDrops(me.room.key, me.room);
-        }
+        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y }) => ({ id, t, x, y })) }, -1);
         break;
       }
 
@@ -478,7 +395,6 @@ wss.on("connection", (ws) => {
         const id = Math.trunc(num(msg.id, -1));
         if (!me.room.drops.delete(id)) break;
         broadcast(me.room, { type: "dropGone", id }, me.id);
-        persistRoomDrops(me.room.key, me.room);
         break;
       }
 
@@ -531,24 +447,6 @@ wss.on("connection", (ws) => {
           srcX: num(msg.srcX), srcY: num(msg.srcY),
           knockback: Math.max(0, Math.min(200, num(msg.knockback)))
         });
-        break;
-      }
-
-      // A player tapped ADD FRIEND on someone they're near — relay the
-      // request to that specific player (same targeted-send pattern as
-      // "hit" above), same server + channel + map room only.
-      case "friendRequest": {
-        const target = me.room.get(num(msg.targetId, -1));
-        if (!target || target.id === me.id) break;
-        send(target.ws, { type: "friendRequest", from: me.id, fromName: me.name });
-        break;
-      }
-
-      // ACCEPT / DECLINE reply, relayed back to whoever sent the request.
-      case "friendResponse": {
-        const target = me.room.get(num(msg.targetId, -1));
-        if (!target || target.id === me.id) break;
-        send(target.ws, { type: "friendResponse", from: me.id, fromName: me.name, accept: !!msg.accept });
         break;
       }
 
