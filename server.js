@@ -131,13 +131,6 @@ let nextPartyId = 1;
 const parties = new Map(); // partyId -> { id, members: [ids] }
 const PARTY_MAX_SIZE = 6;  // must match GAME_RULES.PARTY_MAX_SIZE in server/character_server.js
 
-// Friendly-fire helper, same pure function online.js's client code uses
-// (see character_server.js's "PARTY FRIENDLY FIRE" section) — pulled from
-// GAME_DATA so both sides never drift apart. advancePartyLootTurn/
-// getPartyLootTurnId are the "PARTY LOOT TURN" helpers right below it —
-// see their use in the "dropTake" case further down.
-const { isPartyFriendlyFire, advancePartyLootTurn, getPartyLootTurnId } = GAME_DATA;
-
 function getParty(p) {
   return p.partyId != null ? parties.get(p.partyId) : null;
 }
@@ -146,26 +139,11 @@ function partyRosterPayload(party) {
   return {
     type: "partyUpdate",
     partyId: party.id,
-    lootTurnId: getPartyLootTurnId(party),
     members: party.members.map((id) => {
       const m = players.get(id);
       return { id, name: m ? m.name : ("Player " + id) };
     })
   };
-}
-
-// Tells every member whose turn it currently is to receive the party's next
-// shared ground drop (see "PARTY LOOT TURN" in character_server.js). Sent
-// after every accepted "dropTake" claim, in addition to the roster-level
-// lootTurnId partyRosterPayload() already includes for join/leave/kick —
-// this is the lightweight one that doesn't need a full roster resend just
-// because someone picked up an item.
-function broadcastPartyLootTurn(party) {
-  const lootTurnId = getPartyLootTurnId(party);
-  for (const id of party.members) {
-    const m = players.get(id);
-    if (m) send(m.ws, { type: "partyLootTurn", lootTurnId });
-  }
 }
 
 function broadcastPartyUpdate(party) {
@@ -477,42 +455,11 @@ wss.on("connection", (ws) => {
         break;
       }
 
-      // Someone picked an item up: it's gone for everybody (and for late
-      // joiners). Any party member (or solo player) can claim any ground
-      // drop — first valid claim wins. "dropStillThere" only fires now if
-      // the drop is already gone by the time this message arrives (e.g. a
-      // party member beat you to it a moment ago); see the id check right
-      // above it.
-      //
-      // PARTY LOOT TURN: claiming the drop (removing it from the ground) and
-      // OWNING it are different things once you're in a 2+ member party —
-      // see "PARTY LOOT TURN" in character_server.js. me always does the
-      // claiming here (someone has to physically walk over it), but the
-      // item itself goes to whoever's turn it currently is, which rotates
-      // by one on every accepted claim regardless of who made it. Solo /
-      // no party: getPartyLootTurnId returns null, so this behaves exactly
-      // like before (item stays with whoever picked it up).
+      // Someone picked an item up: it's gone for everybody (and for late joiners).
       case "dropTake": {
         const id = Math.trunc(num(msg.id, -1));
-        const drop = me.room.drops.get(id);
-        if (!drop) {
-          send(ws, { type: "dropStillThere", id, taken: true });
-          break;
-        }
-
-        me.room.drops.delete(id);
+        if (!me.room.drops.delete(id)) break;
         broadcast(me.room, { type: "dropGone", id }, me.id);
-
-        const party = getParty(me);
-        const turnId = getPartyLootTurnId(party);
-        advancePartyLootTurn(party);
-        if (party) broadcastPartyLootTurn(party);
-
-        if (turnId != null && turnId !== me.id) {
-          const owner = players.get(turnId);
-          if (owner) send(owner.ws, { type: "partyLootAward", t: drop.t, fromName: me.name });
-          send(ws, { type: "partyLootGiven", t: drop.t, toName: owner ? owner.name : "a party member" });
-        }
         break;
       }
 
@@ -550,9 +497,6 @@ wss.on("connection", (ws) => {
         if (me.channel !== CHANNEL_PVP) break;
         const target = me.room.get(num(msg.targetId, -1));   // same server + channel only
         if (!target || target.id === me.id) break;
-
-        // Party members never damage each other, even on a PvP channel.
-        if (isPartyFriendlyFire(me.partyId, target.partyId)) break;
 
         // rate limit per attacker
         const now = Date.now();
