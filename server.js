@@ -131,6 +131,11 @@ let nextPartyId = 1;
 const parties = new Map(); // partyId -> { id, members: [ids] }
 const PARTY_MAX_SIZE = 6;  // must match GAME_RULES.PARTY_MAX_SIZE in server/character_server.js
 
+// Friendly-fire helper, same pure function online.js's client code uses
+// (see character_server.js's "PARTY FRIENDLY FIRE" section) — pulled from
+// GAME_DATA so both sides never drift apart.
+const { isPartyFriendlyFire } = GAME_DATA;
+
 function getParty(p) {
   return p.partyId != null ? parties.get(p.partyId) : null;
 }
@@ -223,7 +228,9 @@ function pruneDrops(room) {
 }
 function dropList(room) {
   pruneDrops(room);
-  return [...room.drops.values()].map(({ id, t, x, y }) => ({ id, t, x, y }));
+  return [...room.drops.values()].map((d) => d.k === "inv"
+    ? { id: d.id, k: "inv", invType: d.invType, name: d.name, data: d.data, qty: d.qty, x: d.x, y: d.y }
+    : { id: d.id, t: d.t, x: d.x, y: d.y });
 }
 function clearDropsIfEmpty() { /* intentionally keeps loot in empty rooms */ }
 function countPlayers(test) {
@@ -455,10 +462,52 @@ wss.on("connection", (ws) => {
         break;
       }
 
-      // Someone picked an item up: it's gone for everybody (and for late joiners).
+      // Manual drop: any player (not just the bot host) dragging a weapon/
+      // armor/stone out of their Inventory/Equip popup onto open ground.
+      // Unlike bot loot above, this carries the actual inventory entry
+      // (name/data/qty) along instead of a looked-up type name, so armor
+      // stats etc. survive being dropped and picked back up. Server numbers
+      // it and echoes it to EVERYONE including the dropper, same as bot
+      // loot, so the ground copy only ever exists once, server-confirmed.
+      case "invDropAdd": {
+        const entry = msg.entry;
+        if (!entry || typeof entry.name !== "string" || !entry.name || entry.name.length > 60) break;
+        let data = entry.data;
+        try {
+          if (data != null && JSON.stringify(data).length > 4000) data = null;
+        } catch (e) { data = null; }
+        const drop = {
+          id: me.room.nextDropId++,
+          k: "inv",
+          invType: typeof entry.invType === "string" ? entry.invType.slice(0, 30) : "",
+          name: entry.name.slice(0, 60),
+          data,
+          qty: Math.max(1, Math.min(999, Math.trunc(num(entry.qty, 1)))),
+          x: num(msg.x), y: num(msg.y), at: Date.now()
+        };
+        me.room.drops.set(drop.id, drop);
+        while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
+        broadcast(me.room, {
+          type: "invDropAdd",
+          drop: { id: drop.id, k: "inv", invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty, x: drop.x, y: drop.y }
+        }, -1);
+        break;
+      }
+
+      // Someone picked an item up: it's gone for everybody (and for late
+      // joiners). Any party member (or solo player) can claim any ground
+      // drop — first valid claim wins. "dropStillThere" only fires now if
+      // the drop is already gone by the time this message arrives (e.g. a
+      // party member beat you to it a moment ago); see the id check right
+      // above it.
       case "dropTake": {
         const id = Math.trunc(num(msg.id, -1));
-        if (!me.room.drops.delete(id)) break;
+        if (!me.room.drops.has(id)) {
+          send(ws, { type: "dropStillThere", id, taken: true });
+          break;
+        }
+
+        me.room.drops.delete(id);
         broadcast(me.room, { type: "dropGone", id }, me.id);
         break;
       }
@@ -497,6 +546,9 @@ wss.on("connection", (ws) => {
         if (me.channel !== CHANNEL_PVP) break;
         const target = me.room.get(num(msg.targetId, -1));   // same server + channel only
         if (!target || target.id === me.id) break;
+
+        // Party members never damage each other, even on a PvP channel.
+        if (isPartyFriendlyFire(me.partyId, target.partyId)) break;
 
         // rate limit per attacker
         const now = Date.now();
