@@ -399,17 +399,6 @@ wss.on("connection", (ws) => {
         break;
       }
 
-      // The host says targetId's hit was the killing blow on one of its
-      // enemies and should get that bot's exp — only the host is trusted
-      // to say this (same idea as "botHitPlayer" above).
-      case "botKillExp": {
-        if (me.room.hostId !== me.id) break;
-        const target = me.room.get(num(msg.targetId, -1));
-        if (!target) break;
-        send(target.ws, { type: "botKillExp", expGet: num(msg.expGet) });
-        break;
-      }
-
       // PvE loot: only the room's enemy host may create ground items (it's
       // the one that knows an enemy just died). The server numbers them and
       // tells EVERYONE (host included) so all clients hold identical drops.
