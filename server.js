@@ -113,6 +113,70 @@ const wss = new WebSocketServer({ server, maxPayload: 64 * 1024 });
 let nextId = 1;
 const players = new Map(); // id -> { id, ws, server, channel, room, name, character, x, y, ... }
 
+// ---------------------------------------------------------------------------
+// PARTIES — up to PARTY_MAX_SIZE players sharing kill exp (see "partyExpAward"
+// below and computePartyExpShare() in server/character_server.js). A party is
+// just { id, members: [ids] }; members[0] is whoever created it (the only one
+// who can "partyKick"). Membership persists across map changes — only
+// "partyLeave", "partyKick", or the member disconnecting removes them — but
+// this server never tracks player POSITIONS across rooms, so it has no idea
+// who was actually near a kill: online.js works that out itself
+// (computePartyExpShare()) and sends the already-split amount here for this
+// server to relay to the right socket, same "friend-friendly trust model" as
+// "hit"/"botHit" above (not cheat-proof, just convenient). Like the
+// friendRequest/friendResponse system above, this is in-memory only — a
+// reconnect drops you from your party and you'll need to be re-invited.
+// ---------------------------------------------------------------------------
+let nextPartyId = 1;
+const parties = new Map(); // partyId -> { id, members: [ids] }
+const PARTY_MAX_SIZE = 6;  // must match GAME_RULES.PARTY_MAX_SIZE in server/character_server.js
+
+function getParty(p) {
+  return p.partyId != null ? parties.get(p.partyId) : null;
+}
+
+function partyRosterPayload(party) {
+  return {
+    type: "partyUpdate",
+    partyId: party.id,
+    members: party.members.map((id) => {
+      const m = players.get(id);
+      return { id, name: m ? m.name : ("Player " + id) };
+    })
+  };
+}
+
+function broadcastPartyUpdate(party) {
+  const payload = partyRosterPayload(party);
+  for (const id of party.members) {
+    const m = players.get(id);
+    if (m) send(m.ws, payload);
+  }
+}
+
+// Removes p from whatever party it's in. A party with only 1 member left
+// dissolves entirely (that last member is told their party is gone too)
+// instead of sitting around as a "party" nobody can share exp with.
+function removeFromParty(p) {
+  const party = getParty(p);
+  if (!party) return;
+  party.members = party.members.filter((id) => id !== p.id);
+  p.partyId = null;
+  send(p.ws, { type: "partyUpdate", partyId: null, members: [] });
+  if (party.members.length <= 1) {
+    for (const id of party.members) {
+      const m = players.get(id);
+      if (m) {
+        m.partyId = null;
+        send(m.ws, { type: "partyUpdate", partyId: null, members: [] });
+      }
+    }
+    parties.delete(party.id);
+  } else {
+    broadcastPartyUpdate(party);
+  }
+}
+
 // rooms: "server:channel:map" -> Map(id -> player). Only players in the same
 // room see and can hit each other.
 //
@@ -248,7 +312,8 @@ wss.on("connection", (ws) => {
         alive: true,
         level: 1,
         hitWindowStart: 0, hitCount: 0,
-        botHitWindowStart: 0, botHitCount: 0
+        botHitWindowStart: 0, botHitCount: 0,
+        partyId: null
       };
       const isFirstInRoom = room.size === 0;
       players.set(id, me);
@@ -468,6 +533,87 @@ wss.on("connection", (ws) => {
         break;
       }
 
+      // Sent when the INVITE PARTY button is tapped on a nearby player (see
+      // playerTouchInviteBtn in online.js) — relay it to that player, same
+      // targeted-send pattern as "friendRequest" above (proximity was
+      // already enforced client-side by NET_TOUCH_RANGE).
+      case "partyInvite": {
+        const target = me.room.get(num(msg.targetId, -1));
+        if (!target || target.id === me.id) break;
+        const myParty = getParty(me);
+        if (myParty && myParty.members.length >= PARTY_MAX_SIZE) {
+          send(ws, { type: "partyError", reason: "Your party is full (max " + PARTY_MAX_SIZE + ")" });
+          break;
+        }
+        if (getParty(target)) {
+          send(ws, { type: "partyError", reason: (target.name || "That player") + " is already in a party" });
+          break;
+        }
+        send(target.ws, { type: "partyInvite", from: me.id, fromName: me.name });
+        break;
+      }
+
+      // ACCEPT / DECLINE reply to a party invite. Looked up by player id
+      // across the whole server (not just this room) — the inviter may have
+      // walked to a different map by now and this should still reach them,
+      // same as party membership itself persists across map changes.
+      case "partyResponse": {
+        const inviter = players.get(num(msg.targetId, -1));
+        if (!inviter || inviter.id === me.id) break;
+        if (!msg.accept) {
+          send(inviter.ws, { type: "partyResponse", from: me.id, fromName: me.name, accept: false });
+          break;
+        }
+        if (getParty(me)) { send(ws, { type: "partyError", reason: "You're already in a party" }); break; }
+        let party = getParty(inviter);
+        if (!party) {
+          party = { id: nextPartyId++, members: [inviter.id] };
+          parties.set(party.id, party);
+          inviter.partyId = party.id;
+        }
+        if (party.members.length >= PARTY_MAX_SIZE) {
+          send(ws, { type: "partyError", reason: "That party is full" });
+          break;
+        }
+        party.members.push(me.id);
+        me.partyId = party.id;
+        send(inviter.ws, { type: "partyResponse", from: me.id, fromName: me.name, accept: true });
+        broadcastPartyUpdate(party);
+        break;
+      }
+
+      // Leaving my own party.
+      case "partyLeave":
+        removeFromParty(me);
+        break;
+
+      // Only the party's creator (members[0]) can kick someone out.
+      case "partyKick": {
+        const party = getParty(me);
+        if (!party || party.members[0] !== me.id) break;
+        const target = players.get(num(msg.targetId, -1));
+        if (!target || getParty(target) !== party) break;
+        removeFromParty(target);
+        send(target.ws, { type: "partyKicked" });
+        break;
+      }
+
+      // A party member's client worked out (via computePartyExpShare() in
+      // server/character_server.js) that a fellow member within range gets a
+      // share of a kill they just landed — pass it straight to that member.
+      // Same trust model as "hit"/"botHit" above: the amount is taken on
+      // faith, so this is only as cheat-proof as everything else online.
+      case "partyExpAward": {
+        const party = getParty(me);
+        if (!party) break;
+        const target = players.get(num(msg.targetId, -1));
+        if (!target || target.id === me.id || !party.members.includes(target.id)) break;
+        const amount = Math.max(0, Math.round(num(msg.amount, 0)));
+        if (amount <= 0) break;
+        send(target.ws, { type: "partyExpAward", amount, fromId: me.id });
+        break;
+      }
+
       // Victim reports who killed them -> everyone sees the kill feed.
       case "died": {
         const killer = me.room.get(num(msg.killerId, -1));
@@ -485,6 +631,7 @@ wss.on("connection", (ws) => {
 
   ws.on("close", () => {
     if (!me) return;
+    removeFromParty(me);
     players.delete(me.id);
     me.room.delete(me.id);
     broadcast(me.room, { type: "playerRemove", id: me.id });
