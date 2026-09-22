@@ -476,6 +476,24 @@ wss.on("connection", (ws) => {
         break;
       }
 
+      // A player tapped ADD FRIEND on someone they're near — relay the
+      // request to that specific player (same targeted-send pattern as
+      // "hit" above), same server + channel + map room only.
+      case "friendRequest": {
+        const target = me.room.get(num(msg.targetId, -1));
+        if (!target || target.id === me.id) break;
+        send(target.ws, { type: "friendRequest", from: me.id, fromName: me.name });
+        break;
+      }
+
+      // ACCEPT / DECLINE reply, relayed back to whoever sent the request.
+      case "friendResponse": {
+        const target = me.room.get(num(msg.targetId, -1));
+        if (!target || target.id === me.id) break;
+        send(target.ws, { type: "friendResponse", from: me.id, fromName: me.name, accept: !!msg.accept });
+        break;
+      }
+
       // Victim reports who killed them -> everyone sees the kill feed.
       case "died": {
         const killer = me.room.get(num(msg.killerId, -1));
