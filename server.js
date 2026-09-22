@@ -228,9 +228,7 @@ function pruneDrops(room) {
 }
 function dropList(room) {
   pruneDrops(room);
-  return [...room.drops.values()].map((d) => d.k === "inv"
-    ? { id: d.id, k: "inv", invType: d.invType, name: d.name, data: d.data, qty: d.qty, x: d.x, y: d.y }
-    : { id: d.id, t: d.t, x: d.x, y: d.y });
+  return [...room.drops.values()].map(({ id, t, x, y }) => ({ id, t, x, y }));
 }
 function clearDropsIfEmpty() { /* intentionally keeps loot in empty rooms */ }
 function countPlayers(test) {
@@ -459,38 +457,6 @@ wss.on("connection", (ws) => {
         }
         while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
         if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y }) => ({ id, t, x, y })) }, -1);
-        break;
-      }
-
-      // Manual drop: any player (not just the bot host) dragging a weapon/
-      // armor/stone out of their Inventory/Equip popup onto open ground.
-      // Unlike bot loot above, this carries the actual inventory entry
-      // (name/data/qty) along instead of a looked-up type name, so armor
-      // stats etc. survive being dropped and picked back up. Server numbers
-      // it and echoes it to EVERYONE including the dropper, same as bot
-      // loot, so the ground copy only ever exists once, server-confirmed.
-      case "invDropAdd": {
-        const entry = msg.entry;
-        if (!entry || typeof entry.name !== "string" || !entry.name || entry.name.length > 60) break;
-        let data = entry.data;
-        try {
-          if (data != null && JSON.stringify(data).length > 4000) data = null;
-        } catch (e) { data = null; }
-        const drop = {
-          id: me.room.nextDropId++,
-          k: "inv",
-          invType: typeof entry.invType === "string" ? entry.invType.slice(0, 30) : "",
-          name: entry.name.slice(0, 60),
-          data,
-          qty: Math.max(1, Math.min(999, Math.trunc(num(entry.qty, 1)))),
-          x: num(msg.x), y: num(msg.y), at: Date.now()
-        };
-        me.room.drops.set(drop.id, drop);
-        while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
-        broadcast(me.room, {
-          type: "invDropAdd",
-          drop: { id: drop.id, k: "inv", invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty, x: drop.x, y: drop.y }
-        }, -1);
         break;
       }
 
