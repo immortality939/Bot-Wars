@@ -494,78 +494,6 @@ function computePartyExpShare(killerId, killerX, killerY, amount, partyPositions
 
 
 // ---------------------------------------------------------------------------
-// PARTY FRIENDLY FIRE — online mode only, same party system as
-// computePartyExpShare() above (up to PARTY_MAX_SIZE members, formed via the
-// INVITE PARTY button, membership tracked as server.js's authoritative
-// `partyId` on each player). Two players count as teammates here ONLY when
-// both have a non-null partyId AND it's the same one — a player with no
-// party (partyId null/undefined) can still be hit by anyone, same as today.
-//
-// Pure check only — no network calls, no character mutation. The actual
-// hit path (online.js's netHitPlayers() for players, server.js's "hit"
-// relay) is what should call this BEFORE rolling/sending any damage, so a
-// blocked hit never becomes a bullet-lands / dmgNum / knockback event either.
-// ---------------------------------------------------------------------------
-function isPartyFriendlyFire(attackerPartyId, targetPartyId) {
-  return attackerPartyId != null && targetPartyId != null && attackerPartyId === targetPartyId;
-}
-
-// Convenience wrapper for callers that already have both player-ish objects
-// in hand (anything carrying a `.partyId`, e.g. online.js's local player
-// mirror or server.js's connection records) instead of the two ids alone.
-function canCharacterDamageTarget(attacker, target) {
-  if (!attacker || !target || attacker === target) return false;
-  return !isPartyFriendlyFire(attacker.partyId, target.partyId);
-}
-
-
-
-// ---------------------------------------------------------------------------
-// PARTY LOOT TURN — alternates WHO a party's shared ground loot goes to
-// instead of it always being whoever clicks/walks over it first. Turn order
-// follows `party.members` (same array server.js's party object already
-// keeps — see "parties" Map in server.js), and the current turn is stored
-// right on that party object as `party.lootTurnIndex` so it persists for as
-// long as the party exists, no extra state to wire up elsewhere.
-//
-//   isPartyLootTurn(party, playerId) — true if it's currently playerId's
-//     turn to loot (or if `party` is null/has no members, since a solo
-//     player or a broken party record should never be blocked from
-//     looting). Call this before honoring a party member's "dropTake".
-//
-//   advancePartyLootTurn(party) — moves the turn to the next member, wrapping
-//     back to the start after the last one. Call this once, right after a
-//     party member's loot claim is accepted, so the NEXT drop goes to
-//     whoever's next in line rather than the same person again.
-//
-// Both are pure/cheap — safe to call every time a drop is claimed.
-// ---------------------------------------------------------------------------
-function isPartyLootTurn(party, playerId) {
-  if (!party || !Array.isArray(party.members) || !party.members.length) return true;
-  const idx = (typeof party.lootTurnIndex === "number" ? party.lootTurnIndex : 0) % party.members.length;
-  return party.members[idx] === playerId;
-}
-
-function advancePartyLootTurn(party) {
-  if (!party || !Array.isArray(party.members) || !party.members.length) return;
-  const idx = (typeof party.lootTurnIndex === "number" ? party.lootTurnIndex : 0) % party.members.length;
-  party.lootTurnIndex = (idx + 1) % party.members.length;
-}
-
-// Read-only peek at whose turn it currently is, without advancing anything —
-// for telling every member's client who's up next (server.js includes this
-// in its "partyUpdate" roster broadcast; online.js mirrors it as
-// netParty.lootTurnId). Returns null for no/solo party, same as
-// isPartyLootTurn() treating that case as unrestricted.
-function getPartyLootTurnId(party) {
-  if (!party || !Array.isArray(party.members) || party.members.length < 2) return null;
-  const idx = (typeof party.lootTurnIndex === "number" ? party.lootTurnIndex : 0) % party.members.length;
-  return party.members[idx];
-}
-
-
-
-// ---------------------------------------------------------------------------
 // EQUIPMENT STAT COMBINING — merges every stat an equipped item (armor,
 // weapon, or any other equippable def with matching field names) carries
 // onto a character/bot, instead of only pulling one or two fields out of
@@ -1218,11 +1146,6 @@ if (typeof module !== "undefined" && module.exports) {
     getExpForLevel,
     addCharacterExp,
     computePartyExpShare,
-    isPartyFriendlyFire,
-    canCharacterDamageTarget,
-    isPartyLootTurn,
-    advancePartyLootTurn,
-    getPartyLootTurnId,
     getHealthForLevel,
     getBaseMaxHealthForLevel,
     getBasePhysicalDefense,
@@ -1244,3 +1167,6 @@ if (typeof module !== "undefined" && module.exports) {
 
 }
 
+
+// ---- export for server.js (Node) ----
+if (typeof module !== "undefined") module.exports = { CHARACTERS, EQUIPMENT_STAT_MAP };
