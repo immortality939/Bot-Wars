@@ -62,7 +62,8 @@ const GAME_DATA = Object.assign(
   require("./server/shop_server.js"),
   require("./server/item_server.js"),
   require("./server/level_server.js"),
-  require("./server/bot_server.js")
+  require("./server/bot_server.js"),
+  require("./server/game_server.js")
 );
 // MAPS. Load every *_server.js file in ./server/ (the data files above are
 // already loaded, so this only adds the map files). A map file sets
@@ -128,13 +129,17 @@ const players = new Map(); // id -> { id, ws, server, channel, room, name, chara
 // reconnect drops you from your party and you'll need to be re-invited.
 // ---------------------------------------------------------------------------
 let nextPartyId = 1;
-const parties = new Map(); // partyId -> { id, members: [ids] }
-const PARTY_MAX_SIZE = 6;  // must match GAME_RULES.PARTY_MAX_SIZE in server/character_server.js
+const parties = new Map(); // partyId -> { id, members: [ids], lootTurnIndex }
+// Was a separate hardcoded "6" here before — now reads the ONE canonical
+// value in character_server.js's GAME_RULES so the two can never drift apart.
+const PARTY_MAX_SIZE = GAME_DATA.GAME_RULES.PARTY_MAX_SIZE;
 
-// Friendly-fire helper, same pure function online.js's client code uses
-// (see character_server.js's "PARTY FRIENDLY FIRE" section) — pulled from
-// GAME_DATA so both sides never drift apart.
-const { isPartyFriendlyFire } = GAME_DATA;
+// Friendly-fire helper and party-loot-turn helpers, same pure functions
+// online.js's client code uses (see character_server.js's "PARTY FRIENDLY
+// FIRE" and "PARTY LOOT TURN" sections) — pulled from GAME_DATA so both
+// sides never drift apart. partyLootRuleForCategory() comes from the new
+// server/game_server.js (ALTERNATE / SPLIT / SHARED per item category).
+const { isPartyFriendlyFire, getPartyLootTurnId, advancePartyLootTurn, partyLootRuleForCategory } = GAME_DATA;
 
 function getParty(p) {
   return p.partyId != null ? parties.get(p.partyId) : null;
@@ -220,8 +225,32 @@ function reassignHost(room, leavingId) {
 // Loot stays even when the room is empty (so someone logging in later still finds
 // it) until it is DROP_MAX_AGE_MS old. NOTE: it lives in the server's memory, so it
 // is lost whenever the server restarts / goes to sleep (Render free plan).
-const MAX_ROOM_DROPS = 400;
+// MAX_ROOM_DROPS now lives in server/game_server.js (see that file).
+const { MAX_ROOM_DROPS } = GAME_DATA;
 const DROP_MAX_AGE_MS = 72 * 60 * 60 * 1000;
+// Works out a stored drop's item CATEGORY so "dropTake" knows which
+// PARTY_LOOT_RULES rule (see server/game_server.js) applies to it. Mirrors
+// the same lookup order item_server.js's createItemDrop() uses client-side
+// — kept independent here since the server only has the plain data tables
+// (WEAPONS/ARMOR_TYPES/STONE_TYPES/ORB_TYPES/ITEM_TYPES from GAME_DATA), not
+// the browser-only functions that build on them. A manual inventory drop
+// (drop.k === "inv") is always "invItem" — createInventoryItemDrop() never
+// tags it any other way. An unrecognized bot-loot type name falls back to
+// "item" (SHARED), the safe default from game_server.js.
+function categoryForDrop(drop) {
+  if (drop.k === "inv") return "invItem";
+  const t = drop.t;
+  const w = GAME_DATA.WEAPONS && GAME_DATA.WEAPONS[t];
+  if (w && w.category === "weapon") return "weapon";
+  const a = GAME_DATA.ARMOR_TYPES && GAME_DATA.ARMOR_TYPES[t];
+  if (a && a.category === "armor") return "armor";
+  if (GAME_DATA.STONE_TYPES && GAME_DATA.STONE_TYPES[t]) return "stone";
+  if (GAME_DATA.ORB_TYPES && GAME_DATA.ORB_TYPES[t]) return "orb";
+  const itemDef = GAME_DATA.ITEM_TYPES && GAME_DATA.ITEM_TYPES[t];
+  if (itemDef) return itemDef.category || "item";
+  return "item";
+}
+
 function pruneDrops(room) {
   const cutoff = Date.now() - DROP_MAX_AGE_MS;
   for (const [id, d] of room.drops) if (d.at < cutoff) room.drops.delete(id);
@@ -500,15 +529,72 @@ wss.on("connection", (ws) => {
       // the drop is already gone by the time this message arrives (e.g. a
       // party member beat you to it a moment ago); see the id check right
       // above it.
+      //
+      // PARTY LOOT: solo players (or a broken/1-member party record) keep
+      // the old behavior exactly — online.js already applied the pickup to
+      // itself locally before sending this, so there's nothing more to do
+      // here. In a real party (2+ members), online.js does NOT apply
+      // anything locally for a shared drop — it just reports the claim and
+      // waits — so this is where the item actually gets awarded, per
+      // whichever PARTY_LOOT_RULES rule (server/game_server.js) the drop's
+      // category maps to:
+      //   ALTERNATE — one "partyLootAward" to the current turn holder only,
+      //     then advance the turn so the NEXT claim (by anyone) goes to
+      //     whoever's next.
+      //   SPLIT     — gold divided evenly across every member (remainder
+      //     handed out one-each from the front of the turn order).
+      //   SHARED    — one "partyLootAward" to EVERY member (claimer
+      //     included), so a speedup/health/shield/powerup benefits the
+      //     whole party at once.
+      // Each recipient's own client applies the effect using its own local
+      // functions (pickUpWeaponDrop/pickUpArmorDrop/pickUpInventoryDrop/
+      // pickUpUpgradeDrop/pickUpGoldOrb/applyItemEffect) — same
+      // "server relays, each client applies to itself" pattern already used
+      // for party exp ("partyExpAward" above).
       case "dropTake": {
         const id = Math.trunc(num(msg.id, -1));
-        if (!me.room.drops.has(id)) {
+        const drop = me.room.drops.get(id);
+        if (!drop) {
           send(ws, { type: "dropStillThere", id, taken: true });
           break;
         }
 
         me.room.drops.delete(id);
         broadcast(me.room, { type: "dropGone", id }, me.id);
+
+        const party = getParty(me);
+        if (party && party.members.length >= 2) {
+          const category = categoryForDrop(drop);
+          const rule = partyLootRuleForCategory(category);
+          const itemPayload = drop.k === "inv"
+            ? { category, invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty }
+            : { category, type: drop.t };
+
+          if (rule === "SPLIT") {
+            const goldDef = GAME_DATA.ITEM_TYPES && GAME_DATA.ITEM_TYPES[drop.t];
+            const total = (goldDef && goldDef.goldAmount) || 0;
+            const share = Math.floor(total / party.members.length);
+            let remainder = total - share * party.members.length;
+            for (const pid of party.members) {
+              const m = players.get(pid);
+              if (!m) continue;
+              const amount = share + (remainder > 0 ? 1 : 0);
+              if (remainder > 0) remainder--;
+              send(m.ws, { type: "partyLootAward", mode: "gold", amount });
+            }
+          } else if (rule === "SHARED") {
+            for (const pid of party.members) {
+              const m = players.get(pid);
+              if (!m) continue;
+              send(m.ws, { type: "partyLootAward", mode: "effect", itemType: drop.t });
+            }
+          } else { // ALTERNATE
+            const recipientId = getPartyLootTurnId(party);
+            const recipient = (recipientId != null && players.get(recipientId)) || me;
+            send(recipient.ws, Object.assign({ type: "partyLootAward", mode: "item" }, itemPayload));
+            advancePartyLootTurn(party);
+          }
+        }
         break;
       }
 
@@ -619,7 +705,7 @@ wss.on("connection", (ws) => {
         if (getParty(me)) { send(ws, { type: "partyError", reason: "You're already in a party" }); break; }
         let party = getParty(inviter);
         if (!party) {
-          party = { id: nextPartyId++, members: [inviter.id] };
+          party = { id: nextPartyId++, members: [inviter.id], lootTurnIndex: 0 };
           parties.set(party.id, party);
           inviter.partyId = party.id;
         }
