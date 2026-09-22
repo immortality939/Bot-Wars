@@ -128,8 +128,13 @@ const players = new Map(); // id -> { id, ws, server, channel, room, name, chara
 // reconnect drops you from your party and you'll need to be re-invited.
 // ---------------------------------------------------------------------------
 let nextPartyId = 1;
-const parties = new Map(); // partyId -> { id, members: [ids] }
+const parties = new Map(); // partyId -> { id, members: [ids], lootTurnIndex }
 const PARTY_MAX_SIZE = 6;  // must match GAME_RULES.PARTY_MAX_SIZE in server/character_server.js
+
+// Friendly-fire + loot-turn helpers, same pure functions online.js's client
+// code uses (see character_server.js's "PARTY FRIENDLY FIRE" / "PARTY LOOT
+// TURN" sections) — pulled from GAME_DATA so both sides never drift apart.
+const { isPartyFriendlyFire, isPartyLootTurn, advancePartyLootTurn, getPartyLootTurnId } = GAME_DATA;
 
 function getParty(p) {
   return p.partyId != null ? parties.get(p.partyId) : null;
@@ -139,6 +144,10 @@ function partyRosterPayload(party) {
   return {
     type: "partyUpdate",
     partyId: party.id,
+    // Whose turn it currently is to loot shared ground drops (null when
+    // solo/no restriction) — see "dropTake" below, which is the only thing
+    // that advances this.
+    lootTurnId: getPartyLootTurnId(party),
     members: party.members.map((id) => {
       const m = players.get(id);
       return { id, name: m ? m.name : ("Player " + id) };
@@ -455,10 +464,32 @@ wss.on("connection", (ws) => {
         break;
       }
 
-      // Someone picked an item up: it's gone for everybody (and for late joiners).
+      // Someone picked an item up: it's gone for everybody (and for late
+      // joiners). In a party of 2+, loot alternates: only whoever's turn it
+      // is (party.lootTurnIndex, see getPartyLootTurnId()/
+      // advancePartyLootTurn() in character_server.js) may claim it — an
+      // out-of-turn claim is rejected and "dropStillThere" is sent back so
+      // that member's client puts the item back on the ground instead of
+      // keeping it (see online.js's checkItemPickup override, which is what
+      // stops most out-of-turn claims from even happening in the first
+      // place; this is just the server refusing to trust one that slips
+      // through). A successful claim inside a party advances the turn and
+      // re-broadcasts the roster so every member's client learns who's next.
       case "dropTake": {
         const id = Math.trunc(num(msg.id, -1));
-        if (!me.room.drops.delete(id)) break;
+        if (!me.room.drops.has(id)) break;
+
+        const party = getParty(me);
+        if (party && party.members.length > 1 && !isPartyLootTurn(party, me.id)) {
+          send(ws, { type: "dropStillThere", id });
+          break;
+        }
+
+        me.room.drops.delete(id);
+        if (party && party.members.length > 1) {
+          advancePartyLootTurn(party);
+          broadcastPartyUpdate(party);
+        }
         broadcast(me.room, { type: "dropGone", id }, me.id);
         break;
       }
@@ -497,6 +528,9 @@ wss.on("connection", (ws) => {
         if (me.channel !== CHANNEL_PVP) break;
         const target = me.room.get(num(msg.targetId, -1));   // same server + channel only
         if (!target || target.id === me.id) break;
+
+        // Party members never damage each other, even on a PvP channel.
+        if (isPartyFriendlyFire(me.partyId, target.partyId)) break;
 
         // rate limit per attacker
         const now = Date.now();
