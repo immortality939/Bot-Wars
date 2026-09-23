@@ -75,7 +75,7 @@ const ITEM_TYPES = {
     radius: 10,
 
     shieldHitpoints: 80,
-    spawnChance: 1.45,    // 45%
+    spawnChance: 0.45,    // 45%
   },
 
   speedup: {
