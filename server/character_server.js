@@ -163,7 +163,7 @@ const CHARACTERS = {
     // placeholder in gameplay). ensureDefaultSkillsLoaded() in
     // index.html only fills as many equip slots as playerSkill lists,
     // so a single name here is enough; no trailing comma needed.
-    playerSkill: "heal1,slash1,barrage,cannonblast",
+    playerSkill: "heal1,slash1,barrage,cannonblast,deadlystrike",
 
     description: "Fast and rapid fire but low health and armor."
   },
