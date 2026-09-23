@@ -175,6 +175,66 @@ const SKILLS = {
     requiredLevel: 1
   },
 
+  // DEADLYSTRIKE — a "blast"-type ground skill that fires `shotTimes`
+  // separate blasts, `shotInterval` seconds apart, instead of one.
+  // shotTimes/shotInterval work on ANY skill (blast, beam, melee) — see
+  // game.js's runSkillActivation()/activeSkillShots tick. Each shot
+  // re-checks the hit rectangle, re-rolls crit/armor and replays the hit
+  // effect; the skill sound only plays once, on the first shot.
+  deadlystrike: {
+    skill: "deadlystrike",
+
+    // CATEGORY — marks this as a skill-type item for the Inventory
+    // screen's SKILL loadout (see barrage's `category` above).
+    category: "skill",
+
+    // ACTIVATION TYPE — "ground": tap the skill button to arm it, then
+    // tap the ground to fire toward that point.
+    activationType: "ground",
+
+    // ATTACK TYPE — "blast": fixed rectangle in front of the player.
+    attackType: "blast",
+
+    // ICON
+    icon: "image/icondeadlystrike.png",
+
+    // DESCRIPTION
+    description: "Sucks in and damages every enemy caught in a straight vacuum path ahead of the player.",
+
+    physicalDamage: 200,
+
+    // RANGE
+    range: 300,
+
+    // WIDTH
+    width: 80,
+
+    // Cooldown (ms) before the skill can be used again.
+    cooldown: 5000,
+
+    // NUMBER OF SHOTS — how many times the blast fires per activation.
+    shotTimes: 5,
+
+    // TIME BETWEEN EACH SHOT (seconds)
+    shotInterval: 0.2,
+
+    // Hit effect + sound played along the path on every shot (effect.js).
+    // NOTE: needs a "deadlystrike" entry in effect.js's HIT_EFFECTS —
+    // until it exists the damage still lands, just with no visual.
+    hitEffect: "deadlystrike",
+
+    // SKILL SOUND — played once when the skill is used (placeholder,
+    // swap for a dedicated sound whenever you have one).
+    skillSound: "music/cannonblast.mp3",
+
+    // AIM UI — same generic maxRange/radius ring art the other skills use.
+    imagerange: "image/maxrange.png",
+    imageradius: "image/radius.png",
+
+    // Player must be at least this character level
+    requiredLevel: 1
+  },
+
   // HEAL — this is character.js's `skill2` slot (game.js's second skill
   // button, skillBtn2). Unlike barrage above, it's not aimed/armed with
   // the right analog: tapping skillBtn2 fires it instantly (see
