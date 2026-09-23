@@ -92,7 +92,7 @@ const BOT_TYPES = {
 
     spawnItem: "shield,speedup,powerup,health,shotgun",
     spawnGoldOrb: "goldOrb",
-    spawnGoldOrbAmount: 20,
+    spawnGoldOrbAmount: 120,
 
     unitExplode: "unitexplode",
 
@@ -132,7 +132,7 @@ const BOT_TYPES = {
 
     spawnItem: "armor1",
     spawnGoldOrb: "goldOrb",
-    spawnGoldOrbAmount: 20,
+    spawnGoldOrbAmount: 220,
 
     unitExplode: "unitexplode",
 
