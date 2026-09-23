@@ -102,25 +102,23 @@ const ITEM_TYPES = {
     spawnChance: 0.4,   // 40%
 
     icon: "image/powerup.png"
-  },
-
-  // GOLD ORB — unlike health/shield/speedup/powerup above, this doesn't
-  // apply a stat effect to the player on pickup. Its `category: "gold"`
-  // routes it to pickUpGoldOrb() instead of applyItemEffect() (see
-  // createItemDrop()'s category line and checkItemPickup() below), which
-  // adds `goldAmount` to the player's gold total (index.html's addGold())
-  // rather than putting anything in an inventory slot.
-  goldOrb: {
-    name: "goldOrb",
-    image: "image/goldenorb.png",
-    radius: 10,
-
-    category: "gold",
-    goldAmount: 50,      // added to the player's gold total on pickup
-    spawnChance: 0.75,   // 75% chance to drop when a bot that carries this item dies
   }
 
 };
+
+
+
+// ---------------------------------------------------------------------------
+// GOLD ORB — kept separate from ITEM_TYPES above on purpose, same as
+// item.js: every other pickup shares one spawnChance/amount for every bot
+// that drops it, but gold orbs need a different chance AND a different
+// amount per bot type (see spawnGoldOrbChance / goldOrbAmount on BOT_TYPES
+// in bot_server.js — that's the ONLY place those numbers live now). Only
+// the sprite/size stay fixed here since every gold orb looks the same
+// regardless of amount.
+// ---------------------------------------------------------------------------
+const GOLD_ORB_IMAGE = "image/goldenorb.png";
+const GOLD_ORB_RADIUS = 10;
 
 
 
@@ -293,6 +291,47 @@ function spawnItemsOnBotDeath(spawnItemList, x, y) {
   }
 
   return drops;
+}
+
+
+
+// ---------------------------------------------------------------------------
+// GOLD ORB SPAWNING — separate from spawnItemsOnBotDeath() above on purpose.
+// Every number here comes straight from the bot that died, not from a
+// shared ITEM_TYPES entry:
+//   chance  <- bot.spawnGoldOrbChance (BOT_TYPES in bot_server.js, e.g. 0.8 = 80%)
+//   amount  <- bot.goldOrbAmount      (BOT_TYPES in bot_server.js, e.g. 100)
+// Returns an array (0 or 1 drop) so it can be pushed into itemDrops the
+// same way spawnItemsOnBotDeath()'s result is.
+// ---------------------------------------------------------------------------
+function spawnGoldOrbOnBotDeath(chance, amount, x, y) {
+
+  if (!chance || Math.random() >= chance) return [];
+
+  // Small random offset so this never spawns on the exact same pixel as
+  // a regular item drop from the same death — matches the minimum
+  // scatter radius spawnItemsOnBotDeath() above uses, so a shield (or
+  // any other item) and a gold orb from the same kill land apart instead
+  // of stacking.
+  const angle = Math.random() * Math.PI * 2;
+  const scatter = 30 + Math.random() * 15; // 30-45
+  const dropX = x + Math.cos(angle) * scatter;
+  const dropY = y + Math.sin(angle) * scatter;
+
+  return [{
+    id: nextItemDropId++,
+    type: "goldOrb",
+    category: "gold",
+
+    goldAmount: amount || 0,
+
+    x: dropX,
+    y: dropY,
+    radius: GOLD_ORB_RADIUS,
+
+    image: getItemImage(GOLD_ORB_IMAGE),
+    spawnTime: performance.now()
+  }];
 }
 
 
@@ -832,6 +871,7 @@ if (typeof module !== "undefined" && module.exports) {
     createItemDrop,
     createInventoryItemDrop,
     spawnItemsOnBotDeath,
+    spawnGoldOrbOnBotDeath,
     updateItemDrops,
     checkItemPickup,
     pickUpWeaponDrop,
@@ -853,4 +893,4 @@ if (typeof module !== "undefined" && module.exports) {
 
 
 // ---- export for server.js (Node) ----
-if (typeof module !== "undefined") module.exports = { ITEM_TYPES };
+if (typeof module !== "undefined") module.exports = { ITEM_TYPES, spawnGoldOrbOnBotDeath };

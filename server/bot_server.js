@@ -49,7 +49,8 @@ const BOT_TYPES = {
     active: false,
 
     spawnItem: "specialstone",
-    spawnGoldOrb: "goldOrb",
+    spawnGoldOrbChance: 0.8, // 80% chance to drop a gold orb on death
+    goldOrbAmount: 30,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
@@ -90,7 +91,8 @@ const BOT_TYPES = {
     active: false,
 
     spawnItem: "shield,speedup,powerup,health,shotgun",
-    spawnGoldOrb: "goldOrb",
+    spawnGoldOrbChance: 0.75, // 75% chance to drop a gold orb on death
+    goldOrbAmount: 100,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
@@ -129,7 +131,8 @@ const BOT_TYPES = {
     active: false,
 
     spawnItem: "armor1",
-    spawnGoldOrb: "goldOrb",
+    spawnGoldOrbChance: 0.75, // 75% chance to drop a gold orb on death
+    goldOrbAmount: 75,        // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
@@ -170,7 +173,8 @@ const BOT_TYPES = {
     active: false,
 
     spawnItem: "shield,speedup,powerup,health,sniper",
-    spawnGoldOrb: "goldOrb",
+    spawnGoldOrbChance: 0.75, // 75% chance to drop a gold orb on death
+    goldOrbAmount: 50,        // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
