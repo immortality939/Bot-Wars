@@ -75,7 +75,7 @@ const ITEM_TYPES = {
     radius: 10,
 
     shieldHitpoints: 80,
-    spawnChance: 0.45,    // 45%
+    spawnChance: 1.45,    // 45%
   },
 
   speedup: {
@@ -108,20 +108,15 @@ const ITEM_TYPES = {
   // apply a stat effect to the player on pickup. Its `category: "gold"`
   // routes it to pickUpGoldOrb() instead of applyItemEffect() (see
   // createItemDrop()'s category line and checkItemPickup() below), which
-  // adds the drop's own `amount` to the player's gold total (index.html's
-  // addGold()) rather than putting anything in an inventory slot.
-  //
-  // No goldAmount here anymore — the amount now comes from whichever bot
-  // dropped it (see spawnGoldOrbAmount on that bot's BOT_TYPES entry in
-  // bot_server.js), carried through spawnItemsOnBotDeath() ->
-  // createItemDrop() onto the drop itself, instead of being a single
-  // fixed number for every gold orb regardless of source.
+  // adds `goldAmount` to the player's gold total (index.html's addGold())
+  // rather than putting anything in an inventory slot.
   goldOrb: {
     name: "goldOrb",
     image: "image/goldenorb.png",
     radius: 10,
 
     category: "gold",
+    goldAmount: 50,      // added to the player's gold total on pickup
     spawnChance: 0.75,   // 75% chance to drop when a bot that carries this item dies
   }
 
@@ -169,7 +164,7 @@ function getLootableWeaponDef(typeName) {
   return (weaponDef && weaponDef.category === "weapon") ? weaponDef : null;
 }
 
-function createItemDrop(typeName, x, y, amount) {
+function createItemDrop(typeName, x, y) {
 
   const itemDef = ITEM_TYPES[typeName];
   const weaponDef = itemDef ? null : getLootableWeaponDef(typeName);
@@ -198,11 +193,6 @@ function createItemDrop(typeName, x, y, amount) {
     // checkItemPickup() below) instead of the generic "item" ->
     // applyItemEffect() path health/shield/speedup/powerup use.
     category: weaponDef ? "weapon" : (armorDef ? "armor" : (upgradeDef ? upgradeDef.category : ((itemDef && itemDef.category) || "item"))),
-
-    // Only set for gold orbs (see the `amount` param) — carries the
-    // spawning bot's spawnGoldOrbAmount through to pickUpGoldOrb() below,
-    // since goldOrb no longer has a fixed goldAmount of its own.
-    amount: amount,
 
     x: x,
     y: y,
@@ -266,7 +256,7 @@ function createInventoryItemDrop(entry, x, y) {
 // WEAPONS for a weapon marked category: "weapon" (see weapon.js) — so a
 // single bot death can drop zero, one, or several items/weapons.
 // ---------------------------------------------------------------------------
-function spawnItemsOnBotDeath(spawnItemList, x, y, amount) {
+function spawnItemsOnBotDeath(spawnItemList, x, y) {
 
   const drops = [];
 
@@ -298,7 +288,7 @@ function spawnItemsOnBotDeath(spawnItemList, x, y, amount) {
       const dropX = x + Math.cos(angle) * scatter;
       const dropY = y + Math.sin(angle) * scatter;
 
-      drops.push(createItemDrop(typeName, dropX, dropY, amount));
+      drops.push(createItemDrop(typeName, dropX, dropY));
     }
   }
 
@@ -350,7 +340,7 @@ function checkItemPickup(itemDrops, player, playerPos) {
       } else if (drop.category === "invItem") {
         pickUpInventoryDrop(drop);
       } else if (drop.category === "gold") {
-        pickUpGoldOrb(drop.type, drop.amount);
+        pickUpGoldOrb(drop.type);
       } else if (drop.category === "stone" || drop.category === "orb") {
         pickUpUpgradeDrop(drop.type, drop.category);
       } else {
@@ -458,29 +448,22 @@ function pickUpUpgradeDrop(typeName, category) {
 
 // ---------------------------------------------------------------------------
 // GOLD ORB PICKUP — unlike every other pickup above, this never touches
-// the storage grid inventory or a player stat. It just adds the drop's own
-// `amount` straight to the player's gold total via index.html's
+// the storage grid inventory or a player stat. It just adds the orb's
+// goldAmount straight to the player's gold total via index.html's
 // addGold()/GOLD_KEY (the same running total shown in the Inventory
 // screen's gold bar and the gameplay small-bag popup).
-//
-// `amount` comes from whichever bot dropped this orb (its
-// spawnGoldOrbAmount in bot_server.js), carried onto the drop by
-// createItemDrop() — goldOrb itself no longer has a fixed amount in
-// ITEM_TYPES.
 // ---------------------------------------------------------------------------
-function pickUpGoldOrb(typeName, amount) {
+function pickUpGoldOrb(typeName) {
 
   const def = ITEM_TYPES[typeName];
   if (!def) return;
 
-  const goldAmount = amount || 0;
-
   if (typeof addGold === "function") {
-    addGold(goldAmount);
+    addGold(def.goldAmount || 0);
   }
 
   if (typeof showHubToast === "function") {
-    showHubToast("+" + goldAmount + " gold");
+    showHubToast("+" + (def.goldAmount || 0) + " gold");
   }
 }
 
