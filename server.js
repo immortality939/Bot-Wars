@@ -251,9 +251,8 @@ function broadcastClanUpdate(clan) {
 }
 
 // Removes p from whatever clan it's in. A clan with nobody left in it is
-// dropped entirely; otherwise, if the leader left (e.g. disconnected without
-// pressing DISBAND), leadership passes to whoever's been in the clan
-// longest (members[0]) and everyone else stays in the clan.
+// dropped entirely; otherwise, if the leader left, leadership passes to
+// whoever's been in the clan longest (members[0]).
 function removeFromClan(p) {
   const clan = getClan(p);
   if (!clan) return;
@@ -272,12 +271,12 @@ function removeFromClan(p) {
   broadcastClanUpdate(clan);
 }
 
-// Leader pressing DISBAND (see clanDisbandBtn in index.html) — unlike
-// removeFromClan() above, this ends the clan for EVERY member at once:
-// nobody gets promoted, everyone's clanId is cleared, and every member
-// (not just whoever clicked DISBAND) gets their own "clanUpdate" so their
-// OPTIONS button flips back to CREATE CLAN too.
-function disbandClan(clan) {
+// Leader pressed DISBAND (after CONFIRM): the whole clan is removed and
+// every member — leader included — gets clanId null, which flips their
+// CLAN button back to CREATE CLAN.
+function disbandClan(p) {
+  const clan = getClan(p);
+  if (!clan || clan.leaderId !== p.id) return;
   for (const id of clan.members) {
     const m = players.get(id);
     if (m) {
@@ -955,20 +954,14 @@ wss.on("connection", (ws) => {
         break;
       }
 
-      // DISBAND — leader only. Ends the clan for everyone at once (see
-      // disbandClan() above), not just whoever's leaving.
-      case "clanDisband": {
-        const clan = getClan(me);
-        if (!clan) { send(ws, { type: "clanError", reason: "You don't have a clan" }); break; }
-        if (clan.leaderId !== me.id) { send(ws, { type: "clanError", reason: "Only the clan leader can disband" }); break; }
-        disbandClan(clan);
-        break;
-      }
-
-      // LEAVE CLAN — a regular member leaving. The clan keeps going for
-      // whoever's left; see removeFromClan() above.
+      // DISBAND (leader) / leaving my own clan.
       case "clanLeave":
         removeFromClan(me);
+        break;
+
+      // DISBAND — leader only; removes the clan and all its members.
+      case "clanDisband":
+        disbandClan(me);
         break;
 
       // Victim reports who killed them -> everyone sees the kill feed.
