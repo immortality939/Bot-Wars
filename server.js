@@ -240,6 +240,11 @@ const DROP_MAX_AGE_MS = 72 * 60 * 60 * 1000;
 function categoryForDrop(drop) {
   if (drop.k === "inv") return "invItem";
   const t = drop.t;
+  // Gold orbs are kept separate from ITEM_TYPES on purpose (see
+  // server/item_server.js) — their chance/amount come from BOT_TYPES per
+  // bot instead of a shared table entry, so there's no ITEM_TYPES.goldOrb
+  // to look up here.
+  if (t === "goldOrb") return "gold";
   const w = GAME_DATA.WEAPONS && GAME_DATA.WEAPONS[t];
   if (w && w.category === "weapon") return "weapon";
   const a = GAME_DATA.ARMOR_TYPES && GAME_DATA.ARMOR_TYPES[t];
@@ -483,11 +488,16 @@ wss.on("connection", (ws) => {
         for (const d of msg.drops.slice(0, 20)) {
           if (!d || typeof d.t !== "string" || d.t.length > 40) continue;
           const drop = { id: me.room.nextDropId++, t: d.t, x: num(d.x), y: num(d.y), at: Date.now() };
+          // Gold orbs carry their own amount (varies per bot type — see
+          // spawnGoldOrbChance/goldOrbAmount on BOT_TYPES), instead of a
+          // single shared amount looked up from ITEM_TYPES. Clamped to a
+          // sane range so a hacked host can't mint arbitrary gold.
+          if (d.t === "goldOrb") drop.amt = Math.max(0, Math.min(10000, Math.trunc(num(d.amt))));
           me.room.drops.set(drop.id, drop);
           added.push(drop);
         }
         while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
-        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y }) => ({ id, t, x, y })) }, -1);
+        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y, amt }) => ({ id, t, x, y, amt })) }, -1);
         break;
       }
 
@@ -599,8 +609,12 @@ wss.on("connection", (ws) => {
             : { category, itemType: drop.t };
 
           if (rule === "SPLIT") {
-            const goldDef = GAME_DATA.ITEM_TYPES && GAME_DATA.ITEM_TYPES[drop.t];
-            const total = (goldDef && goldDef.goldAmount) || 0;
+            // Gold orbs carry their own amount per drop (varies by which
+            // bot dropped them — see spawnGoldOrbChance/goldOrbAmount on
+            // BOT_TYPES), stored on the drop itself in the dropAdd handler
+            // above, instead of a single shared amount looked up from
+            // ITEM_TYPES.
+            const total = drop.amt || 0;
             const share = Math.floor(total / party.members.length);
             let remainder = total - share * party.members.length;
             for (const pid of party.members) {
