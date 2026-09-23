@@ -259,7 +259,7 @@ function dropList(room) {
   pruneDrops(room);
   return [...room.drops.values()].map((d) => d.k === "inv"
     ? { id: d.id, k: "inv", invType: d.invType, name: d.name, data: d.data, qty: d.qty, x: d.x, y: d.y }
-    : { id: d.id, t: d.t, x: d.x, y: d.y });
+    : { id: d.id, t: d.t, x: d.x, y: d.y, amount: d.amount });
 }
 function clearDropsIfEmpty() { /* intentionally keeps loot in empty rooms */ }
 function countPlayers(test) {
@@ -482,12 +482,17 @@ wss.on("connection", (ws) => {
         const added = [];
         for (const d of msg.drops.slice(0, 20)) {
           if (!d || typeof d.t !== "string" || d.t.length > 40) continue;
-          const drop = { id: me.room.nextDropId++, t: d.t, x: num(d.x), y: num(d.y), at: Date.now() };
+          // amount is only meaningful for gold-orb-style drops (see
+          // item_server.js's createItemDrop()/pickUpGoldOrb()) — clamped
+          // and defaulted the same way every other client-reported number
+          // here is, since the host client isn't fully trusted.
+          const amount = typeof d.amount === "number" ? Math.max(0, Math.min(100000, Math.trunc(num(d.amount, 0)))) : undefined;
+          const drop = { id: me.room.nextDropId++, t: d.t, x: num(d.x), y: num(d.y), amount, at: Date.now() };
           me.room.drops.set(drop.id, drop);
           added.push(drop);
         }
         while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
-        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y }) => ({ id, t, x, y })) }, -1);
+        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y, amount }) => ({ id, t, x, y, amount })) }, -1);
         break;
       }
 
@@ -599,8 +604,7 @@ wss.on("connection", (ws) => {
             : { category, itemType: drop.t };
 
           if (rule === "SPLIT") {
-            const goldDef = GAME_DATA.ITEM_TYPES && GAME_DATA.ITEM_TYPES[drop.t];
-            const total = (goldDef && goldDef.goldAmount) || 0;
+            const total = drop.amount || 0;
             const share = Math.floor(total / party.members.length);
             let remainder = total - share * party.members.length;
             for (const pid of party.members) {
