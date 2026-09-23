@@ -107,20 +107,16 @@ const ITEM_TYPES = {
   // GOLD ORB — unlike health/shield/speedup/powerup above, this doesn't
   // apply a stat effect to the player on pickup. Its `category: "gold"`
   // routes it to pickUpGoldOrb() instead of applyItemEffect() (see
-  // createItemDrop()'s category line and checkItemPickup() below).
-  //
-  // There used to be a fixed `goldAmount` here that every gold orb in the
-  // game paid out. That's gone now — the amount is set per bot instead,
-  // via `spawnGoldOrbAmount` on each entry in bot_server.js's BOT_TYPES,
-  // and travels with the dropped orb (see createItemDrop()'s goldAmount
-  // stamping below). This entry only supplies the fallback used if a bot
-  // ever spawns a gold orb without setting spawnGoldOrbAmount.
+  // createItemDrop()'s category line and checkItemPickup() below), which
+  // adds `goldAmount` to the player's gold total (index.html's addGold())
+  // rather than putting anything in an inventory slot.
   goldOrb: {
     name: "goldOrb",
     image: "image/goldenorb.png",
     radius: 10,
 
     category: "gold",
+    goldAmount: 50,      // added to the player's gold total on pickup
     spawnChance: 0.75,   // 75% chance to drop when a bot that carries this item dies
   }
 
@@ -168,7 +164,7 @@ function getLootableWeaponDef(typeName) {
   return (weaponDef && weaponDef.category === "weapon") ? weaponDef : null;
 }
 
-function createItemDrop(typeName, x, y, goldAmountOverride) {
+function createItemDrop(typeName, x, y) {
 
   const itemDef = ITEM_TYPES[typeName];
   const weaponDef = itemDef ? null : getLootableWeaponDef(typeName);
@@ -189,7 +185,7 @@ function createItemDrop(typeName, x, y, goldAmountOverride) {
   // carry their own `image` field (armor.js), so those use it directly.
   const imagePath = (itemDef || armorDef) ? def.image : ("image/" + typeName + ".png");
 
-  const drop = {
+  return {
     id: nextItemDropId++,
     type: typeName,
     // itemDef.category lets a plain ITEM_TYPES entry opt into its own
@@ -205,20 +201,6 @@ function createItemDrop(typeName, x, y, goldAmountOverride) {
     image: getItemImage(imagePath),
     spawnTime: performance.now()
   };
-
-  // GOLD AMOUNT — a gold-category item carries its own payout on the drop
-  // itself, instead of every pickup looking up one shared ITEM_TYPES
-  // number. goldAmountOverride comes from the bot that dropped it (see
-  // spawnGoldOrbAmount on BOT_TYPES in bot_server.js, threaded through
-  // spawnItemsOnBotDeath() below) so different bots can drop orbs worth
-  // different amounts. Falls back to itemDef.goldAmount (usually unset
-  // now) only if a bot spawns a gold orb without setting an amount.
-  if (itemDef && itemDef.category === "gold") {
-    const override = Number(goldAmountOverride);
-    drop.goldAmount = (Number.isFinite(override) && override > 0) ? override : (itemDef.goldAmount || 0);
-  }
-
-  return drop;
 }
 
 
@@ -274,7 +256,7 @@ function createInventoryItemDrop(entry, x, y) {
 // WEAPONS for a weapon marked category: "weapon" (see weapon.js) — so a
 // single bot death can drop zero, one, or several items/weapons.
 // ---------------------------------------------------------------------------
-function spawnItemsOnBotDeath(spawnItemList, x, y, goldAmountOverride) {
+function spawnItemsOnBotDeath(spawnItemList, x, y) {
 
   const drops = [];
 
@@ -306,10 +288,7 @@ function spawnItemsOnBotDeath(spawnItemList, x, y, goldAmountOverride) {
       const dropX = x + Math.cos(angle) * scatter;
       const dropY = y + Math.sin(angle) * scatter;
 
-      // goldAmountOverride only actually gets used by createItemDrop()
-      // when typeName is a gold-category item — harmless to pass it
-      // through unconditionally for every other item/weapon type.
-      drops.push(createItemDrop(typeName, dropX, dropY, goldAmountOverride));
+      drops.push(createItemDrop(typeName, dropX, dropY));
     }
   }
 
@@ -361,7 +340,7 @@ function checkItemPickup(itemDrops, player, playerPos) {
       } else if (drop.category === "invItem") {
         pickUpInventoryDrop(drop);
       } else if (drop.category === "gold") {
-        pickUpGoldOrb(drop.type, drop.goldAmount);
+        pickUpGoldOrb(drop.type);
       } else if (drop.category === "stone" || drop.category === "orb") {
         pickUpUpgradeDrop(drop.type, drop.category);
       } else {
@@ -474,23 +453,17 @@ function pickUpUpgradeDrop(typeName, category) {
 // addGold()/GOLD_KEY (the same running total shown in the Inventory
 // screen's gold bar and the gameplay small-bag popup).
 // ---------------------------------------------------------------------------
-function pickUpGoldOrb(typeName, amount) {
+function pickUpGoldOrb(typeName) {
 
   const def = ITEM_TYPES[typeName];
   if (!def) return;
 
-  // Prefer the amount carried on the drop itself (set per-bot via
-  // spawnGoldOrbAmount — see createItemDrop()'s goldAmount stamping
-  // above); only fall back to the item type's own default if the drop
-  // didn't carry one.
-  const goldAmount = (typeof amount === "number" && amount > 0) ? amount : (def.goldAmount || 0);
-
   if (typeof addGold === "function") {
-    addGold(goldAmount);
+    addGold(def.goldAmount || 0);
   }
 
   if (typeof showHubToast === "function") {
-    showHubToast("+" + goldAmount + " gold");
+    showHubToast("+" + (def.goldAmount || 0) + " gold");
   }
 }
 
