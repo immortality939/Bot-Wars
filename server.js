@@ -259,7 +259,10 @@ function dropList(room) {
   pruneDrops(room);
   return [...room.drops.values()].map((d) => d.k === "inv"
     ? { id: d.id, k: "inv", invType: d.invType, name: d.name, data: d.data, qty: d.qty, x: d.x, y: d.y }
-    : { id: d.id, t: d.t, x: d.x, y: d.y });
+    // amt (a gold orb's per-bot payout) tags along here too, so a player
+    // who joins/switches maps AFTER the orb was dropped still sees the
+    // same amount as everyone who was already there.
+    : (d.amt != null ? { id: d.id, t: d.t, x: d.x, y: d.y, amt: d.amt } : { id: d.id, t: d.t, x: d.x, y: d.y }));
 }
 function clearDropsIfEmpty() { /* intentionally keeps loot in empty rooms */ }
 function countPlayers(test) {
@@ -482,12 +485,17 @@ wss.on("connection", (ws) => {
         const added = [];
         for (const d of msg.drops.slice(0, 20)) {
           if (!d || typeof d.t !== "string" || d.t.length > 40) continue;
-          const drop = { id: me.room.nextDropId++, t: d.t, x: num(d.x), y: num(d.y), at: Date.now() };
+          // amt: a gold orb's per-bot payout (bot_server.js's
+          // spawnGoldOrbAmount), passed through untouched so every other
+          // client's copy of the drop — and the SPLIT party-loot payout
+          // below — use the same amount the host's client rolled.
+          const amt = (typeof d.amt === "number" && isFinite(d.amt) && d.amt > 0) ? d.amt : undefined;
+          const drop = { id: me.room.nextDropId++, t: d.t, x: num(d.x), y: num(d.y), amt, at: Date.now() };
           me.room.drops.set(drop.id, drop);
           added.push(drop);
         }
         while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
-        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y }) => ({ id, t, x, y })) }, -1);
+        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y, amt }) => (amt != null ? { id, t, x, y, amt } : { id, t, x, y })) }, -1);
         break;
       }
 
@@ -599,8 +607,12 @@ wss.on("connection", (ws) => {
             : { category, itemType: drop.t };
 
           if (rule === "SPLIT") {
+            // Prefer the amount stamped on this specific drop (set per-bot
+            // via bot_server.js's spawnGoldOrbAmount — see the "dropAdd"
+            // handler above); only fall back to the item type's own
+            // default if this particular drop didn't carry one.
             const goldDef = GAME_DATA.ITEM_TYPES && GAME_DATA.ITEM_TYPES[drop.t];
-            const total = (goldDef && goldDef.goldAmount) || 0;
+            const total = (typeof drop.amt === "number" ? drop.amt : ((goldDef && goldDef.goldAmount) || 0));
             const share = Math.floor(total / party.members.length);
             let remainder = total - share * party.members.length;
             for (const pid of party.members) {
