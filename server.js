@@ -139,7 +139,7 @@ const PARTY_MAX_SIZE = GAME_DATA.GAME_RULES.PARTY_MAX_SIZE;
 // FIRE" and "PARTY LOOT TURN" sections) — pulled from GAME_DATA so both
 // sides never drift apart. partyLootRuleForCategory() comes from the new
 // server/game_server.js (ALTERNATE / SPLIT / SHARED per item category).
-const { isPartyFriendlyFire, getPartyLootTurnId, advancePartyLootTurn, partyLootRuleForCategory } = GAME_DATA;
+const { isPartyFriendlyFire, getPartyLootTurnId, advancePartyLootTurn, partyLootRuleForCategory, prunePartyMembers } = GAME_DATA;
 
 function getParty(p) {
   return p.partyId != null ? parties.get(p.partyId) : null;
@@ -563,6 +563,13 @@ wss.on("connection", (ws) => {
         broadcast(me.room, { type: "dropGone", id }, me.id);
 
         const party = getParty(me);
+        if (party) {
+          // Drop any stale/disconnected member (see prunePartyMembers() in
+          // server/game_server.js) BEFORE looking at party.members.length or
+          // computing a rule — this is the actual fix for loot repeatedly
+          // landing back on the picker instead of alternating.
+          if (prunePartyMembers(party, players)) broadcastPartyUpdate(party);
+        }
         if (party && party.members.length >= 2) {
           const category = categoryForDrop(drop);
           const rule = partyLootRuleForCategory(category);
@@ -594,6 +601,9 @@ wss.on("connection", (ws) => {
               send(m.ws, { type: "partyLootAward", mode: "effect", itemType: drop.t });
             }
           } else { // ALTERNATE
+            // party.members is now pruned to live ids only (see above), so
+            // this should always resolve to a real, connected player — the
+            // "|| me" is just a last-resort safety net, not the normal path.
             const recipientId = getPartyLootTurnId(party);
             const recipient = (recipientId != null && players.get(recipientId)) || me;
             send(recipient.ws, Object.assign({ type: "partyLootAward", mode: "item" }, itemPayload));
