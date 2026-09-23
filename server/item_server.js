@@ -379,7 +379,7 @@ function checkItemPickup(itemDrops, player, playerPos) {
       } else if (drop.category === "invItem") {
         pickUpInventoryDrop(drop);
       } else if (drop.category === "gold") {
-        pickUpGoldOrb(drop.type);
+        pickUpGoldOrb(drop.goldAmount);
       } else if (drop.category === "stone" || drop.category === "orb") {
         pickUpUpgradeDrop(drop.type, drop.category);
       } else {
@@ -492,17 +492,16 @@ function pickUpUpgradeDrop(typeName, category) {
 // addGold()/GOLD_KEY (the same running total shown in the Inventory
 // screen's gold bar and the gameplay small-bag popup).
 // ---------------------------------------------------------------------------
-function pickUpGoldOrb(typeName) {
+function pickUpGoldOrb(amount) {
 
-  const def = ITEM_TYPES[typeName];
-  if (!def) return;
+  const goldAmount = amount || 0;
 
   if (typeof addGold === "function") {
-    addGold(def.goldAmount || 0);
+    addGold(goldAmount);
   }
 
   if (typeof showHubToast === "function") {
-    showHubToast("+" + (def.goldAmount || 0) + " gold");
+    showHubToast("+" + goldAmount + " gold");
   }
 }
 
