@@ -50,6 +50,7 @@ const BOT_TYPES = {
 
     spawnItem: "specialstone",
     spawnGoldOrb: "goldOrb",
+    spawnGoldOrbAmount: 20,
 
     unitExplode: "unitexplode",
 
@@ -91,6 +92,7 @@ const BOT_TYPES = {
 
     spawnItem: "shield,speedup,powerup,health,shotgun",
     spawnGoldOrb: "goldOrb",
+    spawnGoldOrbAmount: 20,
 
     unitExplode: "unitexplode",
 
@@ -130,6 +132,7 @@ const BOT_TYPES = {
 
     spawnItem: "armor1",
     spawnGoldOrb: "goldOrb",
+    spawnGoldOrbAmount: 20,
 
     unitExplode: "unitexplode",
 
@@ -171,6 +174,7 @@ const BOT_TYPES = {
 
     spawnItem: "shield,speedup,powerup,health,sniper",
     spawnGoldOrb: "goldOrb",
+    spawnGoldOrbAmount: 20,
 
     unitExplode: "unitexplode",
 
