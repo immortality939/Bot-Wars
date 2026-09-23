@@ -427,10 +427,16 @@ wss.on("connection", (ws) => {
       const id = nextId++;
       const chars = GAME_DATA.CHARACTERS || {};
       const wanted = String(msg.character || "soldier").slice(0, 24);
+      // Player-typed name from the "Name Your Character" popup (see
+      // olOpenNamePopup in online.js) — falls back to "Player N" if it's
+      // missing, blank, or just whitespace/control characters.
+      const wantedName = typeof msg.name === "string"
+        ? msg.name.replace(/[\r\n\t]+/g, " ").trim().slice(0, 16)
+        : "";
       me = {
         id, ws,
         server: serverId, channel, map: START_MAP, room, lastMapChange: 0,
-        name: "Player " + id,
+        name: wantedName || ("Player " + id),
         character: chars[wanted] ? wanted : (Object.keys(chars)[0] || "soldier"),
         x: 0, y: 0,
         health: 100, maxHealth: 100,
