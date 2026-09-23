@@ -251,8 +251,9 @@ function broadcastClanUpdate(clan) {
 }
 
 // Removes p from whatever clan it's in. A clan with nobody left in it is
-// dropped entirely; otherwise, if the leader left, leadership passes to
-// whoever's been in the clan longest (members[0]).
+// dropped entirely; otherwise, if the leader left (e.g. disconnected without
+// pressing DISBAND), leadership passes to whoever's been in the clan
+// longest (members[0]) and everyone else stays in the clan.
 function removeFromClan(p) {
   const clan = getClan(p);
   if (!clan) return;
@@ -269,6 +270,22 @@ function removeFromClan(p) {
     clan.leaderName = newLeader ? newLeader.name : clan.leaderName;
   }
   broadcastClanUpdate(clan);
+}
+
+// Leader pressing DISBAND (see clanDisbandBtn in index.html) — unlike
+// removeFromClan() above, this ends the clan for EVERY member at once:
+// nobody gets promoted, everyone's clanId is cleared, and every member
+// (not just whoever clicked DISBAND) gets their own "clanUpdate" so their
+// OPTIONS button flips back to CREATE CLAN too.
+function disbandClan(clan) {
+  for (const id of clan.members) {
+    const m = players.get(id);
+    if (m) {
+      m.clanId = null;
+      send(m.ws, { type: "clanUpdate", clanId: null, members: [] });
+    }
+  }
+  clans.delete(clan.id);
 }
 
 // rooms: "server:channel:map" -> Map(id -> player). Only players in the same
@@ -938,7 +955,18 @@ wss.on("connection", (ws) => {
         break;
       }
 
-      // DISBAND (leader) / leaving my own clan.
+      // DISBAND — leader only. Ends the clan for everyone at once (see
+      // disbandClan() above), not just whoever's leaving.
+      case "clanDisband": {
+        const clan = getClan(me);
+        if (!clan) { send(ws, { type: "clanError", reason: "You don't have a clan" }); break; }
+        if (clan.leaderId !== me.id) { send(ws, { type: "clanError", reason: "Only the clan leader can disband" }); break; }
+        disbandClan(clan);
+        break;
+      }
+
+      // LEAVE CLAN — a regular member leaving. The clan keeps going for
+      // whoever's left; see removeFromClan() above.
       case "clanLeave":
         removeFromClan(me);
         break;
