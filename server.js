@@ -566,6 +566,11 @@ wss.on("connection", (ws) => {
         if (party && party.members.length >= 2) {
           const category = categoryForDrop(drop);
           const rule = partyLootRuleForCategory(category);
+          // Temporary diagnostic — safe to remove later. Shows up in Render's
+          // logs so you can confirm the party really had 2+ members and see
+          // exactly what category/rule/turn each claim resolved to.
+          console.log("[partyLoot] picker=" + me.id + " category=" + category + " rule=" + rule +
+            " partyMembers=" + JSON.stringify(party.members) + " turnIndex=" + (party.lootTurnIndex || 0));
           const itemPayload = drop.k === "inv"
             ? { category, invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty }
             : { category, type: drop.t };
