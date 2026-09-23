@@ -50,6 +50,11 @@ const BOT_TYPES = {
 
     spawnItem: "specialstone",
     spawnGoldOrb: "goldOrb",
+    // How much gold THIS bot's orb is worth on pickup (replaces the old
+    // fixed goldAmount that used to live on item_server.js's ITEM_TYPES.
+    // goldOrb entry — every bot now sets its own amount here instead of
+    // sharing one global number).
+    spawnGoldOrbAmount: 50,
 
     unitExplode: "unitexplode",
 
@@ -91,6 +96,7 @@ const BOT_TYPES = {
 
     spawnItem: "shield,speedup,powerup,health,shotgun",
     spawnGoldOrb: "goldOrb",
+    spawnGoldOrbAmount: 50,
 
     unitExplode: "unitexplode",
 
@@ -130,6 +136,7 @@ const BOT_TYPES = {
 
     spawnItem: "armor1",
     spawnGoldOrb: "goldOrb",
+    spawnGoldOrbAmount: 50,
 
     unitExplode: "unitexplode",
 
@@ -171,6 +178,7 @@ const BOT_TYPES = {
 
     spawnItem: "shield,speedup,powerup,health,sniper",
     spawnGoldOrb: "goldOrb",
+    spawnGoldOrbAmount: 50,
 
     unitExplode: "unitexplode",
 
