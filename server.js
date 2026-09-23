@@ -70,9 +70,22 @@ const GAME_DATA = Object.assign(
 // window.CUSTOM_MAPS["key"] = { name, worldWidth, ... } (Map Creator format).
 const fs = require("fs");
 const path = require("path");
+// Raw source of every *_server.js file, sent to clients as data.CODE so
+// online.js's netInstallServerCode() can run the server's actual pickup/
+// drop/etc. LOGIC while online — not just its data tables (GAME_DATA above
+// already covers those). Without this, data.CODE is always undefined,
+// netInstallServerCode() bails out immediately, and online mode silently
+// falls back to running every public file's (item.js, etc.) OFFLINE
+// functions for everything except the swapped data tables — e.g. gold orb
+// pickups ignoring bot_server.js's spawnGoldOrbAmount entirely, since
+// offline item.js's pickUpGoldOrb() only ever reads ITEM_TYPES.goldAmount
+// (which item_server.js's goldOrb entry no longer has).
+const SERVER_CODE = {};
 for (const f of fs.readdirSync(path.join(__dirname, "server")).filter((n) => /_server\.js$/.test(n)).sort()) {
+  SERVER_CODE[f] = fs.readFileSync(path.join(__dirname, "server", f), "utf8");
   require("./server/" + f);
 }
+GAME_DATA.CODE = SERVER_CODE;
 const MAPS = (global.window && global.window.CUSTOM_MAPS) || {};
 if (!Object.keys(MAPS).length) throw new Error("No map found: server/worldmap_server.js must define window.CUSTOM_MAPS[\"worldmap\"]");
 const START_MAP = MAPS.worldmap ? "worldmap" : Object.keys(MAPS)[0];   // where everyone spawns
