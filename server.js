@@ -578,9 +578,25 @@ wss.on("connection", (ws) => {
           // exactly what category/rule/turn each claim resolved to.
           console.log("[partyLoot] picker=" + me.id + " category=" + category + " rule=" + rule +
             " partyMembers=" + JSON.stringify(party.members) + " turnIndex=" + (party.lootTurnIndex || 0));
+          // itemType (NOT "type") on purpose — Object.assign lets the LAST
+          // object's keys win on conflict, and every award message needs
+          // its outer "type" to stay "partyLootAward" (that's the field
+          // online.js's switch dispatches the whole message on). A plain
+          // weapon/armor/stone/orb drop's own type name (e.g. "uzi") used
+          // to be stored under this same "type" key, so Object.assign below
+          // silently overwrote "partyLootAward" with "uzi" before the
+          // message ever left the server — online.js's "partyLootAward"
+          // case then never matched on the receiving client, and that
+          // player's award just vanished with no error on either side.
+          // invItem was never affected (it already used "invType"), and
+          // neither was gold/SPLIT or the buff/SHARED path (they build
+          // their own message objects with unique field names instead of
+          // merging itemPayload in at all) — exactly why gold and
+          // health/shield/speedup/powerup always worked while weapon,
+          // armor, and stone/orb (upgrade_server.js) didn't.
           const itemPayload = drop.k === "inv"
             ? { category, invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty }
-            : { category, type: drop.t };
+            : { category, itemType: drop.t };
 
           if (rule === "SPLIT") {
             const goldDef = GAME_DATA.ITEM_TYPES && GAME_DATA.ITEM_TYPES[drop.t];
@@ -606,7 +622,13 @@ wss.on("connection", (ws) => {
             // "|| me" is just a last-resort safety net, not the normal path.
             const recipientId = getPartyLootTurnId(party);
             const recipient = (recipientId != null && players.get(recipientId)) || me;
-            send(recipient.ws, Object.assign({ type: "partyLootAward", mode: "item" }, itemPayload));
+            // itemPayload spread FIRST, { type, mode } applied LAST — so the
+            // "partyLootAward" discriminator always wins even if itemPayload
+            // ever grows a field that happens to be named "type" or "mode"
+            // again. This is the actual fix for the field-collision bug
+            // above; the itemType rename alone already fixes today's case,
+            // this just stops the same class of bug from coming back.
+            send(recipient.ws, Object.assign({}, itemPayload, { type: "partyLootAward", mode: "item" }));
             advancePartyLootTurn(party);
           }
         }
