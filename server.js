@@ -209,6 +209,68 @@ function removeFromParty(p) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// CLANS — formed via CREATE CLAN in the OPTIONS popup, then grown via the
+// ADD CLAN button on the player-touch menu (see playerTouchClanBtn in
+// online.js). Same shape/pattern as parties above: a clan is just
+// { id, name, leaderId, leaderName, members: [ids] }, the server is the
+// source of truth for membership, and everyone in the clan gets a
+// "clanUpdate" roster (with live names) whenever it changes. Same
+// in-memory, resets-on-disconnect trust model as parties/friends
+// elsewhere in this file — removeFromClan() runs on "clanLeave" AND on
+// disconnect (see ws.on("close") below).
+// ---------------------------------------------------------------------------
+let nextClanId = 1;
+const clans = new Map(); // clanId -> { id, name, leaderId, leaderName, members: [ids] }
+const CLAN_MAX_SIZE = 25; // matches the "MEMBERS x/25" readout in index.html
+
+function getClan(p) {
+  return p.clanId != null ? clans.get(p.clanId) : null;
+}
+
+function clanRosterPayload(clan) {
+  return {
+    type: "clanUpdate",
+    clanId: clan.id,
+    name: clan.name,
+    leaderId: clan.leaderId,
+    leaderName: clan.leaderName,
+    members: clan.members.map((id) => {
+      const m = players.get(id);
+      return { id, name: m ? m.name : clan.leaderName };
+    })
+  };
+}
+
+function broadcastClanUpdate(clan) {
+  const payload = clanRosterPayload(clan);
+  for (const id of clan.members) {
+    const m = players.get(id);
+    if (m) send(m.ws, payload);
+  }
+}
+
+// Removes p from whatever clan it's in. A clan with nobody left in it is
+// dropped entirely; otherwise, if the leader left, leadership passes to
+// whoever's been in the clan longest (members[0]).
+function removeFromClan(p) {
+  const clan = getClan(p);
+  if (!clan) return;
+  clan.members = clan.members.filter((id) => id !== p.id);
+  p.clanId = null;
+  send(p.ws, { type: "clanUpdate", clanId: null, members: [] });
+  if (!clan.members.length) {
+    clans.delete(clan.id);
+    return;
+  }
+  if (clan.leaderId === p.id) {
+    clan.leaderId = clan.members[0];
+    const newLeader = players.get(clan.leaderId);
+    clan.leaderName = newLeader ? newLeader.name : clan.leaderName;
+  }
+  broadcastClanUpdate(clan);
+}
+
 // rooms: "server:channel:map" -> Map(id -> player). Only players in the same
 // room see and can hit each other.
 //
@@ -376,7 +438,8 @@ wss.on("connection", (ws) => {
         level: 1,
         hitWindowStart: 0, hitCount: 0,
         botHitWindowStart: 0, botHitCount: 0,
-        partyId: null
+        partyId: null,
+        clanId: null
       };
       const isFirstInRoom = room.size === 0;
       players.set(id, me);
@@ -825,6 +888,55 @@ wss.on("connection", (ws) => {
         break;
       }
 
+      // Player pressed CREATE CLAN in the OPTIONS popup (see
+      // submitClanCreate() in index.html) — register it here so it can
+      // actually be invited into / synced across members. Gold cost is
+      // enforced client-side only (same trust model as everything else
+      // online).
+      case "clanCreate": {
+        if (getClan(me)) { send(ws, { type: "clanError", reason: "You're already in a clan" }); break; }
+        const name = String(msg.name || "").slice(0, 20).trim();
+        if (!name) break;
+        const clan = { id: nextClanId++, name, leaderId: me.id, leaderName: me.name, members: [me.id] };
+        clans.set(clan.id, clan);
+        me.clanId = clan.id;
+        send(ws, clanRosterPayload(clan));
+        break;
+      }
+
+      // ADD CLAN on a nearby player (see playerTouchClanBtn in online.js) —
+      // only works if I actually have a clan; relay the invite to that
+      // player, same targeted-send pattern as "partyInvite" above.
+      case "clanInvite": {
+        const target = me.room.get(num(msg.targetId, -1));
+        if (!target || target.id === me.id) break;
+        const myClan = getClan(me);
+        if (!myClan) { send(ws, { type: "clanError", reason: "You don't have a clan yet" }); break; }
+        if (getClan(target)) { send(ws, { type: "clanError", reason: (target.name || "That player") + " is already in a clan" }); break; }
+        send(target.ws, { type: "clanInvite", from: me.id, fromName: me.name, clanId: myClan.id, clanName: myClan.name });
+        break;
+      }
+
+      // ACCEPT CLAN / REJECT reply to a clan invite. Looked up by clanId
+      // (not the inviter's player id) so it still resolves even if the
+      // inviter has since walked to a different map.
+      case "clanResponse": {
+        if (!msg.accept) break;   // silent reject — no need to notify the inviter
+        if (getClan(me)) { send(ws, { type: "clanError", reason: "You're already in a clan" }); break; }
+        const clan = clans.get(num(msg.clanId, -1));
+        if (!clan) { send(ws, { type: "clanError", reason: "That clan no longer exists" }); break; }
+        if (clan.members.length >= CLAN_MAX_SIZE) { send(ws, { type: "clanError", reason: "That clan is full" }); break; }
+        clan.members.push(me.id);
+        me.clanId = clan.id;
+        broadcastClanUpdate(clan);
+        break;
+      }
+
+      // DISBAND (leader) / leaving my own clan.
+      case "clanLeave":
+        removeFromClan(me);
+        break;
+
       // Victim reports who killed them -> everyone sees the kill feed.
       case "died": {
         const killer = me.room.get(num(msg.killerId, -1));
@@ -843,6 +955,7 @@ wss.on("connection", (ws) => {
   ws.on("close", () => {
     if (!me) return;
     removeFromParty(me);
+    removeFromClan(me);
     players.delete(me.id);
     me.room.delete(me.id);
     broadcast(me.room, { type: "playerRemove", id: me.id });
