@@ -70,8 +70,7 @@ const GAME_DATA = Object.assign(
 // window.CUSTOM_MAPS["key"] = { name, worldWidth, ... } (Map Creator format).
 const fs = require("fs");
 const path = require("path");
-const SERVER_JS_FILES = fs.readdirSync(path.join(__dirname, "server")).filter((n) => /_server\.js$/.test(n)).sort();
-for (const f of SERVER_JS_FILES) {
+for (const f of fs.readdirSync(path.join(__dirname, "server")).filter((n) => /_server\.js$/.test(n)).sort()) {
   require("./server/" + f);
 }
 const MAPS = (global.window && global.window.CUSTOM_MAPS) || {};
@@ -79,28 +78,9 @@ if (!Object.keys(MAPS).length) throw new Error("No map found: server/worldmap_se
 const START_MAP = MAPS.worldmap ? "worldmap" : Object.keys(MAPS)[0];   // where everyone spawns
 GAME_DATA.WORLD_MAPS = MAPS;
 GAME_DATA.START_MAP = START_MAP;
-
-// CODE — the raw SOURCE of every ./server/*_server.js file, sent to each
-// client inside GAME_DATA (as GAME_DATA.CODE) so online.js's
-// netInstallServerCode() can actually run their top-level FUNCTIONS/FORMULAS
-// (attrRate, applyAttributeBonus, pickUpWeaponDrop, ...), not just their data
-// tables. Without this, a *_server.js file's hardcoded NUMBERS (ATTRIBUTE_RATES,
-// GAME_RULES, anything not in online.js's netTableRefs() table list) never
-// actually reach the client — only the plain data tables client-side already
-// tracks do, via the regular GAME_DATA fields above. This was previously
-// missing entirely, which is why edits made only in a *_server.js file (like
-// ATTRIBUTE_RATES.dex.criticalDamage) had no effect online — the browser was
-// silently still running the OFFLINE (character.js) formula the whole time.
-const SERVER_CODE = {};
-for (const f of SERVER_JS_FILES) {
-  SERVER_CODE[f] = fs.readFileSync(path.join(__dirname, "server", f), "utf8");
-}
-GAME_DATA.CODE = SERVER_CODE;
-
 console.log("Maps loaded: " + Object.keys(MAPS).join(", ") + " (start: " + START_MAP + ")");
 JSON.stringify(GAME_DATA); // fail loudly at startup if anything isn't plain data
 console.log("Online game data loaded: " + Object.keys(GAME_DATA).join(", "));
-console.log("Server code sent to clients: " + SERVER_JS_FILES.join(", "));
 
 const PORT = process.env.PORT || 8080;
 const SERVER_COUNT = 5;          // SERVER 1 .. SERVER 5
