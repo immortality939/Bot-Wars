@@ -483,6 +483,11 @@ wss.on("connection", (ws) => {
         bots: room.lastBots || [],
         drops: dropList(room)
       });
+      // Clans live only in server memory (and a player is removed from theirs
+      // on disconnect), so a fresh connection never has a clan. Tell the
+      // client so a stale saved clan (from a previous session / server
+      // restart) is cleared and the button goes back to CREATE CLAN.
+      send(ws, { type: "clanUpdate", clanId: null, members: [] });
       broadcast(room, { type: "playerAdd", player: publicInfo(me) }, id);
       console.log(`+ ${me.name} (${me.character}) — server ${serverId} channel ${channel} — ${players.size} online`);
       return;
@@ -956,13 +961,18 @@ wss.on("connection", (ws) => {
 
       // DISBAND (leader) / leaving my own clan.
       case "clanLeave":
+        if (!getClan(me)) { send(ws, { type: "clanUpdate", clanId: null, members: [] }); break; }
         removeFromClan(me);
         break;
 
       // DISBAND — leader only; removes the clan and all its members.
-      case "clanDisband":
+      case "clanDisband": {
+        const c = getClan(me);
+        if (!c) { send(ws, { type: "clanUpdate", clanId: null, members: [] }); break; }
+        if (c.leaderId !== me.id) { send(ws, { type: "clanError", reason: "Only the leader can disband" }); break; }
         disbandClan(me);
         break;
+      }
 
       // Victim reports who killed them -> everyone sees the kill feed.
       case "died": {
