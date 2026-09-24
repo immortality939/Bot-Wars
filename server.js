@@ -1,5 +1,5 @@
 // =============================================================================
-// Bot Wars — Online Server (PvP arena relay)
+// Bot Wars — Online Server (PvP arena relay) 
 // =============================================================================
 // The game has 5 SERVERS (max 500 players each). Every server has 2 CHANNELS:
 //   CHANNEL 0 — PvP: players can damage each other.
