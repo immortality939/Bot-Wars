@@ -26,7 +26,7 @@
 // snapshot carries the result back out to the room — so everyone sees the
 // same enemies, in the same place, dying at the same time. If the host
 // leaves, hosting duty is silently handed to whoever's left (see
-// reassignHost below).
+// reassignHost below). 
 //
 // ONLINE GAME DATA: the numbers used in online mode (weapons, armor,
 // characters, skills, ...) live in the ./server/*_server.js files. They are
