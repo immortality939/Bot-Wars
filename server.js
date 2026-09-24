@@ -212,79 +212,207 @@ function removeFromParty(p) {
 // ---------------------------------------------------------------------------
 // CLANS — formed via CREATE CLAN in the OPTIONS popup, then grown via the
 // ADD CLAN button on the player-touch menu (see playerTouchClanBtn in
-// online.js). Same shape/pattern as parties above: a clan is just
-// { id, name, leaderId, leaderName, members: [ids] }, the server is the
-// source of truth for membership, and everyone in the clan gets a
-// "clanUpdate" roster (with live names) whenever it changes. Same
-// in-memory, resets-on-disconnect trust model as parties/friends
-// elsewhere in this file — removeFromClan() runs on "clanLeave" AND on
-// disconnect (see ws.on("close") below).
+// online.js).
+//
+// PERSISTENT: a clan belongs to the ACCOUNT (the Supabase user id), not to
+// a connection or a character. So it survives logging out, closing the app,
+// logging in on another phone, deleting + re-creating the character, and
+// server restarts. The server is the source of truth:
+//   * the account is proven by the access token the client sends in "join"
+//     (checked against Supabase Auth — see verifyAccountToken());
+//   * clans + members are saved to two Supabase tables (see
+//     clans_setup.sql) using the SERVICE key, which only ever lives in
+//     this server's environment (SUPABASE_SERVICE_KEY on Render);
+//   * everything is loaded back into memory at startup.
+// If SUPABASE_SERVICE_KEY isn't set, clans still work but only live in
+// memory (they survive log out / re-login, not a server restart).
 // ---------------------------------------------------------------------------
-let nextClanId = 1;
-const clans = new Map(); // clanId -> { id, name, leaderId, leaderName, members: [ids] }
+const crypto = require("crypto");
+const SB_URL = (process.env.SUPABASE_URL || "https://qumhiffgbmcnlsdstbux.supabase.co").replace(/\/+$/, "");
+const SB_ANON_KEY = process.env.SUPABASE_ANON_KEY || "sb_publishable_Ssjk_M8lMetBMWbUhha-6g_eM2do4gn";
+const SB_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || "";
+const CLAN_DB_ON = !!SB_SERVICE_KEY && typeof fetch === "function";
 const CLAN_MAX_SIZE = 25; // matches the "MEMBERS x/25" readout in index.html
 
-function getClan(p) {
-  return p.clanId != null ? clans.get(p.clanId) : null;
+// clanId -> { id, name, leaderUid, members: [{ uid, name }] }  (members in join order)
+const clans = new Map();
+const clanOfUid = new Map();    // account uid -> clanId
+const onlineByUid = new Map();  // account uid -> connected player (latest connection)
+let clanLoaded = false;
+
+async function sbRest(method, pathQuery, body) {
+  const headers = { apikey: SB_SERVICE_KEY, "Content-Type": "application/json" };
+  // New-style "sb_secret_..." keys go in apikey only; old JWT service keys also go in Authorization.
+  if (!SB_SERVICE_KEY.startsWith("sb_")) headers.Authorization = "Bearer " + SB_SERVICE_KEY;
+  if (method !== "GET") headers.Prefer = "return=minimal";
+  const r = await fetch(SB_URL + "/rest/v1/" + pathQuery, {
+    method, headers,
+    body: body ? JSON.stringify(body) : undefined,
+    signal: AbortSignal.timeout(10000)
+  });
+  if (!r.ok) throw new Error(method + " " + pathQuery + " -> " + r.status + " " + (await r.text()).slice(0, 200));
+  return method === "GET" ? r.json() : null;
 }
 
+// Saves happen one after another (a clan row must exist before its member
+// rows), in the background — gameplay never waits on the database.
+let clanDbQueue = Promise.resolve();
+function clanDb(op) {
+  if (!CLAN_DB_ON) return;
+  clanDbQueue = clanDbQueue.then(op).catch((e) => console.error("[clans] save failed:", e && e.message || e));
+}
+const q = encodeURIComponent;
+
+async function loadClans() {
+  if (!CLAN_DB_ON) {
+    console.log("[clans] SUPABASE_SERVICE_KEY not set — clans are memory-only (lost on server restart).");
+    clanLoaded = true;
+    return;
+  }
+  for (let attempt = 1; !clanLoaded; attempt++) {
+    try {
+      const cs = await sbRest("GET", "clans?select=id,name,leader_uid");
+      const ms = await sbRest("GET", "clan_members?select=uid,clan_id,name&order=joined_at.asc");
+      clans.clear(); clanOfUid.clear();
+      for (const c of cs) clans.set(c.id, { id: c.id, name: c.name, leaderUid: c.leader_uid, members: [] });
+      for (const m of ms) {
+        const c = clans.get(m.clan_id);
+        if (!c) continue;
+        c.members.push({ uid: m.uid, name: m.name || "Player" });
+        clanOfUid.set(m.uid, c.id);
+      }
+      for (const c of [...clans.values()]) {
+        if (!c.members.length) { clans.delete(c.id); continue; }
+        if (!c.members.some((m) => m.uid === c.leaderUid)) c.leaderUid = c.members[0].uid;
+      }
+      clanLoaded = true;
+      console.log("[clans] loaded " + clans.size + " clan(s) from the database.");
+      // anyone who connected while this was loading gets their clan now
+      for (const [uid, p] of onlineByUid) {
+        const c = clanOf(p);
+        if (c) { p.clanId = c.id; send(p.ws, clanRosterPayload(c)); }
+      }
+    } catch (e) {
+      console.error("[clans] load failed (attempt " + attempt + "): " + (e && e.message || e));
+      await new Promise((res) => setTimeout(res, Math.min(30000, 3000 * attempt)));
+    }
+  }
+}
+loadClans();
+
+// Proves which account a connection belongs to. Returns the Supabase user
+// id, or null if the token is missing/invalid/expired.
+async function verifyAccountToken(token) {
+  if (typeof token !== "string" || token.length < 20 || token.length > 4000 || typeof fetch !== "function") return null;
+  try {
+    const r = await fetch(SB_URL + "/auth/v1/user", {
+      headers: { apikey: SB_ANON_KEY, Authorization: "Bearer " + token },
+      signal: AbortSignal.timeout(8000)
+    });
+    if (!r.ok) return null;
+    const u = await r.json();
+    return u && typeof u.id === "string" ? u.id : null;
+  } catch { return null; }
+}
+
+// Runs right after "join": works out the account, then hands the player
+// their clan (if the account has one) and tells the clan they're online.
+async function attachAccount(p, token) {
+  const uid = await verifyAccountToken(token);
+  p.uid = uid;
+  p.uidChecked = true;
+  if (!uid) return;
+  if (p.ws.readyState !== 1) return; // already gone
+  onlineByUid.set(uid, p);
+  if (!clanLoaded) return; // loadClans() sends the roster the moment it finishes
+  const clan = clanOf(p);
+  if (!clan) return;
+  p.clanId = clan.id;
+  const mem = clan.members.find((m) => m.uid === uid);
+  if (mem && mem.name !== p.name) {   // keep the stored display name fresh
+    mem.name = p.name;
+    clanDb(() => sbRest("PATCH", "clan_members?uid=eq." + q(uid), { name: p.name }));
+  }
+  broadcastClanUpdate(clan); // includes me, and shows my clanmates I'm back online
+}
+
+function clanOf(p) {
+  const id = p.uid ? clanOfUid.get(p.uid) : null;
+  return id ? (clans.get(id) || null) : null;
+}
+
+// Sends the reason and returns false when this player can't use clans yet.
+function clanAccountReady(p) {
+  if (!p.uidChecked) { send(p.ws, { type: "clanError", reason: "Still signing you in — try again in a moment" }); return false; }
+  if (!p.uid) { send(p.ws, { type: "clanError", reason: "Sign in again to use clans" }); return false; }
+  if (!clanLoaded) { send(p.ws, { type: "clanError", reason: "Clan data is loading — try again in a moment" }); return false; }
+  return true;
+}
+
+// Ids in the roster are the live player id when that member is online, or
+// "u:<uid>" when they're offline — index.html only compares them
+// (leaderId === myId decides DISBAND vs LEAVE CLAN), so this stays
+// compatible with the existing client.
 function clanRosterPayload(clan) {
+  const idOf = (uid) => { const o = onlineByUid.get(uid); return o ? o.id : "u:" + uid; };
+  const nameOf = (m) => { const o = onlineByUid.get(m.uid); return o ? o.name : m.name; };
+  const leader = clan.members.find((m) => m.uid === clan.leaderUid) || clan.members[0];
   return {
     type: "clanUpdate",
     clanId: clan.id,
     name: clan.name,
-    leaderId: clan.leaderId,
-    leaderName: clan.leaderName,
-    members: clan.members.map((id) => {
-      const m = players.get(id);
-      return { id, name: m ? m.name : clan.leaderName };
-    })
+    leaderId: idOf(clan.leaderUid),
+    leaderName: leader ? nameOf(leader) : "",
+    members: clan.members.map((m) => ({ id: idOf(m.uid), name: nameOf(m), online: onlineByUid.has(m.uid) }))
   };
 }
 
 function broadcastClanUpdate(clan) {
   const payload = clanRosterPayload(clan);
-  for (const id of clan.members) {
-    const m = players.get(id);
-    if (m) send(m.ws, payload);
+  for (const m of clan.members) {
+    const o = onlineByUid.get(m.uid);
+    if (o) send(o.ws, payload);
   }
 }
 
-// Removes p from whatever clan it's in. A clan with nobody left in it is
-// dropped entirely; otherwise, if the leader left, leadership passes to
-// whoever's been in the clan longest (members[0]).
+// Removes p from their clan. A clan with nobody left is deleted; if the
+// leader left, leadership passes to whoever's been in the clan longest.
 function removeFromClan(p) {
-  const clan = getClan(p);
+  const clan = clanOf(p);
   if (!clan) return;
-  clan.members = clan.members.filter((id) => id !== p.id);
+  clan.members = clan.members.filter((m) => m.uid !== p.uid);
+  clanOfUid.delete(p.uid);
   p.clanId = null;
   send(p.ws, { type: "clanUpdate", clanId: null, members: [] });
+  clanDb(() => sbRest("DELETE", "clan_members?uid=eq." + q(p.uid)));
   if (!clan.members.length) {
     clans.delete(clan.id);
+    clanDb(() => sbRest("DELETE", "clans?id=eq." + q(clan.id)));
     return;
   }
-  if (clan.leaderId === p.id) {
-    clan.leaderId = clan.members[0];
-    const newLeader = players.get(clan.leaderId);
-    clan.leaderName = newLeader ? newLeader.name : clan.leaderName;
+  if (clan.leaderUid === p.uid) {
+    clan.leaderUid = clan.members[0].uid;
+    clanDb(() => sbRest("PATCH", "clans?id=eq." + q(clan.id), { leader_uid: clan.leaderUid }));
   }
   broadcastClanUpdate(clan);
 }
 
 // Leader pressed DISBAND (after CONFIRM): the whole clan is removed and
-// every member — leader included — gets clanId null, which flips their
-// CLAN button back to CREATE CLAN.
+// every member — leader included, online or not — loses it. Offline members
+// find no clan the next time they log in.
 function disbandClan(p) {
-  const clan = getClan(p);
-  if (!clan || clan.leaderId !== p.id) return;
-  for (const id of clan.members) {
-    const m = players.get(id);
-    if (m) {
-      m.clanId = null;
-      send(m.ws, { type: "clanUpdate", clanId: null, members: [] });
+  const clan = clanOf(p);
+  if (!clan || clan.leaderUid !== p.uid) return;
+  for (const m of clan.members) {
+    clanOfUid.delete(m.uid);
+    const o = onlineByUid.get(m.uid);
+    if (o) {
+      o.clanId = null;
+      send(o.ws, { type: "clanUpdate", clanId: null, members: [] });
     }
   }
   clans.delete(clan.id);
+  clanDb(() => sbRest("DELETE", "clans?id=eq." + q(clan.id))); // members go with it (cascade)
 }
 
 // rooms: "server:channel:map" -> Map(id -> player). Only players in the same
@@ -461,7 +589,8 @@ wss.on("connection", (ws) => {
         hitWindowStart: 0, hitCount: 0,
         botHitWindowStart: 0, botHitCount: 0,
         partyId: null,
-        clanId: null
+        clanId: null,
+        uid: null, uidChecked: false   // Supabase account id, filled in by attachAccount()
       };
       const isFirstInRoom = room.size === 0;
       players.set(id, me);
@@ -483,11 +612,10 @@ wss.on("connection", (ws) => {
         bots: room.lastBots || [],
         drops: dropList(room)
       });
-      // Clans live only in server memory (and a player is removed from theirs
-      // on disconnect), so a fresh connection never has a clan. Tell the
-      // client so a stale saved clan (from a previous session / server
-      // restart) is cleared and the button goes back to CREATE CLAN.
+      // Start with "no clan" (clears anything stale on the client), then work
+      // out which account this is and send its real clan, if it has one.
       send(ws, { type: "clanUpdate", clanId: null, members: [] });
+      attachAccount(me, msg.token);
       broadcast(room, { type: "playerAdd", player: publicInfo(me) }, id);
       console.log(`+ ${me.name} (${me.character}) — server ${serverId} channel ${channel} — ${players.size} online`);
       return;
@@ -916,17 +1044,22 @@ wss.on("connection", (ws) => {
       }
 
       // Player pressed CREATE CLAN in the OPTIONS popup (see
-      // submitClanCreate() in index.html) — register it here so it can
-      // actually be invited into / synced across members. Gold cost is
-      // enforced client-side only (same trust model as everything else
-      // online).
+      // submitClanCreate() in index.html). The clan is saved to the ACCOUNT
+      // (see the CLANS section above). Gold cost is enforced client-side
+      // only (same trust model as everything else online).
       case "clanCreate": {
-        if (getClan(me)) { send(ws, { type: "clanError", reason: "You're already in a clan" }); break; }
-        const name = String(msg.name || "").slice(0, 20).trim();
+        if (!clanAccountReady(me)) break;
+        if (clanOf(me)) { send(ws, { type: "clanError", reason: "You're already in a clan" }); break; }
+        const name = String(msg.name || "").replace(/[\r\n\t]+/g, " ").slice(0, 20).trim();
         if (!name) break;
-        const clan = { id: nextClanId++, name, leaderId: me.id, leaderName: me.name, members: [me.id] };
+        const clan = { id: crypto.randomBytes(6).toString("hex"), name, leaderUid: me.uid, members: [{ uid: me.uid, name: me.name }] };
         clans.set(clan.id, clan);
+        clanOfUid.set(me.uid, clan.id);
         me.clanId = clan.id;
+        clanDb(async () => {
+          await sbRest("POST", "clans", { id: clan.id, name: clan.name, leader_uid: clan.leaderUid });
+          await sbRest("POST", "clan_members", { uid: me.uid, clan_id: clan.id, name: me.name });
+        });
         send(ws, clanRosterPayload(clan));
         break;
       }
@@ -937,9 +1070,10 @@ wss.on("connection", (ws) => {
       case "clanInvite": {
         const target = me.room.get(num(msg.targetId, -1));
         if (!target || target.id === me.id) break;
-        const myClan = getClan(me);
+        const myClan = clanOf(me);
         if (!myClan) { send(ws, { type: "clanError", reason: "You don't have a clan yet" }); break; }
-        if (getClan(target)) { send(ws, { type: "clanError", reason: (target.name || "That player") + " is already in a clan" }); break; }
+        if (!target.uid) { send(ws, { type: "clanError", reason: (target.name || "That player") + " can't join clans right now" }); break; }
+        if (clanOf(target)) { send(ws, { type: "clanError", reason: (target.name || "That player") + " is already in a clan" }); break; }
         send(target.ws, { type: "clanInvite", from: me.id, fromName: me.name, clanId: myClan.id, clanName: myClan.name });
         break;
       }
@@ -949,27 +1083,30 @@ wss.on("connection", (ws) => {
       // inviter has since walked to a different map.
       case "clanResponse": {
         if (!msg.accept) break;   // silent reject — no need to notify the inviter
-        if (getClan(me)) { send(ws, { type: "clanError", reason: "You're already in a clan" }); break; }
-        const clan = clans.get(num(msg.clanId, -1));
+        if (!clanAccountReady(me)) break;
+        if (clanOf(me)) { send(ws, { type: "clanError", reason: "You're already in a clan" }); break; }
+        const clan = clans.get(String(msg.clanId));
         if (!clan) { send(ws, { type: "clanError", reason: "That clan no longer exists" }); break; }
         if (clan.members.length >= CLAN_MAX_SIZE) { send(ws, { type: "clanError", reason: "That clan is full" }); break; }
-        clan.members.push(me.id);
+        clan.members.push({ uid: me.uid, name: me.name });
+        clanOfUid.set(me.uid, clan.id);
         me.clanId = clan.id;
+        clanDb(() => sbRest("POST", "clan_members", { uid: me.uid, clan_id: clan.id, name: me.name }));
         broadcastClanUpdate(clan);
         break;
       }
 
-      // DISBAND (leader) / leaving my own clan.
+      // Leaving my own clan (a member's LEAVE CLAN).
       case "clanLeave":
-        if (!getClan(me)) { send(ws, { type: "clanUpdate", clanId: null, members: [] }); break; }
+        if (!clanOf(me)) { send(ws, { type: "clanUpdate", clanId: null, members: [] }); break; }
         removeFromClan(me);
         break;
 
       // DISBAND — leader only; removes the clan and all its members.
       case "clanDisband": {
-        const c = getClan(me);
+        const c = clanOf(me);
         if (!c) { send(ws, { type: "clanUpdate", clanId: null, members: [] }); break; }
-        if (c.leaderId !== me.id) { send(ws, { type: "clanError", reason: "Only the leader can disband" }); break; }
+        if (c.leaderUid !== me.uid) { send(ws, { type: "clanError", reason: "Only the leader can disband" }); break; }
         disbandClan(me);
         break;
       }
@@ -992,7 +1129,13 @@ wss.on("connection", (ws) => {
   ws.on("close", () => {
     if (!me) return;
     removeFromParty(me);
-    removeFromClan(me);
+    // Closing the app does NOT leave the clan (it's saved to the account) —
+    // just go offline and let the clan see it.
+    if (me.uid && onlineByUid.get(me.uid) === me) {
+      onlineByUid.delete(me.uid);
+      const myClan = clanOf(me);
+      if (myClan) broadcastClanUpdate(myClan);
+    }
     players.delete(me.id);
     me.room.delete(me.id);
     broadcast(me.room, { type: "playerRemove", id: me.id });
