@@ -15,7 +15,7 @@
 // room, and forwards each player's position / bullets / effects / sounds /
 // hits to the others in that room. Each
 // client works out its own damage (the "victim" applies a hit it is sent),
-// so this is fine for playing with friends but is NOT cheat-proof.
+// so this is fine for playing with friends but is NOT cheat-proof. 
 //
 // ENEMIES (PvE): the server doesn't run enemy AI either. One player per room
 // (the "bot host" — whoever has been in that room longest) runs the normal
