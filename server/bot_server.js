@@ -64,7 +64,11 @@ const BOT_TYPES = {
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.01,
-    manaRegen: 0.01
+    manaRegen: 0.01,
+
+    // BOT SKILL — see the full explanation on the guard entry below, and
+    // on bot.js's BOT_TYPES.rusher. Keep in sync by hand.
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
   },
 
   // GUARD — slow, heavily armored, holds ground, wide FOV (hard to flank
