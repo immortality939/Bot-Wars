@@ -510,12 +510,25 @@ function isPartyFriendlyFire(attackerPartyId, targetPartyId) {
   return attackerPartyId != null && targetPartyId != null && attackerPartyId === targetPartyId;
 }
 
+// ---------------------------------------------------------------------------
+// CLAN FRIENDLY FIRE — same idea as PARTY FRIENDLY FIRE above, but for
+// clanmates (server.js's authoritative `clanId` on each player, set on
+// clanCreate/clanResponse/removeFromClan — see the CLANS section of
+// server.js). Two players count as clanmates here ONLY when both have a
+// non-null clanId AND it's the same one — a player with no clan
+// (clanId null/undefined) can still be hit by anyone, same as today.
+// ---------------------------------------------------------------------------
+function isClanFriendlyFire(attackerClanId, targetClanId) {
+  return attackerClanId != null && targetClanId != null && attackerClanId === targetClanId;
+}
+
 // Convenience wrapper for callers that already have both player-ish objects
-// in hand (anything carrying a `.partyId`, e.g. online.js's local player
-// mirror or server.js's connection records) instead of the two ids alone.
+// in hand (anything carrying a `.partyId`/`.clanId`, e.g. online.js's local
+// player mirror or server.js's connection records) instead of the ids alone.
 function canCharacterDamageTarget(attacker, target) {
   if (!attacker || !target || attacker === target) return false;
-  return !isPartyFriendlyFire(attacker.partyId, target.partyId);
+  if (isPartyFriendlyFire(attacker.partyId, target.partyId)) return false;
+  return !isClanFriendlyFire(attacker.clanId, target.clanId);
 }
 
 
@@ -1219,6 +1232,7 @@ if (typeof module !== "undefined" && module.exports) {
     addCharacterExp,
     computePartyExpShare,
     isPartyFriendlyFire,
+    isClanFriendlyFire,
     canCharacterDamageTarget,
     isPartyLootTurn,
     advancePartyLootTurn,
