@@ -15,7 +15,7 @@
 // room, and forwards each player's position / bullets / effects / sounds /
 // hits to the others in that room. Each
 // client works out its own damage (the "victim" applies a hit it is sent),
-// so this is fine for playing with friends but is NOT cheat-proof. 
+// so this is fine for playing with friends but is NOT cheat-proof.
 //
 // ENEMIES (PvE): the server doesn't run enemy AI either. One player per room
 // (the "bot host" — whoever has been in that room longest) runs the normal
@@ -49,6 +49,11 @@ global.document = global.document || {
 
 const http = require("http");
 const { WebSocketServer } = require("ws");
+
+// SKILL LOCK — server-authoritative enforcement (see game_server.js's
+// isPlayerSkillLocked()/lockPlayerSkillUse() comment for why this can't
+// just live in game.js/online.js alone).
+const { isPlayerSkillLocked, lockPlayerSkillUse } = require("./server/game_server.js");
 
 // ---- ONLINE GAME DATA (edit the *_server.js files, not this) ----------------
 const GAME_DATA = Object.assign(
@@ -234,7 +239,7 @@ const SB_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || "";
 const CLAN_DB_ON = !!SB_SERVICE_KEY && typeof fetch === "function";
 const CLAN_MAX_SIZE = 25; // matches the "MEMBERS x/25" readout in index.html
 
-// clanId -> { id, name, leaderUid, message, members: [{ uid, name }] }  (members in join order)
+// clanId -> { id, name, leaderUid, members: [{ uid, name }] }  (members in join order)
 const clans = new Map();
 const clanOfUid = new Map();    // account uid -> clanId
 const onlineByUid = new Map();  // account uid -> connected player (latest connection)
@@ -271,14 +276,10 @@ async function loadClans() {
   }
   for (let attempt = 1; !clanLoaded; attempt++) {
     try {
-      // "message" is optional — if the column hasn't been added yet (see
-      // clans_message.sql) fall back to the old query so clans still load.
-      let cs;
-      try { cs = await sbRest("GET", "clans?select=id,name,leader_uid,message"); }
-      catch (e) { cs = await sbRest("GET", "clans?select=id,name,leader_uid"); }
+      const cs = await sbRest("GET", "clans?select=id,name,leader_uid");
       const ms = await sbRest("GET", "clan_members?select=uid,clan_id,name&order=joined_at.asc");
       clans.clear(); clanOfUid.clear();
-      for (const c of cs) clans.set(c.id, { id: c.id, name: c.name, leaderUid: c.leader_uid, message: c.message || "", members: [] });
+      for (const c of cs) clans.set(c.id, { id: c.id, name: c.name, leaderUid: c.leader_uid, members: [] });
       for (const m of ms) {
         const c = clans.get(m.clan_id);
         if (!c) continue;
@@ -367,7 +368,6 @@ function clanRosterPayload(clan) {
     name: clan.name,
     leaderId: idOf(clan.leaderUid),
     leaderName: leader ? nameOf(leader) : "",
-    message: clan.message || "",
     members: clan.members.map((m) => ({ id: idOf(m.uid), name: nameOf(m), online: onlineByUid.has(m.uid) }))
   };
 }
@@ -593,6 +593,7 @@ wss.on("connection", (ws) => {
         level: 1,
         hitWindowStart: 0, hitCount: 0,
         botHitWindowStart: 0, botHitCount: 0,
+        skillGlobalLockedUntil: 0, // see game_server.js's isPlayerSkillLocked()
         partyId: null,
         clanId: null,
         uid: null, uidChecked: false   // Supabase account id, filled in by attachAccount()
@@ -684,6 +685,13 @@ wss.on("connection", (ws) => {
         const now = Date.now();
         if (now - me.botHitWindowStart >= 1000) { me.botHitWindowStart = now; me.botHitCount = 0; }
         if (++me.botHitCount > MAX_HITS_PER_SECOND) break;
+
+        // SKILL LOCK — same enforcement as the "hit" case above, for a
+        // player-vs-bot skill hit (online.js's damageBot() override).
+        if (msg.isSkillHit) {
+          if (isPlayerSkillLocked(me, now)) break;
+          lockPlayerSkillUse(me, now);
+        }
 
         send(host.ws, {
           type: "botHit",
@@ -937,6 +945,16 @@ wss.on("connection", (ws) => {
         if (now - me.hitWindowStart >= 1000) { me.hitWindowStart = now; me.hitCount = 0; }
         if (++me.hitCount > MAX_HITS_PER_SECOND) break;
 
+        // SKILL LOCK — server-authoritative version of game.js's
+        // player.skillGlobalLockedUntil (see game_server.js). Only
+        // hits the client tagged isSkillHit go through this; drop it
+        // if this player's own skill lock (tracked here, not on the
+        // client) hasn't expired yet, no matter what that client claims.
+        if (msg.isSkillHit) {
+          if (isPlayerSkillLocked(me, now)) break;
+          lockPlayerSkillUse(me, now);
+        }
+
         send(target.ws, {
           type: "hit",
           from: me.id,
@@ -1113,18 +1131,6 @@ wss.on("connection", (ws) => {
         if (!c) { send(ws, { type: "clanUpdate", clanId: null, members: [] }); break; }
         if (c.leaderUid !== me.uid) { send(ws, { type: "clanError", reason: "Only the leader can disband" }); break; }
         disbandClan(me);
-        break;
-      }
-
-      // MESSAGE (CLAN window) — leader only. Saved on the clan and sent to
-      // every member inside the normal clan roster ("clanUpdate").
-      case "clanMessage": {
-        const c = clanOf(me);
-        if (!c) break;
-        if (c.leaderUid !== me.uid) { send(ws, { type: "clanError", reason: "Only the leader can change the message" }); break; }
-        c.message = String(msg.text || "").replace(/[\r\n\t]+/g, " ").slice(0, 100).trim();
-        clanDb(() => sbRest("PATCH", "clans?id=eq." + q(c.id), { message: c.message }));
-        broadcastClanUpdate(c);
         break;
       }
 
