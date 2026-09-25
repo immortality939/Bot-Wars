@@ -9,7 +9,7 @@
 // Maps: every ./server/*_server.js file that defines window.CUSTOM_MAPS[...]
 // (worldmap_server.js, or any other map file you drop in) is sent to the client
 // on join. Players start on "worldmap" and can walk through portals
-// (entrance: "MapName") to the other maps.
+// (entrance: "MapName") to the other maps. 
 //
 // The server is a thin relay: it hands out ids, keeps a list of who is in the
 // room, and forwards each player's position / bullets / effects / sounds /
