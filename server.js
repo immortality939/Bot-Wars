@@ -51,7 +51,7 @@ const http = require("http");
 const { WebSocketServer } = require("ws");
 
 // SKILL LOCK — server-authoritative enforcement (see game_server.js's
-// isPlayerSkillLocked()/lockPlayerSkillUse() comment for why this can't
+// isPlayerSkillLocked()/lockPlayerSkillUse() comment for why this can't 
 // just live in game.js/online.js alone).
 const { isPlayerSkillLocked, lockPlayerSkillUse } = require("./server/game_server.js");
 
