@@ -109,7 +109,7 @@ const BOT_TYPES = {
     criticalChance: 0.08,
     criticalDamage: 0.05,
     mana: 100,
-    hpRegen: 0.00,
+    hpRegen: 0.01,
     manaRegen: 0.01,
 
     // BOT SKILL — mirrors bot.js's BOT_TYPES.guard comment/field exactly.
