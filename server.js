@@ -166,7 +166,7 @@ const PARTY_MAX_SIZE = GAME_DATA.GAME_RULES.PARTY_MAX_SIZE;
 // FIRE" and "PARTY LOOT TURN" sections) — pulled from GAME_DATA so both
 // sides never drift apart. partyLootRuleForCategory() comes from the new
 // server/game_server.js (ALTERNATE / SPLIT / SHARED per item category).
-const { isPartyFriendlyFire, getPartyLootTurnId, advancePartyLootTurn, partyLootRuleForCategory, prunePartyMembers } = GAME_DATA;
+const { isPartyFriendlyFire, isClanFriendlyFire, getPartyLootTurnId, advancePartyLootTurn, partyLootRuleForCategory, prunePartyMembers } = GAME_DATA;
 
 function getParty(p) {
   return p.partyId != null ? parties.get(p.partyId) : null;
@@ -939,6 +939,9 @@ wss.on("connection", (ws) => {
 
         // Party members never damage each other, even on a PvP channel.
         if (isPartyFriendlyFire(me.partyId, target.partyId)) break;
+
+        // Clanmates never damage each other, either.
+        if (isClanFriendlyFire(me.clanId, target.clanId)) break;
 
         // rate limit per attacker
         const now = Date.now();
