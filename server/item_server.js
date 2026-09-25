@@ -429,6 +429,22 @@ function canShowInventoryFullNotice(drop, now) {
 
 // ---------------------------------------------------------------------------
 // PICKUP — call every frame with the live itemDrops array + the player.
+//
+// NOTE ON NAMING: this is deliberately called runItemPickupCheck(), NOT
+// checkItemPickup(). online.js's swap-in step (netInstallServerCode) never
+// installs anything named "checkItemPickup" from this file — that name is
+// on online.js's own NET_PROTECTED_FUNCTIONS list, kept as its own
+// party-loot-aware wrapper no matter what. So a function defined under
+// that name here would be silently ignored: dead code, never runs.
+//
+// runItemPickupCheck is NOT protected, so THIS is the copy that actually
+// executes once a player is online — item.js's checkItemPickup is just a
+// one-line shell that calls whatever runItemPickupCheck currently resolves
+// to (this file's version once swapped in, item.js's own copy otherwise).
+// Same pattern already used for pickUpWeaponDrop/pickUpArmorDrop/
+// pickUpUpgradeDrop/pickUpInventoryDrop below. Keep this in step with
+// item.js's copy the same way the rest of this file is kept in step.
+//
 // Removes any drop the player is touching. A regular pickup (health,
 // shield, speedup, powerup) applies its effect immediately; a weapon
 // drop instead goes into the storage grid inventory to be equipped
@@ -442,7 +458,7 @@ function canShowInventoryFullNotice(drop, now) {
 // still be picked up later) and a small on-screen notice is shown
 // instead of silently deleting the item.
 // ---------------------------------------------------------------------------
-function checkItemPickup(itemDrops, player, playerPos) {
+function runItemPickupCheck(itemDrops, player, playerPos) {
 
   const now = performance.now();
 
@@ -974,7 +990,7 @@ if (typeof module !== "undefined" && module.exports) {
     spawnItemsOnBotDeath,
     spawnGoldOrbOnBotDeath,
     updateItemDrops,
-    checkItemPickup,
+    runItemPickupCheck,
     pickUpWeaponDrop,
     pickUpInventoryDrop,
     pickUpUpgradeDrop,
