@@ -139,6 +139,39 @@ function clampBotSkillDamage(amount) {
 
 
 
+// ---------------------------------------------------------------------------
+// SHARED SKILL LOCK — SERVER-AUTHORITATIVE version of game.js's
+// player.skillGlobalLockedUntil / bot.js's bot.skillGlobalLockedUntil. The
+// client-side lock (game.js) stops a normal client from firing a different
+// skill within skill_server.js's SKILL_LOCK_MS of its last one, but that
+// check runs in the player's own browser, so a modified client could just
+// skip it and send "hit"/"botHit" messages (see online.js's netSendHit()/
+// damageBot()) for skills back-to-back anyway.
+//
+// This is the check that actually can't be bypassed: server.js calls
+// isPlayerSkillLocked(me, now) for any inbound "hit"/"botHit" message
+// tagged isSkillHit (see online.js), where `me` is THIS PLAYER'S OWN
+// per-connection object that only server.js ever writes to — a client
+// can send messages, but it can never directly set its own me.
+// skillGlobalLockedUntil, so it cannot lie its way past this. If the
+// check fails, server.js drops the hit (same "just `break`" pattern it
+// already uses for its rate-limit/damage-clamp checks); if it passes,
+// call lockPlayerSkillUse(me, now) so the NEXT skill hit from this same
+// player has to wait out the same window for real, no matter what that
+// player's client-side UI shows.
+// ---------------------------------------------------------------------------
+const { SKILL_LOCK_MS } = require("./skill_server.js");
+
+function isPlayerSkillLocked(playerState, now) {
+  return now < (playerState.skillGlobalLockedUntil || 0);
+}
+
+function lockPlayerSkillUse(playerState, now) {
+  playerState.skillGlobalLockedUntil = now + SKILL_LOCK_MS;
+}
+
+
+
 // ---- export for server.js (Node) ----
 if (typeof module !== "undefined") {
   module.exports = {
@@ -147,6 +180,8 @@ if (typeof module !== "undefined") {
     partyLootRuleForCategory,
     prunePartyMembers,
     BOT_SKILL_MAX_DAMAGE_PER_HIT,
-    clampBotSkillDamage
+    clampBotSkillDamage,
+    isPlayerSkillLocked,
+    lockPlayerSkillUse
   };
 }

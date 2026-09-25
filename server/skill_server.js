@@ -26,6 +26,13 @@
 // Unlike a weapon, a skill isn't fired on demand shot-by-shot — it's
 // triggered once and then plays out its own burst of `projectileCount`
 // bullets, `bulletInterval` seconds apart, before going on `cooldown`.
+// SKILL LOCK — mirrors skill.js's SKILL_LOCK_MS exactly (see the comment
+// there). Kept in sync by hand like everything else in this file; game.js
+// itself isn't swapped per-mode so it always reads skill.js's copy of this
+// constant, but this copy documents the online number and is here if the
+// lock ever needs to be swapped in per-mode later.
+const SKILL_LOCK_MS = 700;
+
 const SKILLS = {
 
   barrage: {
@@ -487,6 +494,7 @@ if (typeof module !== "undefined" && module.exports) {
 
   module.exports = {
     SKILLS,
+    SKILL_LOCK_MS,
     getSkill,
     getAllSkills,
     SKILL_SCALABLE_STATS,
@@ -498,4 +506,4 @@ if (typeof module !== "undefined" && module.exports) {
 
 
 // ---- export for server.js (Node) ----
-if (typeof module !== "undefined") module.exports = { SKILLS, SKILL_SCALABLE_STATS };
+if (typeof module !== "undefined") module.exports = { SKILLS, SKILL_LOCK_MS, SKILL_SCALABLE_STATS };
