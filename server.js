@@ -9,7 +9,7 @@
 // Maps: every ./server/*_server.js file that defines window.CUSTOM_MAPS[...]
 // (worldmap_server.js, or any other map file you drop in) is sent to the client
 // on join. Players start on "worldmap" and can walk through portals
-// (entrance: "MapName") to the other maps. 
+// (entrance: "MapName") to the other maps.
 //
 // The server is a thin relay: it hands out ids, keeps a list of who is in the
 // room, and forwards each player's position / bullets / effects / sounds /
@@ -344,6 +344,17 @@ async function attachAccount(p, token) {
 function clanOf(p) {
   const id = p.uid ? clanOfUid.get(p.uid) : null;
   return id ? (clans.get(id) || null) : null;
+}
+
+// CHAT: finds any connected player by name (case-insensitive), for the
+// PRIVATE tab's "@PlayerName message" whispers — see the "chatMessage"
+// case below. Global, not room-scoped: a whisper works regardless of
+// which map/channel either side is on.
+function findOnlinePlayerByName(name) {
+  const lower = String(name || "").toLowerCase();
+  if (!lower) return null;
+  for (const p of players.values()) if (p.name && p.name.toLowerCase() === lower) return p;
+  return null;
 }
 
 // Sends the reason and returns false when this player can't use clans yet.
@@ -1074,6 +1085,40 @@ wss.on("connection", (ws) => {
       // submitClanCreate() in index.html). The clan is saved to the ACCOUNT
       // (see the CLANS section above). Gold cost is enforced client-side
       // only (same trust model as everything else online).
+      // CHAT BOX (online gameplay) — index.html's CHATBOX window sends
+      // { type: "chatMessage", scope: "world"|"private", text }.
+      // WORLD: broadcast to everyone on my exact server+channel (not
+      // room/map — chat spans every map inside that server/channel).
+      // PRIVATE: text must be "@PlayerName message" (index.html's PRIVATE
+      // tab pre-fills the "@" for the player); relayed to that player AND
+      // echoed back to me, so my own outgoing whisper shows up in my own
+      // PRIVATE tab too — see window.applyChatMessage in index.html.
+      case "chatMessage": {
+        if (!me.name) break;
+        const scope = msg.scope === "private" ? "private" : "world";
+        const raw = String(msg.text || "").replace(/[\r\n\t]+/g, " ").trim().slice(0, 200);
+        if (!raw) break;
+
+        if (scope === "private") {
+          const match = raw.match(/^@(\S+)\s+([\s\S]+)$/);
+          if (!match) { send(ws, { type: "chatError", reason: "Type @PlayerName then your message" }); break; }
+          const body = match[2].trim();
+          if (!body) break;
+          const target = findOnlinePlayerByName(match[1]);
+          if (!target) { send(ws, { type: "chatError", reason: match[1] + " isn't online" }); break; }
+          if (target.id === me.id) { send(ws, { type: "chatError", reason: "You can't whisper yourself" }); break; }
+          const payload = { type: "chatMessage", scope: "private", fromName: me.name, toName: target.name, text: body };
+          send(target.ws, payload);
+          send(ws, payload);
+        } else {
+          const payload = { type: "chatMessage", scope: "world", fromName: me.name, text: raw };
+          for (const p of players.values()) {
+            if (p.server === me.server && p.channel === me.channel) send(p.ws, payload);
+          }
+        }
+        break;
+      }
+
       case "clanCreate": {
         if (!clanAccountReady(me)) break;
         if (clanOf(me)) { send(ws, { type: "clanError", reason: "You're already in a clan" }); break; }
