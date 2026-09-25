@@ -1100,12 +1100,26 @@ wss.on("connection", (ws) => {
         if (!raw) break;
 
         if (scope === "private") {
-          const match = raw.match(/^@(\S+)\s+([\s\S]+)$/);
-          if (!match) { send(ws, { type: "chatError", reason: "Type @PlayerName then your message" }); break; }
-          const body = match[2].trim();
-          if (!body) break;
-          const target = findOnlinePlayerByName(match[1]);
-          if (!target) { send(ws, { type: "chatError", reason: match[1] + " isn't online" }); break; }
+          if (raw[0] !== "@") { send(ws, { type: "chatError", reason: "Type @PlayerName then your message" }); break; }
+          const rest = raw.slice(1);
+          // Player names can contain spaces (e.g. "john bert"), so a fixed
+          // "first word = name" split breaks for them. Instead, check every
+          // currently online name as a possible prefix of what was typed,
+          // and keep the LONGEST one that matches — so if both "john" and
+          // "john bert" are online, "@john bert hi" goes to "john bert",
+          // not "john" with the message "bert hi".
+          const lowerRest = rest.toLowerCase();
+          let target = null, matchedLen = 0;
+          for (const p of players.values()) {
+            if (!p.name || p.name.length <= matchedLen) continue;
+            const lname = p.name.toLowerCase();
+            if (lowerRest === lname || lowerRest.startsWith(lname + " ")) {
+              target = p; matchedLen = p.name.length;
+            }
+          }
+          if (!target) { send(ws, { type: "chatError", reason: "Type @PlayerName then your message" }); break; }
+          const body = rest.slice(matchedLen).trim();
+          if (!body) { send(ws, { type: "chatError", reason: "Type @PlayerName then your message" }); break; }
           if (target.id === me.id) { send(ws, { type: "chatError", reason: "You can't whisper yourself" }); break; }
           const payload = { type: "chatMessage", scope: "private", fromName: me.name, toName: target.name, text: body };
           send(target.ws, payload);
