@@ -109,7 +109,44 @@ function prunePartyMembers(party, players) {
 
 
 
+// ---------------------------------------------------------------------------
+// BOT SKILL DAMAGE CAP — a bot with a botSkill list (bot_server.js's
+// BOT_TYPES[...].botSkill, e.g. guard's "slash1,barrage,cannonblast,
+// deadlystrike") can hit much harder per swing than a plain melee/ranged
+// bot attack — see skill_server.js's SKILLS for each skill's own
+// physicalDamage/magicalAttack. server.js's "botHitPlayer" relay already
+// clamps EVERY bot hit (skill or not) to its own generic MAX_DAMAGE_PER_HIT,
+// which is sized for a normal weapon swing, not a skill burst — so a
+// compromised room host could otherwise report a skill-tier "botHitPlayer"
+// hit that gets silently truncated down to normal-attack size, or (if that
+// generic cap is ever loosened) inflate a normal attack up to skill size.
+//
+// This is the skill-specific ceiling for that same relay: bigger than a
+// normal bot swing (so a legitimate skill hit isn't clipped), but still
+// capped well under what a fully-stacked player build could theoretically
+// roll through getSkillDamageResult() (skill_server.js), so a hostile host
+// can't mint unlimited damage by claiming every hit came from a skill.
+// Not yet wired into server.js's "botHitPlayer" case — that handler still
+// applies the generic MAX_DAMAGE_PER_HIT to every bot hit today. Swap in
+// clampBotSkillDamage() there (using msg.isSkillHit or similar) if/when
+// skill-sourced bot hits need this tighter, dedicated cap instead.
+// ---------------------------------------------------------------------------
+const BOT_SKILL_MAX_DAMAGE_PER_HIT = 400;
+
+function clampBotSkillDamage(amount) {
+  return Math.min(BOT_SKILL_MAX_DAMAGE_PER_HIT, Math.max(0, Number(amount) || 0));
+}
+
+
+
 // ---- export for server.js (Node) ----
 if (typeof module !== "undefined") {
-  module.exports = { MAX_ROOM_DROPS, PARTY_LOOT_RULES, partyLootRuleForCategory, prunePartyMembers };
+  module.exports = {
+    MAX_ROOM_DROPS,
+    PARTY_LOOT_RULES,
+    partyLootRuleForCategory,
+    prunePartyMembers,
+    BOT_SKILL_MAX_DAMAGE_PER_HIT,
+    clampBotSkillDamage
+  };
 }

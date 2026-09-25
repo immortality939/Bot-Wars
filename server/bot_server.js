@@ -106,7 +106,16 @@ const BOT_TYPES = {
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.00,
-    manaRegen: 0.01
+    manaRegen: 0.01,
+
+    // BOT SKILL — mirrors bot.js's BOT_TYPES.guard comment/field exactly.
+    // bot.js's AI (tryBotUseSkill(), running in the room host's own
+    // browser) reads this list from whichever BOT_TYPES table is
+    // currently active — online.js swaps THIS server-enforced copy in
+    // for the duration of the match, so a player can't remove/edit
+    // guard's skills locally to make it easier. Keep in sync with
+    // bot.js by hand, same as every other field in this file.
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
   },
 
   assaulter: {
