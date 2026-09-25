@@ -9,7 +9,7 @@
 // Maps: every ./server/*_server.js file that defines window.CUSTOM_MAPS[...]
 // (worldmap_server.js, or any other map file you drop in) is sent to the client
 // on join. Players start on "worldmap" and can walk through portals
-// (entrance: "MapName") to the other maps. 
+// (entrance: "MapName") to the other maps.
 //
 // The server is a thin relay: it hands out ids, keeps a list of who is in the
 // room, and forwards each player's position / bullets / effects / sounds /
@@ -51,7 +51,7 @@ const http = require("http");
 const { WebSocketServer } = require("ws");
 
 // SKILL LOCK — server-authoritative enforcement (see game_server.js's
-// isPlayerSkillLocked()/lockPlayerSkillUse() comment for why this can't 
+// isPlayerSkillLocked()/lockPlayerSkillUse() comment for why this can't
 // just live in game.js/online.js alone).
 const { isPlayerSkillLocked, lockPlayerSkillUse } = require("./server/game_server.js");
 
@@ -276,10 +276,10 @@ async function loadClans() {
   }
   for (let attempt = 1; !clanLoaded; attempt++) {
     try {
-      const cs = await sbRest("GET", "clans?select=id,name,leader_uid");
+      const cs = await sbRest("GET", "clans?select=id,name,leader_uid,message");
       const ms = await sbRest("GET", "clan_members?select=uid,clan_id,name&order=joined_at.asc");
       clans.clear(); clanOfUid.clear();
-      for (const c of cs) clans.set(c.id, { id: c.id, name: c.name, leaderUid: c.leader_uid, members: [] });
+      for (const c of cs) clans.set(c.id, { id: c.id, name: c.name, leaderUid: c.leader_uid, message: c.message || "", members: [] });
       for (const m of ms) {
         const c = clans.get(m.clan_id);
         if (!c) continue;
@@ -368,6 +368,7 @@ function clanRosterPayload(clan) {
     name: clan.name,
     leaderId: idOf(clan.leaderUid),
     leaderName: leader ? nameOf(leader) : "",
+    message: clan.message || "",
     members: clan.members.map((m) => ({ id: idOf(m.uid), name: nameOf(m), online: onlineByUid.has(m.uid) }))
   };
 }
@@ -1078,7 +1079,7 @@ wss.on("connection", (ws) => {
         if (clanOf(me)) { send(ws, { type: "clanError", reason: "You're already in a clan" }); break; }
         const name = String(msg.name || "").replace(/[\r\n\t]+/g, " ").slice(0, 20).trim();
         if (!name) break;
-        const clan = { id: crypto.randomBytes(6).toString("hex"), name, leaderUid: me.uid, members: [{ uid: me.uid, name: me.name }] };
+        const clan = { id: crypto.randomBytes(6).toString("hex"), name, leaderUid: me.uid, message: "", members: [{ uid: me.uid, name: me.name }] };
         clans.set(clan.id, clan);
         clanOfUid.set(me.uid, clan.id);
         me.clanId = clan.id;
@@ -1087,6 +1088,20 @@ wss.on("connection", (ws) => {
           await sbRest("POST", "clan_members", { uid: me.uid, clan_id: clan.id, name: me.name });
         });
         send(ws, clanRosterPayload(clan));
+        break;
+      }
+
+      // MESSAGE: button (clan leader) -> index.html's "clanMsgSubmitBtn"
+      // sends { type: "clanMessage", text }. Leader-only, saved on the clan
+      // and re-broadcast so it shows up beside MESSAGE: for every member,
+      // including whoever just set it (index.html reads it off clanUpdate).
+      case "clanMessage": {
+        const clan = clanOf(me);
+        if (!clan) { send(ws, { type: "clanError", reason: "You don't have a clan yet" }); break; }
+        if (clan.leaderUid !== me.uid) { send(ws, { type: "clanError", reason: "Only the leader can set the clan message" }); break; }
+        clan.message = String(msg.text || "").replace(/[\r\n\t]+/g, " ").slice(0, 100).trim();
+        clanDb(() => sbRest("PATCH", "clans?id=eq." + q(clan.id), { message: clan.message }));
+        broadcastClanUpdate(clan);
         break;
       }
 
