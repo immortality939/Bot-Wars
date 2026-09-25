@@ -32,7 +32,7 @@
 // characters, skills, ...) live in the ./server/*_server.js files. They are
 // loaded here and sent to each player inside the "init" message, so they are
 // never downloaded as editable files. Offline mode keeps using the public
-// armor.js / weapon.js / ... files. 
+// armor.js / weapon.js / ... files.
 //
 // Run:  npm install && npm start        (PORT env var, default 8080)
 // =============================================================================
