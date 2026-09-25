@@ -97,6 +97,7 @@ const ARMOR_TYPES = {
     criticalDamage: 0.05,
     category: "armor",
     spawnChance: 0.5,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "Light armor — small armor and health boost."
   },
 
@@ -112,6 +113,7 @@ const ARMOR_TYPES = {
 
     category: "armor",
     spawnChance: 0.5,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "Medium armor — placeholder stats, same as armor1 for now."
   },
 
@@ -127,6 +129,7 @@ const ARMOR_TYPES = {
 
     category: "armor",
     spawnChance: 0.5,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "Heavy armor — placeholder stats, same as armor1 for now."
   }
 

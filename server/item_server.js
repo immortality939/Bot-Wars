@@ -67,6 +67,7 @@ const ITEM_TYPES = {
 
     healAmount: 50,     // flat heal, capped at the player's max health
     spawnChance: 0.75,    // 75% chance to drop when a bot that carries this item dies
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec (see ITEM_DESPAWN_TIME below)
   },
 
   shield: {
@@ -76,6 +77,7 @@ const ITEM_TYPES = {
 
     shieldHitpoints: 80,
     spawnChance: 1.45,    // 45%
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
   },
 
   speedup: {
@@ -86,6 +88,7 @@ const ITEM_TYPES = {
     speedBonus: 30,      // flat add to movementSpeed (e.g. 100 -> 130)
     duration: 20000,     // ms (20 sec)
     spawnChance: 0.6,   // 60%
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
 
     // Small icon drawn above the player's health bar while this is active
     icon: "image/speedup.png"
@@ -100,6 +103,7 @@ const ITEM_TYPES = {
     damageMultiplier: 2, // current weapon's damage x2
     duration: 20000,     // ms (10 sec)
     spawnChance: 0.4,   // 40%
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
 
     icon: "image/powerup.png"
   }
@@ -140,10 +144,15 @@ function getItemImage(filename) {
 
 
 // ---------------------------------------------------------------------------
-// OPTIONAL DESPAWN — set to a millisecond value (e.g. 30000 for 30 sec) if
-// dropped items should disappear after a while. 0 = never despawn.
+// DESPAWN — every dropped item disappears if it isn't looted in time. Each
+// def above (ITEM_TYPES / WEAPONS / ARMOR_TYPES / STONE_TYPES / ORB_TYPES)
+// can carry its own `timeLife` (ms) to override this; ITEM_DESPAWN_TIME
+// below is just the fallback used for anything that doesn't set one
+// (gold orbs, manually-dropped inventory items, or a def with no timeLife
+// field). Set to 0 to disable despawning entirely for whatever falls back
+// to it.
 // ---------------------------------------------------------------------------
-const ITEM_DESPAWN_TIME = 0;
+const ITEM_DESPAWN_TIME = 30000; // 30 sec
 
 
 
@@ -197,7 +206,10 @@ function createItemDrop(typeName, x, y) {
     radius: def.radius || 10,
 
     image: getItemImage(imagePath),
-    spawnTime: performance.now()
+    spawnTime: performance.now(),
+    // Per-def override (see the def's own `timeLife`), falling back to
+    // ITEM_DESPAWN_TIME — see updateItemDrops() below.
+    timeLife: (typeof def.timeLife === "number") ? def.timeLife : ITEM_DESPAWN_TIME
   };
 }
 
@@ -235,7 +247,8 @@ function createInventoryItemDrop(entry, x, y) {
     radius: 10,
 
     image: getItemImage(imagePath),
-    spawnTime: performance.now()
+    spawnTime: performance.now(),
+    timeLife: ITEM_DESPAWN_TIME
   };
 }
 
@@ -330,23 +343,24 @@ function spawnGoldOrbOnBotDeath(chance, amount, x, y) {
     radius: GOLD_ORB_RADIUS,
 
     image: getItemImage(GOLD_ORB_IMAGE),
-    spawnTime: performance.now()
+    spawnTime: performance.now(),
+    timeLife: ITEM_DESPAWN_TIME
   }];
 }
 
 
 
 // ---------------------------------------------------------------------------
-// UPDATE — ages out drops if ITEM_DESPAWN_TIME is set. No-op otherwise.
+// UPDATE — ages out drops using each drop's own `timeLife` (set on it at
+// creation time, above). A drop with timeLife 0/falsy never despawns.
 // ---------------------------------------------------------------------------
 function updateItemDrops(itemDrops, dt) {
-
-  if (!ITEM_DESPAWN_TIME) return;
 
   const now = performance.now();
 
   for (let i = itemDrops.length - 1; i >= 0; i--) {
-    if (now - itemDrops[i].spawnTime >= ITEM_DESPAWN_TIME) {
+    const drop = itemDrops[i];
+    if (drop.timeLife && (now - drop.spawnTime >= drop.timeLife)) {
       itemDrops.splice(i, 1);
     }
   }
