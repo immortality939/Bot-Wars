@@ -95,7 +95,7 @@ const CHARACTERS = {
   // FAST CHARACTER
   police: {
     name: "police",
-    health: 80,
+    health: 8000,
     armor: "armor1",
     movementSpeed: 115,
     weaponName: "uzi",
