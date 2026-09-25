@@ -369,13 +369,82 @@ function updateItemDrops(itemDrops, dt) {
 
 
 // ---------------------------------------------------------------------------
+// GAMEPLAY "INVENTORY FULL" NOTICE — a small floating message shown over
+// the game canvas when a player walks over a gear item (weapon, armor,
+// stone/orb, or a manually-dropped inventory item — anything that has to
+// go through the storage grid) while that grid is full (see
+// INVENTORY_GRID_SIZE / invGridData / addItemToInventory in index.html —
+// 4x4 slots x4 pages = 64 total boxes). The item is NOT picked up: it
+// stays exactly where it is on the ground so the player can come back for
+// it once they've freed up space.
+//
+// This is intentionally self-contained (its own tiny DOM element) rather
+// than reusing index.html's showHubToast()/#hubToast — that toast lives
+// inside the hidden #offlineOptionsScreen hub screen and never actually
+// shows on top of the gameplay canvas, so it wasn't a visible message
+// during a match.
+// ---------------------------------------------------------------------------
+let gameplayFullNoticeEl = null;
+let gameplayFullNoticeTimer = null;
+
+function showGameplayFullNotice(itemLabel) {
+  if (typeof document === "undefined") return;
+
+  if (!gameplayFullNoticeEl) {
+    gameplayFullNoticeEl = document.createElement("div");
+    gameplayFullNoticeEl.style.cssText =
+      "position:fixed;top:14%;left:50%;transform:translateX(-50%);" +
+      "background:rgba(20,20,20,0.88);color:#fff;font:600 14px/1.3 sans-serif;" +
+      "padding:8px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);" +
+      "box-shadow:0 4px 14px rgba(0,0,0,0.4);z-index:99999;pointer-events:none;" +
+      "opacity:0;transition:opacity 0.2s ease;text-align:center;max-width:80vw;";
+    document.body.appendChild(gameplayFullNoticeEl);
+  }
+
+  gameplayFullNoticeEl.textContent =
+    "Inventory is full \u2014 " + itemLabel + " will remain on the floor";
+  gameplayFullNoticeEl.style.opacity = "1";
+
+  if (gameplayFullNoticeTimer) clearTimeout(gameplayFullNoticeTimer);
+  gameplayFullNoticeTimer = setTimeout(() => {
+    if (gameplayFullNoticeEl) gameplayFullNoticeEl.style.opacity = "0";
+  }, 1400);
+}
+
+// Minimum time between repeat "inventory full" notices for the SAME
+// dropped item, so standing on top of it doesn't spam the message every
+// single frame (checkItemPickup runs every frame while the player is
+// overlapping the drop).
+const INVENTORY_FULL_NOTICE_COOLDOWN = 1500; // ms
+
+function canShowInventoryFullNotice(drop, now) {
+  if (!drop._lastFullNoticeAt || (now - drop._lastFullNoticeAt) >= INVENTORY_FULL_NOTICE_COOLDOWN) {
+    drop._lastFullNoticeAt = now;
+    return true;
+  }
+  return false;
+}
+
+
+
+// ---------------------------------------------------------------------------
 // PICKUP — call every frame with the live itemDrops array + the player.
 // Removes any drop the player is touching. A regular pickup (health,
 // shield, speedup, powerup) applies its effect immediately; a weapon
 // drop instead goes into the storage grid inventory to be equipped
 // later (see pickUpWeaponDrop below).
+//
+// Weapon/armor/stone/orb/invItem drops go through the shared 64-slot
+// storage grid (addItemToInventory), which can be full. Those pickup
+// functions now report back whether the item actually fit: if it did,
+// the drop is removed from the ground as before; if the grid was full,
+// the drop is left in itemDrops untouched (still sits on the floor, can
+// still be picked up later) and a small on-screen notice is shown
+// instead of silently deleting the item.
 // ---------------------------------------------------------------------------
 function checkItemPickup(itemDrops, player, playerPos) {
+
+  const now = performance.now();
 
   for (let i = itemDrops.length - 1; i >= 0; i--) {
 
@@ -386,20 +455,31 @@ function checkItemPickup(itemDrops, player, playerPos) {
     const dist = Math.hypot(dx, dy);
 
     if (dist < playerPos.radius + drop.radius) {
+
+      // Consumables (health/shield/speedup/powerup) and gold never touch
+      // the storage grid, so they're always "added" — no capacity limit
+      // applies to them.
+      let added = true;
+
       if (drop.category === "weapon") {
-        pickUpWeaponDrop(drop.type);
+        added = pickUpWeaponDrop(drop.type);
       } else if (drop.category === "armor") {
-        pickUpArmorDrop(drop.type);
+        added = pickUpArmorDrop(drop.type);
       } else if (drop.category === "invItem") {
-        pickUpInventoryDrop(drop);
+        added = pickUpInventoryDrop(drop);
       } else if (drop.category === "gold") {
         pickUpGoldOrb(drop.goldAmount);
       } else if (drop.category === "stone" || drop.category === "orb") {
-        pickUpUpgradeDrop(drop.type, drop.category);
+        added = pickUpUpgradeDrop(drop.type, drop.category);
       } else {
         applyItemEffect(player, drop.type);
       }
-      itemDrops.splice(i, 1);
+
+      if (added) {
+        itemDrops.splice(i, 1);
+      } else if (canShowInventoryFullNotice(drop, now)) {
+        showGameplayFullNotice(drop.type);
+      }
     }
   }
 }
@@ -411,17 +491,17 @@ function checkItemPickup(itemDrops, player, playerPos) {
 // inventory (addItemToInventory, defined in index.html) instead of
 // applying an instant stat effect. Weapons are gear to equip later via
 // the Inventory screen or the in-gameplay equip popup, not a consumable.
-// No-op (weapon is simply lost) if the grid is already full —
-// addItemToInventory shows its own "Inventory full" toast in that case.
+// Returns false (and leaves the drop on the floor — see checkItemPickup)
+// if the grid is already full, instead of silently discarding the item.
 // ---------------------------------------------------------------------------
 function pickUpWeaponDrop(weaponName) {
 
-  if (typeof getWeapon !== "function") return;
+  if (typeof getWeapon !== "function") return false;
 
   const weaponData = getWeapon(weaponName);
-  if (!weaponData) return;
+  if (!weaponData) return false;
 
-  if (typeof addItemToInventory !== "function") return;
+  if (typeof addItemToInventory !== "function") return false;
 
   const added = addItemToInventory(
     "weapon",
@@ -433,6 +513,8 @@ function pickUpWeaponDrop(weaponName) {
   if (added && typeof showHubToast === "function") {
     showHubToast("Picked up " + weaponName);
   }
+
+  return !!added;
 }
 
 
@@ -454,12 +536,12 @@ function pickUpWeaponDrop(weaponName) {
 // ---------------------------------------------------------------------------
 function pickUpArmorDrop(armorName) {
 
-  if (typeof getArmor !== "function") return;
+  if (typeof getArmor !== "function") return false;
 
   const armorData = getArmor(armorName);
-  if (!armorData) return;
+  if (!armorData) return false;
 
-  if (typeof addItemToInventory !== "function") return;
+  if (typeof addItemToInventory !== "function") return false;
 
   const added = addItemToInventory(
     "armor",
@@ -471,6 +553,8 @@ function pickUpArmorDrop(armorName) {
   if (added && typeof showHubToast === "function") {
     showHubToast("Picked up " + armorName);
   }
+
+  return !!added;
 }
 
 
@@ -483,18 +567,20 @@ function pickUpArmorDrop(armorName) {
 // ---------------------------------------------------------------------------
 function pickUpUpgradeDrop(typeName, category) {
 
-  if (typeof getUpgradeItem !== "function") return;
+  if (typeof getUpgradeItem !== "function") return false;
 
   const upgradeData = getUpgradeItem(typeName);
-  if (!upgradeData) return;
+  if (!upgradeData) return false;
 
-  if (typeof addItemToInventory !== "function") return;
+  if (typeof addItemToInventory !== "function") return false;
 
   const added = addItemToInventory(category, typeName, upgradeData, 1);
 
   if (added && typeof showHubToast === "function") {
     showHubToast("Picked up " + typeName);
   }
+
+  return !!added;
 }
 
 
@@ -529,13 +615,15 @@ function pickUpGoldOrb(amount) {
 // of re-deriving stats the way pickUpWeaponDrop() does.
 // ---------------------------------------------------------------------------
 function pickUpInventoryDrop(drop) {
-  if (typeof addItemToInventory !== "function") return;
+  if (typeof addItemToInventory !== "function") return false;
 
   const added = addItemToInventory(drop.invType, drop.name, drop.data, drop.qty || 1);
 
   if (added && typeof showHubToast === "function") {
     showHubToast("Picked up " + drop.name);
   }
+
+  return !!added;
 }
 
 
