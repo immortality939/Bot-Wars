@@ -435,6 +435,30 @@ function disbandClan(p) {
   clanDb(() => sbRest("DELETE", "clans?id=eq." + q(clan.id))); // members go with it (cascade)
 }
 
+// TRADE — player-to-player item/gold exchange, started via the TRADE button
+// on the touch menu (see playerTouchTradeBtn in online.js). Same trust model
+// as everything else online: the server never sees either player's real
+// inventory, it just relays "here's what I've put up" between the two of
+// them (like "hit"/"partyExpAward" above) and — once BOTH have pressed
+// ACCEPT — tells both clients to apply the swap. A modified client could
+// therefore claim to offer something it doesn't have, exactly like a
+// modified client could already fake damage numbers; this is a
+// play-with-friends feature, not a cheat-proof marketplace.
+//
+// p.tradePartnerId / p.tradeConfirmed live on the player object (set in the
+// "join" handler below, next to partyId/clanId). Only one trade at a time.
+function cancelActiveTrade(p, notifyReason) {
+  if (!p || p.tradePartnerId == null) return;
+  const partner = players.get(p.tradePartnerId);
+  p.tradePartnerId = null;
+  p.tradeConfirmed = false;
+  if (partner && partner.tradePartnerId === p.id) {
+    partner.tradePartnerId = null;
+    partner.tradeConfirmed = false;
+    send(partner.ws, { type: "tradeCancelled", from: p.id, fromName: p.name, reason: notifyReason || "" });
+  }
+}
+
 // rooms: "server:channel:map" -> Map(id -> player). Only players in the same
 // room see and can hit each other.
 //
@@ -611,6 +635,7 @@ wss.on("connection", (ws) => {
         skillGlobalLockedUntil: 0, // see game_server.js's isPlayerSkillLocked()
         partyId: null,
         clanId: null,
+        tradePartnerId: null, tradeConfirmed: false,   // see the TRADE section below
         uid: null, uidChecked: false   // Supabase account id, filled in by attachAccount()
       };
       const isFirstInRoom = room.size === 0;
@@ -1223,6 +1248,84 @@ wss.on("connection", (ws) => {
         break;
       }
 
+      // ---- TRADE --------------------------------------------------------
+      // Sent when the TRADE button is tapped on a nearby player (see
+      // playerTouchTradeBtn in online.js) — same targeted-send pattern as
+      // "partyInvite"/"clanInvite" above (proximity already enforced
+      // client-side by NET_TOUCH_RANGE).
+      case "tradeRequest": {
+        const target = me.room.get(num(msg.targetId, -1));
+        if (!target || target.id === me.id) break;
+        if (me.tradePartnerId != null) { send(ws, { type: "tradeError", reason: "You're already trading" }); break; }
+        if (target.tradePartnerId != null) { send(ws, { type: "tradeError", reason: (target.name || "That player") + " is already trading" }); break; }
+        send(target.ws, { type: "tradeRequest", from: me.id, fromName: me.name });
+        break;
+      }
+
+      // ACCEPT / DECLINE reply to a trade request. Looked up server-wide
+      // (like "partyResponse") in case the inviter walked to a different
+      // map while the request popup was up.
+      case "tradeResponse": {
+        const inviter = players.get(num(msg.targetId, -1));
+        if (!inviter || inviter.id === me.id) break;
+        if (!msg.accept) {
+          send(inviter.ws, { type: "tradeResponse", from: me.id, fromName: me.name, accept: false });
+          break;
+        }
+        if (me.tradePartnerId != null || inviter.tradePartnerId != null) {
+          send(ws, { type: "tradeError", reason: "That trade is no longer available" });
+          break;
+        }
+        me.tradePartnerId = inviter.id; me.tradeConfirmed = false;
+        inviter.tradePartnerId = me.id; inviter.tradeConfirmed = false;
+        send(inviter.ws, { type: "tradeStart", from: me.id, fromName: me.name });
+        send(ws, { type: "tradeStart", from: inviter.id, fromName: inviter.name });
+        break;
+      }
+
+      // My offer box (items + gold orb amount) changed — relay it to my
+      // trade partner so their screen mirrors what I've put up. Changing
+      // an offer un-confirms BOTH sides (same as most trade UIs — you
+      // don't want an ACCEPT to lock in something the other player then
+      // quietly edits).
+      case "tradeOffer": {
+        if (me.tradePartnerId == null || num(msg.targetId, -1) !== me.tradePartnerId) break;
+        const partner = players.get(me.tradePartnerId);
+        if (!partner || partner.tradePartnerId !== me.id) break;
+        const items = Array.isArray(msg.items) ? msg.items.slice(0, 16) : [];
+        const gold = Math.max(0, Math.min(1000000, Math.trunc(num(msg.gold, 0))));
+        me.tradeConfirmed = false;
+        partner.tradeConfirmed = false;
+        send(partner.ws, { type: "tradeOffer", from: me.id, items, gold });
+        break;
+      }
+
+      // ACCEPT on the trade screen itself (final confirm, not the initial
+      // request). Once BOTH sides have confirmed, tell both to apply the
+      // swap — each client already knows both offers from "tradeOffer"
+      // above, so no payload is needed here.
+      case "tradeConfirm": {
+        if (me.tradePartnerId == null || num(msg.targetId, -1) !== me.tradePartnerId) break;
+        const partner = players.get(me.tradePartnerId);
+        if (!partner || partner.tradePartnerId !== me.id) break;
+        me.tradeConfirmed = true;
+        send(partner.ws, { type: "tradeConfirm", from: me.id });
+        if (partner.tradeConfirmed) {
+          send(ws, { type: "tradeComplete" });
+          send(partner.ws, { type: "tradeComplete" });
+          me.tradePartnerId = null; me.tradeConfirmed = false;
+          partner.tradePartnerId = null; partner.tradeConfirmed = false;
+        }
+        break;
+      }
+
+      // DECLINE / CANCEL, at any point (request popup, or the trade screen
+      // itself). Silent on the sender's side — the partner gets notified
+      // via cancelActiveTrade()'s "tradeCancelled".
+      case "tradeCancel":
+        cancelActiveTrade(me, "cancelled");
+        break;
+
       // Victim reports who killed them -> everyone sees the kill feed.
       case "died": {
         const killer = me.room.get(num(msg.killerId, -1));
@@ -1241,6 +1344,7 @@ wss.on("connection", (ws) => {
   ws.on("close", () => {
     if (!me) return;
     removeFromParty(me);
+    cancelActiveTrade(me, "left");
     // Closing the app does NOT leave the clan (it's saved to the account) —
     // just go offline and let the clan see it.
     if (me.uid && onlineByUid.get(me.uid) === me) {
