@@ -8,7 +8,7 @@ window.CUSTOM_MAPS["LEVEL1"] = {
   name: "LEVEL1",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/01_lush_grassland.png",
   obstacles: [
     { name: "tree8", x: 497, y: 534, width: 50, height: 50, image: "image/tree8.png" },
     { name: "rock1", x: 963, y: 329, width: 183, height: 117, image: "image/rock1.png" },
@@ -67,7 +67,7 @@ window.CUSTOM_MAPS["LEVEL2"] = {
   name: "LEVEL2",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/02_dry_grass.png",
   obstacles: [
     { name: "car1", x: 1389, y: 1358, width: 50, height: 50, image: "image/car1.png" },
     { name: "rock1", x: 270, y: 779, width: 183, height: 117, image: "image/rock1.png" },
@@ -129,7 +129,7 @@ window.CUSTOM_MAPS["LEVEL3"] = {
   name: "LEVEL3",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/03_worn_grass_dirt.png",
   obstacles: [
     { name: "tree8", x: 317, y: 573, width: 50, height: 50, image: "image/tree8.png" },
     { name: "rock4", x: 341, y: 1118, width: 129, height: 145, image: "image/rock4.png" },
@@ -192,7 +192,7 @@ window.CUSTOM_MAPS["LEVEL4"] = {
   name: "LEVEL4",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/04_plain_soil.png",
   obstacles: [
     { name: "car1", x: 261, y: 1312, width: 50, height: 50, image: "image/car1.png" },
     { name: "car2", x: 570, y: 345, width: 183, height: 117, image: "image/car2.png" },
@@ -255,7 +255,7 @@ window.CUSTOM_MAPS["LEVEL5"] = {
   name: "LEVEL5",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/05_dark_soil.png",
   obstacles: [
     { name: "car1", x: 391, y: 159, width: 50, height: 50, image: "image/car1.png" },
     { name: "rock1", x: 379, y: 614, width: 183, height: 117, image: "image/rock1.png" },
@@ -317,7 +317,7 @@ window.CUSTOM_MAPS["LEVEL6"] = {
   name: "LEVEL6",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/06_wet_soil.png",
   obstacles: [
     { name: "tree8", x: 922, y: 880, width: 50, height: 50, image: "image/tree8.png" },
     { name: "rock1", x: 506, y: 285, width: 183, height: 117, image: "image/rock1.png" },
@@ -381,7 +381,7 @@ window.CUSTOM_MAPS["LEVEL7"] = {
   name: "LEVEL7",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/07_wet_mud.png",
   obstacles: [
     { name: "tree8", x: 635, y: 448, width: 50, height: 50, image: "image/tree8.png" },
     { name: "rock1", x: 875, y: 56, width: 183, height: 117, image: "image/rock1.png" },
@@ -446,7 +446,7 @@ window.CUSTOM_MAPS["LEVEL8"] = {
   name: "LEVEL8",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/08_sandy_soil.png",
   obstacles: [
     { name: "car1", x: 1337, y: 919, width: 50, height: 50, image: "image/car1.png" },
     { name: "rock1", x: 580, y: 535, width: 183, height: 117, image: "image/rock1.png" },
@@ -505,7 +505,7 @@ window.CUSTOM_MAPS["LEVEL9"] = {
   name: "LEVEL9",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/09_desert_sand.png",
   obstacles: [
     { name: "tree8", x: 846, y: 405, width: 50, height: 50, image: "image/tree8.png" },
     { name: "rock1", x: 782, y: 862, width: 183, height: 117, image: "image/rock1.png" },
@@ -565,7 +565,7 @@ window.CUSTOM_MAPS["LEVEL10"] = {
   name: "LEVEL10",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/10_rocky_dirt.png",
   obstacles: [
     { name: "tree8", x: 899, y: 1319, width: 50, height: 50, image: "image/tree8.png" },
     { name: "rock1", x: 147, y: 554, width: 183, height: 117, image: "image/rock1.png" },
@@ -628,7 +628,7 @@ window.CUSTOM_MAPS["LEVEL11"] = {
   name: "LEVEL11",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/11_gravel_path.png",
   obstacles: [
     { name: "car1", x: 494, y: 955, width: 50, height: 50, image: "image/car1.png" },
     { name: "rock1", x: 1085, y: 781, width: 183, height: 117, image: "image/rock1.png" },
@@ -693,7 +693,7 @@ window.CUSTOM_MAPS["LEVEL12"] = {
   name: "LEVEL12",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/12_clay_soil.png",
   obstacles: [
     { name: "tree8", x: 819, y: 1144, width: 50, height: 50, image: "image/tree8.png" },
     { name: "rock1", x: 959, y: 651, width: 183, height: 117, image: "image/rock1.png" },
@@ -756,7 +756,7 @@ window.CUSTOM_MAPS["LEVEL13"] = {
   name: "LEVEL13",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/13_forest_floor.png",
   obstacles: [
     { name: "tree8", x: 898, y: 89, width: 50, height: 50, image: "image/tree8.png" },
     { name: "rock1", x: 155, y: 441, width: 183, height: 117, image: "image/rock1.png" },
@@ -818,7 +818,7 @@ window.CUSTOM_MAPS["LEVEL14"] = {
   name: "LEVEL14",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/14_mossy_ground.png",
   obstacles: [
     { name: "car1", x: 38, y: 583, width: 50, height: 50, image: "image/car1.png" },
     { name: "rock1", x: 1044, y: 1010, width: 183, height: 117, image: "image/rock1.png" },
@@ -883,7 +883,7 @@ window.CUSTOM_MAPS["LEVEL15"] = {
   name: "LEVEL15",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/15_swamp_mud.png",
   obstacles: [
     { name: "tree8", x: 94, y: 18, width: 50, height: 50, image: "image/tree8.png" },
     { name: "rock1", x: 1059, y: 671, width: 183, height: 117, image: "image/rock1.png" },
@@ -945,7 +945,7 @@ window.CUSTOM_MAPS["LEVEL16"] = {
   name: "LEVEL16",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/16_autumn_grass.png",
   obstacles: [
     { name: "tree8", x: 1357, y: 678, width: 50, height: 50, image: "image/tree8.png" },
     { name: "rock1", x: 607, y: 681, width: 183, height: 117, image: "image/rock1.png" },
@@ -1006,7 +1006,7 @@ window.CUSTOM_MAPS["LEVEL17"] = {
   name: "LEVEL17",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/17_meadow_grass_flowers.png",
   obstacles: [
     { name: "car1", x: 1437, y: 856, width: 50, height: 50, image: "image/car1.png" },
     { name: "rock1", x: 926, y: 314, width: 183, height: 117, image: "image/rock1.png" },
@@ -1069,7 +1069,7 @@ window.CUSTOM_MAPS["LEVEL18"] = {
   name: "LEVEL18",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/18_dead_straw_grass.png",
   obstacles: [
     { name: "tree8", x: 1142, y: 817, width: 50, height: 50, image: "image/tree8.png" },
     { name: "rock4", x: 565, y: 1219, width: 129, height: 145, image: "image/rock4.png" },
@@ -1130,7 +1130,7 @@ window.CUSTOM_MAPS["LEVEL19"] = {
   name: "LEVEL19",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/19_riverbank_wet_soil.png",
   obstacles: [
     { name: "tree8", x: 856, y: 980, width: 50, height: 50, image: "image/tree8.png" },
     { name: "rock1", x: 735, y: 237, width: 183, height: 117, image: "image/rock1.png" },
@@ -1193,7 +1193,7 @@ window.CUSTOM_MAPS["LEVEL20"] = {
   name: "LEVEL20",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/map6.png",
+  mapImage: "image/20_compacted_dirt_path.png",
   obstacles: [
     { name: "car1", x: 860, y: 263, width: 50, height: 50, image: "image/car1.png" },
     { name: "rock1", x: 97, y: 921, width: 183, height: 117, image: "image/rock1.png" },
