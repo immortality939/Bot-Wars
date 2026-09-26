@@ -53,7 +53,10 @@ const { WebSocketServer } = require("ws");
 // SKILL LOCK — server-authoritative enforcement (see game_server.js's
 // isPlayerSkillLocked()/lockPlayerSkillUse() comment for why this can't
 // just live in game.js/online.js alone).
-const { isPlayerSkillLocked, lockPlayerSkillUse } = require("./server/game_server.js");
+// PORTAL ARRIVAL SPAWN — server-authoritative too (see game_server.js's
+// getPortalArrivalSpawn() comment): the "map" case below decides where a
+// player lands, the client just gets told.
+const { isPlayerSkillLocked, lockPlayerSkillUse, getPortalArrivalSpawn } = require("./server/game_server.js");
 
 // ---- ONLINE GAME DATA (edit the *_server.js files, not this) ----------------
 const GAME_DATA = Object.assign(
@@ -920,6 +923,7 @@ wss.on("connection", (ws) => {
         const now = Date.now();
         if (!MAPS[key] || key === me.map || now - me.lastMapChange < 300) break;
         me.lastMapChange = now;
+        const fromMapKey = me.map;   // captured BEFORE me.map is overwritten below
         const oldRoom = me.room;
         oldRoom.delete(me.id);
         broadcast(oldRoom, { type: "playerRemove", id: me.id });
@@ -931,8 +935,16 @@ wss.on("connection", (ws) => {
         const isFirstInNewRoom = me.room.size === 0;
         me.room.set(me.id, me);
         if (isFirstInNewRoom) { me.room.hostId = me.id; me.room.lastBots = null; }
+
+        // Server decides where I land — not the client. Finds the portal
+        // back to the map I just came from and puts me next to it.
+        const spawn = getPortalArrivalSpawn(MAPS[key], fromMapKey, MAPS);
+        me.x = spawn.x;
+        me.y = spawn.y;
+
         send(ws, {
           type: "mapChanged", map: key,
+          spawnX: me.x, spawnY: me.y,
           players: [...me.room.values()].filter((p) => p.id !== me.id).map(publicInfo),
           botHost: me.room.hostId === me.id,
           bots: me.room.lastBots || [],
