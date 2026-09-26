@@ -159,7 +159,8 @@ const BOT_TYPES = {
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.01,
-    manaRegen: 0.01
+    manaRegen: 0.01,
+     botSkill: "slash1,barrage,cannonblast,deadlystrike"   
   },
 
   // SNIPER — barely moves, long range, but a narrow FOV makes it easy to
@@ -201,7 +202,8 @@ const BOT_TYPES = {
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.01,
-    manaRegen: 0.01
+    manaRegen: 0.01,
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
   }
 
   // Add more bot classes the same way — and mirror the same entry in the
