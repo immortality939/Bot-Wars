@@ -170,7 +170,6 @@ window.CUSTOM_MAPS["LEVEL1"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL2" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL5" }
@@ -754,7 +753,6 @@ window.CUSTOM_MAPS["LEVEL5"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL6" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL1" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL9" }
@@ -1338,7 +1336,6 @@ window.CUSTOM_MAPS["LEVEL9"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL10" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL5" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL13" }
@@ -1922,7 +1919,6 @@ window.CUSTOM_MAPS["LEVEL13"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL14" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL9" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL17" }
@@ -2506,7 +2502,6 @@ window.CUSTOM_MAPS["LEVEL17"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL18" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL13" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
