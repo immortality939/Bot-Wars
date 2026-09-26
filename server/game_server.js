@@ -172,6 +172,62 @@ function lockPlayerSkillUse(playerState, now) {
 
 
 
+// ---------------------------------------------------------------------------
+// PORTAL ARRIVAL SPAWN — SERVER-AUTHORITATIVE. Where a player lands after
+// walking through a portal into another map.
+//
+// game.js/online.js used to pick this on the CLIENT (switchToLevel() in
+// game.js worked out a "return portal" and spawned the player next to it
+// locally, then just told the server which map it ended up on). A modified
+// client could lie about that and report any x/y it wanted for the "state"
+// messages that follow. This is the server-side version of that same idea,
+// run here instead so the player has no say in it: server.js's "map" case
+// calls getPortalArrivalSpawn() itself, right after validating the map
+// switch, and sets me.x/me.y (and sends them back in "mapChanged") BEFORE
+// the client ever gets a chance to send its own guess.
+//
+// Logic: on the map the player is ARRIVING at, look for the portal whose
+// `entrance` leads back to the map they just came FROM, and land them just
+// off that portal — walk back onto it and you're straight back where you
+// started, like stepping back through the same door. `entrance` values are
+// map keys/names (see worldmap_server.js, e.g. entrance: "LEVEL2"), matched
+// case-insensitively against both the source map's own key in `maps` and
+// its `name` field, so this doesn't depend on the two happening to be
+// spelled the same. No matching portal (a dead end, or arriving fresh from
+// the lobby) just falls back to the middle of the map.
+// ---------------------------------------------------------------------------
+function findReturnPortal(mapDef, fromMapKey, maps) {
+  if (!mapDef || !Array.isArray(mapDef.portals) || !fromMapKey) return null;
+  const fromMap = maps && maps[fromMapKey];
+  const fromName = fromMap && typeof fromMap.name === "string" ? fromMap.name.trim().toLowerCase() : "";
+  const fromKeyLower = String(fromMapKey).trim().toLowerCase();
+  for (const p of mapDef.portals) {
+    const entrance = String((p && p.entrance) || "").trim().toLowerCase();
+    if (!entrance) continue;
+    if (entrance === fromKeyLower || (fromName && entrance === fromName)) return p;
+  }
+  return null;
+}
+
+function spawnPointNearPortal(portal, mapDef) {
+  const cx = portal.x + portal.width / 2;
+  const cy = portal.y + portal.height / 2;
+  const worldCx = mapDef.worldWidth / 2;
+  const worldCy = mapDef.worldHeight / 2;
+  const dx = worldCx - cx, dy = worldCy - cy;
+  const dist = Math.hypot(dx, dy) || 1;
+  const margin = 45;   // just past the portal, still close enough to walk straight back onto it
+  return { x: cx + (dx / dist) * margin, y: cy + (dy / dist) * margin };
+}
+
+function getPortalArrivalSpawn(mapDef, fromMapKey, maps) {
+  const returnPortal = findReturnPortal(mapDef, fromMapKey, maps);
+  if (returnPortal) return spawnPointNearPortal(returnPortal, mapDef);
+  return { x: mapDef.worldWidth / 2, y: mapDef.worldHeight / 2 };
+}
+
+
+
 // ---- export for server.js (Node) ----
 if (typeof module !== "undefined") {
   module.exports = {
@@ -182,6 +238,7 @@ if (typeof module !== "undefined") {
     BOT_SKILL_MAX_DAMAGE_PER_HIT,
     clampBotSkillDamage,
     isPlayerSkillLocked,
-    lockPlayerSkillUse
+    lockPlayerSkillUse,
+    getPortalArrivalSpawn
   };
 }
