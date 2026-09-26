@@ -6,9 +6,21 @@
 // to index.html (before custommaps.js). All 20 maps then show up in Choose Map.
 //
 // Same 1500x1500 size, same image/map6.png background, and the same 27
-// enemies/4 portals on every level — only the tree/rock layout differs
-// between levels (LEVEL1 is the original layout; LEVEL2-20 are random
+// enemies on every level — only the tree/rock layout differs between
+// levels (LEVEL1 is the original layout; LEVEL2-20 are random
 // re-arrangements of the same obstacle set).
+//
+// The 20 levels are wired together into a 4-column x 5-row grid, walkable
+// like a real connected world:
+//   LEVEL1  LEVEL2  LEVEL3  LEVEL4
+//   LEVEL5  LEVEL6  LEVEL7  LEVEL8
+//   LEVEL9  LEVEL10 LEVEL11 LEVEL12
+//   LEVEL13 LEVEL14 LEVEL15 LEVEL16
+//   LEVEL17 LEVEL18 LEVEL19 LEVEL20
+// Each level's LEFT portal leads to the level to its west, RIGHT to the
+// level to its east, TOP to the level to its north, BOTTOM to the level
+// to its south — reciprocal both ways. Outer-edge levels have an empty
+// entrance ("") on the sides that don't have a neighbor.
 //
 // worldWidth / worldHeight = size of the map, mapImage = its background picture.
 // obstacles: x, y = top-left corner, width / height = its size,
@@ -159,9 +171,9 @@ window.CUSTOM_MAPS["LEVEL1"] = {
   ],
   portals: [
     { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL2" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL5" }
   ]
 };
 
@@ -304,10 +316,10 @@ window.CUSTOM_MAPS["LEVEL2"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL1" },
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL3" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL6" }
   ]
 };
 
@@ -450,10 +462,10 @@ window.CUSTOM_MAPS["LEVEL3"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL2" },
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL4" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL7" }
   ]
 };
 
@@ -596,10 +608,10 @@ window.CUSTOM_MAPS["LEVEL4"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL3" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL8" }
   ]
 };
 
@@ -743,9 +755,9 @@ window.CUSTOM_MAPS["LEVEL5"] = {
   ],
   portals: [
     { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL6" },
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL1" },
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL9" }
   ]
 };
 
@@ -888,10 +900,10 @@ window.CUSTOM_MAPS["LEVEL6"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL5" },
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL7" },
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL2" },
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL10" }
   ]
 };
 
@@ -1034,10 +1046,10 @@ window.CUSTOM_MAPS["LEVEL7"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL6" },
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL8" },
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL3" },
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL11" }
   ]
 };
 
@@ -1180,10 +1192,10 @@ window.CUSTOM_MAPS["LEVEL8"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL7" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL4" },
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL12" }
   ]
 };
 
@@ -1327,9 +1339,9 @@ window.CUSTOM_MAPS["LEVEL9"] = {
   ],
   portals: [
     { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL10" },
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL5" },
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL13" }
   ]
 };
 
@@ -1472,10 +1484,10 @@ window.CUSTOM_MAPS["LEVEL10"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL9" },
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL11" },
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL6" },
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL14" }
   ]
 };
 
@@ -1618,10 +1630,10 @@ window.CUSTOM_MAPS["LEVEL11"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL10" },
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL12" },
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL7" },
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL15" }
   ]
 };
 
@@ -1764,10 +1776,10 @@ window.CUSTOM_MAPS["LEVEL12"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL11" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL8" },
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL16" }
   ]
 };
 
@@ -1911,9 +1923,9 @@ window.CUSTOM_MAPS["LEVEL13"] = {
   ],
   portals: [
     { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL14" },
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL9" },
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL17" }
   ]
 };
 
@@ -2056,10 +2068,10 @@ window.CUSTOM_MAPS["LEVEL14"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL13" },
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL15" },
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL10" },
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL18" }
   ]
 };
 
@@ -2202,10 +2214,10 @@ window.CUSTOM_MAPS["LEVEL15"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL14" },
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL16" },
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL11" },
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL19" }
   ]
 };
 
@@ -2348,10 +2360,10 @@ window.CUSTOM_MAPS["LEVEL16"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL15" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL12" },
+    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL20" }
   ]
 };
 
@@ -2495,8 +2507,8 @@ window.CUSTOM_MAPS["LEVEL17"] = {
   ],
   portals: [
     { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL18" },
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL13" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
   ]
 };
@@ -2640,9 +2652,9 @@ window.CUSTOM_MAPS["LEVEL18"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL17" },
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL19" },
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL14" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
   ]
 };
@@ -2786,9 +2798,9 @@ window.CUSTOM_MAPS["LEVEL19"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL18" },
+    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL20" },
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL15" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
   ]
 };
@@ -2932,9 +2944,9 @@ window.CUSTOM_MAPS["LEVEL20"] = {
     { name: "rusher", x: 1239, y: 1425 }
   ],
   portals: [
-    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "" },
+    { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL19" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
+    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL16" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
   ]
 };
