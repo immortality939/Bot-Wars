@@ -171,7 +171,6 @@ window.CUSTOM_MAPS["LEVEL1"] = {
   ],
   portals: [
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL2" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL5" }
   ]
 };
@@ -317,7 +316,6 @@ window.CUSTOM_MAPS["LEVEL2"] = {
   portals: [
     { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL1" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL3" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL6" }
   ]
 };
@@ -463,7 +461,6 @@ window.CUSTOM_MAPS["LEVEL3"] = {
   portals: [
     { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL2" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL4" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL7" }
   ]
 };
@@ -608,8 +605,6 @@ window.CUSTOM_MAPS["LEVEL4"] = {
   ],
   portals: [
     { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL3" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
-    { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL8" }
   ]
 };
@@ -1191,7 +1186,6 @@ window.CUSTOM_MAPS["LEVEL8"] = {
   ],
   portals: [
     { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL7" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL4" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL12" }
   ]
@@ -1774,7 +1768,6 @@ window.CUSTOM_MAPS["LEVEL12"] = {
   ],
   portals: [
     { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL11" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL8" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL16" }
   ]
@@ -2357,7 +2350,6 @@ window.CUSTOM_MAPS["LEVEL16"] = {
   ],
   portals: [
     { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL15" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL12" },
     { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "LEVEL20" }
   ]
@@ -2504,7 +2496,6 @@ window.CUSTOM_MAPS["LEVEL17"] = {
   portals: [
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL18" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL13" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
   ]
 };
 
@@ -2650,7 +2641,6 @@ window.CUSTOM_MAPS["LEVEL18"] = {
     { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL17" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL19" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL14" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
   ]
 };
 
@@ -2796,7 +2786,6 @@ window.CUSTOM_MAPS["LEVEL19"] = {
     { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL18" },
     { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "LEVEL20" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL15" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
   ]
 };
 
@@ -2940,8 +2929,6 @@ window.CUSTOM_MAPS["LEVEL20"] = {
   ],
   portals: [
     { name: "entrance", x: 0, y: 1140, width: 50, height: 104, image: "image/entrance.png", entrance: "LEVEL19" },
-    { name: "entrance", x: 1450, y: 191, width: 50, height: 103, image: "image/entrance.png", entrance: "" },
     { name: "entrance", x: 642, y: 0, width: 109, height: 49, image: "image/entrance.png", entrance: "LEVEL16" },
-    { name: "entrance", x: 688, y: 1450, width: 127, height: 50, image: "image/entrance.png", entrance: "" }
   ]
 };
