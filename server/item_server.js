@@ -204,6 +204,15 @@ function createItemDrop(typeName, x, y) {
     x: x,
     y: y,
     radius: def.radius || 10,
+    // Ground-drawn size — see drawItemDrops() below. Uses the def's own
+    // width/height (weapon_server.js/armor_server.js) when it has them,
+    // so a tall narrow sword icon draws tall and narrow instead of being
+    // forced into the square that radius*2 alone would give it. Only
+    // falls back to a radius-based square for defs that don't set
+    // width/height at all (plain ITEM_TYPES pickups like health/shield/
+    // speedup/powerup).
+    width: def.width || (def.radius || 10) * 2,
+    height: def.height || (def.radius || 10) * 2,
 
     image: getItemImage(imagePath),
     spawnTime: performance.now(),
@@ -245,6 +254,9 @@ function createInventoryItemDrop(entry, x, y) {
     x: x,
     y: y,
     radius: 10,
+    // Same width/height carry-over as createItemDrop() above.
+    width: (entry.data && entry.data.width) || 20,
+    height: (entry.data && entry.data.height) || 20,
 
     image: getItemImage(imagePath),
     spawnTime: performance.now(),
@@ -856,13 +868,18 @@ function drawItemDrops(ctx, itemDrops, worldOffsetX, worldOffsetY) {
 
     const screenX = worldOffsetX + drop.x;
     const screenY = worldOffsetY + drop.y;
-    const imgSize = drop.radius * 2;
+    // Was always a forced square (radius * 2 on both axes) — a tall
+    // narrow sword icon got squashed into that square. Now draws at the
+    // drop's own width/height instead (falls back to the old
+    // radius-based square only if a drop somehow has neither).
+    const imgWidth = drop.width || drop.radius * 2;
+    const imgHeight = drop.height || drop.radius * 2;
 
     ctx.save();
     ctx.translate(screenX, screenY);
 
     if (drop.image && drop.image.complete && drop.image.naturalWidth > 0) {
-      ctx.drawImage(drop.image, -imgSize / 2, -imgSize / 2, imgSize, imgSize);
+      ctx.drawImage(drop.image, -imgWidth / 2, -imgHeight / 2, imgWidth, imgHeight);
     } else {
       ctx.fillStyle = "#0af";
       ctx.beginPath();
@@ -1010,7 +1027,4 @@ if (typeof module !== "undefined" && module.exports) {
 
 
 // ---- export for server.js (Node) ----
-// ITEM_DESPAWN_TIME is exported too now so server.js can actively expire
-// room.drops using the SAME 30-sec window the client uses, instead of
-// guessing/duplicating the number — see server.js's "DESPAWN" section.
-if (typeof module !== "undefined") module.exports = { ITEM_TYPES, spawnGoldOrbOnBotDeath, ITEM_DESPAWN_TIME };
+if (typeof module !== "undefined") module.exports = { ITEM_TYPES, spawnGoldOrbOnBotDeath };
