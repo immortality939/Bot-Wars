@@ -661,7 +661,7 @@ const WEAPONS = {
     physicalDamage: 14,
     pow: 6,
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 1.2,
     width: 128,
     height: 128,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
