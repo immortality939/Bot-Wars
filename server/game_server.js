@@ -160,7 +160,7 @@ function clampBotSkillDamage(amount) {
 // player has to wait out the same window for real, no matter what that
 // player's client-side UI shows.
 // ---------------------------------------------------------------------------
-const { SKILL_LOCK_MS } = require("./skill_server.js");
+const { SKILL_LOCK_MS, SKILLS } = require("./skill_server.js");
 
 function isPlayerSkillLocked(playerState, now) {
   return now < (playerState.skillGlobalLockedUntil || 0);
@@ -168,6 +168,43 @@ function isPlayerSkillLocked(playerState, now) {
 
 function lockPlayerSkillUse(playerState, now) {
   playerState.skillGlobalLockedUntil = now + SKILL_LOCK_MS;
+}
+
+
+
+// ---------------------------------------------------------------------------
+// SERVER-AUTHORITATIVE MANA — same idea as isPlayerSkillLocked()/
+// lockPlayerSkillUse() above: game.js's own hasEnoughSkillMana()/
+// spendSkillMana() (skill.js) already stop a normal client from firing a
+// skill it can't afford, but that check runs in the player's own browser,
+// so a modified client could just skip it and send a "hit" message (see
+// online.js's netSendHit()) claiming the skill fired anyway.
+//
+// NOT WIRED IN YET. Using these for real needs two more pieces this file
+// alone can't provide:
+//   1. playerState.mana/maxMana on the server's own per-connection object
+//      (server.js's `me`, initialized alongside health/maxHealth) — there
+//      is currently no server-side mana value to check or spend at all.
+//   2. the skill's name on the "hit" message itself (online.js's
+//      netSendHit() only sends isSkillHit: true/false today, never WHICH
+//      skill) — without it, server.js has no way to look up that skill's
+//      manaCost in SKILLS below.
+// Once both exist, call hasEnoughPlayerMana(me, skillName) next to
+// isPlayerSkillLocked(me, now) in server.js's "hit" case, and
+// spendPlayerMana(me, skillName) next to lockPlayerSkillUse(me, now).
+// ---------------------------------------------------------------------------
+function hasEnoughPlayerMana(playerState, skillName) {
+  const skill = SKILLS[skillName];
+  const cost = (skill && typeof skill.manaCost === "number") ? skill.manaCost : 0;
+  const currentMana = (playerState && typeof playerState.mana === "number") ? playerState.mana : 0;
+  return currentMana >= cost;
+}
+
+function spendPlayerMana(playerState, skillName) {
+  if (!playerState || typeof playerState.mana !== "number") return;
+  const skill = SKILLS[skillName];
+  const cost = (skill && typeof skill.manaCost === "number") ? skill.manaCost : 0;
+  playerState.mana = Math.max(0, playerState.mana - cost);
 }
 
 
@@ -239,6 +276,8 @@ if (typeof module !== "undefined") {
     clampBotSkillDamage,
     isPlayerSkillLocked,
     lockPlayerSkillUse,
+    hasEnoughPlayerMana,
+    spendPlayerMana,
     getPortalArrivalSpawn
   };
 }
