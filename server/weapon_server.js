@@ -38,7 +38,7 @@ const WEAPONS = {
     category: "weapon",
     spawnChance: 1.0,
     width: 10,
-    height: 10,
+    height: 20,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "a rapid fire gun with a very light damage and small capacity of magazine",
   },
@@ -49,8 +49,8 @@ const WEAPONS = {
     physicalDamage: 8,
     category: "weapon",
     spawnChance: 0.5,
-    width: 10,
-    height: 10,
+    width: 20,
+    height: 20,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
   },
 
@@ -60,8 +60,8 @@ const WEAPONS = {
     physicalDamage: 15,
     category: "weapon",
     spawnChance: 0.5,
-    width: 10,
-    height: 10,
+    width: 20,
+    height: 20,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
   },
 
@@ -71,8 +71,8 @@ const WEAPONS = {
     physicalDamage: 8,
     category: "weapon",
     spawnChance: 0.5,
-    width: 10,
-    height: 10,
+    width: 20,
+    height: 20,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
   },
 
@@ -661,7 +661,7 @@ const WEAPONS = {
     physicalDamage: 14,
     pow: 6,
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 1.2,
     width: 10,
     height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
