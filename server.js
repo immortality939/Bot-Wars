@@ -612,7 +612,12 @@ function publicInfo(p) {
   return {
     id: p.id, name: p.name, character: p.character,
     x: p.x, y: p.y, health: p.health, maxHealth: p.maxHealth,
-    alive: p.alive, level: p.level
+    mana: p.mana, maxMana: p.maxMana, exp: p.exp, maxExp: p.maxExp,
+    alive: p.alive, level: p.level,
+    // Equipped gear names only (see the "state" case below) — lets a
+    // newly-joined client's VIEW popup (online.js) show what everyone
+    // already on the map has on before their next "state" tick arrives.
+    weapon: p.weapon, armor: p.armor, accessory: p.accessory
   };
 }
 
@@ -660,8 +665,10 @@ wss.on("connection", (ws) => {
         character: chars[wanted] ? wanted : (Object.keys(chars)[0] || "soldier"),
         x: 0, y: 0,
         health: 100, maxHealth: 100,
+        mana: 0, maxMana: 0, exp: 0, maxExp: 0,
         alive: true,
         level: 1,
+        weapon: null, armor: null, accessory: null,
         hitWindowStart: 0, hitCount: 0,
         botHitWindowStart: 0, botHitCount: 0,
         skillGlobalLockedUntil: 0, // see game_server.js's isPlayerSkillLocked()
@@ -703,19 +710,33 @@ wss.on("connection", (ws) => {
 
     switch (msg.type) {
       // Position + health snapshot (client sends ~20x/second).
-      case "state":
+      case "state": {
         me.x = num(msg.x, me.x);
         me.y = num(msg.y, me.y);
         me.health = num(msg.health, me.health);
         me.maxHealth = num(msg.maxHealth, me.maxHealth);
+        me.mana = num(msg.mana, me.mana);
+        me.maxMana = num(msg.maxMana, me.maxMana);
+        me.exp = num(msg.exp, me.exp);
+        me.maxExp = num(msg.maxExp, me.maxExp);
         me.level = num(msg.level, me.level);
         me.alive = !!msg.alive;
+        // Equipped gear names, just for the VIEW popup (online.js) on
+        // other clients — same 24-char/string-only sanitizing as
+        // "character" above, nothing that looks up game data server-side.
+        const equipName = (v) => (typeof v === "string" && v) ? v.slice(0, 24) : null;
+        me.weapon = equipName(msg.weapon);
+        me.armor = equipName(msg.armor);
+        me.accessory = equipName(msg.accessory);
         broadcast(me.room, {
           type: "state", id: me.id,
           x: me.x, y: me.y, health: me.health, maxHealth: me.maxHealth,
-          level: me.level, alive: me.alive
+          mana: me.mana, maxMana: me.maxMana, exp: me.exp, maxExp: me.maxExp,
+          level: me.level, alive: me.alive,
+          weapon: me.weapon, armor: me.armor, accessory: me.accessory
         }, me.id);
         break;
+      }
 
       // Visual relays: bullets in flight, hit/skill effects, gunshot sounds.
       case "bullet":
