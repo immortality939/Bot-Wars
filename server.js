@@ -56,7 +56,7 @@ const { WebSocketServer } = require("ws");
 // PORTAL ARRIVAL SPAWN — server-authoritative too (see game_server.js's
 // getPortalArrivalSpawn() comment): the "map" case below decides where a
 // player lands, the client just gets told.
-const { isPlayerSkillLocked, lockPlayerSkillUse, getPortalArrivalSpawn } = require("./server/game_server.js");
+const { isPlayerSkillLocked, lockPlayerSkillUse, getPortalArrivalSpawn, buildDropStatsForType } = require("./server/game_server.js");
 
 // ---- ONLINE GAME DATA (edit the *_server.js files, not this) ----------------
 const GAME_DATA = Object.assign(
@@ -554,7 +554,7 @@ function dropList(room) {
   pruneDrops(room);
   return [...room.drops.values()].map((d) => d.k === "inv"
     ? { id: d.id, k: "inv", invType: d.invType, name: d.name, data: d.data, qty: d.qty, x: d.x, y: d.y, at: d.at }
-    : { id: d.id, t: d.t, x: d.x, y: d.y, at: d.at });
+    : { id: d.id, t: d.t, x: d.x, y: d.y, amt: d.amt, at: d.at, name: d.name, cat: d.cat, stats: d.stats });
 }
 function clearDropsIfEmpty() { /* intentionally keeps loot in empty rooms */ }
 
@@ -817,12 +817,29 @@ wss.on("connection", (ws) => {
           // spawnGoldOrbChance/goldOrbAmount on BOT_TYPES), instead of a
           // single shared amount looked up from ITEM_TYPES. Clamped to a
           // sane range so a hacked host can't mint arbitrary gold.
-          if (d.t === "goldOrb") drop.amt = Math.max(0, Math.min(10000, Math.trunc(num(d.amt))));
+          if (d.t === "goldOrb") {
+            drop.amt = Math.max(0, Math.min(10000, Math.trunc(num(d.amt))));
+          } else {
+            // Ground item-drop preview popup (game.js's showDropStatsPopup)
+            // — the display name/category/stat rows are decided HERE, from
+            // this server's own WEAPONS/ARMOR_TYPES/ITEM_TYPES (see
+            // game_server.js's buildDropStatsForType()), and sent to every
+            // client as part of the drop itself. A modified client can no
+            // longer make this popup show whatever it wants — it can only
+            // display what the server already put on the drop.
+            const info = buildDropStatsForType(d.t);
+            if (info) { drop.name = info.name; drop.cat = info.cat; drop.stats = info.stats; }
+          }
           me.room.drops.set(drop.id, drop);
           added.push(drop);
         }
         while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
-        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y, amt, at }) => ({ id, t, x, y, amt, at })) }, -1);
+        if (added.length) {
+          broadcast(me.room, {
+            type: "dropAdd",
+            drops: added.map(({ id, t, x, y, amt, at, name, cat, stats }) => ({ id, t, x, y, amt, at, name, cat, stats }))
+          }, -1);
+        }
         break;
       }
 
