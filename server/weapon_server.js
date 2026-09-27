@@ -529,7 +529,7 @@ const WEAPONS = {
   },
 
   powsword1: {
-    name: "powsword1",
+    name: "WrathBlade",
     image: "image/powsword1.png",
     physicalDamage: 11,
     pow: 3,
