@@ -82,7 +82,7 @@ const ARMOR_TYPES = {
     physicalDefense: 4,
     block: 2,
     category: "armor",
-    spawnChance: 0.5,
+    spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "Light armor — small armor and health boost."
   },
@@ -94,7 +94,7 @@ const ARMOR_TYPES = {
     physicalDefense: 8,
     block: 2,
     category: "armor",
-    spawnChance: 0.5,
+    spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "Medium armor — placeholder stats, same as armor1 for now."
   },
@@ -106,9 +106,489 @@ const ARMOR_TYPES = {
     physicalDefense: 12,
     block: 2,
     category: "armor",
-    spawnChance: 0.5,
+    spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "Heavy armor — placeholder stats, same as armor1 for now."
+  },
+
+  armor4: {
+    name: "armor4",
+    image: "image/armor4.png",
+    radius: 10,
+    physicalDefense: 12,
+    block: 6,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Battle-worn armor — set 4 (online)."
+  },
+
+  armor5: {
+    name: "armor5",
+    image: "image/armor5.png",
+    radius: 10,
+    physicalDefense: 14,
+    block: 7,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Light armor — set 5 (online)."
+  },
+
+  armor6: {
+    name: "armor6",
+    image: "image/armor6.png",
+    radius: 10,
+    physicalDefense: 16,
+    block: 8,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Medium armor — set 6 (online)."
+  },
+
+  armor7: {
+    name: "armor7",
+    image: "image/armor7.png",
+    radius: 10,
+    physicalDefense: 18,
+    block: 9,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Heavy armor — set 7 (online)."
+  },
+
+  armor8: {
+    name: "armor8",
+    image: "image/armor8.png",
+    radius: 10,
+    physicalDefense: 20,
+    block: 10,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced armor — set 8 (online)."
+  },
+
+  armor9: {
+    name: "armor9",
+    image: "image/armor9.png",
+    radius: 10,
+    physicalDefense: 22,
+    block: 11,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Battle-worn armor — set 9 (online)."
+  },
+
+  armor10: {
+    name: "armor10",
+    image: "image/armor10.png",
+    radius: 10,
+    physicalDefense: 24,
+    block: 2,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Light armor — set 10 (online)."
+  },
+
+  armor11: {
+    name: "armor11",
+    image: "image/armor11.png",
+    radius: 10,
+    physicalDefense: 26,
+    block: 3,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Medium armor — set 11 (online)."
+  },
+
+  armor12: {
+    name: "armor12",
+    image: "image/armor12.png",
+    radius: 10,
+    physicalDefense: 28,
+    block: 4,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Heavy armor — set 12 (online)."
+  },
+
+  armor13: {
+    name: "armor13",
+    image: "image/armor13.png",
+    radius: 10,
+    physicalDefense: 30,
+    block: 5,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced armor — set 13 (online)."
+  },
+
+  armor14: {
+    name: "armor14",
+    image: "image/armor14.png",
+    radius: 10,
+    physicalDefense: 32,
+    block: 6,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Battle-worn armor — set 14 (online)."
+  },
+
+  armor15: {
+    name: "armor15",
+    image: "image/armor15.png",
+    radius: 10,
+    physicalDefense: 34,
+    block: 7,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Light armor — set 15 (online)."
+  },
+
+  armor16: {
+    name: "armor16",
+    image: "image/armor16.png",
+    radius: 10,
+    physicalDefense: 36,
+    block: 8,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Medium armor — set 16 (online)."
+  },
+
+  armor17: {
+    name: "armor17",
+    image: "image/armor17.png",
+    radius: 10,
+    physicalDefense: 38,
+    block: 9,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Heavy armor — set 17 (online)."
+  },
+
+  armor18: {
+    name: "armor18",
+    image: "image/armor18.png",
+    radius: 10,
+    physicalDefense: 40,
+    block: 10,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced armor — set 18 (online)."
+  },
+
+  armor19: {
+    name: "armor19",
+    image: "image/armor19.png",
+    radius: 10,
+    physicalDefense: 42,
+    block: 11,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Battle-worn armor — set 19 (online)."
+  },
+
+  armor20: {
+    name: "armor20",
+    image: "image/armor20.png",
+    radius: 10,
+    physicalDefense: 44,
+    block: 2,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Light armor — set 20 (online)."
+  },
+
+  armor21: {
+    name: "armor21",
+    image: "image/armor21.png",
+    radius: 10,
+    physicalDefense: 46,
+    block: 3,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Medium armor — set 21 (online)."
+  },
+
+  armor22: {
+    name: "armor22",
+    image: "image/armor22.png",
+    radius: 10,
+    physicalDefense: 48,
+    block: 4,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Heavy armor — set 22 (online)."
+  },
+
+  armor23: {
+    name: "armor23",
+    image: "image/armor23.png",
+    radius: 10,
+    physicalDefense: 50,
+    block: 5,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced armor — set 23 (online)."
+  },
+
+  armor24: {
+    name: "armor24",
+    image: "image/armor24.png",
+    radius: 10,
+    physicalDefense: 52,
+    block: 6,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Battle-worn armor — set 24 (online)."
+  },
+
+  armor25: {
+    name: "armor25",
+    image: "image/armor25.png",
+    radius: 10,
+    physicalDefense: 54,
+    block: 7,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Light armor — set 25 (online)."
+  },
+
+  armor26: {
+    name: "armor26",
+    image: "image/armor26.png",
+    radius: 10,
+    physicalDefense: 56,
+    block: 8,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Medium armor — set 26 (online)."
+  },
+
+  armor27: {
+    name: "armor27",
+    image: "image/armor27.png",
+    radius: 10,
+    physicalDefense: 58,
+    block: 9,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Heavy armor — set 27 (online)."
+  },
+
+  armor28: {
+    name: "armor28",
+    image: "image/armor28.png",
+    radius: 10,
+    physicalDefense: 60,
+    block: 10,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced armor — set 28 (online)."
+  },
+
+  armor29: {
+    name: "armor29",
+    image: "image/armor29.png",
+    radius: 10,
+    physicalDefense: 62,
+    block: 11,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Battle-worn armor — set 29 (online)."
+  },
+
+  armor30: {
+    name: "armor30",
+    image: "image/armor30.png",
+    radius: 10,
+    physicalDefense: 64,
+    block: 2,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Light armor — set 30 (online)."
+  },
+
+  armor31: {
+    name: "armor31",
+    image: "image/armor31.png",
+    radius: 10,
+    physicalDefense: 66,
+    block: 3,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Medium armor — set 31 (online)."
+  },
+
+  armor32: {
+    name: "armor32",
+    image: "image/armor32.png",
+    radius: 10,
+    physicalDefense: 68,
+    block: 4,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Heavy armor — set 32 (online)."
+  },
+
+  armor33: {
+    name: "armor33",
+    image: "image/armor33.png",
+    radius: 10,
+    physicalDefense: 70,
+    block: 5,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced armor — set 33 (online)."
+  },
+
+  armor34: {
+    name: "armor34",
+    image: "image/armor34.png",
+    radius: 10,
+    physicalDefense: 72,
+    block: 6,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Battle-worn armor — set 34 (online)."
+  },
+
+  armor35: {
+    name: "armor35",
+    image: "image/armor35.png",
+    radius: 10,
+    physicalDefense: 74,
+    block: 7,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Light armor — set 35 (online)."
+  },
+
+  armor36: {
+    name: "armor36",
+    image: "image/armor36.png",
+    radius: 10,
+    physicalDefense: 76,
+    block: 8,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Medium armor — set 36 (online)."
+  },
+
+  armor37: {
+    name: "armor37",
+    image: "image/armor37.png",
+    radius: 10,
+    physicalDefense: 78,
+    block: 9,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Heavy armor — set 37 (online)."
+  },
+
+  armor38: {
+    name: "armor38",
+    image: "image/armor38.png",
+    radius: 10,
+    physicalDefense: 80,
+    block: 10,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced armor — set 38 (online)."
+  },
+
+  armor39: {
+    name: "armor39",
+    image: "image/armor39.png",
+    radius: 10,
+    physicalDefense: 82,
+    block: 11,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Battle-worn armor — set 39 (online)."
+  },
+
+  armor40: {
+    name: "armor40",
+    image: "image/armor40.png",
+    radius: 10,
+    physicalDefense: 84,
+    block: 2,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Light armor — set 40 (online)."
+  },
+
+  armor41: {
+    name: "armor41",
+    image: "image/armor41.png",
+    radius: 10,
+    physicalDefense: 86,
+    block: 3,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Medium armor — set 41 (online)."
+  },
+
+  armor42: {
+    name: "armor42",
+    image: "image/armor42.png",
+    radius: 10,
+    physicalDefense: 88,
+    block: 4,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Heavy armor — set 42 (online)."
+  },
+
+  armor43: {
+    name: "armor43",
+    image: "image/armor43.png",
+    radius: 10,
+    physicalDefense: 90,
+    block: 5,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced armor — set 43 (online)."
   }
 
 };
