@@ -37,7 +37,7 @@ const WEAPONS = {
     physicalDamage: 12,
     category: "weapon",
     spawnChance: 1.0,
-    width: 10,
+    width: 20,
     height: 20,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "a rapid fire gun with a very light damage and small capacity of magazine",
