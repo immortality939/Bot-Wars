@@ -162,89 +162,6 @@ function clampBotSkillDamage(amount) {
 // ---------------------------------------------------------------------------
 const { SKILL_LOCK_MS, SKILLS } = require("./skill_server.js");
 
-// ---------------------------------------------------------------------------
-// GROUND ITEM-DROP STATS (ONLINE MODE, SERVER-AUTHORITATIVE) — the ground
-// item-drop preview popup (tap a dropped item/weapon/armor/gold orb during
-// gameplay — see game.js's showDropStatsPopup()/buildDropStatsRows()) used
-// to build its stat rows purely on the CLIENT, by looking a bot-loot drop's
-// type name back up in the client's own WEAPONS/ARMOR_TYPES/ITEM_TYPES
-// tables. Those tables live in the public weapon.js/armor.js/item.js files
-// (and, once online, get their CONTENTS replaced from the server via
-// online.js's netApplyServerData — see its header comment) — but the
-// FUNCTION that reads them (buildDropStatsRows in game.js) still ships as
-// plain, editable client source, so a modified client could make it show
-// (only to that one player) whatever numbers it wants for a drop.
-//
-// This is the server-side version of that same lookup, built from THIS
-// file's own WEAPONS/ARMOR_TYPES/ITEM_TYPES (required straight from their
-// *_server.js files — the ones uploaded to GitHub/Render, never sent to the
-// client as editable source) instead of trusting anything the client
-// computes. server.js's "dropAdd"/dropList() calls this once, when a
-// bot-loot drop is created, and stores the result (name/cat/stats) ON the
-// drop record so it goes out over the wire with the drop itself — every
-// client (including a fully modified one) then just displays what the
-// server already decided, instead of recomputing it. See online.js's
-// netApplyDrops() and game.js's buildDropStatsRows() for the client side of
-// this — they use drop.serverStats/drop.serverName/drop.serverCat when
-// present and only fall back to local recomputation for OFFLINE mode (which
-// has no server to ask, and no other player to protect from the answer).
-//
-// NOTE: manual player drops ("invDropAdd" — dragging a weapon/armor out of
-// the Inventory screen) already carry their own real stat data end-to-end
-// (the dropper's actual inventory entry), so they don't need this — this is
-// only for bot-loot drops, which used to travel as just a type name.
-// ---------------------------------------------------------------------------
-const { WEAPONS } = require("./weapon_server.js");
-const { ARMOR_TYPES } = require("./armor_server.js");
-const { ITEM_TYPES } = require("./item_server.js");
-
-function getLootableWeaponDef(typeName) {
-  const def = WEAPONS[typeName];
-  return (def && def.category === "weapon") ? def : null;
-}
-
-function getLootableArmorDef(typeName) {
-  const def = ARMOR_TYPES[typeName];
-  return (def && def.category === "armor") ? def : null;
-}
-
-// Returns { name, cat, stats } for a bot-loot drop's type name, or null for
-// an unrecognized one (e.g. "goldOrb", which server.js already handles
-// separately via its own amt field — see dropAdd's handling of d.t ===
-// "goldOrb"). `stats` is an array of [label, value] pairs, same shape
-// game.js's popup already renders.
-function buildDropStatsForType(typeName) {
-  const itemDef = ITEM_TYPES[typeName];
-  const weaponDef = itemDef ? null : getLootableWeaponDef(typeName);
-  const armorDef = (itemDef || weaponDef) ? null : getLootableArmorDef(typeName);
-  const def = itemDef || weaponDef || armorDef;
-  if (!def) return null;
-
-  const name = String(typeName).charAt(0).toUpperCase() + String(typeName).slice(1);
-  const stats = [];
-
-  if (weaponDef) {
-    stats.push(["Type", "Weapon"]);
-    stats.push(["Physical Damage", weaponDef.physicalDamage]);
-    stats.push(["Knockback", weaponDef.knockback]);
-  } else if (armorDef) {
-    stats.push(["Type", "Armor"]);
-    stats.push(["Physical Defense", armorDef.defense != null ? armorDef.defense : "—"]);
-  } else if (itemDef) {
-    if (typeof itemDef.healAmount === "number") stats.push(["Heals", "+" + itemDef.healAmount]);
-    if (typeof itemDef.shieldHitpoints === "number") stats.push(["Shield", "+" + itemDef.shieldHitpoints]);
-    if (typeof itemDef.speedBonus === "number") {
-      stats.push(["Speed Boost", "+" + itemDef.speedBonus + " (" + (itemDef.duration / 1000) + "s)"]);
-    }
-    if (typeof itemDef.healthMultiplier === "number") stats.push(["Health x", itemDef.healthMultiplier]);
-    if (typeof itemDef.damageMultiplier === "number") stats.push(["Damage x", itemDef.damageMultiplier]);
-  }
-  if (def && typeof def.health === "number") stats.push(["Health", "+" + def.health]);
-
-  const cat = weaponDef ? "weapon" : (armorDef ? "armor" : ((itemDef && itemDef.category) || "item"));
-  return { name, cat, stats };
-}
-
 function isPlayerSkillLocked(playerState, now) {
   return now < (playerState.skillGlobalLockedUntil || 0);
 }
@@ -361,7 +278,6 @@ if (typeof module !== "undefined") {
     lockPlayerSkillUse,
     hasEnoughPlayerMana,
     spendPlayerMana,
-    getPortalArrivalSpawn,
-    buildDropStatsForType
+    getPortalArrivalSpawn
   };
 }
