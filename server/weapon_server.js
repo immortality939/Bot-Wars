@@ -36,7 +36,7 @@ const WEAPONS = {
     name: "uzi",
     physicalDamage: 12,
     category: "weapon",
-    spawnChance: 1.0,
+    spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "a rapid fire gun with a very light damage and small capacity of magazine",
   },
@@ -46,7 +46,7 @@ const WEAPONS = {
     name: "ak47",
     physicalDamage: 8,
     category: "weapon",
-    spawnChance: 0.5,
+    spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
   },
 
@@ -55,7 +55,7 @@ const WEAPONS = {
     name: "sniper",
     physicalDamage: 15,
     category: "weapon",
-    spawnChance: 0.5,
+    spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
   },
 
@@ -64,7 +64,7 @@ const WEAPONS = {
     name: "shotgun",
     physicalDamage: 8,
     category: "weapon",
-    spawnChance: 0.5,
+    spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
   }
 

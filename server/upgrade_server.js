@@ -60,7 +60,7 @@ const STONE_TYPES = {
     category: "stone", // storable in the inventory grid; cannot be equipped
 
     upgradeChance: 1.0,   // 100% chance the upgrade succeeds
-    spawnChance: 1.25,     // 50% chance to drop when a bot that carries it dies
+    spawnChance: 0.1,     // 50% chance to drop when a bot that carries it dies
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
 
     canUpgrade: ["weapon", "armor"],
@@ -91,7 +91,7 @@ const ORB_TYPES = {
 
     effect: "electric",      // stuns the enemy — can't move or fire
     effectDuration: 3000,    // ms (3 sec)
-    effectChance: 1.25,       // 50% chance to trigger per hit
+    effectChance: 0.1,       // 50% chance to trigger per hit
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
 
     // Ground-drawn / inventory icon size — resizable.
@@ -111,7 +111,7 @@ const ORB_TYPES = {
 
     effect: "fire",
     effectDuration: 3000,
-    effectChance: 1.25,
+    effectChance: 0.1,
     millisec: 0.009,   // burn damage dealt per millisecond while the effect is active — tune this to change burn strength (e.g. 0.05 = 150 total dmg over the 3s effectDuration)
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
 
@@ -125,7 +125,7 @@ const ORB_TYPES = {
     name: "iceorb",
     category: "orb",
 
-    spawnChance: 0.3,
+    spawnChance: 0.1,
 
     canAttached: ["weapon"],
 
