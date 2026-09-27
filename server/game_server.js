@@ -265,6 +265,96 @@ function getPortalArrivalSpawn(mapDef, fromMapKey, maps) {
 
 
 
+// ---------------------------------------------------------------------------
+// WEAPON IMAGE SIZES — weapon.js (the browser copy) can read a weapon
+// icon's real width/height straight off the image file itself
+// (Image.naturalWidth/naturalHeight — see getWeaponImageSize() there).
+// weapon_server.js runs in plain Node with no DOM, so it has no way to load
+// an image and measure it — any width/height weapon_server.js's WEAPONS
+// needs has to be a hardcoded number instead, and per this file's own
+// header comment, a hardcoded number that doesn't obviously belong inside
+// one specific *_server.js file lives HERE rather than being duplicated
+// inline in weapon_server.js. weapon_server.js just calls
+// getWeaponImageSize(name) below and copies the result onto each of its own
+// entries, so the numbers only ever have to change in one place.
+//
+// Every entry below is 128x128 because that's the exact size every
+// dexsword/intsword/powsword icon was generated/cropped to. uzi, ak47,
+// sniper, and shotgun are deliberately NOT listed — there's no actual
+// sprite file for any of them in hand to measure, so getWeaponImageSize()
+// returns null for those (and for anything else not listed) rather than
+// guessing a number. Add real width/height here for those four (and any
+// future non-square icon) once their actual image files are available.
+// ---------------------------------------------------------------------------
+const WEAPON_IMAGE_SIZES = {
+  dexsword1: { width: 128, height: 128 },
+  dexsword2: { width: 128, height: 128 },
+  dexsword3: { width: 128, height: 128 },
+  dexsword4: { width: 128, height: 128 },
+  dexsword5: { width: 128, height: 128 },
+  dexsword6: { width: 128, height: 128 },
+  dexsword7: { width: 128, height: 128 },
+  dexsword8: { width: 128, height: 128 },
+  dexsword9: { width: 128, height: 128 },
+  dexsword10: { width: 128, height: 128 },
+  dexsword11: { width: 128, height: 128 },
+  dexsword12: { width: 128, height: 128 },
+  dexsword13: { width: 128, height: 128 },
+  dexsword14: { width: 128, height: 128 },
+  dexsword15: { width: 128, height: 128 },
+  dexsword16: { width: 128, height: 128 },
+  dexsword17: { width: 128, height: 128 },
+  dexsword18: { width: 128, height: 128 },
+  dexsword19: { width: 128, height: 128 },
+  dexsword20: { width: 128, height: 128 },
+  intsword1: { width: 128, height: 128 },
+  intsword2: { width: 128, height: 128 },
+  intsword3: { width: 128, height: 128 },
+  intsword4: { width: 128, height: 128 },
+  intsword5: { width: 128, height: 128 },
+  intsword6: { width: 128, height: 128 },
+  intsword7: { width: 128, height: 128 },
+  intsword8: { width: 128, height: 128 },
+  intsword9: { width: 128, height: 128 },
+  intsword10: { width: 128, height: 128 },
+  intsword11: { width: 128, height: 128 },
+  intsword12: { width: 128, height: 128 },
+  intsword13: { width: 128, height: 128 },
+  intsword14: { width: 128, height: 128 },
+  intsword15: { width: 128, height: 128 },
+  intsword16: { width: 128, height: 128 },
+  intsword17: { width: 128, height: 128 },
+  intsword18: { width: 128, height: 128 },
+  intsword19: { width: 128, height: 128 },
+  intsword20: { width: 128, height: 128 },
+  powsword1: { width: 128, height: 128 },
+  powsword2: { width: 128, height: 128 },
+  powsword3: { width: 128, height: 128 },
+  powsword4: { width: 128, height: 128 },
+  powsword5: { width: 128, height: 128 },
+  powsword6: { width: 128, height: 128 },
+  powsword7: { width: 128, height: 128 },
+  powsword8: { width: 128, height: 128 },
+  powsword9: { width: 128, height: 128 },
+  powsword10: { width: 128, height: 128 },
+  powsword11: { width: 128, height: 128 },
+  powsword12: { width: 128, height: 128 },
+  powsword13: { width: 128, height: 128 },
+  powsword14: { width: 128, height: 128 },
+  powsword15: { width: 128, height: 128 },
+  powsword16: { width: 128, height: 128 },
+  powsword17: { width: 128, height: 128 },
+  powsword18: { width: 128, height: 128 },
+  powsword19: { width: 128, height: 128 },
+  powsword20: { width: 128, height: 128 },
+};
+
+function getWeaponImageSize(name) {
+  return WEAPON_IMAGE_SIZES[name] || null;
+}
+
+
+
 // ---- export for server.js (Node) ----
 if (typeof module !== "undefined") {
   module.exports = {
@@ -278,6 +368,8 @@ if (typeof module !== "undefined") {
     lockPlayerSkillUse,
     hasEnoughPlayerMana,
     spendPlayerMana,
-    getPortalArrivalSpawn
+    getPortalArrivalSpawn,
+    WEAPON_IMAGE_SIZES,
+    getWeaponImageSize
   };
 }

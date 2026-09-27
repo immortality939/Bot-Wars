@@ -529,14 +529,12 @@ const WEAPONS = {
   },
 
   powsword1: {
-    name: "WrathBlade",
+    name: "powsword1",
     image: "image/powsword1.png",
     physicalDamage: 11,
     pow: 3,
     category: "weapon",
-    spawnChance: 1.2,
-    height: 30,
-    width: 10,
+    spawnChance: 0.2,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -767,6 +765,27 @@ function getAllWeapons() {
   return Object.values(WEAPONS);
 
 }
+
+
+
+// ---------------------------------------------------------------------------
+// IMAGE SIZE — width/height get copied onto each entry here so the rest of
+// the server code can just read weaponDef.width/weaponDef.height like any
+// other field, but the actual hardcoded pixel numbers live in
+// game_server.js's WEAPON_IMAGE_SIZES (see the comment there for why) —
+// nothing is hardcoded in THIS file. A weapon with no entry there (uzi,
+// ak47, sniper, shotgun — no real sprite file to measure yet) just doesn't
+// get a width/height added; getWeaponImageSize() returns null for those.
+// ---------------------------------------------------------------------------
+const { getWeaponImageSize } = require("./game_server.js");
+
+Object.values(WEAPONS).forEach((def) => {
+  const size = getWeaponImageSize(def.name);
+  if (size) {
+    def.width = size.width;
+    def.height = size.height;
+  }
+});
 
 
 
