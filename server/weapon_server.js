@@ -77,12 +77,12 @@ const WEAPONS = {
   },
 
   dexsword1: {
-    name: "dexsword1",
+    name: "lavasword",
     image: "image/dexsword1.png",
     physicalDamage: 9,
     dex: 3,
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 1.2,
     width: 10,
     height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
