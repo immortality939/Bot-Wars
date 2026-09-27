@@ -8,7 +8,7 @@ window.CUSTOM_MAPS["LEVEL1"] = {
   name: "LEVEL1",
   worldWidth: 1500,
   worldHeight: 1500,
-  mapImage: "image/01_lush_grassland.png",
+  mapImage: "image/map6.png",
   obstacles: [
     { name: "tree8", x: 497, y: 534, width: 50, height: 50, image: "image/tree8.png" },
     { name: "rock1", x: 963, y: 329, width: 183, height: 117, image: "image/rock1.png" },
