@@ -493,13 +493,23 @@ function reassignHost(room, leavingId) {
   broadcast(room, { type: "botsReset" }, next ? next.id : -1);
 }
 // Loot lying on the ground in a room (dropped by enemies). The server keeps it
-// so people who join / come back later still see it. Cleared when the room empties.
-// Loot stays even when the room is empty (so someone logging in later still finds
-// it) until it is DROP_MAX_AGE_MS old. NOTE: it lives in the server's memory, so it
-// is lost whenever the server restarts / goes to sleep (Render free plan).
+// so people who join / come back later still see it — but only until it
+// actually despawns. NOTE: it lives in the server's memory, so it is lost
+// whenever the server restarts / goes to sleep (Render free plan).
 // MAX_ROOM_DROPS now lives in server/game_server.js (see that file).
-const { MAX_ROOM_DROPS } = GAME_DATA;
-const DROP_MAX_AGE_MS = 72 * 60 * 60 * 1000;
+const { MAX_ROOM_DROPS, ITEM_DESPAWN_TIME } = GAME_DATA;
+// DESPAWN — a drop must disappear for EVERYONE, permanently, ITEM_DESPAWN_TIME
+// (the same 30-sec window item_server.js/item.js use client-side) after it was
+// created — not just while someone happens to be watching it. Before this fix
+// the server kept every drop for up to 72h "so a returning player still finds
+// it", which is exactly why: (1) an item a player watched despawn locally
+// would come BACK after they logged out and back in (rejoining just re-sent
+// the still-there server copy), and (2) a player who joined a minute later
+// would see items that had already visually despawned for everyone else (the
+// client reset each drop's spawn timer to "now" on arrival, instead of using
+// its real age). See sweepExpiredDrops() below and netApplyDrops()/`at` on
+// the wire (online.js) for the other half of the fix.
+const DROP_MAX_AGE_MS = ITEM_DESPAWN_TIME || 30000;
 // Works out a stored drop's item CATEGORY so "dropTake" knows which
 // PARTY_LOOT_RULES rule (see server/game_server.js) applies to it. Mirrors
 // the same lookup order item_server.js's createItemDrop() uses client-side
@@ -528,17 +538,39 @@ function categoryForDrop(drop) {
   return "item";
 }
 
+// Removes every drop in `room` that has passed its despawn window and
+// returns the ids that were removed (empty array if none). Pure bookkeeping —
+// callers decide whether/how to tell anyone (see dropList(), which just needs
+// the list clean, vs sweepExpiredDrops() below, which also broadcasts).
 function pruneDrops(room) {
   const cutoff = Date.now() - DROP_MAX_AGE_MS;
-  for (const [id, d] of room.drops) if (d.at < cutoff) room.drops.delete(id);
+  const removed = [];
+  for (const [id, d] of room.drops) {
+    if (d.at < cutoff) { room.drops.delete(id); removed.push(id); }
+  }
+  return removed;
 }
 function dropList(room) {
   pruneDrops(room);
   return [...room.drops.values()].map((d) => d.k === "inv"
-    ? { id: d.id, k: "inv", invType: d.invType, name: d.name, data: d.data, qty: d.qty, x: d.x, y: d.y }
-    : { id: d.id, t: d.t, x: d.x, y: d.y });
+    ? { id: d.id, k: "inv", invType: d.invType, name: d.name, data: d.data, qty: d.qty, x: d.x, y: d.y, at: d.at }
+    : { id: d.id, t: d.t, x: d.x, y: d.y, at: d.at });
 }
 function clearDropsIfEmpty() { /* intentionally keeps loot in empty rooms */ }
+
+// Runs on a timer (see setInterval below) so a drop disappears for players
+// who are ALREADY in the room the moment it expires, not just for the next
+// person to join/rejoin (dropList() above already keeps those clean). Reuses
+// the same "dropGone" message a pickup sends, so no client changes are needed
+// to receive it — online.js's netRemoveDrop() already handles it.
+function sweepExpiredDrops() {
+  for (const room of rooms.values()) {
+    if (!room.drops.size) continue;
+    const removed = pruneDrops(room);
+    for (const id of removed) broadcast(room, { type: "dropGone", id }, -1);
+  }
+}
+setInterval(sweepExpiredDrops, 5000);
 function countPlayers(test) {
   let n = 0;
   for (const p of players.values()) if (test(p)) n++;
@@ -790,7 +822,7 @@ wss.on("connection", (ws) => {
           added.push(drop);
         }
         while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
-        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y, amt }) => ({ id, t, x, y, amt })) }, -1);
+        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y, amt, at }) => ({ id, t, x, y, amt, at })) }, -1);
         break;
       }
 
@@ -821,7 +853,7 @@ wss.on("connection", (ws) => {
         while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
         broadcast(me.room, {
           type: "invDropAdd",
-          drop: { id: drop.id, k: "inv", invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty, x: drop.x, y: drop.y }
+          drop: { id: drop.id, k: "inv", invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty, x: drop.x, y: drop.y, at: drop.at }
         }, -1);
         break;
       }
