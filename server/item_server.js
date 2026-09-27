@@ -413,8 +413,7 @@ function showGameplayFullNotice(itemLabel) {
     document.body.appendChild(gameplayFullNoticeEl);
   }
 
-  gameplayFullNoticeEl.textContent =
-    "Inventory is full \u2014 " + itemLabel + " will remain on the floor";
+  gameplayFullNoticeEl.textContent = "Inventory is full";
   gameplayFullNoticeEl.style.opacity = "1";
 
   if (gameplayFullNoticeTimer) clearTimeout(gameplayFullNoticeTimer);
