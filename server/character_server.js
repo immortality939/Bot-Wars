@@ -40,7 +40,7 @@
 // ---------------------------------------------------------------------------
 const ATTRIBUTE_RATES = {
   vit: { health: 5, physicalDefense: 0.25 },
-  dex: { physicalDefense: 0.5, criticalDamage: 0.02 },
+  dex: { physicalDefense: 0.5, criticalDamage: 0.01 },
   int: { mana: 2, magicalAttack: 1, magicalDefense: 0.5 },
   pow: { physicalDamage: 1 }
 };
@@ -76,7 +76,7 @@ const GAME_RULES = {
   MAX_LEVEL: 40,
   STAT_POINTS_PER_LEVEL: 5,
   AUTO_STAT_GROWTH_PER_LEVEL: 3,
-  HEALTH_GROWTH_RATE: 1.1,
+  HEALTH_GROWTH_RATE: 1.03,
   PARTY_MAX_SIZE: 6,
   PARTY_EXP_SHARE_RANGE: 300
 };
@@ -95,11 +95,11 @@ const CHARACTERS = {
   // FAST CHARACTER
   police: {
     name: "police",
-    health: 8000,
+    health: 100,
     armor: "armor1",
     movementSpeed: 115,
     weaponName: "uzi",
-    currentHealth: 80,
+    currentHealth: 100,
     image: "image/police.png",
     radius: 13,
     cameraZoom: 1.2,
@@ -121,14 +121,14 @@ const CHARACTERS = {
     // attack, see `attack` below). Always combines with whatever
     // weapon damage is dealt (getAttackDamage() adds the two together)
     // instead of being replaced by it once a weapon is equipped.
-    physicalDamage: 11,
+    physicalDamage: 16,
     attack: "melee",
 
     // CRITICAL HIT — criticalChance is the odds (0.08 = 8%) that an
     // attack crits; criticalDamage is the bonus applied on a crit
     // (0.05 = +5% added on top of the combined weapon+base damage).
     criticalChance: 0.08,
-    criticalDamage: 0.05,
+    criticalDamage: 0.1,
 
     // MANA — max mana pool. Not spent by anything yet (skills don't
     // cost mana currently) — just tracked/regenerated for now so the
@@ -157,7 +157,7 @@ const CHARACTERS = {
     // MAGIC ATTACK — this character's own innate magic damage, separate
     // from physicalDamage (see getAttackDamage() below: the two are
     // rolled and returned independently, never summed).
-    magicalAttack: 5,
+    magicalAttack: 16,
 
     // Only one skill — SKILL1 gets heal1, SKILL2 stays empty (dimmed
     // placeholder in gameplay). ensureDefaultSkillsLoaded() in
@@ -172,19 +172,19 @@ const CHARACTERS = {
   // NORMAL SOLDIER
   soldier: {
     name: "soldier",
-    health: 120,
+    health: 150,
     armor: "armor2",
-    movementSpeed: 100,
+    movementSpeed: 110,
     weaponName: "ak47",
-    currentHealth: 120,
+    currentHealth: 130,
     image: "image/soldier.png",
     radius: 13,
-    cameraZoom: 1.4,
+    cameraZoom: 1.2,
     unitExplode: "unitexplode",
     level: 1,
     exp: 0,
     attackSpeed: 1,
-    physicalDamage: 11,
+    physicalDamage: 12,
     attack: "melee",
     criticalChance: 0.08,
     criticalDamage: 0.05,
@@ -195,7 +195,7 @@ const CHARACTERS = {
     dex: 5,
     int: 5,
     pow: 5,
-    magicalAttack: 5,
+    magicalAttack: 12,
     playerSkill: "barrage,heal1,slash1",
     description: "Balanced all-rounder with steady health, armor, and speed."
   },
@@ -204,19 +204,19 @@ const CHARACTERS = {
   // HEAVY TANK CHARACTER
   swat: {
     name: "swat",
-    health: 250,
+    health: 200,
     armor: "armor3",
-    movementSpeed: 85,
+    movementSpeed: 110,
     weaponName: "shotgun",
-    currentHealth: 250,
+    currentHealth: 200,
     image: "image/swat.png",
     radius: 15,
-    cameraZoom: 1.6,
+    cameraZoom: 1.2,
     unitExplode: "unitexplode",
     level: 1,
     exp: 0,
     attackSpeed: 1,
-    physicalDamage: 11,
+    physicalDamage: 9,
     attack: "melee",
     criticalChance: 0.08,
     criticalDamage: 0.05,
@@ -227,7 +227,7 @@ const CHARACTERS = {
     dex: 5,
     int: 5,
     pow: 5,
-    magicalAttack: 5,
+    magicalAttack: 9,
     playerSkill: "barrage,heal1,slash1",
     description: "Heavy tank with high health and armor, but slow movement."
   }

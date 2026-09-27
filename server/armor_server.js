@@ -79,24 +79,10 @@ const ARMOR_TYPES = {
     name: "armor1",
     image: "image/armor1.png",
     radius: 10,
-
-    physicalDefense: 5,
-    physicalDamage:10,
-    block: 10,   // 10% chance to fully block a bullet
-    vit:2,
-    dex:2,
-    int:2,
-    mana: 200,
-    health:2000,
-    pow:10,
-    hpRegen: 0.1,
-    manaRegen: 0.01,
-    magicalAttack:5,
-    magicalDefense:5,
-    criticalChance: 0.08,
-    criticalDamage: 0.05,
+    physicalDefense: 4,
+    block: 2,
     category: "armor",
-    spawnChance: 0.5,
+    spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "Light armor — small armor and health boost."
   },
@@ -105,14 +91,10 @@ const ARMOR_TYPES = {
     name: "armor2",
     image: "image/armor2.png",
     radius: 10,
-
-    physicalDefense: 3,
-    health: 300,
-
-    block: 10,
-
+    physicalDefense: 8,
+    block: 2,
     category: "armor",
-    spawnChance: 0.5,
+    spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "Medium armor — placeholder stats, same as armor1 for now."
   },
@@ -121,14 +103,10 @@ const ARMOR_TYPES = {
     name: "armor3",
     image: "image/armor3.png",
     radius: 10,
-
-    physicalDefense: 3,
-    health: 30,
-
-    block: 10,
-
+    physicalDefense: 12,
+    block: 2,
     category: "armor",
-    spawnChance: 0.5,
+    spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "Heavy armor — placeholder stats, same as armor1 for now."
   }

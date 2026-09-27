@@ -34,18 +34,7 @@ const WEAPONS = {
 
   uzi: {
     name: "uzi",
-
-    physicalDamage: 15,
-    physicalDefense:5,
-    // knockback: how far (world units) an enemy standing dead-center of
-    // the blast gets shoved back. Falls off toward the edge of the old
-    // AoE radius the same way damage does — see getAoeFalloff() in
-    // game.js — so a bot right at the edge only gets a light shove, not
-    // the full push.
-    knockback: 12,
-    imagerange: "image/maxrange.png",
-    imageradius: "image/radius.png",
-    pow:0,
+    physicalDamage: 12,
     category: "weapon",
     spawnChance: 1.0,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -55,13 +44,7 @@ const WEAPONS = {
 
   ak47: {
     name: "ak47",
-
-    physicalDamage: 15,
-
-    knockback: 18,
-    imagerange: "image/maxrange.png",
-    imageradius: "image/radius.png",
-
+    physicalDamage: 8,
     category: "weapon",
     spawnChance: 0.5,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -70,13 +53,7 @@ const WEAPONS = {
 
   sniper: {
     name: "sniper",
-
-    physicalDamage: 40,
-
-    knockback: 30,
-    imagerange: "image/maxrange.png",
-    imageradius: "image/radius.png",
-
+    physicalDamage: 15,
     category: "weapon",
     spawnChance: 0.5,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -85,17 +62,7 @@ const WEAPONS = {
 
   shotgun: {
     name: "shotgun",
-
-    physicalDamage: 600,
-
-    knockback: 35,
-    imagerange: "image/maxrange.png",
-    imageradius: "image/radius.png",
-
-    pellets: 5,
-
-    spread: 0.25,
-
+    physicalDamage: 8,
     category: "weapon",
     spawnChance: 0.5,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec

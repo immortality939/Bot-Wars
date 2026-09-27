@@ -96,14 +96,6 @@ const SKILLS = {
     // Cooldown (ms) before the skill can be used again.
     cooldown: 5000,
 
-    // MANA COST — mirrors skill.js's `manaCost` (see there for the full
-    // comment). NOT currently enforced server-side — server.js has no
-    // per-connection mana state to check this against (see game_server.js's
-    // top-of-file note); this value is here so online mode's data matches
-    // skill.js and is ready to wire in if/when server-authoritative mana
-    // tracking is added.
-    manaCost: 20,
-
     // Hit effect + sound played along the vacuum path (effect.js) —
     // stretched to exactly range x width, see runBeamSkillEffect().
     hitEffect: "vacuum",
@@ -172,9 +164,6 @@ const SKILLS = {
     // default — adjust if cannonblast should be faster/slower.
     cooldown: 5000,
 
-    // MANA COST — see barrage's `manaCost` above.
-    manaCost: 20,
-
     // SKILL SOUND — played once when the skill is used (ground-tap
     // release, see fireSkill() in game.js).
     skillSound: "music/cannonblast.mp3",
@@ -229,10 +218,6 @@ const SKILLS = {
 
     // Cooldown (ms) before the skill can be used again.
     cooldown: 5000,
-
-    // MANA COST — see barrage's `manaCost` above. Spent once per
-    // activation, not once per shot (shotTimes below doesn't multiply it).
-    manaCost: 20,
 
     // NUMBER OF SHOTS — how many times the blast fires per activation.
     shotTimes: 5,
@@ -297,9 +282,6 @@ const SKILLS = {
     // Cooldown (ms) before the skill can be used again.
     cooldown: 5000,
 
-    // MANA COST — see barrage's `manaCost` above.
-    manaCost: 20,
-
     // SKILL SOUND — played once when the skill activates. Same
     // music/ folder convention as barrage's skillSound above.
     skillSound: "music/heal1.mp3",
@@ -359,9 +341,6 @@ const SKILLS = {
 
     // Cooldown (ms) before the skill can be used again.
     cooldown: 5000,
-
-    // MANA COST — see barrage's `manaCost` above.
-    manaCost: 20,
 
     // HIT COUNT / INTERVAL — this skill lands hitNum separate hits
     // against everything still in `radius`, hitInterval seconds apart
@@ -527,10 +506,4 @@ if (typeof module !== "undefined" && module.exports) {
 
 
 // ---- export for server.js (Node) ----
-if (typeof module !== "undefined") {
-  module.exports = {
-    SKILLS,
-    SKILL_LOCK_MS,
-    SKILL_SCALABLE_STATS
-  };
-}
+if (typeof module !== "undefined") module.exports = { SKILLS, SKILL_LOCK_MS, SKILL_SCALABLE_STATS };
