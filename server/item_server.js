@@ -1010,4 +1010,7 @@ if (typeof module !== "undefined" && module.exports) {
 
 
 // ---- export for server.js (Node) ----
-if (typeof module !== "undefined") module.exports = { ITEM_TYPES, spawnGoldOrbOnBotDeath };
+// ITEM_DESPAWN_TIME is exported too now so server.js can actively expire
+// room.drops using the SAME 30-sec window the client uses, instead of
+// guessing/duplicating the number — see server.js's "DESPAWN" section.
+if (typeof module !== "undefined") module.exports = { ITEM_TYPES, spawnGoldOrbOnBotDeath, ITEM_DESPAWN_TIME };
