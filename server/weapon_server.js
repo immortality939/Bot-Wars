@@ -534,7 +534,7 @@ const WEAPONS = {
     physicalDamage: 11,
     pow: 3,
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 1.2,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
