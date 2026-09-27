@@ -37,8 +37,8 @@ const WEAPONS = {
     physicalDamage: 12,
     category: "weapon",
     spawnChance: 1.0,
-    width: 64,
-    height: 64,
+    width: 10,
+    height: 10,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "a rapid fire gun with a very light damage and small capacity of magazine",
   },
@@ -49,8 +49,8 @@ const WEAPONS = {
     physicalDamage: 8,
     category: "weapon",
     spawnChance: 0.5,
-    width: 64,
-    height: 64,
+    width: 10,
+    height: 10,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
   },
 
@@ -60,8 +60,8 @@ const WEAPONS = {
     physicalDamage: 15,
     category: "weapon",
     spawnChance: 0.5,
-    width: 64,
-    height: 64,
+    width: 10,
+    height: 10,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
   },
 
@@ -71,8 +71,8 @@ const WEAPONS = {
     physicalDamage: 8,
     category: "weapon",
     spawnChance: 0.5,
-    width: 64,
-    height: 64,
+    width: 10,
+    height: 10,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
   },
 
@@ -83,8 +83,8 @@ const WEAPONS = {
     dex: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -96,8 +96,8 @@ const WEAPONS = {
     dex: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -109,8 +109,8 @@ const WEAPONS = {
     dex: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -122,8 +122,8 @@ const WEAPONS = {
     dex: 6,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -135,8 +135,8 @@ const WEAPONS = {
     dex: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -148,8 +148,8 @@ const WEAPONS = {
     dex: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -161,8 +161,8 @@ const WEAPONS = {
     dex: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -174,8 +174,8 @@ const WEAPONS = {
     dex: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -187,8 +187,8 @@ const WEAPONS = {
     dex: 6,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -200,8 +200,8 @@ const WEAPONS = {
     dex: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -213,8 +213,8 @@ const WEAPONS = {
     dex: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -226,8 +226,8 @@ const WEAPONS = {
     dex: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -239,8 +239,8 @@ const WEAPONS = {
     dex: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -252,8 +252,8 @@ const WEAPONS = {
     dex: 6,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -265,8 +265,8 @@ const WEAPONS = {
     dex: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -278,8 +278,8 @@ const WEAPONS = {
     dex: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -291,8 +291,8 @@ const WEAPONS = {
     dex: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -304,8 +304,8 @@ const WEAPONS = {
     dex: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -317,8 +317,8 @@ const WEAPONS = {
     dex: 6,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -330,8 +330,8 @@ const WEAPONS = {
     dex: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A dexterity-focused blade — grants bonus dex while equipped."
   },
@@ -344,8 +344,8 @@ const WEAPONS = {
     magicalAttack: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -358,8 +358,8 @@ const WEAPONS = {
     magicalAttack: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -372,8 +372,8 @@ const WEAPONS = {
     magicalAttack: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -386,8 +386,8 @@ const WEAPONS = {
     magicalAttack: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -400,8 +400,8 @@ const WEAPONS = {
     magicalAttack: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -414,8 +414,8 @@ const WEAPONS = {
     magicalAttack: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -428,8 +428,8 @@ const WEAPONS = {
     magicalAttack: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -442,8 +442,8 @@ const WEAPONS = {
     magicalAttack: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -456,8 +456,8 @@ const WEAPONS = {
     magicalAttack: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -470,8 +470,8 @@ const WEAPONS = {
     magicalAttack: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -484,8 +484,8 @@ const WEAPONS = {
     magicalAttack: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -498,8 +498,8 @@ const WEAPONS = {
     magicalAttack: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -512,8 +512,8 @@ const WEAPONS = {
     magicalAttack: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -526,8 +526,8 @@ const WEAPONS = {
     magicalAttack: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -540,8 +540,8 @@ const WEAPONS = {
     magicalAttack: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -554,8 +554,8 @@ const WEAPONS = {
     magicalAttack: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -568,8 +568,8 @@ const WEAPONS = {
     magicalAttack: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -582,8 +582,8 @@ const WEAPONS = {
     magicalAttack: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -596,8 +596,8 @@ const WEAPONS = {
     magicalAttack: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -610,8 +610,8 @@ const WEAPONS = {
     magicalAttack: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
   },
@@ -636,8 +636,8 @@ const WEAPONS = {
     pow: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -649,8 +649,8 @@ const WEAPONS = {
     pow: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -661,9 +661,9 @@ const WEAPONS = {
     physicalDamage: 14,
     pow: 6,
     category: "weapon",
-    spawnChance: 1.2,
-    width: 128,
-    height: 128,
+    spawnChance: 0.2,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -675,8 +675,8 @@ const WEAPONS = {
     pow: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -688,8 +688,8 @@ const WEAPONS = {
     pow: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -701,8 +701,8 @@ const WEAPONS = {
     pow: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -714,8 +714,8 @@ const WEAPONS = {
     pow: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -727,8 +727,8 @@ const WEAPONS = {
     pow: 6,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -740,8 +740,8 @@ const WEAPONS = {
     pow: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -753,8 +753,8 @@ const WEAPONS = {
     pow: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -766,8 +766,8 @@ const WEAPONS = {
     pow: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -779,8 +779,8 @@ const WEAPONS = {
     pow: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -792,8 +792,8 @@ const WEAPONS = {
     pow: 6,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -805,8 +805,8 @@ const WEAPONS = {
     pow: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -818,8 +818,8 @@ const WEAPONS = {
     pow: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -831,8 +831,8 @@ const WEAPONS = {
     pow: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -844,8 +844,8 @@ const WEAPONS = {
     pow: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -857,8 +857,8 @@ const WEAPONS = {
     pow: 6,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   },
@@ -870,8 +870,8 @@ const WEAPONS = {
     pow: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 128,
-    height: 128,
+    width: 10,
+    height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A power-focused blade — grants bonus pow and physical damage while equipped."
   }
