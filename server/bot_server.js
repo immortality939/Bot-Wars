@@ -45,7 +45,7 @@ const BOT_TYPES = {
     spawnGoldOrbChance: 0.8, // 80% chance to drop a gold orb on death
     goldOrbAmount: 30,       // gold given when this bot's orb is picked up
     unitExplode: "unitexplode",
-    level: 40,
+    level: 1,
     expGet: 30,
     attackSpeed: 1,
     physicalDamage: 11,
