@@ -879,6 +879,27 @@ wss.on("connection", (ws) => {
         break;
       }
 
+      // POWERBOOST (skill_server.js) — the caster tells the server they used
+      // a party-buff skill. The skill's numbers come from the SERVER's own
+      // skill_server.js (never from the client): every party member on the
+      // same map within `range` of the caster gets a "skillBuff" and starts
+      // the buff on their own client (online.js).
+      case "skillBuff": {
+        const def = GAME_DATA.SKILLS && GAME_DATA.SKILLS[String(msg.skill || "")];
+        if (!def || !def.attackIncrease) break;
+        const party = getParty(me);
+        if (!party) break;
+        const range = num(def.range, 0);
+        for (const id of party.members) {
+          if (id === me.id) continue;
+          const m = players.get(id);
+          if (!m || m.room !== me.room || m.alive === false) continue;
+          if (Math.hypot(m.x - me.x, m.y - me.y) > range) continue;
+          send(m.ws, { type: "skillBuff", skill: def.skill, fromId: me.id });
+        }
+        break;
+      }
+
       // Someone picked an item up: it's gone for everybody (and for late
       // joiners). Any party member (or solo player) can claim any ground
       // drop — first valid claim wins. "dropStillThere" only fires now if
