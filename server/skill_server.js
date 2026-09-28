@@ -385,6 +385,46 @@ const SKILLS = {
     // Player must be at least this character level (character.js's
     // level/exp system) before the skill can be activated/used.
     requiredLevel: 1
+  },
+
+  // POWERBOOST — party buff. "instant" activation like heal1 (tap the button,
+  // no aiming). Raises the caster's total damage (physicalDamage AND
+  // magicalAttack, weapon + skill + base, see getPowerBoostMultiplier()
+  // below) by `attackIncrease` for `duration` seconds. ONLINE ONLY: every
+  // party member within `range` of the caster when it is activated gets the
+  // same buff (server.js's "skillBuff" case does the range check).
+  powerboost: {
+    skill: "powerboost",
+    category: "skill",
+    activationType: "instant",
+
+    // ICON — Inventory skill slots, the gameplay SKILL button, and the small
+    // buff icon shown top-left of the screen while the buff is running.
+    icon: "image/poweraura.png",
+
+    description: "Boosts your damage by 50% for 60 seconds. In online mode, party members nearby get the boost too.",
+
+    // HIT EFFECT — effect.js's "poweraura": drawn the size of the player,
+    // follows the player and keeps animating until `duration` is over.
+    hitEffect: "poweraura",
+
+    // ATTACK INCREASE — 0.5 = +50% total damage (physical + magic).
+    attackIncrease: 0.5,
+
+    // DURATION (seconds) the buff lasts.
+    duration: 60,
+
+    // RANGE (world px) — party members inside this distance of the caster
+    // also receive the buff (online mode, when in a party).
+    range: 200,
+
+    // Cooldown (ms) before the skill can be used again.
+    cooldown: 60000,
+
+    // MANA COST — see barrage's `manaCost` above.
+    manaCost: 30,
+
+    requiredLevel: 1
   }
 
 };
@@ -421,6 +461,24 @@ const SKILL_SCALABLE_STATS = [
   "criticalChance", "criticalDamage"
 ];
 
+// ---------------------------------------------------------------------------
+// POWERBOOST — damage multiplier from the "powerboost" buff. game.js's
+// applyPowerBoost() stores { endTime, attackIncrease } on
+// character.activeEffects.powerboost; this returns 1 + attackIncrease while
+// it is running (0.5 -> x1.5) and 1 once it ran out (or the character never
+// had it, e.g. every bot). Used by getSkillEffectiveStats() below (skills)
+// and game.js's fireBullet() (weapon shots).
+// ---------------------------------------------------------------------------
+function getPowerBoostMultiplier(character) {
+  const fx = character && character.activeEffects && character.activeEffects.powerboost;
+  if (!fx) return 1;
+  if (performance.now() >= fx.endTime) {
+    delete character.activeEffects.powerboost;
+    return 1;
+  }
+  return 1 + (fx.attackIncrease || 0);
+}
+
 function getSkillEffectiveStats(skill, player) {
   const effective = {};
   if (!skill) return effective;
@@ -440,6 +498,14 @@ function getSkillEffectiveStats(skill, player) {
   if (typeof effective.physicalDamage === "number" && player && player.weapon &&
       typeof player.weapon.physicalDamage === "number") {
     effective.physicalDamage += player.weapon.physicalDamage;
+  }
+
+  // POWERBOOST — the buff raises the TOTAL (skill + player + weapon)
+  // physicalDamage and magicalAttack.
+  const powerBoost = getPowerBoostMultiplier(player);
+  if (powerBoost !== 1) {
+    if (typeof effective.physicalDamage === "number") effective.physicalDamage *= powerBoost;
+    if (typeof effective.magicalAttack === "number") effective.magicalAttack *= powerBoost;
   }
 
   return effective;
@@ -520,6 +586,7 @@ if (typeof module !== "undefined" && module.exports) {
     getAllSkills,
     SKILL_SCALABLE_STATS,
     getSkillEffectiveStats,
+    getPowerBoostMultiplier,
     getSkillDamageResult
   };
 
