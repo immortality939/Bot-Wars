@@ -265,10 +265,44 @@ function getPortalArrivalSpawn(mapDef, fromMapKey, maps) {
 
 
 
+// ---------------------------------------------------------------------------
+// MAP MUSIC — the background music each online map (level) plays. The key is
+// the map's key in worldmap_server.js (LEVEL1 ... LEVEL20), the value is the
+// music file inside the game's music/ folder (MUSIC1.mp3 ... MUSIC6.mp3).
+// Walking through a portal to another map stops the old track and starts the
+// new map's track. Change a line here to give a level a different song; a map
+// with no line here (or "") simply has no music.
+// ---------------------------------------------------------------------------
+const MAP_MUSIC = {
+  LEVEL1:  "music/MUSIC1.mp3",
+  LEVEL2:  "music/MUSIC2.mp3",
+  LEVEL3:  "music/MUSIC3.mp3",
+  LEVEL4:  "music/MUSIC4.mp3",
+  LEVEL5:  "music/MUSIC5.mp3",
+  LEVEL6:  "music/MUSIC6.mp3",
+  LEVEL7:  "music/MUSIC1.mp3",
+  LEVEL8:  "music/MUSIC2.mp3",
+  LEVEL9:  "music/MUSIC3.mp3",
+  LEVEL10: "music/MUSIC4.mp3",
+  LEVEL11: "music/MUSIC5.mp3",
+  LEVEL12: "music/MUSIC6.mp3",
+  LEVEL13: "music/MUSIC1.mp3",
+  LEVEL14: "music/MUSIC2.mp3",
+  LEVEL15: "music/MUSIC3.mp3",
+  LEVEL16: "music/MUSIC4.mp3",
+  LEVEL17: "music/MUSIC5.mp3",
+  LEVEL18: "music/MUSIC6.mp3",
+  LEVEL19: "music/MUSIC1.mp3",
+  LEVEL20: "music/MUSIC2.mp3"
+};
+
+
+
 // ---- export for server.js (Node) ----
 if (typeof module !== "undefined") {
   module.exports = {
     MAX_ROOM_DROPS,
+    MAP_MUSIC,
     PARTY_LOOT_RULES,
     partyLootRuleForCategory,
     prunePartyMembers,
