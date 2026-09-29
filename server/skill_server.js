@@ -195,7 +195,7 @@ const SKILLS = {
   // effect; the skill sound only plays once, on the first shot.
   deadlystrike: {
     skill: "deadlystrike",
-    physicalPercent: 0.8,
+    physicalPercent: 1.0,
     // CATEGORY — marks this as a skill-type item for the Inventory
     // screen's SKILL loadout (see barrage's `category` above).
     category: "skill",
