@@ -400,7 +400,7 @@ const SKILLS = {
 
     // ICON — Inventory skill slots, the gameplay SKILL button, and the small
     // buff icon shown top-left of the screen while the buff is running.
-    icon: "image/poweraura.png",
+    icon: "image/iconpower.png",
 
     description: "Boosts your damage by 50% for 60 seconds. In online mode, party members nearby get the boost too.",
 
