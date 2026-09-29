@@ -400,7 +400,7 @@ const SKILLS = {
 
     // ICON — Inventory skill slots, the gameplay SKILL button, and the small
     // buff icon shown top-left of the screen while the buff is running.
-    icon: "image/iconpower.png",
+    icon: "image/poweraura.png",
 
     description: "Boosts your damage by 50% for 60 seconds. In online mode, party members nearby get the boost too.",
 
@@ -419,7 +419,7 @@ const SKILLS = {
     range: 200,
 
     // Cooldown (ms) before the skill can be used again.
-    cooldown: 5000,
+    cooldown: 60000,
 
     // MANA COST — see barrage's `manaCost` above.
     manaCost: 30,
@@ -460,7 +460,7 @@ const SKILLS = {
     range: 200,
 
     // Cooldown (ms) before the skill can be used again (5 seconds).
-    cooldown: 5,
+    cooldown: 5000,
 
     // MANA COST — see barrage's `manaCost` above.
     manaCost: 30,
@@ -501,6 +501,26 @@ const SKILL_SCALABLE_STATS = [
   "magicalAttack", "magicalDefense",
   "criticalChance", "criticalDamage"
 ];
+
+// ---------------------------------------------------------------------------
+// PERCENT DAMAGE — optional per-skill fields that make a skill deal a
+// PERCENTAGE of the player's TOTAL attack instead of adding a flat number:
+//
+//   attackPercent: 2.0   -> physical damage = 200% of the player's total
+//                           physicalDamage (player stat, gear included, PLUS
+//                           the equipped weapon's physicalDamage).
+//                           EXAMPLE: player 10 + weapon 10 = 20 -> 20 x 2.0 = 40
+//   magicPercent: 2.0    -> magical damage = 200% of the player's total
+//                           magicalAttack (weapon/gear magicalAttack is already
+//                           folded into player.magicalAttack).
+//                           EXAMPLE: player 10 + weapon 10 = 20 -> 20 x 2.0 = 40
+//
+// When a percent field is set it REPLACES the skill's own flat
+// physicalDamage / magicalAttack for that damage type (it is not added on top).
+// A skill can set one, both, or neither (neither = the old flat behavior).
+// The POWERBOOST buff (see below) is applied to the WHOLE result afterwards,
+// so 40 with powerboost (+50%) = 60.
+// ---------------------------------------------------------------------------
 
 // ---------------------------------------------------------------------------
 // POWERBOOST — damage multiplier from the "powerboost" buff. game.js's
@@ -553,6 +573,19 @@ function getSkillEffectiveStats(skill, player) {
   if (typeof effective.physicalDamage === "number" && player && player.weapon &&
       typeof player.weapon.physicalDamage === "number") {
     effective.physicalDamage += player.weapon.physicalDamage;
+  }
+
+  // PERCENT DAMAGE — attackPercent / magicPercent (see the PERCENT DAMAGE note
+  // above): the skill's damage becomes a percentage of the player's TOTAL
+  // attack (player + equipped weapon for physical), replacing the flat number.
+  if (typeof skill.attackPercent === "number") {
+    const playerPhysical = (player && typeof player.physicalDamage === "number") ? player.physicalDamage : 0;
+    const weaponPhysical = (player && player.weapon && typeof player.weapon.physicalDamage === "number") ? player.weapon.physicalDamage : 0;
+    effective.physicalDamage = (playerPhysical + weaponPhysical) * skill.attackPercent;
+  }
+  if (typeof skill.magicPercent === "number") {
+    const playerMagical = (player && typeof player.magicalAttack === "number") ? player.magicalAttack : 0;
+    effective.magicalAttack = playerMagical * skill.magicPercent;
   }
 
   // POWERBOOST — the buff raises the TOTAL (skill + player + weapon)
