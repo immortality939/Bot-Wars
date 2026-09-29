@@ -879,14 +879,14 @@ wss.on("connection", (ws) => {
         break;
       }
 
-      // POWERBOOST (skill_server.js) — the caster tells the server they used
+      // POWERBOOST / DEFENSEBOOST (skill_server.js) — the caster tells the server they used
       // a party-buff skill. The skill's numbers come from the SERVER's own
       // skill_server.js (never from the client): every party member on the
       // same map within `range` of the caster gets a "skillBuff" and starts
       // the buff on their own client (online.js).
       case "skillBuff": {
         const def = GAME_DATA.SKILLS && GAME_DATA.SKILLS[String(msg.skill || "")];
-        if (!def || !def.attackIncrease) break;
+        if (!def || !(def.attackIncrease || def.defenseIncrease)) break;
         const party = getParty(me);
         if (!party) break;
         const range = num(def.range, 0);
