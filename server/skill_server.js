@@ -350,8 +350,8 @@ const SKILLS = {
     description: "A close-range slash that hits twice in quick succession, striking every enemy nearby.",
 
    
-    magicalAttack: 100,
-    physicalDamage: 100,
+    magicalAttack: 35,
+    physicalDamage: 35,
     // AoE radius around the player — every bot inside this range gets
     // hit (same idea as barrage's `radius`, just centered on the player
     // instead of an aimed impact point).
@@ -400,7 +400,7 @@ const SKILLS = {
 
     // ICON — Inventory skill slots, the gameplay SKILL button, and the small
     // buff icon shown top-left of the screen while the buff is running.
-    icon: "image/poweraura.png",
+    icon: "image/iconpower.png",
 
     description: "Boosts your damage by 50% for 60 seconds. In online mode, party members nearby get the boost too.",
 
