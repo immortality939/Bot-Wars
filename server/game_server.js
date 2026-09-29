@@ -21,6 +21,16 @@
 // ---------------------------------------------------------------------------
 const MAX_ROOM_DROPS = 400;
 
+// ---------------------------------------------------------------------------
+// ROOM ENEMY MEMORY (ms) — how long a map's enemies (their health / position /
+// dead-or-alive) are remembered after the LAST player left it (or after the
+// enemy host left and nobody streamed a newer state). Whoever walks back in
+// inside this window finds the enemies exactly as they were left (the ones
+// you nearly killed are still nearly dead). Past it the map starts fresh.
+// Used by server.js's currentBots().
+// ---------------------------------------------------------------------------
+const EMPTY_ROOM_BOTS_KEEP_TIME = 5 * 60 * 1000;   // 5 minutes
+
 
 
 // ---------------------------------------------------------------------------
@@ -303,6 +313,7 @@ const MAP_MUSIC = {
 if (typeof module !== "undefined") {
   module.exports = {
     MAX_ROOM_DROPS,
+    EMPTY_ROOM_BOTS_KEEP_TIME,
     MAP_MUSIC,
     PARTY_LOOT_RULES,
     partyLootRuleForCategory,
