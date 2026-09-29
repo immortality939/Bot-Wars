@@ -42,7 +42,7 @@ const SKILLS = {
     // screen's SKILL loadout (the catalog/equip slots there only accept
     // category:"skill" — see index.html's Inventory screen script).
     category: "skill",
-
+    physicalPercent: 3.0,
     // ACTIVATION TYPE — "ground": tapping this skill's button arms it
     // (button glows red, same as before), then TAPPING THE GROUND
     // anywhere on screen fires it at that world point (see game.js's
@@ -69,9 +69,6 @@ const SKILLS = {
     // DESCRIPTION — shown under the stats in the Inventory screen's item
     // stats popup when this skill's icon is tapped.
     description: "Sucks in and damages every enemy caught in a straight vacuum path ahead of the player.",
-
-    physicalDamage: 200,
-
     // RANGE — how far forward the vacuum path travels from the player,
     // in the direction of the ground tap, before it disappears (see
     // runBeamSkillEffect() in game.js). Also used as the aim-UI's
@@ -134,7 +131,7 @@ const SKILLS = {
     // it, then tapping the ground fires it toward that point (see
     // handleTouchStart()'s ground-release branch in game.js).
     activationType: "ground",
-
+    physicalPercent: 3.0,
     // ATTACK TYPE — "blast": like barrage's "beam", the ground tap only
     // picks a DIRECTION and the hit rectangle always reaches the skill's
     // full `range` that way. The difference from "beam" is purely visual:
@@ -154,9 +151,6 @@ const SKILLS = {
     // DESCRIPTION — shown under the stats in the Inventory screen's item
     // stats popup when this skill's icon is tapped.
     description: "Fires a cannon blast in front of the player, damaging every enemy caught in its range.",
-
-    physicalDamage: 100,
-    magicalAttack: 100,
 
     // RANGE — how far forward the blast rectangle extends from the
     // player, in the direction of the ground tap (see
@@ -201,7 +195,7 @@ const SKILLS = {
   // effect; the skill sound only plays once, on the first shot.
   deadlystrike: {
     skill: "deadlystrike",
-
+    physicalPercent: 0.6,
     // CATEGORY — marks this as a skill-type item for the Inventory
     // screen's SKILL loadout (see barrage's `category` above).
     category: "skill",
@@ -219,7 +213,7 @@ const SKILLS = {
     // DESCRIPTION
     description: "Sucks in and damages every enemy caught in a straight vacuum path ahead of the player.",
 
-    physicalDamage: 200,
+
 
     // RANGE
     range: 300,
@@ -331,7 +325,7 @@ const SKILLS = {
   // a new branch before this skill actually deals damage in-game.
   slash1: {
     skill: "slash1",
-
+    physicalPercent: 1.5,
     // CATEGORY — marks this as a skill-type item for the Inventory
     // screen's SKILL loadout (see barrage's `category` above).
     category: "skill",
@@ -350,8 +344,7 @@ const SKILLS = {
     description: "A close-range slash that hits twice in quick succession, striking every enemy nearby.",
 
    
-    magicalAttack: 100,
-    physicalDamage: 100,
+
     // AoE radius around the player — every bot inside this range gets
     // hit (same idea as barrage's `radius`, just centered on the player
     // instead of an aimed impact point).
