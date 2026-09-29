@@ -578,10 +578,10 @@ function getSkillEffectiveStats(skill, player) {
   // PERCENT DAMAGE — attackPercent / magicPercent (see the PERCENT DAMAGE note
   // above): the skill's damage becomes a percentage of the player's TOTAL
   // attack (player + equipped weapon for physical), replacing the flat number.
-  if (typeof skill.attackPercent === "number") {
+  if (typeof skill.physicalPercent === "number") {
     const playerPhysical = (player && typeof player.physicalDamage === "number") ? player.physicalDamage : 0;
     const weaponPhysical = (player && player.weapon && typeof player.weapon.physicalDamage === "number") ? player.weapon.physicalDamage : 0;
-    effective.physicalDamage = (playerPhysical + weaponPhysical) * skill.attackPercent;
+    effective.physicalDamage = (playerPhysical + weaponPhysical) * skill.physicalPercent;
   }
   if (typeof skill.magicPercent === "number") {
     const playerMagical = (player && typeof player.magicalAttack === "number") ? player.magicalAttack : 0;
