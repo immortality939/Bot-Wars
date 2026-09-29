@@ -42,7 +42,7 @@ const SKILLS = {
     // screen's SKILL loadout (the catalog/equip slots there only accept
     // category:"skill" — see index.html's Inventory screen script).
     category: "skill",
-    physicalPercent: 3.0,
+    magicalPercent: 3.0,
     // ACTIVATION TYPE — "ground": tapping this skill's button arms it
     // (button glows red, same as before), then TAPPING THE GROUND
     // anywhere on screen fires it at that world point (see game.js's
@@ -503,7 +503,7 @@ const SKILL_SCALABLE_STATS = [
 //                           physicalDamage (player stat, gear included, PLUS
 //                           the equipped weapon's physicalDamage).
 //                           EXAMPLE: player 10 + weapon 10 = 20 -> 20 x 2.0 = 40
-//   magicPercent: 2.0    -> magical damage = 200% of the player's total
+//   magicalPercent: 2.0    -> magical damage = 200% of the player's total
 //                           magicalAttack (weapon/gear magicalAttack is already
 //                           folded into player.magicalAttack).
 //                           EXAMPLE: player 10 + weapon 10 = 20 -> 20 x 2.0 = 40
@@ -568,7 +568,7 @@ function getSkillEffectiveStats(skill, player) {
     effective.physicalDamage += player.weapon.physicalDamage;
   }
 
-  // PERCENT DAMAGE — attackPercent / magicPercent (see the PERCENT DAMAGE note
+  // PERCENT DAMAGE — attackPercent / magicalPercent (see the PERCENT DAMAGE note
   // above): the skill's damage becomes a percentage of the player's TOTAL
   // attack (player + equipped weapon for physical), replacing the flat number.
   if (typeof skill.physicalPercent === "number") {
@@ -576,9 +576,9 @@ function getSkillEffectiveStats(skill, player) {
     const weaponPhysical = (player && player.weapon && typeof player.weapon.physicalDamage === "number") ? player.weapon.physicalDamage : 0;
     effective.physicalDamage = (playerPhysical + weaponPhysical) * skill.physicalPercent;
   }
-  if (typeof skill.magicPercent === "number") {
+  if (typeof skill.magicalPercent === "number") {
     const playerMagical = (player && typeof player.magicalAttack === "number") ? player.magicalAttack : 0;
-    effective.magicalAttack = playerMagical * skill.magicPercent;
+    effective.magicalAttack = playerMagical * skill.magicalPercent;
   }
 
   // POWERBOOST — the buff raises the TOTAL (skill + player + weapon)
