@@ -788,6 +788,11 @@ function applyDamageToPlayer(player, rawDamage) {
   const rawMagical = (typeof rawDamage === "number") ? 0 : ((rawDamage && rawDamage.magicalDamage) || 0);
   const totalRaw = rawPhysical + rawMagical;
 
+  // DEFENSEBOOST — skill.js's "defenseboost" buff raises the player's TOTAL
+  // defense (physicalDefense + equipped armor, and magicalDefense) by its
+  // defenseIncrease while it runs. 1 when there is no buff.
+  const defBoost = (typeof getDefenseBoostMultiplier === "function") ? getDefenseBoostMultiplier(player) : 1;
+
   // isCritical rides along on attack-result-shaped rawDamage (see
   // getAttackDamage() in character.js) — used below for the DAMAGE NUMBER
   // popup only, doesn't affect the math above.
@@ -806,8 +811,8 @@ function applyDamageToPlayer(player, rawDamage) {
         // to what the original hit carried, so each portion still gets
         // reduced by its own matching defense stat.
         const overflowRatio = totalRaw > 0 ? (overflow / totalRaw) : 0;
-        const physicalDefense = (player.physicalDefense || 0) + (player.armor || 0);
-        const magicalDefense = player.magicalDefense || 0;
+        const physicalDefense = ((player.physicalDefense || 0) + (player.armor || 0)) * defBoost;
+        const magicalDefense = (player.magicalDefense || 0) * defBoost;
         const dmg = Math.max(1, Math.round(
           Math.max(0, (rawPhysical * overflowRatio) - physicalDefense) +
           Math.max(0, (rawMagical * overflowRatio) - magicalDefense)
@@ -828,8 +833,8 @@ function applyDamageToPlayer(player, rawDamage) {
     // number, since nothing actually got through to show a number for.
 
   } else {
-    const physicalDefense = (player.physicalDefense || 0) + (player.armor || 0);
-    const magicalDefense = player.magicalDefense || 0;
+    const physicalDefense = ((player.physicalDefense || 0) + (player.armor || 0)) * defBoost;
+    const magicalDefense = (player.magicalDefense || 0) * defBoost;
     const dmg = Math.max(1,
       Math.max(0, Math.round(rawPhysical - physicalDefense)) +
       Math.max(0, Math.round(rawMagical - magicalDefense))

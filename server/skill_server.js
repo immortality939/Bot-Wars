@@ -350,8 +350,8 @@ const SKILLS = {
     description: "A close-range slash that hits twice in quick succession, striking every enemy nearby.",
 
    
-    magicalAttack: 35,
-    physicalDamage: 35,
+    magicalAttack: 100,
+    physicalDamage: 100,
     // AoE radius around the player — every bot inside this range gets
     // hit (same idea as barrage's `radius`, just centered on the player
     // instead of an aimed impact point).
@@ -400,7 +400,7 @@ const SKILLS = {
 
     // ICON — Inventory skill slots, the gameplay SKILL button, and the small
     // buff icon shown top-left of the screen while the buff is running.
-    icon: "image/iconpower.png",
+    icon: "image/poweraura.png",
 
     description: "Boosts your damage by 50% for 60 seconds. In online mode, party members nearby get the boost too.",
 
@@ -419,7 +419,48 @@ const SKILLS = {
     range: 200,
 
     // Cooldown (ms) before the skill can be used again.
-    cooldown: 60000,
+    cooldown: 5000,
+
+    // MANA COST — see barrage's `manaCost` above.
+    manaCost: 30,
+
+    requiredLevel: 1
+  },
+
+  // DEFENSEBOOST — party buff, same logic as powerboost above ("instant",
+  // aura, timed, shared with nearby party members online). Raises the
+  // caster's TOTAL defense — physicalDefense (attributes + equipped armor,
+  // armor.js) and magicalDefense — by `defenseIncrease` for `duration`
+  // seconds. See getDefenseBoostMultiplier() below and item.js's
+  // applyDamageToPlayer().
+  defenseboost: {
+    skill: "defenseboost",
+    category: "skill",
+    activationType: "instant",
+
+    // ICON — Inventory skill slots, the gameplay SKILL button, and the small
+    // buff icon shown top-left of the screen while the buff is running.
+    icon: "image/icondefense.png",
+
+    description: "Boosts your defense by 50% for 60 seconds. In online mode, party members nearby get the boost too.",
+
+    // HIT EFFECT — effect.js's "defenseaura": player-sized, follows the
+    // player, keeps animating until `duration` is over.
+    hitEffect: "defenseaura",
+
+    // DEFENSE INCREASE — 0.5 = +50% of total physicalDefense + magicalDefense
+    // (equipment included).
+    defenseIncrease: 0.5,
+
+    // DURATION (seconds) the buff lasts.
+    duration: 60,
+
+    // RANGE (world px) — party members inside this distance of the caster
+    // also receive the buff (online mode, when in a party).
+    range: 200,
+
+    // Cooldown (ms) before the skill can be used again (5 seconds).
+    cooldown: 5,
 
     // MANA COST — see barrage's `manaCost` above.
     manaCost: 30,
@@ -463,7 +504,7 @@ const SKILL_SCALABLE_STATS = [
 
 // ---------------------------------------------------------------------------
 // POWERBOOST — damage multiplier from the "powerboost" buff. game.js's
-// applyPowerBoost() stores { endTime, attackIncrease } on
+// applyAuraBuff() stores { endTime, attackIncrease } on
 // character.activeEffects.powerboost; this returns 1 + attackIncrease while
 // it is running (0.5 -> x1.5) and 1 once it ran out (or the character never
 // had it, e.g. every bot). Used by getSkillEffectiveStats() below (skills)
@@ -477,6 +518,20 @@ function getPowerBoostMultiplier(character) {
     return 1;
   }
   return 1 + (fx.attackIncrease || 0);
+}
+
+// DEFENSEBOOST — same idea as getPowerBoostMultiplier() above, for the
+// "defenseboost" buff (character.activeEffects.defenseboost). Returns
+// 1 + defenseIncrease while running (0.5 -> x1.5), else 1. Used by item.js's
+// applyDamageToPlayer() to scale the player's total defense.
+function getDefenseBoostMultiplier(character) {
+  const fx = character && character.activeEffects && character.activeEffects.defenseboost;
+  if (!fx) return 1;
+  if (performance.now() >= fx.endTime) {
+    delete character.activeEffects.defenseboost;
+    return 1;
+  }
+  return 1 + (fx.defenseIncrease || 0);
 }
 
 function getSkillEffectiveStats(skill, player) {
@@ -587,6 +642,7 @@ if (typeof module !== "undefined" && module.exports) {
     SKILL_SCALABLE_STATS,
     getSkillEffectiveStats,
     getPowerBoostMultiplier,
+    getDefenseBoostMultiplier,
     getSkillDamageResult
   };
 

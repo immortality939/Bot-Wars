@@ -163,7 +163,7 @@ const CHARACTERS = {
     // placeholder in gameplay). ensureDefaultSkillsLoaded() in
     // index.html only fills as many equip slots as playerSkill lists,
     // so a single name here is enough; no trailing comma needed.
-    playerSkill: "heal1,slash1,barrage,cannonblast,deadlystrike,powerboost",
+    playerSkill: "heal1,slash1,barrage,cannonblast,deadlystrike,powerboost,defenseboost",
 
     description: "Fast and rapid fire but low health and armor."
   },
@@ -196,7 +196,7 @@ const CHARACTERS = {
     int: 5,
     pow: 5,
     magicalAttack: 12,
-    playerSkill: "barrage,heal1,slash1,powerboost",
+    playerSkill: "barrage,heal1,slash1,powerboost,defenseboost",
     description: "Balanced all-rounder with steady health, armor, and speed."
   },
 
@@ -228,7 +228,7 @@ const CHARACTERS = {
     int: 5,
     pow: 5,
     magicalAttack: 9,
-    playerSkill: "barrage,heal1,slash1,powerboost",
+    playerSkill: "barrage,heal1,slash1,powerboost,defenseboost",
     description: "Heavy tank with high health and armor, but slow movement."
   }
 
