@@ -56,7 +56,7 @@ const { WebSocketServer } = require("ws");
 // PORTAL ARRIVAL SPAWN — server-authoritative too (see game_server.js's
 // getPortalArrivalSpawn() comment): the "map" case below decides where a
 // player lands, the client just gets told.
-const { isPlayerSkillLocked, lockPlayerSkillUse, getPortalArrivalSpawn } = require("./server/game_server.js");
+const { isPlayerSkillLocked, lockPlayerSkillUse, getPortalArrivalSpawn, syncReportedMana, tryPaySkillUse, hasPaidSkillUse } = require("./server/game_server.js");
 
 // ---- ONLINE GAME DATA (edit the *_server.js files, not this) ----------------
 const GAME_DATA = Object.assign(
@@ -951,8 +951,10 @@ wss.on("connection", (ws) => {
         me.y = num(msg.y, me.y);
         me.health = num(msg.health, me.health);
         me.maxHealth = num(msg.maxHealth, me.maxHealth);
-        me.mana = num(msg.mana, me.mana);
-        me.maxMana = num(msg.maxMana, me.maxMana);
+        // MANA — the server keeps its own count (see game_server.js's
+        // syncReportedMana()): the client's number can go down, but can't
+        // jump up faster than real regen.
+        syncReportedMana(me, Number(msg.mana), Number(msg.maxMana), !!msg.alive, Date.now());
         me.exp = num(msg.exp, me.exp);
         me.maxExp = num(msg.maxExp, me.maxExp);
         me.level = num(msg.level, me.level);
@@ -1019,6 +1021,7 @@ wss.on("connection", (ws) => {
         // SKILL LOCK — same enforcement as the "hit" case above, for a
         // player-vs-bot skill hit (online.js's damageBot() override).
         if (msg.isSkillHit) {
+          if (!hasPaidSkillUse(me, now)) break;   // skill mana was never paid on the server
           if (isPlayerSkillLocked(me, now)) break;
           lockPlayerSkillUse(me, now);
         }
@@ -1116,6 +1119,17 @@ wss.on("connection", (ws) => {
         break;
       }
 
+      // SKILL USE — the client says it is firing a skill. The server takes that
+      // skill's manaCost (from skill_server.js) off ITS OWN mana count; only a
+      // paid use lets the skill's "hit"/"botHit"/"skillBuff" messages through
+      // (see game_server.js's tryPaySkillUse()/hasPaidSkillUse()).
+      case "skillUse": {
+        const skillName = String(msg.skill || "").slice(0, 32);
+        const paid = tryPaySkillUse(me, skillName, Date.now());
+        send(me.ws, { type: "manaSync", skill: skillName, ok: paid, mana: me.mana });
+        break;
+      }
+
       // POWERBOOST / DEFENSEBOOST (skill_server.js) — the caster tells the server they used
       // a party-buff skill. The skill's numbers come from the SERVER's own
       // skill_server.js (never from the client): every party member on the
@@ -1124,6 +1138,7 @@ wss.on("connection", (ws) => {
       case "skillBuff": {
         const def = GAME_DATA.SKILLS && GAME_DATA.SKILLS[String(msg.skill || "")];
         if (!def || !(def.attackIncrease || def.defenseIncrease)) break;
+        if (!hasPaidSkillUse(me, Date.now(), def.skill)) break;   // mana not paid on the server
         const party = getParty(me);
         if (!party) break;
         const range = num(def.range, 0);
@@ -1314,6 +1329,7 @@ wss.on("connection", (ws) => {
         // if this player's own skill lock (tracked here, not on the
         // client) hasn't expired yet, no matter what that client claims.
         if (msg.isSkillHit) {
+          if (!hasPaidSkillUse(me, now)) break;   // skill mana was never paid on the server
           if (isPlayerSkillLocked(me, now)) break;
           lockPlayerSkillUse(me, now);
         }
