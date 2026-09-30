@@ -262,7 +262,7 @@ const BOT_TYPES = {
     weaponName: "shotgun",
 
     image: "image/bot_02.png",
-    radius: 13,
+    radius: 11,
 
     viewRange: 220,
     viewAngle: 90,
