@@ -44,6 +44,7 @@ window.CUSTOM_MAPS["LEVEL1"] = {
     { name: "bot04", x: 110, y: 471 },
     { name: "bot01elite", x: 100, y: 451 },
     { name: "bot01", x: 371, y: 340 },
+    { name: "boss1", x: 351, y: 320 },
     { name: "bot03", x: 384, y: 788 },
     { name: "bot04", x: 506, y: 339 },
     { name: "bot02", x: 249, y: 1262 },
