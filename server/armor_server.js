@@ -76,12 +76,12 @@
 const ARMOR_TYPES = {
 
   armor1A: {
-    name: "armor1a",
+    name: "armor1A",
     image: "image/armor43.png",
     radius: 10,
     physicalDefense: 15,
     physicalDamage:400,
-    health: 1000,
+    health: 300,
     mana:300,
     hpRegen:0.2,
     manaRegen:0.2,
