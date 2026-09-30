@@ -100,7 +100,7 @@ const CHARACTERS = {
     movementSpeed: 115,
     weaponName: "uzi",
     currentHealth: 100,
-    image: "image/police.png",
+    image: "image/bot2.png",
     radius: 13,
     cameraZoom: 1.2,
     unitExplode: "unitexplode",
@@ -163,7 +163,7 @@ const CHARACTERS = {
     // placeholder in gameplay). ensureDefaultSkillsLoaded() in
     // index.html only fills as many equip slots as playerSkill lists,
     // so a single name here is enough; no trailing comma needed.
-    playerSkill: "heal1,slash1,barrage,cannonblast,deadlystrike,powerboost,defenseboost",
+    playerSkill: "energybeam,voidslash,icespear,powerboost,lightningbolt",
 
     description: "Fast and rapid fire but low health and armor."
   },
@@ -177,7 +177,7 @@ const CHARACTERS = {
     movementSpeed: 110,
     weaponName: "ak47",
     currentHealth: 130,
-    image: "image/soldier.png",
+    image: "image/bot13.png",
     radius: 13,
     cameraZoom: 1.2,
     unitExplode: "unitexplode",
@@ -196,7 +196,7 @@ const CHARACTERS = {
     int: 5,
     pow: 5,
     magicalAttack: 12,
-    playerSkill: "barrage,heal1,slash1,powerboost,defenseboost",
+    playerSkill: "voidhole,iceburst,fireball,fireexplosion,barrage,deadlystrike,slash1",
     description: "Balanced all-rounder with steady health, armor, and speed."
   },
 
@@ -209,7 +209,7 @@ const CHARACTERS = {
     movementSpeed: 110,
     weaponName: "shotgun",
     currentHealth: 200,
-    image: "image/swat.png",
+    image: "image/bot20.png",
     radius: 15,
     cameraZoom: 1.2,
     unitExplode: "unitexplode",
@@ -228,7 +228,7 @@ const CHARACTERS = {
     int: 5,
     pow: 5,
     magicalAttack: 9,
-    playerSkill: "barrage,heal1,slash1,powerboost,defenseboost",
+    playerSkill: "defenseboost,shockring,cannonblast,firevorte,holynova,flamespiral,voidvortex",
     description: "Heavy tank with high health and armor, but slow movement."
   }
 

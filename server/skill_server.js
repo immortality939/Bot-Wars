@@ -256,7 +256,7 @@ const SKILLS = {
   },
 
   lightningbolt: {
-    skill: "flightning bolt",
+    skill: "lightning bolt",
     category: "skill",
     magicalPercent: 3.0,
     activationType: "ground",
