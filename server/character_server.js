@@ -93,8 +93,8 @@ const CHARACTERS = {
 
 
   // FAST CHARACTER
-  Brawler: {
-    name: "Brawler",
+  police: {
+    name: "police",
     health: 100,
     armor: "armor1",
     movementSpeed: 110,
@@ -170,8 +170,8 @@ const CHARACTERS = {
 
 
   // NORMAL SOLDIER
-  Magemaster: {
-    name: "Mage Master",
+  soldier: {
+    name: "soldier",
     health: 150,
     armor: "armor2",
     movementSpeed: 110,
@@ -201,8 +201,8 @@ const CHARACTERS = {
 
 
   // HEAVY TANK CHARACTER
-  Bullwark: {
-    name: "Bullwark",
+  swat: {
+    name: "swat",
     health: 200,
     armor: "armor3",
     movementSpeed: 110,
