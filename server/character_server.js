@@ -93,8 +93,8 @@ const CHARACTERS = {
 
 
   // FAST CHARACTER
-  police: {
-    name: "police",
+  Brawler: {
+    name: "Brawler",
     health: 100,
     armor: "armor1",
     movementSpeed: 110,
@@ -170,8 +170,8 @@ const CHARACTERS = {
 
 
   // NORMAL SOLDIER
-  soldier: {
-    name: "soldier",
+  Magemaster: {
+    name: "Mage Master",
     health: 150,
     armor: "armor2",
     movementSpeed: 110,
@@ -201,8 +201,8 @@ const CHARACTERS = {
 
 
   // HEAVY TANK CHARACTER
-  swat: {
-    name: "swat",
+  Bullwark: {
+    name: "Bullwark",
     health: 200,
     armor: "armor3",
     movementSpeed: 110,
@@ -688,17 +688,26 @@ function combineEquipmentStats(character, equipmentDef, excludeFields) {
 
 
 
+// DEFAULT CHARACTER — the first character listed in CHARACTERS. Used whenever
+// a character name is missing/unknown (old save data, or a hard-coded name left
+// in another file after you renamed a character), so renaming a character can
+// never crash the game or cause a black screen.
+function getDefaultCharacterName() {
+  return Object.keys(CHARACTERS)[0];
+}
+
 function getCharacter(name) {
 
-  const base = CHARACTERS[name];
+  let base = CHARACTERS[name];
 
+  // Unknown name (renamed character / stale save) -> fall back to the first
+  // character instead of throwing.
+  if (!base) {
+    base = CHARACTERS[getDefaultCharacterName()];
+  }
 
   if (!base) {
-
-    throw new Error(
-      "Character not found: " + name
-    );
-
+    throw new Error("Character not found: " + name);
   }
 
 
@@ -1223,6 +1232,7 @@ if (typeof module !== "undefined" && module.exports) {
   module.exports = {
     CHARACTERS,
     getCharacter,
+    getDefaultCharacterName,
     attachWeaponToCharacter,
     attachSkillToCharacter,
     getAllCharacters,
