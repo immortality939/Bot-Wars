@@ -486,7 +486,7 @@ const rooms = new Map();
 function getRoom(serverId, channel, mapKey) {
   const k = serverId + ":" + channel + ":" + mapKey;
   let r = rooms.get(k);
-  if (!r) { r = new Map(); r.hostId = null; r.lastBots = null; r.lastBotsAt = 0; r.drops = new Map(); r.nextDropId = 1; rooms.set(k, r); }
+  if (!r) { r = new Map(); r.hostId = null; r.lastBots = null; r.lastBotsAt = 0; r.mapKey = mapKey; r.simBots = null; r.simLast = 0; r.drops = new Map(); r.nextDropId = 1; rooms.set(k, r); }
   return r;
 }
 // Picks anyone else left in the room to take over as bot host.
@@ -508,7 +508,7 @@ const ROOM_BOTS_KEEP_MS = 5 * 60 * 1000;   // 5 minutes
 function currentBots(room) {
   if (!room.lastBots) return [];
   const age = Date.now() - (room.lastBotsAt || 0);
-  if (age > ROOM_BOTS_KEEP_MS) { room.lastBots = null; return []; }
+  if (!room.simBots && age > ROOM_BOTS_KEEP_MS) { room.lastBots = null; return []; }   // a room the server is simulating never expires
   return room.lastBots.map((b) => (b && b.a === false)
     ? Object.assign({}, b, { rm: Math.max(0, (Number(b.rm) || 0) - age) })
     : b);
@@ -523,8 +523,132 @@ function reassignHost(room, leavingId) {
   const next = pickNewHost(room, leavingId);
   room.hostId = next ? next.id : null;
   if (next) send(next.ws, { type: "botHost", host: true, bots: currentBots(room) });
+  else startOfflineSim(room);   // nobody left: the server keeps the enemies moving (see below)
   broadcast(room, { type: "botsReset" }, next ? next.id : -1);
 }
+
+// ---------------------------------------------------------------------------
+// OFFLINE ENEMY SIMULATION — while a room is EMPTY the server itself keeps its
+// enemies alive, the way bot.js would: they patrol (walk to a random point
+// near where they stand, stop and look around, repeat), wounded ones regenerate,
+// and dead ones respawn at their spawn point when their timer runs out. The
+// next player to walk in gets the enemies exactly where they wandered to (via
+// currentBots() -> netRestoreHostedBots() in online.js) and becomes the host.
+// It only runs for rooms that already had enemies (a host streamed a snapshot),
+// and only while the room is empty. Lives in server memory like drops do, so a
+// server restart / Render sleep starts the map fresh.
+// ---------------------------------------------------------------------------
+const BOT_TYPES = GAME_DATA.BOT_TYPES || {};
+const OBSTACLE_TYPES = (() => { try { return require("./server/obstacles_server.js").OBSTACLE_TYPES || {}; } catch (e) { return {}; } })();
+
+function startOfflineSim(room) {
+  if (!Array.isArray(room.lastBots) || !room.lastBots.length || !MAPS[room.mapKey]) { room.simBots = null; return; }
+  const now = Date.now();
+  const age = now - (room.lastBotsAt || now);
+  room.simLast = now;
+  room.simBots = room.lastBots.filter((b) => b && typeof b.i === "number").map((b) => ({
+    i: b.i, t: b.t, x: b.x, y: b.y, h: b.h, mh: b.mh, a: !!b.a,
+    fa: b.fa || 0, mv: false,
+    sx: typeof b.sx === "number" ? b.sx : b.x,
+    sy: typeof b.sy === "number" ? b.sy : b.y,
+    st: "look", stT: 0, tx: b.x, ty: b.y,
+    respawnAt: now + Math.max(0, (Number(b.rm) || 0) - age)   // only used while dead
+  }));
+  room.lastBotsAt = now;
+}
+function stopOfflineSim(room) {
+  if (!room.simBots) return;
+  simTickRoom(room, Date.now());   // catch up to this very moment before handing over
+  room.simBots = null;
+}
+
+function simSolveObstacles(b, radius, obstacles) {
+  for (const obs of obstacles) {
+    const type = OBSTACLE_TYPES[obs.name];
+    let cx, cy;
+    if (type && type.collision === "circle") {
+      const ox = obs.x + obs.width / 2, oy = obs.y + obs.height / 2;
+      const r = Math.min(obs.width, obs.height) / 2;
+      const d = Math.hypot(b.x - ox, b.y - oy) || 1;
+      cx = ox + ((b.x - ox) / d) * r; cy = oy + ((b.y - oy) / d) * r;
+    } else {
+      cx = Math.max(obs.x, Math.min(b.x, obs.x + obs.width));
+      cy = Math.max(obs.y, Math.min(b.y, obs.y + obs.height));
+    }
+    const dx = b.x - cx, dy = b.y - cy;
+    const dist = Math.hypot(dx, dy);
+    if (dist < radius) {
+      const push = radius - dist;
+      if (dist > 0) { b.x += (dx / dist) * push; b.y += (dy / dist) * push; }
+      else { b.x += push; }
+    }
+  }
+}
+
+function simTickRoom(room, now) {
+  const map = MAPS[room.mapKey];
+  if (!map || !room.simBots) { room.simBots = null; return; }
+  const dt = Math.min(0.5, Math.max(0, (now - room.simLast) / 1000));
+  room.simLast = now;
+  const W = map.worldWidth, H = map.worldHeight, obstacles = map.obstacles || [];
+  for (const b of room.simBots) {
+    const def = BOT_TYPES[b.t];
+    if (!def) continue;
+    const radius = def.radius || 12;
+    if (!b.a) {
+      if (now >= b.respawnAt) {
+        b.a = true; b.h = b.mh; b.x = b.sx; b.y = b.sy;
+        b.st = "patrol"; b.stT = 0; b.tx = b.sx; b.ty = b.sy; b.mv = false;
+        b.fa = Math.random() * Math.PI * 2;
+      }
+      continue;
+    }
+    // HP regen: same rate as character.js's tickPercentRegen (max * fraction per second)
+    if (b.h < b.mh && def.hpRegen > 0) b.h = Math.min(b.mh, b.h + b.mh * def.hpRegen * dt);
+
+    b.stT += dt * 1000;
+    if (b.st === "patrol") {
+      const dx = b.tx - b.x, dy = b.ty - b.y;
+      const dist = Math.hypot(dx, dy);
+      if (dist < 5 || b.stT >= (def.patrolInterval || 3000)) {
+        b.st = "look"; b.stT = 0; b.mv = false;
+      } else {
+        b.fa = Math.atan2(dy, dx);
+        const step = Math.min((def.movementSpeed || 80) * dt, dist);
+        b.x += (dx / dist) * step;
+        b.y += (dy / dist) * step;
+        b.mv = true;
+      }
+    } else {   // "look": stand still and scan, then pick a new patrol point
+      b.mv = false;
+      b.fa += Math.sin(b.stT / 400) * dt * 2;
+      if (b.stT >= (def.lookDuration || 1500)) {
+        const pr = def.patrolRadius || 60;
+        b.tx = Math.max(radius, Math.min(W - radius, b.x + (Math.random() * 2 - 1) * pr));
+        b.ty = Math.max(radius, Math.min(H - radius, b.y + (Math.random() * 2 - 1) * pr));
+        b.st = "patrol"; b.stT = 0;
+      }
+    }
+    b.x = Math.max(radius, Math.min(W - radius, b.x));
+    b.y = Math.max(radius, Math.min(H - radius, b.y));
+    simSolveObstacles(b, radius, obstacles);
+  }
+  // Keep the remembered snapshot current so whoever walks in next gets it.
+  room.lastBots = room.simBots.map((b) => ({
+    i: b.i, t: b.t,
+    x: Math.round(b.x * 10) / 10, y: Math.round(b.y * 10) / 10,
+    h: Math.max(0, Math.round(b.h)), mh: b.mh, a: b.a,
+    fa: Math.round(b.fa * 100) / 100, mv: b.mv, sx: b.sx, sy: b.sy,
+    rm: b.a ? 0 : Math.max(0, Math.round(b.respawnAt - now))
+  }));
+  room.lastBotsAt = now;
+}
+setInterval(() => {
+  const now = Date.now();
+  for (const room of rooms.values()) {
+    if (room.simBots && room.size === 0) simTickRoom(room, now);
+  }
+}, 250);
 // Loot lying on the ground in a room (dropped by enemies). The server keeps it
 // so people who join / come back later still see it — but only until it
 // actually despawns. NOTE: it lives in the server's memory, so it is lost
@@ -713,7 +837,7 @@ wss.on("connection", (ws) => {
       const isFirstInRoom = room.size === 0;
       players.set(id, me);
       room.set(id, me);
-      if (isFirstInRoom) { room.hostId = id; }   // keep room.lastBots: enemies come back as left
+      if (isFirstInRoom) { room.hostId = id; stopOfflineSim(room); }   // keep room.lastBots: enemies come back as they wandered to
       send(ws, {
         type: "init",
         id,
@@ -1067,7 +1191,7 @@ wss.on("connection", (ws) => {
         me.room = getRoom(me.server, me.channel, key);
         const isFirstInNewRoom = me.room.size === 0;
         me.room.set(me.id, me);
-        if (isFirstInNewRoom) { me.room.hostId = me.id; }   // keep me.room.lastBots: enemies come back as left
+        if (isFirstInNewRoom) { me.room.hostId = me.id; stopOfflineSim(me.room); }   // keep me.room.lastBots: enemies come back as they wandered to
 
         // Server decides where I land — not the client. Finds the portal
         // back to the map I just came from and puts me next to it.
