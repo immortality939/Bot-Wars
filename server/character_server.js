@@ -93,11 +93,11 @@ const CHARACTERS = {
 
 
   // FAST CHARACTER
-  police: {
-    name: "police",
+  Brawler: {
+    name: "Brawler",
     health: 100,
     armor: "armor1",
-    movementSpeed: 115,
+    movementSpeed: 110,
     weaponName: "uzi",
     currentHealth: 100,
     image: "image/bot_02.png",
@@ -157,7 +157,7 @@ const CHARACTERS = {
     // MAGIC ATTACK — this character's own innate magic damage, separate
     // from physicalDamage (see getAttackDamage() below: the two are
     // rolled and returned independently, never summed).
-    magicalAttack: 16,
+
 
     // Only one skill — SKILL1 gets heal1, SKILL2 stays empty (dimmed
     // placeholder in gameplay). ensureDefaultSkillsLoaded() in
@@ -170,8 +170,8 @@ const CHARACTERS = {
 
 
   // NORMAL SOLDIER
-  soldier: {
-    name: "soldier",
+  Magemaster: {
+    name: "Mage Master",
     health: 150,
     armor: "armor2",
     movementSpeed: 110,
@@ -184,7 +184,7 @@ const CHARACTERS = {
     level: 1,
     exp: 0,
     attackSpeed: 1,
-    physicalDamage: 12,
+    magicalDamage: 16,
     attack: "melee",
     criticalChance: 0.08,
     criticalDamage: 0.05,
@@ -195,15 +195,14 @@ const CHARACTERS = {
     dex: 5,
     int: 5,
     pow: 5,
-    magicalAttack: 12,
-    playerSkill: "voidhole,iceburst,fireball,fireexplosion,barrage,deadlystrike,slash1",
+    playerSkill: "voidhole,iceburst,fireball,fireexplosion,barrage,deadlystrike,cannonblast",
     description: "Balanced all-rounder with steady health, armor, and speed."
   },
 
 
   // HEAVY TANK CHARACTER
-  swat: {
-    name: "swat",
+  Bullwark: {
+    name: "Bullwark",
     health: 200,
     armor: "armor3",
     movementSpeed: 110,
@@ -227,8 +226,7 @@ const CHARACTERS = {
     dex: 5,
     int: 5,
     pow: 5,
-    magicalAttack: 9,
-    playerSkill: "defenseboost,shockring,cannonblast,firevorte,holynova,flamespiral,voidvortex",
+    playerSkill: "defenseboost,shockring,slash1,firevortex,holynova,flamespiral,voidvortex",
     description: "Heavy tank with high health and armor, but slow movement."
   }
 

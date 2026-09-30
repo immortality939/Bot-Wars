@@ -37,7 +37,7 @@ const SKILLS = {
 
   fireexplosion: {
     skill: "Fire Explosion",
-    physicalPercent: 3.0,
+    magicalPercent: 3.0,
     category: "skill",
     activationType: "melee",
     icon: "image/iconfireexplosion.png",
@@ -173,7 +173,7 @@ const SKILLS = {
 
   iceburst: {
     skill: "Ice Burst",
-    physicalPercent: 3.0,
+    magicalPercent: 3.0,
     category: "skill",
     activationType: "melee",
     icon: "image/iconiceburst.png",
@@ -221,7 +221,7 @@ const SKILLS = {
 
   voidvortex: {
     skill: "Void Vortex",
-    magicalPercent: 3.0,
+    physicalPercent: 3.0,
     category: "skill",
     activationType: "melee",
     icon: "image/iconvoidvortex.png",
@@ -238,7 +238,7 @@ const SKILLS = {
   icespear: {
     skill: "Ice Spear",
     category: "skill",
-    magicalPercent: 3.0,
+    physicalPercent: 3.0,
     activationType: "ground",
     attackType: "beam",
     icon: "image/iconicespear.png",
@@ -258,7 +258,7 @@ const SKILLS = {
   lightningbolt: {
     skill: "lightning bolt",
     category: "skill",
-    magicalPercent: 3.0,
+    physicalPercent: 3.0,
     activationType: "ground",
     attackType: "beam",
     icon: "image/iconlightningbolt.png",
@@ -391,7 +391,7 @@ const SKILLS = {
     // it, then tapping the ground fires it toward that point (see
     // handleTouchStart()'s ground-release branch in game.js).
     activationType: "ground",
-    physicalPercent: 3.0,
+    magicalPercent: 3.0,
     // ATTACK TYPE — "blast": like barrage's "beam", the ground tap only
     // picks a DIRECTION and the hit rectangle always reaches the skill's
     // full `range` that way. The difference from "beam" is purely visual:
@@ -455,7 +455,7 @@ const SKILLS = {
   // effect; the skill sound only plays once, on the first shot.
   deadlystrike: {
     skill: "deadlystrike",
-    physicalPercent: 1.0,
+    magicalPercent: 1.0,
     // CATEGORY — marks this as a skill-type item for the Inventory
     // screen's SKILL loadout (see barrage's `category` above).
     category: "skill",
