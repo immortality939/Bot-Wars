@@ -486,7 +486,7 @@ const rooms = new Map();
 function getRoom(serverId, channel, mapKey) {
   const k = serverId + ":" + channel + ":" + mapKey;
   let r = rooms.get(k);
-  if (!r) { r = new Map(); r.hostId = null; r.lastBots = null; r.drops = new Map(); r.nextDropId = 1; rooms.set(k, r); }
+  if (!r) { r = new Map(); r.hostId = null; r.lastBots = null; r.lastBotsAt = 0; r.drops = new Map(); r.nextDropId = 1; rooms.set(k, r); }
   return r;
 }
 // Picks anyone else left in the room to take over as bot host.
@@ -494,15 +494,35 @@ function pickNewHost(room, excludeId) {
   for (const p of room.values()) if (p.id !== excludeId) return p;
   return null;
 }
-// Hands bot-hosting duty to `next` (or clears it if the room is now empty),
-// wipes the stale snapshot, and tells everyone so nobody is left looking at
-// enemies that are no longer being simulated by anyone.
+// ENEMY MEMORY — how long (ms) a room remembers its enemies (health, position,
+// dead/alive + respawn countdown) after the host left / the room emptied.
+// Whoever hosts or walks into that map inside this window gets the enemies
+// back exactly as they were left (online.js's netRestoreHostedBots()); past
+// it the map starts fresh. Ground loot is remembered separately (drops).
+const ROOM_BOTS_KEEP_MS = 5 * 60 * 1000;   // 5 minutes
+
+// The room's remembered enemy snapshot, ready to hand to a host / joiner.
+// A dead enemy's `rm` (ms left until it respawns) is reduced by the time that
+// passed since the snapshot was taken, so it respawns on schedule instead of
+// getting a full new wait. [] when nothing is remembered (or it expired).
+function currentBots(room) {
+  if (!room.lastBots) return [];
+  const age = Date.now() - (room.lastBotsAt || 0);
+  if (age > ROOM_BOTS_KEEP_MS) { room.lastBots = null; return []; }
+  return room.lastBots.map((b) => (b && b.a === false)
+    ? Object.assign({}, b, { rm: Math.max(0, (Number(b.rm) || 0) - age) })
+    : b);
+}
+// Hands bot-hosting duty to `next` (or clears it if the room is now empty)
+// and tells everyone so nobody is left looking at enemies that are no longer
+// being simulated by anyone. The last snapshot is deliberately KEPT (see
+// ENEMY MEMORY above): the new host — or the next player to walk into the
+// emptied room — restores the enemies from it instead of spawning new ones.
 function reassignHost(room, leavingId) {
   if (room.hostId !== leavingId) return;
   const next = pickNewHost(room, leavingId);
   room.hostId = next ? next.id : null;
-  room.lastBots = null;
-  if (next) send(next.ws, { type: "botHost", host: true });
+  if (next) send(next.ws, { type: "botHost", host: true, bots: currentBots(room) });
   broadcast(room, { type: "botsReset" }, next ? next.id : -1);
 }
 // Loot lying on the ground in a room (dropped by enemies). The server keeps it
@@ -693,7 +713,7 @@ wss.on("connection", (ws) => {
       const isFirstInRoom = room.size === 0;
       players.set(id, me);
       room.set(id, me);
-      if (isFirstInRoom) { room.hostId = id; room.lastBots = null; }
+      if (isFirstInRoom) { room.hostId = id; }   // keep room.lastBots: enemies come back as left
       send(ws, {
         type: "init",
         id,
@@ -707,7 +727,7 @@ wss.on("connection", (ws) => {
         // not) here's the most recent snapshot so I'm not staring at an
         // empty map until the host's next tick — see "bots" below.
         botHost: room.hostId === id,
-        bots: room.lastBots || [],
+        bots: currentBots(room),
         drops: dropList(room)
       });
       // Start with "no clan" (clears anything stale on the client), then work
@@ -776,6 +796,7 @@ wss.on("connection", (ws) => {
       case "bots":
         if (me.room.hostId !== me.id || !Array.isArray(msg.list)) break;
         me.room.lastBots = msg.list;
+        me.room.lastBotsAt = Date.now();
         broadcast(me.room, { type: "bots", list: msg.list }, me.id);
         break;
 
@@ -1046,7 +1067,7 @@ wss.on("connection", (ws) => {
         me.room = getRoom(me.server, me.channel, key);
         const isFirstInNewRoom = me.room.size === 0;
         me.room.set(me.id, me);
-        if (isFirstInNewRoom) { me.room.hostId = me.id; me.room.lastBots = null; }
+        if (isFirstInNewRoom) { me.room.hostId = me.id; }   // keep me.room.lastBots: enemies come back as left
 
         // Server decides where I land — not the client. Finds the portal
         // back to the map I just came from and puts me next to it.
@@ -1059,7 +1080,7 @@ wss.on("connection", (ws) => {
           spawnX: me.x, spawnY: me.y,
           players: [...me.room.values()].filter((p) => p.id !== me.id).map(publicInfo),
           botHost: me.room.hostId === me.id,
-          bots: me.room.lastBots || [],
+          bots: currentBots(me.room),
           drops: dropList(me.room)
         });
         broadcast(me.room, { type: "playerAdd", player: publicInfo(me) }, me.id);
