@@ -127,7 +127,7 @@ const SKILLS = {
     attackType: "beam",
     icon: "image/iconvoidslash.png",
     shotTimes: 5,
-    shotInterval: 0.3,
+    shotInterval: 0.15,
     range: 200,
     width: 80,
     travelSpeed: 600,
@@ -269,7 +269,7 @@ const SKILLS = {
     travelSpeed: 600,
     cooldown: 5000,
     manaCost: 20,
-    hitEffect: "lightningbold",
+    hitEffect: "lightningbolt",
     skillSound: "",
     requiredLevel: 1,
     description: "⚡ LIGHTNING BOLT Summons a powerful bolt of lightning that strikes the target from above, dealing massive damage instantly. The electric impact shocks nearby enemies with a burst of energy."
