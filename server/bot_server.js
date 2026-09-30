@@ -2364,13 +2364,13 @@ const BOT_TYPES = {
     name: "Inferno Warlord",
     description: "A powerful fire-type boss bot covered in heavy armor and blazing energy. It attacks enemies with explosive fire strikes and becomes more dangerous when enraged.",
 
-    health: 300,
+    health: 50000,
     physicalDefense: "armor3",
     movementSpeed: 60,
     weaponName: "uzi",
 
     image: "image/boss1.png",
-    radius: 18,
+    radius: 16,
 
     viewRange: 300,
     viewAngle: 90,
@@ -2380,7 +2380,7 @@ const BOT_TYPES = {
 
     lookDuration: 1800,
 
-    respawn: 60,
+    respawn: 3600,
     active: false,
 
     spawnItem: "specialstone,armor1,armor2,armor3",
@@ -2414,7 +2414,7 @@ const BOT_TYPES = {
     weaponName: "shotgun",
 
     image: "image/boss2.png",
-    radius: 18,
+    radius: 16,
 
     viewRange: 309,
     viewAngle: 100,
@@ -2458,7 +2458,7 @@ const BOT_TYPES = {
     weaponName: "ak47",
 
     image: "image/boss3.png",
-    radius: 18,
+    radius: 16,
 
     viewRange: 318,
     viewAngle: 85,
@@ -2502,7 +2502,7 @@ const BOT_TYPES = {
     weaponName: "sniper",
 
     image: "image/boss4.png",
-    radius: 19,
+    radius: 16,
 
     viewRange: 327,
     viewAngle: 95,
@@ -2546,7 +2546,7 @@ const BOT_TYPES = {
     weaponName: "uzi",
 
     image: "image/boss5.png",
-    radius: 19,
+    radius: 16,
 
     viewRange: 336,
     viewAngle: 110,
@@ -2590,7 +2590,7 @@ const BOT_TYPES = {
     weaponName: "shotgun",
 
     image: "image/boss6.png",
-    radius: 19,
+    radius: 16,
 
     viewRange: 345,
     viewAngle: 120,
@@ -2634,7 +2634,7 @@ const BOT_TYPES = {
     weaponName: "ak47",
 
     image: "image/boss7.png",
-    radius: 20,
+    radius: 16,
 
     viewRange: 354,
     viewAngle: 90,
@@ -2678,7 +2678,7 @@ const BOT_TYPES = {
     weaponName: "sniper",
 
     image: "image/boss8.png",
-    radius: 20,
+    radius: 16,
 
     viewRange: 363,
     viewAngle: 105,
@@ -2722,7 +2722,7 @@ const BOT_TYPES = {
     weaponName: "uzi",
 
     image: "image/boss9.png",
-    radius: 20,
+    radius: 16,
 
     viewRange: 372,
     viewAngle: 100,
@@ -2766,7 +2766,7 @@ const BOT_TYPES = {
     weaponName: "shotgun",
 
     image: "image/boss10.png",
-    radius: 21,
+    radius: 16,
 
     viewRange: 381,
     viewAngle: 80,
@@ -2810,7 +2810,7 @@ const BOT_TYPES = {
     weaponName: "ak47",
 
     image: "image/boss11.png",
-    radius: 21,
+    radius: 16,
 
     viewRange: 390,
     viewAngle: 85,
@@ -2854,7 +2854,7 @@ const BOT_TYPES = {
     weaponName: "sniper",
 
     image: "image/boss12.png",
-    radius: 21,
+    radius: 16,
 
     viewRange: 399,
     viewAngle: 95,
@@ -2898,7 +2898,7 @@ const BOT_TYPES = {
     weaponName: "uzi",
 
     image: "image/boss13.png",
-    radius: 22,
+    radius: 16,
 
     viewRange: 408,
     viewAngle: 110,
@@ -2942,7 +2942,7 @@ const BOT_TYPES = {
     weaponName: "shotgun",
 
     image: "image/boss14.png",
-    radius: 22,
+    radius: 16,
 
     viewRange: 417,
     viewAngle: 100,
@@ -2986,7 +2986,7 @@ const BOT_TYPES = {
     weaponName: "ak47",
 
     image: "image/boss15.png",
-    radius: 22,
+    radius: 16,
 
     viewRange: 426,
     viewAngle: 115,
@@ -3030,7 +3030,7 @@ const BOT_TYPES = {
     weaponName: "sniper",
 
     image: "image/boss16.png",
-    radius: 23,
+    radius: 16,
 
     viewRange: 435,
     viewAngle: 105,
@@ -3074,7 +3074,7 @@ const BOT_TYPES = {
     weaponName: "uzi",
 
     image: "image/boss17.png",
-    radius: 23,
+    radius: 16,
 
     viewRange: 444,
     viewAngle: 120,

@@ -75,6 +75,29 @@
 // ---------------------------------------------------------------------------
 const ARMOR_TYPES = {
 
+  armor1A: {
+    name: "armor1",
+    image: "image/armor1.png",
+    radius: 10,
+    physicalDefense: 15,
+    physicalDamage:400,
+    health: 300,
+    mana:300,
+    hpRegen:0.2,
+    manaRegen:0.2
+    vit:50,
+    pow:50,
+    dex:50,
+    int:50,
+    criticalDamage:1.0,
+    criticalChance:0.25,
+    block: 2,
+    category: "armor",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Light armor — small armor and health boost."
+  },
+
   armor1: {
     name: "armor1",
     image: "image/armor1.png",
