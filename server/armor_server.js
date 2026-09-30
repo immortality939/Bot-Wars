@@ -81,10 +81,10 @@ const ARMOR_TYPES = {
     radius: 10,
     physicalDefense: 15,
     physicalDamage:400,
-    health: 300,
+    health: 1000,
     mana:300,
     hpRegen:0.2,
-    manaRegen:0.2
+    manaRegen:0.2,
     vit:50,
     pow:50,
     dex:50,
