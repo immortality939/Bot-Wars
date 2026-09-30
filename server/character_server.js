@@ -184,7 +184,7 @@ const CHARACTERS = {
     level: 1,
     exp: 0,
     attackSpeed: 1,
-    magicalDamage: 16,
+    magicalAttack: 16,
     attack: "melee",
     criticalChance: 0.08,
     criticalDamage: 0.05,
