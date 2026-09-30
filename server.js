@@ -408,6 +408,35 @@ function broadcastClanUpdate(clan) {
   }
 }
 
+// LAST POSITION — a player who logs in again starts on the map and at the exact
+// spot where they left (the client saves it with the account and sends it in
+// "join" as lastPos). The server never just trusts it: the map must exist, the
+// point must be inside it and not inside an obstacle, and a spot on top of a
+// portal is moved just past it (same offset getPortalArrivalSpawn() uses) so
+// logging in can't instantly warp you to another map. Returns {map,x,y} or null.
+function validateSavedSpot(lp) {
+  if (!lp || typeof lp !== "object") return null;
+  const key = String(lp.map || "");
+  const map = MAPS[key];
+  if (!map || typeof lp.x !== "number" || typeof lp.y !== "number" || !isFinite(lp.x) || !isFinite(lp.y)) return null;
+  const pad = 20;
+  let x = Math.max(pad, Math.min(map.worldWidth - pad, lp.x));
+  let y = Math.max(pad, Math.min(map.worldHeight - pad, lp.y));
+  for (const p of (map.portals || [])) {
+    if (x >= p.x - 30 && x <= p.x + p.width + 30 && y >= p.y - 30 && y <= p.y + p.height + 30) {
+      const cx = p.x + p.width / 2, cy = p.y + p.height / 2;
+      const dx = map.worldWidth / 2 - cx, dy = map.worldHeight / 2 - cy;
+      const d = Math.hypot(dx, dy) || 1;
+      x = cx + (dx / d) * 45; y = cy + (dy / d) * 45;
+      break;
+    }
+  }
+  for (const o of (map.obstacles || [])) {
+    if (x >= o.x - pad && x <= o.x + o.width + pad && y >= o.y - pad && y <= o.y + o.height + pad) return null;
+  }
+  return { map: key, x, y };
+}
+
 // Removes p from their clan. A clan with nobody left is deleted; if the
 // leader left, leadership passes to whoever's been in the clan longest.
 function removeFromClan(p) {
@@ -805,7 +834,9 @@ wss.on("connection", (ws) => {
         return;
       }
 
-      const room = getRoom(serverId, channel, START_MAP);
+      const savedSpot = validateSavedSpot(msg.lastPos);   // null -> normal start
+      const startMap = savedSpot ? savedSpot.map : START_MAP;
+      const room = getRoom(serverId, channel, startMap);
       const id = nextId++;
       const chars = GAME_DATA.CHARACTERS || {};
       const wanted = String(msg.character || "soldier").slice(0, 24);
@@ -817,10 +848,10 @@ wss.on("connection", (ws) => {
         : "";
       me = {
         id, ws,
-        server: serverId, channel, map: START_MAP, room, lastMapChange: 0,
+        server: serverId, channel, map: startMap, room, lastMapChange: 0,
         name: wantedName || ("Player " + id),
         character: chars[wanted] ? wanted : (Object.keys(chars)[0] || "soldier"),
-        x: 0, y: 0,
+        x: savedSpot ? savedSpot.x : 0, y: savedSpot ? savedSpot.y : 0,
         health: 100, maxHealth: 100,
         mana: 0, maxMana: 0, exp: 0, maxExp: 0,
         alive: true,
@@ -845,6 +876,10 @@ wss.on("connection", (ws) => {
         server: serverId,
         channel,
         pvp: channel === CHANNEL_PVP,
+        // set only when restoring the spot where this player last logged out
+        map: savedSpot ? startMap : undefined,
+        spawnX: savedSpot ? savedSpot.x : undefined,
+        spawnY: savedSpot ? savedSpot.y : undefined,
         players: [...room.values()].filter((p) => p.id !== id).map(publicInfo),
         data: GAME_DATA,   // the online numbers + the world map
         // PvE: am I responsible for simulating this room's enemies, and (if
