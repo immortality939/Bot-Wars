@@ -211,6 +211,46 @@ const BOT_TYPES = {
 
     botSkill: ""
   },
+  
+  bot01elite: {
+    name: "Elite Officer",
+    description: "A police-type patrol bot with a blue armored shell and a star badge on its chest. It keeps watch over its area and moves in fast on anything suspicious.",
+    health: 400,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    image: "image/police.png",
+    radius: 13,
+    viewRange: 220,
+    viewAngle: 80,
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 7,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 1,
+    expGet: 11,
+
+    attackSpeed: 1,
+    physicalDamage: 14,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
 
   bot02: {
     name: "Shadow Ninja",
@@ -299,6 +339,50 @@ const BOT_TYPES = {
 
     botSkill: ""
   },
+  
+  bot03elite: {
+    name: "Elite Warlord",
+    description: "A war-machine bot with purple and silver armor and a menacing faction emblem on its chest. It leads from the front and hits hard with cold, mechanical precision.",
+
+    health: 500,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_03.png",
+    radius: 13,
+
+    viewRange: 220,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 14,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 2,
+    expGet: 19,
+
+    attackSpeed: 1,
+    physicalDamage: 15,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
 
   bot04: {
     name: "SWAT Trooper",
@@ -343,6 +427,50 @@ const BOT_TYPES = {
 
     botSkill: ""
   },
+  
+    bot04elite: {
+    name: "Elite Trooper",
+    description: "A tactical assault bot in black armor marked SWAT, with flashing blue lights. It pushes into enemy positions and fights with strict discipline.",
+
+    health: 600,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_04.png",
+    radius: 11,
+
+    viewRange: 220,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 16,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 3,
+    expGet: 22,
+
+    attackSpeed: 1,
+    physicalDamage: 16,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
 
   bot05: {
     name: "Fire Marshal",
@@ -378,6 +506,50 @@ const BOT_TYPES = {
 
     attackSpeed: 1,
     physicalDamage: 13,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+ 
+   bot05elite: {
+    name: "Elite Marshal",
+    description: "A rescue-type bot in red and yellow armor with a firefighter emblem. It charges into danger without fear and shrugs off heavy damage.",
+
+    health: 750,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:8,
+    image: "image/bot_05.png",
+    radius: 13,
+
+    viewRange: 260,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 19,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 4,
+    expGet: 25,
+
+    attackSpeed: 1,
+    physicalDamage: 18,
     attack: "melee",
     criticalChance: 0.08,
     criticalDamage: 0.05,
@@ -475,6 +647,50 @@ const BOT_TYPES = {
 
     botSkill: ""
   },
+  
+    bot07elite: {
+    name: "Elite Commando",
+    description: "A military-type bot in green camouflage plating with a white star. It holds its ground like a veteran soldier and follows its targets with discipline.",
+
+    health: 1000,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_07.png",
+    radius: 13,
+
+    viewRange: 260,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 25,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 5,
+    expGet: 30,
+
+    attackSpeed: 1,
+    physicalDamage: 29,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
 
   bot08: {
     name: "Red Dragon",
@@ -563,6 +779,50 @@ const BOT_TYPES = {
 
     botSkill: ""
   },
+  
+    bot09elite: {
+    name: "Elite Frost",
+    description: "An ice-type bot with pale blue and silver armor and a snowflake core. It stays cool and calm, guarding its area and chilling anything that gets close.",
+
+    health: 1600,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:10,
+    image: "image/bot_09.png",
+    radius: 13,
+
+    viewRange: 300,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 32,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 6,
+    expGet: 37,
+
+    attackSpeed: 1,
+    physicalDamage: 45,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
 
   bot10: {
     name: "Horned Demon",
@@ -598,6 +858,50 @@ const BOT_TYPES = {
 
     attackSpeed: 1,
     physicalDamage: 43,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot10elite: {
+    name: "Elite Demon",
+    description: "A demon-type bot in black armor with glowing red veins, curved horns and burning eyes. It is ruthless and hits with brutal force.",
+
+    health: 2200,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_10.png",
+    radius: 13,
+
+    viewRange: 300,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 38,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 7,
+    expGet: 46,
+
+    attackSpeed: 1,
+    physicalDamage: 49,
     attack: "melee",
     criticalChance: 0.08,
     criticalDamage: 0.05,
@@ -651,6 +955,50 @@ const BOT_TYPES = {
 
     botSkill: ""
   },
+  
+    bot11elite: {
+    name: "Elite Invader",
+    description: "An alien-type bot with a glowing green shell and an alien face emblem. It wanders strangely and attacks without warning.",
+
+    health: 3100,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_11.png",
+    radius: 13,
+
+    viewRange: 300,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 47,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 8,
+    expGet: 50,
+
+    attackSpeed: 1,
+    physicalDamage: 58,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
 
   bot12: {
     name: "Road Racer",
@@ -695,6 +1043,50 @@ const BOT_TYPES = {
 
     botSkill: ""
   },
+  
+    bot12elite: {
+    name: "Elite Racer",
+    description: "A speed-type bot in red and white armor with a checkered flag emblem. It is built for fast movement and rushes at enemies before they can react.",
+
+    health: 3600,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_12.png",
+    radius: 13,
+
+    viewRange: 300,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 52,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 9,
+    expGet: 52,
+
+    attackSpeed: 1,
+    physicalDamage: 59,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
 
   bot13: {
     name: "Hooded Assassin",
@@ -702,7 +1094,7 @@ const BOT_TYPES = {
 
     health: 2200,
     physicalDefense: "armor2",
-    movementSpeed: 105,
+    movementSpeed: 90,
     weaponName: "uzi",
 
     image: "image/bot_13.png",
@@ -730,6 +1122,50 @@ const BOT_TYPES = {
 
     attackSpeed: 1,
     physicalDamage: 60,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot13elite: {
+    name: "Elite Assassin",
+    description: "A stealth-type assassin bot in dark purple armor with a hooded face. It hides in the shadows and ambushes its targets.",
+
+    health: 4400,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_13.png",
+    radius: 13,
+
+    viewRange: 340,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 60,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 9,
+    expGet: 58,
+
+    attackSpeed: 1,
+    physicalDamage: 70,
     attack: "melee",
     criticalChance: 0.08,
     criticalDamage: 0.05,
@@ -774,6 +1210,50 @@ const BOT_TYPES = {
 
     attackSpeed: 1,
     physicalDamage: 67,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot14elite: {
+    name: "Elite Guardian",
+    description: "A hero-type bot in red and blue armor with a heroic faction emblem. It defends its area bravely and never backs down from a fight.",
+
+    health: 4210,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_14.png",
+    radius: 13,
+
+    viewRange: 340,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 67,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 10,
+    expGet: 75,
+
+    attackSpeed: 1,
+    physicalDamage: 75,
     attack: "melee",
     criticalChance: 0.08,
     criticalDamage: 0.05,
@@ -871,6 +1351,50 @@ const BOT_TYPES = {
 
     botSkill: ""
   },
+  
+    bot16elite: {
+    name: "Elite Cyber Core",
+    description: "A cyber-type bot with neon purple and cyan lights and a glowing power symbol. It moves like a machine that never shuts down and attacks with electric energy.",
+
+    health: 7000,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_16.png",
+    radius: 13,
+
+    viewRange: 340,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 90,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 11,
+    expGet: 90,
+
+    attackSpeed: 1,
+    physicalDamage: 105,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
 
   bot17: {
     name: "Skull Raider",
@@ -945,11 +1469,55 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 1,
+    level: 11,
     expGet: 130,
 
     attackSpeed: 1,
     physicalDamage: 140,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot18elite: {
+    name: "Elite Wolf",
+    description: "A wolf-type bot in blue and silver armor with a snarling wolf emblem. It hunts its territory with sharp senses and strikes fast.",
+
+    health: 9600,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_18.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 140,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 12,
+    expGet: 140,
+
+    attackSpeed: 1,
+    physicalDamage: 150,
     attack: "melee",
     criticalChance: 0.08,
     criticalDamage: 0.05,
@@ -1048,6 +1616,50 @@ const BOT_TYPES = {
     botSkill: ""
   },
   
+    bot20elite: {
+    name: "Elite Samurai",
+    description: "A samurai-type bot in purple and gold armor with a horned oni mask. It fights with fierce honor and strikes with heavy, powerful blows.",
+
+    health: 13000,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_20.png",
+    radius: 13,
+    magicAttack:20,
+    viewRange: 380,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 190,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 13,
+    expGet: 170,
+
+    attackSpeed: 1,
+    physicalDamage: 190,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
     bot21: {
     name: "Oni Samurai",
     description: "A samurai-type bot in purple and gold armor with a horned oni mask. It fights with fierce honor and strikes with heavy, powerful blows.",
@@ -1080,6 +1692,50 @@ const BOT_TYPES = {
     mana: 100,
     hpRegen: 0.01,
     manaRegen: 0.01,
+    botSkill: ""
+  },
+  
+    bot20elite: {
+    name: "Elite Raider",
+    description: "A death-type bot in black and red armor with a white skull on its chest. It raids the area without mercy and finishes off anything it catches.",
+
+    health: 1500,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:20,
+    image: "image/bot_17.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 220,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 14,
+    expGet: 205,
+
+    attackSpeed: 1,
+    physicalDamage: 220,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
     botSkill: ""
   },
   
@@ -1117,6 +1773,50 @@ const BOT_TYPES = {
 
     attackSpeed: 1,
     physicalDamage: 230,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+      bot21elite: {
+    name: "Elite Demon",
+    description: "A demon-type bot in black armor with glowing red veins, curved horns and burning eyes. It is ruthless and hits with brutal force.",
+
+    health: 18000,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_10.png",
+    radius: 13,
+
+    viewRange: 300,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: false,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 260,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 15,
+    expGet: 230,
+
+    attackSpeed: 1,
+    physicalDamage: 250,
     attack: "melee",
     criticalChance: 0.08,
     criticalDamage: 0.05,
@@ -1215,6 +1915,50 @@ const BOT_TYPES = {
     botSkill: ""
   },
   
+    bot23elite: {
+    name: "Elite Cyber Core",
+    description: "A cyber-type bot with neon purple and cyan lights and a glowing power symbol. It moves like a machine that never shuts down and attacks with electric energy.",
+
+    health: 23000,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_16.png",
+    radius: 13,
+    magicAttack:30,
+    viewRange: 340,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 310,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 16,
+    expGet: 280,
+
+    attackSpeed: 1,
+    physicalDamage: 275,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
   bot15: {
     name: "Royal Guard",
     description: "An elite guard bot in gold and black armor with a crown emblem. It protects its territory with pride and heavy, disciplined strikes.",
@@ -1248,6 +1992,49 @@ const BOT_TYPES = {
     expGet: 275,
     attackSpeed: 1,
     physicalDamage: 278,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot24elite: {
+    name: "Elite Guard",
+    description: "An elite guard bot in gold and black armor with a crown emblem. It protects its territory with pride and heavy, disciplined strikes.",
+
+    health: 26000,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "ak47",
+    magicAttack:30,
+    image: "image/bot_15.png",
+    radius: 13,
+
+    viewRange: 340,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 340,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 17,
+    expGet: 300,
+    attackSpeed: 1,
+    physicalDamage: 290,
     attack: "melee",
     criticalChance: 0.08,
     criticalDamage: 0.05,
@@ -1302,6 +2089,50 @@ const BOT_TYPES = {
     botSkill: ""
   },
   
+      bot25elite: {
+    name: "Elite Frost",
+    description: "An ice-type bot with pale blue and silver armor and a snowflake core. It stays cool and calm, guarding its area and chilling anything that gets close.",
+
+    health: 28400,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:20,
+    image: "image/bot_09.png",
+    radius: 13,
+
+    viewRange: 300,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 360,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 18,
+    expGet: 320,
+
+    attackSpeed: 1,
+    physicalDamage: 325,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
     bot25: {
     name: "Skull Raider",
     description: "A death-type bot in black and red armor with a white skull on its chest. It raids the area without mercy and finishes off anything it catches.",
@@ -1336,6 +2167,50 @@ const BOT_TYPES = {
 
     attackSpeed: 1,
     physicalDamage: 320,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot26elite: {
+    name: "Elite Raider",
+    description: "A death-type bot in black and red armor with a white skull on its chest. It raids the area without mercy and finishes off anything it catches.",
+
+    health: 31000,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:20,
+    image: "image/bot_17.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 390,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 19,
+    expGet: 340,
+
+    attackSpeed: 1,
+    physicalDamage: 340,
     attack: "melee",
     criticalChance: 0.08,
     criticalDamage: 0.05,
@@ -1400,7 +2275,7 @@ const BOT_TYPES = {
     weaponName: "shotgun",
 
     image: "image/bot_18.png",
-    radius: 12,
+    radius: 11,
 
     viewRange: 380,
     viewAngle: 100,
@@ -1424,6 +2299,50 @@ const BOT_TYPES = {
 
     attackSpeed: 1,
     physicalDamage: 360,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+      bot27elite: {
+    name: "Elite Wolf",
+    description: "A wolf-type bot in blue and silver armor with a snarling wolf emblem. It hunts its territory with sharp senses and strikes fast.",
+
+    health: 36000,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_18.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: false,
+
+    spawnItem: "specialstone",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 420,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 21,
+    expGet: 370,
+
+    attackSpeed: 1,
+    physicalDamage: 390,
     attack: "melee",
     criticalChance: 0.08,
     criticalDamage: 0.05,
