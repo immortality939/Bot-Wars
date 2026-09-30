@@ -217,6 +217,66 @@ function spendPlayerMana(playerState, skillName) {
   playerState.mana = Math.max(0, playerState.mana - cost);
 }
 
+// ---------------------------------------------------------------------------
+// WIRED IN (server.js): the server now keeps its OWN mana count for every
+// player (playerState.mana / maxMana) and a skill only counts if the server
+// charged for it:
+//   * the client sends {type:"skillUse", skill} whenever it fires a skill
+//     (online.js wraps runSkillActivation) -> tryPaySkillUse() looks the
+//     skill's manaCost up in skill_server.js (never trusts the client's
+//     number) and takes it from the server's count. No mana = not paid.
+//   * server.js drops every skill "hit"/"botHit" and "skillBuff" unless a
+//     paid skill use is still open (hasPaidSkillUse()), so a modified client
+//     that skips the local mana check just hits for 0.
+//   * the client still reports its mana in "state" messages (it knows its
+//     gear/stat bonuses), but syncReportedMana() never lets that number jump
+//     up faster than MANA_REGEN_CAP_PER_SEC, so you can't report yourself
+//     back to full mana.
+// Numbers you may want to tune are the three constants right below.
+// ---------------------------------------------------------------------------
+const MAX_PLAYER_MANA = 3000;            // the highest max mana a client may claim
+const MANA_REGEN_CAP_PER_SEC = 0.05;     // most mana (fraction of max) the server accepts regaining per second (normal regen is ~0.01)
+const SKILL_PAID_HIT_WINDOW_MS = 3000;   // how long after paying, that skill's hits/buffs are still accepted (+ its multi-shot time)
+
+// Called from server.js's "state" case with what the client REPORTED.
+function syncReportedMana(playerState, reportedMana, reportedMaxMana, nowAlive, now) {
+  const max = Math.min(MAX_PLAYER_MANA, Math.max(0,
+    Number.isFinite(reportedMaxMana) ? reportedMaxMana : (playerState.maxMana || 0)));
+  const rep = Math.max(0, Math.min(max,
+    Number.isFinite(reportedMana) ? reportedMana : (playerState.mana || 0)));
+  const last = playerState.manaSyncAt || 0;
+  const dt = last ? Math.min(5, Math.max(0, (now - last) / 1000)) : 0;
+  if (!playerState.manaSynced || (nowAlive && playerState.alive === false)) {
+    // first report after joining, or just respawned: mana is refilled
+    playerState.mana = rep;
+    playerState.manaSynced = true;
+  } else {
+    // can go DOWN freely; can only go UP by what real regen could give
+    playerState.mana = Math.min(rep, max, (playerState.mana || 0) + max * MANA_REGEN_CAP_PER_SEC * dt);
+  }
+  playerState.maxMana = max;
+  playerState.manaSyncAt = now;
+}
+
+// Charges a skill use. Returns true (paid, mana taken, hits now accepted) or false.
+function tryPaySkillUse(playerState, skillName, now) {
+  const skill = SKILLS[skillName];
+  if (!skill) return false;
+  if (!hasEnoughPlayerMana(playerState, skillName)) return false;
+  spendPlayerMana(playerState, skillName);
+  const shots = Math.max(1, Math.trunc(skill.shotTimes) || 1);
+  const gapMs = Math.max(0, Number(skill.shotInterval) || 0) * 1000;
+  playerState.skillPaidUntil = now + SKILL_PAID_HIT_WINDOW_MS + (shots - 1) * gapMs;
+  playerState.skillPaidName = skillName;
+  return true;
+}
+
+// True while a paid skill use is still open (optionally for one named skill).
+function hasPaidSkillUse(playerState, now, skillName) {
+  if (now >= (playerState.skillPaidUntil || 0)) return false;
+  return !skillName || playerState.skillPaidName === skillName;
+}
+
 
 
 // ---------------------------------------------------------------------------
@@ -324,6 +384,9 @@ if (typeof module !== "undefined") {
     lockPlayerSkillUse,
     hasEnoughPlayerMana,
     spendPlayerMana,
+    syncReportedMana,
+    tryPaySkillUse,
+    hasPaidSkillUse,
     getPortalArrivalSpawn
   };
 }
