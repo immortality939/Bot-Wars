@@ -148,6 +148,49 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify(out));
     return;
   }
+  // Real ONLINE stats of every character (from character_server.js) for the
+  // stats popup on the online character picker — that popup opens BEFORE the
+  // server has sent its game data, so without this it shows the offline
+  // character.js numbers.
+  if (path === "/characterstats") {
+    const out = {};
+    const chars = GAME_DATA.CHARACTERS || {};
+    // getCharacter() looks armor up through a browser-style global; expose it
+    // only for this synchronous block, then put everything back.
+    const need = ["getArmor", "getWeapon"];
+    const saved = {};
+    for (const n of need) {
+      saved[n] = global[n];
+      if (typeof GAME_DATA[n] === "function") global[n] = GAME_DATA[n];
+    }
+    try {
+      for (const n in chars) {
+        try {
+          const c = GAME_DATA.getCharacter(n);
+          out[n] = {
+            health: c.health, physicalDefense: c.physicalDefense,
+            magicalDefense: c.magicalDefense, magicalAttack: c.magicalAttack,
+            criticalChance: c.criticalChance, criticalDamage: c.criticalDamage,
+            mana: c.mana, movementSpeed: chars[n].movementSpeed,
+            weaponName: chars[n].weaponName, description: chars[n].description || "",
+            vit: chars[n].vit || 0, dex: chars[n].dex || 0,
+            int: chars[n].int || 0, pow: chars[n].pow || 0
+          };
+        } catch (e) { /* skip a character that fails to resolve */ }
+      }
+    } finally {
+      for (const n of need) {
+        if (saved[n] === undefined) delete global[n]; else global[n] = saved[n];
+      }
+    }
+    res.writeHead(200, {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Cache-Control": "no-store"
+    });
+    res.end(JSON.stringify(out));
+    return;
+  }
   res.writeHead(200, { "Content-Type": "text/plain" });
   res.end("Bot Wars server OK — players online: " + players.size + "\n");
 });
