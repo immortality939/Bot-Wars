@@ -76,7 +76,7 @@
 const ARMOR_TYPES = {
 
   armor1A: {
-    name: "armor1",
+    name: "armor1a",
     image: "image/armor1.png",
     radius: 10,
     physicalDefense: 15,
