@@ -58,7 +58,7 @@ const BOT_TYPES = {
     manaRegen: 0.01,
     // BOT SKILL — see the full explanation on the guard entry below, and
     // on bot.js's BOT_TYPES.rusher. Keep in sync by hand.
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: ""
   },
 
   // GUARD — slow, heavily armored, holds ground, wide FOV (hard to flank
@@ -100,7 +100,7 @@ const BOT_TYPES = {
     // for the duration of the match, so a player can't remove/edit
     // guard's skills locally to make it easier. Keep in sync with
     // bot.js by hand, same as every other field in this file.
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: ""
   },
 
   assaulter: {
@@ -429,7 +429,7 @@ const BOT_TYPES = {
     hpRegen: 0.01,
     manaRegen: 0.01,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: ""
   },
 
   bot07: {
@@ -517,7 +517,7 @@ const BOT_TYPES = {
     hpRegen: 0.01,
     manaRegen: 0.01,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: ""
   },
 
   bot09: {
