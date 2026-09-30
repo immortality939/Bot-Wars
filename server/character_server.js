@@ -100,7 +100,7 @@ const CHARACTERS = {
     movementSpeed: 115,
     weaponName: "uzi",
     currentHealth: 100,
-    image: "image/bot2.png",
+    image: "image/bot02.png",
     radius: 13,
     cameraZoom: 1.2,
     unitExplode: "unitexplode",
