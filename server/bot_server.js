@@ -2393,7 +2393,7 @@ const BOT_TYPES = {
     expGet: 150,
 
     attackSpeed: 1,
-    physicalDamage: 20,
+    physicalDamage: 440,
     attack: "melee",
     criticalChance: 0.1,
     criticalDamage: 0.05,
