@@ -2195,5 +2195,114 @@ const BOT_TYPES = {
 
 };
 
+// =============================================================================
+// ONLINE DRAWING — drawBots() (enemy sprite, health bar, NAME and LEVEL)
+// =============================================================================
+// Functions in a *_server.js file replace the game's own function of the same
+// name while you are ONLINE (online.js's netInstallServerCode() — the same way
+// character_server.js's functions work), and the original comes back when you
+// leave. So this is the real online look of an enemy: change the name/level
+// layout here and it only affects online mode. bot.js has its own copy for
+// OFFLINE. The name shown is each bot type's `name` field above.
+// (server.js only loads this file in Node to read BOT_TYPES — it never calls
+// drawBots, so the browser-only names used inside are fine.)
+// =============================================================================
+
+function drawBots(ctx, bots, worldOffsetX, worldOffsetY) {
+
+  for (const bot of bots) {
+    if (!bot.alive) continue;
+
+    const screenX = worldOffsetX + bot.x;
+    const screenY = worldOffsetY + bot.y;
+    const imgSize = bot.radius * 2;
+
+    ctx.save();
+    ctx.translate(screenX, screenY);
+
+    if (bot.image && bot.image.complete && bot.image.naturalWidth > 0) {
+      ctx.drawImage(bot.image, -imgSize / 2, -imgSize / 2, imgSize, imgSize);
+    } else {
+      ctx.fillStyle = "#f44";
+      ctx.beginPath();
+      ctx.arc(0, 0, bot.radius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Movement direction arrow — image/arrow.png, rotated to bot.facingAngle
+    // and shown only while the bot is actually moving (bot.isMoving, set in
+    // updateBot()'s chase/search/patrol cases above). Sits just outside the
+    // bot's own circle, pointing the way it's walking.
+    if (bot.isMoving && botArrowImage.complete && botArrowImage.naturalWidth > 0) {
+      const arrowSize = Math.max(14, bot.radius * 0.9);
+      const arrowDist = bot.radius + 6 + arrowSize / 2;
+
+      ctx.save();
+      ctx.rotate(bot.facingAngle);
+      ctx.translate(arrowDist, 0);
+      // arrow.png is drawn pointing right (angle 0) by default; rotate an
+      // extra 90deg here only if the source art actually points up instead.
+      ctx.drawImage(botArrowImage, -arrowSize / 2, -arrowSize / 2, arrowSize, arrowSize);
+      ctx.restore();
+    }
+
+    // WEAPON UPGRADE AURA — colored glow tiered by bot.weapon.upgradeLevel
+    if (typeof drawWeaponUpgradeAura === "function") {
+      drawWeaponUpgradeAura(ctx, bot.radius, bot.weapon && bot.weapon.upgradeLevel);
+    }
+
+    ctx.restore();
+
+    // Health bar — enemy palette (healthborder1.png / healthhud1.png,
+    // shared healthempty.png backdrop). drawImageHealthBar is defined in
+    // effect.js (loads before bot.js — see index.html script order).
+    const hpPercent = Math.max(0, bot.health / bot.maxHealth);
+    const barWidth = 30;
+    const barHeight = 4;
+
+    drawImageHealthBar(
+      ctx,
+      screenX - barWidth / 2, screenY - bot.radius - 10, barWidth, barHeight,
+      hpPercent,
+      healthBorderImage1, healthHudImage1, healthEmptyImage
+    );
+
+    // NAME + LEVEL — stacked above the health bar, top to bottom:
+    //     Lv 1
+    //     Patrol Officer
+    //     [health bar]
+    // The name is the bot type's `name` field (BOT_TYPES here offline,
+    // bot_server.js online — BOT_TYPES is swapped for the server's table
+    // while playing online, and guests' puppet bots keep the same `type`,
+    // so this works for everyone). A plain lowercase name (old types like
+    // "rusher") is shown Title Cased.
+    ctx.font = "9px 'Courier New', Courier, monospace";
+    ctx.textAlign = "center";
+    const botDef = (typeof BOT_TYPES !== "undefined" && BOT_TYPES[bot.type]) || null;
+    let nameLabel = (botDef && botDef.name) ? String(botDef.name) : "";
+    if (nameLabel && nameLabel === nameLabel.toLowerCase()) {
+      nameLabel = nameLabel.replace(/\b[a-z]/g, (c) => c.toUpperCase());
+    }
+    const nameLabelY = screenY - bot.radius - 13;
+    const levelLabel = "Lv " + (bot.level || 1);
+    // With a name: name sits right above the bar, Lv stacked above it.
+    // Without one: the old single Lv line.
+    const levelLabelY = nameLabel ? nameLabelY - 10 : nameLabelY;
+    // Cheap "shadow" — draw the text once in dark, 1px offset, then the
+    // real color on top. Same readable pop as shadowBlur, no blur cost.
+    if (nameLabel) {
+      ctx.fillStyle = "rgba(0,0,0,0.9)";
+      ctx.fillText(nameLabel, screenX + 1, nameLabelY + 1);
+      ctx.fillStyle = "#ffffff";
+      ctx.fillText(nameLabel, screenX, nameLabelY);
+    }
+    ctx.fillStyle = "rgba(0,0,0,0.9)";
+    ctx.fillText(levelLabel, screenX + 1, levelLabelY + 1);
+    ctx.fillStyle = "#ffe066";
+    ctx.fillText(levelLabel, screenX, levelLabelY);
+    ctx.textAlign = "left";
+  }
+}
+
 // ---- export for server.js (Node) ----
 if (typeof module !== "undefined") module.exports = { BOT_TYPES };
