@@ -482,7 +482,7 @@ const BOT_TYPES = {
     weaponName: "uzi",
     magicAttack:8,
     image: "image/bot_05.png",
-    radius: 13,
+    radius: 11,
 
     viewRange: 260,
     viewAngle: 70,
