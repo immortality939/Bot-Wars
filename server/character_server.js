@@ -96,7 +96,7 @@ const CHARACTERS = {
   Brawler: {
     name: "Brawler",
     health: 100,
-    armor: "armor1",
+    armor: "armor1A",
     movementSpeed: 110,
     weaponName: "uzi",
     currentHealth: 100,
