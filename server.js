@@ -170,6 +170,7 @@ const server = http.createServer((req, res) => {
           out[n] = {
             health: c.health, physicalDefense: c.physicalDefense,
             magicalDefense: c.magicalDefense, magicalAttack: c.magicalAttack,
+            physicalDamage: c.physicalDamage,
             criticalChance: c.criticalChance, criticalDamage: c.criticalDamage,
             mana: c.mana, movementSpeed: chars[n].movementSpeed,
             weaponName: chars[n].weaponName, description: chars[n].description || "",
