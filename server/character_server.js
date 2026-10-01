@@ -208,7 +208,7 @@ const CHARACTERS = {
     movementSpeed: 110,
     weaponName: "shotgun",
     currentHealth: 200,
-    image: "image/bot_20.png",
+    image: "image/bot_21.png",
     radius: 15,
     cameraZoom: 1.2,
     unitExplode: "unitexplode",
