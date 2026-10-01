@@ -191,7 +191,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone",
+    spawnItem: "specialstone,accessory01,ring01",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 4,       // gold given when this bot's orb is picked up
 
