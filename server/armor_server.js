@@ -627,7 +627,7 @@ const ARMOR_TYPES = {
     criticalChance: 0.007,
 
     category: "ring",
-    spawnChance: 0.1,
+    spawnChance: 1.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "Blue ring with a bright star. A starter ring that adds a little damage and crit chance."
   },
@@ -1191,7 +1191,7 @@ const ARMOR_TYPES = {
     mana: 14,
 
     category: "accessory",
-    spawnChance: 0.1,
+    spawnChance: 1.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "Blue spiked circlet with a glowing crystal. Light on the head, strong in the mind."
   },
