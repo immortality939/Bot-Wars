@@ -760,7 +760,7 @@ function categoryForDrop(drop) {
   const w = GAME_DATA.WEAPONS && GAME_DATA.WEAPONS[t];
   if (w && w.category === "weapon") return "weapon";
   const a = GAME_DATA.ARMOR_TYPES && GAME_DATA.ARMOR_TYPES[t];
-  if (a && a.category === "armor") return "armor";
+  if (a && (a.category === "armor" || a.category === "ring" || a.category === "accessory")) return a.category;
   if (GAME_DATA.STONE_TYPES && GAME_DATA.STONE_TYPES[t]) return "stone";
   if (GAME_DATA.ORB_TYPES && GAME_DATA.ORB_TYPES[t]) return "orb";
   const itemDef = GAME_DATA.ITEM_TYPES && GAME_DATA.ITEM_TYPES[t];
