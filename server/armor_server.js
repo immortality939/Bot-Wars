@@ -84,7 +84,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Light armor — small armor and health boost."
+    description: "Padded scout vest. Light and quick to wear, with a small boost to defense and health."
   },
 
   armor2: {
@@ -96,7 +96,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Medium armor — placeholder stats, same as armor1 for now."
+    description: "Leather jacket stitched with metal plates. Balanced protection for new fighters."
   },
 
   armor3: {
@@ -108,7 +108,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Heavy armor — placeholder stats, same as armor1 for now."
+    description: "Heavy steel chestplate. Slow to wear, but soaks up serious damage."
   },
 
   armor4: {
@@ -120,7 +120,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Battle-worn armor — set 4 (online)."
+    description: "Battle-scarred plate armor. Dented, but it still turns away most hits."
   },
 
   armor5: {
@@ -132,7 +132,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Light armor — set 5 (online)."
+    description: "Lightweight mesh armor. Easy to move in, with decent defense."
   },
 
   armor6: {
@@ -144,7 +144,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Medium armor — set 6 (online)."
+    description: "Riveted combat armor built for long fights."
   },
 
   armor7: {
@@ -156,7 +156,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Heavy armor — set 7 (online)."
+    description: "Heavy bulwark plating. Layered steel for fighters who hold the front line."
   },
 
   armor8: {
@@ -168,7 +168,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Reinforced armor — set 8 (online)."
+    description: "Reinforced plate with extra padding at the joints."
   },
 
   armor9: {
@@ -180,7 +180,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Battle-worn armor — set 9 (online)."
+    description: "Weathered veteran armor. Every scratch is a fight survived."
   },
 
   armor10: {
@@ -192,7 +192,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Light armor — set 10 (online)."
+    description: "Slim tactical suit with light plating. Fast, with a decent chance to block."
   },
 
   armor11: {
@@ -204,7 +204,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Medium armor — set 11 (online)."
+    description: "Field-tested armor with balanced defense and health."
   },
 
   armor12: {
@@ -216,7 +216,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Heavy armor — set 12 (online)."
+    description: "Thick siege armor made to hold the line against heavy fire."
   },
 
   armor13: {
@@ -228,7 +228,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Reinforced armor — set 13 (online)."
+    description: "Reinforced battle armor with double-layered chest plates."
   },
 
   armor14: {
@@ -240,7 +240,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Battle-worn armor — set 14 (online)."
+    description: "Scorched armor from countless battles. Rugged and reliable."
   },
 
   armor15: {
@@ -252,7 +252,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Light armor — set 15 (online)."
+    description: "Agile skirmisher armor that trades weight for speed."
   },
 
   armor16: {
@@ -264,7 +264,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Medium armor — set 16 (online)."
+    description: "Alloy-plated armor with solid protection all around."
   },
 
   armor17: {
@@ -276,7 +276,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Heavy armor — set 17 (online)."
+    description: "Heavy assault armor with a thick, armored shell."
   },
 
   armor18: {
@@ -288,7 +288,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Reinforced armor — set 18 (online)."
+    description: "Reinforced guard armor with braced shoulders and a hardened core."
   },
 
   armor19: {
@@ -300,7 +300,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Battle-worn armor — set 19 (online)."
+    description: "Old war armor patched with scrap steel. Tough and proven."
   },
 
   armor20: {
@@ -312,7 +312,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Light armor — set 20 (online)."
+    description: "Sleek composite armor that is light but strong."
   },
 
   armor21: {
@@ -324,7 +324,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Medium armor — set 21 (online)."
+    description: "Officer's armor with polished plates and strong defense."
   },
 
   armor22: {
@@ -336,7 +336,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Heavy armor — set 22 (online)."
+    description: "Fortress armor. Heavy and very hard to break through."
   },
 
   armor23: {
@@ -348,7 +348,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Reinforced armor — set 23 (online)."
+    description: "Reinforced elite plate with extra health and defense."
   },
 
   armor24: {
@@ -360,7 +360,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Battle-worn armor — set 24 (online)."
+    description: "Veteran champion's armor, worn down but still strong."
   },
 
   armor25: {
@@ -372,7 +372,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Light armor — set 25 (online)."
+    description: "Featherweight alloy armor for fast, evasive fighters."
   },
 
   armor26: {
@@ -384,7 +384,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Medium armor — set 26 (online)."
+    description: "Commander's armor built to take hits in the thick of battle."
   },
 
   armor27: {
@@ -396,7 +396,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Heavy armor — set 27 (online)."
+    description: "Heavy siege-breaker armor with thick layered plating."
   },
 
   armor28: {
@@ -408,7 +408,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Reinforced armor — set 28 (online)."
+    description: "Reinforced war plate with an energy-treated finish."
   },
 
   armor29: {
@@ -420,7 +420,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Battle-worn armor — set 29 (online)."
+    description: "Ancient battle armor, scarred and still standing."
   },
 
   armor30: {
@@ -432,7 +432,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Light armor — set 30 (online)."
+    description: "Light stealth armor with a smooth, low-profile finish."
   },
 
   armor31: {
@@ -444,7 +444,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Medium armor — set 31 (online)."
+    description: "Knight-grade armor with balanced protection."
   },
 
   armor32: {
@@ -456,7 +456,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Heavy armor — set 32 (online)."
+    description: "Titan armor. Massive plates for tanks who never back down."
   },
 
   armor33: {
@@ -468,7 +468,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Reinforced armor — set 33 (online)."
+    description: "Reinforced vanguard armor made for leading the charge."
   },
 
   armor34: {
@@ -480,7 +480,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Battle-worn armor — set 34 (online)."
+    description: "Relic armor pulled from old battlefields, strong and scarred."
   },
 
   armor35: {
@@ -492,7 +492,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Light armor — set 35 (online)."
+    description: "Swift-guard armor, light but high in defense for its weight."
   },
 
   armor36: {
@@ -504,7 +504,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Medium armor — set 36 (online)."
+    description: "Elite armor with high defense and health."
   },
 
   armor37: {
@@ -516,7 +516,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Heavy armor — set 37 (online)."
+    description: "Colossus armor. A heavy shell that shrugs off blows."
   },
 
   armor38: {
@@ -528,7 +528,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Reinforced armor — set 38 (online)."
+    description: "Reinforced champion armor with hardened plates and strong shielding."
   },
 
   armor39: {
@@ -540,7 +540,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Battle-worn armor — set 39 (online)."
+    description: "Legendary battle-worn armor, feared by anyone who has faced its wearer."
   },
 
   armor40: {
@@ -552,7 +552,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Light armor — set 40 (online)."
+    description: "Phantom armor, thin but surprisingly tough."
   },
 
   armor41: {
@@ -564,7 +564,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Medium armor — set 41 (online)."
+    description: "Warlord's armor with top-tier protection."
   },
 
   armor42: {
@@ -576,7 +576,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Heavy armor — set 42 (online)."
+    description: "Juggernaut armor. An unstoppable wall of metal."
   },
 
   armor43: {
@@ -588,7 +588,7 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Reinforced armor — set 43 (online)."
+    description: "Ultimate reinforced plate, the finest armor in the set."
   },
   
   armor1A: {
@@ -611,7 +611,1079 @@ const ARMOR_TYPES = {
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "Light armor — small armor and health boost."
+    description: "Mythic armor that boosts every stat: health, mana, regen, damage, and critical hits."
+  },
+
+  // ---------------------------------------------------------------------------
+  // RINGS — category: "ring" (sprites ring01.png - ring40.png)
+  // ---------------------------------------------------------------------------
+
+  ring01: {
+    name: "ring01",
+    image: "image/ring01.png",
+    radius: 10,
+
+    physicalDamage: 2,
+    criticalChance: 0.007,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue ring with a bright star. A starter ring that adds a little damage and crit chance."
+  },
+
+  ring02: {
+    name: "ring02",
+    image: "image/ring02.png",
+    radius: 10,
+
+    physicalDamage: 3,
+    criticalChance: 0.009,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red ring with a burning flame. Fuels your attacks with fiery power."
+  },
+
+  ring03: {
+    name: "ring03",
+    image: "image/ring03.png",
+    radius: 10,
+
+    physicalDamage: 4,
+    criticalChance: 0.011,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple ring set with a glowing crystal. Hums with arcane energy."
+  },
+
+  ring04: {
+    name: "ring04",
+    image: "image/ring04.png",
+    radius: 10,
+
+    physicalDamage: 5,
+    criticalChance: 0.013,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green ring marked with a leaf. Carries the strength of living nature."
+  },
+
+  ring05: {
+    name: "ring05",
+    image: "image/ring05.png",
+    radius: 10,
+
+    physicalDamage: 6,
+    criticalChance: 0.015,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden ring with a crown. A symbol of rank that rewards bold fighters."
+  },
+
+  ring06: {
+    name: "ring06",
+    image: "image/ring06.png",
+    radius: 10,
+
+    physicalDamage: 7,
+    criticalChance: 0.017,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue ring with a snowflake. Cold, sharp, and precise."
+  },
+
+  ring07: {
+    name: "ring07",
+    image: "image/ring07.png",
+    radius: 10,
+
+    physicalDamage: 8,
+    criticalChance: 0.019,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red ring with a skull. Made for fighters who finish what they start."
+  },
+
+  ring08: {
+    name: "ring08",
+    image: "image/ring08.png",
+    radius: 10,
+
+    physicalDamage: 9,
+    criticalChance: 0.021,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue ring crackling with lightning. Quick strikes, quick kills."
+  },
+
+  ring09: {
+    name: "ring09",
+    image: "image/ring09.png",
+    radius: 10,
+
+    physicalDamage: 10,
+    criticalChance: 0.023,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple ring with a hypnotic swirl. Bends power toward the wearer."
+  },
+
+  ring10: {
+    name: "ring10",
+    image: "image/ring10.png",
+    radius: 10,
+
+    physicalDamage: 11,
+    criticalChance: 0.025,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Cyan ring with a crosshair. Sharpens your aim for critical hits."
+  },
+
+  ring11: {
+    name: "ring11",
+    image: "image/ring11.png",
+    radius: 10,
+
+    physicalDamage: 12,
+    criticalChance: 0.027,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Orange ring with a wolf's head. Gives the wearer a hunter's edge."
+  },
+
+  ring12: {
+    name: "ring12",
+    image: "image/ring12.png",
+    radius: 10,
+
+    physicalDamage: 13,
+    criticalChance: 0.029,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Pink ring with a heart. Warm and lucky, a favorite of survivors."
+  },
+
+  ring13: {
+    name: "ring13",
+    image: "image/ring13.png",
+    radius: 10,
+
+    physicalDamage: 14,
+    criticalChance: 0.031,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Silver ring with a four-point star. Simple, clean, and dependable."
+  },
+
+  ring14: {
+    name: "ring14",
+    image: "image/ring14.png",
+    radius: 10,
+
+    physicalDamage: 15,
+    criticalChance: 0.033,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red ring with a trident mark. Pierces through enemy defenses."
+  },
+
+  ring15: {
+    name: "ring15",
+    image: "image/ring15.png",
+    radius: 10,
+
+    physicalDamage: 16,
+    criticalChance: 0.035,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue ring with flowing waves. Calm on the outside, powerful underneath."
+  },
+
+  ring16: {
+    name: "ring16",
+    image: "image/ring16.png",
+    radius: 10,
+
+    physicalDamage: 17,
+    criticalChance: 0.037,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple ring with a horned demon face. Whispers for more damage."
+  },
+
+  ring17: {
+    name: "ring17",
+    image: "image/ring17.png",
+    radius: 10,
+
+    physicalDamage: 18,
+    criticalChance: 0.039,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green ring with a biohazard sign. Toxic power for ruthless fighters."
+  },
+
+  ring18: {
+    name: "ring18",
+    image: "image/ring18.png",
+    radius: 10,
+
+    physicalDamage: 19,
+    criticalChance: 0.041,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden ring with a compass star. Points the way to critical hits."
+  },
+
+  ring19: {
+    name: "ring19",
+    image: "image/ring19.png",
+    radius: 10,
+
+    physicalDamage: 20,
+    criticalChance: 0.043,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red ring with a targeting reticle. Locks onto weak points."
+  },
+
+  ring20: {
+    name: "ring20",
+    image: "image/ring20.png",
+    radius: 10,
+
+    physicalDamage: 21,
+    criticalChance: 0.045,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue ring with a bright diamond. Clear, sharp, and valuable."
+  },
+
+  ring21: {
+    name: "ring21",
+    image: "image/ring21.png",
+    radius: 10,
+
+    physicalDamage: 22,
+    criticalChance: 0.047,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Spiked ring with a blue crystal. Forged in frozen caverns."
+  },
+
+  ring22: {
+    name: "ring22",
+    image: "image/ring22.png",
+    radius: 10,
+
+    physicalDamage: 23,
+    criticalChance: 0.049,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Dark spiked ring with a red dragon crest. Radiates raw aggression."
+  },
+
+  ring23: {
+    name: "ring23",
+    image: "image/ring23.png",
+    radius: 10,
+
+    physicalDamage: 24,
+    criticalChance: 0.051,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Spiked ring with a purple crystal. Pulses with unstable magic."
+  },
+
+  ring24: {
+    name: "ring24",
+    image: "image/ring24.png",
+    radius: 10,
+
+    physicalDamage: 25,
+    criticalChance: 0.053,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden spiked ring with a star. A rare ring for decorated veterans."
+  },
+
+  ring25: {
+    name: "ring25",
+    image: "image/ring25.png",
+    radius: 10,
+
+    physicalDamage: 26,
+    criticalChance: 0.055,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Frost-covered ring with a snowflake. Freezes the air around it."
+  },
+
+  ring26: {
+    name: "ring26",
+    image: "image/ring26.png",
+    radius: 10,
+
+    physicalDamage: 27,
+    criticalChance: 0.057,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Dark green ring with a radiation mark. Glows with dangerous energy."
+  },
+
+  ring27: {
+    name: "ring27",
+    image: "image/ring27.png",
+    radius: 10,
+
+    physicalDamage: 28,
+    criticalChance: 0.059,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden spiked ring with a blazing flame. Burns with fierce power."
+  },
+
+  ring28: {
+    name: "ring28",
+    image: "image/ring28.png",
+    radius: 10,
+
+    physicalDamage: 29,
+    criticalChance: 0.061,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue ring with a ringed planet. Draws on the power of the cosmos."
+  },
+
+  ring29: {
+    name: "ring29",
+    image: "image/ring29.png",
+    radius: 10,
+
+    physicalDamage: 30,
+    criticalChance: 0.063,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Spiked ring with a purple vortex. Pulls power in from the void."
+  },
+
+  ring30: {
+    name: "ring30",
+    image: "image/ring30.png",
+    radius: 10,
+
+    physicalDamage: 31,
+    criticalChance: 0.065,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Dark ring with a white skull. Worn by fighters who show no mercy."
+  },
+
+  ring31: {
+    name: "ring31",
+    image: "image/ring31.png",
+    radius: 10,
+
+    physicalDamage: 32,
+    criticalChance: 0.067,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Silver and green ring with a leaf. Heals the spirit and sharpens the blade."
+  },
+
+  ring32: {
+    name: "ring32",
+    image: "image/ring32.png",
+    radius: 10,
+
+    physicalDamage: 33,
+    criticalChance: 0.069,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Spiked ring with a lightning bolt. Packs a shocking amount of power."
+  },
+
+  ring33: {
+    name: "ring33",
+    image: "image/ring33.png",
+    radius: 10,
+
+    physicalDamage: 34,
+    criticalChance: 0.071,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red spiked ring with a golden crown. Made for rulers of the battlefield."
+  },
+
+  ring34: {
+    name: "ring34",
+    image: "image/ring34.png",
+    radius: 10,
+
+    physicalDamage: 35,
+    criticalChance: 0.073,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Spiked ring with a purple crystal. Rich with deep arcane power."
+  },
+
+  ring35: {
+    name: "ring35",
+    image: "image/ring35.png",
+    radius: 10,
+
+    physicalDamage: 36,
+    criticalChance: 0.075,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Gold and cyan ring with a shield crest. Strong, proud, and well-balanced."
+  },
+
+  ring36: {
+    name: "ring36",
+    image: "image/ring36.png",
+    radius: 10,
+
+    physicalDamage: 37,
+    criticalChance: 0.077,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Bronze ring with a golden dragon. Carries the might of an ancient beast."
+  },
+
+  ring37: {
+    name: "ring37",
+    image: "image/ring37.png",
+    radius: 10,
+
+    physicalDamage: 38,
+    criticalChance: 0.079,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Spiked ring with a glowing snowflake. Bitter cold that cuts like a blade."
+  },
+
+  ring38: {
+    name: "ring38",
+    image: "image/ring38.png",
+    radius: 10,
+
+    physicalDamage: 39,
+    criticalChance: 0.081,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Dark green ring with a biohazard sign. Highly toxic, highly deadly."
+  },
+
+  ring39: {
+    name: "ring39",
+    image: "image/ring39.png",
+    radius: 10,
+
+    physicalDamage: 40,
+    criticalChance: 0.083,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Spiked ring with a purple demon face. Hungers for destruction."
+  },
+
+  ring40: {
+    name: "ring40",
+    image: "image/ring40.png",
+    radius: 10,
+
+    physicalDamage: 41,
+    criticalChance: 0.085,
+
+    category: "ring",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Dark red spiked ring with a crosshair. Perfect aim for lethal critical hits."
+  },
+
+  // ---------------------------------------------------------------------------
+  // ACCESSORIES — category: "accessory" (sprites accessory01.png - accessory36.png)
+  // ---------------------------------------------------------------------------
+
+  accessory01: {
+    name: "accessory01",
+    image: "image/accessory01.png",
+    radius: 10,
+
+    health: 14,
+    mana: 14,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue spiked circlet with a glowing crystal. Light on the head, strong in the mind."
+  },
+
+  accessory02: {
+    name: "accessory02",
+    image: "image/accessory02.png",
+    radius: 10,
+
+    health: 18,
+    mana: 18,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue glowing wings. Light as air, with a boost to health and mana."
+  },
+
+  accessory03: {
+    name: "accessory03",
+    image: "image/accessory03.png",
+    radius: 10,
+
+    health: 22,
+    mana: 22,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue cloak with glowing edges. Flows behind you like a night wave."
+  },
+
+  accessory04: {
+    name: "accessory04",
+    image: "image/accessory04.png",
+    radius: 10,
+
+    health: 26,
+    mana: 26,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue horned headset. Keeps your focus sharp in the middle of battle."
+  },
+
+  accessory05: {
+    name: "accessory05",
+    image: "image/accessory05.png",
+    radius: 10,
+
+    health: 30,
+    mana: 30,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue companion drone that floats beside you and watches your back."
+  },
+
+  accessory06: {
+    name: "accessory06",
+    image: "image/accessory06.png",
+    radius: 10,
+
+    health: 34,
+    mana: 34,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue crystal pendant on a dark chain. Calm and full of energy."
+  },
+
+  accessory07: {
+    name: "accessory07",
+    image: "image/accessory07.png",
+    radius: 10,
+
+    health: 38,
+    mana: 38,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red spiked crown. A fierce mark of a fighter who never backs down."
+  },
+
+  accessory08: {
+    name: "accessory08",
+    image: "image/accessory08.png",
+    radius: 10,
+
+    health: 42,
+    mana: 42,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red flaming wings. Burn bright and keep your health high."
+  },
+
+  accessory09: {
+    name: "accessory09",
+    image: "image/accessory09.png",
+    radius: 10,
+
+    health: 46,
+    mana: 46,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Dark red cloak. Wrapped in the heat of battle."
+  },
+
+  accessory10: {
+    name: "accessory10",
+    image: "image/accessory10.png",
+    radius: 10,
+
+    health: 50,
+    mana: 50,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red horned headset. Fills you with rage and fighting spirit."
+  },
+
+  accessory11: {
+    name: "accessory11",
+    image: "image/accessory11.png",
+    radius: 10,
+
+    health: 54,
+    mana: 54,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red combat drone with glowing eyes. Small, angry, and loyal."
+  },
+
+  accessory12: {
+    name: "accessory12",
+    image: "image/accessory12.png",
+    radius: 10,
+
+    health: 58,
+    mana: 58,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red crystal pendant on a dark chain. Beats like a second heart."
+  },
+
+  accessory13: {
+    name: "accessory13",
+    image: "image/accessory13.png",
+    radius: 10,
+
+    health: 62,
+    mana: 62,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green spiked circlet with a glowing gem. Draws strength from nature."
+  },
+
+  accessory14: {
+    name: "accessory14",
+    image: "image/accessory14.png",
+    radius: 10,
+
+    health: 66,
+    mana: 66,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green crystal wings. Fast and light, with a fresh burst of life."
+  },
+
+  accessory15: {
+    name: "accessory15",
+    image: "image/accessory15.png",
+    radius: 10,
+
+    health: 70,
+    mana: 70,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green hooded cloak. Blends into the wild."
+  },
+
+  accessory16: {
+    name: "accessory16",
+    image: "image/accessory16.png",
+    radius: 10,
+
+    health: 74,
+    mana: 74,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green night-vision goggles. See clearly, even in the dark."
+  },
+
+  accessory17: {
+    name: "accessory17",
+    image: "image/accessory17.png",
+    radius: 10,
+
+    health: 78,
+    mana: 78,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green companion drone with glowing spikes. Keeps you company and keeps you safe."
+  },
+
+  accessory18: {
+    name: "accessory18",
+    image: "image/accessory18.png",
+    radius: 10,
+
+    health: 82,
+    mana: 82,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green crystal pendant on a dark chain. Quietly restores your energy."
+  },
+
+  accessory19: {
+    name: "accessory19",
+    image: "image/accessory19.png",
+    radius: 10,
+
+    health: 86,
+    mana: 86,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple spiked crown with a glowing gem. Carries a dark, royal power."
+  },
+
+  accessory20: {
+    name: "accessory20",
+    image: "image/accessory20.png",
+    radius: 10,
+
+    health: 90,
+    mana: 90,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple shadow wings. Soft in flight and sharp in the dark."
+  },
+
+  accessory21: {
+    name: "accessory21",
+    image: "image/accessory21.png",
+    radius: 10,
+
+    health: 94,
+    mana: 94,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple cloak with torn edges. Stirs up whispers of the void."
+  },
+
+  accessory22: {
+    name: "accessory22",
+    image: "image/accessory22.png",
+    radius: 10,
+
+    health: 98,
+    mana: 98,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple horned headset. Hums with strange energy."
+  },
+
+  accessory23: {
+    name: "accessory23",
+    image: "image/accessory23.png",
+    radius: 10,
+
+    health: 102,
+    mana: 102,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple companion drone with glowing spikes. Floats close and never sleeps."
+  },
+
+  accessory24: {
+    name: "accessory24",
+    image: "image/accessory24.png",
+    radius: 10,
+
+    health: 106,
+    mana: 106,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple crystal pendant on a dark chain. Glows with mysterious power."
+  },
+
+  accessory25: {
+    name: "accessory25",
+    image: "image/accessory25.png",
+    radius: 10,
+
+    health: 110,
+    mana: 110,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden crown with a bright star. Only the best fighters wear it."
+  },
+
+  accessory26: {
+    name: "accessory26",
+    image: "image/accessory26.png",
+    radius: 10,
+
+    health: 114,
+    mana: 114,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "White and gold wings. Radiant, graceful, and full of life."
+  },
+
+  accessory27: {
+    name: "accessory27",
+    image: "image/accessory27.png",
+    radius: 10,
+
+    health: 118,
+    mana: 118,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "White and gold cloak. Regal and glowing like morning light."
+  },
+
+  accessory28: {
+    name: "accessory28",
+    image: "image/accessory28.png",
+    radius: 10,
+
+    health: 122,
+    mana: 122,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden winged headset. Sharp focus and a feather-light feel."
+  },
+
+  accessory29: {
+    name: "accessory29",
+    image: "image/accessory29.png",
+    radius: 10,
+
+    health: 126,
+    mana: 126,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden companion drone with white wings. Shines bright and guards you well."
+  },
+
+  accessory30: {
+    name: "accessory30",
+    image: "image/accessory30.png",
+    radius: 10,
+
+    health: 130,
+    mana: 130,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden star pendant. A treasured charm that boosts health and mana."
+  },
+
+  accessory31: {
+    name: "accessory31",
+    image: "image/accessory31.png",
+    radius: 10,
+
+    health: 134,
+    mana: 134,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue jetpack with glowing thrusters. Gives you energy to keep going."
+  },
+
+  accessory32: {
+    name: "accessory32",
+    image: "image/accessory32.png",
+    radius: 10,
+
+    health: 138,
+    mana: 138,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red armored backpack with glowing cells. Packed with power for long fights."
+  },
+
+  accessory33: {
+    name: "accessory33",
+    image: "image/accessory33.png",
+    radius: 10,
+
+    health: 142,
+    mana: 142,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple armored backpack with glowing cells. Stores strange and heavy energy."
+  },
+
+  accessory34: {
+    name: "accessory34",
+    image: "image/accessory34.png",
+    radius: 10,
+
+    health: 146,
+    mana: 146,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green armored backpack with glowing cells. Keeps your health and mana flowing."
+  },
+
+  accessory35: {
+    name: "accessory35",
+    image: "image/accessory35.png",
+    radius: 10,
+
+    health: 150,
+    mana: 150,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue battle banner with a winged crest. Lifts the spirit of everyone who sees it."
+  },
+
+  accessory36: {
+    name: "accessory36",
+    image: "image/accessory36.png",
+    radius: 10,
+
+    health: 154,
+    mana: 154,
+
+    category: "accessory",
+    spawnChance: 0.1,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red battle banner with a fiery crest. A warning to every enemy that sees it."
   }
 
 };
@@ -635,6 +1707,28 @@ function getAllArmors() {
 function getLootableArmorDef(typeName) {
   const def = ARMOR_TYPES[typeName];
   return (def && def.category === "armor") ? def : null;
+}
+
+// RING / ACCESSORY — same lookup idea as getLootableArmorDef() above, one
+// per new category. Entries live in ARMOR_TYPES (so online sync of
+// ARMOR_TYPES carries them too) but are flagged category: "ring" /
+// "accessory" instead of "armor".
+function getLootableRingDef(typeName) {
+  const def = ARMOR_TYPES[typeName];
+  return (def && def.category === "ring") ? def : null;
+}
+
+function getLootableAccessoryDef(typeName) {
+  const def = ARMOR_TYPES[typeName];
+  return (def && def.category === "accessory") ? def : null;
+}
+
+function getAllRings() {
+  return Object.values(ARMOR_TYPES).filter(d => d.category === "ring");
+}
+
+function getAllAccessories() {
+  return Object.values(ARMOR_TYPES).filter(d => d.category === "accessory");
 }
 
 
@@ -771,6 +1865,10 @@ if (typeof module !== "undefined" && module.exports) {
     getArmor,
     getAllArmors,
     getLootableArmorDef,
+    getLootableRingDef,
+    getLootableAccessoryDef,
+    getAllRings,
+    getAllAccessories,
     getArmorStats,
     equipArmorStats,
     unequipArmorStats,
