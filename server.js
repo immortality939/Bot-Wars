@@ -56,7 +56,7 @@ const { WebSocketServer } = require("ws");
 // PORTAL ARRIVAL SPAWN — server-authoritative too (see game_server.js's
 // getPortalArrivalSpawn() comment): the "map" case below decides where a
 // player lands, the client just gets told.
-const { isPlayerSkillLocked, lockPlayerSkillUse, getPortalArrivalSpawn, syncReportedMana, tryPaySkillUse, hasPaidSkillUse } = require("./server/game_server.js");
+const { isPlayerSkillLocked, lockPlayerSkillUse, getPortalArrivalSpawn, syncReportedMana, tryPaySkillUse, hasPaidSkillUse, consumeSkillHit, findSkillDef } = require("./server/game_server.js");
 
 // ---- ONLINE GAME DATA (edit the *_server.js files, not this) ----------------
 const GAME_DATA = Object.assign(
@@ -1021,9 +1021,7 @@ wss.on("connection", (ws) => {
         // SKILL LOCK — same enforcement as the "hit" case above, for a
         // player-vs-bot skill hit (online.js's damageBot() override).
         if (msg.isSkillHit) {
-          if (!hasPaidSkillUse(me, now)) break;   // skill mana was never paid on the server
-          if (isPlayerSkillLocked(me, now)) break;
-          lockPlayerSkillUse(me, now);
+          if (!consumeSkillHit(me, now)) break;   // not paid on the server / locked / over this cast's hit budget
         }
 
         send(host.ws, {
@@ -1136,7 +1134,7 @@ wss.on("connection", (ws) => {
       // same map within `range` of the caster gets a "skillBuff" and starts
       // the buff on their own client (online.js).
       case "skillBuff": {
-        const def = GAME_DATA.SKILLS && GAME_DATA.SKILLS[String(msg.skill || "")];
+        const def = findSkillDef(String(msg.skill || ""));
         if (!def || !(def.attackIncrease || def.defenseIncrease)) break;
         if (!hasPaidSkillUse(me, Date.now(), def.skill)) break;   // mana not paid on the server
         const party = getParty(me);
@@ -1329,9 +1327,7 @@ wss.on("connection", (ws) => {
         // if this player's own skill lock (tracked here, not on the
         // client) hasn't expired yet, no matter what that client claims.
         if (msg.isSkillHit) {
-          if (!hasPaidSkillUse(me, now)) break;   // skill mana was never paid on the server
-          if (isPlayerSkillLocked(me, now)) break;
-          lockPlayerSkillUse(me, now);
+          if (!consumeSkillHit(me, now)) break;   // not paid on the server / locked / over this cast's hit budget
         }
 
         send(target.ws, {
