@@ -66,6 +66,8 @@ const EMPTY_ROOM_BOTS_KEEP_TIME = 5 * 60 * 1000;   // 5 minutes
 const PARTY_LOOT_RULES = {
   weapon: "ALTERNATE",
   armor: "ALTERNATE",
+  ring: "ALTERNATE",
+  accessory: "ALTERNATE",
   invItem: "ALTERNATE",
   stone: "ALTERNATE",
   orb: "ALTERNATE",

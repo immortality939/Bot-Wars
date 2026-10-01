@@ -171,6 +171,17 @@ function getLootableWeaponDef(typeName) {
   return (weaponDef && weaponDef.category === "weapon") ? weaponDef : null;
 }
 
+// Armor + rings + accessories all live in ARMOR_TYPES (armor.js /
+// armor_server.js) and drop/pick up the same way — only their
+// `category` differs ("armor" / "ring" / "accessory"). The old
+// getLootableArmorDef() only accepts "armor", which is why rings and
+// accessories in a bot's spawnItem list never dropped.
+function getLootableGearDef(typeName) {
+  if (typeof getArmor !== "function") return null;
+  const d = getArmor(typeName);
+  return (d && (d.category === "armor" || d.category === "ring" || d.category === "accessory")) ? d : null;
+}
+
 function createItemDrop(typeName, x, y) {
 
   const itemDef = ITEM_TYPES[typeName];
@@ -178,7 +189,7 @@ function createItemDrop(typeName, x, y) {
   // armor.js's own getLootableArmorDef() — see its header comment — is
   // the one used here, same as getLootableWeaponDef() above is for
   // WEAPONS.
-  const armorDef = (itemDef || weaponDef) ? null : (typeof getLootableArmorDef === "function" ? getLootableArmorDef(typeName) : null);
+  const armorDef = (itemDef || weaponDef) ? null : getLootableGearDef(typeName);
   const upgradeDef = (itemDef || weaponDef || armorDef) ? null : (typeof getUpgradeItem === "function" ? getUpgradeItem(typeName) : null);
   const def = itemDef || weaponDef || armorDef || upgradeDef;
 
@@ -199,7 +210,7 @@ function createItemDrop(typeName, x, y) {
     // pickup routing (e.g. goldOrb's "gold", handled separately in
     // checkItemPickup() below) instead of the generic "item" ->
     // applyItemEffect() path health/shield/speedup/powerup use.
-    category: weaponDef ? "weapon" : (armorDef ? "armor" : (upgradeDef ? upgradeDef.category : ((itemDef && itemDef.category) || "item"))),
+    category: weaponDef ? "weapon" : (armorDef ? (armorDef.category || "armor") : (upgradeDef ? upgradeDef.category : ((itemDef && itemDef.category) || "item"))),
 
     x: x,
     y: y,
@@ -293,7 +304,7 @@ function spawnItemsOnBotDeath(spawnItemList, x, y) {
 
     const itemDef = ITEM_TYPES[typeName];
     const weaponDef = itemDef ? null : getLootableWeaponDef(typeName);
-    const armorDef = (itemDef || weaponDef) ? null : (typeof getLootableArmorDef === "function" ? getLootableArmorDef(typeName) : null);
+    const armorDef = (itemDef || weaponDef) ? null : getLootableGearDef(typeName);
     const upgradeDef = (itemDef || weaponDef || armorDef) ? null : (typeof getUpgradeItem === "function" ? getUpgradeItem(typeName) : null);
     const def = itemDef || weaponDef || armorDef || upgradeDef;
 
@@ -490,7 +501,7 @@ function runItemPickupCheck(itemDrops, player, playerPos) {
 
       if (drop.category === "weapon") {
         added = pickUpWeaponDrop(drop.type);
-      } else if (drop.category === "armor") {
+      } else if (drop.category === "armor" || drop.category === "ring" || drop.category === "accessory") {
         added = pickUpArmorDrop(drop.type);
       } else if (drop.category === "invItem") {
         added = pickUpInventoryDrop(drop);
@@ -571,7 +582,7 @@ function pickUpArmorDrop(armorName) {
   if (typeof addItemToInventory !== "function") return false;
 
   const added = addItemToInventory(
-    "armor",
+    (armorData.category === "ring" || armorData.category === "accessory") ? armorData.category : "armor",
     armorName,
     { ...armorData, defense: armorData.physicalDefense },
     1
