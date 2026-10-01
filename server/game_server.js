@@ -205,8 +205,26 @@ function lockPlayerSkillUse(playerState, now) {
 // isPlayerSkillLocked(me, now) in server.js's "hit" case, and
 // spendPlayerMana(me, skillName) next to lockPlayerSkillUse(me, now).
 // ---------------------------------------------------------------------------
+// SKILL NAME LOOKUP — the client reports a skill by its `skill:` NAME (e.g.
+// "Fire Explosion"), but SKILLS is keyed by the table KEY (e.g.
+// "fireexplosion"). For many skills those two are NOT the same text, so a
+// plain SKILLS[skillName] lookup found nothing: the server never "paid" the
+// cast and then dropped every hit of it (other players / bots took no
+// damage from a second player's skills). This finds the skill by key first,
+// then by its `skill` name (case-insensitive).
+function findSkillDef(skillName) {
+  if (typeof skillName !== "string" || !skillName) return null;
+  if (SKILLS[skillName]) return SKILLS[skillName];
+  const lower = skillName.toLowerCase();
+  for (const k of Object.keys(SKILLS)) {
+    const d = SKILLS[k];
+    if (k.toLowerCase() === lower || (d && typeof d.skill === "string" && d.skill.toLowerCase() === lower)) return d;
+  }
+  return null;
+}
+
 function hasEnoughPlayerMana(playerState, skillName) {
-  const skill = SKILLS[skillName];
+  const skill = findSkillDef(skillName);
   const cost = (skill && typeof skill.manaCost === "number") ? skill.manaCost : 0;
   const currentMana = (playerState && typeof playerState.mana === "number") ? playerState.mana : 0;
   return currentMana >= cost;
@@ -214,7 +232,7 @@ function hasEnoughPlayerMana(playerState, skillName) {
 
 function spendPlayerMana(playerState, skillName) {
   if (!playerState || typeof playerState.mana !== "number") return;
-  const skill = SKILLS[skillName];
+  const skill = findSkillDef(skillName);
   const cost = (skill && typeof skill.manaCost === "number") ? skill.manaCost : 0;
   playerState.mana = Math.max(0, playerState.mana - cost);
 }
@@ -262,15 +280,43 @@ function syncReportedMana(playerState, reportedMana, reportedMaxMana, nowAlive, 
 
 // Charges a skill use. Returns true (paid, mana taken, hits now accepted) or false.
 function tryPaySkillUse(playerState, skillName, now) {
-  const skill = SKILLS[skillName];
+  const skill = findSkillDef(skillName);
   if (!skill) return false;
   if (!hasEnoughPlayerMana(playerState, skillName)) return false;
   spendPlayerMana(playerState, skillName);
   const shots = Math.max(1, Math.trunc(skill.shotTimes) || 1);
   const gapMs = Math.max(0, Number(skill.shotInterval) || 0) * 1000;
   playerState.skillPaidUntil = now + SKILL_PAID_HIT_WINDOW_MS + (shots - 1) * gapMs;
-  playerState.skillPaidName = skillName;
+  playerState.skillPaidName = (typeof skill.skill === "string" && skill.skill) ? skill.skill : skillName;
+  // One paid cast = one "cast id" and a limited hit budget (see consumeSkillHit()).
+  playerState.skillCastId = (playerState.skillCastId || 0) + 1;
+  playerState.skillHitsLeft = 0;
+  playerState.skillHitBudget = Math.min(SKILL_MAX_HITS_PER_CAST, shots * SKILL_HITS_PER_SHOT);
   return true;
+}
+
+const SKILL_HITS_PER_SHOT = 8;      // most hits (targets) one shot of a paid cast may land
+const SKILL_MAX_HITS_PER_CAST = 60; // hard cap for one paid cast, however many shots
+
+// SKILL HIT GATE — server.js calls this for every "hit"/"botHit" tagged
+// isSkillHit. The cast must be paid (mana taken on the server) and the global
+// skill lock (SKILL_LOCK_MS between two DIFFERENT casts) is checked on the
+// FIRST hit of each paid cast. Before this, the lock was re-checked on every
+// hit, so a skill that hits 2+ targets or fires several shots only ever got
+// its first hit through. Now one paid cast may land up to its own hit budget
+// (shots x targets), but a second cast still has to be paid for and wait out
+// the lock, so a modified client cannot spam hits for free.
+function consumeSkillHit(playerState, now) {
+  if (!hasPaidSkillUse(playerState, now)) return false;
+  if (playerState.skillLockedCast !== playerState.skillCastId) {
+    if (isPlayerSkillLocked(playerState, now)) return false;
+    lockPlayerSkillUse(playerState, now);
+    playerState.skillLockedCast = playerState.skillCastId;
+    playerState.skillHitsLeft = Math.max(0, (playerState.skillHitBudget || SKILL_HITS_PER_SHOT) - 1);
+    return true;
+  }
+  if (playerState.skillHitsLeft > 0) { playerState.skillHitsLeft--; return true; }
+  return false;
 }
 
 // True while a paid skill use is still open (optionally for one named skill).
@@ -419,6 +465,8 @@ if (typeof module !== "undefined") {
     syncReportedMana,
     tryPaySkillUse,
     hasPaidSkillUse,
+    consumeSkillHit,
+    findSkillDef,
     getPortalArrivalSpawn
   };
 }
