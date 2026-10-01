@@ -337,7 +337,7 @@ function getPortalArrivalSpawn(mapDef, fromMapKey, maps) {
 
 // ---------------------------------------------------------------------------
 // MAP BACKGROUND MUSIC (ONLINE) — which track plays on which online map.
-// Keys are the map keys from worldmap_server.js (LEVEL1 ... LEVEL20); values
+// Keys are the map keys from worldmap_server.js (LEVEL1 ... LEVEL50); values
 // are files in the game's music/ folder (MUSIC1.mp3 ... MUSIC6.mp3, repeating
 // 1-6 over the 20 maps). server.js sends this to the client inside the game
 // data, online.js puts it on each map, and game.js plays it when the player
@@ -364,7 +364,37 @@ const MAP_MUSIC = {
   LEVEL17: "music/MUSIC5.mp3",
   LEVEL18: "music/MUSIC6.mp3",
   LEVEL19: "music/MUSIC1.mp3",
-  LEVEL20: "music/MUSIC2.mp3"
+  LEVEL20: "music/MUSIC2.mp3",
+  LEVEL21: "music/MUSIC3.mp3",
+  LEVEL22: "music/MUSIC4.mp3",
+  LEVEL23: "music/MUSIC5.mp3",
+  LEVEL24: "music/MUSIC6.mp3",
+  LEVEL25: "music/MUSIC1.mp3",
+  LEVEL26: "music/MUSIC2.mp3",
+  LEVEL27: "music/MUSIC3.mp3",
+  LEVEL28: "music/MUSIC4.mp3",
+  LEVEL29: "music/MUSIC5.mp3",
+  LEVEL30: "music/MUSIC6.mp3",
+  LEVEL31: "music/MUSIC1.mp3",
+  LEVEL32: "music/MUSIC2.mp3",
+  LEVEL33: "music/MUSIC3.mp3",
+  LEVEL34: "music/MUSIC4.mp3",
+  LEVEL35: "music/MUSIC5.mp3",
+  LEVEL36: "music/MUSIC6.mp3",
+  LEVEL37: "music/MUSIC1.mp3",
+  LEVEL38: "music/MUSIC2.mp3",
+  LEVEL39: "music/MUSIC3.mp3",
+  LEVEL40: "music/MUSIC4.mp3",
+  LEVEL41: "music/MUSIC5.mp3",
+  LEVEL42: "music/MUSIC6.mp3",
+  LEVEL43: "music/MUSIC1.mp3",
+  LEVEL44: "music/MUSIC2.mp3",
+  LEVEL45: "music/MUSIC3.mp3",
+  LEVEL46: "music/MUSIC4.mp3",
+  LEVEL47: "music/MUSIC5.mp3",
+  LEVEL48: "music/MUSIC6.mp3",
+  LEVEL49: "music/MUSIC1.mp3",
+  LEVEL50: "music/MUSIC2.mp3"
 };
 
 
