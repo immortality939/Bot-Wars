@@ -58,6 +58,10 @@ const { WebSocketServer } = require("ws");
 // player lands, the client just gets told.
 const { isPlayerSkillLocked, lockPlayerSkillUse, getPortalArrivalSpawn, syncReportedMana, tryPaySkillUse, hasPaidSkillUse, consumeSkillHit, findSkillDef } = require("./server/game_server.js");
 
+// ONLINE RULES — respawn / spawn-protect / update rates / trade limits live in
+// server/online_server.js (not in the public online.js); enforced below.
+const { ONLINE_RULES } = require("./server/online_server.js");
+
 // ---- ONLINE GAME DATA (edit the *_server.js files, not this) ----------------
 const GAME_DATA = Object.assign(
   {},
@@ -71,7 +75,8 @@ const GAME_DATA = Object.assign(
   require("./server/item_server.js"),
   require("./server/level_server.js"),
   require("./server/bot_server.js"),
-  require("./server/game_server.js")
+  require("./server/game_server.js"),
+  require("./server/online_server.js")
 );
 // MAPS. Load every *_server.js file in ./server/ (the data files above are
 // already loaded, so this only adds the map files). A map file sets
@@ -113,10 +118,11 @@ console.log("Online game data loaded: " + Object.keys(GAME_DATA).join(", "));
 console.log("Server code sent to clients: " + SERVER_JS_FILES.join(", "));
 
 const PORT = process.env.PORT || 8080;
-const SERVER_COUNT = 5;          // SERVER 1 .. SERVER 5
-const SERVER_MAX_PLAYERS = 500;  // per server (both channels together)
-const CHANNEL_PVP = 0;           // players can damage each other
-const CHANNEL_SAFE = 1;          // no player-vs-player damage
+// Server count / player cap / channels / party size now live in server/online_server.js.
+const SERVER_COUNT = ONLINE_RULES.SERVER_COUNT;
+const SERVER_MAX_PLAYERS = ONLINE_RULES.SERVER_MAX_PLAYERS;
+const CHANNEL_PVP = ONLINE_RULES.CHANNELS.find((c) => c.pvp).id;     // players can damage each other
+const CHANNEL_SAFE = ONLINE_RULES.CHANNELS.find((c) => !c.pvp).id;   // no player-vs-player damage
 
 // Safety net against absurd hits (tune if a legit skill ever needs more).
 const MAX_DAMAGE_PER_HIT = 5000;
@@ -124,8 +130,26 @@ const MAX_HITS_PER_SECOND = 60;   // per attacker; extra hits are dropped
 
 // Plain HTTP: /servers gives the lobby its "0/500" counts; anything else is a
 // health check so hosts (Render etc.) know the service is alive.
+// The ONLINE-MODE CLIENT CODE (client/online_client.js). It is not in the public game
+// files any more: the public data/online.js downloads it from here when the player taps
+// "Online". Read on every request so a redeploy / file edit is picked up immediately.
+const ONLINE_CLIENT_FILE = path_join(__dirname, "client", "online_client.js");
+function path_join(...a) { return require("path").join(...a); }
+
 const server = http.createServer((req, res) => {
   const path = (req.url || "").split("?")[0];
+  if (path === "/online.js") {
+    let code;
+    try { code = fs.readFileSync(ONLINE_CLIENT_FILE, "utf8"); }
+    catch (e) { res.writeHead(500, { "Access-Control-Allow-Origin": "*" }); res.end("online client code missing"); return; }
+    res.writeHead(200, {
+      "Content-Type": "application/javascript; charset=utf-8",
+      "Access-Control-Allow-Origin": "*",
+      "Cache-Control": "no-store"
+    });
+    res.end(code);
+    return;
+  }
   if (path === "/servers") {
     res.writeHead(200, {
       "Content-Type": "application/json",
@@ -219,7 +243,7 @@ let nextPartyId = 1;
 const parties = new Map(); // partyId -> { id, members: [ids], lootTurnIndex }
 // Was a separate hardcoded "6" here before — now reads the ONE canonical
 // value in character_server.js's GAME_RULES so the two can never drift apart.
-const PARTY_MAX_SIZE = GAME_DATA.GAME_RULES.PARTY_MAX_SIZE;
+const PARTY_MAX_SIZE = ONLINE_RULES.PARTY_MAX_SIZE;   // see server/online_server.js
 
 // Friendly-fire helper and party-loot-turn helpers, same pure functions
 // online.js's client code uses (see character_server.js's "PARTY FRIENDLY
@@ -821,7 +845,8 @@ function serverList() {
       ]
     });
   }
-  return { max: SERVER_MAX_PLAYERS, servers: list };
+  // serverCount + channels: the lobby builds its rows from these (they are no longer hardcoded in online.js)
+  return { max: SERVER_MAX_PLAYERS, serverCount: SERVER_COUNT, channels: ONLINE_RULES.CHANNELS, servers: list };
 }
 
 const num = (v, fallback = 0) => (typeof v === "number" && isFinite(v) ? v : fallback);
@@ -902,6 +927,8 @@ wss.on("connection", (ws) => {
         level: 1,
         weapon: null, armor: null, accessory: null,
         hitWindowStart: 0, hitCount: 0,
+        protectUntil: Date.now() + ONLINE_RULES.SPAWN_PROTECT_MS,   // spawn protection (see online_server.js)
+        lastStateAt: 0,   // for the STATE_INTERVAL_MS rate limit
         botHitWindowStart: 0, botHitCount: 0,
         skillGlobalLockedUntil: 0, // see game_server.js's isPlayerSkillLocked()
         partyId: null,
@@ -947,6 +974,12 @@ wss.on("connection", (ws) => {
     switch (msg.type) {
       // Position + health snapshot (client sends ~20x/second).
       case "state": {
+        // Rate limit: faster than half the allowed interval is dropped (half = jitter tolerance).
+        const stateNow = Date.now();
+        if (stateNow - me.lastStateAt < ONLINE_RULES.STATE_INTERVAL_MS * 0.5) break;
+        me.lastStateAt = stateNow;
+        // Coming back alive after being dead = a respawn -> spawn protection.
+        if (!me.alive && msg.alive) me.protectUntil = stateNow + ONLINE_RULES.SPAWN_PROTECT_MS;
         me.x = num(msg.x, me.x);
         me.y = num(msg.y, me.y);
         me.health = num(msg.health, me.health);
@@ -1047,6 +1080,7 @@ wss.on("connection", (ws) => {
         if (me.room.hostId !== me.id) break;
         const target = me.room.get(num(msg.targetId, -1));
         if (!target || target.id === me.id) break;
+        if (Date.now() < target.protectUntil) break;   // spawn protection
 
         const now = Date.now();
         if (now - me.botHitWindowStart >= 1000) { me.botHitWindowStart = now; me.botHitCount = 0; }
@@ -1272,6 +1306,7 @@ wss.on("connection", (ws) => {
         const now = Date.now();
         if (!MAPS[key] || key === me.map || now - me.lastMapChange < 300) break;
         me.lastMapChange = now;
+        me.protectUntil = now + ONLINE_RULES.SPAWN_PROTECT_MS;
         const fromMapKey = me.map;   // captured BEFORE me.map is overwritten below
         const oldRoom = me.room;
         oldRoom.delete(me.id);
@@ -1309,6 +1344,7 @@ wss.on("connection", (ws) => {
         if (me.channel !== CHANNEL_PVP) break;
         const target = me.room.get(num(msg.targetId, -1));   // same server + channel only
         if (!target || target.id === me.id) break;
+        if (Date.now() < target.protectUntil) break;   // spawn protection
 
         // Party members never damage each other, even on a PvP channel.
         if (isPartyFriendlyFire(me.partyId, target.partyId)) break;
@@ -1615,8 +1651,8 @@ wss.on("connection", (ws) => {
         if (me.tradePartnerId == null || num(msg.targetId, -1) !== me.tradePartnerId) break;
         const partner = players.get(me.tradePartnerId);
         if (!partner || partner.tradePartnerId !== me.id) break;
-        const items = Array.isArray(msg.items) ? msg.items.slice(0, 16) : [];
-        const gold = Math.max(0, Math.min(1000000, Math.trunc(num(msg.gold, 0))));
+        const items = Array.isArray(msg.items) ? msg.items.slice(0, ONLINE_RULES.TRADE_OFFER_SIZE) : [];
+        const gold = Math.max(0, Math.min(ONLINE_RULES.TRADE_MAX_GOLD, Math.trunc(num(msg.gold, 0))));
         me.tradeConfirmed = false;
         partner.tradeConfirmed = false;
         send(partner.ws, { type: "tradeOffer", from: me.id, items, gold });
