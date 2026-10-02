@@ -131,9 +131,7 @@ const SERVER_MAX_PLAYERS = ONLINE_RULES.SERVER_MAX_PLAYERS;
 const CHANNEL_PVP = ONLINE_RULES.CHANNELS.find((c) => c.pvp).id;     // players can damage each other
 const CHANNEL_SAFE = ONLINE_RULES.CHANNELS.find((c) => !c.pvp).id;   // no player-vs-player damage
 
-// Safety net against absurd hits (tune if a legit skill ever needs more).
-const MAX_DAMAGE_PER_HIT = 5000;
-const MAX_HITS_PER_SECOND = 60;   // per attacker; extra hits are dropped
+// No per-hit damage cap and no hits-per-second limit (both removed on purpose).
 
 // Plain HTTP: /servers gives the lobby its "0/500" counts; anything else is a
 // health check so hosts (Render etc.) know the service is alive.
@@ -1180,7 +1178,7 @@ wss.on("connection", (ws) => {
         broadcast(me.room, {
           type: "dmgNum", from: me.id,
           x: num(msg.x), y: num(msg.y),
-          amount: Math.min(MAX_DAMAGE_PER_HIT, Math.max(0, Math.round(num(msg.amount)))),
+          amount: Math.max(0, Math.round(num(msg.amount))),
           isCritical: !!msg.isCritical
         }, me.id);
         break;
@@ -1205,8 +1203,6 @@ wss.on("connection", (ws) => {
         if (!host) break;
 
         const now = Date.now();
-        if (now - me.botHitWindowStart >= 1000) { me.botHitWindowStart = now; me.botHitCount = 0; }
-        if (++me.botHitCount > MAX_HITS_PER_SECOND) break;
 
         // SKILL LOCK — same enforcement as the "hit" case above, for a
         // player-vs-bot skill hit (online.js's damageBot() override).
@@ -1217,7 +1213,7 @@ wss.on("connection", (ws) => {
         send(host.ws, {
           type: "botHit",
           idx: Math.trunc(num(msg.idx, -1)),
-          amount: Math.min(MAX_DAMAGE_PER_HIT, Math.max(0, num(msg.amount))),
+          amount: Math.max(0, num(msg.amount)),
           isCritical: !!msg.isCritical,
           srcX: num(msg.srcX), srcY: num(msg.srcY),
           from: me.id
@@ -1240,13 +1236,11 @@ wss.on("connection", (ws) => {
         if (Date.now() < target.protectUntil) break;   // spawn protection
 
         const now = Date.now();
-        if (now - me.botHitWindowStart >= 1000) { me.botHitWindowStart = now; me.botHitCount = 0; }
-        if (++me.botHitCount > MAX_HITS_PER_SECOND) break;
 
         send(target.ws, {
           type: "botHitPlayer",
-          physicalDamage: Math.min(MAX_DAMAGE_PER_HIT, Math.max(0, num(msg.physicalDamage))),
-          magicalDamage: Math.min(MAX_DAMAGE_PER_HIT, Math.max(0, num(msg.magicalDamage))),
+          physicalDamage: Math.max(0, num(msg.physicalDamage)),
+          magicalDamage: Math.max(0, num(msg.magicalDamage)),
           isCritical: !!msg.isCritical,
           srcX: num(msg.srcX), srcY: num(msg.srcY),
           knockback: Math.max(0, Math.min(200, num(msg.knockback)))
@@ -1523,10 +1517,7 @@ wss.on("connection", (ws) => {
         // Clanmates never damage each other, either.
         if (isClanFriendlyFire(me.clanId, target.clanId)) break;
 
-        // rate limit per attacker
         const now = Date.now();
-        if (now - me.hitWindowStart >= 1000) { me.hitWindowStart = now; me.hitCount = 0; }
-        if (++me.hitCount > MAX_HITS_PER_SECOND) break;
 
         // SKILL LOCK — server-authoritative version of game.js's
         // player.skillGlobalLockedUntil (see game_server.js). Only
@@ -1540,8 +1531,8 @@ wss.on("connection", (ws) => {
         send(target.ws, {
           type: "hit",
           from: me.id,
-          physicalDamage: Math.min(MAX_DAMAGE_PER_HIT, Math.max(0, num(msg.physicalDamage))),
-          magicalDamage: Math.min(MAX_DAMAGE_PER_HIT, Math.max(0, num(msg.magicalDamage))),
+          physicalDamage: Math.max(0, num(msg.physicalDamage)),
+          magicalDamage: Math.max(0, num(msg.magicalDamage)),
           isCritical: !!msg.isCritical,
           srcX: num(msg.srcX), srcY: num(msg.srcY),
           knockback: Math.max(0, Math.min(200, num(msg.knockback)))
