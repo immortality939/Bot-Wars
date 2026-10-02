@@ -598,7 +598,7 @@ const ARMOR_TYPES = {
     physicalDefense: 15,
     physicalDamage:400,
     health: 300,
-    mana:300,
+    mana:1300,
     hpRegen:0.2,
     manaRegen:0.2,
     vit:50,
