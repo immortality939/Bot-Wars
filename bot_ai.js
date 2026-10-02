@@ -16,8 +16,9 @@
 //   lose the player -> search -> patrol.  Hit by a player: it turns and chases.
 //   Dies at 0 health, drops loot / gold orb, respawns after def.respawn seconds.
 //
-// NOT included yet: bot skills (botSkill in bot_server.js). Those enemies just
-// use their normal melee attack for now.
+// Bot skills (botSkill in bot_server.js, e.g. "slash1,barrage,cannonblast,deadlystrike")
+// are included: the enemy tries its skills first (in list order, when off cooldown)
+// and falls back to its normal melee attack, same as bot.js tryBotUseSkill().
 // =============================================================================
 "use strict";
 
@@ -69,6 +70,8 @@ function createBotEngine(D, MAPS, OBSTACLE_TYPES) {
   const ARMOR_TYPES = D.ARMOR_TYPES || {};
   const ITEM_TYPES = D.ITEM_TYPES || {};
   const MELEE = (D.ATTACK_MODES && D.ATTACK_MODES.melee) || { meleeRange: 33 };
+  const SKILLS = D.SKILLS || {};
+  const SKILL_LOCK_MS = typeof D.SKILL_LOCK_MS === "number" ? D.SKILL_LOCK_MS : 700;
   const healthForLevel = typeof D.getHealthForLevel === "function"
     ? D.getHealthForLevel
     : (base) => base;
@@ -84,6 +87,22 @@ function createBotEngine(D, MAPS, OBSTACLE_TYPES) {
       if (typeof def[f] === "number") bonuses[f] = def[f];
     }
     return { armorValue: def.physicalDefense || 0, health: def.health || 0, bonuses };
+  }
+
+  // skill_server.js does not export its damage formula, so this is a copy of
+  // getSkillEffectiveStats()/getSkillDamageResult() for an enemy as the "player".
+  function skillDamage(sk, b) {
+    const wpn = (b.weapon && b.weapon.physicalDamage) || 0;
+    let phys = 0, mag = 0;
+    if (typeof sk.physicalDamage === "number") phys = sk.physicalDamage + b.physicalDamage + wpn;
+    if (typeof sk.physicalPercent === "number") phys = (b.physicalDamage + wpn) * sk.physicalPercent;
+    if (typeof sk.magicalAttack === "number") mag = sk.magicalAttack + b.magicalAttack;
+    if (typeof sk.magicalPercent === "number") mag = b.magicalAttack * sk.magicalPercent;
+    const chance = (sk.criticalChance || 0) + (b.critChance || 0);
+    const cdmg = (sk.criticalDamage || 0) + (b.critDamage || 0);
+    const roll = (v) => { const c = Math.random() < chance; return { v: c ? v * (1 + cdmg) : v, c }; };
+    const ph = roll(phys), mg = roll(mag);
+    return { physicalDamage: ph.v, magicalDamage: mg.v, isCritical: ph.c || mg.c };
   }
 
   function makeBot(index, typeName, x, y) {
@@ -114,6 +133,9 @@ function createBotEngine(D, MAPS, OBSTACLE_TYPES) {
       critChance: (def.criticalChance || 0) + (bon.criticalChance || 0),
       critDamage: (def.criticalDamage || 0) + (bon.criticalDamage || 0),
       lastAttack: 0,
+      botSkills: String(def.botSkill || "").split(",").map((n) => n.trim()).filter((n) => n && SKILLS[n]),
+      skillCd: {}, skillLockUntil: 0, volley: null,
+      weapon: { physicalDamage: weapon.physicalDamage || 0 },
       state: "patrol", stateT: 0,
       patrolTx: x, patrolTy: y,
       fa: Math.random() * Math.PI * 2,
@@ -128,7 +150,7 @@ function createBotEngine(D, MAPS, OBSTACLE_TYPES) {
     b.x = b.sx; b.y = b.sy;
     b.h = b.mh; b.alive = true;
     b.aggroed = false; b.aggroLost = 0;
-    b.lastAttack = 0;
+    b.lastAttack = 0; b.skillCd = {}; b.skillLockUntil = 0; b.volley = null;
     b.state = "patrol"; b.stateT = 0;
     b.patrolTx = b.sx; b.patrolTy = b.sy;
     b.fa = Math.random() * Math.PI * 2;
@@ -230,13 +252,61 @@ function createBotEngine(D, MAPS, OBSTACLE_TYPES) {
     sim.touch = (now) => { sim.last = now; };
 
     // players: array of { id, x, y, alive, protectUntil }
-    // returns { swings: [{x,y,angle,effect}], hits: [{targetId, physicalDamage, magicalDamage, isCritical, srcX, srcY}] }
+    // returns { fx: [ready-to-broadcast "fx"/"sound" messages], hits: [{targetId, physicalDamage, magicalDamage, isCritical, srcX, srcY}] }
     sim.step = (now, players) => {
       const dt = Math.min(0.25, Math.max(0, (now - sim.last) / 1000));
       sim.last = now;
       const hits = [];
-      const swings = [];   // attack animations everyone should SEE (even if the hit is blocked by spawn protection)
+      const fx = [];   // visual/sound messages everyone in the room should get (swings, skill effects)
       const alivePlayers = players.filter((p) => p.alive);
+
+      // One skill shot/hit: show the effect to everyone, then damage the locked target if it is inside the shape.
+      const fireSkillShot = (b, sk, dirX, dirY, targetId, isRepeat) => {
+        const range = sk.range || 0, halfW = (sk.width || 80) / 2;
+        const angle = Math.atan2(dirY, dirX);
+        const isMelee = sk.activationType === "melee";
+        if (sk.skillSound && !isRepeat) fx.push({ type: "sound", sound: sk.skillSound, x: b.x, y: b.y });
+        if (sk.hitEffect) {
+          if (isMelee) fx.push({ type: "fx", from: 0, x: b.x, y: b.y, effect: sk.hitEffect, angle: 0 });
+          else if (sk.attackType === "beam") fx.push({ type: "fx", from: 0, x: b.x, y: b.y, effect: sk.hitEffect, angle,
+            size: { width: range, height: halfW * 2, anchorAtStart: true, flipX: true, travelSpeed: sk.travelSpeed || 900 } });
+          else fx.push({ type: "fx", from: 0, x: b.x, y: b.y, effect: sk.hitEffect, angle,
+            size: { width: range, height: halfW * 2, anchorAtStart: true } });
+        }
+        const t = alivePlayers.find((p) => p.id === targetId);
+        if (!t) return;
+        let inside;
+        if (isMelee) inside = Math.hypot(t.x - b.x, t.y - b.y) <= (sk.radius || 0) + b.radius + PLAYER_RADIUS;
+        else {
+          const rx = t.x - b.x, ry = t.y - b.y;
+          const along = rx * dirX + ry * dirY;
+          inside = along >= 0 && along <= range && Math.abs(rx * -dirY + ry * dirX) <= halfW + PLAYER_RADIUS;
+        }
+        if (!inside || (t.protectUntil && now < t.protectUntil)) return;
+        const r = skillDamage(sk, b);
+        hits.push({
+          targetId: t.id,
+          physicalDamage: Math.max(0, Math.round(r.physicalDamage || 0)),
+          magicalDamage: Math.max(0, Math.round(r.magicalDamage || 0)),
+          isCritical: !!r.isCritical, srcX: t.x, srcY: t.y
+        });
+      };
+      // First skill that is off cooldown (list order = priority). Returns true if one was fired.
+      const tryUseSkill = (b, dx, dy, dist, targetId) => {
+        if (!b.botSkills.length || now < b.skillLockUntil) return false;
+        for (const name of b.botSkills) {
+          const sk = SKILLS[name];
+          if (now - (b.skillCd[name] || -1e15) < (typeof sk.cooldown === "number" ? sk.cooldown : 5000)) continue;
+          b.skillCd[name] = now; b.lastAttack = now; b.skillLockUntil = now + SKILL_LOCK_MS;
+          const len = dist || 1, dirX = dx / len, dirY = dy / len;
+          fireSkillShot(b, sk, dirX, dirY, targetId, false);
+          const shots = Math.floor(sk.shotTimes || sk.hitNum || 1);
+          if (shots > 1) b.volley = { sk, dirX, dirY, targetId, remaining: shots - 1,
+            intervalMs: (sk.shotInterval != null ? sk.shotInterval : (sk.hitInterval || 0)) * 1000, timer: 0 };
+          return true;
+        }
+        return false;
+      };
 
       for (const b of sim.bots) {
         if (!b.alive) {
@@ -244,6 +314,17 @@ function createBotEngine(D, MAPS, OBSTACLE_TYPES) {
           continue;
         }
         if (b.h < b.mh && b.hpRegen > 0) b.h = Math.min(b.mh, b.h + b.mh * b.hpRegen * dt);
+
+        // keep dripping out the rest of a multi-hit skill (slash1's 2 hits, deadlystrike's 5 shots)
+        if (b.volley) {
+          const v = b.volley;
+          v.timer += dt * 1000;
+          if (v.timer >= v.intervalMs) {
+            v.timer = 0; v.remaining--;
+            fireSkillShot(b, v.sk, v.dirX, v.dirY, v.targetId, true);
+            if (v.remaining <= 0) b.volley = null;
+          }
+        }
 
         // --- vision: nearest visible player in range / cone / line of sight
         b.visionT += dt * 1000;
@@ -289,6 +370,7 @@ function createBotEngine(D, MAPS, OBSTACLE_TYPES) {
         switch (b.state) {
           case "attack": {
             b.fa = Math.atan2(dyp, dxp);
+            if (target && tryUseSkill(b, dxp, dyp, distp, target.id)) break;   // skill first, like bot.js
             if (target && distp <= reach && now - b.lastAttack >= b.attackMs) {
               b.lastAttack = now;
               const roll = (base) => {
@@ -298,7 +380,8 @@ function createBotEngine(D, MAPS, OBSTACLE_TYPES) {
               const ph = roll(b.weaponDamage + b.physicalDamage);
               const mg = roll(b.magicalAttack);
               const reachOut = b.radius + (MELEE.meleeRange || 10);
-              swings.push({
+              fx.push({
+                type: "fx", from: 0,
                 x: b.x + Math.cos(b.fa) * reachOut,
                 y: b.y + Math.sin(b.fa) * reachOut,
                 angle: b.fa,
@@ -351,7 +434,7 @@ function createBotEngine(D, MAPS, OBSTACLE_TYPES) {
         for (const p of alivePlayers) pushApart(b, p.x, p.y, PLAYER_RADIUS, 1);
         for (const o of sim.bots) if (o !== b && o.alive) pushApart(b, o.x, o.y, o.radius, 0.5, o);
       }
-      return { hits, swings };
+      return { hits, fx };
     };
 
     // A player's attack landed on enemy `idx`. Returns { killed, drops } or null.
@@ -367,7 +450,7 @@ function createBotEngine(D, MAPS, OBSTACLE_TYPES) {
         b.fa = Math.atan2(srcY - b.y, srcX - b.x);
         return { killed: false, drops: [] };
       }
-      b.h = 0; b.alive = false; b.respawnAt = now + b.respawnMs; b.moving = false;
+      b.h = 0; b.alive = false; b.respawnAt = now + b.respawnMs; b.moving = false; b.volley = null;
       return { killed: true, drops: sim.rollDrops(b) };
     };
 

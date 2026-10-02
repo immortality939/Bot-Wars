@@ -1073,10 +1073,8 @@ setInterval(() => {
     try {
       const plist = [...room.values()].map((p) => ({ id: p.id, x: p.x, y: p.y, alive: p.alive, protectUntil: p.protectUntil }));
       const res = sim.step(now, plist);
-      // Show every enemy swing to everyone in the room (the old host drew this on its own screen only).
-      for (const sw of res.swings) {
-        broadcast(room, { type: "fx", from: 0, x: sw.x, y: sw.y, effect: sw.effect, angle: sw.angle }, -1);
-      }
+      // Show every enemy swing / skill effect / skill sound to everyone in the room.
+      for (const m of res.fx) broadcast(room, m, -1);
       for (const h of res.hits) {
         const target = room.get(h.targetId);
         if (target) send(target.ws, {
