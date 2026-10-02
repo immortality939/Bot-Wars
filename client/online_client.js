@@ -77,6 +77,7 @@ let netBotsTimer = 0;
 // host in online mode) always goes straight through to these, unchanged.
 const _localUpdateBots = updateBots;
 const _localDamageBot = damageBot;
+const NET_PRED_DEATH_HOLD_MS = 3000;   // how long a guest's predicted kill is kept while waiting for the host to confirm it
 
 // SKILL MANA (online) — game.js's fireSkill() family ends in
 // runSkillActivation(). Online, tell the server the moment a skill fires so
@@ -154,6 +155,11 @@ damageBot = function (bot, amount, isCritical, showDamageNumber, isSkillHit) {
   if (bot.health <= 0) {
     bot.alive = false;
     bot.deathTime = performance.now();
+    // DOUBLE EXP FIX — remember this death is only a PREDICTION until the host
+    // confirms it (see netApplyBotsSnapshot()). A snapshot sent before the host
+    // applied my hit still says "alive"; without this it revived the bot here and
+    // my next shot "killed" it a second time for a second exp payout.
+    bot._netPredDeadUntil = performance.now() + NET_PRED_DEATH_HOLD_MS;
     if (bot.unitExplode && typeof createHitEffect === "function") {
       createHitEffect(bot.x, bot.y, bot.unitExplode);
     }
@@ -582,22 +588,52 @@ function netSendBotsSnapshot() {
 // only position/health/alive/facing actually come over the network.
 function netApplyBotsSnapshot(list) {
   if (!Array.isArray(list)) return;
+  const nowMs = performance.now();
   for (const s of list) {
     let b = bots[s.i];
     if (!b || b.type !== s.t) {
       try { b = createBot(s.t, s.x, s.y); } catch (e) { continue; }
       if (!s.a) { b.alive = false; b.health = 0; b.dropsSpawned = true; b.expAwarded = true; }
+      b._netHostAlive = !!s.a;
       bots[s.i] = b;
     }
-    const wasAlive = b.alive;
+    // What the HOST last said about this enemy (not my local prediction) —
+    // a real respawn is "host said dead, now says alive".
+    const hostWasAlive = (b._netHostAlive === undefined) ? b.alive : b._netHostAlive;
+    b._netHostAlive = !!s.a;
     b._netTX = s.x; b._netTY = s.y;
-    if (!wasAlive && s.a) {
+
+    if (!hostWasAlive && s.a) {
       // Just respawned on the host's side: snap instead of gliding in from
       // the old death spot, and let this new life drop loot/exp again.
       b.x = s.x; b.y = s.y;
       b.dropsSpawned = false;
       b.expAwarded = false;
+      b._netPredDeadUntil = 0;
     }
+
+    // DOUBLE EXP FIX — I predicted this enemy's death (my hit went to the host
+    // but the host hasn't applied it yet). A snapshot that still says "alive"
+    // is just stale: keep it dead here so my next shots can't kill it again
+    // and pay exp twice. Once the host says dead the hold ends; if it never
+    // confirms within the hold time, the kill didn't count — put it back.
+    if (b._netPredDeadUntil) {
+      if (!s.a) {
+        b._netPredDeadUntil = 0;
+      } else if (nowMs < b._netPredDeadUntil) {
+        b.health = 0;
+        b.alive = false;
+        b.facingAngle = s.fa;
+        b.isMoving = s.mv;
+        b.maxHealth = s.mh;
+        continue;
+      } else {
+        b._netPredDeadUntil = 0;
+        b.expAwarded = false;
+        b.dropsSpawned = false;
+      }
+    }
+
     b.health = s.h;
     b.maxHealth = s.mh;
     b.alive = s.a;
