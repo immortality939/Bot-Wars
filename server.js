@@ -560,15 +560,10 @@ async function handleApi(req, res, urlPath) {
 // Runs right after "join": works out the account, then hands the player
 // their clan (if the account has one) and tells the clan they're online.
 async function attachAccount(p, token) {
-  let uid = await verifyAccountToken(token);
-  if (!uid) uid = await verifyAccountToken(token);   // one retry, so a brief Supabase hiccup doesn't kick a real player
+  const uid = await verifyAccountToken(token);
   p.uid = uid;
   p.uidChecked = true;
-  if (!uid) {   // login required: a token Supabase doesn't accept can't stay in the game
-    send(p.ws, { type: "joinError", reason: "Login expired - please log in again" });
-    try { p.ws.close(); } catch (e) {}
-    return;
-  }
+  if (!uid) return;
   if (p.ws.readyState !== 1) return; // already gone
   onlineByUid.set(uid, p);
   if (!clanLoaded) return; // loadClans() sends the roster the moment it finishes
@@ -743,7 +738,7 @@ const rooms = new Map();
 function getRoom(serverId, channel, mapKey) {
   const k = serverId + ":" + channel + ":" + mapKey;
   let r = rooms.get(k);
-  if (!r) { r = new Map(); r.hostId = null; r.lastBots = null; r.lastBotsAt = 0; r.mapKey = mapKey; r.simBots = null; r.simLast = 0; r.drops = new Map(); r.nextDropId = 1; r.engine = botEngine ? botEngine.createRoomSim(mapKey) : null; rooms.set(k, r); }
+  if (!r) { r = new Map(); r.hostId = null; r.lastBots = null; r.lastBotsAt = 0; r.mapKey = mapKey; r.simBots = null; r.simLast = 0; r.drops = new Map(); r.nextDropId = 1; rooms.set(k, r); }
   return r;
 }
 // Picks anyone else left in the room to take over as bot host.
@@ -763,7 +758,6 @@ const ROOM_BOTS_KEEP_MS = 5 * 60 * 1000;   // 5 minutes
 // passed since the snapshot was taken, so it respawns on schedule instead of
 // getting a full new wait. [] when nothing is remembered (or it expired).
 function currentBots(room) {
-  if (room.engine) return room.engine.snapshot(Date.now());   // server-run enemies: always the live state
   if (!room.lastBots) return [];
   const age = Date.now() - (room.lastBotsAt || 0);
   if (!room.simBots && age > ROOM_BOTS_KEEP_MS) { room.lastBots = null; return []; }   // a room the server is simulating never expires
@@ -798,16 +792,6 @@ function reassignHost(room, leavingId) {
 // ---------------------------------------------------------------------------
 const BOT_TYPES = GAME_DATA.BOT_TYPES || {};
 const OBSTACLE_TYPES = (() => { try { return require("./server/obstacles_server.js").OBSTACLE_TYPES || {}; } catch (e) { return {}; } })();
-
-// SERVER-RUN ENEMIES — bot_ai.js runs the enemies here on the server, so no player
-// hosts them any more (nobody can fake enemy damage, deaths or loot).
-// Emergency switch: set the environment variable SERVER_BOTS=0 on Render and the
-// old player-hosted enemies come back (no code change needed).
-const SERVER_BOTS = process.env.SERVER_BOTS !== "0";
-const botEngine = SERVER_BOTS
-  ? require("./bot_ai.js").createBotEngine(GAME_DATA, MAPS, OBSTACLE_TYPES)
-  : null;
-console.log(SERVER_BOTS ? "Enemies: run by the SERVER (bot_ai.js)" : "Enemies: hosted by players (SERVER_BOTS=0)");
 
 function startOfflineSim(room) {
   if (!Array.isArray(room.lastBots) || !room.lastBots.length || !MAPS[room.mapKey]) { room.simBots = null; return; }
@@ -1047,47 +1031,6 @@ function publicInfo(p) {
   };
 }
 
-// Loot made by the server when an enemy dies (same rules as the old "dropAdd").
-function serverAddDrops(room, list) {
-  const added = [];
-  for (const d of list.slice(0, 20)) {
-    const drop = { id: room.nextDropId++, t: d.t, x: num(d.x), y: num(d.y), at: Date.now() };
-    if (d.t === "goldOrb") drop.amt = saveGuard.clampOrbAmount(num(d.amt));
-    room.drops.set(drop.id, drop);
-    added.push(drop);
-  }
-  while (room.drops.size > MAX_ROOM_DROPS) room.drops.delete(room.drops.keys().next().value);
-  if (added.length) broadcast(room, { type: "dropAdd", drops: added.map(({ id, t, x, y, amt, at }) => ({ id, t, x, y, amt, at })) }, -1);
-}
-
-// SERVER-RUN ENEMIES: every 50 ms each room that has players moves its enemies,
-// applies their attacks, and every 100 ms sends everyone the new enemy snapshot.
-let botTickCount = 0;
-setInterval(() => {
-  if (!botEngine) return;
-  botTickCount++;
-  const now = Date.now();
-  for (const room of rooms.values()) {
-    const sim = room.engine;
-    if (!sim || room.size === 0) continue;
-    try {
-      const plist = [...room.values()].map((p) => ({ id: p.id, x: p.x, y: p.y, alive: p.alive, protectUntil: p.protectUntil }));
-      const res = sim.step(now, plist);
-      // Show every enemy swing / skill effect / skill sound to everyone in the room.
-      for (const m of res.fx) broadcast(room, m, -1);
-      for (const h of res.hits) {
-        const target = room.get(h.targetId);
-        if (target) send(target.ws, {
-          type: "botHitPlayer",
-          physicalDamage: h.physicalDamage, magicalDamage: h.magicalDamage,
-          isCritical: h.isCritical, srcX: h.srcX, srcY: h.srcY, knockback: 0
-        });
-      }
-      if (botTickCount % 2 === 0) broadcast(room, { type: "bots", list: sim.snapshot(now) }, -1);
-    } catch (e) { console.error("[bot_ai] tick failed:", e && e.message || e); }
-  }
-}, 50);
-
 wss.on("connection", (ws) => {
   let me = null; // set once the client sends "join"
   ws.isAlive = true;
@@ -1102,12 +1045,6 @@ wss.on("connection", (ws) => {
     if (msg.type === "join") {
       if (me) return;
 
-      // LOGIN REQUIRED — no account token, no joining the online game.
-      if (typeof msg.token !== "string" || msg.token.length < 20 || msg.token.length > 4000) {
-        send(ws, { type: "joinError", reason: "Please log in to play online" });
-        ws.close();
-        return;
-      }
       const serverId = Math.trunc(num(msg.server, 0));
       const channel = Math.trunc(num(msg.channel, -1));
       if (serverId < 1 || serverId > SERVER_COUNT || (channel !== CHANNEL_PVP && channel !== CHANNEL_SAFE)) {
@@ -1157,8 +1094,7 @@ wss.on("connection", (ws) => {
       const isFirstInRoom = room.size === 0;
       players.set(id, me);
       room.set(id, me);
-      if (room.engine) room.engine.touch(Date.now());
-      else if (isFirstInRoom) { room.hostId = id; stopOfflineSim(room); }   // keep room.lastBots: enemies come back as they wandered to
+      if (isFirstInRoom) { room.hostId = id; stopOfflineSim(room); }   // keep room.lastBots: enemies come back as they wandered to
       send(ws, {
         type: "init",
         id,
@@ -1261,17 +1197,6 @@ wss.on("connection", (ws) => {
       // own simulation is allowed to actually apply the damage, so relay
       // this straight to them (same rate-limit idea as player "hit" above).
       case "botHit": {
-        // SERVER-RUN ENEMIES: the server applies the hit to its own enemy.
-        if (me.room.engine) {
-          const nowHit = Date.now();
-          if (msg.isSkillHit && !consumeSkillHit(me, nowHit)) break;   // not paid on the server / locked / over this cast's hit budget
-          const res = me.room.engine.hitBot(
-            Math.trunc(num(msg.idx, -1)), Math.max(0, num(msg.amount)),
-            num(msg.srcX, me.x), num(msg.srcY, me.y), nowHit
-          );
-          if (res && res.drops.length) serverAddDrops(me.room, res.drops);
-          break;
-        }
         const hostId = me.room.hostId;
         if (hostId == null || hostId === me.id) break;
         const host = me.room.get(hostId);
@@ -1558,8 +1483,7 @@ wss.on("connection", (ws) => {
         me.room = getRoom(me.server, me.channel, key);
         const isFirstInNewRoom = me.room.size === 0;
         me.room.set(me.id, me);
-        if (me.room.engine) me.room.engine.touch(Date.now());
-        else if (isFirstInNewRoom) { me.room.hostId = me.id; stopOfflineSim(me.room); }   // keep me.room.lastBots: enemies come back as they wandered to
+        if (isFirstInNewRoom) { me.room.hostId = me.id; stopOfflineSim(me.room); }   // keep me.room.lastBots: enemies come back as they wandered to
 
         // Server decides where I land — not the client. Finds the portal
         // back to the map I just came from and puts me next to it.
