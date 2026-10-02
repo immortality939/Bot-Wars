@@ -93,6 +93,13 @@ const START_MAP = MAPS.worldmap ? "worldmap" : Object.keys(MAPS)[0];   // where 
 GAME_DATA.WORLD_MAPS = MAPS;
 GAME_DATA.START_MAP = START_MAP;
 
+// SAVE GUARD — checks every account save before it reaches the database and keeps
+// the server's own record of gold/items it saw a player pick up or trade (see
+// save_guard.js). The whole GAME_DATA is passed so it knows the real item names,
+// shop prices, characters and level cap.
+const { createSaveGuard } = require("./save_guard.js");
+const saveGuard = createSaveGuard(GAME_DATA);
+
 // CODE — the raw SOURCE of every ./server/*_server.js file, sent to each
 // client inside GAME_DATA (as GAME_DATA.CODE) so online.js's
 // netInstallServerCode() can actually run their top-level FUNCTIONS/FORMULAS
@@ -138,6 +145,25 @@ function path_join(...a) { return require("path").join(...a); }
 
 const server = http.createServer((req, res) => {
   const path = (req.url || "").split("?")[0];
+  // Browser pre-flight for the account API below (it sends an Authorization header).
+  if (req.method === "OPTIONS") {
+    res.writeHead(204, {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+      "Access-Control-Allow-Headers": "Authorization, Content-Type",
+      "Access-Control-Max-Age": "600"
+    });
+    res.end();
+    return;
+  }
+  // Account saves / session claims — see "ACCOUNT SAVES" further down.
+  if (path.startsWith("/api/") && req.method === "POST") {
+    handleApi(req, res, path).catch((e) => {
+      console.error("[api] " + path + " failed:", e && e.message || e);
+      if (!res.headersSent) apiReply(res, 502, { error: "SERVER_ERROR" });
+    });
+    return;
+  }
   if (path === "/online.js") {
     let code;
     try { code = fs.readFileSync(ONLINE_CLIENT_FILE, "utf8"); }
@@ -329,11 +355,11 @@ const clanOfUid = new Map();    // account uid -> clanId
 const onlineByUid = new Map();  // account uid -> connected player (latest connection)
 let clanLoaded = false;
 
-async function sbRest(method, pathQuery, body) {
+async function sbRest(method, pathQuery, body, prefer) {
   const headers = { apikey: SB_SERVICE_KEY, "Content-Type": "application/json" };
   // New-style "sb_secret_..." keys go in apikey only; old JWT service keys also go in Authorization.
   if (!SB_SERVICE_KEY.startsWith("sb_")) headers.Authorization = "Bearer " + SB_SERVICE_KEY;
-  if (method !== "GET") headers.Prefer = "return=minimal";
+  if (method !== "GET") headers.Prefer = prefer || "return=minimal";
   const r = await fetch(SB_URL + "/rest/v1/" + pathQuery, {
     method, headers,
     body: body ? JSON.stringify(body) : undefined,
@@ -389,19 +415,148 @@ async function loadClans() {
 }
 loadClans();
 
-// Proves which account a connection belongs to. Returns the Supabase user
-// id, or null if the token is missing/invalid/expired.
-async function verifyAccountToken(token) {
+// Proves which account a token belongs to. Returns { id, email } (the Supabase
+// user), or null if the token is missing/invalid/expired. Answers are cached for
+// 30 seconds so a save every few seconds doesn't hit Supabase Auth every time.
+const tokenCache = new Map();   // token -> { user, exp }
+async function verifyAccountUser(token) {
   if (typeof token !== "string" || token.length < 20 || token.length > 4000 || typeof fetch !== "function") return null;
+  const now = Date.now();
+  const hit = tokenCache.get(token);
+  if (hit && hit.exp > now) return hit.user;
   try {
     const r = await fetch(SB_URL + "/auth/v1/user", {
       headers: { apikey: SB_ANON_KEY, Authorization: "Bearer " + token },
       signal: AbortSignal.timeout(8000)
     });
-    if (!r.ok) return null;
+    if (!r.ok) { tokenCache.delete(token); return null; }
     const u = await r.json();
-    return u && typeof u.id === "string" ? u.id : null;
+    if (!u || typeof u.id !== "string") return null;
+    const user = { id: u.id, email: typeof u.email === "string" ? u.email : "" };
+    if (tokenCache.size > 2000) { for (const [k, v] of tokenCache) if (v.exp <= now) tokenCache.delete(k); if (tokenCache.size > 2000) tokenCache.clear(); }
+    tokenCache.set(token, { user, exp: now + 30000 });
+    return user;
   } catch { return null; }
+}
+async function verifyAccountToken(token) {
+  const u = await verifyAccountUser(token);
+  return u ? u.id : null;
+}
+
+// ---------------------------------------------------------------------------
+// ACCOUNT SAVES — the ONLY code that writes the player_data table.
+// ---------------------------------------------------------------------------
+// The game used to write player_data straight from the player's phone, so a
+// modified client could store any gold / items / level. Now:
+//   * supabase_lockdown.sql removes every client write permission on the table
+//     (players can still READ their own row);
+//   * the client sends its save here (POST /api/save) with its login token;
+//   * save_guard.js reviews it, then THIS server writes it with the service key;
+//   * the single-device "active_session" claim/release also goes through here.
+// Needs SUPABASE_SERVICE_KEY (same one the clans use). Without it saving is
+// refused (503) rather than silently skipped.
+// ---------------------------------------------------------------------------
+let PD_HAS_USERNAME = true;   // flips off by itself if the table has no "username" column
+
+function apiReply(res, code, obj) {
+  res.writeHead(code, {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Cache-Control": "no-store"
+  });
+  res.end(JSON.stringify(obj));
+}
+
+function readJsonBody(req, limit) {
+  return new Promise((resolve, reject) => {
+    let size = 0; const chunks = [];
+    req.on("data", (c) => {
+      size += c.length;
+      if (size > limit) { reject(new Error("too big")); req.destroy(); return; }
+      chunks.push(c);
+    });
+    req.on("end", () => { try { resolve(JSON.parse(Buffer.concat(chunks).toString("utf8") || "{}")); } catch (e) { reject(e); } });
+    req.on("error", reject);
+  });
+}
+
+// One database operation per account at a time (read-check-write must not interleave).
+const uidLocks = new Map();
+function withUidLock(uid, fn) {
+  const prev = uidLocks.get(uid) || Promise.resolve();
+  const next = prev.catch(() => {}).then(fn);
+  uidLocks.set(uid, next);
+  next.then(() => {}, () => {}).then(() => { if (uidLocks.get(uid) === next) uidLocks.delete(uid); });
+  return next;
+}
+
+async function writePlayerRow(user, gameData) {
+  const row = { id: user.id, game_data: gameData };
+  if (PD_HAS_USERNAME && user.email) row.username = user.email;
+  const prefer = "resolution=merge-duplicates,return=minimal";   // upsert: only the columns we send change (active_session is left alone)
+  try {
+    await sbRest("POST", "player_data?on_conflict=id", row, prefer);
+  } catch (e) {
+    if (PD_HAS_USERNAME && /username/i.test(String(e && e.message))) {
+      PD_HAS_USERNAME = false;
+      delete row.username;
+      await sbRest("POST", "player_data?on_conflict=id", row, prefer);
+    } else throw e;
+  }
+}
+
+async function apiSave(user, body) {
+  if (!saveGuard.allowSaveRate(user.id)) return [429, { error: "RATE_LIMITED" }];
+  return withUidLock(user.id, async () => {
+    const rows = await sbRest("GET", "player_data?select=game_data,active_session&id=eq." + q(user.id));
+    const row = (Array.isArray(rows) && rows[0]) || null;
+    const session = typeof body.session === "string" ? body.session.toLowerCase() : null;
+    // Only the device that owns the account right now may save.
+    if (row && row.active_session && row.active_session !== session) return [409, { error: "SESSION_TAKEN" }];
+    const stored = row && row.game_data && typeof row.game_data === "object" ? row.game_data : null;
+    const incoming = body.game_data;
+    // Older than (or same as) what is stored: nothing to write, just report what the database holds.
+    if (stored && incoming && Number(incoming.savedAt) <= Number(stored.savedAt || 0)) return [200, { ok: true, cloud: stored }];
+    const rev = saveGuard.review(user.id, stored, incoming);
+    if (!rev.ok) return [400, { error: rev.error }];
+    await writePlayerRow(user, rev.gameData);
+    rev.commit();
+    if (rev.notes.length) console.log("[save] " + user.id.slice(0, 8) + " corrected: " + rev.notes.slice(0, 6).join("; "));
+    return [200, { ok: true, cloud: rev.gameData, goldFixed: rev.goldFixed }];
+  });
+}
+
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+async function apiSession(user, body) {
+  const sid = typeof body.session === "string" && UUID_RE.test(body.session) ? body.session.toLowerCase() : null;
+  if (!sid) return [400, { error: "BAD_SESSION" }];
+  return withUidLock(user.id, async () => {
+    if (body.action === "claim") {
+      await sbRest("POST", "player_data?on_conflict=id", { id: user.id, active_session: sid }, "resolution=merge-duplicates,return=minimal");
+      return [200, { ok: true }];
+    }
+    if (body.action === "release") {
+      // only clears the claim if it is still OURS
+      await sbRest("PATCH", "player_data?id=eq." + q(user.id) + "&active_session=eq." + q(sid), { active_session: null });
+      return [200, { ok: true }];
+    }
+    return [400, { error: "BAD_ACTION" }];
+  });
+}
+
+async function handleApi(req, res, urlPath) {
+  if (!CLAN_DB_ON) { apiReply(res, 503, { error: "SAVES_DISABLED" }); return; }   // no SUPABASE_SERVICE_KEY on this server
+  const auth = String(req.headers.authorization || "");
+  const user = await verifyAccountUser(auth.startsWith("Bearer ") ? auth.slice(7) : "");
+  if (!user) { apiReply(res, 401, { error: "UNAUTHORIZED" }); return; }
+  let body;
+  try { body = await readJsonBody(req, 256 * 1024); } catch (e) { apiReply(res, 400, { error: "BAD_REQUEST" }); return; }
+  if (!body || typeof body !== "object") { apiReply(res, 400, { error: "BAD_REQUEST" }); return; }
+  let out;
+  if (urlPath === "/api/save") out = await apiSave(user, body);
+  else if (urlPath === "/api/session") out = await apiSession(user, body);
+  else out = [404, { error: "NOT_FOUND" }];
+  apiReply(res, out[0], out[1]);
 }
 
 // Runs right after "join": works out the account, then hands the player
@@ -562,9 +717,11 @@ function cancelActiveTrade(p, notifyReason) {
   const partner = players.get(p.tradePartnerId);
   p.tradePartnerId = null;
   p.tradeConfirmed = false;
+  p.tradeGold = 0; p.tradeItemCount = 0;
   if (partner && partner.tradePartnerId === p.id) {
     partner.tradePartnerId = null;
     partner.tradeConfirmed = false;
+    partner.tradeGold = 0; partner.tradeItemCount = 0;
     send(partner.ws, { type: "tradeCancelled", from: p.id, fromName: p.name, reason: notifyReason || "" });
   }
 }
@@ -1103,14 +1260,18 @@ wss.on("connection", (ws) => {
       case "dropAdd": {
         if (me.room.hostId !== me.id || !Array.isArray(msg.drops)) break;
         const added = [];
+        // A hacked host must not be able to flood the room with drops (each one can carry gold).
+        const dropNow = Date.now();
+        if (dropNow - (me.room.dropWinAt || 0) > 1000) { me.room.dropWinAt = dropNow; me.room.dropWinN = 0; }
         for (const d of msg.drops.slice(0, 20)) {
+          if (++me.room.dropWinN > 60) break;
           if (!d || typeof d.t !== "string" || d.t.length > 40) continue;
           const drop = { id: me.room.nextDropId++, t: d.t, x: num(d.x), y: num(d.y), at: Date.now() };
           // Gold orbs carry their own amount (varies per bot type — see
           // spawnGoldOrbChance/goldOrbAmount on BOT_TYPES), instead of a
           // single shared amount looked up from ITEM_TYPES. Clamped to a
           // sane range so a hacked host can't mint arbitrary gold.
-          if (d.t === "goldOrb") drop.amt = Math.max(0, Math.min(10000, Math.trunc(num(d.amt))));
+          if (d.t === "goldOrb") drop.amt = saveGuard.clampOrbAmount(num(d.amt));   // never above the biggest real orb (save_guard.js)
           me.room.drops.set(drop.id, drop);
           added.push(drop);
         }
@@ -1223,6 +1384,10 @@ wss.on("connection", (ws) => {
         me.room.drops.delete(id);
         broadcast(me.room, { type: "dropGone", id }, me.id);
 
+        // What the SERVER saw this player pick up: save_guard.js uses it to tell a real
+        // gold/item gain from a made-up one when the player's save arrives. Only counts if
+        // the picker is actually close to the drop (no vacuuming the map from far away).
+        const pickupNear = Math.hypot(me.x - num(drop.x), me.y - num(drop.y)) <= 450;
         const party = getParty(me);
         if (party) {
           // Drop any stale/disconnected member (see prunePartyMembers() in
@@ -1273,6 +1438,7 @@ wss.on("connection", (ws) => {
               if (!m) continue;
               const amount = share + (remainder > 0 ? 1 : 0);
               if (remainder > 0) remainder--;
+              if (pickupNear) saveGuard.creditGold(m.uid, amount);
               send(m.ws, { type: "partyLootAward", mode: "gold", amount });
             }
           } else if (rule === "SHARED") {
@@ -1287,6 +1453,7 @@ wss.on("connection", (ws) => {
             // "|| me" is just a last-resort safety net, not the normal path.
             const recipientId = getPartyLootTurnId(party);
             const recipient = (recipientId != null && players.get(recipientId)) || me;
+            if (pickupNear) saveGuard.creditItems(recipient.uid, drop.k === "inv" ? drop.qty : 1);
             // itemPayload spread FIRST, { type, mode } applied LAST — so the
             // "partyLootAward" discriminator always wins even if itemPayload
             // ever grows a field that happens to be named "type" or "mode"
@@ -1296,6 +1463,10 @@ wss.on("connection", (ws) => {
             send(recipient.ws, Object.assign({}, itemPayload, { type: "partyLootAward", mode: "item" }));
             advancePartyLootTurn(party);
           }
+        } else if (pickupNear) {
+          // Not in a party: the picker's own client applies the award, the server just records it.
+          if (drop.t === "goldOrb") saveGuard.creditGold(me.uid, drop.amt || 0);
+          else saveGuard.creditItems(me.uid, drop.k === "inv" ? drop.qty : 1);
         }
         break;
       }
@@ -1635,8 +1806,8 @@ wss.on("connection", (ws) => {
           send(ws, { type: "tradeError", reason: "That trade is no longer available" });
           break;
         }
-        me.tradePartnerId = inviter.id; me.tradeConfirmed = false;
-        inviter.tradePartnerId = me.id; inviter.tradeConfirmed = false;
+        me.tradePartnerId = inviter.id; me.tradeConfirmed = false; me.tradeGold = 0; me.tradeItemCount = 0;
+        inviter.tradePartnerId = me.id; inviter.tradeConfirmed = false; inviter.tradeGold = 0; inviter.tradeItemCount = 0;
         send(inviter.ws, { type: "tradeStart", from: me.id, fromName: me.name });
         send(ws, { type: "tradeStart", from: inviter.id, fromName: inviter.name });
         break;
@@ -1655,6 +1826,9 @@ wss.on("connection", (ws) => {
         const gold = Math.max(0, Math.min(ONLINE_RULES.TRADE_MAX_GOLD, Math.trunc(num(msg.gold, 0))));
         me.tradeConfirmed = false;
         partner.tradeConfirmed = false;
+        // remembered so a completed trade can be credited to the receiver (save_guard.js)
+        me.tradeGold = gold;
+        me.tradeItemCount = items.reduce((n, it) => n + (it && typeof it === "object" ? Math.max(1, Math.min(999, Math.trunc(num(it.qty, 1)))) : 0), 0);
         send(partner.ws, { type: "tradeOffer", from: me.id, items, gold });
         break;
       }
@@ -1670,6 +1844,11 @@ wss.on("connection", (ws) => {
         me.tradeConfirmed = true;
         send(partner.ws, { type: "tradeConfirm", from: me.id });
         if (partner.tradeConfirmed) {
+          saveGuard.creditGold(partner.uid, me.tradeGold || 0);
+          saveGuard.creditGold(me.uid, partner.tradeGold || 0);
+          saveGuard.creditItems(partner.uid, me.tradeItemCount || 0);
+          saveGuard.creditItems(me.uid, partner.tradeItemCount || 0);
+          me.tradeGold = 0; me.tradeItemCount = 0; partner.tradeGold = 0; partner.tradeItemCount = 0;
           send(ws, { type: "tradeComplete" });
           send(partner.ws, { type: "tradeComplete" });
           me.tradePartnerId = null; me.tradeConfirmed = false;
