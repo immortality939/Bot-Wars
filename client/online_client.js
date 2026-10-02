@@ -628,9 +628,11 @@ function netApplyBotsSnapshot(list) {
         b.maxHealth = s.mh;
         continue;
       } else {
+        // The host never confirmed my kill (its copy survived with a sliver of
+        // health). Bring the enemy back, but KEEP expAwarded: I was already paid
+        // for this life, so killing it again must not pay a second time. A real
+        // host respawn (above) is the only thing that resets it.
         b._netPredDeadUntil = 0;
-        b.expAwarded = false;
-        b.dropsSpawned = false;
       }
     }
 
