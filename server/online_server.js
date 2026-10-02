@@ -13,14 +13,14 @@
 
 const ONLINE_RULES = {
   // ---- servers / channels (the lobby draws its rows from these) ----
-  SERVER_COUNT: 5,           // SERVER 1 .. SERVER 5
-  SERVER_MAX_PLAYERS: 500,   // per server (both channels together)
+  SERVER_COUNT: 20,           // SERVER 1 .. SERVER 5
+  SERVER_MAX_PLAYERS: 1000,   // per server (both channels together)
   CHANNELS: [
     { id: 0, pvp: true,  desc: "PvP - players can damage each other" },
     { id: 1, pvp: false, desc: "Safe - no player damage" }
   ],
   PARTY_MAX_SIZE: 6,         // most players one party can hold
-  RESPAWN_SECONDS: 5,        // countdown after dying before you can respawn
+  RESPAWN_SECONDS: 10,        // countdown after dying before you can respawn
   SPAWN_PROTECT_MS: 2000,    // brief invulnerability after joining / respawning / changing map
   STATE_INTERVAL_MS: 50,     // ms between position updates (~20/s) — server drops faster ones
   BOTS_INTERVAL_MS: 100,     // ms between enemy snapshots (~10/s), enemy host only
