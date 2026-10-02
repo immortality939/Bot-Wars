@@ -132,7 +132,8 @@ function createSaveGuard(GAME_DATA) {
   function cleanEntry(e, allowed, notes) {
     if (e === null || e === undefined) return null;
     if (!isObj(e)) { notes.push("dropped non-object item"); return null; }
-    const type = String(e.type || "");
+    // starter gear is built client-side with `kind` instead of `type` — accept both
+    const type = String(e.type || e.kind || "");
     const name = String(e.name || "");
     if (!ITEM_TYPES_OK.includes(type) || !SAFE_NAME.test(name)) { notes.push("dropped bad item " + name.slice(0, 20)); return null; }
     const mustBeKnown = type === "weapon" || type === "armor" || type === "stone" || type === "orb";
