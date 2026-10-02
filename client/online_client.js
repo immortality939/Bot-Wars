@@ -3312,28 +3312,65 @@ function olIsNetworkError(err) {
 }
 function olSleep(ms) { return new Promise((res) => setTimeout(res, ms)); }
 
-// Writes through the save_player_data() DB function (see save_player_data_rpc.sql),
-// which atomically stores our data ONLY IF it is newer than what's already there, and
-// hands back exactly what is now stored. That row is the ground truth from the same
-// transaction that did the write, so there is no need to read the row back afterwards
-// to find out whether the save "stuck" - this call already tells us.
-async function olCloudWriteOnce(user, payload) {
-  const sb = window.supabaseClient;
-  const { data, error } = await sb.rpc("save_player_data", {
-    p_username: user.email || "",
-    p_game_data: payload,
-    p_session: olSessionId || null
-  });
-  if (error) {
-    // The database refuses saves from any device that does not own the account right now.
-    if (/SESSION_TAKEN/.test(String(error.message || error))) {
-      olHandleKicked("A: database refused the save (owner=" + String(olSessionId).slice(0, 8) + ", claimed=" + olSessionClaimed + ")");
-      return { error: { message: "SESSION_TAKEN" }, kicked: true };
+// ---- ACCOUNT API: every WRITE to the player's cloud row goes through the game server ----
+// The browser can no longer write the player_data table itself (see supabase_lockdown.sql);
+// it can only READ its own row. Saves and the "which device owns the account" claim are sent
+// to the server (server.js /api/save and /api/session), which checks them (save_guard.js)
+// and then writes with its own key.
+function olApiBase() { return getOnlineServerUrl().replace(/^ws/i, "http"); }
+
+async function olApiPost(path, body, opts) {
+  const s = await window.supabaseClient.auth.getSession();
+  const tok = s && s.data && s.data.session && s.data.session.access_token;
+  if (!tok) return { status: 401, json: { error: "UNAUTHORIZED" } };
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), 60000);   // a sleeping free host can take ~1 min to wake
+  try {
+    const res = await fetch(olApiBase() + path, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: "Bearer " + tok },
+      body: JSON.stringify(body),
+      signal: ctl.signal,
+      cache: "no-store",
+      keepalive: !!(opts && opts.keepalive)   // small requests sent while the app is closing
+    });
+    let json = null;
+    try { json = await res.json(); } catch (e) {}
+    return { status: res.status, json: json || {} };
+  } finally { clearTimeout(timer); }
+}
+
+// The server cut the gold down (it could not explain the amount): follow it.
+function olApplyServerGold(fixed) {
+  try {
+    if (typeof playerGold === "number" && typeof addGold === "function" && playerGold > fixed) {
+      console.warn("Server corrected gold: " + playerGold + " -> " + fixed);
+      addGold(fixed - playerGold);
     }
-    return { error };
+  } catch (e) {}
+}
+
+// Sends the save to the server, which atomically stores it ONLY IF it is newer than what's
+// already there and answers with exactly what the database now holds (same shape as before),
+// so there is no need to read the row back afterwards to find out whether the save "stuck".
+async function olCloudWriteOnce(user, payload) {
+  const r = await olApiPost("/api/save", { session: olSessionId || null, game_data: payload });
+  const j = r.json || {};
+  // The server refuses saves from any device that does not own the account right now.
+  if (r.status === 409 || j.error === "SESSION_TAKEN") {
+    olHandleKicked("A: server refused the save (owner=" + String(olSessionId).slice(0, 8) + ", claimed=" + olSessionClaimed + ")");
+    return { error: { message: "SESSION_TAKEN" }, kicked: true };
   }
+  if (r.status !== 200 || !j.ok) {
+    const code = j.error || ("HTTP " + r.status);
+    // busy / asleep / no database key yet: worded so the retry logic treats it like a network hiccup
+    if (r.status >= 500 || r.status === 429) return { error: { message: "fetch failed (HTTP " + r.status + " " + code + ")" } };
+    return { error: { message: "save refused: " + code } };
+  }
+  if (typeof j.goldFixed === "number") olApplyServerGold(j.goldFixed);
+  const data = j.cloud || null;
   olLastEcho = data && data.savedAt ? data.savedAt : "none";
-  return { error: null, cloud: data || null };
+  return { error: null, cloud: data };
 }
 
 // Same write, but a network hiccup ("Failed to fetch": weak signal, wifi <-> mobile data
@@ -3678,38 +3715,15 @@ document.addEventListener("visibilitychange", () => {
 // call has no such guarantee once beforeunload/pagehide starts).
 async function olReleaseSession(uid, sid) {
   if (!uid || !sid) return false;
-
   try {
-    const { data: sessionData, error: sessionError } =
-      await window.supabaseClient.auth.getSession();
-
-    if (sessionError || !sessionData || !sessionData.session) {
-      console.error("SESSION RELEASE: no active auth session.");
-      return false;
+    // The server clears the claim, and only if it still holds OUR session id.
+    const r = await olApiPost("/api/session", { action: "release", session: sid }, { keepalive: true });
+    if (r.status === 200 && r.json && r.json.ok) {
+      console.log("SESSION RELEASE: active_session cleared.");
+      return true;
     }
-
-    const { data, error } =
-      await window.supabaseClient
-        .from("player_data")
-        .update({ active_session: null })
-        .eq("id", uid)
-        .eq("active_session", sid)
-        .select("id, active_session")
-        .maybeSingle();
-
-    if (error) {
-      console.error("SESSION RELEASE FAILED:", error);
-      return false;
-    }
-
-    if (!data) {
-      console.warn("SESSION RELEASE: no matching session row.");
-      return false;
-    }
-
-    console.log("SESSION RELEASE: active_session cleared.");
-    return true;
-
+    console.warn("SESSION RELEASE refused:", r.status, r.json);
+    return false;
   } catch (e) {
     console.error("SESSION RELEASE EXCEPTION:", e);
     return false;
@@ -3851,14 +3865,10 @@ async function olClaimSession(uid, fresh) {
     let why = "";
     for (let i = 0; i < 3 && !olSessionClaimed; i++) {
       try {
-        // upsert (not a plain update): a brand-new account confirmed by email link
-        // has no player_data row yet at first login, so a plain UPDATE would always
-        // match 0 rows here. Only active_session is in the payload, so on conflict
-        // this updates just that column and leaves game_data/username untouched.
-        const { data: upd, error } = await window.supabaseClient
-          .from("player_data").upsert({ id: uid, active_session: olSessionId }, { onConflict: "id" }).select("id");
-        if (error) why = "upsert: " + String(error.message || error).slice(0, 60);
-        else if (!upd || !upd.length) why = "upsert matched 0 rows (a DB policy blocks it)";
+        // The server upserts the row (a brand-new account confirmed by email link has no
+        // player_data row yet at first login) and changes only active_session.
+        const r = await olApiPost("/api/session", { action: "claim", session: olSessionId });
+        if (r.status !== 200 || !(r.json && r.json.ok)) why = "claim: " + ((r.json && r.json.error) || ("HTTP " + r.status));
         else {
           const owner = await olReadSessionOwner(uid);
           if (owner === "mine") olSessionClaimed = true; else why = "read-back: " + owner;
