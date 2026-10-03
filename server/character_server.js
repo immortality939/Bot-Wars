@@ -41,8 +41,8 @@
 const ATTRIBUTE_RATES = {
   vit: { health: 30, physicalDefense: 1.5 },
   dex: { physicalDefense: 3.5, criticalDamage: 0.01 },
-  int: { mana: 5, magicalAttack: 3, magicalDefense: 3.5 },
-  pow: { physicalDamage: 3 }
+  int: { mana: 5, magicalAttack: 2, magicalDefense: 3.5 },
+  pow: { physicalDamage: 2 }
 };
 
 // Reads the CURRENT table (offline or server) so a swap takes effect at once.
@@ -74,7 +74,7 @@ const GAME_RULES = {
   EXP_BASE: 300,
   EXP_GROWTH_RATE: 1.5,
   MAX_LEVEL: 40,
-  STAT_POINTS_PER_LEVEL: 15,
+  STAT_POINTS_PER_LEVEL: 10,
   AUTO_STAT_GROWTH_PER_LEVEL: 3,
   HEALTH_GROWTH_RATE: 1.03,
   PARTY_MAX_SIZE: 6,
