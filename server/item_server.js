@@ -163,7 +163,7 @@ const ITEM_DESPAWN_TIME = 30000; // 30 sec
 // -> inventory -> equip -> saved), so two drops of the same item differ.
 //
 // Each line of ITEM_ROLL_STATS is one possible stat:
-//   min / max  — the range at the TOP enemy level (ITEM_ROLL_MAX_ENEMY_LEVEL).
+//   min / max  — the whole range, split into tiers by enemy level (see below).
 //   chance     — chance (0-1) the item gets this stat at all.
 //   decimals   — how many decimals the rolled number keeps.
 //   pickOne    — stats sharing a pickOne name are one group: the group is
@@ -171,28 +171,38 @@ const ITEM_DESPAWN_TIME = 30000; // 30 sec
 //                (physicalDamage OR magicalAttack, never both).
 //   onlyFor    — (optional) only these item categories can roll it.
 //
-// ENEMY LEVEL — a low level enemy can't drop the top of the range. The top
-// of the range grows with the enemy's level:
-//   top = min + (max - min) * (level / MAX_ENEMY_LEVEL) ^ LEVEL_CURVE
-// (level 50+ -> the full max; level 5 on physicalDamage 5-300 -> about 5-10.2).
+// ENEMY LEVEL — TIERS. Enemy levels 1-50 are split into ITEM_ROLL_TIERS (5)
+// tiers of 10 levels each, and every stat's range is split into the same 5
+// equal slices. The enemy's tier decides which slice the number comes from:
+//   physicalDamage 1-300  ->  lvl 1-10: 1-60    lvl 11-20: 61-120
+//                             lvl 21-30: 121-180  lvl 31-40: 181-240
+//                             lvl 41-50: 241-300
+// Every other stat is sliced the same way (physicalDefense 1-50 -> 1-10,
+// 11-20, 21-30, 31-40, 41-50; health 1-1500 -> 1-300, 301-600, ...).
+// Enemies above level 50 use the top tier.
 //
-// WHICH NUMBER — inside min..top the lowest number is the most common: the
-// min has a 100% weight and the top has ITEM_ROLL_TOP_CHANCE (10%) of that,
-// with everything in between falling off in a straight line.
+// WHICH NUMBER — inside the slice the lowest number is the most common (100%
+// weight) and the highest number's weight (ITEM_ROLL_TOP_CHANCE_LOW at the
+// FIRST level of the tier, ITEM_ROLL_TOP_CHANCE_HIGH at the LAST level of the
+// tier) grows as the enemy gets higher in its tier, everything in between
+// falling off in a straight line. So a level 1 enemy rarely gives 60
+// (10%), a level 10 enemy gives 60 as easily as 1 (100%), and a level 11
+// enemy starts again at 61 being common and 120 being rare.
 // ---------------------------------------------------------------------------
 const ITEM_ROLL_MAX_ENEMY_LEVEL = 50;
-const ITEM_ROLL_LEVEL_CURVE = 1.75;
-const ITEM_ROLL_TOP_CHANCE = 0.1;
+const ITEM_ROLL_TIERS = 5;
+const ITEM_ROLL_TOP_CHANCE_LOW = 0.1;   // top number's weight at the first level of a tier
+const ITEM_ROLL_TOP_CHANCE_HIGH = 1.0;  // top number's weight at the last level of a tier
 const ITEM_ROLL_CATEGORIES = ["weapon", "armor", "ring", "accessory"];
 const ITEM_ROLL_STATS = [
-  { stat: "physicalDamage",  min: 5,    max: 300,   chance: 1,   decimals: 0, pickOne: "attack" },
-  { stat: "magicalAttack",   min: 5,    max: 300,   chance: 1,   decimals: 0, pickOne: "attack" },
+  { stat: "physicalDamage",  min: 1,    max: 300,   chance: 1,   decimals: 0, pickOne: "attack" },
+  { stat: "magicalAttack",   min: 1,    max: 300,   chance: 1,   decimals: 0, pickOne: "attack" },
   { stat: "physicalDefense", min: 1,    max: 50,    chance: 0.7, decimals: 0 },
   { stat: "magicalDefense",  min: 1,    max: 50,    chance: 0.7, decimals: 0 },
   { stat: "hpRegen",         min: 0.01, max: 0.035, chance: 0.5, decimals: 3 },
   { stat: "manaRegen",       min: 0.01, max: 0.035, chance: 0.5, decimals: 3 },
-  { stat: "health",          min: 10,   max: 1500,  chance: 0.4, decimals: 0 },
-  { stat: "mana",            min: 10,   max: 100,   chance: 0.4, decimals: 0 },
+  { stat: "health",          min: 1,    max: 1500,  chance: 0.4, decimals: 0 },
+  { stat: "mana",            min: 1,    max: 100,   chance: 0.4, decimals: 0 },
   { stat: "vit",             min: 1,    max: 50,    chance: 0.3, decimals: 0 },
   { stat: "pow",             min: 1,    max: 50,    chance: 0.3, decimals: 0 },
   { stat: "dex",             min: 1,    max: 50,    chance: 0.3, decimals: 0 },
@@ -205,16 +215,29 @@ const ITEM_ROLL_STATS = [
 
 // One number for one stat at one enemy level.
 function rollOneItemStat(def, enemyLevel) {
-  const lvl = Math.max(1, Math.min(ITEM_ROLL_MAX_ENEMY_LEVEL, Number(enemyLevel) || 1));
-  const top = def.min + (def.max - def.min) * Math.pow(lvl / ITEM_ROLL_MAX_ENEMY_LEVEL, ITEM_ROLL_LEVEL_CURVE);
-  // Straight-line weight from 1 (at min) down to ITEM_ROLL_TOP_CHANCE (at top);
-  // solved backwards from a random 0-1 so low numbers come up far more often.
-  const a = 1 - ITEM_ROLL_TOP_CHANCE;
-  const t = a > 0 ? (1 - Math.sqrt(1 - 2 * a * Math.random() * (1 - a / 2))) / a : Math.random();
-  let v = def.min + t * (top - def.min);
+  const lvl = Math.max(1, Math.min(ITEM_ROLL_MAX_ENEMY_LEVEL, Math.floor(Number(enemyLevel)) || 1));
+  const levelsPerTier = ITEM_ROLL_MAX_ENEMY_LEVEL / ITEM_ROLL_TIERS;           // 10
+  const tier = Math.min(ITEM_ROLL_TIERS - 1, Math.floor((lvl - 1) / levelsPerTier)); // 0..4
+  const posInTier = levelsPerTier > 1 ? ((lvl - 1) % levelsPerTier) / (levelsPerTier - 1) : 1; // 0..1
+
+  // This tier's slice of the stat's range. step = smallest unit the stat keeps
+  // (1 for whole numbers, 0.001 for 3 decimals) so slices never overlap.
+  const step = Math.pow(10, -(def.decimals || 0));
+  const width = (def.max - def.min + step) / ITEM_ROLL_TIERS;
   const f = Math.pow(10, def.decimals || 0);
+  const lo = Math.round((def.min + tier * width) * f) / f;
+  const hi = Math.round((def.min + tier * width + width - step) * f) / f;
+
+  // Straight-line weight from 1 (at lo) down to topWeight (at hi); solved
+  // backwards from a random 0-1 so low numbers come up more often. The higher
+  // the enemy sits in its tier, the bigger topWeight, so high numbers get likelier.
+  const topWeight = ITEM_ROLL_TOP_CHANCE_LOW + (ITEM_ROLL_TOP_CHANCE_HIGH - ITEM_ROLL_TOP_CHANCE_LOW) * posInTier;
+  const a = 1 - topWeight;
+  const u = Math.random();
+  const t = Math.abs(a) > 1e-9 ? (1 - Math.sqrt(1 - 2 * a * u * (1 - a / 2))) / a : u;
+  let v = lo + t * (hi - lo);
   v = Math.round(v * f) / f;
-  return Math.max(def.min, Math.min(def.max, v));
+  return Math.max(lo, Math.min(hi, v));
 }
 
 // Rolls the stats for ONE dropped item. Returns a plain object like
