@@ -963,7 +963,7 @@ function dropList(room) {
   pruneDrops(room);
   return [...room.drops.values()].map((d) => d.k === "inv"
     ? { id: d.id, k: "inv", invType: d.invType, name: d.name, data: d.data, qty: d.qty, x: d.x, y: d.y, at: d.at }
-    : { id: d.id, t: d.t, x: d.x, y: d.y, at: d.at });
+    : { id: d.id, t: d.t, x: d.x, y: d.y, at: d.at, stats: d.stats });
 }
 function clearDropsIfEmpty() { /* intentionally keeps loot in empty rooms */ }
 
@@ -1266,11 +1266,22 @@ wss.on("connection", (ws) => {
           // single shared amount looked up from ITEM_TYPES. Clamped to a
           // sane range so a hacked host can't mint arbitrary gold.
           if (d.t === "goldOrb") drop.amt = saveGuard.clampOrbAmount(num(d.amt));   // never above the biggest real orb (save_guard.js)
+          // GEAR STATS — weapons / armor / rings / accessories are plain in the
+          // *_server.js tables; the stats are rolled HERE, on the server, from the
+          // level of the enemy TYPE that dropped it (looked up in bot_server.js,
+          // never a level the client claims), using rollItemStats() in
+          // server/item_server.js. The host only says which item dropped.
+          const gearCat = categoryForDrop(drop);
+          if (gearCat === "weapon" || gearCat === "armor" || gearCat === "ring" || gearCat === "accessory") {
+            const srcBot = BOT_TYPES[String(d.bt || "")];
+            const enemyLevel = (srcBot && typeof srcBot.level === "number") ? srcBot.level : 1;
+            drop.stats = GAME_DATA.rollItemStats(gearCat, enemyLevel);
+          }
           me.room.drops.set(drop.id, drop);
           added.push(drop);
         }
         while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
-        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y, amt, at }) => ({ id, t, x, y, amt, at })) }, -1);
+        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y, amt, at, stats }) => ({ id, t, x, y, amt, at, stats })) }, -1);
         break;
       }
 
@@ -1416,7 +1427,7 @@ wss.on("connection", (ws) => {
           // armor, and stone/orb (upgrade_server.js) didn't.
           const itemPayload = drop.k === "inv"
             ? { category, invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty }
-            : { category, itemType: drop.t };
+            : { category, itemType: drop.t, stats: drop.stats };
 
           if (rule === "SPLIT") {
             // Gold orbs carry their own amount per drop (varies by which
