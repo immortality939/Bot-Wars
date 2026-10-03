@@ -248,16 +248,20 @@ function netApplyPartyExpAward(amount) {
 const _localSpawnItemsOnBotDeath = spawnItemsOnBotDeath;
 const _localCheckItemPickup = checkItemPickup;
 
-spawnItemsOnBotDeath = function (spawnItemList, x, y) {
-  if (!netIsOnline()) return _localSpawnItemsOnBotDeath(spawnItemList, x, y);
+spawnItemsOnBotDeath = function (spawnItemList, x, y, bot) {
+  if (!netIsOnline()) return _localSpawnItemsOnBotDeath(spawnItemList, x, y, bot);
   // Guests never roll loot. The host rolls it but doesn't keep it: the
   // server echoes it back (with an id) to everyone including the host.
   if (!netIsBotHost) return [];
-  const rolled = _localSpawnItemsOnBotDeath(spawnItemList, x, y);
+  const rolled = _localSpawnItemsOnBotDeath(spawnItemList, x, y, bot);
   if (rolled.length) {
+    // bt = the enemy TYPE that died. The server looks up that type's level
+    // itself (bot_server.js) and rolls the item's stats from it — the stats
+    // this client may have rolled locally are thrown away on purpose.
+    const botType = bot && typeof bot.type === "string" ? bot.type : "";
     netSend({
       type: "dropAdd",
-      drops: rolled.map((d) => ({ t: d.type, x: Math.round(d.x * 10) / 10, y: Math.round(d.y * 10) / 10 }))
+      drops: rolled.map((d) => ({ t: d.type, x: Math.round(d.x * 10) / 10, y: Math.round(d.y * 10) / 10, bt: botType }))
     });
   }
   return [];
@@ -369,7 +373,7 @@ function netApplyPartyLootAward(msg) {
       // this whole switch dispatches on. See server.js's dropTake handler
       // for the full story; this is the other half of that fix.
       if (typeof pickUpWeaponDrop === "function") {
-        pickUpWeaponDrop(msg.itemType);
+        pickUpWeaponDrop(msg.itemType, msg.stats);
         netToast("Party loot: " + msg.itemType);
       } else {
         console.error("[partyLootAward] pickUpWeaponDrop is not a function");
@@ -377,7 +381,7 @@ function netApplyPartyLootAward(msg) {
       }
     } else if (msg.category === "armor" || msg.category === "ring" || msg.category === "accessory") {
       if (typeof pickUpArmorDrop === "function") {
-        pickUpArmorDrop(msg.itemType);
+        pickUpArmorDrop(msg.itemType, msg.stats);
         netToast("Party loot: " + msg.itemType);
       } else {
         console.error("[partyLootAward] pickUpArmorDrop is not a function");
@@ -478,7 +482,7 @@ function netApplyDrops(list) {
               image: getItemImage(GOLD_ORB_IMAGE),
               spawnTime: performance.now()
             }
-          : createItemDrop(s.t, s.x, s.y);
+          : createItemDrop(s.t, s.x, s.y, s.stats);   // s.stats = the stats the SERVER rolled for this drop
       if (!d) continue;
       d.netId = s.id;
       // BACK-DATE the local despawn clock to the drop's real age, using the
