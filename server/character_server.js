@@ -39,10 +39,10 @@
 // as long as the player is online, then puts these back.
 // ---------------------------------------------------------------------------
 const ATTRIBUTE_RATES = {
-  vit: { health: 5, physicalDefense: 0.25 },
-  dex: { physicalDefense: 0.5, criticalDamage: 0.01 },
-  int: { mana: 2, magicalAttack: 1, magicalDefense: 0.5 },
-  pow: { physicalDamage: 1 }
+  vit: { health: 30, physicalDefense: 1.5 },
+  dex: { physicalDefense: 3.5, criticalDamage: 0.01 },
+  int: { mana: 5, magicalAttack: 5, magicalDefense: 3.5 },
+  pow: { physicalDamage: 5 }
 };
 
 // Reads the CURRENT table (offline or server) so a swap takes effect at once.
@@ -74,7 +74,7 @@ const GAME_RULES = {
   EXP_BASE: 300,
   EXP_GROWTH_RATE: 1.5,
   MAX_LEVEL: 40,
-  STAT_POINTS_PER_LEVEL: 5,
+  STAT_POINTS_PER_LEVEL: 15,
   AUTO_STAT_GROWTH_PER_LEVEL: 3,
   HEALTH_GROWTH_RATE: 1.03,
   PARTY_MAX_SIZE: 6,
@@ -95,7 +95,7 @@ const CHARACTERS = {
   // FAST CHARACTER
   Brawler: {
     name: "Brawler",
-    health: 100,
+    health: 100000,
     armor: "armor1A",
     movementSpeed: 110,
     weaponName: "uzi",
@@ -121,7 +121,7 @@ const CHARACTERS = {
     // attack, see `attack` below). Always combines with whatever
     // weapon damage is dealt (getAttackDamage() adds the two together)
     // instead of being replaced by it once a weapon is equipped.
-    physicalDamage: 16,
+    physicalDamage: 16000,
     attack: "melee",
 
     // CRITICAL HIT — criticalChance is the odds (0.08 = 8%) that an
