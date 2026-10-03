@@ -157,6 +157,92 @@ const ITEM_DESPAWN_TIME = 30000; // 30 sec
 
 
 // ---------------------------------------------------------------------------
+// DROP STAT ROLLS — weapons, armor, rings and accessories are PLAIN in
+// item_server.js / armor_server.js / weapon_server.js (ONLINE mode) (no stats at all). The stats are rolled here, once, when an
+// enemy drops the item, and travel with that one item from then on (ground
+// -> inventory -> equip -> saved), so two drops of the same item differ.
+//
+// Each line of ITEM_ROLL_STATS is one possible stat:
+//   min / max  — the range at the TOP enemy level (ITEM_ROLL_MAX_ENEMY_LEVEL).
+//   chance     — chance (0-1) the item gets this stat at all.
+//   decimals   — how many decimals the rolled number keeps.
+//   pickOne    — stats sharing a pickOne name are one group: the group is
+//                rolled as a whole and only ONE of its stats is added
+//                (physicalDamage OR magicalAttack, never both).
+//   onlyFor    — (optional) only these item categories can roll it.
+//
+// ENEMY LEVEL — a low level enemy can't drop the top of the range. The top
+// of the range grows with the enemy's level:
+//   top = min + (max - min) * (level / MAX_ENEMY_LEVEL) ^ LEVEL_CURVE
+// (level 50+ -> the full max; level 5 on physicalDamage 5-300 -> about 5-10.2).
+//
+// WHICH NUMBER — inside min..top the lowest number is the most common: the
+// min has a 100% weight and the top has ITEM_ROLL_TOP_CHANCE (10%) of that,
+// with everything in between falling off in a straight line.
+// ---------------------------------------------------------------------------
+const ITEM_ROLL_MAX_ENEMY_LEVEL = 50;
+const ITEM_ROLL_LEVEL_CURVE = 1.75;
+const ITEM_ROLL_TOP_CHANCE = 0.1;
+const ITEM_ROLL_CATEGORIES = ["weapon", "armor", "ring", "accessory"];
+const ITEM_ROLL_STATS = [
+  { stat: "physicalDamage",  min: 5,    max: 300,   chance: 1,   decimals: 0, pickOne: "attack" },
+  { stat: "magicalAttack",   min: 5,    max: 300,   chance: 1,   decimals: 0, pickOne: "attack" },
+  { stat: "physicalDefense", min: 1,    max: 50,    chance: 0.7, decimals: 0 },
+  { stat: "magicalDefense",  min: 1,    max: 50,    chance: 0.7, decimals: 0 },
+  { stat: "hpRegen",         min: 0.01, max: 0.035, chance: 0.5, decimals: 3 },
+  { stat: "manaRegen",       min: 0.01, max: 0.035, chance: 0.5, decimals: 3 },
+  { stat: "health",          min: 10,   max: 1500,  chance: 0.4, decimals: 0 },
+  { stat: "mana",            min: 10,   max: 100,   chance: 0.4, decimals: 0 },
+  { stat: "vit",             min: 1,    max: 50,    chance: 0.3, decimals: 0 },
+  { stat: "pow",             min: 1,    max: 50,    chance: 0.3, decimals: 0 },
+  { stat: "dex",             min: 1,    max: 50,    chance: 0.3, decimals: 0 },
+  { stat: "int",             min: 1,    max: 50,    chance: 0.3, decimals: 0 },
+  { stat: "criticalDamage",  min: 0.01, max: 0.5,   chance: 0.2, decimals: 3 },
+  { stat: "criticalChance",  min: 0.01, max: 0.05,  chance: 0.2, decimals: 3 },
+  // block only works from the armor slot (rollArmorBlock in armor.js), so only armor rolls it.
+  { stat: "block",           min: 1,    max: 5,     chance: 0.2, decimals: 0, onlyFor: ["armor"] }
+];
+
+// One number for one stat at one enemy level.
+function rollOneItemStat(def, enemyLevel) {
+  const lvl = Math.max(1, Math.min(ITEM_ROLL_MAX_ENEMY_LEVEL, Number(enemyLevel) || 1));
+  const top = def.min + (def.max - def.min) * Math.pow(lvl / ITEM_ROLL_MAX_ENEMY_LEVEL, ITEM_ROLL_LEVEL_CURVE);
+  // Straight-line weight from 1 (at min) down to ITEM_ROLL_TOP_CHANCE (at top);
+  // solved backwards from a random 0-1 so low numbers come up far more often.
+  const a = 1 - ITEM_ROLL_TOP_CHANCE;
+  const t = a > 0 ? (1 - Math.sqrt(1 - 2 * a * Math.random() * (1 - a / 2))) / a : Math.random();
+  let v = def.min + t * (top - def.min);
+  const f = Math.pow(10, def.decimals || 0);
+  v = Math.round(v * f) / f;
+  return Math.max(def.min, Math.min(def.max, v));
+}
+
+// Rolls the stats for ONE dropped item. Returns a plain object like
+// { physicalDamage: 8, health: 31 } (empty when nothing rolled / not gear).
+function rollItemStats(category, enemyLevel) {
+  const out = {};
+  if (ITEM_ROLL_CATEGORIES.indexOf(category) === -1) return out;
+  const groups = {};
+  for (const def of ITEM_ROLL_STATS) {
+    if (def.onlyFor && def.onlyFor.indexOf(category) === -1) continue;
+    if (def.pickOne) { (groups[def.pickOne] = groups[def.pickOne] || []).push(def); continue; }
+    if (Math.random() < def.chance) out[def.stat] = rollOneItemStat(def, enemyLevel);
+  }
+  for (const name in groups) {
+    const list = groups[name];
+    let best = 0, total = 0;
+    for (const d of list) { best = Math.max(best, d.chance); total += d.chance; }
+    if (!(Math.random() < best)) continue;
+    let r = Math.random() * total, picked = list[list.length - 1];
+    for (const d of list) { r -= d.chance; if (r < 0) { picked = d; break; } }
+    out[picked.stat] = rollOneItemStat(picked, enemyLevel);
+  }
+  return out;
+}
+
+
+
+// ---------------------------------------------------------------------------
 // CREATE A DROPPED ITEM (sits on the ground until picked up)
 // ---------------------------------------------------------------------------
 let nextItemDropId = 1;
@@ -182,7 +268,7 @@ function getLootableGearDef(typeName) {
   return (d && (d.category === "armor" || d.category === "ring" || d.category === "accessory")) ? d : null;
 }
 
-function createItemDrop(typeName, x, y) {
+function createItemDrop(typeName, x, y, stats) {
 
   const itemDef = ITEM_TYPES[typeName];
   const weaponDef = itemDef ? null : getLootableWeaponDef(typeName);
@@ -206,6 +292,9 @@ function createItemDrop(typeName, x, y) {
   return {
     id: nextItemDropId++,
     type: typeName,
+    // The stats rolled for THIS drop (see rollItemStats() above) — null for
+    // anything that isn't gear. Carried to the inventory on pickup.
+    stats: stats || null,
     // itemDef.category lets a plain ITEM_TYPES entry opt into its own
     // pickup routing (e.g. goldOrb's "gold", handled separately in
     // checkItemPickup() below) instead of the generic "item" ->
@@ -290,7 +379,7 @@ function createInventoryItemDrop(entry, x, y) {
 // WEAPONS for a weapon marked category: "weapon" (see weapon.js) — so a
 // single bot death can drop zero, one, or several items/weapons.
 // ---------------------------------------------------------------------------
-function spawnItemsOnBotDeath(spawnItemList, x, y) {
+function spawnItemsOnBotDeath(spawnItemList, x, y, bot) {
 
   const drops = [];
 
@@ -322,6 +411,9 @@ function spawnItemsOnBotDeath(spawnItemList, x, y) {
       const dropX = x + Math.cos(angle) * scatter;
       const dropY = y + Math.sin(angle) * scatter;
 
+      // ONLINE: no stats are rolled here. The bot host only says WHAT
+      // dropped; the SERVER rolls the stats (server.js "dropAdd", using
+      // rollItemStats() in this file) so a player can't pick their own.
       drops.push(createItemDrop(typeName, dropX, dropY));
     }
   }
@@ -500,9 +592,9 @@ function runItemPickupCheck(itemDrops, player, playerPos) {
       let added = true;
 
       if (drop.category === "weapon") {
-        added = pickUpWeaponDrop(drop.type);
+        added = pickUpWeaponDrop(drop.type, drop.stats);
       } else if (drop.category === "armor" || drop.category === "ring" || drop.category === "accessory") {
-        added = pickUpArmorDrop(drop.type);
+        added = pickUpArmorDrop(drop.type, drop.stats);
       } else if (drop.category === "invItem") {
         added = pickUpInventoryDrop(drop);
       } else if (drop.category === "gold") {
@@ -532,7 +624,7 @@ function runItemPickupCheck(itemDrops, player, playerPos) {
 // Returns false (and leaves the drop on the floor — see checkItemPickup)
 // if the grid is already full, instead of silently discarding the item.
 // ---------------------------------------------------------------------------
-function pickUpWeaponDrop(weaponName) {
+function pickUpWeaponDrop(weaponName, stats) {
 
   if (typeof getWeapon !== "function") return false;
 
@@ -544,7 +636,7 @@ function pickUpWeaponDrop(weaponName) {
   const added = addItemToInventory(
     "weapon",
     weaponName,
-    { ...weaponData, image: "image/" + weaponName + ".png" },
+    { ...weaponData, ...(stats || {}), image: "image/" + weaponName + ".png" },
     1
   );
 
@@ -572,7 +664,7 @@ function pickUpWeaponDrop(weaponName) {
 // this base/bonus split. So it's remapped once here, on the way into
 // the grid — see armor.js's own header comment for why.
 // ---------------------------------------------------------------------------
-function pickUpArmorDrop(armorName) {
+function pickUpArmorDrop(armorName, stats) {
 
   if (typeof getArmor !== "function") return false;
 
@@ -584,7 +676,7 @@ function pickUpArmorDrop(armorName) {
   const added = addItemToInventory(
     (armorData.category === "ring" || armorData.category === "accessory") ? armorData.category : "armor",
     armorName,
-    { ...armorData, defense: armorData.physicalDefense },
+    { ...armorData, ...(stats || {}), defense: (stats && typeof stats.physicalDefense === "number") ? stats.physicalDefense : armorData.physicalDefense },
     1
   );
 
@@ -1042,4 +1134,4 @@ if (typeof module !== "undefined" && module.exports) {
 
 
 // ---- export for server.js (Node) ----
-if (typeof module !== "undefined") module.exports = { ITEM_TYPES, spawnGoldOrbOnBotDeath };
+if (typeof module !== "undefined") module.exports = { ITEM_TYPES, spawnGoldOrbOnBotDeath, rollItemStats };

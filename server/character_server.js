@@ -100,7 +100,7 @@ const CHARACTERS = {
     movementSpeed: 110,
     weaponName: "uzi",
     currentHealth: 100,
-    image: "image/berserker.png",
+    image: "image/bot_02.png",
     radius: 13,
     cameraZoom: 1.2,
     unitExplode: "unitexplode",
@@ -177,7 +177,7 @@ const CHARACTERS = {
     movementSpeed: 110,
     weaponName: "ak47",
     currentHealth: 130,
-    image: "image/magemaster.png",
+    image: "image/bot_13.png",
     radius: 13,
     cameraZoom: 1.2,
     unitExplode: "unitexplode",
@@ -208,7 +208,7 @@ const CHARACTERS = {
     movementSpeed: 110,
     weaponName: "shotgun",
     currentHealth: 200,
-    image: "image/bullwark.png",
+    image: "image/bot_21.png",
     radius: 15,
     cameraZoom: 1.2,
     unitExplode: "unitexplode",
@@ -877,6 +877,15 @@ function attachWeaponToCharacter(character) {
   // mutates only their copy instead of permanently changing the shared
   // template that every other player/bot using that weapon reads from.
   character.weapon = JSON.parse(JSON.stringify(weapon));
+
+  // A dropped weapon carries its OWN rolled stats (item.js / item_server.js
+  // rollItemStats) while the weapon.js entry it is built from is plain. The
+  // equip code (index.html applyEquippedWeaponToPlayer) puts those stats on
+  // character.weaponInstanceStats; lay them over this copy so everything
+  // below (combineEquipmentStats, attack damage) uses THIS weapon's numbers.
+  if (character.weaponInstanceStats && typeof character.weaponInstanceStats === "object") {
+    Object.assign(character.weapon, character.weaponInstanceStats);
+  }
 
   // Undo whatever the PREVIOUSLY attached weapon added below, before
   // combining this one. combineEquipmentStats()/applyAttributeBonus()

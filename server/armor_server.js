@@ -79,8 +79,6 @@ const ARMOR_TYPES = {
     name: "armor1",
     image: "image/armor1.png",
     radius: 10,
-    physicalDefense: 4,
-    block: 2,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -91,8 +89,6 @@ const ARMOR_TYPES = {
     name: "armor2",
     image: "image/armor2.png",
     radius: 10,
-    physicalDefense: 8,
-    block: 2,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -103,8 +99,6 @@ const ARMOR_TYPES = {
     name: "armor3",
     image: "image/armor3.png",
     radius: 10,
-    physicalDefense: 12,
-    block: 2,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -115,8 +109,6 @@ const ARMOR_TYPES = {
     name: "armor4",
     image: "image/armor4.png",
     radius: 10,
-    physicalDefense: 12,
-    block: 6,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -127,8 +119,6 @@ const ARMOR_TYPES = {
     name: "armor5",
     image: "image/armor5.png",
     radius: 10,
-    physicalDefense: 14,
-    block: 7,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -139,8 +129,6 @@ const ARMOR_TYPES = {
     name: "armor6",
     image: "image/armor6.png",
     radius: 10,
-    physicalDefense: 16,
-    block: 8,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -151,8 +139,6 @@ const ARMOR_TYPES = {
     name: "armor7",
     image: "image/armor7.png",
     radius: 10,
-    physicalDefense: 18,
-    block: 9,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -163,8 +149,6 @@ const ARMOR_TYPES = {
     name: "armor8",
     image: "image/armor8.png",
     radius: 10,
-    physicalDefense: 20,
-    block: 10,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -175,8 +159,6 @@ const ARMOR_TYPES = {
     name: "armor9",
     image: "image/armor9.png",
     radius: 10,
-    physicalDefense: 22,
-    block: 11,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -187,8 +169,6 @@ const ARMOR_TYPES = {
     name: "armor10",
     image: "image/armor10.png",
     radius: 10,
-    physicalDefense: 24,
-    block: 2,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -199,8 +179,6 @@ const ARMOR_TYPES = {
     name: "armor11",
     image: "image/armor11.png",
     radius: 10,
-    physicalDefense: 26,
-    block: 3,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -211,8 +189,6 @@ const ARMOR_TYPES = {
     name: "armor12",
     image: "image/armor12.png",
     radius: 10,
-    physicalDefense: 28,
-    block: 4,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -223,8 +199,6 @@ const ARMOR_TYPES = {
     name: "armor13",
     image: "image/armor13.png",
     radius: 10,
-    physicalDefense: 30,
-    block: 5,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -235,8 +209,6 @@ const ARMOR_TYPES = {
     name: "armor14",
     image: "image/armor14.png",
     radius: 10,
-    physicalDefense: 32,
-    block: 6,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -247,8 +219,6 @@ const ARMOR_TYPES = {
     name: "armor15",
     image: "image/armor15.png",
     radius: 10,
-    physicalDefense: 34,
-    block: 7,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -259,8 +229,6 @@ const ARMOR_TYPES = {
     name: "armor16",
     image: "image/armor16.png",
     radius: 10,
-    physicalDefense: 36,
-    block: 8,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -271,8 +239,6 @@ const ARMOR_TYPES = {
     name: "armor17",
     image: "image/armor17.png",
     radius: 10,
-    physicalDefense: 38,
-    block: 9,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -283,8 +249,6 @@ const ARMOR_TYPES = {
     name: "armor18",
     image: "image/armor18.png",
     radius: 10,
-    physicalDefense: 40,
-    block: 10,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -295,8 +259,6 @@ const ARMOR_TYPES = {
     name: "armor19",
     image: "image/armor19.png",
     radius: 10,
-    physicalDefense: 42,
-    block: 11,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -307,8 +269,6 @@ const ARMOR_TYPES = {
     name: "armor20",
     image: "image/armor20.png",
     radius: 10,
-    physicalDefense: 44,
-    block: 2,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -319,8 +279,6 @@ const ARMOR_TYPES = {
     name: "armor21",
     image: "image/armor21.png",
     radius: 10,
-    physicalDefense: 46,
-    block: 3,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -331,8 +289,6 @@ const ARMOR_TYPES = {
     name: "armor22",
     image: "image/armor22.png",
     radius: 10,
-    physicalDefense: 48,
-    block: 4,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -343,8 +299,6 @@ const ARMOR_TYPES = {
     name: "armor23",
     image: "image/armor23.png",
     radius: 10,
-    physicalDefense: 50,
-    block: 5,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -355,8 +309,6 @@ const ARMOR_TYPES = {
     name: "armor24",
     image: "image/armor24.png",
     radius: 10,
-    physicalDefense: 52,
-    block: 6,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -367,8 +319,6 @@ const ARMOR_TYPES = {
     name: "armor25",
     image: "image/armor25.png",
     radius: 10,
-    physicalDefense: 54,
-    block: 7,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -379,8 +329,6 @@ const ARMOR_TYPES = {
     name: "armor26",
     image: "image/armor26.png",
     radius: 10,
-    physicalDefense: 56,
-    block: 8,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -391,8 +339,6 @@ const ARMOR_TYPES = {
     name: "armor27",
     image: "image/armor27.png",
     radius: 10,
-    physicalDefense: 58,
-    block: 9,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -403,8 +349,6 @@ const ARMOR_TYPES = {
     name: "armor28",
     image: "image/armor28.png",
     radius: 10,
-    physicalDefense: 60,
-    block: 10,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -415,8 +359,6 @@ const ARMOR_TYPES = {
     name: "armor29",
     image: "image/armor29.png",
     radius: 10,
-    physicalDefense: 62,
-    block: 11,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -427,8 +369,6 @@ const ARMOR_TYPES = {
     name: "armor30",
     image: "image/armor30.png",
     radius: 10,
-    physicalDefense: 64,
-    block: 2,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -439,8 +379,6 @@ const ARMOR_TYPES = {
     name: "armor31",
     image: "image/armor31.png",
     radius: 10,
-    physicalDefense: 66,
-    block: 3,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -451,8 +389,6 @@ const ARMOR_TYPES = {
     name: "armor32",
     image: "image/armor32.png",
     radius: 10,
-    physicalDefense: 68,
-    block: 4,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -463,8 +399,6 @@ const ARMOR_TYPES = {
     name: "armor33",
     image: "image/armor33.png",
     radius: 10,
-    physicalDefense: 70,
-    block: 5,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -475,8 +409,6 @@ const ARMOR_TYPES = {
     name: "armor34",
     image: "image/armor34.png",
     radius: 10,
-    physicalDefense: 72,
-    block: 6,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -487,8 +419,6 @@ const ARMOR_TYPES = {
     name: "armor35",
     image: "image/armor35.png",
     radius: 10,
-    physicalDefense: 74,
-    block: 7,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -499,8 +429,6 @@ const ARMOR_TYPES = {
     name: "armor36",
     image: "image/armor36.png",
     radius: 10,
-    physicalDefense: 76,
-    block: 8,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -511,8 +439,6 @@ const ARMOR_TYPES = {
     name: "armor37",
     image: "image/armor37.png",
     radius: 10,
-    physicalDefense: 78,
-    block: 9,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -523,8 +449,6 @@ const ARMOR_TYPES = {
     name: "armor38",
     image: "image/armor38.png",
     radius: 10,
-    physicalDefense: 80,
-    block: 10,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -535,8 +459,6 @@ const ARMOR_TYPES = {
     name: "armor39",
     image: "image/armor39.png",
     radius: 10,
-    physicalDefense: 82,
-    block: 11,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -547,8 +469,6 @@ const ARMOR_TYPES = {
     name: "armor40",
     image: "image/armor40.png",
     radius: 10,
-    physicalDefense: 84,
-    block: 2,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -559,8 +479,6 @@ const ARMOR_TYPES = {
     name: "armor41",
     image: "image/armor41.png",
     radius: 10,
-    physicalDefense: 86,
-    block: 3,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -571,8 +489,6 @@ const ARMOR_TYPES = {
     name: "armor42",
     image: "image/armor42.png",
     radius: 10,
-    physicalDefense: 88,
-    block: 4,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -583,8 +499,6 @@ const ARMOR_TYPES = {
     name: "armor43",
     image: "image/armor43.png",
     radius: 10,
-    physicalDefense: 90,
-    block: 5,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -595,22 +509,6 @@ const ARMOR_TYPES = {
     name: "armor1A",
     image: "image/armor43.png",
     radius: 10,
-    physicalDefense: 15,
-    physicalDamage:400,
-    magicalAttack:10,
-    magicalDefense:2,
-    physicalDefense:3,
-    health: 2300,
-    mana:300,
-    hpRegen:0.2,
-    manaRegen:0.2,
-    vit:50,
-    pow:50,
-    dex:50,
-    int:50,
-    criticalDamage:1.0,
-    criticalChance:0.25,
-    block: 2,
     category: "armor",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -625,10 +523,6 @@ const ARMOR_TYPES = {
     name: "ring01",
     image: "image/ring01.png",
     radius: 10,
-
-    physicalDamage: 2,
-    criticalChance: 0.007,
-
     category: "ring",
     spawnChance: 1.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -639,10 +533,6 @@ const ARMOR_TYPES = {
     name: "ring02",
     image: "image/ring02.png",
     radius: 10,
-
-    physicalDamage: 3,
-    criticalChance: 0.009,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -653,10 +543,6 @@ const ARMOR_TYPES = {
     name: "ring03",
     image: "image/ring03.png",
     radius: 10,
-
-    physicalDamage: 4,
-    criticalChance: 0.011,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -667,10 +553,6 @@ const ARMOR_TYPES = {
     name: "ring04",
     image: "image/ring04.png",
     radius: 10,
-
-    physicalDamage: 5,
-    criticalChance: 0.013,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -681,10 +563,6 @@ const ARMOR_TYPES = {
     name: "ring05",
     image: "image/ring05.png",
     radius: 10,
-
-    physicalDamage: 6,
-    criticalChance: 0.015,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -695,10 +573,6 @@ const ARMOR_TYPES = {
     name: "ring06",
     image: "image/ring06.png",
     radius: 10,
-
-    physicalDamage: 7,
-    criticalChance: 0.017,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -709,10 +583,6 @@ const ARMOR_TYPES = {
     name: "ring07",
     image: "image/ring07.png",
     radius: 10,
-
-    physicalDamage: 8,
-    criticalChance: 0.019,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -723,10 +593,6 @@ const ARMOR_TYPES = {
     name: "ring08",
     image: "image/ring08.png",
     radius: 10,
-
-    physicalDamage: 9,
-    criticalChance: 0.021,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -737,10 +603,6 @@ const ARMOR_TYPES = {
     name: "ring09",
     image: "image/ring09.png",
     radius: 10,
-
-    physicalDamage: 10,
-    criticalChance: 0.023,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -751,10 +613,6 @@ const ARMOR_TYPES = {
     name: "ring10",
     image: "image/ring10.png",
     radius: 10,
-
-    physicalDamage: 11,
-    criticalChance: 0.025,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -765,10 +623,6 @@ const ARMOR_TYPES = {
     name: "ring11",
     image: "image/ring11.png",
     radius: 10,
-
-    physicalDamage: 12,
-    criticalChance: 0.027,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -779,10 +633,6 @@ const ARMOR_TYPES = {
     name: "ring12",
     image: "image/ring12.png",
     radius: 10,
-
-    physicalDamage: 13,
-    criticalChance: 0.029,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -793,10 +643,6 @@ const ARMOR_TYPES = {
     name: "ring13",
     image: "image/ring13.png",
     radius: 10,
-
-    physicalDamage: 14,
-    criticalChance: 0.031,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -807,10 +653,6 @@ const ARMOR_TYPES = {
     name: "ring14",
     image: "image/ring14.png",
     radius: 10,
-
-    physicalDamage: 15,
-    criticalChance: 0.033,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -821,10 +663,6 @@ const ARMOR_TYPES = {
     name: "ring15",
     image: "image/ring15.png",
     radius: 10,
-
-    physicalDamage: 16,
-    criticalChance: 0.035,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -835,10 +673,6 @@ const ARMOR_TYPES = {
     name: "ring16",
     image: "image/ring16.png",
     radius: 10,
-
-    physicalDamage: 17,
-    criticalChance: 0.037,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -849,10 +683,6 @@ const ARMOR_TYPES = {
     name: "ring17",
     image: "image/ring17.png",
     radius: 10,
-
-    physicalDamage: 18,
-    criticalChance: 0.039,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -863,10 +693,6 @@ const ARMOR_TYPES = {
     name: "ring18",
     image: "image/ring18.png",
     radius: 10,
-
-    physicalDamage: 19,
-    criticalChance: 0.041,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -877,10 +703,6 @@ const ARMOR_TYPES = {
     name: "ring19",
     image: "image/ring19.png",
     radius: 10,
-
-    physicalDamage: 20,
-    criticalChance: 0.043,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -891,10 +713,6 @@ const ARMOR_TYPES = {
     name: "ring20",
     image: "image/ring20.png",
     radius: 10,
-
-    physicalDamage: 21,
-    criticalChance: 0.045,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -905,10 +723,6 @@ const ARMOR_TYPES = {
     name: "ring21",
     image: "image/ring21.png",
     radius: 10,
-
-    physicalDamage: 22,
-    criticalChance: 0.047,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -919,10 +733,6 @@ const ARMOR_TYPES = {
     name: "ring22",
     image: "image/ring22.png",
     radius: 10,
-
-    physicalDamage: 23,
-    criticalChance: 0.049,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -933,10 +743,6 @@ const ARMOR_TYPES = {
     name: "ring23",
     image: "image/ring23.png",
     radius: 10,
-
-    physicalDamage: 24,
-    criticalChance: 0.051,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -947,10 +753,6 @@ const ARMOR_TYPES = {
     name: "ring24",
     image: "image/ring24.png",
     radius: 10,
-
-    physicalDamage: 25,
-    criticalChance: 0.053,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -961,10 +763,6 @@ const ARMOR_TYPES = {
     name: "ring25",
     image: "image/ring25.png",
     radius: 10,
-
-    physicalDamage: 26,
-    criticalChance: 0.055,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -975,10 +773,6 @@ const ARMOR_TYPES = {
     name: "ring26",
     image: "image/ring26.png",
     radius: 10,
-
-    physicalDamage: 27,
-    criticalChance: 0.057,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -989,10 +783,6 @@ const ARMOR_TYPES = {
     name: "ring27",
     image: "image/ring27.png",
     radius: 10,
-
-    physicalDamage: 28,
-    criticalChance: 0.059,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1003,10 +793,6 @@ const ARMOR_TYPES = {
     name: "ring28",
     image: "image/ring28.png",
     radius: 10,
-
-    physicalDamage: 29,
-    criticalChance: 0.061,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1017,10 +803,6 @@ const ARMOR_TYPES = {
     name: "ring29",
     image: "image/ring29.png",
     radius: 10,
-
-    physicalDamage: 30,
-    criticalChance: 0.063,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1031,10 +813,6 @@ const ARMOR_TYPES = {
     name: "ring30",
     image: "image/ring30.png",
     radius: 10,
-
-    physicalDamage: 31,
-    criticalChance: 0.065,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1045,10 +823,6 @@ const ARMOR_TYPES = {
     name: "ring31",
     image: "image/ring31.png",
     radius: 10,
-
-    physicalDamage: 32,
-    criticalChance: 0.067,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1059,10 +833,6 @@ const ARMOR_TYPES = {
     name: "ring32",
     image: "image/ring32.png",
     radius: 10,
-
-    physicalDamage: 33,
-    criticalChance: 0.069,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1073,10 +843,6 @@ const ARMOR_TYPES = {
     name: "ring33",
     image: "image/ring33.png",
     radius: 10,
-
-    physicalDamage: 34,
-    criticalChance: 0.071,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1087,10 +853,6 @@ const ARMOR_TYPES = {
     name: "ring34",
     image: "image/ring34.png",
     radius: 10,
-
-    physicalDamage: 35,
-    criticalChance: 0.073,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1101,10 +863,6 @@ const ARMOR_TYPES = {
     name: "ring35",
     image: "image/ring35.png",
     radius: 10,
-
-    physicalDamage: 36,
-    criticalChance: 0.075,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1115,10 +873,6 @@ const ARMOR_TYPES = {
     name: "ring36",
     image: "image/ring36.png",
     radius: 10,
-
-    physicalDamage: 37,
-    criticalChance: 0.077,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1129,10 +883,6 @@ const ARMOR_TYPES = {
     name: "ring37",
     image: "image/ring37.png",
     radius: 10,
-
-    physicalDamage: 38,
-    criticalChance: 0.079,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1143,10 +893,6 @@ const ARMOR_TYPES = {
     name: "ring38",
     image: "image/ring38.png",
     radius: 10,
-
-    physicalDamage: 39,
-    criticalChance: 0.081,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1157,10 +903,6 @@ const ARMOR_TYPES = {
     name: "ring39",
     image: "image/ring39.png",
     radius: 10,
-
-    physicalDamage: 40,
-    criticalChance: 0.083,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1171,10 +913,6 @@ const ARMOR_TYPES = {
     name: "ring40",
     image: "image/ring40.png",
     radius: 10,
-
-    physicalDamage: 41,
-    criticalChance: 0.085,
-
     category: "ring",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1189,10 +927,6 @@ const ARMOR_TYPES = {
     name: "accessory01",
     image: "image/accessory01.png",
     radius: 10,
-
-    health: 14,
-    mana: 14,
-
     category: "accessory",
     spawnChance: 1.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1203,10 +937,6 @@ const ARMOR_TYPES = {
     name: "accessory02",
     image: "image/accessory02.png",
     radius: 10,
-
-    health: 18,
-    mana: 18,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1217,10 +947,6 @@ const ARMOR_TYPES = {
     name: "accessory03",
     image: "image/accessory03.png",
     radius: 10,
-
-    health: 22,
-    mana: 22,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1231,10 +957,6 @@ const ARMOR_TYPES = {
     name: "accessory04",
     image: "image/accessory04.png",
     radius: 10,
-
-    health: 26,
-    mana: 26,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1245,10 +967,6 @@ const ARMOR_TYPES = {
     name: "accessory05",
     image: "image/accessory05.png",
     radius: 10,
-
-    health: 30,
-    mana: 30,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1259,10 +977,6 @@ const ARMOR_TYPES = {
     name: "accessory06",
     image: "image/accessory06.png",
     radius: 10,
-
-    health: 34,
-    mana: 34,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1273,10 +987,6 @@ const ARMOR_TYPES = {
     name: "accessory07",
     image: "image/accessory07.png",
     radius: 10,
-
-    health: 38,
-    mana: 38,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1287,10 +997,6 @@ const ARMOR_TYPES = {
     name: "accessory08",
     image: "image/accessory08.png",
     radius: 10,
-
-    health: 42,
-    mana: 42,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1301,10 +1007,6 @@ const ARMOR_TYPES = {
     name: "accessory09",
     image: "image/accessory09.png",
     radius: 10,
-
-    health: 46,
-    mana: 46,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1315,10 +1017,6 @@ const ARMOR_TYPES = {
     name: "accessory10",
     image: "image/accessory10.png",
     radius: 10,
-
-    health: 50,
-    mana: 50,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1329,10 +1027,6 @@ const ARMOR_TYPES = {
     name: "accessory11",
     image: "image/accessory11.png",
     radius: 10,
-
-    health: 54,
-    mana: 54,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1343,10 +1037,6 @@ const ARMOR_TYPES = {
     name: "accessory12",
     image: "image/accessory12.png",
     radius: 10,
-
-    health: 58,
-    mana: 58,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1357,10 +1047,6 @@ const ARMOR_TYPES = {
     name: "accessory13",
     image: "image/accessory13.png",
     radius: 10,
-
-    health: 62,
-    mana: 62,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1371,10 +1057,6 @@ const ARMOR_TYPES = {
     name: "accessory14",
     image: "image/accessory14.png",
     radius: 10,
-
-    health: 66,
-    mana: 66,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1385,10 +1067,6 @@ const ARMOR_TYPES = {
     name: "accessory15",
     image: "image/accessory15.png",
     radius: 10,
-
-    health: 70,
-    mana: 70,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1399,10 +1077,6 @@ const ARMOR_TYPES = {
     name: "accessory16",
     image: "image/accessory16.png",
     radius: 10,
-
-    health: 74,
-    mana: 74,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1413,10 +1087,6 @@ const ARMOR_TYPES = {
     name: "accessory17",
     image: "image/accessory17.png",
     radius: 10,
-
-    health: 78,
-    mana: 78,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1427,10 +1097,6 @@ const ARMOR_TYPES = {
     name: "accessory18",
     image: "image/accessory18.png",
     radius: 10,
-
-    health: 82,
-    mana: 82,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1441,10 +1107,6 @@ const ARMOR_TYPES = {
     name: "accessory19",
     image: "image/accessory19.png",
     radius: 10,
-
-    health: 86,
-    mana: 86,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1455,10 +1117,6 @@ const ARMOR_TYPES = {
     name: "accessory20",
     image: "image/accessory20.png",
     radius: 10,
-
-    health: 90,
-    mana: 90,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1469,10 +1127,6 @@ const ARMOR_TYPES = {
     name: "accessory21",
     image: "image/accessory21.png",
     radius: 10,
-
-    health: 94,
-    mana: 94,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1483,10 +1137,6 @@ const ARMOR_TYPES = {
     name: "accessory22",
     image: "image/accessory22.png",
     radius: 10,
-
-    health: 98,
-    mana: 98,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1497,10 +1147,6 @@ const ARMOR_TYPES = {
     name: "accessory23",
     image: "image/accessory23.png",
     radius: 10,
-
-    health: 102,
-    mana: 102,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1511,10 +1157,6 @@ const ARMOR_TYPES = {
     name: "accessory24",
     image: "image/accessory24.png",
     radius: 10,
-
-    health: 106,
-    mana: 106,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1525,10 +1167,6 @@ const ARMOR_TYPES = {
     name: "accessory25",
     image: "image/accessory25.png",
     radius: 10,
-
-    health: 110,
-    mana: 110,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1539,10 +1177,6 @@ const ARMOR_TYPES = {
     name: "accessory26",
     image: "image/accessory26.png",
     radius: 10,
-
-    health: 114,
-    mana: 114,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1553,10 +1187,6 @@ const ARMOR_TYPES = {
     name: "accessory27",
     image: "image/accessory27.png",
     radius: 10,
-
-    health: 118,
-    mana: 118,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1567,10 +1197,6 @@ const ARMOR_TYPES = {
     name: "accessory28",
     image: "image/accessory28.png",
     radius: 10,
-
-    health: 122,
-    mana: 122,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1581,10 +1207,6 @@ const ARMOR_TYPES = {
     name: "accessory29",
     image: "image/accessory29.png",
     radius: 10,
-
-    health: 126,
-    mana: 126,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1595,10 +1217,6 @@ const ARMOR_TYPES = {
     name: "accessory30",
     image: "image/accessory30.png",
     radius: 10,
-
-    health: 130,
-    mana: 130,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1609,10 +1227,6 @@ const ARMOR_TYPES = {
     name: "accessory31",
     image: "image/accessory31.png",
     radius: 10,
-
-    health: 134,
-    mana: 134,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1623,10 +1237,6 @@ const ARMOR_TYPES = {
     name: "accessory32",
     image: "image/accessory32.png",
     radius: 10,
-
-    health: 138,
-    mana: 138,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1637,10 +1247,6 @@ const ARMOR_TYPES = {
     name: "accessory33",
     image: "image/accessory33.png",
     radius: 10,
-
-    health: 142,
-    mana: 142,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1651,10 +1257,6 @@ const ARMOR_TYPES = {
     name: "accessory34",
     image: "image/accessory34.png",
     radius: 10,
-
-    health: 146,
-    mana: 146,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1665,10 +1267,6 @@ const ARMOR_TYPES = {
     name: "accessory35",
     image: "image/accessory35.png",
     radius: 10,
-
-    health: 150,
-    mana: 150,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -1679,10 +1277,6 @@ const ARMOR_TYPES = {
     name: "accessory36",
     image: "image/accessory36.png",
     radius: 10,
-
-    health: 154,
-    mana: 154,
-
     category: "accessory",
     spawnChance: 0.1,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
