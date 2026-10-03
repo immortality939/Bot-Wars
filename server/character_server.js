@@ -95,7 +95,7 @@ const CHARACTERS = {
   // FAST CHARACTER
   Brawler: {
     name: "Brawler",
-    health: 100000,
+    health: 100,
     armor: "armor1A",
     movementSpeed: 110,
     weaponName: "uzi",
@@ -121,7 +121,7 @@ const CHARACTERS = {
     // attack, see `attack` below). Always combines with whatever
     // weapon damage is dealt (getAttackDamage() adds the two together)
     // instead of being replaced by it once a weapon is equipped.
-    physicalDamage: 16000,
+    physicalDamage: 16,
     attack: "melee",
 
     // CRITICAL HIT — criticalChance is the odds (0.08 = 8%) that an
