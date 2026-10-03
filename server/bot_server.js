@@ -3337,7 +3337,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "armor1,armor2,armor3,armor4,armor5,armor6,armor7,armor8,armor9,armor10",
+    spawnItem: "armor1,gauntlet1,ring1,accessory1,sword1,ring2,accessory2,gun1,ring3,accessory3",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 1324,       // gold given when this bot's orb is picked up
 
