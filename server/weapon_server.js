@@ -160,7 +160,7 @@ const WEAPONS = {
     physicalDamage: 15,
     dex: 4,
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 1.2,
     width: 30,
     height: 26,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -343,7 +343,7 @@ const WEAPONS = {
     int: 3,
     magicalAttack: 3,
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 1.2,
     width: 30,
     height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -726,7 +726,7 @@ const WEAPONS = {
     physicalDamage: 19,
     pow: 6,
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 1.2,
     width: 30,
     height: 15,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
