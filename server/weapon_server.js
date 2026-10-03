@@ -76,804 +76,804 @@ const WEAPONS = {
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
   },
 
-  dexsword1: {
-    name: "lavasword",
-    image: "image/dexsword1.png",
+  sword1: {
+    name: "Frostbite Edge",
+    image: "image/sword1.png",
     physicalDamage: 9,
     dex: 3,
     category: "weapon",
     spawnChance: 1.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 27,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A cold-blue neon blade that hums with stored energy. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword2: {
-    name: "dexsword2",
-    image: "image/dexsword2.png",
+  sword2: {
+    name: "Magma Cleaver",
+    image: "image/sword2.png",
     physicalDamage: 10,
     dex: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 27,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A molten blade that glows like a forge fire. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword3: {
-    name: "dexsword3",
-    image: "image/dexsword3.png",
+  sword3: {
+    name: "Void Reaper",
+    image: "image/sword3.png",
     physicalDamage: 11,
     dex: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
+    width: 30,
     height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A violet blade forged from dark energy. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword4: {
-    name: "dexsword4",
-    image: "image/dexsword4.png",
+  sword4: {
+    name: "Solar Paladin",
+    image: "image/sword4.png",
     physicalDamage: 12,
     dex: 6,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 27,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A holy white-and-gold sword blessed by the sun. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword5: {
-    name: "dexsword5",
-    image: "image/dexsword5.png",
+  sword5: {
+    name: "Toxic Fang",
+    image: "image/sword5.png",
     physicalDamage: 13,
     dex: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A venom-green blade that drips with acid. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword6: {
-    name: "dexsword6",
-    image: "image/dexsword6.png",
+  sword6: {
+    name: "Glacier Shard",
+    image: "image/sword6.png",
     physicalDamage: 14,
     dex: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
+    width: 30,
     height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A sword carved from a single sheet of living ice. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword7: {
-    name: "dexsword7",
-    image: "image/dexsword7.png",
+  sword7: {
+    name: "Ember Rustblade",
+    image: "image/sword7.png",
     physicalDamage: 15,
     dex: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 26,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A scorched old blade with embers still burning inside. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword8: {
-    name: "dexsword8",
-    image: "image/dexsword8.png",
+  sword8: {
+    name: "Nightwing Slicer",
+    image: "image/sword8.png",
     physicalDamage: 16,
     dex: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
+    width: 30,
     height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A winged purple blade that cuts silently in the dark. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword9: {
-    name: "dexsword9",
-    image: "image/dexsword9.png",
+  sword9: {
+    name: "Crimson Sawfang",
+    image: "image/sword9.png",
     physicalDamage: 17,
     dex: 6,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 26,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A saw-toothed red blade built to rip armor apart. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword10: {
-    name: "dexsword10",
-    image: "image/dexsword10.png",
+  sword10: {
+    name: "Azure Pulse",
+    image: "image/sword10.png",
     physicalDamage: 18,
     dex: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 26,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A sleek blue blade that pulses with every swing. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword11: {
-    name: "dexsword11",
-    image: "image/dexsword11.png",
+  sword11: {
+    name: "Bloodthorn",
+    image: "image/sword11.png",
     physicalDamage: 19,
     dex: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
+    width: 30,
     height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A jagged dark-red sword covered in cruel thorns. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword12: {
-    name: "dexsword12",
-    image: "image/dexsword12.png",
+  sword12: {
+    name: "Golden Sentinel",
+    image: "image/sword12.png",
     physicalDamage: 20,
     dex: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 24,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A gleaming golden sword made for a royal guard. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword13: {
-    name: "dexsword13",
-    image: "image/dexsword13.png",
+  sword13: {
+    name: "Deepsea Warden",
+    image: "image/sword13.png",
     physicalDamage: 21,
     dex: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 26,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A dark steel sword lit by cold ocean light. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword14: {
-    name: "dexsword14",
-    image: "image/dexsword14.png",
+  sword14: {
+    name: "Amethyst Spire",
+    image: "image/sword14.png",
     physicalDamage: 22,
     dex: 6,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 27,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A crystal-spiked blade that sparkles with purple light. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword15: {
-    name: "dexsword15",
-    image: "image/dexsword15.png",
+  sword15: {
+    name: "Viper Thornblade",
+    image: "image/sword15.png",
     physicalDamage: 23,
     dex: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 27,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A green spiked sword that strikes like a snake. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword16: {
-    name: "dexsword16",
-    image: "image/dexsword16.png",
+  sword16: {
+    name: "Rose Nova",
+    image: "image/sword16.png",
     physicalDamage: 24,
     dex: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 24,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A bright pink blade charged with star energy. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword17: {
-    name: "dexsword17",
-    image: "image/dexsword17.png",
+  sword17: {
+    name: "Obsidian Ruin",
+    image: "image/sword17.png",
     physicalDamage: 25,
     dex: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 23,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A heavy black-and-red sword that hits like a falling wall. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword18: {
-    name: "dexsword18",
-    image: "image/dexsword18.png",
+  sword18: {
+    name: "Stormcrest Lance",
+    image: "image/sword18.png",
     physicalDamage: 26,
     dex: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 22,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A white-and-gold blade crackling with storm light. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword19: {
-    name: "dexsword19",
-    image: "image/dexsword19.png",
+  sword19: {
+    name: "Lavacore Slayer",
+    image: "image/sword19.png",
     physicalDamage: 27,
     dex: 6,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 24,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A cracked black blade with lava running through it. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  dexsword20: {
-    name: "dexsword20",
-    image: "image/dexsword20.png",
+  sword20: {
+    name: "Twilight Silverfang",
+    image: "image/sword20.png",
     physicalDamage: 28,
     dex: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 23,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A dexterity-focused blade — grants bonus dex while equipped."
+    description: "A violet-and-silver blade that shines at dusk. Boosts Physical Damage and Dexterity while equipped."
   },
 
-  intsword1: {
-    name: "intsword1",
-    image: "image/intsword1.png",
+  gauntlet1: {
+    name: "Frostweave Gauntlet",
+    image: "image/gauntlet1.png",
     physicalDamage: 8,
     int: 3,
     magicalAttack: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A blue-and-white glove that channels cold magic. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword2: {
-    name: "intsword2",
-    image: "image/intsword2.png",
+  gauntlet2: {
+    name: "Hellfire Fist",
+    image: "image/gauntlet2.png",
     physicalDamage: 9,
     int: 4,
     magicalAttack: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 29,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A black-and-red gauntlet burning with dark flame. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword3: {
-    name: "intsword3",
-    image: "image/intsword3.png",
+  gauntlet3: {
+    name: "Sunforge Gauntlet",
+    image: "image/gauntlet3.png",
     physicalDamage: 10,
     int: 5,
     magicalAttack: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 30,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A golden glove that glows with warm power. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword4: {
-    name: "intsword4",
-    image: "image/intsword4.png",
+  gauntlet4: {
+    name: "Voidtouch Gauntlet",
+    image: "image/gauntlet4.png",
     physicalDamage: 11,
     int: 6,
     magicalAttack: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A purple gauntlet that bends dark magic around the fist. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword5: {
-    name: "intsword5",
-    image: "image/intsword5.png",
+  gauntlet5: {
+    name: "Tidecaller Gauntlet",
+    image: "image/gauntlet5.png",
     physicalDamage: 12,
     int: 2,
     magicalAttack: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 30,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A steel-and-teal glove that gathers ocean energy. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword6: {
-    name: "intsword6",
-    image: "image/intsword6.png",
+  gauntlet6: {
+    name: "Magma Knuckle",
+    image: "image/gauntlet6.png",
     physicalDamage: 13,
     int: 3,
     magicalAttack: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A cracked red gauntlet with molten magic inside. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword7: {
-    name: "intsword7",
-    image: "image/intsword7.png",
+  gauntlet7: {
+    name: "Crystal Wraith Gauntlet",
+    image: "image/gauntlet7.png",
     physicalDamage: 14,
     int: 4,
     magicalAttack: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 29,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A blue glove with sharp crystal fins that amplify spells. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword8: {
-    name: "intsword8",
-    image: "image/intsword8.png",
+  gauntlet8: {
+    name: "Jungle Warden Gauntlet",
+    image: "image/gauntlet8.png",
     physicalDamage: 15,
     int: 5,
     magicalAttack: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 29,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A mossy green gauntlet full of wild magic. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword9: {
-    name: "intsword9",
-    image: "image/intsword9.png",
+  gauntlet9: {
+    name: "Nightbloom Gauntlet",
+    image: "image/gauntlet9.png",
     physicalDamage: 16,
     int: 6,
     magicalAttack: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A violet gauntlet that grows stronger in the dark. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword10: {
-    name: "intsword10",
-    image: "image/intsword10.png",
+  gauntlet10: {
+    name: "Phoenix Talon Gauntlet",
+    image: "image/gauntlet10.png",
     physicalDamage: 17,
     int: 2,
     magicalAttack: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 30,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A red-and-gold glove with fiery wings. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword11: {
-    name: "intsword11",
-    image: "image/intsword11.png",
+  gauntlet11: {
+    name: "Aurum Ironfist",
+    image: "image/gauntlet11.png",
     physicalDamage: 18,
     int: 3,
     magicalAttack: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A black glove trimmed in gold and lit by a bright core. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword12: {
-    name: "intsword12",
-    image: "image/intsword12.png",
+  gauntlet12: {
+    name: "Scarlet Seraph Gauntlet",
+    image: "image/gauntlet12.png",
     physicalDamage: 19,
     int: 4,
     magicalAttack: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A red-and-white gauntlet with a glowing core. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword13: {
-    name: "intsword13",
-    image: "image/intsword13.png",
+  gauntlet13: {
+    name: "Azure Core Gauntlet",
+    image: "image/gauntlet13.png",
     physicalDamage: 20,
     int: 5,
     magicalAttack: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 26,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A blue steel glove with a bright mana core. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword14: {
-    name: "intsword14",
-    image: "image/intsword14.png",
+  gauntlet14: {
+    name: "Bronze Titan Gauntlet",
+    image: "image/gauntlet14.png",
     physicalDamage: 21,
     int: 6,
     magicalAttack: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 29,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A heavy brown gauntlet powered by an orange core. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword15: {
-    name: "intsword15",
-    image: "image/intsword15.png",
+  gauntlet15: {
+    name: "Moonshard Gauntlet",
+    image: "image/gauntlet15.png",
     physicalDamage: 22,
     int: 2,
     magicalAttack: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 30,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A purple-and-white glove that shines like moonlight. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword16: {
-    name: "intsword16",
-    image: "image/intsword16.png",
+  gauntlet16: {
+    name: "Glacial Claw",
+    image: "image/gauntlet16.png",
     physicalDamage: 23,
     int: 3,
     magicalAttack: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 29,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A black glove covered in icy cyan crystals. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword17: {
-    name: "intsword17",
-    image: "image/intsword17.png",
+  gauntlet17: {
+    name: "Sapphire Bastion Gauntlet",
+    image: "image/gauntlet17.png",
     physicalDamage: 24,
     int: 4,
     magicalAttack: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 27,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A sturdy blue gauntlet with a steady glowing core. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword18: {
-    name: "intsword18",
-    image: "image/intsword18.png",
+  gauntlet18: {
+    name: "Bloodclaw Gauntlet",
+    image: "image/gauntlet18.png",
     physicalDamage: 25,
     int: 5,
     magicalAttack: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 29,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A dark glove with long red claws. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword19: {
-    name: "intsword19",
-    image: "image/intsword19.png",
+  gauntlet19: {
+    name: "Emerald Pulse Gauntlet",
+    image: "image/gauntlet19.png",
     physicalDamage: 26,
     int: 6,
     magicalAttack: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 30,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A green-and-white glove that pulses with life energy. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  intsword20: {
-    name: "intsword20",
-    image: "image/intsword20.png",
+  gauntlet20: {
+    name: "Dread Spike Gauntlet",
+    image: "image/gauntlet20.png",
     physicalDamage: 27,
     int: 2,
     magicalAttack: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 30,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "An intellect-focused blade — grants bonus int and magical attack while equipped."
+    description: "A violet gauntlet with long crystal spikes. Boosts Physical Damage, Intelligence and Magical Attack while equipped."
   },
 
-  powsword1: {
-    name: "WrathBlade",
-    image: "image/powsword1.png",
+  gun1: {
+    name: "Skyline Rifle",
+    image: "image/gun1.png",
     physicalDamage: 11,
     pow: 3,
     category: "weapon",
     spawnChance: 1.2,
-    width: 50,
+    width: 30,
+    height: 16,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A blue-and-steel rifle with a steady glowing core. Boosts Physical Damage and Power while equipped."
+  },
+
+  gun2: {
+    name: "Inferno Blaster",
+    image: "image/gun2.png",
+    physicalDamage: 12,
+    pow: 4,
+    category: "weapon",
+    spawnChance: 0.2,
+    width: 30,
+    height: 16,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A red blaster that glows like a furnace. Boosts Physical Damage and Power while equipped."
+  },
+
+  gun3: {
+    name: "Frost Pulse Cannon",
+    image: "image/gun3.png",
+    physicalDamage: 13,
+    pow: 5,
+    category: "weapon",
+    spawnChance: 0.2,
+    width: 30,
+    height: 14,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A white-and-blue cannon firing ice-cold energy. Boosts Physical Damage and Power while equipped."
+  },
+
+  gun4: {
+    name: "Violet Phantom Gun",
+    image: "image/gun4.png",
+    physicalDamage: 14,
+    pow: 6,
+    category: "weapon",
+    spawnChance: 1.2,
+    width: 30,
+    height: 17,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A purple energy gun that hums with dark power. Boosts Physical Damage and Power while equipped."
+  },
+
+  gun5: {
+    name: "Venom Driver",
+    image: "image/gun5.png",
+    physicalDamage: 15,
+    pow: 2,
+    category: "weapon",
+    spawnChance: 0.2,
+    width: 30,
     height: 15,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A green military gun that fires toxic bolts. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword2: {
-    name: "powsword2",
-    image: "image/powsword2.png",
-    physicalDamage: 12,
-    pow: 4,
-    category: "weapon",
-    spawnChance: 0.2,
-    width: 10,
-    height: 25,
-    timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
-  },
-
-  powsword3: {
-    name: "powsword3",
-    image: "image/powsword3.png",
-    physicalDamage: 13,
-    pow: 5,
-    category: "weapon",
-    spawnChance: 0.2,
-    width: 10,
-    height: 25,
-    timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
-  },
-
-  powsword4: {
-    name: "powsword4",
-    image: "image/powsword4.png",
-    physicalDamage: 14,
-    pow: 6,
-    category: "weapon",
-    spawnChance: 1.2,
-    width: 10,
-    height: 25,
-    timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
-  },
-
-  powsword5: {
-    name: "powsword5",
-    image: "image/powsword5.png",
-    physicalDamage: 15,
-    pow: 2,
-    category: "weapon",
-    spawnChance: 0.2,
-    width: 10,
-    height: 25,
-    timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
-  },
-
-  powsword6: {
-    name: "powsword6",
-    image: "image/powsword6.png",
+  gun6: {
+    name: "Golden Hornet",
+    image: "image/gun6.png",
     physicalDamage: 16,
     pow: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 15,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A rugged yellow double-barrel built for heavy fire. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword7: {
-    name: "powsword7",
-    image: "image/powsword7.png",
+  gun7: {
+    name: "Cryo Lancer",
+    image: "image/gun7.png",
     physicalDamage: 17,
     pow: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 15,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A cyan-and-white rifle that freezes the air around it. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword8: {
-    name: "powsword8",
-    image: "image/powsword8.png",
+  gun8: {
+    name: "Crimson Razor Gun",
+    image: "image/gun8.png",
     physicalDamage: 18,
     pow: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 13,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A dark-red gun shaped like a blade of fire. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword9: {
-    name: "powsword9",
-    image: "image/powsword9.png",
+  gun9: {
+    name: "Cobalt Striker",
+    image: "image/gun9.png",
     physicalDamage: 19,
     pow: 6,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 15,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A blue rifle with a powerful glowing barrel. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword10: {
-    name: "powsword10",
-    image: "image/powsword10.png",
+  gun10: {
+    name: "Ember Gatling",
+    image: "image/gun10.png",
     physicalDamage: 20,
     pow: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 14,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "An orange rotary gun that spits out a storm of shots. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword11: {
-    name: "powsword11",
-    image: "image/powsword11.png",
+  gun11: {
+    name: "Nebula Cannon",
+    image: "image/gun11.png",
     physicalDamage: 21,
     pow: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 16,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A purple cannon charged with deep-space energy. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword12: {
-    name: "powsword12",
-    image: "image/powsword12.png",
+  gun12: {
+    name: "Jungle Ranger",
+    image: "image/gun12.png",
     physicalDamage: 22,
     pow: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 17,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A camouflaged green rifle made for long fights. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword13: {
-    name: "powsword13",
-    image: "image/powsword13.png",
+  gun13: {
+    name: "Scarlet Lightning Gun",
+    image: "image/gun13.png",
     physicalDamage: 23,
     pow: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 17,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A red-and-white gun that crackles with energy. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword14: {
-    name: "powsword14",
-    image: "image/powsword14.png",
+  gun14: {
+    name: "Midnight Sniper",
+    image: "image/gun14.png",
     physicalDamage: 24,
     pow: 6,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 14,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A slim blue rifle for precise shots. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword15: {
-    name: "powsword15",
-    image: "image/powsword15.png",
+  gun15: {
+    name: "Pink Supernova",
+    image: "image/gun15.png",
     physicalDamage: 25,
     pow: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 16,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A bright magenta blaster with a star-bright core. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword16: {
-    name: "powsword16",
-    image: "image/powsword16.png",
+  gun16: {
+    name: "Crystal Tempest Gun",
+    image: "image/gun16.png",
     physicalDamage: 26,
     pow: 3,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 16,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A blue crystal-finned gun that shines with frozen light. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword17: {
-    name: "powsword17",
-    image: "image/powsword17.png",
+  gun17: {
+    name: "Aurum Repeater",
+    image: "image/gun17.png",
     physicalDamage: 27,
     pow: 4,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 16,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A black-and-gold rifle with a shining golden core. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword18: {
-    name: "powsword18",
-    image: "image/powsword18.png",
+  gun18: {
+    name: "Galactic Gun",
+    image: "image/gun18.png",
     physicalDamage: 28,
     pow: 5,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 16,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A spiky purple gun from the edge of the galaxy. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword19: {
-    name: "powsword19",
-    image: "image/powsword19.png",
+  gun19: {
+    name: "Redline Twin Cannon",
+    image: "image/gun19.png",
     physicalDamage: 29,
     pow: 6,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 16,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A heavy red twin-barrel cannon with huge firepower. Boosts Physical Damage and Power while equipped."
   },
 
-  powsword20: {
-    name: "powsword20",
-    image: "image/powsword20.png",
+  gun20: {
+    name: "Starlight Railgun",
+    image: "image/gun20.png",
     physicalDamage: 30,
     pow: 2,
     category: "weapon",
     spawnChance: 0.2,
-    width: 10,
-    height: 25,
+    width: 30,
+    height: 15,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
-    description: "A power-focused blade — grants bonus pow and physical damage while equipped."
+    description: "A white-and-blue railgun that fires beams of light. Boosts Physical Damage and Power while equipped."
   }
 
 };

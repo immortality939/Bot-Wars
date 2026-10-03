@@ -78,7 +78,7 @@ const BOT_TYPES = {
     lookDuration: 2200,
     respawn: 10,
     active: false,
-    spawnItem: "shield,speedup,powerup,health,shotgun,powsword4,dexsword1",
+    spawnItem: "shield,speedup,powerup,health,shotgun,gun4,sword1",
     spawnGoldOrbChance: 0.75, // 75% chance to drop a gold orb on death
     goldOrbAmount: 100,       // gold given when this bot's orb is picked up
     unitExplode: "unitexplode",
