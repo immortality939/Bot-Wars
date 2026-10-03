@@ -970,6 +970,52 @@ function netPvpOn() {
   return netChannelPvp;
 }
 
+// NAME COLOR — is this other player someone I could damage? Not when the
+// channel has no player damage (channel 1), and not when they're in my party
+// or my clan (the server drops those hits too — see isPartyFriendlyFire /
+// isClanFriendlyFire in server.js). Party members come from netParty; clan
+// members from my clan roster (its member ids are the live player ids).
+function netIsFriendlyPlayer(p) {
+  if (!p) return false;
+  if (netParty && Array.isArray(netParty.members) && netParty.members.some((m) => m.id === p.id)) return true;
+  try {
+    const clan = (typeof getPlayerClan === "function") ? getPlayerClan() : null;
+    if (clan && Array.isArray(clan.members) && clan.members.some((m) => m.id === p.id)) return true;
+  } catch (e) { /* clan data not ready — treat as not clanmates */ }
+  return false;
+}
+
+// Red = attackable, white = safe.
+function netPlayerNameColor(p) {
+  return (netPvpOn() && !netIsFriendlyPlayer(p)) ? "#ff3b3b" : "#ffffff";
+}
+
+// BOT NAME COLOR — enemy bots can always be attacked, so online their name is
+// red. bot.js's drawBots() paints the name white; rather than editing bot.js
+// (public/offline file), wrap drawBots here and, only while it runs online,
+// swap the one white fillText it makes (the name) to red. The shadow (black)
+// and "Lv" (yellow) texts are other colors, so they're left alone.
+const _localDrawBots = drawBots;
+drawBots = function () {
+  if (!netIsOnline() || typeof ctx === "undefined" || !ctx) return _localDrawBots.apply(this, arguments);
+  const realFillText = ctx.fillText;
+  ctx.fillText = function (text, x, y, maxWidth) {
+    const f = String(this.fillStyle).toLowerCase();
+    if (f === "#ffffff" || f === "#fff") {
+      this.fillStyle = "#ff3b3b";
+      const r = realFillText.call(this, text, x, y, maxWidth);
+      this.fillStyle = f;
+      return r;
+    }
+    return realFillText.call(this, text, x, y, maxWidth);
+  };
+  try {
+    return _localDrawBots.apply(this, arguments);
+  } finally {
+    ctx.fillText = realFillText;
+  }
+};
+
 // ---------------------------------------------------------------------------
 // THE ONLINE MAP (worldmap_server.js, sent by the server)
 // ---------------------------------------------------------------------------
@@ -1267,10 +1313,11 @@ function drawRemotePlayers(ctx, offX, offY) {
     ctx.save();
     ctx.font = "9px 'Courier New', Courier, monospace";
     ctx.textAlign = "center";
-    ctx.fillStyle = "#ff8080";
     ctx.shadowColor = "rgba(0,0,0,0.9)";
     ctx.shadowBlur = 3;
+    ctx.fillStyle = netPlayerNameColor(p);   // red = can be damaged, white = can't (channel 1 / party / clan)
     ctx.fillText(p.name, sx, sy - p.radius - 13);
+    ctx.fillStyle = "#ff8080";
     ctx.fillText("Lv " + p.level, sx, sy - p.radius - 22);
     ctx.restore();
 
