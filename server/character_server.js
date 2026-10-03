@@ -41,8 +41,8 @@
 const ATTRIBUTE_RATES = {
   vit: { health: 30, physicalDefense: 1.5 },
   dex: { physicalDefense: 3.5, criticalDamage: 0.01 },
-  int: { mana: 5, magicalAttack: 5, magicalDefense: 3.5 },
-  pow: { physicalDamage: 5 }
+  int: { mana: 5, magicalAttack: 3, magicalDefense: 3.5 },
+  pow: { physicalDamage: 3 }
 };
 
 // Reads the CURRENT table (offline or server) so a swap takes effect at once.
