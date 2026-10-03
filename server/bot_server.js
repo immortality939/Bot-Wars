@@ -42,7 +42,7 @@ const BOT_TYPES = {
     lookDuration: 1500,
     respawn: 10,
     active: false,
-    spawnItem: "specialstone,armor1,gauntlet1,sword6,gun9",
+    spawnItem: "specialstone,armor1",
     spawnGoldOrbChance: 0.8, // 80% chance to drop a gold orb on death
     goldOrbAmount: 30,       // gold given when this bot's orb is picked up
     unitExplode: "unitexplode",
@@ -191,7 +191,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,accessory01,ring01",
+    spawnItem: "specialstone,accessory01,ring01,gauntlet1,sword6,gun9"",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 4,       // gold given when this bot's orb is picked up
 
