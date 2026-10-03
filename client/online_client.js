@@ -990,32 +990,6 @@ function netPlayerNameColor(p) {
   return (netPvpOn() && !netIsFriendlyPlayer(p)) ? "#ff3b3b" : "#ffffff";
 }
 
-// BOT NAME COLOR — enemy bots can always be attacked, so online their name is
-// red. bot.js's drawBots() paints the name white; rather than editing bot.js
-// (public/offline file), wrap drawBots here and, only while it runs online,
-// swap the one white fillText it makes (the name) to red. The shadow (black)
-// and "Lv" (yellow) texts are other colors, so they're left alone.
-const _localDrawBots = drawBots;
-drawBots = function () {
-  if (!netIsOnline() || typeof ctx === "undefined" || !ctx) return _localDrawBots.apply(this, arguments);
-  const realFillText = ctx.fillText;
-  ctx.fillText = function (text, x, y, maxWidth) {
-    const f = String(this.fillStyle).toLowerCase();
-    if (f === "#ffffff" || f === "#fff") {
-      this.fillStyle = "#ff3b3b";
-      const r = realFillText.call(this, text, x, y, maxWidth);
-      this.fillStyle = f;
-      return r;
-    }
-    return realFillText.call(this, text, x, y, maxWidth);
-  };
-  try {
-    return _localDrawBots.apply(this, arguments);
-  } finally {
-    ctx.fillText = realFillText;
-  }
-};
-
 // ---------------------------------------------------------------------------
 // THE ONLINE MAP (worldmap_server.js, sent by the server)
 // ---------------------------------------------------------------------------
