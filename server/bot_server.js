@@ -5808,7 +5808,7 @@ function drawBots(ctx, bots, worldOffsetX, worldOffsetY) {
     if (nameLabel) {
       ctx.fillStyle = "rgba(0,0,0,0.9)";
       ctx.fillText(nameLabel, screenX + 1, nameLabelY + 1);
-      ctx.fillStyle = "#ffffff";
+      ctx.fillStyle = "#ff3b3b";   // enemy bots can always be attacked -> red name
       ctx.fillText(nameLabel, screenX, nameLabelY);
     }
     ctx.fillStyle = "rgba(0,0,0,0.9)";
