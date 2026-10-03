@@ -191,7 +191,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "armor1,armor2,armor3,armor4,armor5,armor6,armor7,armor8,armor9,armor10,armor11,armor12,armor13,armor14,armor15,armor16,armor17,armor18,armor19,armor20,armor21,armor22,armor23,armor24,armor25,armor26,armor27,armor28,armor29,armor30,armor31,armor32,armor33,armor34,armor35,armor36,armor37,armor38,armor39,armor40,ring1,ring2,ring3,ring4,ring5,ring6,ring7,ring8,ring9,ring10,ring11,ring12,ring13,ring14,ring15,ring16,ring17,ring18,ring19,ring20,ring21,ring22,ring23,ring24,ring25,ring26,ring27,ring28,ring29,ring30,ring31,ring32,ring33,ring34,ring35,ring36,ring37,ring38,ring39,ring40,accessory1,accessory2,accessory3,accessory4,accessory5,accessory6,accessory7,accessory8,accessory9,accessory10,accessory11,accessory12,accessory13,accessory14,accessory15,accessory16,accessory17,accessory18,accessory19,accessory20,accessory21,accessory22,accessory23,accessory24,accessory25,accessory26,accessory27,accessory28,accessory29,accessory30,accessory31,accessory32,accessory33,accessory34,accessory35,accessory36,accessory37,accessory38,accessory39,accessory40",
+    spawnItem: "armor1,armor2,armor3,armor4,armor5,armor6,armor7,armor8,armor9,armor10",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 4,       // gold given when this bot's orb is picked up
 
