@@ -195,8 +195,8 @@ const ITEM_ROLL_TOP_CHANCE_LOW = 0.1;   // top number's weight at the first leve
 const ITEM_ROLL_TOP_CHANCE_HIGH = 1.0;  // top number's weight at the last level of a tier
 const ITEM_ROLL_CATEGORIES = ["weapon", "armor", "ring", "accessory"];
 const ITEM_ROLL_STATS = [
-  { stat: "physicalDamage",  min: 1,    max: 300,   chance: 1,   decimals: 0, pickOne: "attack" },
-  { stat: "magicalAttack",   min: 1,    max: 300,   chance: 1,   decimals: 0, pickOne: "attack" },
+  { stat: "physicalDamage",  min: 1,    max: 200,   chance: 1,   decimals: 0, pickOne: "attack" },
+  { stat: "magicalAttack",   min: 1,    max: 200,   chance: 1,   decimals: 0, pickOne: "attack" },
   { stat: "physicalDefense", min: 1,    max: 50,    chance: 0.7, decimals: 0 },
   { stat: "magicalDefense",  min: 1,    max: 50,    chance: 0.7, decimals: 0 },
   { stat: "hpRegen",         min: 0.01, max: 0.035, chance: 0.5, decimals: 3 },
