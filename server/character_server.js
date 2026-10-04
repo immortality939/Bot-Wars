@@ -39,10 +39,10 @@
 // as long as the player is online, then puts these back.
 // ---------------------------------------------------------------------------
 const ATTRIBUTE_RATES = {
-  vit: { health: 20, physicalDefense: 0.5 },
-  dex: { physicalDefense: 1, criticalDamage: 0.002 },
-  int: { mana: 5, magicalAttack: 2, magicalDefense: 1 },
-  pow: { physicalDamage: 2 }
+  vit: { health: 20, physicalDefense: 0.25 },
+  dex: { physicalDefense: 1, criticalDamage: 0.001 },
+  int: { mana: 5, magicalAttack: 1, magicalDefense: 1 },
+  pow: { physicalDamage: 1 }
 };
 
 // Reads the CURRENT table (offline or server) so a swap takes effect at once.
