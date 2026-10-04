@@ -177,50 +177,56 @@ function getAllUpgradeItems() {
 }
 
 // ---------------------------------------------------------------------------
-// UPGRADING GEAR (gear.data.upgradeLevel, 0-9) — moved here from index.html so
-// online mode can run upgrade_server.js's copy instead of the player's own.
-//   - Success chance for the NEXT level = the stone's own upgradeChance
-//     (e.g. specialstone's 100%) minus UPGRADE_CHANCE_STEP for every level the
-//     gear already has. So +0 -> +1 rolls at the stone's full upgradeChance,
-//     +1 -> +2 rolls at (upgradeChance - 12%), +2 -> +3 at
-//     (upgradeChance - 24%), and so on, never dropping below 0%.
-//   - Every SUCCESSFUL weapon upgrade multiplies the weapon's CURRENT damage
-//     by a percentage tiered by the level it lands on (each upgrade compounds
-//     off the previous result, not the original base damage): landing on +1
-//     to +3 adds 15% of current damage, +4 to +6 adds 20%, and +7 to +9 adds
-//     25% (see getUpgradeDamagePercent below). E.g. 25 damage +1 (15%) ->
-//     28.75, then +2 (15% of 28.75) -> 33.06, and so on.
-//   - Every SUCCESSFUL armor upgrade adds defense AND max health, both
-//     tiered by the level it lands on: landing on +1 to +3 adds +1 defense /
-//     +5 health, +4 to +6 adds +2 defense / +10 health, and +7 to +9 adds +3
-//     defense / +15 health (see getUpgradeArmorBonus / getUpgradeArmorHealthBonus).
-//   - Capped at MAX_UPGRADE_LEVEL — the button/roll refuses once there.
-//   - A stone is consumed on every attempt, success or failure — that part
-//     stays in index.html since it's just removing an inventory item.
+// UPGRADING GEAR (gear.data.upgradeLevel, 0-9) — runs from upgrade_server.js so
+// players can't edit these numbers in the public game page.
+//
+//   SUCCESS CHANCE — the stone's own upgradeChance (specialstone = 100%) minus
+//     UPGRADE_CHANCE_STEP (12%) for every level the gear already has:
+//     +0 -> +1 = 100%, +1 -> +2 = 88%, +2 -> +3 = 76%, ... never below 0%.
+//
+//   STATS — every SUCCESSFUL upgrade adds UPGRADE_STAT_PERCENT (5%) of the
+//     item's ORIGINAL (+0) value to EVERY stat it has (see UPGRADE_STAT_FIELDS),
+//     weapon or armor alike. So +1 = base x 1.05, +2 = base x 1.10 ... +9 =
+//     base x 1.45. Example, armor with physicalDefense 10, health 100,
+//     hpRegen 0.001 -> at +1: 10.5 / 105 / 0.00105. The original values are
+//     remembered in data.upgradeBase so rounding never drifts.
+//     (The old tiered "+15/20/25% damage" / "+1..3 defense" rules are gone.)
+//
+//   GOLD ORB COST — every attempt costs gold orb, SUCCESS OR FAIL:
+//     +0 -> +1 costs UPGRADE_BASE_GOLD (2000); every level up doubles it:
+//     +2 = 4000, +3 = 8000, +4 = 16000 ... +9 = 512000. A fail keeps the
+//     level, so the next try costs the same again.
+//     index.html shows the cost in a Confirm/Cancel window first and takes the
+//     gold (getUpgradeGoldCost below).
+//
+//   Capped at MAX_UPGRADE_LEVEL — the button/roll refuses once there.
+//   A stone is consumed on every attempt, success or failure — that part
+//   stays in index.html since it's just removing an inventory item.
 // ---------------------------------------------------------------------------
 const MAX_UPGRADE_LEVEL = 9;
 const UPGRADE_CHANCE_STEP = 0.12;      // shaved off success chance per existing level
+const UPGRADE_STAT_PERCENT = 0.05;     // +5% of the base stats per successful upgrade
+const UPGRADE_BASE_GOLD = 2000;        // gold orb for the first upgrade (+0 -> +1)
+const UPGRADE_GOLD_MULTIPLIER = 2;     // the cost x2 for every level already reached
 
-// Percentage of the weapon's CURRENT damage added per successful upgrade,
-// tiered by which level it lands on (not the level upgraded from).
-function getUpgradeDamagePercent(nextLevel) {
-  if (nextLevel <= 3) return 0.15;
-  if (nextLevel <= 6) return 0.20;
-  return 0.25;
+// Every stat that grows with an upgrade. `defense` is the inventory copy's name
+// for an armor's physicalDefense (see pickUpArmorDrop), so both are scaled.
+const UPGRADE_STAT_FIELDS = [
+  "physicalDamage", "physicalDefense", "defense", "magicalAttack", "magicalDefense",
+  "health", "mana", "criticalChance", "criticalDamage", "hpRegen", "manaRegen",
+  "movementSpeed", "block", "vit", "dex", "int", "pow"
+];
+
+// Keeps tiny numbers like hpRegen 0.00105 exact while hiding float noise.
+function roundUpgradeStat(v) {
+  return Math.round(v * 1000000) / 1000000;
 }
 
-// Flat defense added per successful armor upgrade, tiered by landing level.
-function getUpgradeArmorBonus(nextLevel) {
-  if (nextLevel <= 3) return 1;
-  if (nextLevel <= 6) return 2;
-  return 3;
-}
-
-// Flat max-health added per successful armor upgrade, tiered by landing level.
-function getUpgradeArmorHealthBonus(nextLevel) {
-  if (nextLevel <= 3) return 5;
-  if (nextLevel <= 6) return 10;
-  return 15;
+// Gold orb needed to attempt the NEXT upgrade of gear that is at `currentLevel`
+// (0 -> 2000, 1 -> 4000, 2 -> 8000, 3 -> 16000 ... 8 -> 512000).
+function getUpgradeGoldCost(currentLevel) {
+  const lvl = Math.max(0, Math.floor(currentLevel || 0));
+  return Math.round(UPGRADE_BASE_GOLD * Math.pow(UPGRADE_GOLD_MULTIPLIER, lvl));
 }
 
 // Success chance for taking `currentLevel` up to `currentLevel + 1`, given
@@ -229,8 +235,37 @@ function getUpgradeChanceAtLevel(baseChance, currentLevel) {
   return Math.max(0, (baseChance || 0) - UPGRADE_CHANCE_STEP * currentLevel);
 }
 
+// Returns a COPY of a weapon/armor `data` object with its stats set to what
+// `level` upgrades are worth (base x (1 + 5% x level)). Works from the item's
+// remembered +0 values (data.upgradeBase); the first time, those are taken from
+// the current numbers. Does not mutate `data`.
+function applyUpgradeLevelToData(data, level) {
+  if (!data) return data;
+  level = Math.max(0, Math.min(MAX_UPGRADE_LEVEL, Math.floor(level || 0)));
+
+  const prevLevel = data.upgradeLevel || 0;
+  const base = Object.assign({}, data.upgradeBase || {});
+  UPGRADE_STAT_FIELDS.forEach((f) => {
+    if (typeof data[f] === "number" && typeof base[f] !== "number") {
+      // First upgrade: the current numbers ARE the +0 base. (An item that
+      // already has levels but no remembered base is backed out of them.)
+      base[f] = roundUpgradeStat(data[f] / (1 + UPGRADE_STAT_PERCENT * prevLevel));
+    }
+  });
+
+  const out = Object.assign({}, data);
+  UPGRADE_STAT_FIELDS.forEach((f) => {
+    if (typeof base[f] === "number") {
+      out[f] = roundUpgradeStat(base[f] * (1 + UPGRADE_STAT_PERCENT * level));
+    }
+  });
+  out.upgradeBase = base;
+  out.upgradeLevel = level;
+  return out;
+}
+
 // Rolls ONE upgrade attempt on a weapon or armor item and returns the result;
-// does not touch the stone — index.html still consumes that itself.
+// does not touch the stone or the gold — index.html consumes those itself.
 //   gearType   — "weapon" or "armor" (see entryType() in index.html)
 //   gearData   — the item's current gear.data object (not mutated)
 //   baseChance — the stone's own upgradeChance (relic.data.upgradeChance)
@@ -239,35 +274,13 @@ function getUpgradeChanceAtLevel(baseChance, currentLevel) {
 function rollGearUpgrade(gearType, gearData, baseChance) {
   const currentLevel = (gearData && gearData.upgradeLevel) || 0;
   if (currentLevel >= MAX_UPGRADE_LEVEL) return { success: false, maxed: true, data: gearData };
+  if (gearType !== "weapon" && gearType !== "armor") return { success: false, maxed: false, data: gearData };
 
   const chance = getUpgradeChanceAtLevel(baseChance, currentLevel);
   const success = Math.random() < chance;
   if (!success) return { success: false, maxed: false, data: gearData };
 
-  const nextLevel = currentLevel + 1;
-  let data = gearData;
-
-  if (gearType === "weapon" && typeof gearData.physicalDamage === "number") {
-    // Compounding percentage bump — taken off the weapon's CURRENT damage, so
-    // each successive upgrade builds on the last result. Rounded to 2 decimal
-    // places to avoid drifting into long floats (25 -> 28.75 -> 33.06 -> ...).
-    const bonusPct = getUpgradeDamagePercent(nextLevel);
-    const newDamage = Math.round(gearData.physicalDamage * (1 + bonusPct) * 100) / 100;
-    data = { ...gearData, physicalDamage: newDamage, upgradeLevel: nextLevel };
-  } else if (gearType === "armor" && typeof gearData.defense === "number") {
-    data = {
-      ...gearData,
-      defense: gearData.defense + getUpgradeArmorBonus(nextLevel),
-      health: (gearData.health || 0) + getUpgradeArmorHealthBonus(nextLevel),
-      upgradeLevel: nextLevel
-    };
-  }
-  // gearType/field mismatch (e.g. a weapon with no physicalDamage field):
-  // the roll still succeeded (and the stone is still spent by index.html),
-  // but there's no numeric field to raise, so upgradeLevel does NOT advance
-  // — matches the original index.html behavior exactly.
-
-  return { success: true, maxed: false, data };
+  return { success: true, maxed: false, data: applyUpgradeLevelToData(gearData, currentLevel + 1) };
 }
 
 
@@ -301,10 +314,10 @@ if (typeof module !== "undefined" && module.exports) {
     getAllUpgradeItems,
     MAX_UPGRADE_LEVEL,
     UPGRADE_CHANCE_STEP,
-    getUpgradeDamagePercent,
-    getUpgradeArmorBonus,
-    getUpgradeArmorHealthBonus,
+    UPGRADE_STAT_PERCENT,
+    getUpgradeGoldCost,
     getUpgradeChanceAtLevel,
+    applyUpgradeLevelToData,
     rollGearUpgrade,
     getUpgradeItemSellPrice
   };
