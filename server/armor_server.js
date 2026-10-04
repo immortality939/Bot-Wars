@@ -80,7 +80,7 @@ const ARMOR_TYPES = {
     image: "image/armor1.png",
     radius: 10,
     category: "armor",
-    spawnChance: 0.9,
+    spawnChance: 0.1,
     timeLife: 300000,    // ms — despawns if not looted within 30 sec
     description: "Padded scout vest. Light and quick to wear, with a small boost to defense and health."
   },
@@ -524,7 +524,7 @@ const ARMOR_TYPES = {
     image: "image/ring01.png",
     radius: 10,
     category: "ring",
-    spawnChance: 1.1,
+    spawnChance: 0.1,
     timeLife: 300000,    // ms — despawns if not looted within 30 sec
     description: "Blue ring with a bright star. A starter ring that adds a little damage and crit chance."
   },
@@ -928,7 +928,7 @@ const ARMOR_TYPES = {
     image: "image/accessory01.png",
     radius: 10,
     category: "accessory",
-    spawnChance: 1.1,
+    spawnChance: 0.1,
     timeLife: 300000,    // ms — despawns if not looted within 30 sec
     description: "Blue spiked circlet with a glowing crystal. Light on the head, strong in the mind."
   },
