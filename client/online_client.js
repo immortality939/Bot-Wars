@@ -3044,8 +3044,6 @@ window.startGameOnline = async function (characterName, serverId, channel) {
   try {
     initMsg = await netConnect(characterName, serverId, channel);
     netApplyServerData(initMsg.data);   // online numbers come from the server
-    // The server's table is now active: make sure the name matches a character in it.
-    if (typeof resolveCharacterName === "function") characterName = resolveCharacterName(characterName);
     // maps: newest server sends WORLD_MAPS; a slightly older one sent a single WORLD_MAP
     const d = initMsg.data || {};
     const maps = d.WORLD_MAPS || (d.WORLD_MAP ? { worldmap: d.WORLD_MAP } : null);
@@ -4760,12 +4758,7 @@ let olFetching = false;
 let olScreens = null;             // { server, channel, char } once built
 
 function olValidCharacter(name) {
-  if (!name || typeof CHARACTERS === "undefined") return null;
-  if (CHARACTERS[name]) return name;
-  // The account saved a name that no longer exists (character renamed in
-  // character.js / character_server.js): follow it to the matching character
-  // instead of treating the account as having none.
-  return (typeof resolveCharacterName === "function") ? resolveCharacterName(name) : null;
+  return (name && typeof CHARACTERS !== "undefined" && CHARACTERS[name]) ? name : null;
 }
 
 // ONLINE CHARACTER PICTURES: the picker opens BEFORE the server has sent its
