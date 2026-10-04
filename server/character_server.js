@@ -93,7 +93,7 @@ const CHARACTERS = {
 
 
   // FAST CHARACTER
-  Brawler: {
+  Berserker: {
     name: "Berserker",
     type: "berserker",
     health: 100,
