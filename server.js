@@ -1074,7 +1074,7 @@ wss.on("connection", (ws) => {
         id, ws,
         server: serverId, channel, map: startMap, room, lastMapChange: 0,
         name: wantedName || ("Player " + id),
-        character: chars[wanted] ? wanted : (Object.keys(chars)[0] || "soldier"),
+        character: (typeof GAME_DATA.resolveCharacterName === "function") ? GAME_DATA.resolveCharacterName(wanted) : (chars[wanted] ? wanted : (Object.keys(chars)[0] || "soldier")),
         x: savedSpot ? savedSpot.x : 0, y: savedSpot ? savedSpot.y : 0,
         health: 100, maxHealth: 100,
         mana: 0, maxMana: 0, exp: 0, maxExp: 0,
