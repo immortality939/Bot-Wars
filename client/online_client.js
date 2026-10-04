@@ -868,6 +868,15 @@ const NET_PROTECTED_FUNCTIONS = new Set([
   "checkItemPickup", "createInventoryItemDrop", "applyDamageToPlayer"
 ]);
 
+// Functions that exist ONLY in a *_server.js file (the public offline file has no
+// copy), so the swap below would normally skip them. They are installed on
+// window while online and deleted again by netRestoreServerCode():
+//   getUpgradeGoldCost, applyUpgradeLevelToData — upgrade_server.js (gold orb cost
+//   per upgrade, and the "+5% of every base stat per success" stat math).
+const NET_SERVER_ONLY_FUNCTIONS = new Set([
+  "getUpgradeGoldCost", "applyUpgradeLevelToData"
+]);
+
 function netInstallServerCode(code) {
   if (!code || typeof code !== "object") return;
   const tables = netTableRefs();
@@ -883,7 +892,8 @@ function netInstallServerCode(code) {
       const fns = new Function("__tables", "module", "exports", body + "\nreturn { " + names.join(", ") + " };")(tables, {}, {});
       for (const n of names) {
         if (NET_PROTECTED_FUNCTIONS.has(n)) continue;
-        if (typeof window[n] !== "function" || typeof fns[n] !== "function") continue;
+        if (typeof fns[n] !== "function") continue;
+        if (typeof window[n] !== "function" && !NET_SERVER_ONLY_FUNCTIONS.has(n)) continue;
         if (!(n in netServerCodeOriginals)) netServerCodeOriginals[n] = window[n];
         window[n] = fns[n];
         swapped++;
@@ -897,7 +907,10 @@ function netInstallServerCode(code) {
 
 function netRestoreServerCode() {
   if (!netServerCodeOriginals) return;
-  for (const n in netServerCodeOriginals) window[n] = netServerCodeOriginals[n];
+  for (const n in netServerCodeOriginals) {
+    if (netServerCodeOriginals[n] === undefined) { try { delete window[n]; } catch (e) { window[n] = undefined; } }   // server-only function: remove it again
+    else window[n] = netServerCodeOriginals[n];
+  }
   netServerCodeOriginals = null;
 }
 // ---- END SERVER CODE SWAP ---------------------------------------------------
@@ -925,6 +938,10 @@ function netRefreshGearFromTables() {
   try { slots = invSlotData; } catch (e) {}
   try { grid = invGridData; } catch (e) {}
 
+  // ONLINE: upgrade_server.js's applyUpgradeLevelToData() (+5% of every base stat
+  // per upgrade level) is installed only while online. OFFLINE: the public
+  // upgrade.js tier functions are still used, exactly as before.
+  const onlineUpgrade = typeof applyUpgradeLevelToData === "function";
   const canUpgrade =
     typeof getUpgradeDamagePercent === "function" &&
     typeof getUpgradeArmorBonus === "function" &&
@@ -940,16 +957,27 @@ function netRefreshGearFromTables() {
     if (!def) return;
 
     const lvl = entry.data.upgradeLevel || 0;
-    if (lvl > 0 && !canUpgrade) return;          // can't redo upgrades -> leave item alone
+    if (lvl > 0 && !canUpgrade && !onlineUpgrade) return;          // can't redo upgrades -> leave item alone
 
     // table numbers win; item-only fields (upgradeLevel, attachedOrb, image) are kept
     const data = Object.assign({}, entry.data, def);
     if (entry.data.image) data.image = entry.data.image;
+    delete data.upgradeBase;     // the +0 numbers come from the table again
 
     if (kind === "armor") {
       data.defense = def.physicalDefense || 0;
       data.health = def.health || 0;
     }
+
+    if (onlineUpgrade) {
+      // data now holds the +0 numbers: put the upgrade levels back on top.
+      entry.data = (lvl > 0 && (kind === "weapon" || kind === "armor"))
+        ? applyUpgradeLevelToData(data, lvl)
+        : data;
+      rebuilt++;
+      return;
+    }
+
     for (let l = 1; l <= lvl; l++) {
       if (kind === "weapon" && typeof data.physicalDamage === "number") {
         data.physicalDamage = Math.round(data.physicalDamage * (1 + getUpgradeDamagePercent(l)) * 100) / 100;
