@@ -30,6 +30,13 @@
 //   what vit/dex/int/pow convert into).
 // None of these are set on the entries below yet — add whichever ones a
 // given weapon should grant.
+// REQUIRED STAT — optional, same field armor entries can carry. If an entry
+// has  requiredStat: "pow=20"  (stat=amount, only pow / int / dex), the player's own
+// stat must be at least that to equip it. Without the field, an item that an enemy
+// DROPS still gets one automatically: the stat comes from its requiredType
+// (berserker = pow, magemaster = int, bullwark = dex) and the amount is the
+// enemy's level x 4 (level 10 = 40 ... level 50 = 200). The ONLINE numbers and the
+// helper functions (parseRequiredStat / rollRequiredStat) are in armor_server.js.
 const WEAPONS = {
 
   uzi: {

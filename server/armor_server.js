@@ -71,6 +71,76 @@
 
 
 // ---------------------------------------------------------------------------
+// REQUIRED STAT (ONLINE rules) — a stat the PLAYER must have before the item
+// can be equipped. Works on weapon.js AND armor.js entries (rings and
+// accessories too). The numbers below are the ONLINE ones; the same block lives in
+// armor.js (offline mode has its own copy of these numbers).
+//
+// requiredType already decides WHICH characters may wear an item. The stat
+// that goes with each type (only these three exist):
+//     berserker  -> pow
+//     magemaster -> int
+//     bullwark   -> dex
+//
+// Two ways an item gets a requiredStat:
+//
+//  1) DROPPED BY AN ENEMY (automatic, no field needed) — the amount is the
+//     enemy's level x perEnemyLevel, so it grows with the enemy:
+//         enemy lvl 1  -> 4      lvl 2 -> 8      ...   lvl 10 -> 40
+//         enemy lvl 11-20 -> 44-80     lvl 21-30 -> 84-120
+//         enemy lvl 31-40 -> 124-160   lvl 41-50 -> 164-200
+//     The stat comes from the item's requiredType (a berserker item rolls
+//     pow=<amount>, a magemaster item int=<amount>, a bullwark item dex=<amount>).
+//     Enemies above maxEnemyLevel use the top amount (200).
+//
+//  2) FIXED ON THE ITEM — write it on the entry itself and every copy of the
+//     item needs exactly that, whatever dropped it:
+//         requiredStat: "pow=20",     // cannot be equipped below 20 pow
+//     (the object form requiredStat: { pow: 20 } works too).
+//
+// The check uses the player's OWN stat (the character's base stat + the
+// points gained from levels / spent in the POINTS panel). Stats that other
+// gear adds do NOT count, otherwise an item could unlock itself.
+// ---------------------------------------------------------------------------
+const REQUIRED_STAT_RULES = {
+  statForType: { berserker: "pow", magemaster: "int", bullwark: "dex" },
+  perEnemyLevel: 4,      // requirement per enemy level (level 10 -> 40, level 50 -> 200)
+  maxEnemyLevel: 50      // enemies above this level use the top amount
+};
+
+// "pow=20" (or { pow: 20 }) -> { stat: "pow", amount: 20 }; null when it is
+// missing, not one of the three stats, or not a positive number.
+function parseRequiredStat(value) {
+  if (!value) return null;
+  let stat = null, amount = NaN;
+  if (typeof value === "string") {
+    const m = value.trim().match(/^([a-z]+)\s*=\s*(\d+(?:\.\d+)?)$/i);
+    if (m) { stat = m[1].toLowerCase(); amount = Number(m[2]); }
+  } else if (typeof value === "object") {
+    const k = Object.keys(value)[0];
+    if (k) { stat = k.toLowerCase(); amount = Number(value[k]); }
+  }
+  const allowed = Object.values(REQUIRED_STAT_RULES.statForType);
+  if (!stat || allowed.indexOf(stat) === -1 || !(amount > 0)) return null;
+  return { stat: stat, amount: Math.round(amount) };
+}
+
+// The requiredStat text ("pow=40") a freshly DROPPED item gets. fixedRequiredStat
+// is the item entry's own requiredStat (way 2 above) — when it has one it wins;
+// otherwise the amount comes from the dropping enemy's level (way 1). Returns null
+// when the item has no requiredType (nothing to base a stat on).
+function rollRequiredStat(requiredType, enemyLevel, fixedRequiredStat) {
+  const fixed = parseRequiredStat(fixedRequiredStat);
+  if (fixed) return fixed.stat + "=" + fixed.amount;
+  const stat = REQUIRED_STAT_RULES.statForType[String(requiredType || "").toLowerCase()];
+  if (!stat) return null;
+  const lvl = Math.max(1, Math.min(REQUIRED_STAT_RULES.maxEnemyLevel, Math.floor(Number(enemyLevel)) || 1));
+  return stat + "=" + (lvl * REQUIRED_STAT_RULES.perEnemyLevel);
+}
+
+
+
+// ---------------------------------------------------------------------------
 // ARMOR TYPES
 // ---------------------------------------------------------------------------
 const ARMOR_TYPES = {
@@ -1596,4 +1666,4 @@ if (typeof module !== "undefined" && module.exports) {
 
 
 // ---- export for server.js (Node) ----
-if (typeof module !== "undefined") module.exports = { ARMOR_TYPES };
+if (typeof module !== "undefined") module.exports = { ARMOR_TYPES, parseRequiredStat, rollRequiredStat };
