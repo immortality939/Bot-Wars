@@ -4761,6 +4761,7 @@ let olScreens = null;             // { server, channel, char } once built
 
 function olValidCharacter(name) {
   if (!name || typeof CHARACTERS === "undefined") return null;
+  if (olCharImages && olCharImages[name]) return name;   // a character from the SERVER's list (character_server.js)
   if (CHARACTERS[name]) return name;
   // The account saved a name that no longer exists (character renamed in
   // character.js / character_server.js): follow it to the matching character
@@ -4776,6 +4777,11 @@ let olCharImages = {};
 window.olCharacterImage = function (name, fallback) {
   return olCharImages[name] || fallback;
 };
+// The ONLINE character list = the names in character_server.js (same order). The
+// picker (index.html) uses this instead of the offline character.js list.
+window.olCharacterNames = function () {
+  return Object.keys(olCharImages);
+};
 async function olSyncCharacterImages() {
   try {
     const ctl = new AbortController();
@@ -4786,6 +4792,8 @@ async function olSyncCharacterImages() {
     if (!res.ok) return;
     const data = await res.json();
     if (data && typeof data === "object") olCharImages = data;
+    // an already-open picker switches to the server's character list
+    if (typeof window.olRefreshCharacterPicker === "function") window.olRefreshCharacterPicker();
     // refresh anything already on screen (picker orbs)
     document.querySelectorAll("#charCarousel .charSlide img").forEach((img) => {
       const n = img.getAttribute("alt");
@@ -5137,7 +5145,7 @@ function olShowCharacter() {
   olHide();
 
   const name = olValidCharacter(onlineCharacterName);
-  const def = name ? CHARACTERS[name] : null;
+  const def = name ? (CHARACTERS[name] || (olCharImages[name] ? { image: olCharImages[name], level: 1 } : null)) : null;
   let level = def && def.level || 1;
   const onlineProg = onlineProfile && onlineProfile.characterProgress && name ? onlineProfile.characterProgress[name] : null;
   if (onlineProg && onlineProg.level) level = onlineProg.level;   // the account's ONLINE level
