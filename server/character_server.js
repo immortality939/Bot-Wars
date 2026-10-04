@@ -40,7 +40,7 @@
 // ---------------------------------------------------------------------------
 const ATTRIBUTE_RATES = {
   vit: { health: 30, physicalDefense: 0.5 },
-  dex: { physicalDefense: 1, criticalDamage: 0.01 },
+  dex: { physicalDefense: 1, criticalDamage: 0.002 },
   int: { mana: 5, magicalAttack: 2, magicalDefense: 1 },
   pow: { physicalDamage: 2 }
 };
