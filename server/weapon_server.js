@@ -35,7 +35,7 @@ const WEAPONS = {
   uzi: {
     name: "uzi",
     category: "weapon",
-    spawnChance: 1.0,
+    spawnChance: 0.065,
     width: 20,
     height: 20,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -46,7 +46,7 @@ const WEAPONS = {
   ak47: {
     name: "ak47",
     category: "weapon",
-    spawnChance: 0.5,
+    spawnChance: 0.065,
     width: 20,
     height: 20,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -56,7 +56,7 @@ const WEAPONS = {
   sniper: {
     name: "sniper",
     category: "weapon",
-    spawnChance: 0.5,
+    spawnChance: 0.065,
     width: 20,
     height: 20,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -66,7 +66,7 @@ const WEAPONS = {
   shotgun: {
     name: "shotgun",
     category: "weapon",
-    spawnChance: 0.5,
+    spawnChance: 0.065,
     width: 20,
     height: 20,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -76,7 +76,7 @@ const WEAPONS = {
     name: "Frostbite Edge",
     image: "image/sword1.png",
     category: "weapon",
-    spawnChance: 1.2,
+    spawnChance: 0.065,
     width: 30,
     height: 27,
     timeLife: 300000,    // ms — despawns if not looted within 30 sec
@@ -87,7 +87,7 @@ const WEAPONS = {
     name: "Magma Cleaver",
     image: "image/sword2.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 27,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -98,7 +98,7 @@ const WEAPONS = {
     name: "Void Reaper",
     image: "image/sword3.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -109,7 +109,7 @@ const WEAPONS = {
     name: "Solar Paladin",
     image: "image/sword4.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 27,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -120,7 +120,7 @@ const WEAPONS = {
     name: "Toxic Fang",
     image: "image/sword5.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -131,7 +131,7 @@ const WEAPONS = {
     name: "Glacier Shard",
     image: "image/sword6.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -142,7 +142,7 @@ const WEAPONS = {
     name: "Ember Rustblade",
     image: "image/sword7.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 26,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -153,7 +153,7 @@ const WEAPONS = {
     name: "Nightwing Slicer",
     image: "image/sword8.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -164,7 +164,7 @@ const WEAPONS = {
     name: "Crimson Sawfang",
     image: "image/sword9.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 26,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -175,7 +175,7 @@ const WEAPONS = {
     name: "Azure Pulse",
     image: "image/sword10.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 26,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -186,7 +186,7 @@ const WEAPONS = {
     name: "Bloodthorn",
     image: "image/sword11.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 25,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -197,7 +197,7 @@ const WEAPONS = {
     name: "Golden Sentinel",
     image: "image/sword12.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 24,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -208,7 +208,7 @@ const WEAPONS = {
     name: "Deepsea Warden",
     image: "image/sword13.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 26,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -219,7 +219,7 @@ const WEAPONS = {
     name: "Amethyst Spire",
     image: "image/sword14.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 27,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -230,7 +230,7 @@ const WEAPONS = {
     name: "Viper Thornblade",
     image: "image/sword15.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 27,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -241,7 +241,7 @@ const WEAPONS = {
     name: "Rose Nova",
     image: "image/sword16.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 24,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -252,7 +252,7 @@ const WEAPONS = {
     name: "Obsidian Ruin",
     image: "image/sword17.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 23,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -263,7 +263,7 @@ const WEAPONS = {
     name: "Stormcrest Lance",
     image: "image/sword18.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 22,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -274,7 +274,7 @@ const WEAPONS = {
     name: "Lavacore Slayer",
     image: "image/sword19.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 24,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -285,7 +285,7 @@ const WEAPONS = {
     name: "Twilight Silverfang",
     image: "image/sword20.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 23,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -296,7 +296,7 @@ const WEAPONS = {
     name: "Frostweave Gauntlet",
     image: "image/gauntlet1.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -307,7 +307,7 @@ const WEAPONS = {
     name: "Hellfire Fist",
     image: "image/gauntlet2.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 29,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -318,7 +318,7 @@ const WEAPONS = {
     name: "Sunforge Gauntlet",
     image: "image/gauntlet3.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 30,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -329,7 +329,7 @@ const WEAPONS = {
     name: "Voidtouch Gauntlet",
     image: "image/gauntlet4.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -340,7 +340,7 @@ const WEAPONS = {
     name: "Tidecaller Gauntlet",
     image: "image/gauntlet5.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 30,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -351,7 +351,7 @@ const WEAPONS = {
     name: "Magma Knuckle",
     image: "image/gauntlet6.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -362,7 +362,7 @@ const WEAPONS = {
     name: "Crystal Wraith Gauntlet",
     image: "image/gauntlet7.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 29,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -373,7 +373,7 @@ const WEAPONS = {
     name: "Jungle Warden Gauntlet",
     image: "image/gauntlet8.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 29,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -384,7 +384,7 @@ const WEAPONS = {
     name: "Nightbloom Gauntlet",
     image: "image/gauntlet9.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -395,7 +395,7 @@ const WEAPONS = {
     name: "Phoenix Talon Gauntlet",
     image: "image/gauntlet10.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 30,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -406,7 +406,7 @@ const WEAPONS = {
     name: "Aurum Ironfist",
     image: "image/gauntlet11.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -417,7 +417,7 @@ const WEAPONS = {
     name: "Scarlet Seraph Gauntlet",
     image: "image/gauntlet12.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 28,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -428,7 +428,7 @@ const WEAPONS = {
     name: "Azure Core Gauntlet",
     image: "image/gauntlet13.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 26,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -439,7 +439,7 @@ const WEAPONS = {
     name: "Bronze Titan Gauntlet",
     image: "image/gauntlet14.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 29,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -450,7 +450,7 @@ const WEAPONS = {
     name: "Moonshard Gauntlet",
     image: "image/gauntlet15.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 30,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -461,7 +461,7 @@ const WEAPONS = {
     name: "Glacial Claw",
     image: "image/gauntlet16.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 29,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -472,7 +472,7 @@ const WEAPONS = {
     name: "Sapphire Bastion Gauntlet",
     image: "image/gauntlet17.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 27,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -483,7 +483,7 @@ const WEAPONS = {
     name: "Bloodclaw Gauntlet",
     image: "image/gauntlet18.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 29,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -494,7 +494,7 @@ const WEAPONS = {
     name: "Emerald Pulse Gauntlet",
     image: "image/gauntlet19.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 30,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -505,7 +505,7 @@ const WEAPONS = {
     name: "Dread Spike Gauntlet",
     image: "image/gauntlet20.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 30,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -516,7 +516,7 @@ const WEAPONS = {
     name: "Skyline Rifle",
     image: "image/gun1.png",
     category: "weapon",
-    spawnChance: 1.2,
+    spawnChance: 0.065,
     width: 30,
     height: 16,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -527,7 +527,7 @@ const WEAPONS = {
     name: "Inferno Blaster",
     image: "image/gun2.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 16,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -538,7 +538,7 @@ const WEAPONS = {
     name: "Frost Pulse Cannon",
     image: "image/gun3.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 14,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -549,7 +549,7 @@ const WEAPONS = {
     name: "Violet Phantom Gun",
     image: "image/gun4.png",
     category: "weapon",
-    spawnChance: 1.2,
+    spawnChance: 0.065,
     width: 30,
     height: 17,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -560,7 +560,7 @@ const WEAPONS = {
     name: "Venom Driver",
     image: "image/gun5.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 15,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -571,7 +571,7 @@ const WEAPONS = {
     name: "Golden Hornet",
     image: "image/gun6.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 15,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -582,7 +582,7 @@ const WEAPONS = {
     name: "Cryo Lancer",
     image: "image/gun7.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 15,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -593,7 +593,7 @@ const WEAPONS = {
     name: "Crimson Razor Gun",
     image: "image/gun8.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 13,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -604,7 +604,7 @@ const WEAPONS = {
     name: "Cobalt Striker",
     image: "image/gun9.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 15,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -615,7 +615,7 @@ const WEAPONS = {
     name: "Ember Gatling",
     image: "image/gun10.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 14,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -626,7 +626,7 @@ const WEAPONS = {
     name: "Nebula Cannon",
     image: "image/gun11.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 16,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -637,7 +637,7 @@ const WEAPONS = {
     name: "Jungle Ranger",
     image: "image/gun12.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 17,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -648,7 +648,7 @@ const WEAPONS = {
     name: "Scarlet Lightning Gun",
     image: "image/gun13.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 17,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -659,7 +659,7 @@ const WEAPONS = {
     name: "Midnight Sniper",
     image: "image/gun14.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 14,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -670,7 +670,7 @@ const WEAPONS = {
     name: "Pink Supernova",
     image: "image/gun15.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 16,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -681,7 +681,7 @@ const WEAPONS = {
     name: "Crystal Tempest Gun",
     image: "image/gun16.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 16,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -692,7 +692,7 @@ const WEAPONS = {
     name: "Aurum Repeater",
     image: "image/gun17.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 16,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -703,7 +703,7 @@ const WEAPONS = {
     name: "Galactic Gun",
     image: "image/gun18.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 16,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -714,7 +714,7 @@ const WEAPONS = {
     name: "Redline Twin Cannon",
     image: "image/gun19.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 16,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -725,7 +725,7 @@ const WEAPONS = {
     name: "Starlight Railgun",
     image: "image/gun20.png",
     category: "weapon",
-    spawnChance: 0.2,
+    spawnChance: 0.065,
     width: 30,
     height: 15,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
