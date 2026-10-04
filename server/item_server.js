@@ -202,7 +202,7 @@ const ITEM_ROLL_STATS = [
   { stat: "magicalAttack",   min: 1,    max: 100,   chance: 1,   decimals: 0, pickOne: "attack" },
   { stat: "physicalDefense", min: 1,    max: 20,    chance: 0.7, decimals: 0 },
   { stat: "magicalDefense",  min: 1,    max: 20,    chance: 0.7, decimals: 0 },
-  { stat: "hpRegen",         min: 0.01, max: 0.03, chance: 0.5, decimals: 3 },
+  { stat: "hpRegen",         min: 0.01, max: 0.02, chance: 0.5, decimals: 3 },
   { stat: "manaRegen",       min: 0.01, max: 0.02, chance: 0.5, decimals: 3 },
   { stat: "health",          min: 1,    max: 1000,  chance: 0.4, decimals: 0 },
   { stat: "mana",            min: 1,    max: 100,   chance: 0.4, decimals: 0 },
