@@ -2968,7 +2968,12 @@ function netConnect(character, serverId, channel) {
       let lastPos;
       try {
         const lp = onlineProfile && onlineProfile.lastPosition;
-        if (lp && lp.character === character) lastPos = { map: lp.map, x: lp.x, y: lp.y };
+        // Same character -> use the saved spot. Also when the saved name no longer exists on the
+        // server (the character was renamed in character_server.js): it is the same account, so
+        // the position still counts instead of silently starting at the default spawn.
+        if (lp && (lp.character === character || (typeof olCharImages === "object" && Object.keys(olCharImages).length && !olCharImages[lp.character]))) {
+          lastPos = { map: lp.map, x: lp.x, y: lp.y };
+        }
       } catch (e) {}
       try { sock.send(JSON.stringify({ type: "join", character, server: serverId, channel, name: onlinePlayerName || undefined, token, lastPos })); } catch (e) {}
     };
