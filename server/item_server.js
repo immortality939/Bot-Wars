@@ -200,10 +200,10 @@ const ITEM_ROLL_CATEGORIES = ["weapon", "armor", "ring", "accessory"];
 const ITEM_ROLL_STATS = [
   { stat: "physicalDamage",  min: 1,    max: 100,   chance: 1,   decimals: 0, pickOne: "attack" },
   { stat: "magicalAttack",   min: 1,    max: 100,   chance: 1,   decimals: 0, pickOne: "attack" },
-  { stat: "physicalDefense", min: 1,    max: 20,    chance: 0.7, decimals: 0 },
-  { stat: "magicalDefense",  min: 1,    max: 20,    chance: 0.7, decimals: 0 },
-  { stat: "hpRegen",         min: 0.01, max: 0.02, chance: 0.5, decimals: 3 },
-  { stat: "manaRegen",       min: 0.01, max: 0.02, chance: 0.5, decimals: 3 },
+  { stat: "physicalDefense", min: 1,    max: 50,    chance: 0.7, decimals: 0 },
+  { stat: "magicalDefense",  min: 1,    max: 50,    chance: 0.7, decimals: 0 },
+  { stat: "hpRegen",         min: 0.001, max: 0.02, chance: 0.5, decimals: 3 },
+  { stat: "manaRegen",       min: 0.001, max: 0.02, chance: 0.5, decimals: 3 },
   { stat: "health",          min: 1,    max: 1000,  chance: 0.4, decimals: 0 },
   { stat: "mana",            min: 1,    max: 100,   chance: 0.4, decimals: 0 },
   { stat: "vit",             min: 1,    max: 50,    chance: 0.3, decimals: 0 },
@@ -211,7 +211,7 @@ const ITEM_ROLL_STATS = [
   { stat: "dex",             min: 1,    max: 50,    chance: 0.3, decimals: 0 },
   { stat: "int",             min: 1,    max: 50,    chance: 0.3, decimals: 0 },
   { stat: "criticalDamage",  min: 0.001, max: 0.05,   chance: 0.2, decimals: 3 },
-  { stat: "criticalChance",  min: 0.01, max: 0.05,  chance: 0.2, decimals: 3 },
+  { stat: "criticalChance",  min: 0.001, max: 0.05,  chance: 0.2, decimals: 3 },
   // block only works from the armor slot (rollArmorBlock in armor.js), so only armor rolls it.
   { stat: "block",           min: 1,    max: 5,     chance: 0.2, decimals: 0, onlyFor: ["armor"] }
 ];
