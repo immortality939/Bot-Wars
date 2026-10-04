@@ -20,6 +20,11 @@
 //           the free starter gear, or by a small refilling slack. Extra items
 //           are removed. Unknown item names, bad quantities and oversized item
 //           data are removed / clamped.
+//   GEAR    an equipped weapon / armor / ring / accessory whose `requiredType`
+//           (weapon_server.js / armor_server.js) doesn't match the selected
+//           character's `type` (character_server.js) is taken out of the equip
+//           slot and put back in the inventory grid. A character's own starter
+//           weapon/armor is always allowed.
 //   LEVEL   a character's level can't jump faster than a refilling slack
 //           allows and can't pass MAX_LEVEL. A jump that is too fast is
 //           reverted to the last saved progress of that character.
@@ -159,6 +164,39 @@ function createSaveGuard(GAME_DATA) {
     return { grid: cleanGrid, equip };
   }
 
+  // ---- character type check on equipped gear ----------------------------------
+  // weapon_server.js / armor_server.js items can carry `requiredType`; character_server.js
+  // characters carry `type`. A mismatched item sitting in an equip slot (a modified client
+  // can put it there) is moved into the first free grid slot; if the grid is full it is
+  // removed. The character is the account's selected one; if none can be worked out, every
+  // item that requires a type is taken off (nothing can be verified).
+  function requiredTypeOf(e) {
+    if (!e) return null;
+    const def = e.type === "weapon" ? (D.WEAPONS || {})[e.name] : (D.ARMOR_TYPES || {})[e.name];
+    const req = def && def.requiredType;
+    return req ? String(req).toLowerCase() : null;
+  }
+  function enforceRequiredType(charName, inv, notes) {
+    if (!inv.equip) return;
+    const ch = (charName && CHARS[charName]) || null;
+    const myType = ch && ch.type ? String(ch.type).toLowerCase() : null;
+    const starter = new Set(ch ? [ch.weaponName, ch.armor].filter(Boolean).map(String) : []);
+    for (const slot of EQUIP_SLOTS) {
+      const e = inv.equip[slot];
+      const req = requiredTypeOf(e);
+      if (!req || starter.has(e.name) || (myType && myType === req)) continue;
+      inv.equip[slot] = null;
+      let free = inv.grid.indexOf(null);
+      if (free < 0 && inv.grid.length < LIMITS.GRID_MAX) { inv.grid.push(null); free = inv.grid.length - 1; }
+      if (free >= 0) {
+        inv.grid[free] = e;
+        notes.push("unequipped " + e.name + " (needs " + req + ")");
+      } else {
+        notes.push("removed " + e.name + " (needs " + req + ", grid full)");
+      }
+    }
+  }
+
   function countItems(grid, equip) {
     const m = new Map();
     const add = (e) => { if (e) { const k = e.type + "|" + e.name; m.set(k, (m.get(k) || 0) + (e.qty || 1)); } };
@@ -256,6 +294,7 @@ function createSaveGuard(GAME_DATA) {
         if (isObj(oldProf.invEquip)) for (const s of EQUIP_SLOTS) { const e = oldProf.invEquip[s]; if (e && e.name) allowed.add(String(e.name)); }
       }
       const inv = cleanInventory(ip, allowed, notes);
+      enforceRequiredType(prof.selectedCharacterName || gd.onlineCharacter, inv, notes);
       const oldInv = oldProf ? cleanInventory(oldProf, new Set([...allowed]), []) : { grid: [], equip: null };
       const before = countItems(oldInv.grid, oldInv.equip);
       const after = countItems(inv.grid, inv.equip);
