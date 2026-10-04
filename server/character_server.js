@@ -127,7 +127,7 @@ const CHARACTERS = {
     // CRITICAL HIT — criticalChance is the odds (0.08 = 8%) that an
     // attack crits; criticalDamage is the bonus applied on a crit
     // (0.05 = +5% added on top of the combined weapon+base damage).
-    criticalChance: 0.08,
+    criticalChance: 1.08,
     criticalDamage: 0.1,
 
     // MANA — max mana pool. Not spent by anything yet (skills don't
