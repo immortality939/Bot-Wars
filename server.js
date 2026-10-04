@@ -1877,6 +1877,32 @@ wss.on("connection", (ws) => {
         cancelActiveTrade(me, "cancelled");
         break;
 
+      // SELL — the player sold an item from the inventory popup. The server works
+      // out the price itself from ITS OWN numbers (armor_server.js / upgrade_server.js),
+      // never from a price sent by the client, and credits that gold so save_guard.js
+      // accepts the gold increase on the next save. Not cheat-proof (the server does not
+      // hold the inventory), but it is rate-limited and capped by the price formula.
+      case "sell": {
+        const sellNow = Date.now();
+        if (sellNow - (me.lastSellAt || 0) < 200) break;
+        me.lastSellAt = sellNow;
+        const it = msg.item;
+        if (!it || typeof it !== "object") break;
+        const sType = String(it.type || ""), sName = String(it.name || "");
+        const sData = (it.data && typeof it.data === "object") ? it.data : {};
+        let sellPrice = 0;
+        if (sType === "weapon" && GAME_DATA.WEAPONS && GAME_DATA.WEAPONS[sName]) {
+          sellPrice = GAME_DATA.calcGearSellPrice(sData, sType);
+        } else if ((sType === "armor" || sType === "ring" || sType === "accessory") && GAME_DATA.ARMOR_TYPES && GAME_DATA.ARMOR_TYPES[sName]) {
+          sellPrice = GAME_DATA.calcGearSellPrice(sData, sType);
+        } else if ((sType === "stone" && GAME_DATA.STONE_TYPES && GAME_DATA.STONE_TYPES[sName]) ||
+                   (sType === "orb" && GAME_DATA.ORB_TYPES && GAME_DATA.ORB_TYPES[sName])) {
+          sellPrice = GAME_DATA.getUpgradeItemSellPrice(sName);
+        }
+        if (sellPrice > 0) saveGuard.creditGold(me.uid, sellPrice);
+        break;
+      }
+
       // Victim reports who killed them -> everyone sees the kill feed.
       case "died": {
         const killer = me.room.get(num(msg.killerId, -1));
