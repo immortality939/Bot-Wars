@@ -129,7 +129,7 @@ const CHARACTERS = {
     // attack crits; criticalDamage is the bonus applied on a crit
     // (0.05 = +5% added on top of the combined weapon+base damage).
     criticalChance: 0.08,
-    criticalDamage: 0.1,
+    criticalDamage: 0.05,
 
     // MANA — max mana pool. Not spent by anything yet (skills don't
     // cost mana currently) — just tracked/regenerated for now so the
