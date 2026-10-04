@@ -203,7 +203,7 @@ const BOT_TYPES = {
 
     level: 1,
     increaseSpawnGet: 0,
-    expGet: 800000000,
+    expGet: 8,
 
     attackSpeed: 1,
     physicalDamage: 8,
