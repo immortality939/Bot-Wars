@@ -210,7 +210,7 @@ const ITEM_ROLL_STATS = [
   { stat: "pow",             min: 1,    max: 50,    chance: 0.3, decimals: 0 },
   { stat: "dex",             min: 1,    max: 50,    chance: 0.3, decimals: 0 },
   { stat: "int",             min: 1,    max: 50,    chance: 0.3, decimals: 0 },
-  { stat: "criticalDamage",  min: 0.005, max: 0.18,   chance: 0.2, decimals: 3 },
+  { stat: "criticalDamage",  min: 0.001, max: 0.05,   chance: 0.2, decimals: 3 },
   { stat: "criticalChance",  min: 0.01, max: 0.05,  chance: 0.2, decimals: 3 },
   // block only works from the armor slot (rollArmorBlock in armor.js), so only armor rolls it.
   { stat: "block",           min: 1,    max: 5,     chance: 0.2, decimals: 0, onlyFor: ["armor"] }
