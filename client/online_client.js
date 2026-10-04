@@ -3359,6 +3359,14 @@ function olQueueSave() {
 // the app is killed before the upload finishes, the next login uploads it.
 
 
+function olSaveNowOnLeave() {
+  try {
+    if (onlineProfileActive && window.getGameMode && window.getGameMode() === "online") saveOnlinePlayerData();
+  } catch (e) { console.error("Save on leave failed:", e); }
+}
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") olSaveNowOnLeave(); });
+window.addEventListener("pagehide", olSaveNowOnLeave);
+
 // ---- Local "pending" copy: last online progress that may not have reached the cloud yet.
 let olKnownUid = null;
 function olPendingKey(uid) { return "olPending:" + uid; }
