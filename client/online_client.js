@@ -658,7 +658,7 @@ function netGetOtherPlayersForBots() {
   const list = [];
   for (const p of otherPlayers.values()) {
     if (!p.alive) continue;
-    list.push({ id: p.id, x: p.x, y: p.y, radius: p.radius });
+    list.push({ id: p.id, x: p.x, y: p.y, radius: p.radius, level: p.level });
   }
   return list;
 }
