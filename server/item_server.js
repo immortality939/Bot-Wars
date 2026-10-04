@@ -181,16 +181,16 @@ const ITEM_DESPAWN_TIME = 30000; // 30 sec
 // 11-20, 21-30, 31-40, 41-50; health 1-1500 -> 1-300, 301-600, ...).
 // Enemies above level 50 use the top tier.
 //
-// WHICH NUMBER — inside the slice, the CHANCE OF REACHING each number goes in a
-// straight line from 100% (the lowest number, always reached) down to the
-// "top chance" (the highest number). So with a top chance of 10%, the highest
-// number (e.g. 60) comes out 10% of the time; with 40% it comes out 40% of the
-// time; with 100% it comes out EVERY time. Numbers in between share the rest.
-//   top chance = ITEM_ROLL_TOP_CHANCE_LOW at the FIRST level of the tier,
-//                growing to ITEM_ROLL_TOP_CHANCE_HIGH at the LAST level of the
-//                tier, PLUS the enemy's increaseSpawnGet (capped at 100%).
-// e.g. level 1 enemy: 60 is 10% (40% with increaseSpawnGet 0.3); level 10
-// enemy: 60 is 100%; level 11 enemy starts again at 120 being 10%.
+// WHICH NUMBER — a "level 1 table" goes in a straight line from 100% (the lowest
+// number) down to 10% (the highest number): in a 10-number slice 1 = 100, 2 = 90 ...
+// 10 = 10, and each number's real chance is its share of the total (1 = 18.2% ...
+// 10 = 1.8%). On top of that, an enemy has a chance p to drop the TOP number of the
+// slice outright:
+//   p = 0 at the FIRST level of a tier, growing in equal steps to 1 (100%) at the LAST
+//       level of the tier, PLUS the enemy's increaseSpawnGet (capped at 100%).
+// e.g. level 1 enemy: the table above exactly (with increaseSpawnGet 0.3,
+// p = 30% at level 1); level 5: p = 44%; level 10: always the top number; level 11
+// starts the next slice again with the table.
 // ---------------------------------------------------------------------------
 const ITEM_ROLL_MAX_ENEMY_LEVEL = 50;
 const ITEM_ROLL_TIERS = 5;
@@ -217,6 +217,14 @@ const ITEM_ROLL_STATS = [
 ];
 
 // One number for one stat at one enemy level.
+//   p = how far the enemy is through its 10-level tier (0 at its first level, 1 at its
+//       last) PLUS the enemy's increaseSpawnGet (`bonus`), capped at 1.
+//   With chance p  -> the TOP number of the slice, always.
+//   Otherwise      -> the number comes from the "level 1 table": the lowest number has
+//                     weight 100%, the highest ITEM_ROLL_TOP_CHANCE_LOW (10%), in a straight
+//                     line between (1 -> 100, 2 -> 90 ... 10 -> 10 for a 10-number slice).
+// Level 1 therefore follows the table exactly; the higher the level, the more often the
+// top number comes out; at the last level of a tier it is the top number every time.
 function rollOneItemStat(def, enemyLevel, bonus) {
   const lvl = Math.max(1, Math.min(ITEM_ROLL_MAX_ENEMY_LEVEL, Math.floor(Number(enemyLevel)) || 1));
   const levelsPerTier = ITEM_ROLL_MAX_ENEMY_LEVEL / ITEM_ROLL_TIERS;           // 10
@@ -231,23 +239,24 @@ function rollOneItemStat(def, enemyLevel, bonus) {
   const lo = Math.round((def.min + tier * width) * f) / f;
   const hi = Math.round((def.min + tier * width + width - step) * f) / f;
 
-  // topChance = chance of getting the HIGHEST number of this slice. `bonus` = the
-  // enemy's increaseSpawnGet (bot.js / bot_server.js) is added straight onto it
-  // (10% + 0.3 = 40% at the first level of a tier); capped at 100%.
-  const topChance = Math.min(1, ITEM_ROLL_TOP_CHANCE_LOW + (ITEM_ROLL_TOP_CHANCE_HIGH - ITEM_ROLL_TOP_CHANCE_LOW) * posInTier + (bonus || 0));
-  // The chance of reaching a point x (0 = lowest number, 1 = highest) falls in a
-  // straight line from 100% to topChance. Solved backwards from a random 0-1:
-  // anything at or below topChance is the highest number, the rest is spread
-  // evenly over the numbers below it.
-  const u = Math.random();
+  const p = Math.min(1, posInTier + (bonus || 0));
   let v;
-  if (u <= topChance || topChance >= 1) {
+  if (Math.random() < p) {
     v = hi;
   } else {
-    const x = (1 - u) / (1 - topChance);                       // 0..1
+    // Weighted pick from the level 1 table.
     const count = Math.round((hi - lo) / step) + 1;           // how many numbers in the slice
-    const idx = Math.min(count - 1, Math.floor(x * count));
-    v = lo + idx * step;
+    if (count <= 1) {
+      v = lo;
+    } else {
+      const low = ITEM_ROLL_TOP_CHANCE_LOW;                   // weight of the highest number
+      const weightAt = (i) => 1 - (1 - low) * (i / (count - 1));
+      let total = 0;
+      for (let i = 0; i < count; i++) total += weightAt(i);
+      let r = Math.random() * total, idx = count - 1;
+      for (let i = 0; i < count; i++) { r -= weightAt(i); if (r < 0) { idx = i; break; } }
+      v = lo + idx * step;
+    }
   }
   v = Math.round(v * f) / f;
   return Math.max(lo, Math.min(hi, v));
