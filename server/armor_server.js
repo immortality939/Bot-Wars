@@ -1644,6 +1644,81 @@ function rollArmorBlock(target) {
 
 
 
+// ---------------------------------------------------------------------------
+// SELL PRICE (gold orb) — what the SELL button in the item popup pays.
+// Used for weapons (weapon.js), armor, rings and accessories (this file).
+// Stones/orbs are priced in upgrade.js (getUpgradeItemSellPrice).
+//
+// HOW IT IS CALCULATED
+//   Every stat below has a MAX. A stat's "fill" is value / max (0 to 1, never
+//   above 1). The price grows with BOTH how many stats the item has AND how
+//   high each number is:
+//        total  = sum of all fills            (0 .. number of stats)
+//        share  = total / number of stats      (0 .. 1)
+//        price  = SELL_PRICE_MAX * share ^ SELL_PRICE_CURVE   (min SELL_PRICE_MIN)
+//   - ONE stat with 1 point (e.g. physicalDamage 1)  -> 1 gold orb
+//   - EVERY stat at its max                          -> 500000 gold orb
+//   - more stats, or bigger numbers                  -> higher price
+//   SELL_PRICE_CURVE 1 = straight line, 2 = cheap items stay cheap (current).
+//   An item with none of these stats is worth SELL_PRICE_MIN.
+// This is the ONLINE copy (the offline one is armor.js) — keep both the same.
+// ---------------------------------------------------------------------------
+const SELL_PRICE_MIN = 1;
+const SELL_PRICE_MAX = 500000;
+const SELL_PRICE_CURVE = 2;
+const SELL_STAT_MAX = {
+  physicalDamage: 100,
+  physicalDefense: 25,
+  magicalAttack: 100,
+  magicalDefense: 25,
+  hpRegen: 0.02,
+  manaRegen: 0.02,
+  pow: 50,
+  vit: 50,
+  dex: 50,
+  int: 50,
+  criticalChance: 0.05,
+  criticalDamage: 0.05
+};
+
+// Gold orb price of one weapon / armor / ring / accessory. `data` is the item's
+// own stats (rolled drop stats + upgrades included), `type` its kind.
+function calcGearSellPrice(data, type) {
+  if (!data || typeof data !== "object") return SELL_PRICE_MIN;
+  const stats = Object.keys(SELL_STAT_MAX);
+  let total = 0;
+  for (let i = 0; i < stats.length; i++) {
+    const stat = stats[i];
+    let v = data[stat];
+    // Armor copies in the inventory keep physical defense in `defense`
+    // (upgrades raise it); rings/accessories use physicalDefense first.
+    if (stat === "physicalDefense") {
+      const a = data.defense, b = data.physicalDefense;
+      v = (type === "armor") ? (typeof a === "number" ? a : b) : (typeof b === "number" ? b : a);
+    }
+    if (typeof v !== "number" || !isFinite(v) || v <= 0) continue;
+    total += Math.min(1, v / SELL_STAT_MAX[stat]);
+  }
+  if (total <= 0) return SELL_PRICE_MIN;
+  const price = Math.round(SELL_PRICE_MAX * Math.pow(total / stats.length, SELL_PRICE_CURVE));
+  return Math.max(SELL_PRICE_MIN, Math.min(SELL_PRICE_MAX, price));
+}
+
+// Price of ANY inventory entry { type, name, data } — 0 means "can't be sold".
+function getItemSellPrice(entry) {
+  if (!entry) return 0;
+  const type = entry.type || entry.kind;
+  if (type === "weapon" || type === "armor" || type === "ring" || type === "accessory") {
+    return calcGearSellPrice(entry.data, type);
+  }
+  if (type === "stone" || type === "orb") {
+    return typeof getUpgradeItemSellPrice === "function" ? getUpgradeItemSellPrice(entry.name) : 0;
+  }
+  return 0;
+}
+
+
+
 if (typeof module !== "undefined" && module.exports) {
 
   module.exports = {
@@ -1659,11 +1734,13 @@ if (typeof module !== "undefined" && module.exports) {
     equipArmorStats,
     unequipArmorStats,
     tickArmorRegeneration,
-    rollArmorBlock
+    rollArmorBlock,
+    calcGearSellPrice,
+    getItemSellPrice
   };
 
 }
 
 
 // ---- export for server.js (Node) ----
-if (typeof module !== "undefined") module.exports = { ARMOR_TYPES, parseRequiredStat, rollRequiredStat };
+if (typeof module !== "undefined") module.exports = { ARMOR_TYPES, parseRequiredStat, rollRequiredStat, calcGearSellPrice, getItemSellPrice };

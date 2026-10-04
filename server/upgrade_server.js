@@ -272,6 +272,22 @@ function rollGearUpgrade(gearType, gearData, baseChance) {
 
 
 
+// ---------------------------------------------------------------------------
+// SELL PRICE (gold orb) — what the SELL button in the item popup pays for
+// stones and orbs: every one of them sells for UPGRADE_SELL_PRICE (one unit
+// per sale). To price one item differently, give its entry a `sellPrice`
+// field. Weapons/armor prices are calculated in armor.js (getItemSellPrice).
+// ---------------------------------------------------------------------------
+const UPGRADE_SELL_PRICE = 100000;
+
+function getUpgradeItemSellPrice(name) {
+  const def = getUpgradeItem(name);
+  if (!def) return 0;
+  return (typeof def.sellPrice === "number" && def.sellPrice >= 0) ? Math.round(def.sellPrice) : UPGRADE_SELL_PRICE;
+}
+
+
+
 if (typeof module !== "undefined" && module.exports) {
 
   module.exports = {
@@ -289,11 +305,12 @@ if (typeof module !== "undefined" && module.exports) {
     getUpgradeArmorBonus,
     getUpgradeArmorHealthBonus,
     getUpgradeChanceAtLevel,
-    rollGearUpgrade
+    rollGearUpgrade,
+    getUpgradeItemSellPrice
   };
 
 }
 
 
 // ---- export for server.js (Node) ----
-if (typeof module !== "undefined") module.exports = { STONE_TYPES, ORB_TYPES };
+if (typeof module !== "undefined") module.exports = { STONE_TYPES, ORB_TYPES, getUpgradeItemSellPrice };
