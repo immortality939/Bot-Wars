@@ -214,7 +214,7 @@ const ITEM_ROLL_STATS = [
 ];
 
 // One number for one stat at one enemy level.
-function rollOneItemStat(def, enemyLevel) {
+function rollOneItemStat(def, enemyLevel, bonus) {
   const lvl = Math.max(1, Math.min(ITEM_ROLL_MAX_ENEMY_LEVEL, Math.floor(Number(enemyLevel)) || 1));
   const levelsPerTier = ITEM_ROLL_MAX_ENEMY_LEVEL / ITEM_ROLL_TIERS;           // 10
   const tier = Math.min(ITEM_ROLL_TIERS - 1, Math.floor((lvl - 1) / levelsPerTier)); // 0..4
@@ -231,7 +231,9 @@ function rollOneItemStat(def, enemyLevel) {
   // Straight-line weight from 1 (at lo) down to topWeight (at hi); solved
   // backwards from a random 0-1 so low numbers come up more often. The higher
   // the enemy sits in its tier, the bigger topWeight, so high numbers get likelier.
-  const topWeight = ITEM_ROLL_TOP_CHANCE_LOW + (ITEM_ROLL_TOP_CHANCE_HIGH - ITEM_ROLL_TOP_CHANCE_LOW) * posInTier;
+  // `bonus` = the enemy's increaseSpawnGet (bot.js / bot_server.js): added straight onto the
+  // top number's weight (10% + 0.3 = 40% at the first level of a tier), capped at 100%.
+  const topWeight = Math.min(1, ITEM_ROLL_TOP_CHANCE_LOW + (ITEM_ROLL_TOP_CHANCE_HIGH - ITEM_ROLL_TOP_CHANCE_LOW) * posInTier + (bonus || 0));
   const a = 1 - topWeight;
   const u = Math.random();
   const t = Math.abs(a) > 1e-9 ? (1 - Math.sqrt(1 - 2 * a * u * (1 - a / 2))) / a : u;
@@ -242,23 +244,27 @@ function rollOneItemStat(def, enemyLevel) {
 
 // Rolls the stats for ONE dropped item. Returns a plain object like
 // { physicalDamage: 8, health: 31 } (empty when nothing rolled / not gear).
-function rollItemStats(category, enemyLevel) {
+function rollItemStats(category, enemyLevel, increaseSpawnGet) {
   const out = {};
   if (ITEM_ROLL_CATEGORIES.indexOf(category) === -1) return out;
+  // increaseSpawnGet (from the enemy — BOT_TYPES in bot.js / bot_server.js) is added to
+  // every stat's chance (70% + 0.3 = 100%, capped at 100%) and to the chance of the high
+  // end of each number range (see rollOneItemStat). Missing / bad value = 0 (no bonus).
+  const bonus = (typeof increaseSpawnGet === "number" && increaseSpawnGet > 0) ? increaseSpawnGet : 0;
   const groups = {};
   for (const def of ITEM_ROLL_STATS) {
     if (def.onlyFor && def.onlyFor.indexOf(category) === -1) continue;
     if (def.pickOne) { (groups[def.pickOne] = groups[def.pickOne] || []).push(def); continue; }
-    if (Math.random() < def.chance) out[def.stat] = rollOneItemStat(def, enemyLevel);
+    if (Math.random() < Math.min(1, def.chance + bonus)) out[def.stat] = rollOneItemStat(def, enemyLevel, bonus);
   }
   for (const name in groups) {
     const list = groups[name];
     let best = 0, total = 0;
     for (const d of list) { best = Math.max(best, d.chance); total += d.chance; }
-    if (!(Math.random() < best)) continue;
+    if (!(Math.random() < Math.min(1, best + bonus))) continue;
     let r = Math.random() * total, picked = list[list.length - 1];
     for (const d of list) { r -= d.chance; if (r < 0) { picked = d; break; } }
-    out[picked.stat] = rollOneItemStat(picked, enemyLevel);
+    out[picked.stat] = rollOneItemStat(picked, enemyLevel, bonus);
   }
   return out;
 }

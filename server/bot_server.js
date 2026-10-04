@@ -47,6 +47,7 @@ const BOT_TYPES = {
     goldOrbAmount: 30,       // gold given when this bot's orb is picked up
     unitExplode: "unitexplode",
     level: 1,
+    increaseSpawnGet: 0,
     expGet: 30,
     attackSpeed: 1,
     physicalDamage: 11,
@@ -83,6 +84,7 @@ const BOT_TYPES = {
     goldOrbAmount: 100,       // gold given when this bot's orb is picked up
     unitExplode: "unitexplode",
     level: 1,
+    increaseSpawnGet: 0,
     expGet: 30,
     attackSpeed: 1,
     physicalDamage: 11,
@@ -123,6 +125,7 @@ const BOT_TYPES = {
     goldOrbAmount: 75,        // gold given when this bot's orb is picked up
     unitExplode: "unitexplode",
     level: 1,
+    increaseSpawnGet: 0,
     expGet: 30,
     attackSpeed: 1,
     physicalDamage: 11,
@@ -156,6 +159,7 @@ const BOT_TYPES = {
     goldOrbAmount: 50,        // gold given when this bot's orb is picked up
     unitExplode: "unitexplode",
     level: 1,
+    increaseSpawnGet: 0,
     expGet: 30,
     attackSpeed: 1,
     physicalDamage: 11,
@@ -198,6 +202,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 1,
+    increaseSpawnGet: 0,
     expGet: 8,
 
     attackSpeed: 1,
@@ -238,6 +243,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 1,
+    increaseSpawnGet: 0,
     expGet: 11,
 
     attackSpeed: 1,
@@ -282,6 +288,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 1,
+    increaseSpawnGet: 0,
     expGet: 12,
 
     attackSpeed: 1,
@@ -326,6 +333,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 2,
+    increaseSpawnGet: 0,
     expGet: 16,
 
     attackSpeed: 1,
@@ -370,6 +378,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 2,
+    increaseSpawnGet: 0,
     expGet: 19,
 
     attackSpeed: 1,
@@ -414,6 +423,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 3,
+    increaseSpawnGet: 0,
     expGet: 18,
 
     attackSpeed: 1,
@@ -458,6 +468,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 3,
+    increaseSpawnGet: 0,
     expGet: 22,
 
     attackSpeed: 1,
@@ -502,6 +513,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 4,
+    increaseSpawnGet: 0,
     expGet: 20,
 
     attackSpeed: 1,
@@ -546,6 +558,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 4,
+    increaseSpawnGet: 0,
     expGet: 25,
 
     attackSpeed: 1,
@@ -590,6 +603,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 4,
+    increaseSpawnGet: 0,
     expGet: 23,
 
     attackSpeed: 1,
@@ -634,6 +648,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 5,
+    increaseSpawnGet: 0,
     expGet: 25,
 
     attackSpeed: 1,
@@ -678,6 +693,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 5,
+    increaseSpawnGet: 0,
     expGet: 30,
 
     attackSpeed: 1,
@@ -722,6 +738,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 5,
+    increaseSpawnGet: 0,
     expGet: 28,
 
     attackSpeed: 1,
@@ -766,6 +783,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 6,
+    increaseSpawnGet: 0,
     expGet: 32,
 
     attackSpeed: 1,
@@ -810,6 +828,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 6,
+    increaseSpawnGet: 0,
     expGet: 37,
 
     attackSpeed: 1,
@@ -854,6 +873,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 7,
+    increaseSpawnGet: 0,
     expGet: 38,
 
     attackSpeed: 1,
@@ -898,6 +918,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 7,
+    increaseSpawnGet: 0,
     expGet: 46,
 
     attackSpeed: 1,
@@ -942,6 +963,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 8,
+    increaseSpawnGet: 0,
     expGet: 42,
 
     attackSpeed: 1,
@@ -986,6 +1008,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 8,
+    increaseSpawnGet: 0,
     expGet: 50,
 
     attackSpeed: 1,
@@ -1030,6 +1053,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 9,
+    increaseSpawnGet: 0,
     expGet: 46,
 
     attackSpeed: 1,
@@ -1074,6 +1098,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 9,
+    increaseSpawnGet: 0,
     expGet: 52,
 
     attackSpeed: 1,
@@ -1118,6 +1143,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 9,
+    increaseSpawnGet: 0,
     expGet: 50,
 
     attackSpeed: 1,
@@ -1162,6 +1188,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 9,
+    increaseSpawnGet: 0,
     expGet: 58,
 
     attackSpeed: 1,
@@ -1206,6 +1233,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 10,
+    increaseSpawnGet: 0,
     expGet: 65,
 
     attackSpeed: 1,
@@ -1250,6 +1278,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 10,
+    increaseSpawnGet: 0,
     expGet: 75,
 
     attackSpeed: 1,
@@ -1294,6 +1323,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 10,
+    increaseSpawnGet: 0,
     expGet: 75,
 
     attackSpeed: 1,
@@ -1338,6 +1368,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 11,
+    increaseSpawnGet: 0,
     expGet: 85,
 
     attackSpeed: 1,
@@ -1382,6 +1413,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 11,
+    increaseSpawnGet: 0,
     expGet: 90,
 
     attackSpeed: 1,
@@ -1426,6 +1458,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 11,
+    increaseSpawnGet: 0,
     expGet: 105,
 
     attackSpeed: 1,
@@ -1470,6 +1503,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 11,
+    increaseSpawnGet: 0,
     expGet: 130,
 
     attackSpeed: 1,
@@ -1514,6 +1548,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 12,
+    increaseSpawnGet: 0,
     expGet: 140,
 
     attackSpeed: 1,
@@ -1558,6 +1593,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 12,
+    increaseSpawnGet: 0,
     expGet: 145,
 
     attackSpeed: 1,
@@ -1602,6 +1638,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 13,
+    increaseSpawnGet: 0,
     expGet: 160,
 
     attackSpeed: 1,
@@ -1646,6 +1683,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 13,
+    increaseSpawnGet: 0,
     expGet: 170,
 
     attackSpeed: 1,
@@ -1693,6 +1731,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 12,
+    increaseSpawnGet: 0,
     expGet: 155,
 
     attackSpeed: 1,
@@ -1753,6 +1792,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 14,
+    increaseSpawnGet: 0,
     expGet: 180,
 
     attackSpeed: 1,
@@ -1796,6 +1836,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 15,
+    increaseSpawnGet: 0,
     expGet: 210,
 
     attackSpeed: 1,
@@ -1839,6 +1880,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 16,
+    increaseSpawnGet: 0,
     expGet: 250,
 
     attackSpeed: 1,
@@ -1882,6 +1924,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 17,
+    increaseSpawnGet: 0,
     expGet: 275,
 
     attackSpeed: 1,
@@ -1925,6 +1968,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 18,
+    increaseSpawnGet: 0,
     expGet: 290,
 
     attackSpeed: 1,
@@ -1968,6 +2012,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 19,
+    increaseSpawnGet: 0,
     expGet: 310,
 
     attackSpeed: 1,
@@ -2011,6 +2056,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 20,
+    increaseSpawnGet: 0,
     expGet: 330,
 
     attackSpeed: 1,
@@ -2054,6 +2100,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 21,
+    increaseSpawnGet: 0,
     expGet: 340,
 
     attackSpeed: 1,
@@ -2097,6 +2144,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 22,
+    increaseSpawnGet: 0,
     expGet: 359,
 
     attackSpeed: 1,
@@ -2140,6 +2188,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 23,
+    increaseSpawnGet: 0,
     expGet: 378,
 
     attackSpeed: 1,
@@ -2183,6 +2232,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 24,
+    increaseSpawnGet: 0,
     expGet: 398,
 
     attackSpeed: 1,
@@ -2226,6 +2276,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 25,
+    increaseSpawnGet: 0,
     expGet: 419,
 
     attackSpeed: 1,
@@ -2269,6 +2320,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 26,
+    increaseSpawnGet: 0,
     expGet: 441,
 
     attackSpeed: 1,
@@ -2312,6 +2364,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 27,
+    increaseSpawnGet: 0,
     expGet: 463,
 
     attackSpeed: 1,
@@ -2355,6 +2408,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 28,
+    increaseSpawnGet: 0,
     expGet: 486,
 
     attackSpeed: 1,
@@ -2398,6 +2452,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 29,
+    increaseSpawnGet: 0,
     expGet: 510,
 
     attackSpeed: 1,
@@ -2441,6 +2496,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 30,
+    increaseSpawnGet: 0,
     expGet: 534,
 
     attackSpeed: 1,
@@ -2484,6 +2540,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 31,
+    increaseSpawnGet: 0,
     expGet: 560,
 
     attackSpeed: 1,
@@ -2527,6 +2584,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 32,
+    increaseSpawnGet: 0,
     expGet: 586,
 
     attackSpeed: 1,
@@ -2570,6 +2628,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 33,
+    increaseSpawnGet: 0,
     expGet: 612,
 
     attackSpeed: 1,
@@ -2613,6 +2672,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 34,
+    increaseSpawnGet: 0,
     expGet: 640,
 
     attackSpeed: 1,
@@ -2656,6 +2716,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 35,
+    increaseSpawnGet: 0,
     expGet: 668,
 
     attackSpeed: 1,
@@ -2699,6 +2760,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 36,
+    increaseSpawnGet: 0,
     expGet: 696,
 
     attackSpeed: 1,
@@ -2742,6 +2804,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 37,
+    increaseSpawnGet: 0,
     expGet: 726,
 
     attackSpeed: 1,
@@ -2785,6 +2848,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 38,
+    increaseSpawnGet: 0,
     expGet: 756,
 
     attackSpeed: 1,
@@ -2828,6 +2892,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 39,
+    increaseSpawnGet: 0,
     expGet: 786,
 
     attackSpeed: 1,
@@ -2871,6 +2936,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 40,
+    increaseSpawnGet: 0,
     expGet: 817,
 
     attackSpeed: 1,
@@ -2914,6 +2980,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 41,
+    increaseSpawnGet: 0,
     expGet: 849,
 
     attackSpeed: 1,
@@ -2957,6 +3024,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 42,
+    increaseSpawnGet: 0,
     expGet: 881,
 
     attackSpeed: 1,
@@ -3000,6 +3068,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 43,
+    increaseSpawnGet: 0,
     expGet: 913,
 
     attackSpeed: 1,
@@ -3043,6 +3112,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 44,
+    increaseSpawnGet: 0,
     expGet: 946,
 
     attackSpeed: 1,
@@ -3086,6 +3156,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 45,
+    increaseSpawnGet: 0,
     expGet: 979,
 
     attackSpeed: 1,
@@ -3129,6 +3200,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 46,
+    increaseSpawnGet: 0,
     expGet: 1013,
 
     attackSpeed: 1,
@@ -3172,6 +3244,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 47,
+    increaseSpawnGet: 0,
     expGet: 1047,
 
     attackSpeed: 1,
@@ -3215,6 +3288,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 48,
+    increaseSpawnGet: 0,
     expGet: 1081,
 
     attackSpeed: 1,
@@ -3258,6 +3332,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 49,
+    increaseSpawnGet: 0,
     expGet: 1115,
 
     attackSpeed: 1,
@@ -3301,6 +3376,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 50,
+    increaseSpawnGet: 0,
     expGet: 1150,
 
     attackSpeed: 1,
@@ -3344,6 +3420,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 51,
+    increaseSpawnGet: 0,
     expGet: 1184,
 
     attackSpeed: 1,
@@ -3387,6 +3464,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 14,
+    increaseSpawnGet: 0,
     expGet: 194,
 
     attackSpeed: 1,
@@ -3430,6 +3508,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 15,
+    increaseSpawnGet: 0,
     expGet: 227,
 
     attackSpeed: 1,
@@ -3473,6 +3552,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 16,
+    increaseSpawnGet: 0,
     expGet: 270,
 
     attackSpeed: 1,
@@ -3516,6 +3596,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 17,
+    increaseSpawnGet: 0,
     expGet: 297,
 
     attackSpeed: 1,
@@ -3559,6 +3640,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 18,
+    increaseSpawnGet: 0,
     expGet: 313,
 
     attackSpeed: 1,
@@ -3602,6 +3684,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 19,
+    increaseSpawnGet: 0,
     expGet: 335,
 
     attackSpeed: 1,
@@ -3645,6 +3728,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 20,
+    increaseSpawnGet: 0,
     expGet: 356,
 
     attackSpeed: 1,
@@ -3688,6 +3772,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 21,
+    increaseSpawnGet: 0,
     expGet: 367,
 
     attackSpeed: 1,
@@ -3731,6 +3816,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 22,
+    increaseSpawnGet: 0,
     expGet: 388,
 
     attackSpeed: 1,
@@ -3774,6 +3860,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 23,
+    increaseSpawnGet: 0,
     expGet: 408,
 
     attackSpeed: 1,
@@ -3817,6 +3904,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 24,
+    increaseSpawnGet: 0,
     expGet: 430,
 
     attackSpeed: 1,
@@ -3860,6 +3948,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 25,
+    increaseSpawnGet: 0,
     expGet: 453,
 
     attackSpeed: 1,
@@ -3903,6 +3992,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 26,
+    increaseSpawnGet: 0,
     expGet: 476,
 
     attackSpeed: 1,
@@ -3946,6 +4036,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 27,
+    increaseSpawnGet: 0,
     expGet: 500,
 
     attackSpeed: 1,
@@ -3989,6 +4080,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 28,
+    increaseSpawnGet: 0,
     expGet: 525,
 
     attackSpeed: 1,
@@ -4032,6 +4124,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 29,
+    increaseSpawnGet: 0,
     expGet: 551,
 
     attackSpeed: 1,
@@ -4075,6 +4168,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 30,
+    increaseSpawnGet: 0,
     expGet: 577,
 
     attackSpeed: 1,
@@ -4118,6 +4212,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 31,
+    increaseSpawnGet: 0,
     expGet: 605,
 
     attackSpeed: 1,
@@ -4161,6 +4256,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 32,
+    increaseSpawnGet: 0,
     expGet: 633,
 
     attackSpeed: 1,
@@ -4204,6 +4300,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 33,
+    increaseSpawnGet: 0,
     expGet: 661,
 
     attackSpeed: 1,
@@ -4247,6 +4344,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 34,
+    increaseSpawnGet: 0,
     expGet: 691,
 
     attackSpeed: 1,
@@ -4290,6 +4388,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 35,
+    increaseSpawnGet: 0,
     expGet: 721,
 
     attackSpeed: 1,
@@ -4333,6 +4432,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 36,
+    increaseSpawnGet: 0,
     expGet: 752,
 
     attackSpeed: 1,
@@ -4376,6 +4476,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 37,
+    increaseSpawnGet: 0,
     expGet: 784,
 
     attackSpeed: 1,
@@ -4419,6 +4520,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 38,
+    increaseSpawnGet: 0,
     expGet: 816,
 
     attackSpeed: 1,
@@ -4462,6 +4564,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 39,
+    increaseSpawnGet: 0,
     expGet: 849,
 
     attackSpeed: 1,
@@ -4505,6 +4608,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 40,
+    increaseSpawnGet: 0,
     expGet: 882,
 
     attackSpeed: 1,
@@ -4548,6 +4652,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 41,
+    increaseSpawnGet: 0,
     expGet: 917,
 
     attackSpeed: 1,
@@ -4591,6 +4696,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 42,
+    increaseSpawnGet: 0,
     expGet: 951,
 
     attackSpeed: 1,
@@ -4634,6 +4740,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 43,
+    increaseSpawnGet: 0,
     expGet: 986,
 
     attackSpeed: 1,
@@ -4677,6 +4784,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 44,
+    increaseSpawnGet: 0,
     expGet: 1022,
 
     attackSpeed: 1,
@@ -4720,6 +4828,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 45,
+    increaseSpawnGet: 0,
     expGet: 1057,
 
     attackSpeed: 1,
@@ -4763,6 +4872,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 46,
+    increaseSpawnGet: 0,
     expGet: 1094,
 
     attackSpeed: 1,
@@ -4806,6 +4916,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 47,
+    increaseSpawnGet: 0,
     expGet: 1131,
 
     attackSpeed: 1,
@@ -4849,6 +4960,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 48,
+    increaseSpawnGet: 0,
     expGet: 1167,
 
     attackSpeed: 1,
@@ -4892,6 +5004,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 49,
+    increaseSpawnGet: 0,
     expGet: 1204,
 
     attackSpeed: 1,
@@ -4935,6 +5048,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 50,
+    increaseSpawnGet: 0,
     expGet: 1242,
 
     attackSpeed: 1,
@@ -4986,6 +5100,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 6,
+    increaseSpawnGet: 0,
     expGet: 150,
 
     attackSpeed: 1,
@@ -5030,6 +5145,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 6,
+    increaseSpawnGet: 0,
     expGet: 185,
 
     attackSpeed: 1,
@@ -5074,6 +5190,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 6,
+    increaseSpawnGet: 0,
     expGet: 220,
 
     attackSpeed: 1,
@@ -5118,6 +5235,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 7,
+    increaseSpawnGet: 0,
     expGet: 255,
 
     attackSpeed: 1,
@@ -5162,6 +5280,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 7,
+    increaseSpawnGet: 0,
     expGet: 290,
 
     attackSpeed: 1,
@@ -5206,6 +5325,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 7,
+    increaseSpawnGet: 0,
     expGet: 325,
 
     attackSpeed: 1,
@@ -5250,6 +5370,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 8,
+    increaseSpawnGet: 0,
     expGet: 360,
 
     attackSpeed: 1,
@@ -5294,6 +5415,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 8,
+    increaseSpawnGet: 0,
     expGet: 395,
 
     attackSpeed: 1,
@@ -5338,6 +5460,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 8,
+    increaseSpawnGet: 0,
     expGet: 430,
 
     attackSpeed: 1,
@@ -5382,6 +5505,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 9,
+    increaseSpawnGet: 0,
     expGet: 465,
 
     attackSpeed: 1,
@@ -5426,6 +5550,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 9,
+    increaseSpawnGet: 0,
     expGet: 500,
 
     attackSpeed: 1,
@@ -5470,6 +5595,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 9,
+    increaseSpawnGet: 0,
     expGet: 535,
 
     attackSpeed: 1,
@@ -5514,6 +5640,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 10,
+    increaseSpawnGet: 0,
     expGet: 570,
 
     attackSpeed: 1,
@@ -5558,6 +5685,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 10,
+    increaseSpawnGet: 0,
     expGet: 605,
 
     attackSpeed: 1,
@@ -5602,6 +5730,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 10,
+    increaseSpawnGet: 0,
     expGet: 640,
 
     attackSpeed: 1,
@@ -5646,6 +5775,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 11,
+    increaseSpawnGet: 0,
     expGet: 675,
 
     attackSpeed: 1,
@@ -5690,6 +5820,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 11,
+    increaseSpawnGet: 0,
     expGet: 710,
 
     attackSpeed: 1,
