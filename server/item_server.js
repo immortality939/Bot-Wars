@@ -200,8 +200,8 @@ const ITEM_ROLL_CATEGORIES = ["weapon", "armor", "ring", "accessory"];
 const ITEM_ROLL_STATS = [
   { stat: "physicalDamage",  min: 1,    max: 100,   chance: 1,   decimals: 0, pickOne: "attack" },
   { stat: "magicalAttack",   min: 1,    max: 100,   chance: 1,   decimals: 0, pickOne: "attack" },
-  { stat: "physicalDefense", min: 1,    max: 25,    chance: 0.7, decimals: 0 },
-  { stat: "magicalDefense",  min: 1,    max: 25,    chance: 0.7, decimals: 0 },
+  { stat: "physicalDefense", min: 1,    max: 50,    chance: 0.7, decimals: 0 },
+  { stat: "magicalDefense",  min: 1,    max: 50,    chance: 0.7, decimals: 0 },
   { stat: "hpRegen",         min: 0.01, max: 0.03, chance: 0.5, decimals: 3 },
   { stat: "manaRegen",       min: 0.01, max: 0.02, chance: 0.5, decimals: 3 },
   { stat: "health",          min: 1,    max: 1000,  chance: 0.4, decimals: 0 },
@@ -255,7 +255,11 @@ function rollOneItemStat(def, enemyLevel, bonus) {
 
 // Rolls the stats for ONE dropped item. Returns a plain object like
 // { physicalDamage: 8, health: 31 } (empty when nothing rolled / not gear).
-function rollItemStats(category, enemyLevel, increaseSpawnGet) {
+// requiredType (optional, the dropped item's requiredType from weapon.js / armor.js):
+// decides which ATTACK stat the item rolls — "magemaster" items roll magicalAttack,
+// every other type (berserker / bullwark) rolls physicalDamage. No requiredType = the
+// old behaviour (either one at random).
+function rollItemStats(category, enemyLevel, increaseSpawnGet, requiredType) {
   const out = {};
   if (ITEM_ROLL_CATEGORIES.indexOf(category) === -1) return out;
   // increaseSpawnGet (from the enemy — BOT_TYPES in bot.js / bot_server.js) is added to
@@ -275,6 +279,11 @@ function rollItemStats(category, enemyLevel, increaseSpawnGet) {
     if (!(Math.random() < Math.min(1, best + bonus))) continue;
     let r = Math.random() * total, picked = list[list.length - 1];
     for (const d of list) { r -= d.chance; if (r < 0) { picked = d; break; } }
+    if (name === "attack" && requiredType) {
+      const wanted = String(requiredType).toLowerCase() === "magemaster" ? "magicalAttack" : "physicalDamage";
+      const forced = list.find((d) => d.stat === wanted);
+      if (forced) picked = forced;
+    }
     out[picked.stat] = rollOneItemStat(picked, enemyLevel, bonus);
   }
   return out;
