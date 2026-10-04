@@ -23,7 +23,9 @@
 //   GEAR    an equipped weapon / armor / ring / accessory whose `requiredType`
 //           (weapon_server.js / armor_server.js) doesn't match the selected
 //           character's `type` (character_server.js) is taken out of the equip
-//           slot and put back in the inventory grid. A character's own starter
+//           slot and put back in the inventory grid. Same for `requiredStat`
+//           ("pow=40": the character's own pow / int / dex — base + level and
+//           spent points — must reach it). A character's own starter
 //           weapon/armor is always allowed.
 //   LEVEL   a character's level can't jump faster than a refilling slack
 //           allows and can't pass MAX_LEVEL. A jump that is too fast is
@@ -176,23 +178,46 @@ function createSaveGuard(GAME_DATA) {
     const req = def && def.requiredType;
     return req ? String(req).toLowerCase() : null;
   }
-  function enforceRequiredType(charName, inv, notes) {
+  // requiredStat ("pow=40"): the dropped copy's own value (data.requiredStat, rolled by server.js
+  // from the enemy level) first, else the item table's fixed one. parseRequiredStat is in armor_server.js.
+  function requiredStatOf(e) {
+    if (!e || typeof D.parseRequiredStat !== "function") return null;
+    const own = D.parseRequiredStat(e.data && e.data.requiredStat);
+    if (own) return own;
+    const def = e.type === "weapon" ? (D.WEAPONS || {})[e.name] : (D.ARMOR_TYPES || {})[e.name];
+    return def ? D.parseRequiredStat(def.requiredStat) : null;
+  }
+  // the character's OWN stat: base (character_server.js) + points spent / gained from levels
+  // (characterProgress). Gear bonuses don't count, an item must not unlock itself.
+  function ownStat(charName, stat, cp) {
+    const ch = (charName && CHARS[charName]) || null;
+    const base = ch && typeof ch[stat] === "number" ? ch[stat] : 0;
+    const prog = (cp && charName && isObj(cp[charName])) ? cp[charName] : null;
+    const spent = prog ? (Number(prog["spent" + stat.charAt(0).toUpperCase() + stat.slice(1)]) || 0) : 0;
+    return base + spent;
+  }
+  function enforceRequiredType(charName, inv, notes, cp) {
     if (!inv.equip) return;
     const ch = (charName && CHARS[charName]) || null;
     const myType = ch && ch.type ? String(ch.type).toLowerCase() : null;
     const starter = new Set(ch ? [ch.weaponName, ch.armor].filter(Boolean).map(String) : []);
     for (const slot of EQUIP_SLOTS) {
       const e = inv.equip[slot];
+      if (!e || starter.has(String(e.name))) continue;
       const req = requiredTypeOf(e);
-      if (!req || starter.has(e.name) || (myType && myType === req)) continue;
+      const typeBad = !!req && !(myType && myType === req);
+      const need = requiredStatOf(e);
+      const statBad = !!need && ownStat(charName, need.stat, cp) < need.amount;
+      if (!typeBad && !statBad) continue;
+      const why = typeBad ? "needs " + req : "needs " + need.amount + " " + need.stat;
       inv.equip[slot] = null;
       let free = inv.grid.indexOf(null);
       if (free < 0 && inv.grid.length < LIMITS.GRID_MAX) { inv.grid.push(null); free = inv.grid.length - 1; }
       if (free >= 0) {
         inv.grid[free] = e;
-        notes.push("unequipped " + e.name + " (needs " + req + ")");
+        notes.push("unequipped " + e.name + " (" + why + ")");
       } else {
-        notes.push("removed " + e.name + " (needs " + req + ", grid full)");
+        notes.push("removed " + e.name + " (" + why + ", grid full)");
       }
     }
   }
@@ -294,7 +319,7 @@ function createSaveGuard(GAME_DATA) {
         if (isObj(oldProf.invEquip)) for (const s of EQUIP_SLOTS) { const e = oldProf.invEquip[s]; if (e && e.name) allowed.add(String(e.name)); }
       }
       const inv = cleanInventory(ip, allowed, notes);
-      enforceRequiredType(prof.selectedCharacterName || gd.onlineCharacter, inv, notes);
+      enforceRequiredType(prof.selectedCharacterName || gd.onlineCharacter, inv, notes, cp);
       const oldInv = oldProf ? cleanInventory(oldProf, new Set([...allowed]), []) : { grid: [], equip: null };
       const before = countItems(oldInv.grid, oldInv.equip);
       const after = countItems(inv.grid, inv.equip);

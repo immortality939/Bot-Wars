@@ -1280,6 +1280,13 @@ wss.on("connection", (ws) => {
             // attack stat it rolls: magemaster -> magicalAttack, others -> physicalDamage.
             const dropDef = (GAME_DATA.WEAPONS && GAME_DATA.WEAPONS[d.t]) || (GAME_DATA.ARMOR_TYPES && GAME_DATA.ARMOR_TYPES[d.t]) || null;
             drop.stats = GAME_DATA.rollItemStats(gearCat, enemyLevel, spawnBonus, dropDef && dropDef.requiredType);
+            // REQUIRED STAT ("pow=40" etc., armor_server.js): the item's own requiredStat if it has
+            // one, otherwise enemy level x 4 on the stat its requiredType uses. Rolled here so the
+            // number comes from the server's enemy level, never from the host's client.
+            if (dropDef && drop.stats && typeof GAME_DATA.rollRequiredStat === "function") {
+              const reqStat = GAME_DATA.rollRequiredStat(dropDef.requiredType, enemyLevel, dropDef.requiredStat);
+              if (reqStat) drop.stats.requiredStat = reqStat;
+            }
           }
           me.room.drops.set(drop.id, drop);
           added.push(drop);
