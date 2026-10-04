@@ -42,7 +42,7 @@ const WEAPONS = {
   uzi: {
     name: "uzi",
     category: "weapon",
-    physicalDamage:8,
+    physicalDamage:6,
     spawnChance: 0.05,
     width: 20,
     height: 20,
@@ -54,7 +54,7 @@ const WEAPONS = {
   ak47: {
     name: "ak47",
     category: "weapon",
-    physicalDamage:12,
+    physicalDamage:10,
     spawnChance: 0.05,
     width: 20,
     height: 20,
@@ -65,7 +65,7 @@ const WEAPONS = {
   sniper: {
     name: "sniper",
     category: "weapon",
-    physicalDamage:16,
+    physicalDamage:14,
     spawnChance: 0.05,
     width: 20,
     height: 20,
@@ -77,7 +77,7 @@ const WEAPONS = {
     name: "shotgun",
     category: "weapon",
     spawnChance: 0.05,
-    physicalDamage:20,
+    physicalDamage:16,
     width: 20,
     height: 20,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
