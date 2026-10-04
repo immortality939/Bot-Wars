@@ -79,7 +79,7 @@ const WEAPONS = {
     spawnChance: 1.2,
     width: 30,
     height: 27,
-    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    timeLife: 300000,    // ms — despawns if not looted within 30 sec
     description: "A cold-blue neon blade that hums with stored energy."
   },
 
