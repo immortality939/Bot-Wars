@@ -4785,6 +4785,11 @@ function olValidCharacter(name) {
     return hit || serverNames[0];
   }
   if (CHARACTERS[name]) return name;
+  // The server's list has NOT arrived yet (fresh page load, the saved account is read first):
+  // keep the saved name as it is. Resolving it against the OFFLINE character.js here turned
+  // "Berserker" into "Brawler", so the saved position was thrown away on join.
+  // olSyncCharacterImages() re-checks the name as soon as the server's list is known.
+  if (!serverNames.length && typeof name === "string") return name;
   // The account saved a name that no longer exists (character renamed in
   // character.js / character_server.js): follow it to the matching character
   // instead of treating the account as having none.
@@ -4814,6 +4819,8 @@ async function olSyncCharacterImages() {
     if (!res.ok) return;
     const data = await res.json();
     if (data && typeof data === "object") olCharImages = data;
+    // the account's saved name was read before this list existed: check it against the server's list now
+    if (onlineCharacterName) onlineCharacterName = olValidCharacter(onlineCharacterName) || onlineCharacterName;
     // an already-open picker switches to the server's character list
     if (typeof window.olRefreshCharacterPicker === "function") window.olRefreshCharacterPicker();
     // refresh anything already on screen (picker orbs)
@@ -4844,10 +4851,12 @@ async function olSyncCharacterStats() {
   } catch (e) { /* keep the offline numbers */ }
 }
 
+olSyncCharacterImages();   // start fetching the server's character list as soon as online mode loads
+
 // Called right after a successful login / account creation.
-function onlineAfterLogin() {
-  olSyncCharacterImages();
+async function onlineAfterLogin() {
   olSyncCharacterStats();
+  await olSyncCharacterImages();   // the server's character list must be known before the name is checked below
   if (olValidCharacter(onlineCharacterName) && !ONLINE_ALWAYS_SHOW_CREATE) {
     olShowServers();
   } else {
