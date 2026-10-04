@@ -1276,7 +1276,10 @@ wss.on("connection", (ws) => {
             const srcBot = BOT_TYPES[String(d.bt || "")];
             const enemyLevel = (srcBot && typeof srcBot.level === "number") ? srcBot.level : 1;
             const spawnBonus = (srcBot && typeof srcBot.increaseSpawnGet === "number") ? srcBot.increaseSpawnGet : 0;
-            drop.stats = GAME_DATA.rollItemStats(gearCat, enemyLevel, spawnBonus);
+            // requiredType of the dropped item (weapon_server.js / armor_server.js) decides which
+            // attack stat it rolls: magemaster -> magicalAttack, others -> physicalDamage.
+            const dropDef = (GAME_DATA.WEAPONS && GAME_DATA.WEAPONS[d.t]) || (GAME_DATA.ARMOR_TYPES && GAME_DATA.ARMOR_TYPES[d.t]) || null;
+            drop.stats = GAME_DATA.rollItemStats(gearCat, enemyLevel, spawnBonus, dropDef && dropDef.requiredType);
           }
           me.room.drops.set(drop.id, drop);
           added.push(drop);
