@@ -1275,7 +1275,8 @@ wss.on("connection", (ws) => {
           if (gearCat === "weapon" || gearCat === "armor" || gearCat === "ring" || gearCat === "accessory") {
             const srcBot = BOT_TYPES[String(d.bt || "")];
             const enemyLevel = (srcBot && typeof srcBot.level === "number") ? srcBot.level : 1;
-            drop.stats = GAME_DATA.rollItemStats(gearCat, enemyLevel);
+            const spawnBonus = (srcBot && typeof srcBot.increaseSpawnGet === "number") ? srcBot.increaseSpawnGet : 0;
+            drop.stats = GAME_DATA.rollItemStats(gearCat, enemyLevel, spawnBonus);
           }
           me.room.drops.set(drop.id, drop);
           added.push(drop);
