@@ -5854,6 +5854,19 @@ const BOT_TYPES = {
 // drawBots, so the browser-only names used inside are fine.)
 // =============================================================================
 
+// =============================================================================
+// LEVEL AGGRO (ONLINE) — should a passive (active:false) bot attack a player of
+// targetLevel on sight? True when the bot is 4 or more levels higher than the
+// player (enemy level 10 vs player level 6 -> attacks). bot.js's AI calls this
+// from updateSingleBot(); while playing online the game swaps THIS copy in for
+// bot.js's own (offline) one, so the gap is enforced from the server file and
+// can't be changed by editing the public bot.js. Change the 4 here to tune it.
+// =============================================================================
+function shouldBotLevelAggro(bot, targetLevel) {
+  if (typeof targetLevel !== "number") return false;
+  return (bot.level || 1) - targetLevel >= 4;
+}
+
 function drawBots(ctx, bots, worldOffsetX, worldOffsetY) {
 
   for (const bot of bots) {
