@@ -652,8 +652,19 @@ function validateSavedSpot(lp) {
       break;
     }
   }
+  // Only a spot really INSIDE an obstacle needs moving (a player can legitimately stand right
+  // beside one). It is pushed just outside the nearest edge instead of being thrown away,
+  // which used to send the player to a random start on the first map.
+  const edge = 14;
   for (const o of (map.obstacles || [])) {
-    if (x >= o.x - pad && x <= o.x + o.width + pad && y >= o.y - pad && y <= o.y + o.height + pad) return null;
+    if (x > o.x && x < o.x + o.width && y > o.y && y < o.y + o.height) {
+      const dl = x - o.x, dr = o.x + o.width - x, dt = y - o.y, db = o.y + o.height - y;
+      const m = Math.min(dl, dr, dt, db);
+      if (m === dl) x = o.x - edge; else if (m === dr) x = o.x + o.width + edge;
+      else if (m === dt) y = o.y - edge; else y = o.y + o.height + edge;
+      x = Math.max(pad, Math.min(map.worldWidth - pad, x));
+      y = Math.max(pad, Math.min(map.worldHeight - pad, y));
+    }
   }
   return { map: key, x, y };
 }
