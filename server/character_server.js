@@ -149,10 +149,10 @@ const CHARACTERS = {
     //   dex — physicalDefense + criticalDamage
     //   int — mana + magicalAttack + magicalDefense
     //   pow — physicalDamage
-    vit: 122,
-    dex: 122,
-    int: 122,
-    pow: 122,
+    vit: 222,
+    dex: 222,
+    int: 222,
+    pow: 222,
 
     // MAGIC ATTACK — this character's own innate magic damage, separate
     // from physicalDamage (see getAttackDamage() below: the two are
