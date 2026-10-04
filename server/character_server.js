@@ -93,8 +93,8 @@ const CHARACTERS = {
 
 
   // FAST CHARACTER
-  Brawler: {
-    name: "Berserker",
+  Berserker: {
+    name: "Brawler",
     type: "berserker",
     health: 100,
     armor: "armor1",
@@ -699,8 +699,29 @@ function getDefaultCharacterName() {
   return Object.keys(CHARACTERS)[0];
 }
 
+// RESOLVE CHARACTER NAME — turns ANY character name (an account's saved name, a
+// client's request, an old key you since renamed, a display name, other case)
+// into a key that really exists in CHARACTERS. Order: exact key -> key ignoring
+// case -> the `name` or `type` field -> the first character. Renaming or
+// editing a character here can then never leave a player on a dead name.
+function resolveCharacterName(name) {
+  if (name && Object.prototype.hasOwnProperty.call(CHARACTERS, name)) return name;
+  const keys = Object.keys(CHARACTERS);
+  if (typeof name === "string" && name.trim()) {
+    const want = name.trim().toLowerCase();
+    for (const k of keys) { if (k.toLowerCase() === want) return k; }
+    for (const k of keys) {
+      const d = CHARACTERS[k] || {};
+      if ((typeof d.name === "string" && d.name.trim().toLowerCase() === want) ||
+          (typeof d.type === "string" && d.type.trim().toLowerCase() === want)) return k;
+    }
+  }
+  return keys.filter((k) => k !== "player")[0] || keys[0];
+}
+
 function getCharacter(name) {
 
+  name = resolveCharacterName(name);
   let base = CHARACTERS[name];
 
   // Unknown name (renamed character / stale save) -> fall back to the first
@@ -1244,6 +1265,7 @@ if (typeof module !== "undefined" && module.exports) {
   module.exports = {
     CHARACTERS,
     getCharacter,
+    resolveCharacterName,
     getDefaultCharacterName,
     attachWeaponToCharacter,
     attachSkillToCharacter,
