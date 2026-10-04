@@ -181,18 +181,21 @@ const ITEM_DESPAWN_TIME = 30000; // 30 sec
 // 11-20, 21-30, 31-40, 41-50; health 1-1500 -> 1-300, 301-600, ...).
 // Enemies above level 50 use the top tier.
 //
-// WHICH NUMBER — inside the slice the lowest number is the most common (100%
-// weight) and the highest number's weight (ITEM_ROLL_TOP_CHANCE_LOW at the
-// FIRST level of the tier, ITEM_ROLL_TOP_CHANCE_HIGH at the LAST level of the
-// tier) grows as the enemy gets higher in its tier, everything in between
-// falling off in a straight line. So a level 1 enemy rarely gives 60
-// (10%), a level 10 enemy gives 60 as easily as 1 (100%), and a level 11
-// enemy starts again at 61 being common and 120 being rare.
+// WHICH NUMBER — inside the slice, the CHANCE OF REACHING each number goes in a
+// straight line from 100% (the lowest number, always reached) down to the
+// "top chance" (the highest number). So with a top chance of 10%, the highest
+// number (e.g. 60) comes out 10% of the time; with 40% it comes out 40% of the
+// time; with 100% it comes out EVERY time. Numbers in between share the rest.
+//   top chance = ITEM_ROLL_TOP_CHANCE_LOW at the FIRST level of the tier,
+//                growing to ITEM_ROLL_TOP_CHANCE_HIGH at the LAST level of the
+//                tier, PLUS the enemy's increaseSpawnGet (capped at 100%).
+// e.g. level 1 enemy: 60 is 10% (40% with increaseSpawnGet 0.3); level 10
+// enemy: 60 is 100%; level 11 enemy starts again at 120 being 10%.
 // ---------------------------------------------------------------------------
 const ITEM_ROLL_MAX_ENEMY_LEVEL = 50;
 const ITEM_ROLL_TIERS = 5;
-const ITEM_ROLL_TOP_CHANCE_LOW = 0.1;   // top number's weight at the first level of a tier
-const ITEM_ROLL_TOP_CHANCE_HIGH = 1.0;  // top number's weight at the last level of a tier
+const ITEM_ROLL_TOP_CHANCE_LOW = 0.1;   // chance of the top number at the first level of a tier
+const ITEM_ROLL_TOP_CHANCE_HIGH = 1.0;  // chance of the top number at the last level of a tier
 const ITEM_ROLL_CATEGORIES = ["weapon", "armor", "ring", "accessory"];
 const ITEM_ROLL_STATS = [
   { stat: "physicalDamage",  min: 1,    max: 200,   chance: 1,   decimals: 0, pickOne: "attack" },
@@ -228,16 +231,24 @@ function rollOneItemStat(def, enemyLevel, bonus) {
   const lo = Math.round((def.min + tier * width) * f) / f;
   const hi = Math.round((def.min + tier * width + width - step) * f) / f;
 
-  // Straight-line weight from 1 (at lo) down to topWeight (at hi); solved
-  // backwards from a random 0-1 so low numbers come up more often. The higher
-  // the enemy sits in its tier, the bigger topWeight, so high numbers get likelier.
-  // `bonus` = the enemy's increaseSpawnGet (bot.js / bot_server.js): added straight onto the
-  // top number's weight (10% + 0.3 = 40% at the first level of a tier), capped at 100%.
-  const topWeight = Math.min(1, ITEM_ROLL_TOP_CHANCE_LOW + (ITEM_ROLL_TOP_CHANCE_HIGH - ITEM_ROLL_TOP_CHANCE_LOW) * posInTier + (bonus || 0));
-  const a = 1 - topWeight;
+  // topChance = chance of getting the HIGHEST number of this slice. `bonus` = the
+  // enemy's increaseSpawnGet (bot.js / bot_server.js) is added straight onto it
+  // (10% + 0.3 = 40% at the first level of a tier); capped at 100%.
+  const topChance = Math.min(1, ITEM_ROLL_TOP_CHANCE_LOW + (ITEM_ROLL_TOP_CHANCE_HIGH - ITEM_ROLL_TOP_CHANCE_LOW) * posInTier + (bonus || 0));
+  // The chance of reaching a point x (0 = lowest number, 1 = highest) falls in a
+  // straight line from 100% to topChance. Solved backwards from a random 0-1:
+  // anything at or below topChance is the highest number, the rest is spread
+  // evenly over the numbers below it.
   const u = Math.random();
-  const t = Math.abs(a) > 1e-9 ? (1 - Math.sqrt(1 - 2 * a * u * (1 - a / 2))) / a : u;
-  let v = lo + t * (hi - lo);
+  let v;
+  if (u <= topChance || topChance >= 1) {
+    v = hi;
+  } else {
+    const x = (1 - u) / (1 - topChance);                       // 0..1
+    const count = Math.round((hi - lo) / step) + 1;           // how many numbers in the slice
+    const idx = Math.min(count - 1, Math.floor(x * count));
+    v = lo + idx * step;
+  }
   v = Math.round(v * f) / f;
   return Math.max(lo, Math.min(hi, v));
 }
