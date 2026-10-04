@@ -39,9 +39,9 @@
 // as long as the player is online, then puts these back.
 // ---------------------------------------------------------------------------
 const ATTRIBUTE_RATES = {
-  vit: { health: 30, physicalDefense: 1.5 },
-  dex: { physicalDefense: 3.5, criticalDamage: 0.01 },
-  int: { mana: 5, magicalAttack: 2, magicalDefense: 3.5 },
+  vit: { health: 30, physicalDefense: 0.5 },
+  dex: { physicalDefense: 1, criticalDamage: 0.01 },
+  int: { mana: 5, magicalAttack: 2, magicalDefense: 1 },
   pow: { physicalDamage: 2 }
 };
 
