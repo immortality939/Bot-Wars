@@ -73,8 +73,6 @@ function createSaveGuard(GAME_DATA) {
   const D = GAME_DATA || {};
   const MAX_LEVEL = (typeof D.gameRule === "function" && Number(D.gameRule("MAX_LEVEL"))) || 40;
   const CHARS = D.CHARACTERS || {};
-  // a saved name that was renamed in character_server.js still finds its character
-  const rc = (n) => (typeof D.resolveCharacterName === "function") ? D.resolveCharacterName(n) : n;
 
   // names that are real items in the online game data
   const knownNames = new Set([
@@ -192,7 +190,7 @@ function createSaveGuard(GAME_DATA) {
   // the character's OWN stat: base (character_server.js) + points spent / gained from levels
   // (characterProgress). Gear bonuses don't count, an item must not unlock itself.
   function ownStat(charName, stat, cp) {
-    const ch = (charName && CHARS[rc(charName)]) || null;
+    const ch = (charName && CHARS[charName]) || null;
     const base = ch && typeof ch[stat] === "number" ? ch[stat] : 0;
     const prog = (cp && charName && isObj(cp[charName])) ? cp[charName] : null;
     const spent = prog ? (Number(prog["spent" + stat.charAt(0).toUpperCase() + stat.slice(1)]) || 0) : 0;
@@ -200,7 +198,7 @@ function createSaveGuard(GAME_DATA) {
   }
   function enforceRequiredType(charName, inv, notes, cp) {
     if (!inv.equip) return;
-    const ch = (charName && CHARS[rc(charName)]) || null;
+    const ch = (charName && CHARS[charName]) || null;
     const myType = ch && ch.type ? String(ch.type).toLowerCase() : null;
     const starter = new Set(ch ? [ch.weaponName, ch.armor].filter(Boolean).map(String) : []);
     for (const slot of EQUIP_SLOTS) {
