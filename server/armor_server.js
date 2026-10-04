@@ -80,7 +80,7 @@ const ARMOR_TYPES = {
     image: "image/armor1.png",
     radius: 10,
     category: "armor",
-    spawnChance: 0.1,
+    spawnChance: 0.9,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "Padded scout vest. Light and quick to wear, with a small boost to defense and health."
   },
