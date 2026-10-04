@@ -5100,7 +5100,7 @@ const BOT_TYPES = {
     unitExplode: "unitexplode",
 
     level: 6,
-    increaseSpawnGet: 1.0,
+    increaseSpawnGet: 10.0,
     expGet: 150,
 
     attackSpeed: 1,
