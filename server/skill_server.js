@@ -818,6 +818,16 @@ function getSkillEffectiveStats(skill, player) {
     }
   }
 
+  // CRIT STATS — always come from the player, even when the skill entry has no
+  // criticalChance / criticalDamage field of its own (only slash1 sets them).
+  // Without this a skill never crit, because the loop above only combines fields
+  // the skill itself sets. A skill that does set them still adds its own on top.
+  for (const critStat of ["criticalChance", "criticalDamage"]) {
+    if (typeof effective[critStat] !== "number") {
+      effective[critStat] = (player && typeof player[critStat] === "number") ? player[critStat] : 0;
+    }
+  }
+
   // WEAPON DAMAGE — the equipped weapon's physicalDamage is NOT stored on the
   // player (it is only added at attack-time, see getAttackDamage() in
   // character.js), so it has to be added here too or skills would ignore the
