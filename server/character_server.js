@@ -104,7 +104,7 @@ const CHARACTERS = {
     radius: 13,
     cameraZoom: 1.2,
     unitExplode: "unitexplode",
-    level: 1,
+    level: 40,
     exp: 0,
 
     // ---- COMBAT STATS — see canCharacterAttack()/getAttackDamage()/
