@@ -4767,6 +4767,15 @@ let olScreens = null;             // { server, channel, char } once built
 function olValidCharacter(name) {
   if (!name || typeof CHARACTERS === "undefined") return null;
   if (olCharImages && olCharImages[name]) return name;   // a character from the SERVER's list (character_server.js)
+  // The server's list is known: ONLINE only knows ITS characters. A name that is only still
+  // in the offline character.js (e.g. an old "Brawler" saved on the account) must NOT win,
+  // or the account keeps showing the old name. Follow it to the server's character instead.
+  const serverNames = olCharImages ? Object.keys(olCharImages) : [];
+  if (serverNames.length) {
+    const want = String(name).trim().toLowerCase();
+    const hit = serverNames.find((k) => k.toLowerCase() === want);
+    return hit || serverNames[0];
+  }
   if (CHARACTERS[name]) return name;
   // The account saved a name that no longer exists (character renamed in
   // character.js / character_server.js): follow it to the matching character
