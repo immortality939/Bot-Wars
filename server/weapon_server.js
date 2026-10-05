@@ -323,6 +323,32 @@ const WEAPONS = {
     description: "A violet-and-silver blade that shines at dusk."
   },
 
+  extremegauntlet: {
+    name: "Extreme Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet15.png",
+    category: "weapon",
+    physicalDamage:200,
+    physicalDefense:30,
+    magicalAttack:200,
+    magicalDefense:30,
+    health:1500,
+    mana:100,
+    hpRegen:0.1,
+    manaRegen:0.1,
+    criticalDamage:0.3,
+    criticalChance:0.25,
+    pow:70,
+    vit:70,
+    dex:70,
+    int:70,
+    spawnChance: 0.025,
+    width: 30,
+    height: 28,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A blue-and-white glove that channels cold magic."
+  },
+
   gauntlet1: {
     name: "Frostweave Gauntlet",
     requiredType: "bullwark",
