@@ -154,6 +154,14 @@ const server = http.createServer((req, res) => {
     res.end();
     return;
   }
+  // Shop owner page / approvals / PayMongo webhook — see "REAL-MONEY SHOP" further down.
+  if (path === "/admin/shop" || path.startsWith("/api/admin/") || path === "/api/paymongo/webhook") {
+    handleShopOwner(req, res, path).catch((e) => {
+      console.error("[shop] " + path + " failed:", e && e.message || e);
+      if (!res.headersSent) apiReply(res, 500, { error: "SERVER_ERROR" });
+    });
+    return;
+  }
   // Account saves / session claims — see "ACCOUNT SAVES" further down.
   if (path.startsWith("/api/") && req.method === "POST") {
     handleApi(req, res, path).catch((e) => {
@@ -553,8 +561,330 @@ async function handleApi(req, res, urlPath) {
   let out;
   if (urlPath === "/api/save") out = await apiSave(user, body);
   else if (urlPath === "/api/session") out = await apiSession(user, body);
+  else if (urlPath.startsWith("/api/shop/")) out = await apiShop(user, urlPath, body);
   else out = [404, { error: "NOT_FOUND" }];
   apiReply(res, out[0], out[1]);
+}
+
+// ---------------------------------------------------------------------------
+// REAL-MONEY SHOP — items sold for pesos (see server/shop_server.js REAL_SHOP)
+// ---------------------------------------------------------------------------
+// Two ways to pay:
+//   AUTOMATIC  PayMongo hosted checkout (GCash, Maya, GrabPay, cards). Set the
+//              environment variable PAYMONGO_SECRET_KEY (sk_live_... / sk_test_...).
+//              An order is only marked paid after THIS server asks PayMongo for
+//              the checkout session and sees a paid payment — the player's phone
+//              (or a forged webhook) can never mark an order paid by itself.
+//              Optional: PAYMONGO_METHODS="gcash,paymaya,grab_pay,card" to change
+//              which methods are offered.
+//   MANUAL     the player sends money to the GCash/bank in PAYMENT_INFO and
+//              submits the reference number; the OWNER approves it at
+//              /admin/shop (environment variable SHOP_ADMIN_KEY = your password).
+//
+// DELIVERY: a paid order is handed to the player's game client (POST /api/shop/claim)
+// which puts the item in the inventory and saves; the client then confirms
+// (/api/shop/ack). The save guard is told to expect the extra item first, so the
+// normal anti-cheat check does not strip it.
+//
+// ORDERS are kept in memory and in the Supabase table "shop_orders" so they survive
+// restarts (create it once with the SQL in the setup notes):
+//   create table if not exists shop_orders (
+//     id text primary key, uid text not null, data jsonb not null,
+//     updated_at timestamptz not null default now());
+//   alter table shop_orders enable row level security;   -- no policies: only the server key can use it
+// ---------------------------------------------------------------------------
+const PAYMONGO_KEY = process.env.PAYMONGO_SECRET_KEY || "";
+const PAYMONGO_METHODS = (process.env.PAYMONGO_METHODS || "gcash,paymaya,grab_pay,card").split(",").map((s) => s.trim()).filter(Boolean);
+const SHOP_ADMIN_KEY = process.env.SHOP_ADMIN_KEY || "";
+const REAL_SHOP = GAME_DATA.REAL_SHOP || {};
+const SHOP_TYPES = ["weapon", "armor", "stone", "accessory"];
+const shopOrders = new Map();   // order id -> order
+const CLAIM_RETRY_MS = 2 * 60 * 1000;     // a claimed-but-never-confirmed order is offered again after this
+const ORDER_OPEN_LIMIT = 10;               // most unfinished orders one account may have at once
+
+let shopDbQueue = Promise.resolve();
+function shopSave(o) {
+  if (!CLAN_DB_ON) return;
+  const row = { id: o.id, uid: o.uid, data: o, updated_at: new Date().toISOString() };
+  shopDbQueue = shopDbQueue
+    .then(() => sbRest("POST", "shop_orders?on_conflict=id", row, "resolution=merge-duplicates,return=minimal"))
+    .catch((e) => console.error("[shop] could not save order " + o.id + ": " + (e && e.message || e)));
+}
+
+async function loadShopOrders() {
+  if (!CLAN_DB_ON) { console.log("[shop] SUPABASE_SERVICE_KEY not set — shop orders are memory-only."); return; }
+  for (let attempt = 1; attempt <= 6; attempt++) {
+    try {
+      const rows = await sbRest("GET", "shop_orders?select=id,uid,data&order=updated_at.desc&limit=5000");
+      for (const r of rows) if (r && r.data && r.data.id && !shopOrders.has(r.data.id)) shopOrders.set(r.data.id, r.data);
+      console.log("[shop] loaded " + shopOrders.size + " order(s).");
+      return;
+    } catch (e) {
+      console.error("[shop] load failed (attempt " + attempt + "): " + (e && e.message || e) + (attempt === 1 ? "  — did you create the shop_orders table?" : ""));
+      await new Promise((res) => setTimeout(res, 3000 * attempt));
+    }
+  }
+  console.error("[shop] giving up loading orders; new orders are kept in memory and saved when the table works.");
+}
+loadShopOrders();
+
+function shopFind(type, name) {
+  if (SHOP_TYPES.indexOf(type) < 0) return null;
+  const list = REAL_SHOP[type];
+  if (!Array.isArray(list)) return null;
+  const e = list.find((x) => x && x.name === name && Number(x.price) > 0);
+  return e ? { type, name: e.name, price: Math.round(Number(e.price) * 100) / 100 } : null;
+}
+
+function shopOpenCount(uid) {
+  let n = 0;
+  for (const o of shopOrders.values()) if (o.uid === uid && (o.status === "awaiting_payment" || o.status === "review")) n++;
+  return n;
+}
+
+function shopNewOrder(user, item, method, extra) {
+  const o = Object.assign({
+    id: crypto.randomUUID(), uid: user.id, email: user.email || "",
+    type: item.type, name: item.name, price: item.price,
+    method, status: "pending", createdAt: Date.now()
+  }, extra || {});
+  shopOrders.set(o.id, o);
+  shopSave(o);
+  return o;
+}
+
+function shopMarkPaid(o) {
+  if (o.status === "paid" || o.status === "claimed" || o.status === "delivered") return;
+  o.status = "paid";
+  o.paidAt = Date.now();
+  shopSave(o);
+  console.log("[shop] PAID " + o.id.slice(0, 8) + " " + o.name + " P" + o.price + " (" + o.method + ")");
+  const p = onlineByUid.get(o.uid);
+  if (p && p.ws) send(p.ws, { type: "shopPaid" });   // wakes the game so it claims right away
+}
+
+function paymongoHeaders() {
+  return { Authorization: "Basic " + Buffer.from(PAYMONGO_KEY + ":").toString("base64"), "Content-Type": "application/json" };
+}
+
+// Asks PayMongo whether this order's checkout session was really paid.
+async function shopVerifyPaymongo(o) {
+  if (!PAYMONGO_KEY || o.method !== "paymongo" || o.status !== "awaiting_payment" || !o.checkoutId) return;
+  try {
+    const r = await fetch("https://api.paymongo.com/v1/checkout_sessions/" + encodeURIComponent(o.checkoutId), {
+      headers: paymongoHeaders(), signal: AbortSignal.timeout(12000)
+    });
+    if (!r.ok) return;
+    const d = await r.json();
+    const a = d && d.data && d.data.attributes;
+    if (!a) return;
+    if (a.reference_number && a.reference_number !== o.id) return;   // not this order's session
+    const need = Math.round(o.price * 100);
+    const pays = Array.isArray(a.payments) ? a.payments.filter((p) => p && p.attributes && p.attributes.status === "paid") : [];
+    const paidAmount = pays.reduce((sum, p) => sum + (Number(p.attributes.amount) || 0), 0);
+    const intentOk = !!(a.payment_intent && a.payment_intent.attributes && a.payment_intent.attributes.status === "succeeded");
+    if ((pays.length && paidAmount >= need) || (!pays.length && (intentOk || a.status === "paid"))) shopMarkPaid(o);
+  } catch (e) { /* PayMongo unreachable right now — checked again on the next poll */ }
+}
+
+async function shopStartPaymongo(user, body) {
+  if (!PAYMONGO_KEY) return [503, { error: "AUTO_PAYMENT_OFF" }];
+  const item = shopFind(String(body.type || ""), String(body.name || ""));
+  if (!item) return [400, { error: "BAD_ITEM" }];
+  if (shopOpenCount(user.id) >= ORDER_OPEN_LIMIT) return [429, { error: "TOO_MANY_OPEN_ORDERS" }];
+  let ret = String(body.returnUrl || "");
+  if (!/^https?:\/\/[^\s]{3,500}$/i.test(ret)) ret = "";
+  const order = shopNewOrder(user, item, "paymongo");
+  const attrs = {
+    line_items: [{ currency: "PHP", amount: Math.round(item.price * 100), name: "Metal War - " + item.name, quantity: 1 }],
+    payment_method_types: PAYMONGO_METHODS,
+    description: "Metal War item: " + item.name,
+    reference_number: order.id,
+    metadata: { order_id: order.id },
+    success_url: ret || undefined,
+    cancel_url: ret || undefined,
+    send_email_receipt: false,
+    show_description: true,
+    show_line_items: true
+  };
+  if (user.email) attrs.billing = { email: user.email };
+  try {
+    const r = await fetch("https://api.paymongo.com/v1/checkout_sessions", {
+      method: "POST", headers: paymongoHeaders(),
+      body: JSON.stringify({ data: { attributes: attrs } }),
+      signal: AbortSignal.timeout(15000)
+    });
+    const txt = await r.text();
+    let d = null; try { d = JSON.parse(txt); } catch (e) {}
+    const url = d && d.data && d.data.attributes && d.data.attributes.checkout_url;
+    if (!r.ok || !url) {
+      order.status = "failed"; order.note = "provider " + r.status; shopSave(order);
+      console.error("[shop] PayMongo refused checkout: " + r.status + " " + txt.slice(0, 300));
+      return [502, { error: "PAYMENT_PROVIDER_ERROR" }];
+    }
+    order.checkoutId = d.data.id;
+    order.status = "awaiting_payment";
+    shopSave(order);
+    return [200, { ok: true, orderId: order.id, checkoutUrl: url }];
+  } catch (e) {
+    order.status = "failed"; order.note = "network"; shopSave(order);
+    return [502, { error: "PAYMENT_PROVIDER_ERROR" }];
+  }
+}
+
+function shopSubmitManual(user, body) {
+  const item = shopFind(String(body.type || ""), String(body.name || ""));
+  if (!item) return [400, { error: "BAD_ITEM" }];
+  const channel = body.channel === "bank" ? "bank" : "gcash";
+  const ref = String(body.ref || "").replace(/[\s-]+/g, "").toUpperCase();
+  if (!/^[A-Z0-9]{8,24}$/.test(ref)) return [400, { error: "BAD_REFERENCE" }];
+  const sender = String(body.sender || "").replace(/[^\w .+@-]/g, "").trim().slice(0, 40);
+  if (sender.length < 3) return [400, { error: "BAD_SENDER" }];
+  for (const o of shopOrders.values()) if (o.method === "manual" && o.ref === ref) return [409, { error: "REFERENCE_USED" }];
+  if (shopOpenCount(user.id) >= ORDER_OPEN_LIMIT) return [429, { error: "TOO_MANY_OPEN_ORDERS" }];
+  const order = shopNewOrder(user, item, "manual", { channel, ref, sender });
+  order.status = "review";
+  shopSave(order);
+  console.log("[shop] REVIEW " + order.id.slice(0, 8) + " " + item.name + " P" + item.price + " via " + channel + " ref " + ref);
+  return [200, { ok: true, orderId: order.id }];
+}
+
+function shopPublicOrder(o) {
+  return { id: o.id, type: o.type, name: o.name, price: o.price, method: o.method, status: o.status, createdAt: o.createdAt };
+}
+
+async function shopListOrders(user) {
+  const mine = [...shopOrders.values()].filter((o) => o.uid === user.id && Date.now() - o.createdAt < 30 * 86400000);
+  await Promise.all(mine.filter((o) => o.status === "awaiting_payment").slice(0, 5).map(shopVerifyPaymongo));
+  mine.sort((a, b) => b.createdAt - a.createdAt);
+  return [200, { ok: true, orders: mine.slice(0, 30).map(shopPublicOrder) }];
+}
+
+// The game asks for items it has not received yet. They stay "claimed" until the
+// game confirms (ack) after saving; an unconfirmed one is offered again later.
+function shopClaim(user) {
+  const now = Date.now();
+  const items = [];
+  for (const o of shopOrders.values()) {
+    if (o.uid !== user.id) continue;
+    if (o.status === "paid" || (o.status === "claimed" && now - (o.claimedAt || 0) > CLAIM_RETRY_MS)) {
+      o.status = "claimed"; o.claimedAt = now; shopSave(o);
+      items.push({ orderId: o.id, type: o.type, name: o.name });
+      if (items.length >= 10) break;
+    }
+  }
+  if (items.length) saveGuard.creditItems(user.id, items.length);
+  return [200, { ok: true, items }];
+}
+
+function shopAck(user, body) {
+  const ids = Array.isArray(body.orderIds) ? body.orderIds.slice(0, 20) : [];
+  for (const id of ids) {
+    const o = shopOrders.get(String(id));
+    if (o && o.uid === user.id && o.status === "claimed") { o.status = "delivered"; o.deliveredAt = Date.now(); shopSave(o); }
+  }
+  return [200, { ok: true }];
+}
+
+async function apiShop(user, urlPath, body) {
+  const act = urlPath.slice("/api/shop/".length);
+  if (act === "paymongo") return shopStartPaymongo(user, body);
+  if (act === "manual") return shopSubmitManual(user, body);
+  if (act === "orders") return shopListOrders(user);
+  if (act === "claim") return shopClaim(user);
+  if (act === "ack") return shopAck(user, body);
+  return [404, { error: "NOT_FOUND" }];
+}
+
+// When a player connects: check their unfinished card payments and tell the game
+// to claim anything that is paid.
+async function shopOnJoin(p) {
+  if (!p.uid) return;
+  const mine = [...shopOrders.values()].filter((o) => o.uid === p.uid);
+  await Promise.all(mine.filter((o) => o.status === "awaiting_payment" && Date.now() - o.createdAt < 3 * 86400000).slice(0, 5).map(shopVerifyPaymongo));
+  const now = Date.now();
+  if (mine.some((o) => o.status === "paid" || (o.status === "claimed" && now - (o.claimedAt || 0) > CLAIM_RETRY_MS))) send(p.ws, { type: "shopPaid" });
+}
+
+// ---- OWNER SIDE: /admin/shop page, order list, approve/reject, PayMongo webhook ----
+const adminFails = new Map();   // ip -> { n, t }
+function adminAllowed(req) {
+  if (SHOP_ADMIN_KEY.length < 12) return 503;   // not configured (or too short to be safe)
+  const ip = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim();
+  const f = adminFails.get(ip);
+  if (f && Date.now() - f.t < 600000 && f.n >= 10) return 429;
+  const given = crypto.createHash("sha256").update(String(req.headers["x-admin-key"] || "")).digest();
+  const real = crypto.createHash("sha256").update(SHOP_ADMIN_KEY).digest();
+  if (crypto.timingSafeEqual(given, real)) { adminFails.delete(ip); return 200; }
+  adminFails.set(ip, { n: (f && Date.now() - f.t < 600000 ? f.n : 0) + 1, t: Date.now() });
+  return 401;
+}
+
+const ADMIN_PAGE = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Metal War - Shop orders</title>
+<style>body{font:14px system-ui,sans-serif;background:#0b1218;color:#dff;margin:0;padding:12px}h1{font-size:18px}
+.o{border:1px solid #2a4a5a;border-radius:8px;padding:10px;margin:8px 0;background:#101c26}.o b{color:#8fe}
+button{padding:8px 14px;border-radius:6px;border:0;margin:6px 6px 0 0;font-weight:700}.ok{background:#3c6}.no{background:#d55;color:#fff}
+.s{color:#9bd;font-size:12px}</style></head><body><h1>Shop orders</h1>
+<div class="s">Open your GCash / bank app, find the reference number below, then Approve. Approve only money you actually received.</div>
+<div id="l">Loading...</div>
+<script>
+let key=sessionStorage.getItem("k")||prompt("Admin key")||"";sessionStorage.setItem("k",key);
+async function api(p,b){const r=await fetch(p,{method:"POST",headers:{"x-admin-key":key,"Content-Type":"application/json"},body:JSON.stringify(b||{})});
+if(r.status==401){sessionStorage.removeItem("k");document.getElementById("l").textContent="Wrong key. Reload.";throw 0}
+if(!r.ok){document.getElementById("l").textContent="Error "+r.status;throw 0}return r.json()}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+async function load(){const d=await api("/api/admin/orders");const l=document.getElementById("l");
+l.innerHTML=d.orders.map(o=>'<div class="o"><b>'+esc(o.name)+'</b> ('+esc(o.type)+') &mdash; <b>P'+o.price+'</b><br>'+
+'<span class="s">status: '+esc(o.status)+' | '+esc(o.method)+(o.channel?'/'+esc(o.channel):'')+' | '+new Date(o.createdAt).toLocaleString()+'<br>account: '+esc(o.email)+
+(o.ref?'<br>reference: <b>'+esc(o.ref)+'</b> | sender: '+esc(o.sender):'')+'</span>'+
+(o.status=="review"?'<br><button class="ok" onclick="dec(\\''+o.id+'\\',true)">Approve</button><button class="no" onclick="dec(\\''+o.id+'\\',false)">Reject</button>':'')+'</div>').join("")||"No orders yet."}
+async function dec(id,a){if(!confirm(a?"Money received? Approve and deliver the item?":"Reject this order?"))return;await api("/api/admin/decide",{id:id,approve:a});load()}
+load();
+</script></body></html>`;
+
+async function handleShopOwner(req, res, urlPath) {
+  const plain = (code, text) => { res.writeHead(code, { "Content-Type": "text/plain" }); res.end(text); };
+  if (urlPath === "/admin/shop" && req.method === "GET") {
+    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "X-Frame-Options": "DENY" });
+    res.end(ADMIN_PAGE);
+    return;
+  }
+  if (urlPath === "/api/paymongo/webhook" && req.method === "POST") {
+    // Answer at once. The body is NOT trusted: it only tells us which order to
+    // re-check, and the check asks PayMongo directly (shopVerifyPaymongo).
+    let ev = null;
+    try { ev = await readJsonBody(req, 128 * 1024); } catch (e) {}
+    res.writeHead(200); res.end("ok");
+    try {
+      const inner = (ev && ev.data && ev.data.attributes && ev.data.attributes.data) || (ev && ev.data) || {};
+      const at = inner.attributes || {};
+      const id = String(at.reference_number || (at.metadata && at.metadata.order_id) || "");
+      let o = shopOrders.get(id);
+      if (!o && typeof inner.id === "string") for (const x of shopOrders.values()) if (x.checkoutId === inner.id) { o = x; break; }
+      if (o) await shopVerifyPaymongo(o);
+    } catch (e) {}
+    return;
+  }
+  if (req.method !== "POST") { plain(405, "method not allowed"); return; }
+  const gate = adminAllowed(req);
+  if (gate !== 200) { apiReply(res, gate, { error: gate === 503 ? "ADMIN_OFF" : "DENIED" }); return; }
+  let body = {};
+  try { body = await readJsonBody(req, 16 * 1024); } catch (e) { apiReply(res, 400, { error: "BAD_REQUEST" }); return; }
+  if (urlPath === "/api/admin/orders") {
+    const list = [...shopOrders.values()].sort((a, b) => (a.status === "review" ? 0 : 1) - (b.status === "review" ? 0 : 1) || b.createdAt - a.createdAt).slice(0, 100);
+    apiReply(res, 200, { ok: true, orders: list.map((o) => Object.assign(shopPublicOrder(o), { email: o.email, channel: o.channel, ref: o.ref, sender: o.sender })) });
+    return;
+  }
+  if (urlPath === "/api/admin/decide") {
+    const o = shopOrders.get(String(body.id || ""));
+    if (!o || o.method !== "manual" || o.status !== "review") { apiReply(res, 409, { error: "NOT_PENDING" }); return; }
+    if (body.approve === true) shopMarkPaid(o);
+    else { o.status = "rejected"; shopSave(o); }
+    apiReply(res, 200, { ok: true });
+    return;
+  }
+  apiReply(res, 404, { error: "NOT_FOUND" });
 }
 
 // Runs right after "join": works out the account, then hands the player
@@ -566,6 +896,7 @@ async function attachAccount(p, token) {
   if (!uid) return;
   if (p.ws.readyState !== 1) return; // already gone
   onlineByUid.set(uid, p);
+  shopOnJoin(p).catch(() => {});   // deliver anything the player already paid for
   if (!clanLoaded) return; // loadClans() sends the roster the moment it finishes
   const clan = clanOf(p);
   if (!clan) return;
