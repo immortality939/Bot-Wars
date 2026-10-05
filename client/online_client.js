@@ -2560,6 +2560,7 @@ function olShopStatRows(entry) {
   }
   if (type === "weapon") {
     rows.push(["Physical Damage", num(d.physicalDamage) ? d.physicalDamage : "\u2014"]);
+    if (num(d.physicalDefense) && d.physicalDefense !== 0) rows.push(["Physical Defense", "+" + d.physicalDefense]);
     if (num(d.health)) rows.push(["Health", "+" + d.health]);
     OL_SHOP_EXTRA_STATS.forEach((r) => { if (num(d[r[0]]) && d[r[0]] !== 0) rows.push([r[1], "+" + (r[2] ? r[2](d[r[0]]) : d[r[0]])]); });
   } else if (type === "armor" || type === "ring" || type === "accessory") {
