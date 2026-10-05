@@ -87,7 +87,7 @@ const REAL_SHOP = {
     { name: "ak47", price: 1 },
     { name: "sniper", price: 149 },
     { name: "shotgun", price: 129 },
-    { name: "extreme gauntlet", price: 500 }
+    { name: "extremegauntlet", price: 500 }
   ],
   armor: [
     { name: "armor1", price: 79 },
