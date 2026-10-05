@@ -84,7 +84,7 @@ const REAL_SHOP_CURRENCY = "PHP";
 const REAL_SHOP = {
   weapon: [
     { name: "uzi", price: 49 },
-    { name: "ak47", price: 0 },
+    { name: "ak47", price: 1 },
     { name: "sniper", price: 149 },
     { name: "shotgun", price: 129 }
   ],
