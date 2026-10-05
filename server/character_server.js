@@ -72,7 +72,7 @@ function attrRate(attr, stat) {
 // ---------------------------------------------------------------------------
 const GAME_RULES = {
   EXP_BASE: 300,
-  EXP_GROWTH_RATE: 1.2,
+  EXP_GROWTH_RATE: 1.5,
   MAX_LEVEL: 40,
   STAT_POINTS_PER_LEVEL: 10,
   AUTO_STAT_GROWTH_PER_LEVEL: 3,
