@@ -2372,10 +2372,6 @@ function olShopInstallUi() {
   if (document.getElementById("olShopScreen")) return;
   const st = document.createElement("style");
   st.textContent = `
-    #onlineShopBtn { font-family:'Courier New',Courier,monospace; font-weight:700; font-size:11px; letter-spacing:1.5px; padding:9px 12px;
-      cursor:pointer; touch-action:manipulation; border:none; color:#ffe9a8; white-space:nowrap; transition:transform 0.1s ease;
-      background:url('image/optionsborder.png') center center / 100% 100% no-repeat, url('image/savehud.png') center center / 100% 100% no-repeat; }
-    #onlineShopBtn:active { transform:scale(0.94); }
     #olShopPopup { position:fixed; inset:0; background:rgba(0,0,0,0.65); display:none; align-items:center; justify-content:center;
       z-index:10650; font-family:'Courier New',Courier,monospace; }
     .olPayCard { width:min(90vw,340px); max-height:90vh; overflow:auto; box-sizing:border-box; padding:16px; text-align:center; color:#dff;
@@ -2756,21 +2752,32 @@ function olShopStartWatching() {
 
 // ---- the SHOP button itself ----
 function olUpdateShopButton() {
-  const bar = document.getElementById("hudTopRight");
-  if (!bar) return;
+  // The SHOP button now lives inside the OPTIONS popup (first button, above UPGRADE)
+  // instead of the top-right HUD bar. Online mode only.
+  const body = document.querySelector("#gameOptionsPopup .gameOptionsBody");
+  if (!body) return;
+  // remove the old top-right button if an earlier build left one behind
+  const oldTop = document.querySelector("#hudTopRight #onlineShopBtn");
+  if (oldTop) oldTop.remove();
   let btn = document.getElementById("onlineShopBtn");
   if (!btn) {
     olShopInstallUi();
     btn = document.createElement("button");
     btn.id = "onlineShopBtn";
+    btn.className = "gameOptionsBtn";
     btn.title = "Shop";
     btn.textContent = "SHOP";
     btn.style.display = "none";
-    btn.addEventListener("click", olShopOpen);
-    bar.insertBefore(btn, bar.firstChild);
+    btn.addEventListener("click", () => {
+      // close the OPTIONS popup first (restores the HUD), then open the shop
+      const closeBtn = document.getElementById("gameOptionsCloseBtn");
+      if (closeBtn) closeBtn.click();
+      olShopOpen();
+    });
+    body.insertBefore(btn, body.firstChild);
   }
   const on = netIsOnline();
-  btn.style.display = on ? "block" : "none";
+  btn.style.display = on ? "" : "none";
   if (on) {
     // came back from the PayMongo page, or just connected: collect whatever is paid
     let pending = false;
