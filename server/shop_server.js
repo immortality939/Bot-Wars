@@ -55,15 +55,65 @@ const SHOP_STONES = [
 // same { name, price } shape as above, once one does.
 const SHOP_ACCESSORIES = [];
 
+// =============================================================================
+// REAL-MONEY SHOP  (the SHOP button at the top-right in ONLINE mode)
+// =============================================================================
+// Same items as above, but sold for REAL MONEY (Philippine pesos) instead of
+// gold orbs. The gold lists above are left alone on purpose: save_guard.js
+// still reads them to know what a gold purchase could have cost.
+//
+//   price  — PESOS (PHP) per item. EDIT THESE, the numbers below are only
+//            starter prices.
+//   name   — must match the item's name in weapon_server.js / armor_server.js /
+//            upgrade_server.js, same as the gold lists.
+//
+// HOW PLAYERS PAY (server.js does the work, see its "REAL-MONEY SHOP" section):
+//   1. AUTOMATIC  — GCash, Maya, GrabPay and credit/debit cards (Visa/Mastercard,
+//      so foreign players can pay too) through PayMongo. Needs the environment
+//      variable PAYMONGO_SECRET_KEY on the server. The item is delivered by
+//      itself a few seconds after the payment goes through.
+//   2. MANUAL     — the player sends the money to the GCash number (or bank
+//      account) below and types the reference number from the receipt. YOU
+//      check your GCash/bank app and approve it on  https://<your-server>/admin/shop
+//      (needs the environment variable SHOP_ADMIN_KEY). Then the item is delivered.
+//
+// Everything in this file is shown to players (it is sent to the game), so put
+// ONLY things you want players to see here — never an API key or password.
+const REAL_SHOP_CURRENCY = "PHP";
+
+const REAL_SHOP = {
+  weapon: [
+    { name: "uzi", price: 49 },
+    { name: "ak47", price: 99 },
+    { name: "sniper", price: 149 },
+    { name: "shotgun", price: 129 }
+  ],
+  armor: [
+    { name: "armor1", price: 79 },
+    { name: "armor2", price: 119 },
+    { name: "armor3", price: 179 }
+  ],
+  stone: [
+    { name: "specialstone", price: 39 }
+  ],
+  accessory: []
+};
+
+const PAYMENT_INFO = {
+  gcash: { number: "09673016212", name: "Omar Patrick Nollido" },
+  // Bank transfer (InstaPay / PESONet / international wire). Leave accountNumber
+  // empty ("") to hide the bank option in the shop; fill all three to show it.
+  bank: { bankName: "Asia United Bank (AUB)", accountName: "Omar Patrick Nollido", accountNumber: "934-10-500645-5" }
+};
+
 if (typeof module !== "undefined" && module.exports) {
   module.exports = {
     SHOP_WEAPONS,
     SHOP_ARMORS,
     SHOP_STONES,
-    SHOP_ACCESSORIES
+    SHOP_ACCESSORIES,
+    REAL_SHOP_CURRENCY,
+    REAL_SHOP,
+    PAYMENT_INFO
   };
 }
-
-
-// ---- export for server.js (Node) ----
-if (typeof module !== "undefined") module.exports = { SHOP_WEAPONS, SHOP_ARMORS, SHOP_STONES, SHOP_ACCESSORIES };
