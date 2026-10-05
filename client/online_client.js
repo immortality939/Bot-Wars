@@ -801,6 +801,9 @@ function netApplyServerData(data) {
   }
   if (!applied) throw new Error("Server game data was empty");
   netUsingServerData = true;
+  // Real-money shop prices + payment details (shop_server.js) — only used by the SHOP button.
+  olShopData = (data.REAL_SHOP && typeof data.REAL_SHOP === "object")
+    ? { REAL_SHOP: data.REAL_SHOP, PAYMENT_INFO: data.PAYMENT_INFO || {} } : null;
   netInstallServerCode(data.CODE);   // the server files' FUNCTIONS too (numbers + formulas)
   netRefreshRemoteCharacters();      // players already in the room were built from the OFFLINE tables — redo them
 }
@@ -2296,10 +2299,438 @@ function netSetPartyPanelOpen(open) {
   if (partyPanelDrop) partyPanelDrop.classList.toggle("partyPanelDropOpen", open);
 }
 
+// =============================================================================
+// REAL-MONEY SHOP  —  the SHOP button (top-right, online mode only)
+// =============================================================================
+// Looks like the offline Shop (same classes / same 6x6 grid) but items cost real
+// pesos. Prices + payment details come from the server (shop_server.js REAL_SHOP /
+// PAYMENT_INFO). Paying is done on the server side (see server.js "REAL-MONEY SHOP"):
+//   * AUTO   — PayMongo page (GCash / Maya / GrabPay / cards), item arrives by itself.
+//   * MANUAL — send to the GCash number / bank shown here, type the reference number,
+//              the owner approves it, item arrives.
+// Items that were paid for are put in the inventory by olShopClaim() below.
+// =============================================================================
+let olShopData = null;            // { REAL_SHOP, PAYMENT_INFO } from the server's game data
+let olShopCategory = "weapon";
+let olShopPage = 0;
+let olShopSelected = null;
+let olShopWatching = false;       // true while we wait for a payment to land
+let olShopClaimBusy = false;
+let olShopClaimTries = 0;
+let olShopPollTimer = null;
+const OL_SHOP_PAGE_SIZE = 36;
+const OL_SHOP_PAGE_COUNT = 4;
+const OL_SHOP_PENDING_KEY = "olShopPending";   // remembers "I paid, waiting for delivery" across the PayMongo redirect
+
+function olShopPeso(n) {
+  const v = Number(n) || 0;
+  return "\u20B1" + (v % 1 === 0 ? v.toLocaleString() : v.toFixed(2));
+}
+
+function olShopLookup(type, name) {
+  try {
+    if (type === "weapon" && typeof getWeapon === "function") return getWeapon(name);
+    if (type === "armor" && typeof getArmor === "function") return getArmor(name);
+    if (type === "stone" && typeof getStone === "function") return getStone(name);
+    if (type === "accessory" && typeof getArmor === "function") return getArmor(name);
+  } catch (e) {}
+  return null;
+}
+
+// What inventory category an item lands in (rings/accessories keep their own, like the offline shop).
+function olShopItemType(type, data) {
+  return (data && (data.category === "ring" || data.category === "accessory")) ? data.category : type;
+}
+
+function olShopCatalog(cat) {
+  const list = (olShopData && olShopData.REAL_SHOP && olShopData.REAL_SHOP[cat]) || [];
+  const arr = new Array(OL_SHOP_PAGE_SIZE * OL_SHOP_PAGE_COUNT).fill(null);
+  list.forEach((e, i) => {
+    if (i >= arr.length || !e) return;
+    const data = olShopLookup(cat, e.name);
+    if (!data) return;
+    arr[i] = { type: olShopItemType(cat, data), shopType: cat, name: e.name, data, price: Number(e.price) };
+  });
+  return arr;
+}
+
+function olShopLabel(entry) {
+  const n = entry && entry.data && typeof entry.data.name === "string" ? entry.data.name.trim() : "";
+  return n || (entry && entry.name) || "";
+}
+
+function olShopToast(text) {
+  const el = document.getElementById("olShopToast");
+  if (!el) return;
+  el.textContent = text;
+  el.classList.add("visible");
+  clearTimeout(olShopToast._t);
+  olShopToast._t = setTimeout(() => el.classList.remove("visible"), 3200);
+}
+
+function olShopInstallUi() {
+  if (document.getElementById("olShopScreen")) return;
+  const st = document.createElement("style");
+  st.textContent = `
+    #onlineShopBtn { font-family:'Courier New',Courier,monospace; font-weight:700; font-size:11px; letter-spacing:1.5px; padding:9px 12px;
+      cursor:pointer; touch-action:manipulation; border:none; color:#ffe9a8; white-space:nowrap; transition:transform 0.1s ease;
+      background:url('image/optionsborder.png') center center / 100% 100% no-repeat, url('image/savehud.png') center center / 100% 100% no-repeat; }
+    #onlineShopBtn:active { transform:scale(0.94); }
+    #olShopPopup { position:fixed; inset:0; background:rgba(0,0,0,0.65); display:none; align-items:center; justify-content:center;
+      z-index:10650; font-family:'Courier New',Courier,monospace; }
+    .olPayCard { width:min(90vw,340px); max-height:90vh; overflow:auto; box-sizing:border-box; padding:16px; text-align:center; color:#dff;
+      border:2px solid rgba(255,210,110,0.55); border-radius:14px; background:linear-gradient(180deg, rgba(24,20,10,0.96), rgba(8,8,6,0.97));
+      box-shadow:0 0 20px rgba(255,190,70,0.3); }
+    .olPayTitle { font-size:15px; font-weight:900; letter-spacing:2px; text-transform:uppercase; color:#ffe08a; }
+    .olPaySub { margin-top:6px; font-size:11px; letter-spacing:1px; color:#cbb77a; line-height:1.5; }
+    .olPayBtn { display:block; width:100%; box-sizing:border-box; margin-top:9px; padding:11px 8px; border-radius:9px; cursor:pointer;
+      font:900 12px 'Courier New',monospace; letter-spacing:1.5px; text-transform:uppercase; touch-action:manipulation;
+      border:2px solid rgba(255,210,110,0.55); background:rgba(255,200,80,0.12); color:#ffe9a8; }
+    .olPayBtn.green { border-color:rgba(100,255,150,0.55); background:rgba(80,255,140,0.12); color:#7f9; }
+    .olPayBtn.gray { border-color:rgba(200,200,210,0.4); background:rgba(255,255,255,0.06); color:#ccd; }
+    .olPayBtn[disabled] { opacity:0.5; }
+    .olPayBox { margin-top:10px; padding:8px; border-radius:8px; background:rgba(0,0,0,0.45); border:1px solid rgba(255,210,110,0.3);
+      font-size:12px; line-height:1.6; color:#ffe9a8; word-break:break-all; }
+    .olPayBox b { color:#fff; font-size:14px; letter-spacing:1px; }
+    .olPayInput { display:block; width:100%; box-sizing:border-box; margin-top:8px; padding:10px 8px; text-align:center; font:700 14px 'Courier New',monospace;
+      color:#fff; background:rgba(0,0,0,0.55); border:2px solid rgba(255,210,110,0.45); border-radius:8px; outline:none; }
+    .olPayErr { min-height:14px; margin-top:6px; font-size:11px; color:#f77; }
+  `;
+  document.head.appendChild(st);
+
+  const screen = document.createElement("div");
+  screen.id = "olShopScreen";
+  screen.style.cssText = "position:fixed;inset:0;background:url('image/playerprofile.png') center center / cover no-repeat rgba(0,0,0,0.55);display:none;flex-direction:column;z-index:9800;overflow:hidden;";
+  screen.innerHTML =
+    '<div class="invTitle">Shop</div>' +
+    '<div class="invGoldBar"><span class="invGoldAmountText" style="color:#ffe08a;">REAL MONEY (\u20B1 PHP)</span></div>' +
+    '<div class="shopBody">' +
+      '<div class="shopCatColumn">' +
+        ["weapon", "armor", "stone", "accessory"].map((c) =>
+          '<button class="hubBtn shopCatBtn olShopCatBtn" data-shop-cat="' + c + '"><span class="hubBtnRing"><span class="hubBtnDot"></span></span>' +
+          c.charAt(0).toUpperCase() + c.slice(1) + '</button>').join("") +
+        '<button class="hubBtn olShopOrdersBtn" id="olShopOrdersBtn"><span class="hubBtnRing"><span class="hubBtnDot"></span></span>Orders</button>' +
+      '</div>' +
+      '<div class="shopGridColumn">' +
+        '<div id="olShopGridBox" class="shopGridBox"><div id="olShopGridInner" class="shopGridInner"></div></div>' +
+        '<div class="invGridPager">' +
+          '<button id="olShopPrev" class="invGridArrowBtn" title="Previous page">\u25C0</button>' +
+          '<span id="olShopPageLabel" class="invGridPageLabel">1/4</span>' +
+          '<button id="olShopNext" class="invGridArrowBtn" title="Next page">\u25B6</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+    '<div id="olShopToast" class="hubToast"></div>' +
+    '<button id="olShopBack" class="menuBackBtn shopBackBtn">Back</button>';
+  document.body.appendChild(screen);
+
+  const popup = document.createElement("div");
+  popup.id = "olShopPopup";
+  document.body.appendChild(popup);
+
+  const inner = screen.querySelector("#olShopGridInner");
+  for (let i = 0; i < OL_SHOP_PAGE_SIZE; i++) {
+    const slot = document.createElement("div");
+    slot.className = "shopGridSlot";
+    slot.dataset.gridIndex = String(i);
+    inner.appendChild(slot);
+  }
+  inner.addEventListener("click", (e) => {
+    const slot = e.target.closest(".shopGridSlot");
+    if (!slot || !slot.classList.contains("filled")) return;
+    const entry = olShopCatalog(olShopCategory)[Number(slot.dataset.gridIndex)];
+    if (entry) olShopOpenItem(entry);
+  });
+  screen.querySelectorAll(".olShopCatBtn").forEach((b) => b.addEventListener("click", () => olShopSelectCategory(b.dataset.shopCat)));
+  screen.querySelector("#olShopPrev").addEventListener("click", () => olShopGoPage(-1));
+  screen.querySelector("#olShopNext").addEventListener("click", () => olShopGoPage(1));
+  screen.querySelector("#olShopBack").addEventListener("click", olShopClose);
+  screen.querySelector("#olShopOrdersBtn").addEventListener("click", olShopShowOrders);
+}
+
+function olShopPaint() {
+  const cat = olShopCatalog(olShopCategory);
+  document.querySelectorAll("#olShopGridInner .shopGridSlot").forEach((slot, i) => {
+    const entry = cat[olShopPage * OL_SHOP_PAGE_SIZE + i];
+    slot.dataset.gridIndex = String(olShopPage * OL_SHOP_PAGE_SIZE + i);
+    slot.innerHTML = "";
+    if (entry) {
+      const img = document.createElement("img");
+      img.className = "shopGridSlotImg";
+      img.src = entry.data.image || ("image/" + entry.name + ".png");
+      slot.appendChild(img);
+      const price = document.createElement("span");
+      price.className = "shopSlotPrice";
+      price.textContent = olShopPeso(entry.price);
+      slot.appendChild(price);
+      slot.classList.add("filled");
+      slot.dataset.type = entry.type;
+      slot.title = olShopLabel(entry);
+    } else {
+      slot.classList.remove("filled");
+      delete slot.dataset.type;
+      slot.title = "";
+    }
+  });
+  document.getElementById("olShopPageLabel").textContent = (olShopPage + 1) + "/" + OL_SHOP_PAGE_COUNT;
+  document.getElementById("olShopPrev").disabled = olShopPage === 0;
+  document.getElementById("olShopNext").disabled = olShopPage === OL_SHOP_PAGE_COUNT - 1;
+}
+
+function olShopGoPage(d) {
+  const n = olShopPage + d;
+  if (n < 0 || n >= OL_SHOP_PAGE_COUNT) return;
+  olShopPage = n;
+  olShopPaint();
+}
+
+function olShopSelectCategory(cat) {
+  olShopCategory = cat;
+  olShopPage = 0;
+  document.querySelectorAll(".olShopCatBtn").forEach((b) => b.classList.toggle("active", b.dataset.shopCat === cat));
+  olShopPaint();
+}
+
+function olShopOpen() {
+  olShopInstallUi();
+  if (!olShopData) { netToast("Shop is not ready yet, try again in a moment"); return; }
+  document.getElementById("olShopScreen").style.display = "flex";
+  olShopSelectCategory(olShopCategory);
+  olShopClaim();   // anything already paid for gets delivered when the shop opens
+}
+
+function olShopClose() {
+  const s = document.getElementById("olShopScreen");
+  if (s) s.style.display = "none";
+  olShopClosePopup();
+}
+
+function olShopClosePopup() {
+  const p = document.getElementById("olShopPopup");
+  if (p) { p.style.display = "none"; p.innerHTML = ""; }
+  olShopSelected = null;
+}
+
+function olShopShowPopup(html) {
+  const p = document.getElementById("olShopPopup");
+  p.innerHTML = '<div class="olPayCard">' + html + '</div>';
+  p.style.display = "flex";
+  return p;
+}
+
+function olShopEsc(s) {
+  return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+}
+
+// ---- step 1: item card (same look as the offline Buy popup) ----
+function olShopOpenItem(entry) {
+  olShopSelected = entry;
+  const p = olShopShowPopup(
+    '<div class="charStatsName">' + olShopEsc(olShopLabel(entry)) + '</div>' +
+    '<img class="shopItemImg" src="' + olShopEsc(entry.data.image || ("image/" + entry.name + ".png")) + '" />' +
+    '<div class="olPaySub">Price: <b style="color:#fff;font-size:15px;">' + olShopPeso(entry.price) + '</b></div>' +
+    '<div class="olPaySub">' + olShopEsc((entry.data && entry.data.description) || "") + '</div>' +
+    '<button class="olPayBtn green" id="olBuyBtn">Buy</button>' +
+    '<button class="olPayBtn gray" id="olCancelBtn">Cancel</button>');
+  p.querySelector("#olBuyBtn").addEventListener("click", () => olShopChooseMethod(entry));
+  p.querySelector("#olCancelBtn").addEventListener("click", olShopClosePopup);
+}
+
+// ---- step 2: how to pay ----
+function olShopChooseMethod(entry) {
+  const info = (olShopData && olShopData.PAYMENT_INFO) || {};
+  const bank = info.bank || {};
+  const hasBank = !!(bank.accountNumber && String(bank.accountNumber).trim());
+  const p = olShopShowPopup(
+    '<div class="olPayTitle">Pay ' + olShopPeso(entry.price) + '</div>' +
+    '<div class="olPaySub">' + olShopEsc(olShopLabel(entry)) + '</div>' +
+    '<button class="olPayBtn green" id="olPayAuto">GCash / Maya / GrabPay / Card<br><span style="font-weight:400;letter-spacing:0;font-size:10px;">automatic \u2014 item arrives by itself<br>works for international cards too</span></button>' +
+    '<button class="olPayBtn" id="olPayGcash">Send via GCash (manual)</button>' +
+    (hasBank ? '<button class="olPayBtn" id="olPayBank">Bank transfer (manual)</button>' : '') +
+    '<div class="olPayErr" id="olPayErr"></div>' +
+    '<button class="olPayBtn gray" id="olPayBack">Back</button>');
+  p.querySelector("#olPayAuto").addEventListener("click", () => olShopPayAuto(entry));
+  p.querySelector("#olPayGcash").addEventListener("click", () => olShopManualForm(entry, "gcash"));
+  const bb = p.querySelector("#olPayBank");
+  if (bb) bb.addEventListener("click", () => olShopManualForm(entry, "bank"));
+  p.querySelector("#olPayBack").addEventListener("click", () => olShopOpenItem(entry));
+}
+
+const OL_SHOP_ERRORS = {
+  AUTO_PAYMENT_OFF: "Automatic payment is not available yet. Please use the manual GCash option.",
+  PAYMENT_PROVIDER_ERROR: "The payment service did not respond. Please try again.",
+  TOO_MANY_OPEN_ORDERS: "You have too many unfinished orders. Finish or wait for them first.",
+  BAD_REFERENCE: "Enter the reference number from your payment receipt (letters/numbers, at least 8).",
+  BAD_SENDER: "Enter the name or number you paid from.",
+  REFERENCE_USED: "That reference number was already submitted.",
+  BAD_ITEM: "That item is not for sale.",
+  UNAUTHORIZED: "Please log in again.",
+  SAVES_DISABLED: "The server is not ready for payments yet."
+};
+function olShopErrText(r) {
+  const code = r && r.json && r.json.error;
+  return OL_SHOP_ERRORS[code] || ("Something went wrong (" + (code || (r && r.status) || "network") + "). Please try again.");
+}
+
+async function olShopPayAuto(entry) {
+  const btn = document.getElementById("olPayAuto");
+  const err = document.getElementById("olPayErr");
+  if (btn) btn.disabled = true;
+  if (err) err.textContent = "Opening payment page...";
+  try {
+    const r = await olApiPost("/api/shop/paymongo", {
+      type: entry.shopType, name: entry.name,
+      returnUrl: location.href.split("#")[0]
+    });
+    if (r.status !== 200 || !r.json.checkoutUrl) {
+      if (err) err.textContent = olShopErrText(r);
+      if (btn) btn.disabled = false;
+      return;
+    }
+    try { localStorage.setItem(OL_SHOP_PENDING_KEY, String(Date.now())); } catch (e) {}
+    try { if (typeof olSaveNowOnLeave === "function") olSaveNowOnLeave(); } catch (e) {}   // keep progress before leaving the page
+    location.href = r.json.checkoutUrl;
+  } catch (e) {
+    if (err) err.textContent = "No connection. Please try again.";
+    if (btn) btn.disabled = false;
+  }
+}
+
+function olShopManualForm(entry, channel) {
+  const info = (olShopData && olShopData.PAYMENT_INFO) || {};
+  const dest = channel === "bank" ? (info.bank || {}) : (info.gcash || {});
+  const lines = channel === "bank"
+    ? 'Bank: <b>' + olShopEsc(dest.bankName || "") + '</b><br>Account name: <b>' + olShopEsc(dest.accountName || "") + '</b><br>Account no.: <b>' + olShopEsc(dest.accountNumber || "") + '</b>'
+    : 'GCash number: <b>' + olShopEsc(dest.number || "") + '</b><br>Account name: <b>' + olShopEsc(dest.name || "") + '</b>';
+  const p = olShopShowPopup(
+    '<div class="olPayTitle">' + (channel === "bank" ? "Bank transfer" : "Send via GCash") + '</div>' +
+    '<div class="olPayBox">Send exactly <b>' + olShopPeso(entry.price) + '</b><br>' + lines + '</div>' +
+    '<div class="olPaySub">After paying, type the reference number from your receipt. The owner checks it and your item is delivered after approval.</div>' +
+    '<input class="olPayInput" id="olPayRef" maxlength="30" placeholder="Reference no." autocomplete="off" />' +
+    '<input class="olPayInput" id="olPaySender" maxlength="40" placeholder="Your GCash number / name" autocomplete="off" />' +
+    '<div class="olPayErr" id="olPayErr"></div>' +
+    '<button class="olPayBtn green" id="olPaySubmit">I paid \u2014 submit</button>' +
+    '<button class="olPayBtn gray" id="olPayBack">Back</button>');
+  p.querySelector("#olPayBack").addEventListener("click", () => olShopChooseMethod(entry));
+  p.querySelector("#olPaySubmit").addEventListener("click", async () => {
+    const ref = p.querySelector("#olPayRef").value.trim();
+    const sender = p.querySelector("#olPaySender").value.trim();
+    const err = p.querySelector("#olPayErr");
+    const btn = p.querySelector("#olPaySubmit");
+    if (!ref || !sender) { err.textContent = "Fill in both boxes."; return; }
+    btn.disabled = true; err.textContent = "Sending...";
+    try {
+      const r = await olApiPost("/api/shop/manual", { type: entry.shopType, name: entry.name, channel, ref, sender });
+      if (r.status !== 200 || !r.json.ok) { err.textContent = olShopErrText(r); btn.disabled = false; return; }
+      olShopClosePopup();
+      olShopToast("Payment submitted. Your item arrives after the owner approves it.");
+      olShopStartWatching();
+    } catch (e) { err.textContent = "No connection. Please try again."; btn.disabled = false; }
+  });
+}
+
+// ---- my orders list ----
+async function olShopShowOrders() {
+  const p = olShopShowPopup('<div class="olPayTitle">My orders</div><div class="olPaySub">Loading...</div><button class="olPayBtn gray" id="olOrdersClose">Close</button>');
+  p.querySelector("#olOrdersClose").addEventListener("click", olShopClosePopup);
+  try {
+    const r = await olApiPost("/api/shop/orders", {});
+    if (r.status !== 200) { p.querySelector(".olPaySub").textContent = olShopErrText(r); return; }
+    const names = { awaiting_payment: "waiting for payment", review: "waiting for owner approval", paid: "paid \u2014 delivering", claimed: "paid \u2014 delivering", delivered: "delivered", rejected: "rejected", failed: "not completed", pending: "not completed" };
+    const rows = (r.json.orders || []).map((o) =>
+      '<div class="olPayBox" style="text-align:left;">' + olShopEsc(o.name) + ' \u2014 <b>' + olShopPeso(o.price) + '</b><br>' + olShopEsc(names[o.status] || o.status) + '</div>').join("");
+    p.querySelector(".olPaySub").outerHTML = rows || '<div class="olPaySub">No orders yet.</div>';
+    olShopClaim();
+  } catch (e) { p.querySelector(".olPaySub").textContent = "No connection."; }
+}
+
+// ---- delivery: put paid items in the inventory, save, confirm ----
+async function olShopClaim() {
+  if (olShopClaimBusy) return;
+  if (typeof addItemToInventory !== "function") return;
+  // The inventory is only loaded once the online profile is running; wait for it.
+  if (!onlineProfileActive || !netIsOnline()) {
+    if (olShopClaimTries++ < 20) setTimeout(olShopClaim, 3000);
+    return;
+  }
+  olShopClaimTries = 0;
+  olShopClaimBusy = true;
+  try {
+    const r = await olApiPost("/api/shop/claim", {});
+    if (r.status !== 200 || !Array.isArray(r.json.items) || !r.json.items.length) return;
+    const done = [];
+    let full = false;
+    for (const it of r.json.items) {
+      const data = olShopLookup(it.type, it.name);
+      if (!data) continue;   // unknown item: leave it, the server offers it again later
+      const itemType = olShopItemType(it.type, data);
+      if (addItemToInventory(itemType, it.name, data, 1)) {
+        done.push(it.orderId);
+        olShopToast("Delivered: " + (data.name || it.name));
+        try { netToast("Shop delivery: " + (data.name || it.name)); } catch (e) {}
+      } else { full = true; }
+    }
+    if (full) olShopToast("Inventory full \u2014 free a slot, the rest of your items will arrive soon.");
+    if (done.length) {
+      try { await saveOnlinePlayerData(); } catch (e) {}
+      await olApiPost("/api/shop/ack", { orderIds: done });
+      try { localStorage.removeItem(OL_SHOP_PENDING_KEY); } catch (e) {}
+    }
+    if (full) setTimeout(olShopClaim, 130000);   // the server offers unconfirmed items again after 2 minutes
+  } catch (e) {
+    /* network hiccup: the next poll tries again */
+  } finally {
+    olShopClaimBusy = false;
+  }
+}
+
+// While a payment is on its way: ask the server every 10 s (it checks PayMongo itself).
+function olShopStartWatching() {
+  olShopWatching = true;
+  if (olShopPollTimer) return;
+  let ticks = 0;
+  olShopPollTimer = setInterval(async () => {
+    if (!netIsOnline() || ++ticks > 90) {   // ~15 minutes, then stop (the server also tells us when something is paid)
+      clearInterval(olShopPollTimer); olShopPollTimer = null; olShopWatching = false; return;
+    }
+    try { await olApiPost("/api/shop/orders", {}); } catch (e) {}
+    olShopClaim();
+  }, 10000);
+}
+
+// ---- the SHOP button itself ----
+function olUpdateShopButton() {
+  const bar = document.getElementById("hudTopRight");
+  if (!bar) return;
+  let btn = document.getElementById("onlineShopBtn");
+  if (!btn) {
+    olShopInstallUi();
+    btn = document.createElement("button");
+    btn.id = "onlineShopBtn";
+    btn.title = "Shop";
+    btn.textContent = "SHOP";
+    btn.style.display = "none";
+    btn.addEventListener("click", olShopOpen);
+    bar.insertBefore(btn, bar.firstChild);
+  }
+  const on = netIsOnline();
+  btn.style.display = on ? "block" : "none";
+  if (on) {
+    // came back from the PayMongo page, or just connected: collect whatever is paid
+    let pending = false;
+    try { pending = !!localStorage.getItem(OL_SHOP_PENDING_KEY); } catch (e) {}
+    if (pending) olShopStartWatching();
+    olShopClaim();
+  } else {
+    olShopClose();
+  }
+}
+
 // Shows/hides the whole PARTY button — only meaningful in online mode.
 function netUpdatePartyButtonVisibility() {
   if (partyPanelBtn) partyPanelBtn.style.display = netIsOnline() ? "" : "none";
   if (!netIsOnline()) netSetPartyPanelOpen(false);
+  olUpdateShopButton();   // SHOP button (top-right) follows online/offline too
 }
 
 if (partyPanelBtn) {
@@ -2628,6 +3059,11 @@ function netRespawn() {
 // ---------------------------------------------------------------------------
 function netHandle(msg) {
   switch (msg.type) {
+    case "shopPaid":
+      // The server has a paid shop order for this account: collect it now.
+      olShopClaim();
+      break;
+
     case "playerAdd":
       netAddRemote(msg.player);
       netToast(msg.player.name + " joined");
