@@ -2522,6 +2522,60 @@ function olShopEsc(s) {
   return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 }
 
+// ---- stats list for the item card (same rows the inventory stats popup shows) ----
+const OL_SHOP_EXTRA_STATS = [
+  ["magicalAttack", "Magical Attack"],
+  ["magicalDefense", "Magical Defense"],
+  ["criticalChance", "Critical Chance", (v) => Math.round(v * 1000) / 10 + "%"],
+  ["criticalDamage", "Critical Damage", (v) => Math.round(v * 1000) / 10 + "%"],
+  ["mana", "Mana"],
+  ["hpRegen", "HP Regen", (v) => Math.round(v * 1000) / 10 + "%"],
+  ["manaRegen", "Mana Regen", (v) => Math.round(v * 1000) / 10 + "%"],
+  ["movementSpeed", "Movement Speed"],
+  ["vit", "VIT"],
+  ["dex", "DEX"],
+  ["int", "INT"],
+  ["pow", "POW"]
+];
+
+function olShopStatRows(entry) {
+  const d = (entry && entry.data) || {};
+  const type = String((entry && entry.type) || d.category || "");
+  const rows = [];
+  const num = (v) => typeof v === "number" && isFinite(v);
+  if (type) rows.push(["Type", type.charAt(0).toUpperCase() + type.slice(1)]);
+  if (typeof d.requiredType === "string" && d.requiredType) {
+    rows.push(["Required Type", d.requiredType.charAt(0).toUpperCase() + d.requiredType.slice(1)]);
+  }
+  if (d.requiredStat) {
+    let st = "", amt = NaN;
+    if (typeof d.requiredStat === "string") {
+      const m = d.requiredStat.trim().match(/^([a-z]+)\s*=\s*(\d+(?:\.\d+)?)$/i);
+      if (m) { st = m[1]; amt = Number(m[2]); }
+    } else if (typeof d.requiredStat === "object") {
+      const k = Object.keys(d.requiredStat)[0];
+      if (k) { st = k; amt = Number(d.requiredStat[k]); }
+    }
+    if (st && amt > 0) rows.push(["Required Stat", st.toUpperCase() + " " + amt]);
+  }
+  if (type === "weapon") {
+    rows.push(["Physical Damage", num(d.physicalDamage) ? d.physicalDamage : "\u2014"]);
+    if (num(d.health)) rows.push(["Health", "+" + d.health]);
+    OL_SHOP_EXTRA_STATS.forEach((r) => { if (num(d[r[0]]) && d[r[0]] !== 0) rows.push([r[1], "+" + (r[2] ? r[2](d[r[0]]) : d[r[0]])]); });
+  } else if (type === "armor" || type === "ring" || type === "accessory") {
+    let pd = d.physicalDefense;
+    if (typeof pd === "string") { const ref = olShopLookup("armor", pd); pd = ref && ref.physicalDefense; }   // armor can point at another armor by name
+    if (!num(pd)) pd = d.defense;
+    if (num(pd)) rows.push(["Physical Defense", (type === "armor" ? "" : "+") + pd]);
+    else if (type === "armor") rows.push(["Physical Defense", "\u2014"]);
+    if (num(d.health)) rows.push(["Health", "+" + d.health]);
+    if (num(d.block) && d.block > 0) rows.push(["Block Chance", d.block + "%"]);
+    OL_SHOP_EXTRA_STATS.forEach((r) => { if (num(d[r[0]]) && d[r[0]] !== 0) rows.push([r[1], "+" + (r[2] ? r[2](d[r[0]]) : d[r[0]])]); });
+  }
+  return rows.map((r) =>
+    '<div class="charStatsRow"><span class="charStatsLabel">' + olShopEsc(r[0]) + '</span><span class="charStatsValue">' + olShopEsc(r[1]) + '</span></div>').join("");
+}
+
 // ---- step 1: item card (same look as the offline Buy popup) ----
 function olShopOpenItem(entry) {
   olShopSelected = entry;
@@ -2529,6 +2583,7 @@ function olShopOpenItem(entry) {
     '<div class="charStatsName">' + olShopEsc(olShopLabel(entry)) + '</div>' +
     '<img class="shopItemImg" src="' + olShopEsc(entry.data.image || ("image/" + entry.name + ".png")) + '" />' +
     '<div class="olPaySub">Price: <b style="color:#fff;font-size:15px;">' + olShopPeso(entry.price) + '</b></div>' +
+    '<div style="margin-top:8px;">' + olShopStatRows(entry) + '</div>' +
     '<div class="olPaySub">' + olShopEsc((entry.data && entry.data.description) || "") + '</div>' +
     '<button class="olPayBtn green" id="olBuyBtn">Buy</button>' +
     '<button class="olPayBtn gray" id="olCancelBtn">Cancel</button>');
