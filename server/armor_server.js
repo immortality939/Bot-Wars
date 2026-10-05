@@ -1664,7 +1664,7 @@ function rollArmorBlock(target) {
 // This is the ONLINE copy (the offline one is armor.js) — keep both the same.
 // ---------------------------------------------------------------------------
 const SELL_PRICE_MIN = 1;
-const SELL_PRICE_MAX = 500000;
+const SELL_PRICE_MAX = 50000;
 const SELL_PRICE_CURVE = 2;
 const SELL_STAT_MAX = {
   physicalDamage: 100,
