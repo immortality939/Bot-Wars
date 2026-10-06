@@ -118,17 +118,26 @@ const BOSS_EVENT = {
 const CLAN_WAR = {
   KEY: "CWmap",
   DAYS: [2, 4, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
-  START_HOUR: 14,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
-  END_HOUR: 14.5,         // 9 PM  (21)
+  START_HOUR: 13,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
+  END_HOUR: 13.5,         // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,     // Philippines
   // The AUTHENTICATE / CLAIM REWARD pad on the map floor (x, y = center, size = width/height).
   // Keep in sync with OL_CW.PAD in online_client.js.
   PAD: { x: 1000, y: 150, size: 110 },
   AUTH_SECONDS: 30,
   CLAIM_EXIT_SECONDS: 20,
+  CLAIM_TIMEOUT_SECONDS: 600,   // safety: winners who never claim are sent back this long after the war ends
+  // Each winner (clan member standing in the map) presses CLAIM REWARD and:
+  //   - picks ONE gear item (weapon / armor / ring / accessory): whoever picks it first gets it, it then disappears for the others
+  //   - gets an equal SHARE of every gold / stone / orb stack (total / number of winners; the last claimer gets what is left)
+  // { kind:"gold", total:N }                       -> N gold shared between the winners
+  // { kind:"stone"|"orb", type:"specialstone", total:N } -> N of that item shared between the winners
+  // { kind:"weapon"|"armor"|"ring"|"accessory", type:"<item name>" } -> ONE item, first come first served
   REWARDS: [
     { kind: "gold", total: 25 },
-    { kind: "armor", type: "armor1" }
+    { kind: "armor", type: "armor1" },
+    { kind: "ring", type: "ring01" },
+    { kind: "accessory", type: "accessory01" }
   ]
 };
 if (!MAPS[CLAN_WAR.KEY]) console.error("WARNING: clan war map missing - upload server/cwmap_server.js. CLAN WAR is disabled until then.");
@@ -1424,14 +1433,28 @@ function cwTouchingPad(p) {
   return Math.hypot(p.x - cx, p.y - cy) <= r;
 }
 function cwRoom(sid) { return getRoom(sid, CHANNEL_PVP, CLAN_WAR.KEY); }   // both channels share ONE clan war room per server
+const CW_STACK_KINDS = ["gold", "stone", "orb"];
+function cwShare(st, i) {   // what the NEXT claimer gets from stack i
+  const r = CLAN_WAR.REWARDS[i], left = st.remain[i], n = Math.max(1, st.shareCount || 1);
+  const claimsLeft = n - st.claimedIds.size;
+  if (claimsLeft <= 1) return left;
+  return Math.min(left, Math.floor((r.total || 0) / n));
+}
+function cwRewardView(st) {
+  return CLAN_WAR.REWARDS.map((r, i) => CW_STACK_KINDS.includes(r.kind)
+    ? { kind: r.kind, type: r.type, total: st.remain[i], share: cwShare(st, i) }
+    : { kind: r.kind, type: r.type, total: 1, taken: st.taken.has(i) });
+}
 function cwSendState(p) {
   const st = cwStates.get(p.server);
   if (!st) return;
+  const mine = !!(st.claimedIds && st.claimedIds.has(p.id));
+  const isOwner = !!(p.clanId && p.clanId === st.owner);
   send(p.ws, {
     type: "cwState", phase: st.phase, ownerName: st.ownerName || "",
-    owner: !!(p.clanId && p.clanId === st.owner), claimed: st.claimed,
-    rewards: (st.phase === "ended" && p.clanId && p.clanId === st.owner && !st.claimed) ? CLAN_WAR.REWARDS : undefined,   // shown in the CLAIM REWARD box
-    exitIn: st.claimed ? Math.max(0, Math.ceil((st.exitAt - Date.now()) / 1000)) : 0
+    owner: isOwner, claimed: mine,   // claimed = THIS player already claimed
+    rewards: (st.phase === "ended" && isOwner && !mine) ? cwRewardView(st) : undefined,   // shown in the CLAIM REWARD box
+    exitIn: mine ? Math.max(0, Math.ceil(((p.cwExitAt || 0) - Date.now()) / 1000)) : 0
   });
 }
 function cwBroadcastState(sid) { for (const p of cwRoom(sid).values()) cwSendState(p); }
@@ -1440,7 +1463,7 @@ function cwCancelAuth(p) { p.cwAuth = null; send(p.ws, { type: "cwAuthFail" }); 
 function cwKick(p, text) {
   let r = validateSavedSpot(p.cwReturn);
   if (!r || r.map === CLAN_WAR.KEY) { const m = MAPS[START_MAP]; r = { map: START_MAP, x: m.worldWidth / 2, y: m.worldHeight / 2 }; }
-  p.cwReturn = null; p.cwAuth = null;
+  p.cwReturn = null; p.cwAuth = null; p.cwExitAt = 0;
   bossMovePlayer(p, r.map, { x: r.x, y: r.y }, true, { type: "cwMove", eventName: "CLAN WAR", text });
 }
 function cwAuthDone(p, st) {
@@ -1455,18 +1478,6 @@ function cwAuthDone(p, st) {
   }
   for (const q of players.values()) if (q.server === p.server) send(q.ws, { type: "cwOwned", clanName: st.ownerName });   // everyone on this server sees it, wherever they are
   cwBroadcastState(p.server);
-}
-function cwDistributeReward(st) {
-  const members = [...players.values()].filter((q) => q.clanId && q.clanId === st.owner && q.ws.readyState === 1);
-  if (!members.length) return;
-  for (const q of members) {
-    const items = [];
-    for (const r of CLAN_WAR.REWARDS) {
-      if (r.kind === "gold") items.push({ kind: "gold", amount: Math.max(1, Math.floor(r.total / members.length)) });
-      else items.push({ kind: r.kind, type: r.type });
-    }
-    send(q.ws, { type: "cwReward", items });
-  }
 }
 setInterval(() => {
   const open = cwWindowOpen();
@@ -1490,14 +1501,20 @@ setInterval(() => {
         if (!st.owner || p.clanId !== st.owner) cwKick(p, "The Clan War has ended. You were returned to your last position.");
       }
       if (!st.owner) { cwStates.delete(sid); continue; }
+      st.endedAt = Date.now();
+      st.taken = new Set(); st.claimedIds = new Set();
+      st.remain = CLAN_WAR.REWARDS.map((r) => (CW_STACK_KINDS.includes(r.kind) ? Math.max(0, r.total || 1) : 0));
+      st.shareCount = Math.max(1, [...room.values()].filter((p) => p.clanId === st.owner).length);   // the winners inside the map
       cwBroadcastState(sid);
     }
     if (st.phase === "ended") {
       if (room.size === 0) { cwStates.delete(sid); continue; }
-      if (st.claimed && Date.now() >= st.exitAt) {
-        for (const p of [...room.values()]) cwKick(p, "Reward claimed. You were returned to your last position.");
-        cwStates.delete(sid);
+      // each winner leaves 20 s after THEIR OWN claim; the others keep waiting
+      for (const p of [...room.values()]) if (p.cwExitAt && Date.now() >= p.cwExitAt) cwKick(p, "Reward claimed. You were returned to your last position.");
+      if (Date.now() - (st.endedAt || 0) > CLAN_WAR.CLAIM_TIMEOUT_SECONDS * 1000) {
+        for (const p of [...room.values()]) cwKick(p, "The Clan War reward time is over. You were returned to your last position.");
       }
+      if (cwRoom(sid).size === 0) cwStates.delete(sid);
     }
   }
 }, 250);
@@ -2080,7 +2097,7 @@ wss.on("connection", (ws) => {
         if (Date.now() - me.lastMapChange < 300) break;
         me.clanId = myClan.id;
         let st = cwStates.get(me.server);
-        if (!st) { st = { owner: null, ownerName: "", phase: "open", claimed: false, exitAt: 0 }; cwStates.set(me.server, st); }
+        if (!st) { st = { owner: null, ownerName: "", phase: "open" }; cwStates.set(me.server, st); }
         if (st.phase !== "open") { deny("CLAN WAR is over for today."); break; }
         me.cwReturn = { map: me.map, x: me.x, y: me.y };   // brought back here when you leave
         const m = MAPS[CLAN_WAR.KEY];
@@ -2101,16 +2118,33 @@ wss.on("connection", (ws) => {
       }
       case "cwClaim": {
         const st = cwStates.get(me.server);
-        if (me.map !== CLAN_WAR.KEY || !st || st.phase !== "ended" || st.claimed || !me.clanId || me.clanId !== st.owner) break;
-        if (!cwTouchingPad(me)) break;   // must be standing on the CLAIM REWARD pad
-        st.claimed = true;
-        st.exitAt = Date.now() + CLAN_WAR.CLAIM_EXIT_SECONDS * 1000;
-        cwDistributeReward(st);
+        if (me.map !== CLAN_WAR.KEY || !st || st.phase !== "ended" || !st.claimedIds || !me.clanId || me.clanId !== st.owner) break;
+        if (st.claimedIds.has(me.id)) break;          // everybody claims once
+        if (!cwTouchingPad(me)) break;                // must be standing on the CLAIM REWARD pad
+        const R = CLAN_WAR.REWARDS;
+        const gearLeft = [];
+        R.forEach((r, i) => { if (!CW_STACK_KINDS.includes(r.kind) && !st.taken.has(i)) gearLeft.push(i); });
+        const pick = Number.isInteger(msg.pick) ? msg.pick : -1;
+        if (gearLeft.length && !gearLeft.includes(pick)) {
+          send(ws, { type: "cwDenied", reason: pick < 0 ? "Choose one item first." : "That item was already taken. Choose another one." });
+          cwSendState(me);
+          break;
+        }
+        const items = [];
+        if (gearLeft.length) { st.taken.add(pick); items.push({ kind: R[pick].kind, type: R[pick].type }); }   // gone for the other clanmates
+        R.forEach((r, i) => {
+          if (!CW_STACK_KINDS.includes(r.kind)) return;
+          const amount = cwShare(st, i);
+          if (amount <= 0) return;
+          st.remain[i] -= amount;
+          items.push({ kind: r.kind, type: r.type, amount });
+        });
+        st.claimedIds.add(me.id);
+        me.cwExitAt = Date.now() + CLAN_WAR.CLAIM_EXIT_SECONDS * 1000;   // MY 20 s countdown starts now
+        send(ws, { type: "cwReward", items });
         cwBroadcastState(me.server);
         break;
       }
-
-      // WAR ZONE > BOSS EVENT > ENTER MAP. The server re-checks everything.
       case "bossEnter": {
         const deny = (reason) => send(ws, { type: "bossDenied", reason });
         if (me.map === BOSS_EVENT.KEY || me.map === CLAN_WAR.KEY) break;
