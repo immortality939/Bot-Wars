@@ -102,8 +102,8 @@ const BOSS_EVENT = {
   KEY: "BOSSEVENT",
   MIN_LEVEL: 1,
   DAYS: [1, 2, 5],        // 0=Sunday ... 1=Monday, 3=Wednesday, 5=Friday
-  START_HOUR: 22.5,         // 8 PM
-  END_HOUR: 22.75,           // 10 PM (everyone is sent back to their last map)
+  START_HOUR: 22.75,         // 8 PM
+  END_HOUR: 22.85,           // 10 PM (everyone is sent back to their last map)
   TZ_OFFSET_HOURS: 8      // Philippines
 };
 // ---- CLAN WAR (hard-coded) ---------------------------------------------------
@@ -118,8 +118,8 @@ const BOSS_EVENT = {
 const CLAN_WAR = {
   KEY: "CWmap",
   DAYS: [2, 4, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
-  START_HOUR: 22.5,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
-  END_HOUR: 22.75,         // 9 PM  (21)
+  START_HOUR: 22.75,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
+  END_HOUR: 22.85,         // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,     // Philippines
   // The AUTHENTICATE / CLAIM REWARD pad on the map floor (x, y = center, size = width/height).
   // Keep in sync with OL_CW.PAD in online_client.js.
