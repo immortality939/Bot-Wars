@@ -2821,7 +2821,7 @@ if (partyPanelLeaveBtn) {
 // Hard-coded here (keep in sync with BOSS_EVENT in server.js):
 const OL_BOSS = {
   KEY: "BOSSEVENT",
-  MIN_LEVEL: 1,
+  MIN_LEVEL: 20,
   DAYS: [1, 2, 5],       // Monday, Wednesday, Friday
   START_HOUR: 23,        // 8 PM
   END_HOUR: 24,          // 10 PM
@@ -3036,8 +3036,8 @@ function olBossApplyMove(msg) {
 const OL_CW = {
   KEY: "CWmap",
   DAYS: [2, 4, 6, 0],    // Tuesday, Thursday, Saturday, Sunday
-  START_HOUR: 22.5,        // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
-  END_HOUR: 23,        // 9 PM  (21)
+  START_HOUR: 23,        // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
+  END_HOUR: 23.5,        // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,    // Philippine time
   // The AUTHENTICATE / CLAIM REWARD pad lying on the map floor (top middle of the map).
   // x, y = its CENTER in map pixels, size = its width/height. Keep in sync with CLAN_WAR.PAD in server.js.
@@ -3221,7 +3221,7 @@ function olCwBuildBox() {
       const img = document.createElement("img");
       img.src = entry.data.image || ("image/" + entry.name + ".png");
       slot.appendChild(img);
-      if (olCwIsStack(r)) { const q = document.createElement("span"); q.className = "cwQty"; q.textContent = r.total; slot.appendChild(q); }
+      if (olCwIsStack(r) || r.total > 1) { const q = document.createElement("span"); q.className = "cwQty"; q.textContent = r.total; slot.appendChild(q); }
       slot.addEventListener("click", () => {
         if (!olCwIsStack(r)) { olCwPick = i; olCwBoxKey = ""; olCwBuildBox(); }   // select this one (replaces the previous choice)
         if (typeof window.openItemStatsPopup === "function") window.openItemStatsPopup(null, entry);
@@ -3612,8 +3612,10 @@ function netOnDeath(killerId) {
 
 function netRespawn() {
   respawnPlayerOffline();   // full health, gear re-applied (it also picks a random spawn point — overridden just below)
+  // Dying inside the Clan War: respawn in the World Map at my last spot (the server moves me, see "worldEnter").
+  const cwDeath = (typeof olCwInside === "function") && olCwInside();
   // Respawn on the spot where I died instead of a random spawn point.
-  if (netDeathPos) {
+  if (netDeathPos && !cwDeath) {
     playerPos.x = netDeathPos.x;
     playerPos.y = netDeathPos.y;
     netDeathPos = null;
@@ -3622,6 +3624,7 @@ function netRespawn() {
   deathOverlay.style.display = "none";
   netSpawnProtectUntil = performance.now() + NET_SPAWN_PROTECT_MS;
   netSendState();
+  if (cwDeath) { netDeathPos = null; netSend({ type: "worldEnter", respawn: true }); }
 }
 
 // ---------------------------------------------------------------------------
