@@ -2821,10 +2821,10 @@ if (partyPanelLeaveBtn) {
 // Hard-coded here (keep in sync with BOSS_EVENT in server.js):
 const OL_BOSS = {
   KEY: "BOSSEVENT",
-  MIN_LEVEL: 1,
-  DAYS: [1, 2, 5],       // Monday, Wednesday, Friday
-  START_HOUR: 11,        // 8 PM
-  END_HOUR: 12,          // 10 PM
+  MIN_LEVEL: 2,
+  DAYS: [1, 3, 5],       // Monday, Wednesday, Friday
+  START_HOUR: 20,        // 8 PM
+  END_HOUR: 22,          // 10 PM
   TZ_OFFSET_HOURS: 8,    // Philippine time
   CLOSED_TEXT: "BOSS EVENT is only available on Monday, Wednesday and Friday, at 8PM only."
 };
