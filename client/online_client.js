@@ -3021,9 +3021,12 @@ function olBossApplyMove(msg) {
 const OL_CW = {
   KEY: "CWmap",
   DAYS: [2, 4, 6, 0],    // Tuesday, Thursday, Saturday, Sunday
-  START_HOUR: 13,        // 8 PM
-  END_HOUR: 14,          // 9 PM
+  START_HOUR: 13,        // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
+  END_HOUR: 13.5,        // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,    // Philippine time
+  // The AUTHENTICATE / CLAIM REWARD pad lying on the map floor (top middle of the map).
+  // x, y = its CENTER in map pixels, size = its width/height. Keep in sync with CLAN_WAR.PAD in server.js.
+  PAD: { x: 1000, y: 150, size: 110 },
   CLOSED_TEXT: "CLAN WAR is only available on Tuesday, Thursday, Saturday and Sunday, 8PM to 9PM only."
 };
 
@@ -3032,11 +3035,9 @@ const OL_CW = {
   st.id = "olCwStyle";
   st.textContent = `
     #cwAuthBtn { position:fixed; top:calc(34px + env(safe-area-inset-top, 0px)); left:50%; transform:translateX(-50%); z-index:893; display:none;
-      font-family:'Courier New',Courier,monospace; font-weight:900; letter-spacing:2px; font-size:11px; padding:7px 16px; cursor:pointer;
-      touch-action:manipulation; color:#fff3d6; border:1px solid rgba(255,200,90,0.8); border-radius:5px;
-      background:linear-gradient(160deg, rgba(90,60,10,0.95), rgba(40,24,4,0.97)); text-shadow:0 0 6px rgba(255,200,90,0.7); }
-    #cwAuthBtn:active { transform:translateX(-50%) scale(0.96); }
-    #cwAuthBtn:disabled { opacity:0.65; cursor:default; }
+      pointer-events:none; font-family:'Courier New',Courier,monospace; font-weight:900; letter-spacing:2px; font-size:11px; padding:5px 14px;
+      color:#fff3d6; border:1px solid rgba(255,200,90,0.8); border-radius:5px; white-space:nowrap;
+      background:rgba(40,24,4,0.85); text-shadow:0 0 6px rgba(255,200,90,0.7); }
     #cwAuthBarWrap { position:fixed; top:calc(66px + env(safe-area-inset-top, 0px)); left:50%; transform:translateX(-50%); z-index:893; display:none;
       width:min(52vw,220px); height:12px; box-sizing:border-box; background:rgba(0,0,0,0.65); border:1px solid rgba(255,255,255,0.45); border-radius:3px; overflow:hidden; pointer-events:none; }
     #cwAuthBar { height:100%; width:0%; background:linear-gradient(180deg,#5dff7a,#1fbf3d); }
@@ -3050,9 +3051,8 @@ const OL_CW = {
   document.head.appendChild(st);
 })();
 
-const cwAuthBtn = document.createElement("button");
+const cwAuthBtn = document.createElement("div");   // status label only (the real button is the pad on the map floor)
 cwAuthBtn.id = "cwAuthBtn";
-cwAuthBtn.textContent = "AUTHENTICATE";
 document.body.appendChild(cwAuthBtn);
 const cwAuthBarWrap = document.createElement("div");
 cwAuthBarWrap.id = "cwAuthBarWrap";
@@ -3075,45 +3075,82 @@ function olCwOnState(msg) {
   };
   olCwRefresh();
 }
-// Draws the button + bar from olCwState / olCwAuth (also called ~5x a second).
+// Shows the status label + authentication bar (HUD) from olCwState / olCwAuth (also called ~5x a second).
+// The AUTHENTICATE / CLAIM REWARD "button" itself is the pad on the map floor (drawCwPad below).
 function olCwRefresh() {
   if (!olCwInside() || !olCwState) {
     cwAuthBtn.style.display = "none"; cwAuthBarWrap.style.display = "none";
     return;
   }
-  cwAuthBtn.style.display = "block";
   const st = olCwState;
+  let label = "";
   if (st.phase === "ended") {
     cwAuthBarWrap.style.display = "none";
-    if (st.owner && !st.claimed) { cwAuthBtn.textContent = "CLAIM REWARD"; cwAuthBtn.disabled = false; }
-    else if (st.claimed) {
-      const left = Math.max(0, Math.ceil((st.exitAt - performance.now()) / 1000));
-      cwAuthBtn.textContent = "LEAVING IN " + left + "s"; cwAuthBtn.disabled = true;
-    } else { cwAuthBtn.textContent = "CLAN WAR ENDED"; cwAuthBtn.disabled = true; }
-    return;
-  }
-  if (olCwAuth) {
+    if (st.owner && !st.claimed) label = "TOUCH THE CLAIM REWARD PAD";
+    else if (st.claimed) label = "LEAVING IN " + Math.max(0, Math.ceil((st.exitAt - performance.now()) / 1000)) + "s";
+    else label = "CLAN WAR ENDED";
+  } else if (olCwAuth) {
     const pct = Math.min(100, ((performance.now() - olCwAuth.start) / (olCwAuth.seconds * 1000)) * 100);
     document.getElementById("cwAuthBar").style.width = pct + "%";
     cwAuthBarWrap.style.display = "block";
-    cwAuthBtn.textContent = "AUTHENTICATING..."; cwAuthBtn.disabled = true;
+    label = "AUTHENTICATING...";
   } else {
     cwAuthBarWrap.style.display = "none";
-    if (st.owner) { cwAuthBtn.textContent = "YOUR CLAN OWNS THIS"; cwAuthBtn.disabled = true; }
-    else { cwAuthBtn.textContent = "AUTHENTICATE"; cwAuthBtn.disabled = isDead; }
+    label = st.owner ? "YOUR CLAN OWNS THIS" : "FIND THE AUTHENTICATE PAD AND TOUCH IT";
   }
+  cwAuthBtn.textContent = label;
+  cwAuthBtn.style.display = label ? "block" : "none";
 }
 setInterval(olCwRefresh, 200);
 
-cwAuthBtn.addEventListener("click", () => {
-  if (!olCwState || cwAuthBtn.disabled) return;
-  if (olCwState.phase === "ended") { if (olCwState.owner && !olCwState.claimed) netSend({ type: "cwClaim" }); return; }
-  netSend({ type: "cwAuth" });   // the server runs the 30 s timer; dying cancels it
-});
+// ---- the pad on the map floor -------------------------------------------------
+const olCwPadImgs = {};
+function olCwPadImage(path) {
+  if (!olCwPadImgs[path]) { const im = new Image(); im.src = path; olCwPadImgs[path] = im; }
+  return olCwPadImgs[path];
+}
+// What the pad currently is: "auth" (authenticate.png), "claim" (claimreward.png) or null (hidden).
+function olCwPadMode() {
+  if (!olCwInside() || !olCwState) return null;
+  const st = olCwState;
+  if (st.phase === "ended") return (st.owner && !st.claimed) ? "claim" : null;
+  return "auth";
+}
+// Called by game.js while drawing the world (under the players).
+function drawCwPad(ctx, offX, offY) {
+  const mode = olCwPadMode();
+  if (!mode) return;
+  const P = OL_CW.PAD, x = offX + P.x - P.size / 2, y = offY + P.y - P.size / 2;
+  const img = olCwPadImage(mode === "claim" ? "image/claimreward.png" : "image/authenticate.png");
+  ctx.save();
+  if (mode === "auth" && olCwState.owner) ctx.globalAlpha = 0.45;   // my clan already owns it
+  if (img.complete && img.naturalWidth) ctx.drawImage(img, x, y, P.size, P.size);
+  else {   // fallback until the picture loads / if it is missing
+    ctx.fillStyle = mode === "claim" ? "rgba(255,200,60,0.75)" : "rgba(60,200,120,0.75)";
+    ctx.fillRect(x, y, P.size, P.size);
+    ctx.strokeStyle = "#fff"; ctx.lineWidth = 2; ctx.strokeRect(x, y, P.size, P.size);
+    ctx.fillStyle = "#fff"; ctx.font = "bold 10px 'Courier New', monospace"; ctx.textAlign = "center";
+    ctx.fillText(mode === "claim" ? "CLAIM REWARD" : "AUTHENTICATE", x + P.size / 2, y + P.size / 2 + 3);
+  }
+  ctx.restore();
+}
+// Touching the pad (walking onto it) does the action. The server re-checks the distance.
+let olCwLastTouchSend = 0;
+setInterval(() => {
+  const mode = olCwPadMode();
+  if (!mode || isDead || typeof playerPos === "undefined") return;
+  const P = OL_CW.PAD, h = P.size / 2;
+  const cx = Math.max(P.x - h, Math.min(playerPos.x, P.x + h)), cy = Math.max(P.y - h, Math.min(playerPos.y, P.y + h));
+  if (Math.hypot(playerPos.x - cx, playerPos.y - cy) >= playerPos.radius) return;   // not touching
+  if (performance.now() - olCwLastTouchSend < 1500) return;
+  if (mode === "auth") { if (olCwAuth || olCwState.owner) return; olCwLastTouchSend = performance.now(); netSend({ type: "cwAuth" }); }   // the server runs the 30 s timer; dying cancels it
+  else { olCwLastTouchSend = performance.now(); netSend({ type: "cwClaim" }); }
+}, 150);
 
 function olCwWindowOpen() {
   const d = new Date(Date.now() + OL_CW.TZ_OFFSET_HOURS * 3600 * 1000);
-  return OL_CW.DAYS.includes(d.getUTCDay()) && d.getUTCHours() >= OL_CW.START_HOUR && d.getUTCHours() < OL_CW.END_HOUR;
+  const h = d.getUTCHours() + d.getUTCMinutes() / 60;
+  return OL_CW.DAYS.includes(d.getUTCDay()) && h >= OL_CW.START_HOUR && h < OL_CW.END_HOUR;
 }
 // WAR ZONE > CLAN WAR
 function olCwClick() {
