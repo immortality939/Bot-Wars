@@ -3022,7 +3022,7 @@ const OL_CW = {
   KEY: "CWmap",
   DAYS: [2, 4, 6, 0],    // Tuesday, Thursday, Saturday, Sunday
   START_HOUR: 13,        // 8 PM
-  END_HOUR: 13:30,          // 9 PM
+  END_HOUR: 14,          // 9 PM
   TZ_OFFSET_HOURS: 8,    // Philippine time
   CLOSED_TEXT: "CLAN WAR is only available on Tuesday, Thursday, Saturday and Sunday, 8PM to 9PM only."
 };
