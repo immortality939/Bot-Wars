@@ -1002,7 +1002,7 @@ function netRefreshGearFromTables() {
 // Player-vs-player damage only exists in CHANNEL 0 (the server also drops
 // hits in channel 1, this just stops them being sent / applied at all).
 function netPvpOn() {
-  return netChannelPvp;
+  return netChannelPvp || (typeof netMapByLevel !== "undefined" && netMapByLevel[netOnlineLevel] === "CWmap");   // the clan war map is PvP on every channel
 }
 
 // NAME COLOR — is this other player someone I could damage? Not when the
@@ -2821,7 +2821,7 @@ if (partyPanelLeaveBtn) {
 // Hard-coded here (keep in sync with BOSS_EVENT in server.js):
 const OL_BOSS = {
   KEY: "BOSSEVENT",
-  MIN_LEVEL: 2,
+  MIN_LEVEL: 20,
   DAYS: [1, 3, 5],       // Monday, Wednesday, Friday
   START_HOUR: 20,        // 8 PM
   END_HOUR: 22,          // 10 PM
@@ -2891,7 +2891,7 @@ function olWarZoneUpdateVisibility() {
 warZoneBtn.addEventListener("click", () => olSetWarZoneOpen(!olWarZoneOpen));
 document.getElementById("wzClanWarBtn").addEventListener("click", () => {
   olSetWarZoneOpen(false);
-  olBossShowMessage("CLAN WAR is coming soon.", "CLAN WAR");
+  olCwClick();
 });
 document.getElementById("wzBossBtn").addEventListener("click", () => {
   olSetWarZoneOpen(false);
@@ -2995,12 +2995,158 @@ function olBossApplyMove(msg) {
   netSpawnProtectUntil = performance.now() + NET_SPAWN_PROTECT_MS;
   netStateTimer = 0;
   netSendState();
+  const evName = msg.eventName || "BOSS EVENT";
   if (msg.ended) {
-    netToast("Boss Event has ended. You were returned to your last position.");
-    olBossShowMessage("The Boss Event has ended. You were returned to your last position.");
+    const t = msg.text || ("The " + evName + " has ended. You were returned to your last position.");
+    netToast(t);
+    olBossShowMessage(t, evName);
   } else {
-    netToast("Entered BOSS EVENT");
+    netToast("Entered " + evName);
   }
+}
+
+
+// =============================================================================
+// CLAN WAR (online) — CWmap
+// =============================================================================
+// Players WITH A CLAN enter through WAR ZONE > CLAN WAR, Tue / Thu / Sat / Sun,
+// 8 PM - 9 PM (Philippine time). Inside they can hurt each other (not clanmates).
+// AUTHENTICATE (top middle) fills a bar for 30 s — dying cancels it. The clan that
+// authenticates last wins; everybody else is sent back to their last position and
+// a message scrolls across the top of EVERY player's screen on the server. After
+// 9 PM the winners stay and the button becomes CLAIM REWARD; the reward goes
+// straight into every ONLINE clanmate's inventory, then they leave after 20 s.
+// All rules + the reward list are enforced by the server (CLAN_WAR in server.js).
+// Hard-coded here (keep in sync with CLAN_WAR in server.js):
+const OL_CW = {
+  KEY: "CWmap",
+  DAYS: [2, 4, 6, 0],    // Tuesday, Thursday, Saturday, Sunday
+  START_HOUR: 20,        // 8 PM
+  END_HOUR: 21,          // 9 PM
+  TZ_OFFSET_HOURS: 8,    // Philippine time
+  CLOSED_TEXT: "CLAN WAR is only available on Tuesday, Thursday, Saturday and Sunday, 8PM to 9PM only."
+};
+
+(function olCwInstallStyle() {
+  const st = document.createElement("style");
+  st.id = "olCwStyle";
+  st.textContent = `
+    #cwAuthBtn { position:fixed; top:calc(34px + env(safe-area-inset-top, 0px)); left:50%; transform:translateX(-50%); z-index:893; display:none;
+      font-family:'Courier New',Courier,monospace; font-weight:900; letter-spacing:2px; font-size:11px; padding:7px 16px; cursor:pointer;
+      touch-action:manipulation; color:#fff3d6; border:1px solid rgba(255,200,90,0.8); border-radius:5px;
+      background:linear-gradient(160deg, rgba(90,60,10,0.95), rgba(40,24,4,0.97)); text-shadow:0 0 6px rgba(255,200,90,0.7); }
+    #cwAuthBtn:active { transform:translateX(-50%) scale(0.96); }
+    #cwAuthBtn:disabled { opacity:0.65; cursor:default; }
+    #cwAuthBarWrap { position:fixed; top:calc(66px + env(safe-area-inset-top, 0px)); left:50%; transform:translateX(-50%); z-index:893; display:none;
+      width:min(52vw,220px); height:12px; box-sizing:border-box; background:rgba(0,0,0,0.65); border:1px solid rgba(255,255,255,0.45); border-radius:3px; overflow:hidden; pointer-events:none; }
+    #cwAuthBar { height:100%; width:0%; background:linear-gradient(180deg,#5dff7a,#1fbf3d); }
+    #cwBanner { position:fixed; top:calc(90px + env(safe-area-inset-top, 0px)); left:50%; transform:translateX(-50%); z-index:9100; display:none;
+      width:min(72vw,440px); overflow:hidden; white-space:nowrap; pointer-events:none; padding:4px 0; border-radius:4px;
+      background:rgba(20,0,0,0.72); border:1px solid rgba(255,200,90,0.6); }
+    #cwBannerText { display:inline-block; padding-left:100%; font-family:'Courier New',Courier,monospace; font-weight:900; font-size:13px; letter-spacing:1px;
+      color:#ffd86b; text-shadow:0 0 6px rgba(255,170,40,0.8); animation:cwBannerMove 9s linear 2; }
+    @keyframes cwBannerMove { from { transform:translateX(0); } to { transform:translateX(-100%); } }
+  `;
+  document.head.appendChild(st);
+})();
+
+const cwAuthBtn = document.createElement("button");
+cwAuthBtn.id = "cwAuthBtn";
+cwAuthBtn.textContent = "AUTHENTICATE";
+document.body.appendChild(cwAuthBtn);
+const cwAuthBarWrap = document.createElement("div");
+cwAuthBarWrap.id = "cwAuthBarWrap";
+cwAuthBarWrap.innerHTML = '<div id="cwAuthBar"></div>';
+document.body.appendChild(cwAuthBarWrap);
+const cwBannerEl = document.createElement("div");
+cwBannerEl.id = "cwBanner";
+cwBannerEl.innerHTML = '<span id="cwBannerText"></span>';
+document.body.appendChild(cwBannerEl);
+
+let olCwState = null;   // {phase, owner, ownerName, claimed, exitAt(performance ms)} while inside CWmap
+let olCwAuth = null;    // {start, seconds} while my authentication bar is running
+
+function olCwInside() { return netIsOnline() && netMapByLevel[netOnlineLevel] === OL_CW.KEY; }
+function olCwReset() { olCwState = null; olCwAuth = null; olCwRefresh(); }
+function olCwOnState(msg) {
+  olCwState = {
+    phase: msg.phase, owner: !!msg.owner, ownerName: msg.ownerName || "", claimed: !!msg.claimed,
+    exitAt: msg.claimed ? performance.now() + (msg.exitIn || 0) * 1000 : 0
+  };
+  olCwRefresh();
+}
+// Draws the button + bar from olCwState / olCwAuth (also called ~5x a second).
+function olCwRefresh() {
+  if (!olCwInside() || !olCwState) {
+    cwAuthBtn.style.display = "none"; cwAuthBarWrap.style.display = "none";
+    return;
+  }
+  cwAuthBtn.style.display = "block";
+  const st = olCwState;
+  if (st.phase === "ended") {
+    cwAuthBarWrap.style.display = "none";
+    if (st.owner && !st.claimed) { cwAuthBtn.textContent = "CLAIM REWARD"; cwAuthBtn.disabled = false; }
+    else if (st.claimed) {
+      const left = Math.max(0, Math.ceil((st.exitAt - performance.now()) / 1000));
+      cwAuthBtn.textContent = "LEAVING IN " + left + "s"; cwAuthBtn.disabled = true;
+    } else { cwAuthBtn.textContent = "CLAN WAR ENDED"; cwAuthBtn.disabled = true; }
+    return;
+  }
+  if (olCwAuth) {
+    const pct = Math.min(100, ((performance.now() - olCwAuth.start) / (olCwAuth.seconds * 1000)) * 100);
+    document.getElementById("cwAuthBar").style.width = pct + "%";
+    cwAuthBarWrap.style.display = "block";
+    cwAuthBtn.textContent = "AUTHENTICATING..."; cwAuthBtn.disabled = true;
+  } else {
+    cwAuthBarWrap.style.display = "none";
+    if (st.owner) { cwAuthBtn.textContent = "YOUR CLAN OWNS THIS"; cwAuthBtn.disabled = true; }
+    else { cwAuthBtn.textContent = "AUTHENTICATE"; cwAuthBtn.disabled = isDead; }
+  }
+}
+setInterval(olCwRefresh, 200);
+
+cwAuthBtn.addEventListener("click", () => {
+  if (!olCwState || cwAuthBtn.disabled) return;
+  if (olCwState.phase === "ended") { if (olCwState.owner && !olCwState.claimed) netSend({ type: "cwClaim" }); return; }
+  netSend({ type: "cwAuth" });   // the server runs the 30 s timer; dying cancels it
+});
+
+function olCwWindowOpen() {
+  const d = new Date(Date.now() + OL_CW.TZ_OFFSET_HOURS * 3600 * 1000);
+  return OL_CW.DAYS.includes(d.getUTCDay()) && d.getUTCHours() >= OL_CW.START_HOUR && d.getUTCHours() < OL_CW.END_HOUR;
+}
+// WAR ZONE > CLAN WAR
+function olCwClick() {
+  if (!netIsOnline()) return;
+  if (olCwInside()) { olBossShowMessage("You are already inside the Clan War map.", "CLAN WAR"); return; }
+  if (!olCwWindowOpen()) { olBossShowMessage(OL_CW.CLOSED_TEXT, "CLAN WAR"); return; }
+  netSend({ type: "cwEnter" });   // the server checks clan + schedule, then moves me (or answers cwDenied)
+}
+
+// Message that scrolls right-to-left across the top centre of the screen.
+function olCwBanner(text) {
+  const t = document.getElementById("cwBannerText");
+  t.textContent = text;
+  t.style.animation = "none"; void t.offsetWidth; t.style.animation = "";
+  cwBannerEl.style.display = "block";
+  clearTimeout(olCwBanner._t);
+  olCwBanner._t = setTimeout(() => { cwBannerEl.style.display = "none"; }, 18200);
+}
+
+// Reward from the server: straight into my inventory (same calls a ground pickup uses).
+function olCwApplyReward(items) {
+  if (!Array.isArray(items)) return;
+  const got = [], full = [];
+  for (const it of items) {
+    let ok = true;
+    if (it.kind === "gold") { if (typeof pickUpGoldOrb === "function") pickUpGoldOrb(it.amount); got.push(it.amount + " gold"); continue; }
+    if (it.kind === "weapon") ok = typeof pickUpWeaponDrop === "function" && pickUpWeaponDrop(it.type);
+    else if (it.kind === "armor" || it.kind === "ring" || it.kind === "accessory") ok = typeof pickUpArmorDrop === "function" && pickUpArmorDrop(it.type);
+    else if (it.kind === "stone" || it.kind === "orb") ok = typeof pickUpUpgradeDrop === "function" && pickUpUpgradeDrop(it.type, it.kind);
+    (ok ? got : full).push(it.type);
+  }
+  if (got.length) netToast("Clan War reward: " + got.join(", "));
+  if (full.length) netToast("Inventory full — could not receive: " + full.join(", "));
 }
 
 // Countdown label while inside the arena
@@ -3349,6 +3495,16 @@ function netHandle(msg) {
     case "bossDenied":
       olBossShowMessage(msg.reason || "You cannot enter the map.");
       break;
+
+    // CLAN WAR (see the CLAN WAR block next to OL_CW)
+    case "cwMove":    olBossApplyMove(msg); olCwReset(); break;
+    case "cwDenied":  olBossShowMessage(msg.reason || "You cannot enter the map.", "CLAN WAR"); break;
+    case "cwState":   olCwOnState(msg); break;
+    case "cwAuthStart": olCwAuth = { start: performance.now(), seconds: msg.seconds || 30 }; olCwRefresh(); break;
+    case "cwAuthFail":  if (olCwAuth) { olCwAuth = null; netToast("Authentication failed"); olCwRefresh(); } break;
+    case "cwAuthDone":  olCwAuth = null; netToast("Authentication complete!"); olCwRefresh(); break;
+    case "cwOwned":   olCwBanner("The " + (msg.clanName || "clan") + " owned this Clan War"); break;
+    case "cwReward":  olCwApplyReward(msg.items); break;
 
     case "mapChanged":
       // The server decides exactly where I land after a portal (see
