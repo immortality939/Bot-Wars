@@ -89,7 +89,10 @@ for (const f of SERVER_JS_FILES) {
 }
 const MAPS = (global.window && global.window.CUSTOM_MAPS) || {};
 if (!Object.keys(MAPS).length) throw new Error("No map found: server/worldmap_server.js must define window.CUSTOM_MAPS[\"worldmap\"]");
-const START_MAP = MAPS.worldmap ? "worldmap" : Object.keys(MAPS)[0];   // where everyone spawns
+// The boss arena file (boss1_server.js) loads BEFORE worldmap_server.js (alphabetical), so move its
+// map to the END of the list: otherwise it would become the "first map" = everyone's start map.
+if (MAPS.BOSSEVENT) { const bossMap = MAPS.BOSSEVENT; delete MAPS.BOSSEVENT; MAPS.BOSSEVENT = bossMap; }
+const START_MAP = MAPS.worldmap ? "worldmap" : (MAPS.LEVEL1 ? "LEVEL1" : Object.keys(MAPS).find((k) => k !== "BOSSEVENT"));   // where everyone spawns (never the boss arena)
 // ---- BOSS EVENT MAP (hard-coded) -------------------------------------------
 // A private arena map that is only reachable through the WAR ZONE > BOSS EVENT
 // button (never through a portal). Its map data is in server/boss1_server.js;
@@ -97,14 +100,14 @@ const START_MAP = MAPS.worldmap ? "worldmap" : Object.keys(MAPS)[0];   // where 
 // Schedule is in PHILIPPINE TIME (UTC+8): Monday, Wednesday, Friday, 8 PM - 10 PM.
 const BOSS_EVENT = {
   KEY: "BOSSEVENT",
-  MIN_LEVEL: 1,
-  DAYS: [1, 2, 5],        // 0=Sunday ... 1=Monday, 3=Wednesday, 5=Friday
-  START_HOUR: 12,         // 8 PM
-  END_HOUR: 13,           // 10 PM (everyone is sent back to their last map)
+  MIN_LEVEL: 20,
+  DAYS: [1, 3, 5],        // 0=Sunday ... 1=Monday, 3=Wednesday, 5=Friday
+  START_HOUR: 20,         // 8 PM
+  END_HOUR: 22,           // 10 PM (everyone is sent back to their last map)
   TZ_OFFSET_HOURS: 8      // Philippines
 };
 // The arena map itself lives in server/boss1_server.js (key "BOSSEVENT", loaded with the other map files).
-if (!MAPS[BOSS_EVENT.KEY]) throw new Error("Boss event map missing: server/boss1_server.js must define window.CUSTOM_MAPS[\"" + BOSS_EVENT.KEY + "\"]");
+if (!MAPS[BOSS_EVENT.KEY]) console.warn("[boss event] server/boss1_server.js not found — BOSS EVENT is disabled until it is uploaded.");
 GAME_DATA.WORLD_MAPS = MAPS;
 GAME_DATA.START_MAP = START_MAP;
 
@@ -1940,6 +1943,7 @@ wss.on("connection", (ws) => {
       case "bossEnter": {
         const deny = (reason) => send(ws, { type: "bossDenied", reason });
         if (me.map === BOSS_EVENT.KEY) break;
+        if (!MAPS[BOSS_EVENT.KEY]) { deny("BOSS EVENT is not available yet."); break; }
         if (!bossWindowOpen()) { deny("BOSS EVENT is only available on Monday, Wednesday and Friday, at 8PM only."); break; }
         if (num(me.level, 1) < BOSS_EVENT.MIN_LEVEL) { deny("You cannot enter the map. Required level " + BOSS_EVENT.MIN_LEVEL + " and above."); break; }
         if (!me.alive) { deny("You cannot enter while you are dead."); break; }
