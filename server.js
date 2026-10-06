@@ -136,7 +136,7 @@ const CLAN_WAR = {
   REWARDS: [
     { kind: "gold", total: 25 },
     { kind: "stone", type: "specialstone", total: 50 },
-    { kind: "armor", type: "armor1", total: 5 },
+    { kind: "armor", type: "armor1" },
     { kind: "ring", type: "ring01" },
     { kind: "accessory", type: "accessory01" }
   ]
