@@ -100,10 +100,10 @@ const START_MAP = MAPS.worldmap ? "worldmap" : (MAPS.LEVEL1 ? "LEVEL1" : Object.
 // Schedule is in PHILIPPINE TIME (UTC+8): Monday, Wednesday, Friday, 8 PM - 10 PM.
 const BOSS_EVENT = {
   KEY: "BOSSEVENT",
-  MIN_LEVEL: 1,
-  DAYS: [1, 2, 5],        // 0=Sunday ... 1=Monday, 3=Wednesday, 5=Friday
-  START_HOUR: 21,         // 8 PM
-  END_HOUR: 22,           // 10 PM (everyone is sent back to their last map)
+  MIN_LEVEL: 20,
+  DAYS: [1, 3, 5],        // 0=Sunday ... 1=Monday, 3=Wednesday, 5=Friday
+  START_HOUR: 22,         // 8 PM
+  END_HOUR: 22.5,           // 10 PM (everyone is sent back to their last map)
   TZ_OFFSET_HOURS: 8      // Philippines
 };
 // ---- CLAN WAR (hard-coded) ---------------------------------------------------
@@ -118,8 +118,8 @@ const BOSS_EVENT = {
 const CLAN_WAR = {
   KEY: "CWmap",
   DAYS: [2, 4, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
-  START_HOUR: 21,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
-  END_HOUR: 22,         // 9 PM  (21)
+  START_HOUR: 22,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
+  END_HOUR: 22.5,         // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,     // Philippines
   // The AUTHENTICATE / CLAIM REWARD pad on the map floor (x, y = center, size = width/height).
   // Keep in sync with OL_CW.PAD in online_client.js.
@@ -137,8 +137,7 @@ const CLAN_WAR = {
     { kind: "gold", total: 25 },
     { kind: "armor", type: "armor1" },
     { kind: "ring", type: "ring01" },
-    { kind: "accessory", type: "accessory01" },
-    { kind: "specialstone", type: " specialstone"}
+    { kind: "accessory", type: "accessory01" }
   ]
 };
 if (!MAPS[CLAN_WAR.KEY]) console.error("WARNING: clan war map missing - upload server/cwmap_server.js. CLAN WAR is disabled until then.");
@@ -2089,7 +2088,7 @@ wss.on("connection", (ws) => {
       // WAR ZONE > CLAN WAR
       case "cwEnter": {
         const deny = (reason) => send(ws, { type: "cwDenied", reason });
-        if (me.map === CLAN_WAR.KEY || me.map === BOSS_EVENT.KEY) break;
+        if (me.map === CLAN_WAR.KEY) break;   // (from the Boss Event map you CAN go straight to the Clan War)
         if (!MAPS[CLAN_WAR.KEY]) { deny("CLAN WAR is not available yet."); break; }
         if (!cwWindowOpen()) { deny("CLAN WAR is only available on Tuesday, Thursday, Saturday and Sunday, 8PM to 9PM only."); break; }
         const myClan = clanOf(me);
@@ -2100,7 +2099,9 @@ wss.on("connection", (ws) => {
         let st = cwStates.get(me.server);
         if (!st) { st = { owner: null, ownerName: "", phase: "open" }; cwStates.set(me.server, st); }
         if (st.phase !== "open") { deny("CLAN WAR is over for today."); break; }
-        me.cwReturn = { map: me.map, x: me.x, y: me.y };   // brought back here when you leave
+        // brought back here when you leave: the World Map spot you came from (kept when you hop from the Boss Event map)
+        me.cwReturn = (me.map === BOSS_EVENT.KEY && me.bossReturn) ? me.bossReturn : { map: me.map, x: me.x, y: me.y };
+        me.bossReturn = null;
         const m = MAPS[CLAN_WAR.KEY];
         bossMovePlayer(me, CLAN_WAR.KEY, { x: 200 + Math.random() * (m.worldWidth - 400), y: 200 + Math.random() * (m.worldHeight - 400) }, false,
           { type: "cwMove", eventName: "CLAN WAR", channel: CHANNEL_PVP });
@@ -2146,15 +2147,29 @@ wss.on("connection", (ws) => {
         cwBroadcastState(me.server);
         break;
       }
+      // WAR ZONE > WORLD MAP (from the Clan War / Boss Event map): back to the exact spot you left in the World Map
+      case "worldEnter": {
+        if (me.map !== CLAN_WAR.KEY && me.map !== BOSS_EVENT.KEY) break;
+        const inCw = me.map === CLAN_WAR.KEY;
+        if (!me.alive) { send(ws, { type: inCw ? "cwDenied" : "bossDenied", reason: "You cannot leave while you are dead." }); break; }
+        if (Date.now() - me.lastMapChange < 300) break;
+        let r = validateSavedSpot(inCw ? (me.cwReturn || me.bossReturn) : (me.bossReturn || me.cwReturn));
+        if (!r || r.map === CLAN_WAR.KEY || r.map === BOSS_EVENT.KEY) { const m = MAPS[START_MAP]; r = { map: START_MAP, x: m.worldWidth / 2, y: m.worldHeight / 2 }; }
+        if (me.cwAuth) cwCancelAuth(me);
+        me.cwReturn = null; me.bossReturn = null;
+        bossMovePlayer(me, r.map, { x: r.x, y: r.y }, false, { type: "cwMove", eventName: "WORLD MAP" });
+        break;
+      }
       case "bossEnter": {
         const deny = (reason) => send(ws, { type: "bossDenied", reason });
-        if (me.map === BOSS_EVENT.KEY || me.map === CLAN_WAR.KEY) break;
+        if (me.map === BOSS_EVENT.KEY) break;   // (from the Clan War map you CAN go straight to the Boss Event)
         if (!MAPS[BOSS_EVENT.KEY]) { deny("BOSS EVENT is not available yet."); break; }
         if (!bossWindowOpen()) { deny("BOSS EVENT is only available on Monday, Wednesday and Friday, at 8PM only."); break; }
         if (num(me.level, 1) < BOSS_EVENT.MIN_LEVEL) { deny("You cannot enter the map. Required level " + BOSS_EVENT.MIN_LEVEL + " and above."); break; }
         if (!me.alive) { deny("You cannot enter while you are dead."); break; }
         if (Date.now() - me.lastMapChange < 300) break;
-        me.bossReturn = { map: me.map, x: me.x, y: me.y };   // brought back here at 10 PM
+        me.bossReturn = (me.map === CLAN_WAR.KEY && me.cwReturn) ? me.cwReturn : { map: me.map, x: me.x, y: me.y };   // brought back here at 10 PM (the World Map spot you came from)
+        me.cwReturn = null;
         const m = MAPS[BOSS_EVENT.KEY];
         bossMovePlayer(me, BOSS_EVENT.KEY, { x: m.worldWidth / 2 + (Math.random() * 300 - 150), y: m.worldHeight - 250 }, false);
         break;
