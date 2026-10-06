@@ -92,7 +92,7 @@ if (!Object.keys(MAPS).length) throw new Error("No map found: server/worldmap_se
 // The boss arena file (boss1_server.js) loads BEFORE worldmap_server.js (alphabetical), so move its
 // map to the END of the list: otherwise it would become the "first map" = everyone's start map.
 if (MAPS.BOSSEVENT) { const bossMap = MAPS.BOSSEVENT; delete MAPS.BOSSEVENT; MAPS.BOSSEVENT = bossMap; }
-const START_MAP = MAPS.worldmap ? "worldmap" : (MAPS.LEVEL1 ? "LEVEL1" : Object.keys(MAPS).find((k) => k !== "BOSSEVENT"));   // where everyone spawns (never the boss arena)
+const START_MAP = MAPS.worldmap ? "worldmap" : (MAPS.LEVEL1 ? "LEVEL1" : Object.keys(MAPS).find((k) => k !== "BOSSEVENT" && k !== "CWmap"));   // where everyone spawns (never the boss arena)
 // ---- BOSS EVENT MAP (hard-coded) -------------------------------------------
 // A private arena map that is only reachable through the WAR ZONE > BOSS EVENT
 // button (never through a portal). Its map data is in server/boss1_server.js;
@@ -106,6 +106,30 @@ const BOSS_EVENT = {
   END_HOUR: 22,           // 10 PM (everyone is sent back to their last map)
   TZ_OFFSET_HOURS: 8      // Philippines
 };
+// ---- CLAN WAR (hard-coded) ---------------------------------------------------
+// Map: server/cwmap_server.js (key "CWmap"). Only players WITH A CLAN can enter, only
+// on Tuesday / Thursday / Saturday / Sunday, 8 PM - 9 PM Philippine time.
+// Inside, players can hurt each other (except clanmates / party). AUTHENTICATE takes
+// AUTH_SECONDS without dying; the clan that authenticates LAST before 9 PM wins and
+// everyone else is sent back. After 9 PM the winners stay, press CLAIM REWARD, the
+// reward is handed to every ONLINE clan member, and after CLAIM_EXIT_SECONDS they go back.
+// REWARDS: { kind:"gold", total:N }  -> N gold split equally between the online members
+//          { kind:"weapon"|"armor"|"ring"|"accessory"|"stone"|"orb", type:"<item name>" } -> 1 each
+const CLAN_WAR = {
+  KEY: "CWmap",
+  DAYS: [2, 4, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
+  START_HOUR: 20,         // 8 PM
+  END_HOUR: 21,           // 9 PM
+  TZ_OFFSET_HOURS: 8,     // Philippines
+  AUTH_SECONDS: 30,
+  CLAIM_EXIT_SECONDS: 20,
+  REWARDS: [
+    { kind: "gold", total: 25 },
+    { kind: "armor", type: "armor1" }
+  ]
+};
+if (!MAPS[CLAN_WAR.KEY]) throw new Error("Clan war map missing: server/cwmap_server.js must define window.CUSTOM_MAPS[\"" + CLAN_WAR.KEY + "\"]");
+
 // The arena map itself lives in server/boss1_server.js (key "BOSSEVENT", loaded with the other map files).
 if (!MAPS[BOSS_EVENT.KEY]) console.warn("[boss event] server/boss1_server.js not found — BOSS EVENT is disabled until it is uploaded.");
 GAME_DATA.WORLD_MAPS = MAPS;
@@ -1336,13 +1360,14 @@ function bossWindowOpen() {
   return BOSS_EVENT.DAYS.includes(d.getUTCDay()) && d.getUTCHours() >= BOSS_EVENT.START_HOUR && d.getUTCHours() < BOSS_EVENT.END_HOUR;
 }
 // Moves one player into/out of the boss arena (server-initiated, so no "map" message needed).
-function bossMovePlayer(p, key, spawn, ended) {
+function bossMovePlayer(p, key, spawn, ended, opts) {
+  opts = opts || {};
   const oldRoom = p.room;
   oldRoom.delete(p.id);
   broadcast(oldRoom, { type: "playerRemove", id: p.id });
   reassignHost(oldRoom, p.id);
   p.map = key;
-  p.room = getRoom(p.server, p.channel, key);
+  p.room = getRoom(p.server, opts.channel != null ? opts.channel : p.channel, key);
   const first = p.room.size === 0;
   p.room.set(p.id, p);
   if (first) { p.room.hostId = p.id; stopOfflineSim(p.room); }
@@ -1350,7 +1375,7 @@ function bossMovePlayer(p, key, spawn, ended) {
   p.lastMapChange = Date.now();
   p.protectUntil = Date.now() + ONLINE_RULES.SPAWN_PROTECT_MS;
   send(p.ws, {
-    type: "bossMove", map: key, ended: !!ended,
+    type: opts.type || "bossMove", eventName: opts.eventName || "BOSS EVENT", text: opts.text || "", map: key, ended: !!ended,
     spawnX: p.x, spawnY: p.y,
     players: [...p.room.values()].filter((o) => o.id !== p.id).map(publicInfo),
     botHost: p.room.hostId === p.id,
@@ -1378,6 +1403,93 @@ setInterval(() => {
     }
   }
 }, 1000);
+
+// ---------------------------------------------------------------------------
+// CLAN WAR — enter, authenticate, win, claim, leave
+// ---------------------------------------------------------------------------
+// One state per game server: { owner: clanId|null, ownerName, phase: "open"|"ended", claimed, exitAt }
+const cwStates = new Map();
+function cwWindowOpen() {
+  const d = new Date(Date.now() + CLAN_WAR.TZ_OFFSET_HOURS * 3600 * 1000);
+  return CLAN_WAR.DAYS.includes(d.getUTCDay()) && d.getUTCHours() >= CLAN_WAR.START_HOUR && d.getUTCHours() < CLAN_WAR.END_HOUR;
+}
+function cwRoom(sid) { return getRoom(sid, CHANNEL_PVP, CLAN_WAR.KEY); }   // both channels share ONE clan war room per server
+function cwSendState(p) {
+  const st = cwStates.get(p.server);
+  if (!st) return;
+  send(p.ws, {
+    type: "cwState", phase: st.phase, ownerName: st.ownerName || "",
+    owner: !!(p.clanId && p.clanId === st.owner), claimed: st.claimed,
+    exitIn: st.claimed ? Math.max(0, Math.ceil((st.exitAt - Date.now()) / 1000)) : 0
+  });
+}
+function cwBroadcastState(sid) { for (const p of cwRoom(sid).values()) cwSendState(p); }
+function cwCancelAuth(p) { p.cwAuth = null; send(p.ws, { type: "cwAuthFail" }); }
+// Sends one player back to the spot they entered from (or the start map).
+function cwKick(p, text) {
+  let r = validateSavedSpot(p.cwReturn);
+  if (!r || r.map === CLAN_WAR.KEY) { const m = MAPS[START_MAP]; r = { map: START_MAP, x: m.worldWidth / 2, y: m.worldHeight / 2 }; }
+  p.cwReturn = null; p.cwAuth = null;
+  bossMovePlayer(p, r.map, { x: r.x, y: r.y }, true, { type: "cwMove", eventName: "CLAN WAR", text });
+}
+function cwAuthDone(p, st) {
+  const clan = clans.get(p.clanId);
+  st.owner = p.clanId;
+  st.ownerName = clan ? clan.name : "A clan";
+  p.cwAuth = null;
+  send(p.ws, { type: "cwAuthDone" });
+  for (const q of [...cwRoom(p.server).values()]) {
+    if (q.clanId === st.owner) { if (q.cwAuth) cwCancelAuth(q); continue; }
+    cwKick(q, "The " + st.ownerName + " owned this Clan War. You were returned to your last position.");
+  }
+  for (const q of players.values()) if (q.server === p.server) send(q.ws, { type: "cwOwned", clanName: st.ownerName });   // everyone on this server sees it, wherever they are
+  cwBroadcastState(p.server);
+}
+function cwDistributeReward(st) {
+  const members = [...players.values()].filter((q) => q.clanId && q.clanId === st.owner && q.ws.readyState === 1);
+  if (!members.length) return;
+  for (const q of members) {
+    const items = [];
+    for (const r of CLAN_WAR.REWARDS) {
+      if (r.kind === "gold") items.push({ kind: "gold", amount: Math.max(1, Math.floor(r.total / members.length)) });
+      else items.push({ kind: r.kind, type: r.type });
+    }
+    send(q.ws, { type: "cwReward", items });
+  }
+}
+setInterval(() => {
+  const open = cwWindowOpen();
+  // authentication progress
+  for (const p of players.values()) {
+    if (!p.cwAuth) continue;
+    const st = cwStates.get(p.server);
+    if (!st || p.map !== CLAN_WAR.KEY || !p.alive || st.phase !== "open" || !open) { cwCancelAuth(p); continue; }
+    if (Date.now() - p.cwAuth.start >= CLAN_WAR.AUTH_SECONDS * 1000) cwAuthDone(p, st);
+  }
+  // end of the window / claim countdown
+  for (const [sid, st] of [...cwStates]) {
+    const room = cwRoom(sid);
+    if (open && st.phase === "ended") {   // leftover winners from a previous event
+      for (const p of [...room.values()]) cwKick(p, "The Clan War has ended. You were returned to your last position.");
+      cwStates.delete(sid); continue;
+    }
+    if (!open && st.phase === "open") {
+      st.phase = "ended";
+      for (const p of [...room.values()]) {
+        if (!st.owner || p.clanId !== st.owner) cwKick(p, "The Clan War has ended. You were returned to your last position.");
+      }
+      if (!st.owner) { cwStates.delete(sid); continue; }
+      cwBroadcastState(sid);
+    }
+    if (st.phase === "ended") {
+      if (room.size === 0) { cwStates.delete(sid); continue; }
+      if (st.claimed && Date.now() >= st.exitAt) {
+        for (const p of [...room.values()]) cwKick(p, "Reward claimed. You were returned to your last position.");
+        cwStates.delete(sid);
+      }
+    }
+  }
+}, 250);
 
 // Runs on a timer (see setInterval below) so a drop disappears for players
 // who are ALREADY in the room the moment it expires, not just for the next
@@ -1472,6 +1584,7 @@ wss.on("connection", (ws) => {
 
       let savedSpot = validateSavedSpot(msg.lastPos);   // null -> normal start
       if (savedSpot && savedSpot.map === BOSS_EVENT.KEY && !bossWindowOpen()) savedSpot = null;   // event is over: normal start
+      if (savedSpot && savedSpot.map === CLAN_WAR.KEY) savedSpot = null;   // clan war is entered only via the CLAN WAR button
       const startMap = savedSpot ? savedSpot.map : START_MAP;
       const room = getRoom(serverId, channel, startMap);
       const id = nextId++;
@@ -1906,6 +2019,7 @@ wss.on("connection", (ws) => {
         const now = Date.now();
         if (!MAPS[key] || key === me.map || now - me.lastMapChange < 300) break;
         if (key === BOSS_EVENT.KEY || me.map === BOSS_EVENT.KEY) break;   // the arena is only entered via "bossEnter"
+        if (key === CLAN_WAR.KEY || me.map === CLAN_WAR.KEY) break;       // the clan war map is only entered via "cwEnter"
         me.lastMapChange = now;
         me.protectUntil = now + ONLINE_RULES.SPAWN_PROTECT_MS;
         const fromMapKey = me.map;   // captured BEFORE me.map is overwritten below
@@ -1939,10 +2053,49 @@ wss.on("connection", (ws) => {
         break;
       }
 
+      // WAR ZONE > CLAN WAR
+      case "cwEnter": {
+        const deny = (reason) => send(ws, { type: "cwDenied", reason });
+        if (me.map === CLAN_WAR.KEY || me.map === BOSS_EVENT.KEY) break;
+        if (!cwWindowOpen()) { deny("CLAN WAR is only available on Tuesday, Thursday, Saturday and Sunday, 8PM to 9PM only."); break; }
+        const myClan = clanOf(me);
+        if (!myClan) { deny("Only players with a clan can enter this map."); break; }
+        if (!me.alive) { deny("You cannot enter while you are dead."); break; }
+        if (Date.now() - me.lastMapChange < 300) break;
+        me.clanId = myClan.id;
+        let st = cwStates.get(me.server);
+        if (!st) { st = { owner: null, ownerName: "", phase: "open", claimed: false, exitAt: 0 }; cwStates.set(me.server, st); }
+        if (st.phase !== "open") { deny("CLAN WAR is over for today."); break; }
+        me.cwReturn = { map: me.map, x: me.x, y: me.y };   // brought back here when you leave
+        const m = MAPS[CLAN_WAR.KEY];
+        bossMovePlayer(me, CLAN_WAR.KEY, { x: 200 + Math.random() * (m.worldWidth - 400), y: 200 + Math.random() * (m.worldHeight - 400) }, false,
+          { type: "cwMove", eventName: "CLAN WAR", channel: CHANNEL_PVP });
+        cwSendState(me);
+        break;
+      }
+      case "cwAuth": {
+        if (me.map !== CLAN_WAR.KEY || !me.clanId || !me.alive || me.cwAuth) break;
+        const st = cwStates.get(me.server);
+        if (!st || st.phase !== "open" || !cwWindowOpen()) break;
+        if (st.owner === me.clanId) { send(ws, { type: "cwDenied", reason: "Your clan already owns this Clan War." }); break; }
+        me.cwAuth = { start: Date.now() };
+        send(ws, { type: "cwAuthStart", seconds: CLAN_WAR.AUTH_SECONDS });
+        break;
+      }
+      case "cwClaim": {
+        const st = cwStates.get(me.server);
+        if (me.map !== CLAN_WAR.KEY || !st || st.phase !== "ended" || st.claimed || !me.clanId || me.clanId !== st.owner) break;
+        st.claimed = true;
+        st.exitAt = Date.now() + CLAN_WAR.CLAIM_EXIT_SECONDS * 1000;
+        cwDistributeReward(st);
+        cwBroadcastState(me.server);
+        break;
+      }
+
       // WAR ZONE > BOSS EVENT > ENTER MAP. The server re-checks everything.
       case "bossEnter": {
         const deny = (reason) => send(ws, { type: "bossDenied", reason });
-        if (me.map === BOSS_EVENT.KEY) break;
+        if (me.map === BOSS_EVENT.KEY || me.map === CLAN_WAR.KEY) break;
         if (!MAPS[BOSS_EVENT.KEY]) { deny("BOSS EVENT is not available yet."); break; }
         if (!bossWindowOpen()) { deny("BOSS EVENT is only available on Monday, Wednesday and Friday, at 8PM only."); break; }
         if (num(me.level, 1) < BOSS_EVENT.MIN_LEVEL) { deny("You cannot enter the map. Required level " + BOSS_EVENT.MIN_LEVEL + " and above."); break; }
@@ -1957,7 +2110,7 @@ wss.on("connection", (ws) => {
       // Attacker says "I hit targetId" -> only that player is told.
       case "hit": {
         // CHANNEL 1 is a no-damage channel: drop every player-vs-player hit.
-        if (me.channel !== CHANNEL_PVP) break;
+        if (me.channel !== CHANNEL_PVP && me.map !== CLAN_WAR.KEY) break;   // (the clan war map is PvP on every channel)
         const target = me.room.get(num(msg.targetId, -1));   // same server + channel only
         if (!target || target.id === me.id) break;
         if (Date.now() < target.protectUntil) break;   // spawn protection
@@ -2336,6 +2489,7 @@ wss.on("connection", (ws) => {
       case "died": {
         const killer = me.room.get(num(msg.killerId, -1));
         me.alive = false;
+        if (me.cwAuth) cwCancelAuth(me);   // dying fails the clan war authentication
         broadcast(me.room, {
           type: "kill",
           victimId: me.id, victimName: me.name,
