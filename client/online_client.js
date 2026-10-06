@@ -1125,6 +1125,129 @@ function netSend(obj) {
 }
 
 // ---------------------------------------------------------------------------
+// HIDDEN CDM BUTTON (online) — the offline hub's CDM item spawner
+// (#cdmScreen in index.html), reachable in an online match from the OPTIONS
+// popup, but only after a secret code is typed into WORLD chat:
+//     @#$_&cmd   -> shows a CDM button inside the OPTIONS popup
+//     @#$_&      -> hides it again
+// The codes are hard-coded right here (change them below). They are handled
+// entirely on this device and are NOT sent to the server / other players.
+// The button is created from this file, so index.html has nothing to show
+// offline. NOTE: this is only a client-side gate (anyone who reads this file
+// can see the codes), and the server's save_guard.js still limits how many
+// items an account may gain.
+// ---------------------------------------------------------------------------
+const OL_CMD_SHOW_CODE = "@#$_&cmd";
+const OL_CMD_HIDE_CODE = "@#$_&";
+let olCmdUnlocked = false;      // stays on until the hide code, leaving the match, or a reload
+let olCmdOpenInGame = false;    // true while #cdmScreen was opened from OPTIONS (not from the offline hub)
+
+function olCmdGetButton() {
+  let btn = document.getElementById("gameOptionsCdmBtn");
+  if (btn) return btn;
+  const body = document.querySelector("#gameOptionsPopup .gameOptionsBody");
+  if (!body) return null;
+  btn = document.createElement("button");
+  btn.id = "gameOptionsCdmBtn";
+  btn.className = "gameOptionsBtn";
+  btn.textContent = "CDM";
+  btn.style.display = "none";
+  // Sits just above LOG OUT, which stays the last button.
+  body.insertBefore(btn, document.getElementById("gameOptionsLogoutBtn") || null);
+  btn.addEventListener("click", olCmdOpen);
+  return btn;
+}
+
+function olCmdRefreshButton() {
+  const btn = olCmdGetButton();
+  if (btn) btn.style.display = olCmdUnlocked ? "" : "none";
+}
+
+function olCmdOpen() {
+  if (!olCmdUnlocked) return;
+  const screen = document.getElementById("cdmScreen");
+  if (!screen) return;
+  if (typeof closeGameOptionsPopup === "function") closeGameOptionsPopup();
+  olCmdOpenInGame = true;
+  screen.style.display = "flex";
+  // Same HUD hiding every in-game popup does, so the skill buttons don't sit on top of it.
+  document.body.classList.add("gameInvPopupOpen");
+  if (typeof setGameInvHudButtonsHidden === "function") setGameInvHudButtonsHidden(true);
+}
+
+function olCmdClose() {
+  olCmdOpenInGame = false;
+  const screen = document.getElementById("cdmScreen");
+  if (screen) screen.style.display = "none";
+  if (typeof closeCdmItemPopup === "function") closeCdmItemPopup();
+  document.body.classList.remove("gameInvPopupOpen");
+  if (typeof setGameInvHudButtonsHidden === "function") setGameInvHudButtonsHidden(false);
+}
+
+// Called when leaving the online match (exitOnlineGame): hide it again and
+// close the CDM screen if it was open.
+function olCmdReset() {
+  olCmdUnlocked = false;
+  if (olCmdOpenInGame) olCmdClose();
+  olCmdRefreshButton();
+}
+
+// Returns true if what's typed in the chat box was one of the two codes
+// (and was consumed, so it is NOT sent as a chat message).
+function olCmdHandleChatCode() {
+  const input = document.getElementById("chatInput");
+  if (!input) return false;
+  const raw = input.value.replace(/[\r\n\t]+/g, " ").trim();
+  if (raw !== OL_CMD_SHOW_CODE && raw !== OL_CMD_HIDE_CODE) return false;
+  // WORLD tab only (the PRIVATE tab treats "@..." as a whisper).
+  if (typeof chatActiveTab === "string" && chatActiveTab !== "world") return false;
+  olCmdUnlocked = (raw === OL_CMD_SHOW_CODE);
+  input.value = "";
+  olCmdRefreshButton();
+  netToast(olCmdUnlocked ? "CDM on (Options)" : "CDM off");
+  return true;
+}
+
+(function olCmdInstall() {
+  if (window.__olCmdInstalled) return;
+  window.__olCmdInstalled = true;
+
+  // Capture-phase listeners on the chat window run BEFORE the SEND button's /
+  // input's own handlers (index.html's chatSubmit), and stopPropagation keeps
+  // those from ever seeing the code.
+  const chatWin = document.getElementById("chatWindow");
+  if (chatWin) {
+    chatWin.addEventListener("click", (e) => {
+      if (e.target && e.target.closest && e.target.closest("#chatSendBtn") && olCmdHandleChatCode()) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }, true);
+    chatWin.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && e.target && e.target.id === "chatInput" && olCmdHandleChatCode()) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }, true);
+  }
+
+  // The CDM screen's Back button normally returns to the offline hub; when it
+  // was opened from OPTIONS, just close it and go back to the game.
+  const cdmScreenEl = document.getElementById("cdmScreen");
+  if (cdmScreenEl) {
+    cdmScreenEl.addEventListener("click", (e) => {
+      if (olCmdOpenInGame && e.target && e.target.closest && e.target.closest("#cdmBackBtn")) {
+        e.stopPropagation();
+        e.preventDefault();
+        olCmdClose();
+      }
+    }, true);
+  }
+
+  olCmdGetButton();   // create it now (hidden) so it is ready inside the OPTIONS popup
+})();
+
+// ---------------------------------------------------------------------------
 // Small on-screen status / kill-feed text
 // ---------------------------------------------------------------------------
 function netStatus(text) {
@@ -2821,7 +2944,7 @@ if (partyPanelLeaveBtn) {
 // Hard-coded here (keep in sync with BOSS_EVENT in server.js):
 const OL_BOSS = {
   KEY: "BOSSEVENT",
-  MIN_LEVEL: 1,
+  MIN_LEVEL: 20,
   DAYS: [1, 2, 5],       // Monday, Wednesday, Friday
   START_HOUR: 23,        // 8 PM
   END_HOUR: 24,          // 10 PM
@@ -4218,6 +4341,7 @@ window.exitOnlineGame = function (skipSave) {
   netRenderPartyPanel();
   netUpdatePartyButtonVisibility();
   netSetPartyPanelOpen(false);
+  olCmdReset();                   // hidden CDM button goes away again until the code is retyped
 
   window.exitOfflineGame();       // stops the loop, clears obstacles
   olLeaveOnlineProfile();         // the online progress is saved; bring the OFFLINE progress back
