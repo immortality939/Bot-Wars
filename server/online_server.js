@@ -13,8 +13,8 @@
 
 const ONLINE_RULES = {
   // ---- servers / channels (the lobby draws its rows from these) ----
-  SERVER_COUNT: 20,           // SERVER 1 .. SERVER 5
-  SERVER_MAX_PLAYERS: 1000,   // per server (both channels together)
+  SERVER_COUNT: 50,           // SERVER 1 .. SERVER 5
+  SERVER_MAX_PLAYERS: 3000,   // per server (both channels together)
   CHANNELS: [
     { id: 0, pvp: true,  desc: "PvP - players can damage each other" },
     { id: 1, pvp: false, desc: "Safe - no player damage" }
