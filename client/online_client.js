@@ -3022,7 +3022,7 @@ const OL_CW = {
   KEY: "CWmap",
   DAYS: [2, 4, 6, 0],    // Tuesday, Thursday, Saturday, Sunday
   START_HOUR: 13,        // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
-  END_HOUR: 14,        // 9 PM  (21)
+  END_HOUR: 13.5,        // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,    // Philippine time
   // The AUTHENTICATE / CLAIM REWARD pad lying on the map floor (top middle of the map).
   // x, y = its CENTER in map pixels, size = its width/height. Keep in sync with CLAN_WAR.PAD in server.js.
@@ -3046,6 +3046,22 @@ const OL_CW = {
       background:rgba(20,0,0,0.72); border:1px solid rgba(255,200,90,0.6); }
     #cwBannerText { display:inline-block; padding-left:100%; font-family:'Courier New',Courier,monospace; font-weight:900; font-size:13px; letter-spacing:1px;
       color:#ffd86b; text-shadow:0 0 6px rgba(255,170,40,0.8); animation:cwBannerMove 9s linear 2; }
+    #cwActionBtn { position:fixed; left:50%; bottom:22%; transform:translateX(-50%); z-index:9001; display:none; cursor:pointer; touch-action:manipulation;
+      font-family:'Courier New',Courier,monospace; font-weight:700; font-size:14px; letter-spacing:2px; padding:12px 26px; border:none; color:#bdfff2;
+      background:url('image/optionsborder.png') center center / 100% 100% no-repeat, url('image/savehud.png') center center / 100% 100% no-repeat; }
+    #cwActionBtn:active { transform:translateX(-50%) scale(0.94); }
+    #cwRewardBox { position:fixed; left:50%; bottom:calc(22% + 58px); transform:translateX(-50%); z-index:9000; display:none; box-sizing:border-box;
+      padding:10px 12px 12px; border:1px solid rgba(255,200,90,0.85); border-radius:6px; background:rgba(20,14,4,0.94); color:#ffe9b0;
+      font-family:'Courier New',Courier,monospace; text-align:center; max-width:94vw; }
+    #cwRewardTitle { font-weight:900; font-size:12px; letter-spacing:2px; margin-bottom:6px; }
+    #cwRewardGrid { display:grid; grid-template-columns:repeat(4, 46px); grid-template-rows:repeat(4, 46px); gap:4px; justify-content:center; }
+    .cwSlot { box-sizing:border-box; width:46px; height:46px; border:1px solid rgba(255,255,255,0.28); border-radius:4px; background:rgba(0,0,0,0.5);
+      display:flex; align-items:center; justify-content:center; position:relative; touch-action:manipulation; }
+    .cwSlot.has { border-color:rgba(255,200,90,0.9); cursor:pointer; }
+    .cwSlot img { max-width:38px; max-height:38px; pointer-events:none; }
+    .cwSlot .cwQty { position:absolute; right:2px; bottom:0; font-size:9px; font-weight:900; color:#fff; text-shadow:0 0 3px #000; }
+    #cwRewardHint { margin-top:6px; font-size:10px; opacity:0.85; }
+    #cwRewardClose { position:absolute; top:2px; right:6px; cursor:pointer; font-weight:900; font-size:14px; color:#ffd86b; }
     @keyframes cwBannerMove { from { transform:translateX(0); } to { transform:translateX(-100%); } }
   `;
   document.head.appendChild(st);
@@ -3063,16 +3079,27 @@ cwBannerEl.id = "cwBanner";
 cwBannerEl.innerHTML = '<span id="cwBannerText"></span>';
 document.body.appendChild(cwBannerEl);
 
+const cwActionBtn = document.createElement("button");
+cwActionBtn.id = "cwActionBtn";
+document.body.appendChild(cwActionBtn);
+const cwRewardBox = document.createElement("div");
+cwRewardBox.id = "cwRewardBox";
+cwRewardBox.innerHTML = '<span id="cwRewardClose">X</span><div id="cwRewardTitle">CLAN WAR REWARD</div><div id="cwRewardGrid"></div><div id="cwRewardHint">Tap an item to see its stats. Every online clan member gets each item.</div>';
+document.body.appendChild(cwRewardBox);
+
 let olCwState = null;   // {phase, owner, ownerName, claimed, exitAt(performance ms)} while inside CWmap
 let olCwAuth = null;    // {start, seconds} while my authentication bar is running
 
 function olCwInside() { return netIsOnline() && netMapByLevel[netOnlineLevel] === OL_CW.KEY; }
-function olCwReset() { olCwState = null; olCwAuth = null; olCwRefresh(); }
+function olCwReset() { olCwState = null; olCwAuth = null; window.cwFrozen = false; olCwBoxOpen = false; olCwRefresh(); olCwUpdateAction(); }
 function olCwOnState(msg) {
   olCwState = {
     phase: msg.phase, owner: !!msg.owner, ownerName: msg.ownerName || "", claimed: !!msg.claimed,
-    exitAt: msg.claimed ? performance.now() + (msg.exitIn || 0) * 1000 : 0
+    exitAt: msg.claimed ? performance.now() + (msg.exitIn || 0) * 1000 : 0,
+    rewards: Array.isArray(msg.rewards) ? msg.rewards : null
   };
+  if (olCwState.claimed) olCwBoxOpen = false;
+  olCwUpdateAction();
   olCwRefresh();
 }
 // Shows the status label + authentication bar (HUD) from olCwState / olCwAuth (also called ~5x a second).
@@ -3086,7 +3113,7 @@ function olCwRefresh() {
   let label = "";
   if (st.phase === "ended") {
     cwAuthBarWrap.style.display = "none";
-    if (st.owner && !st.claimed) label = "TOUCH THE CLAIM REWARD PAD";
+    if (st.owner && !st.claimed) label = "STAND ON THE CLAIM REWARD PAD";
     else if (st.claimed) label = "LEAVING IN " + Math.max(0, Math.ceil((st.exitAt - performance.now()) / 1000)) + "s";
     else label = "CLAN WAR ENDED";
   } else if (olCwAuth) {
@@ -3096,7 +3123,7 @@ function olCwRefresh() {
     label = "AUTHENTICATING...";
   } else {
     cwAuthBarWrap.style.display = "none";
-    label = st.owner ? "YOUR CLAN OWNS THIS" : "FIND THE AUTHENTICATE PAD AND TOUCH IT";
+    label = st.owner ? "YOUR CLAN OWNS THIS" : "STAND ON THE AUTHENTICATE PAD";
   }
   cwAuthBtn.textContent = label;
   cwAuthBtn.style.display = label ? "block" : "none";
@@ -3134,18 +3161,71 @@ function drawCwPad(ctx, offX, offY) {
   }
   ctx.restore();
 }
-// Touching the pad (walking onto it) does the action. The server re-checks the distance.
-let olCwLastTouchSend = 0;
-setInterval(() => {
-  const mode = olCwPadMode();
-  if (!mode || isDead || typeof playerPos === "undefined") return;
+// Standing on the pad pops up a button (AUTHENTICATE / CLAIM REWARD) on screen. The server re-checks the distance.
+let olCwBoxOpen = false;
+let olCwBoxKey = "";
+function olCwTouchingPad() {
+  if (typeof playerPos === "undefined") return false;
   const P = OL_CW.PAD, h = P.size / 2;
   const cx = Math.max(P.x - h, Math.min(playerPos.x, P.x + h)), cy = Math.max(P.y - h, Math.min(playerPos.y, P.y + h));
-  if (Math.hypot(playerPos.x - cx, playerPos.y - cy) >= playerPos.radius) return;   // not touching
-  if (performance.now() - olCwLastTouchSend < 1500) return;
-  if (mode === "auth") { if (olCwAuth || olCwState.owner) return; olCwLastTouchSend = performance.now(); netSend({ type: "cwAuth" }); }   // the server runs the 30 s timer; dying cancels it
-  else { olCwLastTouchSend = performance.now(); netSend({ type: "cwClaim" }); }
-}, 150);
+  return Math.hypot(playerPos.x - cx, playerPos.y - cy) < playerPos.radius;
+}
+// Builds the entry the shared item-stats popup (index.html) understands, for one reward.
+function olCwRewardEntry(r) {
+  try {
+    if (r.kind === "gold") return { type: "gold", name: "Gold", data: { image: "image/goldenorb.png", description: "Gold from the Clan War reward, shared between the online clan members." }, qty: r.total || 0 };
+    if (r.kind === "weapon") { const d = getWeapon(r.type); return d && { type: "weapon", name: r.type, data: Object.assign({}, d, { image: d.image || ("image/" + r.type + ".png") }) }; }
+    if (r.kind === "armor" || r.kind === "ring" || r.kind === "accessory") {
+      const d = getArmor(r.type);
+      return d && { type: (d.category === "ring" || d.category === "accessory") ? d.category : "armor", name: r.type, data: Object.assign({}, d, { defense: d.physicalDefense }) };
+    }
+    if (r.kind === "stone" || r.kind === "orb") { const d = getUpgradeItem(r.type); return d && { type: r.kind, name: r.type, data: d, qty: 1 }; }
+  } catch (e) {}
+  return null;
+}
+function olCwBuildBox() {
+  const rewards = (olCwState && olCwState.rewards) || [];
+  const key = JSON.stringify(rewards);
+  if (key === olCwBoxKey) return;
+  olCwBoxKey = key;
+  const grid = document.getElementById("cwRewardGrid");
+  grid.innerHTML = "";
+  for (let i = 0; i < 16; i++) {
+    const slot = document.createElement("div");
+    slot.className = "cwSlot";
+    const r = rewards[i];
+    const entry = r ? olCwRewardEntry(r) : null;
+    if (entry) {
+      slot.classList.add("has");
+      const img = document.createElement("img");
+      img.src = entry.data.image || ("image/" + entry.name + ".png");
+      slot.appendChild(img);
+      if (r.kind === "gold") { const q = document.createElement("span"); q.className = "cwQty"; q.textContent = r.total; slot.appendChild(q); }
+      slot.addEventListener("click", () => { if (typeof window.openItemStatsPopup === "function") window.openItemStatsPopup(null, entry); });
+    }
+    grid.appendChild(slot);
+  }
+}
+document.getElementById("cwRewardClose").addEventListener("click", () => { olCwBoxOpen = false; olCwUpdateAction(); });
+// Shows / hides the action button + reward box (runs ~7x a second).
+function olCwUpdateAction() {
+  const mode = olCwPadMode();
+  const show = !!mode && !isDead && !olCwAuth && olCwTouchingPad() && !(mode === "auth" && olCwState.owner);
+  if (!show) { cwActionBtn.style.display = "none"; cwRewardBox.style.display = "none"; return; }
+  cwActionBtn.style.display = "block";
+  if (mode === "auth") { cwActionBtn.textContent = "AUTHENTICATE"; cwRewardBox.style.display = "none"; return; }
+  cwActionBtn.textContent = olCwBoxOpen ? "CLAIM ALL" : "CLAIM REWARD";
+  if (olCwBoxOpen) { olCwBuildBox(); cwRewardBox.style.display = "block"; } else cwRewardBox.style.display = "none";
+}
+setInterval(olCwUpdateAction, 150);
+cwActionBtn.addEventListener("click", () => {
+  const mode = olCwPadMode();
+  if (!mode || !olCwTouchingPad()) return;
+  if (mode === "auth") { if (!olCwAuth && !isDead) netSend({ type: "cwAuth" }); return; }   // the server runs the 30 s timer; dying cancels it
+  if (!olCwBoxOpen) { olCwBoxOpen = true; olCwUpdateAction(); return; }                      // 1st tap: open the reward box
+  netSend({ type: "cwClaim" });                                                              // 2nd tap: claim -> 20 s countdown starts
+  olCwBoxOpen = false; olCwUpdateAction();
+});
 
 function olCwWindowOpen() {
   const d = new Date(Date.now() + OL_CW.TZ_OFFSET_HOURS * 3600 * 1000);
@@ -3537,9 +3617,9 @@ function netHandle(msg) {
     case "cwMove":    olBossApplyMove(msg); olCwReset(); break;
     case "cwDenied":  olBossShowMessage(msg.reason || "You cannot enter the map.", "CLAN WAR"); break;
     case "cwState":   olCwOnState(msg); break;
-    case "cwAuthStart": olCwAuth = { start: performance.now(), seconds: msg.seconds || 30 }; olCwRefresh(); break;
-    case "cwAuthFail":  if (olCwAuth) { olCwAuth = null; netToast("Authentication failed"); olCwRefresh(); } break;
-    case "cwAuthDone":  olCwAuth = null; netToast("Authentication complete!"); olCwRefresh(); break;
+    case "cwAuthStart": olCwAuth = { start: performance.now(), seconds: msg.seconds || 30 }; window.cwFrozen = true; if (typeof input !== "undefined") { input.moveVector = { x: 0, y: 0 }; input.isShooting = false; } olCwRefresh(); olCwUpdateAction(); break;
+    case "cwAuthFail":  window.cwFrozen = false; if (olCwAuth) { olCwAuth = null; netToast("Authentication failed"); olCwRefresh(); } break;
+    case "cwAuthDone":  olCwAuth = null; window.cwFrozen = false; netToast("Authentication complete!"); olCwRefresh(); break;
     case "cwOwned":   olCwBanner("The " + (msg.clanName || "clan") + " owned this Clan War"); break;
     case "cwReward":  olCwApplyReward(msg.items); break;
 
