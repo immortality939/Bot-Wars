@@ -128,7 +128,7 @@ const CLAN_WAR = {
     { kind: "armor", type: "armor1" }
   ]
 };
-if (!MAPS[CLAN_WAR.KEY]) throw new Error("Clan war map missing: server/cwmap_server.js must define window.CUSTOM_MAPS[\"" + CLAN_WAR.KEY + "\"]");
+if (!MAPS[CLAN_WAR.KEY]) console.error("WARNING: clan war map missing - upload server/cwmap_server.js. CLAN WAR is disabled until then.");
 
 // The arena map itself lives in server/boss1_server.js (key "BOSSEVENT", loaded with the other map files).
 if (!MAPS[BOSS_EVENT.KEY]) console.warn("[boss event] server/boss1_server.js not found — BOSS EVENT is disabled until it is uploaded.");
@@ -2057,6 +2057,7 @@ wss.on("connection", (ws) => {
       case "cwEnter": {
         const deny = (reason) => send(ws, { type: "cwDenied", reason });
         if (me.map === CLAN_WAR.KEY || me.map === BOSS_EVENT.KEY) break;
+        if (!MAPS[CLAN_WAR.KEY]) { deny("CLAN WAR is not available yet."); break; }
         if (!cwWindowOpen()) { deny("CLAN WAR is only available on Tuesday, Thursday, Saturday and Sunday, 8PM to 9PM only."); break; }
         const myClan = clanOf(me);
         if (!myClan) { deny("Only players with a clan can enter this map."); break; }
