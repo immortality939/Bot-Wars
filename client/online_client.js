@@ -2823,8 +2823,8 @@ const OL_BOSS = {
   KEY: "BOSSEVENT",
   MIN_LEVEL: 1,
   DAYS: [1, 2, 5],       // Monday, Wednesday, Friday
-  START_HOUR: 22.75,        // 8 PM
-  END_HOUR: 22.85,          // 10 PM
+  START_HOUR: 22.5,        // 8 PM
+  END_HOUR: 23,          // 10 PM
   TZ_OFFSET_HOURS: 8,    // Philippine time
   CLOSED_TEXT: "BOSS EVENT is only available on Monday, Wednesday and Friday, at 8PM only."
 };
@@ -3036,8 +3036,8 @@ function olBossApplyMove(msg) {
 const OL_CW = {
   KEY: "CWmap",
   DAYS: [2, 4, 6, 0],    // Tuesday, Thursday, Saturday, Sunday
-  START_HOUR: 22.75,        // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
-  END_HOUR: 22.85,        // 9 PM  (21)
+  START_HOUR: 22.5,        // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
+  END_HOUR: 23,        // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,    // Philippine time
   // The AUTHENTICATE / CLAIM REWARD pad lying on the map floor (top middle of the map).
   // x, y = its CENTER in map pixels, size = its width/height. Keep in sync with CLAN_WAR.PAD in server.js.
