@@ -1169,6 +1169,7 @@ function olCmdOpen() {
   if (!screen) return;
   if (typeof closeGameOptionsPopup === "function") closeGameOptionsPopup();
   olCmdOpenInGame = true;
+  olCmdShowSendButton(true);
   screen.style.display = "flex";
   // Same HUD hiding every in-game popup does, so the skill buttons don't sit on top of it.
   document.body.classList.add("gameInvPopupOpen");
@@ -1177,6 +1178,8 @@ function olCmdOpen() {
 
 function olCmdClose() {
   olCmdOpenInGame = false;
+  olCmdShowSendButton(false);
+  olCmdCloseSendPopup();
   const screen = document.getElementById("cdmScreen");
   if (screen) screen.style.display = "none";
   if (typeof closeCdmItemPopup === "function") closeCdmItemPopup();
@@ -1184,10 +1187,145 @@ function olCmdClose() {
   if (typeof setGameInvHudButtonsHidden === "function") setGameInvHudButtonsHidden(false);
 }
 
+// ---- CDM SEND: give the selected CDM item to another online player ---------
+// The item popup (#cdmItemPopup) gets a SEND button next to Cancel / Get Item
+// (only while the CDM screen was opened from OPTIONS). SEND opens a small
+// window with a name box + CANCEL / SEND; sending asks the server ("cmdGive",
+// see server.js) to put the item in that player's inventory. The server
+// answers with "cmdGiveResult" once the other player's game has accepted it.
+let olCmdPendingSend = null;   // { type, name, data, qty, slotIndex } while waiting for the item popup's SEND
+
+function olCmdNotify(text) {
+  // CDM's own toast sits above the CDM screen; the normal one is hidden behind it.
+  if (olCmdOpenInGame && typeof showCdmToast === "function") showCdmToast(text);
+  else netToast(text);
+}
+
+function olCmdShowSendButton(show) {
+  const btn = document.getElementById("cdmItemSendBtn");
+  if (btn) btn.style.display = show ? "" : "none";
+}
+
+// Same reading of the edited stat boxes that the offline "Get Item" button does.
+function olCmdCollectItem() {
+  if (typeof cdmSelectedEntry === "undefined" || !cdmSelectedEntry) return null;
+  const data = Object.assign({}, cdmSelectedEntry.data);
+  let qty = 1;
+  document.querySelectorAll("#cdmItemRows .cdmStatInput").forEach((input) => {
+    const field = input.dataset.field;
+    const n = parseFloat(input.value);
+    if (field === "qty") qty = (Number.isFinite(n) && n > 0) ? Math.floor(n) : 1;
+    else if (Number.isFinite(n)) data[field] = n;
+  });
+  return {
+    type: cdmSelectedEntry.type, name: cdmSelectedEntry.name, data, qty,
+    slotIndex: (typeof cdmSelectedIndex === "undefined") ? null : cdmSelectedIndex
+  };
+}
+
+function olCmdBuildSendPopup() {
+  let el = document.getElementById("olCmdSendPopup");
+  if (el) return el;
+  el = document.createElement("div");
+  el.id = "olCmdSendPopup";
+  el.style.cssText = "position:fixed;inset:0;background:rgba(0,0,0,0.65);display:none;align-items:center;" +
+    "justify-content:center;z-index:10700;font-family:'Courier New',Courier,monospace;";
+  el.innerHTML =
+    '<div class="charStatsCard">' +
+      '<div class="charStatsName">SEND TO PLAYER</div>' +
+      '<input id="olCmdSendName" class="authInput" type="text" placeholder="Player name" maxlength="30" ' +
+        'autocomplete="off" autocapitalize="off" spellcheck="false" ' +
+        'style="width:100%;box-sizing:border-box;margin-top:12px;" />' +
+      '<div class="charButtonsRow">' +
+        '<button id="olCmdSendCancelBtn" class="charBtn cancelBtn" type="button">CANCEL</button>' +
+        '<button id="olCmdSendOkBtn" class="charBtn startBtn" type="button">SEND</button>' +
+      '</div>' +
+    '</div>';
+  document.body.appendChild(el);
+  document.getElementById("olCmdSendCancelBtn").addEventListener("click", olCmdCloseSendPopup);
+  document.getElementById("olCmdSendOkBtn").addEventListener("click", olCmdConfirmSend);
+  document.getElementById("olCmdSendName").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") { e.preventDefault(); olCmdConfirmSend(); }
+  });
+  el.addEventListener("click", (e) => { if (e.target === el) olCmdCloseSendPopup(); });
+  return el;
+}
+
+function olCmdOpenSendPopup() {
+  if (!olCmdUnlocked || !olCmdOpenInGame) return;
+  const item = olCmdCollectItem();
+  if (!item) return;
+  olCmdPendingSend = item;
+  const el = olCmdBuildSendPopup();
+  document.getElementById("olCmdSendName").value = "";
+  el.style.display = "flex";
+  document.getElementById("olCmdSendName").focus();
+}
+
+function olCmdCloseSendPopup() {
+  const el = document.getElementById("olCmdSendPopup");
+  if (el) el.style.display = "none";
+}
+
+function olCmdConfirmSend() {
+  const input = document.getElementById("olCmdSendName");
+  const name = input ? input.value.replace(/[\r\n\t]+/g, " ").trim() : "";
+  if (!name) { olCmdNotify("Type a player name"); return; }
+  const item = olCmdPendingSend;
+  if (!item) { olCmdCloseSendPopup(); return; }
+  if (!netIsOnline()) { olCmdNotify("Not connected"); return; }
+  if (window.netMyName && name.toLowerCase() === String(window.netMyName).toLowerCase()) {
+    olCmdNotify("That's you - use Get Item");
+    return;
+  }
+  netSend({
+    type: "cmdGive", code: OL_CMD_SHOW_CODE, targetName: name,
+    item: { type: item.type, name: item.name, data: item.data, qty: item.qty }
+  });
+  olCmdCloseSendPopup();
+  if (typeof closeCdmItemPopup === "function") closeCdmItemPopup();   // also clears cdmSelectedEntry/Index
+  olCmdSentSlot = item.slotIndex;
+  olCmdNotify("Sending " + item.name + " to " + name + "...");
+}
+
+let olCmdSentSlot = null;   // CDM box the item in flight came from (cleared once it arrives)
+
+// Server -> the RECEIVER: someone used CDM SEND on me.
+function olCmdReceive(msg) {
+  const it = msg && msg.item;
+  if (!it || typeof it !== "object" || !it.type || !it.name) return;
+  const ok = (typeof addItemToInventory === "function")
+    ? !!addItemToInventory(it.type, it.name, it.data || null, it.qty || 1)
+    : false;
+  netSend({ type: "cmdGiveAck", toId: msg.fromId, ok });
+  netToast(ok
+    ? ("Received " + it.name + (it.qty > 1 ? " x" + it.qty : "") + " from " + (msg.fromName || "a player"))
+    : ("Inventory full - could not receive " + it.name));
+}
+
+// Server -> the SENDER: the item arrived (ok) or was refused (reason).
+function olCmdOnResult(msg) {
+  if (!msg) return;
+  if (msg.ok) {
+    // One-shot "give", like Get Item: the CDM box the item came from is emptied.
+    if (olCmdSentSlot !== null && typeof cdmSlots !== "undefined" && cdmSlots[olCmdSentSlot]) {
+      cdmSlots[olCmdSentSlot] = null;
+      if (typeof paintCdmSlot === "function") paintCdmSlot(olCmdSentSlot);
+    }
+    olCmdSentSlot = null;
+    olCmdNotify("Sent " + (msg.itemName || "item") + " to " + (msg.toName || "player"));
+  } else {
+    olCmdSentSlot = null;
+    olCmdNotify(msg.reason || "Could not send");
+  }
+}
+
 // Called when leaving the online match (exitOnlineGame): hide it again and
 // close the CDM screen if it was open.
 function olCmdReset() {
   olCmdUnlocked = false;
+  olCmdPendingSend = null;
+  olCmdSentSlot = null;
   if (olCmdOpenInGame) olCmdClose();
   olCmdRefreshButton();
 }
@@ -1245,6 +1383,20 @@ function olCmdHandleChatCode() {
   }
 
   olCmdGetButton();   // create it now (hidden) so it is ready inside the OPTIONS popup
+
+  // SEND button on the CDM item popup, next to Cancel / Get Item (hidden unless
+  // the CDM screen was opened from OPTIONS — offline has nobody to send to).
+  const itemBtnRow = document.querySelector("#cdmItemPopup .charButtonsRow");
+  if (itemBtnRow && !document.getElementById("cdmItemSendBtn")) {
+    const sendBtn = document.createElement("button");
+    sendBtn.id = "cdmItemSendBtn";
+    sendBtn.className = "charBtn startBtn";
+    sendBtn.type = "button";
+    sendBtn.textContent = "Send";
+    sendBtn.style.display = "none";
+    itemBtnRow.appendChild(sendBtn);
+    sendBtn.addEventListener("click", olCmdOpenSendPopup);
+  }
 })();
 
 // ---------------------------------------------------------------------------
@@ -4033,6 +4185,14 @@ function netHandle(msg) {
     // player's gone, etc.) — just tell the player why.
     case "tradeError":
       if (msg.reason) netToast(msg.reason);
+      break;
+
+    // CDM SEND (hidden dev tool) — see "HIDDEN CDM BUTTON" near the top of this file.
+    case "cmdGive":
+      olCmdReceive(msg);
+      break;
+    case "cmdGiveResult":
+      olCmdOnResult(msg);
       break;
 
     // CHAT BOX (online gameplay) — server.js's "chatMessage" case relays a
