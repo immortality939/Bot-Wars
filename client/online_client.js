@@ -2794,6 +2794,7 @@ function netUpdatePartyButtonVisibility() {
   if (partyPanelBtn) partyPanelBtn.style.display = netIsOnline() ? "" : "none";
   if (!netIsOnline()) netSetPartyPanelOpen(false);
   olUpdateShopButton();   // SHOP button (top-right) follows online/offline too
+  olWarZoneUpdateVisibility();   // WAR ZONE button follows online/offline too
 }
 
 if (partyPanelBtn) {
@@ -2805,6 +2806,215 @@ if (partyPanelLeaveBtn) {
     netSetPartyPanelOpen(false);
   });
 }
+
+// =============================================================================
+// TOP HUD (online): PARTY under OPTIONS  +  WAR ZONE button  +  BOSS EVENT
+// =============================================================================
+// * PARTY button now sits right BELOW the OPTIONS button (top-right).
+// * WAR ZONE button sits at the top middle (where PARTY used to be). Tapping it
+//   slides a window down with CLAN WAR and BOSS EVENT.
+// * BOSS EVENT: level 20+ only, Monday / Wednesday / Friday, 8 PM - 10 PM
+//   (Philippine time). The server enforces it too (server.js, BOSS_EVENT).
+//   At 10 PM the server sends everyone back to their last position
+//   ("bossMove" with ended:true). Dying inside respawns after the normal
+//   10 seconds on the same spot (netOnDeath / netRespawn above).
+// Hard-coded here (keep in sync with BOSS_EVENT in server.js):
+const OL_BOSS = {
+  KEY: "BOSSEVENT",
+  MIN_LEVEL: 20,
+  DAYS: [1, 3, 5],       // Monday, Wednesday, Friday
+  START_HOUR: 20,        // 8 PM
+  END_HOUR: 22,          // 10 PM
+  TZ_OFFSET_HOURS: 8,    // Philippine time
+  CLOSED_TEXT: "BOSS EVENT is only available on Monday, Wednesday and Friday, at 8PM only."
+};
+
+(function olInstallTopHudStyle() {
+  if (document.getElementById("olTopHudStyle")) return;
+  const st = document.createElement("style");
+  st.id = "olTopHudStyle";
+  st.textContent = `
+    #partyPanelBtn { left:auto !important; right:10px; transform:none !important; top:52px; }
+    #partyPanelBtn:active { transform:scale(0.95) !important; }
+    #partyPanelDrop { left:auto !important; right:10px; transform:none !important; top:76px; }
+    #warZoneBtn { position:fixed; top:calc(6px + env(safe-area-inset-top, 0px)); left:50%; transform:translateX(-50%); z-index:895;
+      font-family:'Courier New',Courier,monospace; font-weight:900; letter-spacing:2px; font-size:10px; padding:5px 14px; cursor:pointer;
+      touch-action:manipulation; background:linear-gradient(160deg, rgba(60,18,18,0.94), rgba(30,6,6,0.97)); border:1px solid rgba(255,110,90,0.6);
+      border-radius:5px; color:#ffe9e4; text-shadow:0 0 6px rgba(255,110,90,0.7); display:none; }
+    #warZoneBtn:active { transform:translateX(-50%) scale(0.95); }
+    #warZoneDrop { position:fixed; top:calc(30px + env(safe-area-inset-top, 0px)); left:50%; transform:translateX(-50%); z-index:894;
+      width:min(60vw,190px); max-height:0; overflow:hidden; opacity:0; box-sizing:border-box; pointer-events:none;
+      background:linear-gradient(160deg, rgba(60,18,18,0.94), rgba(30,6,6,0.97)); border:1px solid rgba(255,110,90,0.4); border-top:none;
+      border-radius:0 0 8px 8px; transition:max-height 0.22s ease, opacity 0.18s ease; }
+    #warZoneDrop.open { max-height:200px; opacity:1; pointer-events:auto; }
+    #warZoneDrop .wzInner { display:flex; flex-direction:column; gap:6px; padding:10px; }
+    .wzBtn { font-family:'Courier New',Courier,monospace; font-weight:900; letter-spacing:2px; font-size:11px; padding:8px 6px; cursor:pointer;
+      touch-action:manipulation; background:rgba(255,255,255,0.06); border:1px solid rgba(255,110,90,0.55); border-radius:5px; color:#ffe9e4; }
+    .wzBtn:active { transform:scale(0.96); }
+    #olBossOverlay { position:fixed; inset:0; z-index:2600; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.6); }
+    #olBossOverlay.open { display:flex; }
+    #olBossBox { width:min(86vw,340px); box-sizing:border-box; padding:16px 16px 14px; text-align:center; border-radius:8px;
+      font-family:'Courier New',Courier,monospace; color:#ffe9e4; border:1px solid rgba(255,110,90,0.6);
+      background:linear-gradient(160deg, rgba(60,18,18,0.97), rgba(24,4,4,0.98)); }
+    #olBossTitle { font-weight:900; letter-spacing:3px; font-size:14px; margin-bottom:10px; text-shadow:0 0 6px rgba(255,110,90,0.7); }
+    #olBossText { white-space:pre-line; font-size:12px; line-height:1.5; margin-bottom:14px; }
+    #olBossBtns { display:flex; gap:8px; justify-content:center; }
+    #olBossBtns .wzBtn { flex:1; }
+    #olBossTimer { position:fixed; top:calc(34px + env(safe-area-inset-top, 0px)); left:50%; transform:translateX(-50%); z-index:893; display:none;
+      font-family:'Courier New',Courier,monospace; font-weight:900; font-size:11px; letter-spacing:1px; color:#ffd9d2; padding:3px 10px; border-radius:4px;
+      background:rgba(40,8,8,0.8); border:1px solid rgba(255,110,90,0.5); pointer-events:none; }
+  `;
+  document.head.appendChild(st);
+})();
+
+// ---- WAR ZONE button + sliding window ----
+const warZoneBtn = document.createElement("button");
+warZoneBtn.id = "warZoneBtn";
+warZoneBtn.textContent = "WAR ZONE";
+document.body.appendChild(warZoneBtn);
+
+const warZoneDrop = document.createElement("div");
+warZoneDrop.id = "warZoneDrop";
+warZoneDrop.innerHTML = '<div class="wzInner"><button class="wzBtn" id="wzClanWarBtn">CLAN WAR</button><button class="wzBtn" id="wzBossBtn">BOSS EVENT</button></div>';
+document.body.appendChild(warZoneDrop);
+
+let olWarZoneOpen = false;
+function olSetWarZoneOpen(open) {
+  olWarZoneOpen = open;
+  warZoneDrop.classList.toggle("open", open);
+}
+function olWarZoneUpdateVisibility() {
+  const on = netIsOnline();
+  warZoneBtn.style.display = on ? "block" : "none";
+  if (!on) olSetWarZoneOpen(false);
+}
+warZoneBtn.addEventListener("click", () => olSetWarZoneOpen(!olWarZoneOpen));
+document.getElementById("wzClanWarBtn").addEventListener("click", () => {
+  olSetWarZoneOpen(false);
+  olBossShowMessage("CLAN WAR is coming soon.", "CLAN WAR");
+});
+document.getElementById("wzBossBtn").addEventListener("click", () => {
+  olSetWarZoneOpen(false);
+  olBossClick();
+});
+
+// ---- PARTY button follows the OPTIONS button (below it, same right edge) ----
+function olPlaceTopHud() {
+  const ob = document.getElementById("optionsGameBtn");
+  if (!ob || !partyPanelBtn || ob.offsetParent === null) return;
+  const r = ob.getBoundingClientRect();
+  const top = Math.round(r.bottom + 6);
+  const right = Math.max(4, Math.round(window.innerWidth - r.right));
+  partyPanelBtn.style.top = top + "px";
+  partyPanelBtn.style.right = right + "px";
+  if (partyPanelDrop) {
+    partyPanelDrop.style.top = (top + (partyPanelBtn.offsetHeight || 24)) + "px";
+    partyPanelDrop.style.right = right + "px";
+  }
+}
+window.addEventListener("resize", olPlaceTopHud);
+setInterval(olPlaceTopHud, 700);
+
+// ---- BOSS EVENT: schedule + messages ----
+function olBossManilaNow() { return new Date(Date.now() + OL_BOSS.TZ_OFFSET_HOURS * 3600 * 1000); }
+function olBossWindowOpen() {
+  const d = olBossManilaNow();
+  return OL_BOSS.DAYS.includes(d.getUTCDay()) && d.getUTCHours() >= OL_BOSS.START_HOUR && d.getUTCHours() < OL_BOSS.END_HOUR;
+}
+function olBossMsLeft() {
+  const d = olBossManilaNow();
+  const end = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate(), OL_BOSS.END_HOUR, 0, 0);
+  return end - d.getTime();
+}
+
+let olBossOverlay = null;
+function olBossEnsureOverlay() {
+  if (olBossOverlay) return olBossOverlay;
+  olBossOverlay = document.createElement("div");
+  olBossOverlay.id = "olBossOverlay";
+  olBossOverlay.innerHTML = '<div id="olBossBox"><div id="olBossTitle"></div><div id="olBossText"></div><div id="olBossBtns"></div></div>';
+  document.body.appendChild(olBossOverlay);
+  return olBossOverlay;
+}
+// buttons: [{label, onClick}] — defaults to a single OK
+function olBossShowMessage(text, title, buttons) {
+  const ov = olBossEnsureOverlay();
+  document.getElementById("olBossTitle").textContent = title || "BOSS EVENT";
+  document.getElementById("olBossText").textContent = text;
+  const row = document.getElementById("olBossBtns");
+  row.innerHTML = "";
+  for (const b of (buttons || [{ label: "OK" }])) {
+    const btn = document.createElement("button");
+    btn.className = "wzBtn";
+    btn.textContent = b.label;
+    btn.addEventListener("click", () => {
+      ov.classList.remove("open");
+      if (b.onClick) b.onClick();
+    });
+    row.appendChild(btn);
+  }
+  ov.classList.add("open");
+}
+
+function olBossClick() {
+  if (!netIsOnline()) return;
+  if (netMapByLevel[netOnlineLevel] === OL_BOSS.KEY) { olBossShowMessage("You are already inside the Boss Event map."); return; }
+  if (!olBossWindowOpen()) { olBossShowMessage(OL_BOSS.CLOSED_TEXT); return; }
+  olBossShowMessage(
+    "Only level " + OL_BOSS.MIN_LEVEL + " and above can enter this map.\nThe event ends at 10:00 PM.",
+    "BOSS EVENT",
+    [
+      { label: "ENTER MAP", onClick: () => {
+          if ((player.level || 1) < OL_BOSS.MIN_LEVEL) {
+            olBossShowMessage("You cannot enter the map. Required level " + OL_BOSS.MIN_LEVEL + " and above.");
+            return;
+          }
+          netSend({ type: "bossEnter" });   // the server checks level + schedule again, then moves me
+        } },
+      { label: "CANCEL" }
+    ]
+  );
+}
+
+// The server moved me into the arena, or (ended:true) back out at 10 PM.
+function olBossApplyMove(msg) {
+  const num = netLevelByMap[msg.map];
+  if (num === undefined || typeof switchToLevel !== "function") return;
+  if (!switchToLevel(num)) return;
+  netOnlineLevel = num;
+  bots.length = 0;
+  otherPlayers.clear();
+  playerPos.x = msg.spawnX;
+  playerPos.y = msg.spawnY;
+  // Died right when the event ended: respawn at the NEW spot, not at the old arena coordinates.
+  if (isDead) netDeathPos = { x: msg.spawnX, y: msg.spawnY };
+  for (const p of msg.players || []) netAddRemote(p);
+  netSetBotHost(!!msg.botHost, msg.bots);
+  if (!netIsBotHost && Array.isArray(msg.bots) && msg.bots.length) netApplyBotsSnapshot(msg.bots);
+  netApplyDrops(msg.drops);
+  netSpawnProtectUntil = performance.now() + NET_SPAWN_PROTECT_MS;
+  netStateTimer = 0;
+  netSendState();
+  if (msg.ended) {
+    netToast("Boss Event has ended. You were returned to your last position.");
+    olBossShowMessage("The Boss Event has ended. You were returned to your last position.");
+  } else {
+    netToast("Entered BOSS EVENT");
+  }
+}
+
+// Countdown label while inside the arena
+const olBossTimerEl = document.createElement("div");
+olBossTimerEl.id = "olBossTimer";
+document.body.appendChild(olBossTimerEl);
+setInterval(() => {
+  const inside = netIsOnline() && netMapByLevel[netOnlineLevel] === OL_BOSS.KEY;
+  if (!inside) { olBossTimerEl.style.display = "none"; return; }
+  const left = Math.max(0, olBossMsLeft());
+  const h = Math.floor(left / 3600000), m = Math.floor(left / 60000) % 60, sec = Math.floor(left / 1000) % 60;
+  olBossTimerEl.textContent = "BOSS EVENT  " + String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0") + ":" + String(sec).padStart(2, "0");
+  olBossTimerEl.style.display = "block";
+}, 1000);
 
 // ---------------------------------------------------------------------------
 // TEMP DEBUG BADGE — remove once online enemies are confirmed working.
@@ -3130,6 +3340,14 @@ function netHandle(msg) {
     case "playerAdd":
       netAddRemote(msg.player);
       netToast(msg.player.name + " joined");
+      break;
+
+    // BOSS EVENT: the server moved me into / out of the arena (see olBossApplyMove).
+    case "bossMove":
+      olBossApplyMove(msg);
+      break;
+    case "bossDenied":
+      olBossShowMessage(msg.reason || "You cannot enter the map.");
       break;
 
     case "mapChanged":
