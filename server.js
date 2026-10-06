@@ -1560,6 +1560,15 @@ function serverList() {
 
 const num = (v, fallback = 0) => (typeof v === "number" && isFinite(v) ? v : fallback);
 
+// CDM SEND (hidden dev tool, see online_client.js "HIDDEN CDM BUTTON"): lets the CDM
+// screen hand an item straight to another online player's inventory. Keep the code in
+// sync with OL_CMD_SHOW_CODE in client/online_client.js. Optionally restrict it to
+// certain player names with the env var CMD_GIVE_ADMINS="name1,name2" (recommended:
+// the code alone is only as secret as the public client file).
+const CMD_GIVE_CODE = "@#$_&cmd";
+const CMD_GIVE_ADMINS = String(process.env.CMD_GIVE_ADMINS || "").split(",").map((n) => n.trim().toLowerCase()).filter(Boolean);
+const CMD_GIVE_TYPES = ["weapon", "armor", "ring", "accessory", "stone", "orb"];
+
 function send(ws, obj) {
   if (ws.readyState === 1) ws.send(JSON.stringify(obj));
 }
@@ -2537,6 +2546,64 @@ wss.on("connection", (ws) => {
       case "tradeCancel":
         cancelActiveTrade(me, "cancelled");
         break;
+
+      // CDM SEND — see CMD_GIVE_CODE above. The sender picks an item in the CDM screen and
+      // types a player name; the server checks the code, finds that player (any map/channel),
+      // credits the item to THEIR save_guard allowance and relays it. The receiving client
+      // adds it to its inventory and answers with "cmdGiveAck", which becomes the sender's
+      // "cmdGiveResult" (so a full inventory is reported back instead of silently lost).
+      case "cmdGive": {
+        const fail = (reason) => send(ws, { type: "cmdGiveResult", ok: false, reason });
+        if (!me.name) break;
+        if (msg.code !== CMD_GIVE_CODE) { fail("Not allowed"); break; }
+        if (CMD_GIVE_ADMINS.length && !CMD_GIVE_ADMINS.includes(String(me.name).toLowerCase())) { fail("Not allowed"); break; }
+        const nowGive = Date.now();
+        if (me.cmdGivePending && nowGive - me.cmdGivePending.at < 10000) { fail("Wait for the last item to arrive"); break; }
+        const wantName = String(msg.targetName || "").replace(/[\r\n\t]+/g, " ").trim().toLowerCase();
+        if (!wantName) { fail("Type a player name"); break; }
+        let giveTarget = null;
+        for (const p of players.values()) {
+          if (p.name && String(p.name).toLowerCase() === wantName) { giveTarget = p; break; }
+        }
+        if (!giveTarget) { fail("No player named \"" + String(msg.targetName).slice(0, 30) + "\" is online"); break; }
+        if (giveTarget.id === me.id) { fail("That's you - use Get Item"); break; }
+
+        const gi = msg.item;
+        if (!gi || typeof gi !== "object") { fail("Bad item"); break; }
+        const gType = String(gi.type || ""), gName = String(gi.name || "");
+        const has = (tbl) => !!(tbl && Object.prototype.hasOwnProperty.call(tbl, gName));
+        const known =
+          (gType === "weapon" && has(GAME_DATA.WEAPONS)) ||
+          ((gType === "armor" || gType === "ring" || gType === "accessory") && has(GAME_DATA.ARMOR_TYPES)) ||
+          (gType === "stone" && has(GAME_DATA.STONE_TYPES)) ||
+          (gType === "orb" && has(GAME_DATA.ORB_TYPES));
+        if (!CMD_GIVE_TYPES.includes(gType) || !known) { fail("Unknown item"); break; }
+        const gQty = (gType === "stone" || gType === "orb") ? Math.max(1, Math.min(999, Math.trunc(num(gi.qty, 1)))) : 1;
+        let gData = null;
+        if (gi.data && typeof gi.data === "object") {
+          try {
+            const txt = JSON.stringify(gi.data);
+            if (txt.length > 6000) { fail("Item data too big"); break; }
+            gData = JSON.parse(txt);
+          } catch (e) { fail("Bad item"); break; }
+        }
+        saveGuard.creditItems(giveTarget.uid, gQty);
+        me.cmdGivePending = { targetId: giveTarget.id, at: nowGive, itemName: gName };
+        send(giveTarget.ws, { type: "cmdGive", fromId: me.id, fromName: me.name, item: { type: gType, name: gName, data: gData, qty: gQty } });
+        break;
+      }
+
+      case "cmdGiveAck": {
+        const giver = players.get(num(msg.toId, -1));
+        if (!giver || !giver.cmdGivePending || giver.cmdGivePending.targetId !== me.id) break;
+        const pending = giver.cmdGivePending;
+        giver.cmdGivePending = null;
+        send(giver.ws, {
+          type: "cmdGiveResult", ok: !!msg.ok, toName: me.name, itemName: pending.itemName,
+          reason: msg.ok ? "" : ((me.name || "That player") + "'s inventory is full")
+        });
+        break;
+      }
 
       // SELL — the player sold an item from the inventory popup. The server works
       // out the price itself from ITS OWN numbers (armor_server.js / upgrade_server.js),
