@@ -9,7 +9,6 @@
 // when they join an online match; the game then uses them instead of the
 // offline tables until the player leaves.
 // =============================================================================
-
 // armor.js
 //
 // Armor items — equippable gear placed in the Armor slot (or the Gear
