@@ -90,6 +90,21 @@ for (const f of SERVER_JS_FILES) {
 const MAPS = (global.window && global.window.CUSTOM_MAPS) || {};
 if (!Object.keys(MAPS).length) throw new Error("No map found: server/worldmap_server.js must define window.CUSTOM_MAPS[\"worldmap\"]");
 const START_MAP = MAPS.worldmap ? "worldmap" : Object.keys(MAPS)[0];   // where everyone spawns
+// ---- BOSS EVENT MAP (hard-coded) -------------------------------------------
+// A private arena map that is only reachable through the WAR ZONE > BOSS EVENT
+// button (never through a portal). Its map data is in server/boss1_server.js;
+// edit BOSS_EVENT below to change the rules.
+// Schedule is in PHILIPPINE TIME (UTC+8): Monday, Wednesday, Friday, 8 PM - 10 PM.
+const BOSS_EVENT = {
+  KEY: "BOSSEVENT",
+  MIN_LEVEL: 1,
+  DAYS: [1, 2, 5],        // 0=Sunday ... 1=Monday, 3=Wednesday, 5=Friday
+  START_HOUR: 12,         // 8 PM
+  END_HOUR: 12:45,           // 10 PM (everyone is sent back to their last map)
+  TZ_OFFSET_HOURS: 8      // Philippines
+};
+// The arena map itself lives in server/boss1_server.js (key "BOSSEVENT", loaded with the other map files).
+if (!MAPS[BOSS_EVENT.KEY]) throw new Error("Boss event map missing: server/boss1_server.js must define window.CUSTOM_MAPS[\"" + BOSS_EVENT.KEY + "\"]");
 GAME_DATA.WORLD_MAPS = MAPS;
 GAME_DATA.START_MAP = START_MAP;
 
@@ -1309,6 +1324,58 @@ function dropList(room) {
 }
 function clearDropsIfEmpty() { /* intentionally keeps loot in empty rooms */ }
 
+// ---------------------------------------------------------------------------
+// BOSS EVENT — schedule check, enter, and the 10 PM teleport-out
+// ---------------------------------------------------------------------------
+function bossManilaNow() { return new Date(Date.now() + BOSS_EVENT.TZ_OFFSET_HOURS * 3600 * 1000); }
+function bossWindowOpen() {
+  const d = bossManilaNow();
+  return BOSS_EVENT.DAYS.includes(d.getUTCDay()) && d.getUTCHours() >= BOSS_EVENT.START_HOUR && d.getUTCHours() < BOSS_EVENT.END_HOUR;
+}
+// Moves one player into/out of the boss arena (server-initiated, so no "map" message needed).
+function bossMovePlayer(p, key, spawn, ended) {
+  const oldRoom = p.room;
+  oldRoom.delete(p.id);
+  broadcast(oldRoom, { type: "playerRemove", id: p.id });
+  reassignHost(oldRoom, p.id);
+  p.map = key;
+  p.room = getRoom(p.server, p.channel, key);
+  const first = p.room.size === 0;
+  p.room.set(p.id, p);
+  if (first) { p.room.hostId = p.id; stopOfflineSim(p.room); }
+  p.x = spawn.x; p.y = spawn.y;
+  p.lastMapChange = Date.now();
+  p.protectUntil = Date.now() + ONLINE_RULES.SPAWN_PROTECT_MS;
+  send(p.ws, {
+    type: "bossMove", map: key, ended: !!ended,
+    spawnX: p.x, spawnY: p.y,
+    players: [...p.room.values()].filter((o) => o.id !== p.id).map(publicInfo),
+    botHost: p.room.hostId === p.id,
+    bots: currentBots(p.room),
+    drops: dropList(p.room)
+  });
+  broadcast(p.room, { type: "playerAdd", player: publicInfo(p) }, p.id);
+}
+// Where a player goes when the event ends: the exact spot they entered from.
+function bossReturnSpot(p) {
+  const r = validateSavedSpot(p.bossReturn);
+  if (r && r.map !== BOSS_EVENT.KEY) return r;
+  const m = MAPS[START_MAP];
+  return { map: START_MAP, x: m.worldWidth / 2, y: m.worldHeight / 2 };
+}
+// Every second: once it is 10 PM, send everyone still inside back to their last position.
+setInterval(() => {
+  if (bossWindowOpen()) return;
+  for (const room of rooms.values()) {
+    if (room.mapKey !== BOSS_EVENT.KEY || room.size === 0) continue;
+    for (const p of [...room.values()]) {
+      const r = bossReturnSpot(p);
+      p.bossReturn = null;
+      bossMovePlayer(p, r.map, { x: r.x, y: r.y }, true);
+    }
+  }
+}, 1000);
+
 // Runs on a timer (see setInterval below) so a drop disappears for players
 // who are ALREADY in the room the moment it expires, not just for the next
 // person to join/rejoin (dropList() above already keeps those clean). Reuses
@@ -1400,7 +1467,8 @@ wss.on("connection", (ws) => {
         return;
       }
 
-      const savedSpot = validateSavedSpot(msg.lastPos);   // null -> normal start
+      let savedSpot = validateSavedSpot(msg.lastPos);   // null -> normal start
+      if (savedSpot && savedSpot.map === BOSS_EVENT.KEY && !bossWindowOpen()) savedSpot = null;   // event is over: normal start
       const startMap = savedSpot ? savedSpot.map : START_MAP;
       const room = getRoom(serverId, channel, startMap);
       const id = nextId++;
@@ -1834,6 +1902,7 @@ wss.on("connection", (ws) => {
         const key = String(msg.map || "");
         const now = Date.now();
         if (!MAPS[key] || key === me.map || now - me.lastMapChange < 300) break;
+        if (key === BOSS_EVENT.KEY || me.map === BOSS_EVENT.KEY) break;   // the arena is only entered via "bossEnter"
         me.lastMapChange = now;
         me.protectUntil = now + ONLINE_RULES.SPAWN_PROTECT_MS;
         const fromMapKey = me.map;   // captured BEFORE me.map is overwritten below
@@ -1864,6 +1933,20 @@ wss.on("connection", (ws) => {
           drops: dropList(me.room)
         });
         broadcast(me.room, { type: "playerAdd", player: publicInfo(me) }, me.id);
+        break;
+      }
+
+      // WAR ZONE > BOSS EVENT > ENTER MAP. The server re-checks everything.
+      case "bossEnter": {
+        const deny = (reason) => send(ws, { type: "bossDenied", reason });
+        if (me.map === BOSS_EVENT.KEY) break;
+        if (!bossWindowOpen()) { deny("BOSS EVENT is only available on Monday, Wednesday and Friday, at 8PM only."); break; }
+        if (num(me.level, 1) < BOSS_EVENT.MIN_LEVEL) { deny("You cannot enter the map. Required level " + BOSS_EVENT.MIN_LEVEL + " and above."); break; }
+        if (!me.alive) { deny("You cannot enter while you are dead."); break; }
+        if (Date.now() - me.lastMapChange < 300) break;
+        me.bossReturn = { map: me.map, x: me.x, y: me.y };   // brought back here at 10 PM
+        const m = MAPS[BOSS_EVENT.KEY];
+        bossMovePlayer(me, BOSS_EVENT.KEY, { x: m.worldWidth / 2 + (Math.random() * 300 - 150), y: m.worldHeight - 250 }, false);
         break;
       }
 
