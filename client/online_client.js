@@ -2821,7 +2821,7 @@ if (partyPanelLeaveBtn) {
 // Hard-coded here (keep in sync with BOSS_EVENT in server.js):
 const OL_BOSS = {
   KEY: "BOSSEVENT",
-  MIN_LEVEL: 20,
+  MIN_LEVEL: 1,
   DAYS: [1, 2, 5],       // Monday, Wednesday, Friday
   START_HOUR: 23,        // 8 PM
   END_HOUR: 24,          // 10 PM
