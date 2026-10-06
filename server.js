@@ -118,9 +118,12 @@ const BOSS_EVENT = {
 const CLAN_WAR = {
   KEY: "CWmap",
   DAYS: [2, 4, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
-  START_HOUR: 13,         // 8 PM
-  END_HOUR: 14,           // 9 PM
+  START_HOUR: 13,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
+  END_HOUR: 14,         // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,     // Philippines
+  // The AUTHENTICATE / CLAIM REWARD pad on the map floor (x, y = center, size = width/height).
+  // Keep in sync with OL_CW.PAD in online_client.js.
+  PAD: { x: 1000, y: 150, size: 110 },
   AUTH_SECONDS: 30,
   CLAIM_EXIT_SECONDS: 20,
   REWARDS: [
@@ -1411,7 +1414,14 @@ setInterval(() => {
 const cwStates = new Map();
 function cwWindowOpen() {
   const d = new Date(Date.now() + CLAN_WAR.TZ_OFFSET_HOURS * 3600 * 1000);
-  return CLAN_WAR.DAYS.includes(d.getUTCDay()) && d.getUTCHours() >= CLAN_WAR.START_HOUR && d.getUTCHours() < CLAN_WAR.END_HOUR;
+  const h = d.getUTCHours() + d.getUTCMinutes() / 60;
+  return CLAN_WAR.DAYS.includes(d.getUTCDay()) && h >= CLAN_WAR.START_HOUR && h < CLAN_WAR.END_HOUR;
+}
+// Is this player touching the pad on the floor? (the client sends cwAuth / cwClaim when they walk onto it)
+function cwTouchingPad(p) {
+  const P = CLAN_WAR.PAD, h = P.size / 2, r = (p.radius || 15) + 25;   // +25 = lag allowance
+  const cx = Math.max(P.x - h, Math.min(p.x, P.x + h)), cy = Math.max(P.y - h, Math.min(p.y, P.y + h));
+  return Math.hypot(p.x - cx, p.y - cy) <= r;
 }
 function cwRoom(sid) { return getRoom(sid, CHANNEL_PVP, CLAN_WAR.KEY); }   // both channels share ONE clan war room per server
 function cwSendState(p) {
@@ -2078,6 +2088,7 @@ wss.on("connection", (ws) => {
         if (me.map !== CLAN_WAR.KEY || !me.clanId || !me.alive || me.cwAuth) break;
         const st = cwStates.get(me.server);
         if (!st || st.phase !== "open" || !cwWindowOpen()) break;
+        if (!cwTouchingPad(me)) break;   // must be standing on the AUTHENTICATE pad
         if (st.owner === me.clanId) { send(ws, { type: "cwDenied", reason: "Your clan already owns this Clan War." }); break; }
         me.cwAuth = { start: Date.now() };
         send(ws, { type: "cwAuthStart", seconds: CLAN_WAR.AUTH_SECONDS });
@@ -2086,6 +2097,7 @@ wss.on("connection", (ws) => {
       case "cwClaim": {
         const st = cwStates.get(me.server);
         if (me.map !== CLAN_WAR.KEY || !st || st.phase !== "ended" || st.claimed || !me.clanId || me.clanId !== st.owner) break;
+        if (!cwTouchingPad(me)) break;   // must be standing on the CLAIM REWARD pad
         st.claimed = true;
         st.exitAt = Date.now() + CLAN_WAR.CLAIM_EXIT_SECONDS * 1000;
         cwDistributeReward(st);
