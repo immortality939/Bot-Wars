@@ -3021,8 +3021,8 @@ function olBossApplyMove(msg) {
 const OL_CW = {
   KEY: "CWmap",
   DAYS: [2, 4, 6, 0],    // Tuesday, Thursday, Saturday, Sunday
-  START_HOUR: 14,        // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
-  END_HOUR: 14.5,        // 9 PM  (21)
+  START_HOUR: 13,        // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
+  END_HOUR: 13.5,        // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,    // Philippine time
   // The AUTHENTICATE / CLAIM REWARD pad lying on the map floor (top middle of the map).
   // x, y = its CENTER in map pixels, size = its width/height. Keep in sync with CLAN_WAR.PAD in server.js.
@@ -3060,6 +3060,8 @@ const OL_CW = {
     .cwSlot.has { border-color:rgba(255,200,90,0.9); cursor:pointer; }
     .cwSlot img { max-width:38px; max-height:38px; pointer-events:none; }
     .cwSlot .cwQty { position:absolute; right:2px; bottom:0; font-size:9px; font-weight:900; color:#fff; text-shadow:0 0 3px #000; }
+    .cwSlot.sel { border-color:#5dff7a; box-shadow:0 0 8px #5dff7a; }
+    #cwRewardShare { margin-top:6px; font-size:10px; font-weight:900; color:#ffd86b; }
     #cwRewardHint { margin-top:6px; font-size:10px; opacity:0.85; }
     #cwRewardClose { position:absolute; top:2px; right:6px; cursor:pointer; font-weight:900; font-size:14px; color:#ffd86b; }
     @keyframes cwBannerMove { from { transform:translateX(0); } to { transform:translateX(-100%); } }
@@ -3084,14 +3086,14 @@ cwActionBtn.id = "cwActionBtn";
 document.body.appendChild(cwActionBtn);
 const cwRewardBox = document.createElement("div");
 cwRewardBox.id = "cwRewardBox";
-cwRewardBox.innerHTML = '<span id="cwRewardClose">X</span><div id="cwRewardTitle">CLAN WAR REWARD</div><div id="cwRewardGrid"></div><div id="cwRewardHint">Tap an item to see its stats. Every online clan member gets each item.</div>';
+cwRewardBox.innerHTML = '<span id="cwRewardClose">X</span><div id="cwRewardTitle">CLAN WAR REWARD</div><div id="cwRewardGrid"></div><div id="cwRewardShare"></div><div id="cwRewardHint">Choose ONLY ONE item (weapon, armor, ring or accessory). Tap an item to see its stats.</div>';
 document.body.appendChild(cwRewardBox);
 
 let olCwState = null;   // {phase, owner, ownerName, claimed, exitAt(performance ms)} while inside CWmap
 let olCwAuth = null;    // {start, seconds} while my authentication bar is running
 
 function olCwInside() { return netIsOnline() && netMapByLevel[netOnlineLevel] === OL_CW.KEY; }
-function olCwReset() { olCwState = null; olCwAuth = null; window.cwFrozen = false; olCwBoxOpen = false; olCwRefresh(); olCwUpdateAction(); }
+function olCwReset() { olCwState = null; olCwAuth = null; window.cwFrozen = false; olCwBoxOpen = false; olCwPick = -1; olCwBoxKey = ""; olCwRefresh(); olCwUpdateAction(); }
 function olCwOnState(msg) {
   olCwState = {
     phase: msg.phase, owner: !!msg.owner, ownerName: msg.ownerName || "", claimed: !!msg.claimed,
@@ -3179,13 +3181,16 @@ function olCwRewardEntry(r) {
       const d = getArmor(r.type);
       return d && { type: (d.category === "ring" || d.category === "accessory") ? d.category : "armor", name: r.type, data: Object.assign({}, d, { defense: d.physicalDefense }) };
     }
-    if (r.kind === "stone" || r.kind === "orb") { const d = getUpgradeItem(r.type); return d && { type: r.kind, name: r.type, data: d, qty: 1 }; }
+    if (r.kind === "stone" || r.kind === "orb") { const d = getUpgradeItem(r.type); return d && { type: r.kind, name: r.type, data: d, qty: r.total || 1 }; }
   } catch (e) {}
   return null;
 }
+let olCwPick = -1;   // index of the gear item I selected (only ONE can be chosen)
+function olCwIsStack(r) { return r.kind === "gold" || r.kind === "stone" || r.kind === "orb"; }
 function olCwBuildBox() {
   const rewards = (olCwState && olCwState.rewards) || [];
-  const key = JSON.stringify(rewards);
+  if (olCwPick >= 0 && (!rewards[olCwPick] || rewards[olCwPick].taken)) olCwPick = -1;   // someone else took it first
+  const key = JSON.stringify(rewards) + "|" + olCwPick;
   if (key === olCwBoxKey) return;
   olCwBoxKey = key;
   const grid = document.getElementById("cwRewardGrid");
@@ -3194,17 +3199,23 @@ function olCwBuildBox() {
     const slot = document.createElement("div");
     slot.className = "cwSlot";
     const r = rewards[i];
-    const entry = r ? olCwRewardEntry(r) : null;
+    const entry = (r && !r.taken && !(olCwIsStack(r) && r.total <= 0)) ? olCwRewardEntry(r) : null;   // taken / used-up items disappear
     if (entry) {
       slot.classList.add("has");
+      if (i === olCwPick) slot.classList.add("sel");
       const img = document.createElement("img");
       img.src = entry.data.image || ("image/" + entry.name + ".png");
       slot.appendChild(img);
-      if (r.kind === "gold") { const q = document.createElement("span"); q.className = "cwQty"; q.textContent = r.total; slot.appendChild(q); }
-      slot.addEventListener("click", () => { if (typeof window.openItemStatsPopup === "function") window.openItemStatsPopup(null, entry); });
+      if (olCwIsStack(r)) { const q = document.createElement("span"); q.className = "cwQty"; q.textContent = r.total; slot.appendChild(q); }
+      slot.addEventListener("click", () => {
+        if (!olCwIsStack(r)) { olCwPick = i; olCwBoxKey = ""; olCwBuildBox(); }   // select this one (replaces the previous choice)
+        if (typeof window.openItemStatsPopup === "function") window.openItemStatsPopup(null, entry);
+      });
     }
     grid.appendChild(slot);
   }
+  const shares = rewards.filter((r) => olCwIsStack(r) && r.share > 0).map((r) => r.share + " " + (r.kind === "gold" ? "gold" : r.type));
+  document.getElementById("cwRewardShare").textContent = shares.length ? "Your share: " + shares.join(", ") : "";
 }
 document.getElementById("cwRewardClose").addEventListener("click", () => { olCwBoxOpen = false; olCwUpdateAction(); });
 // Shows / hides the action button + reward box (runs ~7x a second).
@@ -3214,7 +3225,7 @@ function olCwUpdateAction() {
   if (!show) { cwActionBtn.style.display = "none"; cwRewardBox.style.display = "none"; return; }
   cwActionBtn.style.display = "block";
   if (mode === "auth") { cwActionBtn.textContent = "AUTHENTICATE"; cwRewardBox.style.display = "none"; return; }
-  cwActionBtn.textContent = olCwBoxOpen ? "CLAIM ALL" : "CLAIM REWARD";
+  cwActionBtn.textContent = olCwBoxOpen ? "CLAIM" : "CLAIM REWARD";
   if (olCwBoxOpen) { olCwBuildBox(); cwRewardBox.style.display = "block"; } else cwRewardBox.style.display = "none";
 }
 setInterval(olCwUpdateAction, 150);
@@ -3223,8 +3234,10 @@ cwActionBtn.addEventListener("click", () => {
   if (!mode || !olCwTouchingPad()) return;
   if (mode === "auth") { if (!olCwAuth && !isDead) netSend({ type: "cwAuth" }); return; }   // the server runs the 30 s timer; dying cancels it
   if (!olCwBoxOpen) { olCwBoxOpen = true; olCwUpdateAction(); return; }                      // 1st tap: open the reward box
-  netSend({ type: "cwClaim" });                                                              // 2nd tap: claim -> 20 s countdown starts
-  olCwBoxOpen = false; olCwUpdateAction();
+  const rw = (olCwState && olCwState.rewards) || [];
+  const gearLeft = rw.some((r) => !olCwIsStack(r) && !r.taken);
+  if (gearLeft && olCwPick < 0) { netToast("Choose one item first"); return; }
+  netSend({ type: "cwClaim", pick: olCwPick });                                              // 2nd tap: claim -> MY 20 s countdown starts
 });
 
 function olCwWindowOpen() {
@@ -3255,12 +3268,18 @@ function olCwApplyReward(items) {
   if (!Array.isArray(items)) return;
   const got = [], full = [];
   for (const it of items) {
-    let ok = true;
+    const n = Math.max(1, it.amount || 1);
     if (it.kind === "gold") { if (typeof pickUpGoldOrb === "function") pickUpGoldOrb(it.amount); got.push(it.amount + " gold"); continue; }
-    if (it.kind === "weapon") ok = typeof pickUpWeaponDrop === "function" && pickUpWeaponDrop(it.type);
-    else if (it.kind === "armor" || it.kind === "ring" || it.kind === "accessory") ok = typeof pickUpArmorDrop === "function" && pickUpArmorDrop(it.type);
-    else if (it.kind === "stone" || it.kind === "orb") ok = typeof pickUpUpgradeDrop === "function" && pickUpUpgradeDrop(it.type, it.kind);
-    (ok ? got : full).push(it.type);
+    let okCount = 0;
+    for (let k = 0; k < n; k++) {
+      let ok = true;
+      if (it.kind === "weapon") ok = typeof pickUpWeaponDrop === "function" && pickUpWeaponDrop(it.type);
+      else if (it.kind === "armor" || it.kind === "ring" || it.kind === "accessory") ok = typeof pickUpArmorDrop === "function" && pickUpArmorDrop(it.type);
+      else if (it.kind === "stone" || it.kind === "orb") ok = typeof pickUpUpgradeDrop === "function" && pickUpUpgradeDrop(it.type, it.kind);
+      if (ok) okCount++;
+    }
+    if (okCount) got.push((n > 1 ? okCount + " " : "") + it.type);
+    if (okCount < n) full.push((n - okCount > 1 ? (n - okCount) + " " : "") + it.type);
   }
   if (got.length) netToast("Clan War reward: " + got.join(", "));
   if (full.length) netToast("Inventory full — could not receive: " + full.join(", "));
