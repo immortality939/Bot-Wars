@@ -119,7 +119,7 @@ const CLAN_WAR = {
   KEY: "CWmap",
   DAYS: [2, 4, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
   START_HOUR: 13,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
-  END_HOUR: 14,         // 9 PM  (21)
+  END_HOUR: 13.5,         // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,     // Philippines
   // The AUTHENTICATE / CLAIM REWARD pad on the map floor (x, y = center, size = width/height).
   // Keep in sync with OL_CW.PAD in online_client.js.
@@ -1430,6 +1430,7 @@ function cwSendState(p) {
   send(p.ws, {
     type: "cwState", phase: st.phase, ownerName: st.ownerName || "",
     owner: !!(p.clanId && p.clanId === st.owner), claimed: st.claimed,
+    rewards: (st.phase === "ended" && p.clanId && p.clanId === st.owner && !st.claimed) ? CLAN_WAR.REWARDS : undefined,   // shown in the CLAIM REWARD box
     exitIn: st.claimed ? Math.max(0, Math.ceil((st.exitAt - Date.now()) / 1000)) : 0
   });
 }
@@ -1671,8 +1672,10 @@ wss.on("connection", (ws) => {
         me.lastStateAt = stateNow;
         // Coming back alive after being dead = a respawn -> spawn protection.
         if (!me.alive && msg.alive) me.protectUntil = stateNow + ONLINE_RULES.SPAWN_PROTECT_MS;
-        me.x = num(msg.x, me.x);
-        me.y = num(msg.y, me.y);
+        if (!me.cwAuth) {   // a player who is authenticating is frozen on the pad (cannot move)
+          me.x = num(msg.x, me.x);
+          me.y = num(msg.y, me.y);
+        }
         me.health = num(msg.health, me.health);
         me.maxHealth = num(msg.maxHealth, me.maxHealth);
         // MANA — the server keeps its own count (see game_server.js's
@@ -1704,6 +1707,7 @@ wss.on("connection", (ws) => {
       case "bullet":
       case "fx":
       case "sound":
+        if (me.cwAuth && msg.type === "bullet") break;   // no attacking while authenticating
         msg.from = me.id;
         broadcast(me.room, msg, me.id);
         break;
@@ -1869,6 +1873,7 @@ wss.on("connection", (ws) => {
       // paid use lets the skill's "hit"/"botHit"/"skillBuff" messages through
       // (see game_server.js's tryPaySkillUse()/hasPaidSkillUse()).
       case "skillUse": {
+        if (me.cwAuth) break;   // no skills while authenticating
         const skillName = String(msg.skill || "").slice(0, 32);
         const paid = tryPaySkillUse(me, skillName, Date.now());
         send(me.ws, { type: "manaSync", skill: skillName, ok: paid, mana: me.mana });
@@ -2122,6 +2127,7 @@ wss.on("connection", (ws) => {
 
       // Attacker says "I hit targetId" -> only that player is told.
       case "hit": {
+        if (me.cwAuth) break;   // no attacking while authenticating
         // CHANNEL 1 is a no-damage channel: drop every player-vs-player hit.
         if (me.channel !== CHANNEL_PVP && me.map !== CLAN_WAR.KEY) break;   // (the clan war map is PvP on every channel)
         const target = me.room.get(num(msg.targetId, -1));   // same server + channel only
