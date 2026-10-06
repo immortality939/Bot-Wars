@@ -136,7 +136,7 @@ const CLAN_WAR = {
   // { kind:"weapon"|"armor"|"ring"|"accessory", type:"<item name>" } -> ONE item, first come first served
   REWARDS: [
     { kind: "gold", total: 25 },
-    { kind: "stone", type: "secialstone", total: 50 },
+    { kind: "stone", type: "specialstone", total: 50 },
     { kind: "armor", type: "armor1", total: 5 },
     { kind: "ring", type: "ring01" },
     { kind: "accessory", type: "accessory01" }
