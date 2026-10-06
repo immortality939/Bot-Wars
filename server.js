@@ -100,7 +100,7 @@ const BOSS_EVENT = {
   MIN_LEVEL: 1,
   DAYS: [1, 2, 5],        // 0=Sunday ... 1=Monday, 3=Wednesday, 5=Friday
   START_HOUR: 12,         // 8 PM
-  END_HOUR: 12:45,           // 10 PM (everyone is sent back to their last map)
+  END_HOUR: 13,           // 10 PM (everyone is sent back to their last map)
   TZ_OFFSET_HOURS: 8      // Philippines
 };
 // The arena map itself lives in server/boss1_server.js (key "BOSSEVENT", loaded with the other map files).
