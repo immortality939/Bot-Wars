@@ -2823,8 +2823,8 @@ const OL_BOSS = {
   KEY: "BOSSEVENT",
   MIN_LEVEL: 1,
   DAYS: [1, 2, 5],       // Monday, Wednesday, Friday
-  START_HOUR: 22.5,        // 8 PM
-  END_HOUR: 23,          // 10 PM
+  START_HOUR: 23,        // 8 PM
+  END_HOUR: 24,          // 10 PM
   TZ_OFFSET_HOURS: 8,    // Philippine time
   CLOSED_TEXT: "BOSS EVENT is only available on Monday, Wednesday and Friday, at 8PM only."
 };
