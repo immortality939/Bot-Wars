@@ -118,8 +118,8 @@ const BOSS_EVENT = {
 const CLAN_WAR = {
   KEY: "CWmap",
   DAYS: [2, 4, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
-  START_HOUR: 20,         // 8 PM
-  END_HOUR: 21,           // 9 PM
+  START_HOUR: 13,         // 8 PM
+  END_HOUR: 13:30,           // 9 PM
   TZ_OFFSET_HOURS: 8,     // Philippines
   AUTH_SECONDS: 30,
   CLAIM_EXIT_SECONDS: 20,
