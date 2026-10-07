@@ -100,10 +100,10 @@ const START_MAP = MAPS.worldmap ? "worldmap" : (MAPS.LEVEL1 ? "LEVEL1" : Object.
 // Schedule is in PHILIPPINE TIME (UTC+8): Monday, Wednesday, Friday, 8 PM - 10 PM.
 const BOSS_EVENT = {
   KEY: "BOSSEVENT",
-  MIN_LEVEL: 1,
+  MIN_LEVEL: 20,
   DAYS: [1, 3, 5],        // 0=Sunday ... 1=Monday, 3=Wednesday, 5=Friday
-  START_HOUR: 16,         // 8 PM
-  END_HOUR: 20,           // 10 PM (everyone is sent back to their last map)
+  START_HOUR: 23,         // 8 PM
+  END_HOUR: 24,           // 10 PM (everyone is sent back to their last map)
   TZ_OFFSET_HOURS: 8      // Philippines
 };
 // ---- CLAN WAR (hard-coded) ---------------------------------------------------
@@ -117,9 +117,9 @@ const BOSS_EVENT = {
 //          { kind:"weapon"|"armor"|"ring"|"accessory"|"stone"|"orb", type:"<item name>" } -> 1 each
 const CLAN_WAR = {
   KEY: "CWmap",
-  DAYS: [2, 3, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
+  DAYS: [2, 4, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
   START_HOUR: 19,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
-  END_HOUR: 19.25,         // 9 PM  (21)
+  END_HOUR: 20,         // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,     // Philippines
   // The AUTHENTICATE / CLAIM REWARD pad on the map floor (x, y = center, size = width/height).
   // Keep in sync with OL_CW.PAD in online_client.js.
@@ -135,11 +135,20 @@ const CLAN_WAR = {
   // { kind:"stone"|"orb", type:"specialstone", total:N } -> N of that item shared between the winners
   // { kind:"weapon"|"armor"|"ring"|"accessory", type:"<item name>" } -> ONE item, first come first served
   REWARDS: [
-    { kind: "gold", total: 25 },
-    { kind: "stone", type: "specialstone", total: 50 },
-    { kind: "armor", type: "armor1", total: 5 },
-    { kind: "ring", type: "ring01" },
-    { kind: "accessory", type: "accessory01" }
+    { kind: "gold", total: 1000000 },
+    { kind: "stone", type: "specialstone", total: 250 },
+    { kind: "armor", type: "armor44", total: 5 },
+    { kind: "armor", type: "armor45", total: 5 },
+    { kind: "armor", type: "armor46", total: 5 },
+    { kind: "ring", type: "ring41", total: 5},
+    { kind: "ring", type: "ring42", total: 5 },
+    { kind: "ring", type: "ring43", total: 5 },
+    { kind: "accessory", type: "accessory37", total: 5 },
+    { kind: "accessory", type: "accessory38", total: 5 },
+    { kind: "accessory", type: "accessory39", total: 5 },
+    { kind: "weapon", type: "sword21", total: 5 },
+    { kind: "weapon", type: "gun21", total: 5 },
+    { kind: "weapon", type: "gauntlet21", total: 5 }
   ]
 };
 if (!MAPS[CLAN_WAR.KEY]) console.error("WARNING: clan war map missing - upload server/cwmap_server.js. CLAN WAR is disabled until then.");
