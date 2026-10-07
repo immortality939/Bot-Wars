@@ -24,8 +24,8 @@
 // NAME (Frostplate Vanguard ...), or part of either. The KEY (the word before the
 // colon) is what the game stores in the inventory, so never change a key.
 //
-// NAMES: change the  name: "..."  line to rename an item. Armors have names
-// already. Weapons keep their names; rings / accessories still show their key as
+// NAMES: change the  name: "..."  line to rename an item. Armors and rings have
+// names already. Weapons keep their names; accessories still show their key as
 // the name (send their images to get names for them).
 //
 // armor44 exists ONLY here (it was not in armor_server.js): it is not a drop and
@@ -2013,7 +2013,7 @@ const CMD_ARMORS = {
   },
 
   armor7: {
-    name: "Solar Paladin",
+    name: "Dawnbreaker Paladin",
     requiredType: "berserker",
     image: "image/armor7.png",
     radius: 10,
@@ -3065,7 +3065,7 @@ const CMD_ARMORS = {
   },
 
   ring01: {
-    name: "ring01",
+    name: "Sapphire Crest",
     requiredType: "berserker",
     image: "image/ring01.png",
     radius: 10,
@@ -3092,7 +3092,7 @@ const CMD_ARMORS = {
   },
 
   ring02: {
-    name: "ring02",
+    name: "Drake Claw",
     requiredType: "berserker",
     image: "image/ring02.png",
     radius: 10,
@@ -3119,7 +3119,7 @@ const CMD_ARMORS = {
   },
 
   ring03: {
-    name: "ring03",
+    name: "Amethyst Talon",
     requiredType: "berserker",
     image: "image/ring03.png",
     radius: 10,
@@ -3146,7 +3146,7 @@ const CMD_ARMORS = {
   },
 
   ring04: {
-    name: "ring04",
+    name: "Starforged Band",
     requiredType: "berserker",
     image: "image/ring04.png",
     radius: 10,
@@ -3173,7 +3173,7 @@ const CMD_ARMORS = {
   },
 
   ring05: {
-    name: "ring05",
+    name: "Frostflake Signet",
     requiredType: "berserker",
     image: "image/ring05.png",
     radius: 10,
@@ -3200,7 +3200,7 @@ const CMD_ARMORS = {
   },
 
   ring06: {
-    name: "ring06",
+    name: "Toxic Core",
     requiredType: "berserker",
     image: "image/ring06.png",
     radius: 10,
@@ -3227,7 +3227,7 @@ const CMD_ARMORS = {
   },
 
   ring07: {
-    name: "ring07",
+    name: "Inferno Signet",
     requiredType: "berserker",
     image: "image/ring07.png",
     radius: 10,
@@ -3254,7 +3254,7 @@ const CMD_ARMORS = {
   },
 
   ring08: {
-    name: "ring08",
+    name: "Saturn Loop",
     requiredType: "berserker",
     image: "image/ring08.png",
     radius: 10,
@@ -3281,7 +3281,7 @@ const CMD_ARMORS = {
   },
 
   ring09: {
-    name: "ring09",
+    name: "Void Spiral",
     requiredType: "berserker",
     image: "image/ring09.png",
     radius: 10,
@@ -3308,7 +3308,7 @@ const CMD_ARMORS = {
   },
 
   ring10: {
-    name: "ring10",
+    name: "Deathgrip",
     requiredType: "berserker",
     image: "image/ring10.png",
     radius: 10,
@@ -3335,7 +3335,7 @@ const CMD_ARMORS = {
   },
 
   ring11: {
-    name: "ring11",
+    name: "Verdant Wreath",
     requiredType: "berserker",
     image: "image/ring11.png",
     radius: 10,
@@ -3362,7 +3362,7 @@ const CMD_ARMORS = {
   },
 
   ring12: {
-    name: "ring12",
+    name: "Stormcall Ring",
     requiredType: "berserker",
     image: "image/ring12.png",
     radius: 10,
@@ -3389,7 +3389,7 @@ const CMD_ARMORS = {
   },
 
   ring13: {
-    name: "ring13",
+    name: "Crimson Crown",
     requiredType: "berserker",
     image: "image/ring13.png",
     radius: 10,
@@ -3416,7 +3416,7 @@ const CMD_ARMORS = {
   },
 
   ring14: {
-    name: "ring14",
+    name: "Violet Prism",
     requiredType: "bullwark",
     image: "image/ring14.png",
     radius: 10,
@@ -3443,7 +3443,7 @@ const CMD_ARMORS = {
   },
 
   ring15: {
-    name: "ring15",
+    name: "Aegis Shield Ring",
     requiredType: "bullwark",
     image: "image/ring15.png",
     radius: 10,
@@ -3470,7 +3470,7 @@ const CMD_ARMORS = {
   },
 
   ring16: {
-    name: "ring16",
+    name: "Golden Drake Signet",
     requiredType: "bullwark",
     image: "image/ring16.png",
     radius: 10,
@@ -3497,7 +3497,7 @@ const CMD_ARMORS = {
   },
 
   ring17: {
-    name: "ring17",
+    name: "Winter's Heart",
     requiredType: "bullwark",
     image: "image/ring17.png",
     radius: 10,
@@ -3524,7 +3524,7 @@ const CMD_ARMORS = {
   },
 
   ring18: {
-    name: "ring18",
+    name: "Plague Seal",
     requiredType: "bullwark",
     image: "image/ring18.png",
     radius: 10,
@@ -3551,7 +3551,7 @@ const CMD_ARMORS = {
   },
 
   ring19: {
-    name: "ring19",
+    name: "Shadow Fiend",
     requiredType: "bullwark",
     image: "image/ring19.png",
     radius: 10,
@@ -3578,7 +3578,7 @@ const CMD_ARMORS = {
   },
 
   ring20: {
-    name: "ring20",
+    name: "Crimson Reticle",
     requiredType: "bullwark",
     image: "image/ring20.png",
     radius: 10,
@@ -3605,7 +3605,7 @@ const CMD_ARMORS = {
   },
 
   ring21: {
-    name: "ring21",
+    name: "Lodestar Band",
     requiredType: "bullwark",
     image: "image/ring21.png",
     radius: 10,
@@ -3632,7 +3632,7 @@ const CMD_ARMORS = {
   },
 
   ring22: {
-    name: "ring22",
+    name: "Cinder Band",
     requiredType: "bullwark",
     image: "image/ring22.png",
     radius: 10,
@@ -3659,7 +3659,7 @@ const CMD_ARMORS = {
   },
 
   ring23: {
-    name: "ring23",
+    name: "Amethyst Band",
     requiredType: "bullwark",
     image: "image/ring23.png",
     radius: 10,
@@ -3686,7 +3686,7 @@ const CMD_ARMORS = {
   },
 
   ring24: {
-    name: "ring24",
+    name: "Emerald Leaf Band",
     requiredType: "bullwark",
     image: "image/ring24.png",
     radius: 10,
@@ -3713,7 +3713,7 @@ const CMD_ARMORS = {
   },
 
   ring25: {
-    name: "ring25",
+    name: "Monarch's Band",
     requiredType: "bullwark",
     image: "image/ring25.png",
     radius: 10,
@@ -3740,7 +3740,7 @@ const CMD_ARMORS = {
   },
 
   ring26: {
-    name: "ring26",
+    name: "Hailstone Band",
     requiredType: "bullwark",
     image: "image/ring26.png",
     radius: 10,
@@ -3767,7 +3767,7 @@ const CMD_ARMORS = {
   },
 
   ring27: {
-    name: "ring27",
+    name: "Bonecrusher Band",
     requiredType: "magemaster",
     image: "image/ring27.png",
     radius: 10,
@@ -3794,7 +3794,7 @@ const CMD_ARMORS = {
   },
 
   ring28: {
-    name: "ring28",
+    name: "Thunder Band",
     requiredType: "magemaster",
     image: "image/ring28.png",
     radius: 10,
@@ -3821,7 +3821,7 @@ const CMD_ARMORS = {
   },
 
   ring29: {
-    name: "ring29",
+    name: "Whirlwind Band",
     requiredType: "magemaster",
     image: "image/ring29.png",
     radius: 10,
@@ -3848,7 +3848,7 @@ const CMD_ARMORS = {
   },
 
   ring30: {
-    name: "ring30",
+    name: "Hawkeye Band",
     requiredType: "magemaster",
     image: "image/ring30.png",
     radius: 10,
@@ -3875,7 +3875,7 @@ const CMD_ARMORS = {
   },
 
   ring31: {
-    name: "ring31",
+    name: "Wolfpack Band",
     requiredType: "magemaster",
     image: "image/ring31.png",
     radius: 10,
@@ -3902,7 +3902,7 @@ const CMD_ARMORS = {
   },
 
   ring32: {
-    name: "ring32",
+    name: "Lifebloom Band",
     requiredType: "magemaster",
     image: "image/ring32.png",
     radius: 10,
@@ -3929,7 +3929,7 @@ const CMD_ARMORS = {
   },
 
   ring33: {
-    name: "ring33",
+    name: "Silverstar Band",
     requiredType: "magemaster",
     image: "image/ring33.png",
     radius: 10,
@@ -3956,7 +3956,7 @@ const CMD_ARMORS = {
   },
 
   ring34: {
-    name: "ring34",
+    name: "Crimson Trident",
     requiredType: "magemaster",
     image: "image/ring34.png",
     radius: 10,
@@ -3983,7 +3983,7 @@ const CMD_ARMORS = {
   },
 
   ring35: {
-    name: "ring35",
+    name: "Tidewave Band",
     requiredType: "magemaster",
     image: "image/ring35.png",
     radius: 10,
@@ -4010,7 +4010,7 @@ const CMD_ARMORS = {
   },
 
   ring36: {
-    name: "ring36",
+    name: "Hellhorn Band",
     requiredType: "magemaster",
     image: "image/ring36.png",
     radius: 10,
@@ -4037,7 +4037,7 @@ const CMD_ARMORS = {
   },
 
   ring37: {
-    name: "ring37",
+    name: "Toxin Band",
     requiredType: "magemaster",
     image: "image/ring37.png",
     radius: 10,
@@ -4064,7 +4064,7 @@ const CMD_ARMORS = {
   },
 
   ring38: {
-    name: "ring38",
+    name: "Compass Rose Band",
     requiredType: "magemaster",
     image: "image/ring38.png",
     radius: 10,
@@ -4091,7 +4091,7 @@ const CMD_ARMORS = {
   },
 
   ring39: {
-    name: "ring39",
+    name: "Bullseye Band",
     requiredType: "magemaster",
     image: "image/ring39.png",
     radius: 10,
@@ -4118,7 +4118,7 @@ const CMD_ARMORS = {
   },
 
   ring40: {
-    name: "ring40",
+    name: "Diamond Frost Band",
     requiredType: "magemaster",
     image: "image/ring40.png",
     radius: 10,
