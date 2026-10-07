@@ -117,7 +117,7 @@ const BOSS_EVENT = {
 //          { kind:"weapon"|"armor"|"ring"|"accessory"|"stone"|"orb", type:"<item name>" } -> 1 each
 const CLAN_WAR = {
   KEY: "CWmap",
-  DAYS: [2, 4, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
+  DAYS: [3, 4, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
   START_HOUR: 19,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
   END_HOUR: 20,         // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,     // Philippines
