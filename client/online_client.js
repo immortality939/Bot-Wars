@@ -1169,6 +1169,7 @@ function olCmdOpen() {
   if (!screen) return;
   if (typeof closeGameOptionsPopup === "function") closeGameOptionsPopup();
   olCmdOpenInGame = true;
+  olCmdRefreshBoxes();
   olCmdShowSendButton(true);
   screen.style.display = "flex";
   // Same HUD hiding every in-game popup does, so the skill buttons don't sit on top of it.
@@ -1185,6 +1186,68 @@ function olCmdClose() {
   if (typeof closeCdmItemPopup === "function") closeCdmItemPopup();
   document.body.classList.remove("gameInvPopupOpen");
   if (typeof setGameInvHudButtonsHidden === "function") setGameInvHudButtonsHidden(false);
+}
+
+// ---- CDM shows EVERY stat from weapon_server.js / armor_server.js -----------
+// Offline, the CDM item popup only lists a fixed set of stat names (index.html's
+// collectCdmEditableFields). While the CDM screen is opened from OPTIONS it lists
+// every numeric field the item has in the CURRENT tables (= the server's
+// weapon_server.js / armor_server.js online), so a stat you add there just shows up
+// as an editable row, no client change needed. Fields that are not stats are hidden
+// here — add a name to this list if some other number shows up that you don't want.
+const OL_CMD_HIDDEN_FIELDS = new Set([
+  "width", "height", "timeLife", "spawnChance", "radius", "imagerange", "pellets", "spread",
+  "maxEnemyLevel", "perEnemyLevel", "armorValue", "def", "upgradeLevel", "qty", "price"
+]);
+
+function olCmdPrettyLabel(field) {
+  const spaced = String(field).replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/_/g, " ");
+  return spaced.charAt(0).toUpperCase() + spaced.slice(1);
+}
+
+function olCmdCollectAllFields(type, data) {
+  const fields = [];
+  const seen = new Set();
+  const add = (field, label) => {
+    if (seen.has(field) || typeof data[field] !== "number" || !isFinite(data[field])) return;
+    fields.push([field, label]);
+    seen.add(field);
+  };
+  // Same first rows as offline (so they keep their order and names)...
+  const baseW = (typeof CDM_BASE_WEAPON_FIELDS !== "undefined") ? CDM_BASE_WEAPON_FIELDS : [["physicalDamage", "Physical Damage"], ["health", "Health"]];
+  const baseA = (typeof CDM_BASE_ARMOR_FIELDS !== "undefined") ? CDM_BASE_ARMOR_FIELDS : [["defense", "Physical Defense"], ["health", "Health"], ["block", "Block Chance"]];
+  const base = type === "weapon" ? baseW : type === "armor" ? baseA : [];
+  base.forEach(([f, l]) => add(f, l));
+  if (type === "weapon" || type === "armor") {
+    if (typeof CONNECTED_STAT_ROWS !== "undefined") CONNECTED_STAT_ROWS.forEach(([f, l]) => add(f, l));
+    // ...then whatever else the entry carries, in the order it is written in the file.
+    for (const f of Object.keys(data)) {
+      if (OL_CMD_HIDDEN_FIELDS.has(f)) continue;
+      // armor already shows its physicalDefense as "defense" (index.html remaps it)
+      if (type === "armor" && f === "physicalDefense" && typeof data.defense === "number") continue;
+      add(f, olCmdPrettyLabel(f));
+    }
+  }
+  return fields;
+}
+
+// Rebuild every CDM box from the tables as they are RIGHT NOW. The two starter
+// boxes (uzi / armor1) and anything added before joining were built from the
+// offline files, so they stayed plain online; this swaps in the server's version
+// when the CDM screen opens in a match, and the offline version again when leaving.
+function olCmdRefreshBoxes() {
+  if (typeof cdmSlots === "undefined" || typeof buildCdmEntryFromDef !== "function") return;
+  for (let i = 0; i < cdmSlots.length; i++) {
+    const e = cdmSlots[i];
+    if (!e || !e.name) continue;
+    let def = null;
+    if (e.type === "weapon" && typeof getWeapon === "function") def = getWeapon(e.name);
+    else if ((e.type === "armor" || e.type === "ring" || e.type === "accessory") && typeof getArmor === "function") def = getArmor(e.name);
+    else if (typeof getUpgradeItem === "function") def = getUpgradeItem(e.name);
+    if (!def) continue;
+    cdmSlots[i] = buildCdmEntryFromDef(e.type, def);
+    if (typeof paintCdmSlot === "function") paintCdmSlot(i);
+  }
 }
 
 // ---- CDM SEND: give the selected CDM item to another online player ---------
@@ -1383,6 +1446,16 @@ function olCmdHandleChatCode() {
   }
 
   olCmdGetButton();   // create it now (hidden) so it is ready inside the OPTIONS popup
+
+  // Item popup stat rows: every stat while in a match, the original short list otherwise.
+  if (typeof collectCdmEditableFields === "function" && !window.__olCmdFieldsHooked) {
+    window.__olCmdFieldsHooked = true;
+    const offlineCollect = collectCdmEditableFields;
+    collectCdmEditableFields = function (type, data) {
+      if (!olCmdOpenInGame || !data) return offlineCollect(type, data);
+      return olCmdCollectAllFields(type, data);
+    };
+  }
 
   // SEND button on the CDM item popup, next to Cancel / Get Item (hidden unless
   // the CDM screen was opened from OPTIONS — offline has nobody to send to).
@@ -4514,6 +4587,7 @@ window.exitOnlineGame = function (skipSave) {
   const wasOnlineData = netUsingServerData;
   netRestoreOfflineData();        // offline mode goes back to the public files' numbers
   if (wasOnlineData) netRefreshGearFromTables();
+  olCmdRefreshBoxes();            // CDM boxes go back to the offline numbers too
   gameMode = null;
   netStatus("");
 };
