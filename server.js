@@ -580,6 +580,57 @@ async function writePlayerRow(user, gameData) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// UNIQUE CHARACTER NAMES — no two accounts may use the same character name.
+// Names are compared ignoring upper/lower case and extra spaces ("Maximus" = "maximus").
+// The name lives in player_data.game_data.onlinePlayerName, so deleting the character
+// (the client saves onlinePlayerName = null) frees the name again right away.
+// Checked here on the server, so a modified game cannot skip it.
+// ---------------------------------------------------------------------------
+function nameKey(n) {
+  return String(n || "").replace(/[\r\n\t]+/g, " ").replace(/\s+/g, " ").trim().toLowerCase();
+}
+
+// Is this name (case-insensitive) already used by ANOTHER account? true / false.
+async function isNameTaken(name, exceptUid) {
+  const key = nameKey(name);
+  if (!key) return false;
+  // Ask the database for a loose match (every odd character becomes a wildcard), then compare exactly here.
+  const pattern = key.replace(/\s+/g, "%").replace(/[^a-z0-9%]/g, "_");
+  const rows = await sbRest("GET", "player_data?select=id,n:game_data->>onlinePlayerName&game_data->>onlinePlayerName=ilike." + q(pattern) + "&limit=200");
+  if (!Array.isArray(rows)) return false;
+  return rows.some((r) => r && r.id !== exceptUid && nameKey(r.n) === key);
+}
+
+// The name checks + the save that stores a new name run one after another, so two players
+// picking the same name at the same moment cannot both get it.
+let nameLockChain = Promise.resolve();
+function withNameLock(fn) {
+  const run = nameLockChain.catch(() => {}).then(fn);
+  nameLockChain = run.catch(() => {});
+  return run;
+}
+
+function nameProblem(name) {
+  const n = String(name || "").replace(/[\r\n\t]+/g, " ").replace(/\s+/g, " ").trim();
+  if (!n) return "Enter a name for your character.";
+  if (n.length > 16) return "The name can be at most 16 characters.";
+  if (/^player \d+$/i.test(n)) return "This name is reserved. Choose another name.";
+  return null;
+}
+
+const nameCheckTimes = new Map();   // uid -> recent /api/checkname times (small anti-spam)
+async function apiCheckName(user, body) {
+  const now = Date.now();
+  const list = (nameCheckTimes.get(user.id) || []).filter((t) => now - t < 60000);
+  if (list.length >= 30) return [429, { error: "RATE_LIMITED" }];
+  list.push(now); nameCheckTimes.set(user.id, list);
+  const bad = nameProblem(body.name);
+  if (bad) return [200, { ok: true, available: false, reason: bad }];
+  const taken = await isNameTaken(body.name, user.id);
+  return [200, { ok: true, available: !taken, reason: taken ? "This name is already in use. Choose another name." : "" }];
+}
+
 async function apiSave(user, body) {
   if (!saveGuard.allowSaveRate(user.id)) return [429, { error: "RATE_LIMITED" }];
   return withUidLock(user.id, async () => {
@@ -594,6 +645,19 @@ async function apiSave(user, body) {
     if (stored && incoming && Number(incoming.savedAt) <= Number(stored.savedAt || 0)) return [200, { ok: true, cloud: stored }];
     const rev = saveGuard.review(user.id, stored, incoming);
     if (!rev.ok) return [400, { error: rev.error }];
+    // A NEW character name must not be used by another account (deleting a character sends null = frees it).
+    const newName = rev.gameData && typeof rev.gameData.onlinePlayerName === "string" ? rev.gameData.onlinePlayerName : "";
+    const oldName = stored && typeof stored.onlinePlayerName === "string" ? stored.onlinePlayerName : "";
+    if (newName && nameKey(newName) !== nameKey(oldName)) {
+      if (nameProblem(newName)) return [409, { error: "NAME_TAKEN" }];
+      return withNameLock(async () => {
+        if (await isNameTaken(newName, user.id)) return [409, { error: "NAME_TAKEN" }];
+        await writePlayerRow(user, rev.gameData);
+        rev.commit();
+        if (rev.notes.length) console.log("[save] " + user.id.slice(0, 8) + " corrected: " + rev.notes.slice(0, 6).join("; "));
+        return [200, { ok: true, cloud: rev.gameData, goldFixed: rev.goldFixed }];
+      });
+    }
     await writePlayerRow(user, rev.gameData);
     rev.commit();
     if (rev.notes.length) console.log("[save] " + user.id.slice(0, 8) + " corrected: " + rev.notes.slice(0, 6).join("; "));
@@ -630,6 +694,7 @@ async function handleApi(req, res, urlPath) {
   let out;
   if (urlPath === "/api/save") out = await apiSave(user, body);
   else if (urlPath === "/api/session") out = await apiSession(user, body);
+  else if (urlPath === "/api/checkname") out = await apiCheckName(user, body);
   else if (urlPath.startsWith("/api/shop/")) out = await apiShop(user, urlPath, body);
   else out = [404, { error: "NOT_FOUND" }];
   apiReply(res, out[0], out[1]);
