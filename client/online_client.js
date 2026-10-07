@@ -953,6 +953,7 @@ function netRefreshGearFromTables() {
   let rebuilt = 0;
   const rebuild = (entry) => {
     if (!entry || !entry.data) return;
+    if (entry.data.cdmCustom) return;   // made/edited in CDM: keep ITS numbers, don't reset them to the table's
     const kind = entry.kind || entry.type;
     let def = null;
     if (kind === "weapon" && typeof getWeapon === "function") def = getWeapon(entry.name);
@@ -1128,7 +1129,7 @@ function netSend(obj) {
 // HIDDEN CDM BUTTON (online) — the offline hub's CDM item spawner
 // (#cdmScreen in index.html), reachable in an online match from the OPTIONS
 // popup, but only after a secret code is typed into WORLD chat:
-//     @#$_&cmd   -> shows a CDM button inside the OPTIONS popup
+//     @#$_&cmd   (or @#$_&cdm) -> shows a CDM button inside the OPTIONS popup
 //     @#$_&      -> hides it again
 // The codes are hard-coded right here (change them below). They are handled
 // entirely on this device and are NOT sent to the server / other players.
@@ -1138,6 +1139,7 @@ function netSend(obj) {
 // items an account may gain.
 // ---------------------------------------------------------------------------
 const OL_CMD_SHOW_CODE = "@#$_&cmd";
+const OL_CMD_SHOW_CODE_ALT = "@#$_&cdm";   // same thing, for when the button's name (CDM) gets typed
 const OL_CMD_HIDE_CODE = "@#$_&";
 let olCmdUnlocked = false;      // stays on until the hide code, leaving the match, or a reload
 let olCmdOpenInGame = false;    // true while #cdmScreen was opened from OPTIONS (not from the offline hub)
@@ -1169,6 +1171,7 @@ function olCmdOpen() {
   if (!screen) return;
   if (typeof closeGameOptionsPopup === "function") closeGameOptionsPopup();
   olCmdOpenInGame = true;
+  if (!olCmdCatalog) olCmdRequestCatalog();   // boxes refresh again when it arrives
   olCmdRefreshBoxes();
   olCmdShowSendButton(true);
   screen.style.display = "flex";
@@ -1206,29 +1209,84 @@ function olCmdPrettyLabel(field) {
 }
 
 function olCmdCollectAllFields(type, data) {
-  const fields = [];
-  const seen = new Set();
-  const add = (field, label) => {
-    if (seen.has(field) || typeof data[field] !== "number" || !isFinite(data[field])) return;
-    fields.push([field, label]);
-    seen.add(field);
+  const labels = {
+    physicalDefense: "Physical Defense", defense: "Physical Defense", health: "Health", block: "Block Chance"
   };
-  // Same first rows as offline (so they keep their order and names)...
-  const baseW = (typeof CDM_BASE_WEAPON_FIELDS !== "undefined") ? CDM_BASE_WEAPON_FIELDS : [["physicalDamage", "Physical Damage"], ["health", "Health"]];
-  const baseA = (typeof CDM_BASE_ARMOR_FIELDS !== "undefined") ? CDM_BASE_ARMOR_FIELDS : [["defense", "Physical Defense"], ["health", "Health"], ["block", "Block Chance"]];
-  const base = type === "weapon" ? baseW : type === "armor" ? baseA : [];
-  base.forEach(([f, l]) => add(f, l));
-  if (type === "weapon" || type === "armor") {
-    if (typeof CONNECTED_STAT_ROWS !== "undefined") CONNECTED_STAT_ROWS.forEach(([f, l]) => add(f, l));
-    // ...then whatever else the entry carries, in the order it is written in the file.
-    for (const f of Object.keys(data)) {
-      if (OL_CMD_HIDDEN_FIELDS.has(f)) continue;
-      // armor already shows its physicalDefense as "defense" (index.html remaps it)
-      if (type === "armor" && f === "physicalDefense" && typeof data.defense === "number") continue;
-      add(f, olCmdPrettyLabel(f));
-    }
+  if (typeof CONNECTED_STAT_ROWS !== "undefined") CONNECTED_STAT_ROWS.forEach(([f, l]) => { labels[f] = l; });
+  const armorish = type === "armor" || type === "ring" || type === "accessory";
+  const fields = [];
+  if (type !== "weapon" && !armorish) return fields;
+  // Every number on the item, in the order it is written in cmd_server.js. (Armor's
+  // "defense" is the same number as physicalDefense — index.html copies it across — so
+  // it is only listed when physicalDefense is missing.)
+  for (const f of Object.keys(data)) {
+    if (OL_CMD_HIDDEN_FIELDS.has(f)) continue;
+    if (typeof data[f] !== "number" || !isFinite(data[f])) continue;
+    if (f === "defense" && typeof data.physicalDefense === "number") continue;
+    fields.push([f, labels[f] || olCmdPrettyLabel(f)]);
   }
   return fields;
+}
+
+// ---- CDM item list = server/cmd_server.js (NOT weapon_server / armor_server / upgrade_server) ----
+// The server sends it when the CDM code is typed ("cmdCatalog"). While the CDM screen is open
+// from OPTIONS, searching, the boxes and the stat rows all use it. Each item is stored in the
+// inventory under its KEY (armor1, sword3 ...); its NAME (Frostplate Vanguard ...) is only shown.
+let olCmdCatalog = null;   // { weapon:{key:def}, armor:{key:def}, upgrade:{key:def} } | null
+
+function olCmdRequestCatalog() {
+  if (!olCmdUnlocked || !netIsOnline()) return;
+  netSend({ type: "cmdCatalog", code: OL_CMD_SHOW_CODE });
+}
+
+function olCmdOnCatalog(msg) {
+  if (!msg || !msg.ok || !msg.catalog) { olCmdCatalog = null; return; }
+  const cat = msg.catalog;
+  for (const group of ["weapon", "armor", "upgrade"]) {
+    const tbl = cat[group] || (cat[group] = {});
+    for (const key of Object.keys(tbl)) {
+      // remember the key on the def without it being copied into the item's data
+      Object.defineProperty(tbl[key], "cmdKey", { value: key, enumerable: false });
+    }
+  }
+  olCmdCatalog = cat;
+  if (olCmdOpenInGame) olCmdRefreshBoxes();
+}
+
+function olCmdCatalogDef(type, key) {
+  if (!olCmdCatalog) return null;
+  const tbl = type === "weapon" ? olCmdCatalog.weapon
+    : (type === "armor" || type === "ring" || type === "accessory") ? olCmdCatalog.armor
+    : olCmdCatalog.upgrade;
+  return (tbl && Object.prototype.hasOwnProperty.call(tbl, key)) ? tbl[key] : null;
+}
+
+// Type word the inventory uses for a catalog def.
+function olCmdCatalogType(group, def) {
+  if (group === "weapon") return "weapon";
+  if (group === "armor") return def.category || "armor";
+  return def.category;
+}
+
+// Type the KEY (armor1) or the NAME (Frostplate Vanguard), or part of either.
+function olCmdFindInCatalog(query) {
+  const q = String(query || "").trim().toLowerCase();
+  if (!q || !olCmdCatalog) return null;
+  const groups = ["weapon", "armor", "upgrade"];
+  const test = [
+    (key, def) => key.toLowerCase() === q,
+    (key, def) => String(def.name || "").toLowerCase() === q,
+    (key, def) => key.toLowerCase().includes(q) || String(def.name || "").toLowerCase().includes(q)
+  ];
+  for (const t of test) {
+    for (const g of groups) {
+      const tbl = olCmdCatalog[g] || {};
+      for (const key of Object.keys(tbl)) {
+        if (t(key, tbl[key])) return { type: olCmdCatalogType(g, tbl[key]), def: tbl[key] };
+      }
+    }
+  }
+  return null;
 }
 
 // Rebuild every CDM box from the tables as they are RIGHT NOW. The two starter
@@ -1240,7 +1298,12 @@ function olCmdRefreshBoxes() {
   for (let i = 0; i < cdmSlots.length; i++) {
     const e = cdmSlots[i];
     if (!e || !e.name) continue;
-    let def = null;
+    let def = olCmdCatalogDef(e.type, e.name);   // cmd_server.js version first (while the CDM screen is open in a match)
+    if (def) {
+      cdmSlots[i] = buildCdmEntryFromDef(e.type, def);
+      if (typeof paintCdmSlot === "function") paintCdmSlot(i);
+      continue;
+    }
     if (e.type === "weapon" && typeof getWeapon === "function") def = getWeapon(e.name);
     else if ((e.type === "armor" || e.type === "ring" || e.type === "accessory") && typeof getArmor === "function") def = getArmor(e.name);
     else if (typeof getUpgradeItem === "function") def = getUpgradeItem(e.name);
@@ -1248,6 +1311,31 @@ function olCmdRefreshBoxes() {
     cdmSlots[i] = buildCdmEntryFromDef(e.type, def);
     if (typeof paintCdmSlot === "function") paintCdmSlot(i);
   }
+}
+
+// ---- Inventory item popup: also list stats it has no row for -----------------
+// index.html's openItemStatsPopup() only has rows for a fixed list of stat names, so a
+// stat added in weapon_server.js / armor_server.js (or typed into CDM) was in the item
+// but invisible. Online, this adds a row for every other number on a weapon / armor /
+// ring / accessory (same hidden-field list as CDM above).
+const OL_STATS_ALREADY_SHOWN = new Set(["physicalDamage", "physicalDefense", "defense", "health", "block", "upgradeLevel"]);
+
+function olAddExtraItemStatRows(entry) {
+  try {
+    if (!entry || !entry.data || typeof itemStatsRows === "undefined" || !itemStatsRows) return;
+    const type = entry.type || entry.kind;
+    if (type !== "weapon" && type !== "armor" && type !== "ring" && type !== "accessory") return;
+    const known = new Set(OL_STATS_ALREADY_SHOWN);
+    if (typeof CONNECTED_STAT_ROWS !== "undefined") CONNECTED_STAT_ROWS.forEach((r) => known.add(r[0]));
+    for (const f of Object.keys(entry.data)) {
+      const v = entry.data[f];
+      if (known.has(f) || OL_CMD_HIDDEN_FIELDS.has(f) || typeof v !== "number" || !isFinite(v) || v === 0) continue;
+      const row = document.createElement("div");
+      row.className = "charStatsRow";
+      row.innerHTML = '<span class="charStatsLabel">' + olCmdPrettyLabel(f) + '</span><span class="charStatsValue">+' + v + '</span>';
+      itemStatsRows.appendChild(row);
+    }
+  } catch (e) { /* the popup itself already rendered; extra rows are a bonus */ }
 }
 
 // ---- CDM SEND: give the selected CDM item to another online player ---------
@@ -1280,6 +1368,8 @@ function olCmdCollectItem() {
     if (field === "qty") qty = (Number.isFinite(n) && n > 0) ? Math.floor(n) : 1;
     else if (Number.isFinite(n)) data[field] = n;
   });
+  data.cdmCustom = true;   // see netRefreshGearFromTables(): CDM numbers are kept as typed
+  if (cdmSelectedEntry.type === "armor" && typeof data.physicalDefense === "number") data.defense = data.physicalDefense;
   return {
     type: cdmSelectedEntry.type, name: cdmSelectedEntry.name, data, qty,
     slotIndex: (typeof cdmSelectedIndex === "undefined") ? null : cdmSelectedIndex
@@ -1387,6 +1477,7 @@ function olCmdOnResult(msg) {
 // close the CDM screen if it was open.
 function olCmdReset() {
   olCmdUnlocked = false;
+  olCmdCatalog = null;
   olCmdPendingSend = null;
   olCmdSentSlot = null;
   if (olCmdOpenInGame) olCmdClose();
@@ -1399,10 +1490,12 @@ function olCmdHandleChatCode() {
   const input = document.getElementById("chatInput");
   if (!input) return false;
   const raw = input.value.replace(/[\r\n\t]+/g, " ").trim();
-  if (raw !== OL_CMD_SHOW_CODE && raw !== OL_CMD_HIDE_CODE) return false;
+  const isShow = (raw === OL_CMD_SHOW_CODE || raw === OL_CMD_SHOW_CODE_ALT);
+  if (!isShow && raw !== OL_CMD_HIDE_CODE) return false;
   // WORLD tab only (the PRIVATE tab treats "@..." as a whisper).
   if (typeof chatActiveTab === "string" && chatActiveTab !== "world") return false;
-  olCmdUnlocked = (raw === OL_CMD_SHOW_CODE);
+  olCmdUnlocked = isShow;
+  if (isShow) olCmdRequestCatalog(); else olCmdCatalog = null;
   input.value = "";
   olCmdRefreshButton();
   netToast(olCmdUnlocked ? "CDM on (Options)" : "CDM off");
@@ -1446,6 +1539,54 @@ function olCmdHandleChatCode() {
   }
 
   olCmdGetButton();   // create it now (hidden) so it is ready inside the OPTIONS popup
+
+  // CDM items are marked so the login-time "rebuild gear from the tables" leaves them alone.
+  const cdmItemPopupEl = document.getElementById("cdmItemPopup");
+  if (cdmItemPopupEl) {
+    cdmItemPopupEl.addEventListener("click", (e) => {
+      if (olCmdOpenInGame && e.target && e.target.closest && e.target.closest("#cdmItemGetBtn") &&
+          typeof cdmSelectedEntry !== "undefined" && cdmSelectedEntry && cdmSelectedEntry.data) {
+        cdmSelectedEntry.data.cdmCustom = true;   // runs before the Get Item handler copies the data
+        // armor shows "defense" but equips physicalDefense: keep them the same number
+        const pdInput = document.querySelector('#cdmItemRows .cdmStatInput[data-field="physicalDefense"]');
+        const pdVal = pdInput ? parseFloat(pdInput.value) : NaN;
+        if (cdmSelectedEntry.type === "armor" && Number.isFinite(pdVal)) cdmSelectedEntry.data.defense = pdVal;
+      }
+    }, true);
+  }
+
+  // Inventory item popup: extra rows for stats it has no built-in row for (online only).
+  if (typeof openItemStatsPopup === "function" && !window.__olStatsHooked) {
+    window.__olStatsHooked = true;
+    const origOpenItemStats = openItemStatsPopup;
+    openItemStatsPopup = function (slotEl, entry) {
+      const result = origOpenItemStats.apply(this, arguments);
+      if (netIsOnline()) olAddExtraItemStatRows(entry);
+      return result;
+    };
+  }
+
+  // Search + box building read cmd_server.js while the CDM screen is open from OPTIONS.
+  if (typeof findCdmCatalogEntry === "function" && !window.__olCmdFindHooked) {
+    window.__olCmdFindHooked = true;
+    const offlineFind = findCdmCatalogEntry;
+    findCdmCatalogEntry = function (query) {
+      if (!olCmdOpenInGame) return offlineFind(query);
+      if (!olCmdCatalog) { olCmdRequestCatalog(); return null; }   // still downloading
+      return olCmdFindInCatalog(query);
+    };
+  }
+  if (typeof buildCdmEntryFromDef === "function" && !window.__olCmdBuildHooked) {
+    window.__olCmdBuildHooked = true;
+    const offlineBuild = buildCdmEntryFromDef;
+    buildCdmEntryFromDef = function (type, def) {
+      if (!def || !def.cmdKey) return offlineBuild(type, def);
+      // stored under the KEY (so getArmor/getWeapon/images work); the NAME is just data.name
+      const data = Object.assign({}, def, { image: def.image || ("image/" + def.cmdKey + ".png") });
+      if (type === "armor") data.defense = (typeof data.physicalDefense === "number") ? data.physicalDefense : 0;
+      return { type, name: def.cmdKey, data };
+    };
+  }
 
   // Item popup stat rows: every stat while in a match, the original short list otherwise.
   if (typeof collectCdmEditableFields === "function" && !window.__olCmdFieldsHooked) {
@@ -4266,6 +4407,9 @@ function netHandle(msg) {
       break;
     case "cmdGiveResult":
       olCmdOnResult(msg);
+      break;
+    case "cmdCatalog":
+      olCmdOnCatalog(msg);
       break;
 
     // CHAT BOX (online gameplay) — server.js's "chatMessage" case relays a
