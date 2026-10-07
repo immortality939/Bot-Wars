@@ -100,10 +100,10 @@ const START_MAP = MAPS.worldmap ? "worldmap" : (MAPS.LEVEL1 ? "LEVEL1" : Object.
 // Schedule is in PHILIPPINE TIME (UTC+8): Monday, Wednesday, Friday, 8 PM - 10 PM.
 const BOSS_EVENT = {
   KEY: "BOSSEVENT",
-  MIN_LEVEL: 20,
+  MIN_LEVEL: 1,
   DAYS: [1, 3, 5],        // 0=Sunday ... 1=Monday, 3=Wednesday, 5=Friday
   START_HOUR: 19,         // 8 PM
-  END_HOUR: 20,           // 10 PM (everyone is sent back to their last map)
+  END_HOUR: 24,           // 10 PM (everyone is sent back to their last map)
   TZ_OFFSET_HOURS: 8      // Philippines
 };
 // ---- CLAN WAR (hard-coded) ---------------------------------------------------
