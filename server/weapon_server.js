@@ -323,6 +323,31 @@ const WEAPONS = {
     description: "A violet-and-silver blade that shines at dusk."
   },
 
+  sword21: {
+    name: "Arcane Sovereign Blade",
+    requiredType: "magemaster",
+    image: "image/sword21.png",
+    category: "weapon",
+    magicalAttack: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    width: 30,
+    height: 23,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A radiant blade wrapped in violet runes that amplifies the magic of its wielder."
+  },
+
   extremegauntlet: {
     name: "Extreme Gauntlet",
     requiredType: "bullwark",
@@ -589,6 +614,31 @@ const WEAPONS = {
     description: "A violet gauntlet with long crystal spikes."
   },
 
+  gauntlet21: {
+    name: "Titan Bulwark Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet21.png",
+    category: "weapon",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    width: 30,
+    height: 30,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A massive reinforced gauntlet that turns every punch into a crushing blow."
+  },
+
   gun1: {
     name: "Skyline Rifle",
     requiredType: "berserker",
@@ -827,6 +877,31 @@ const WEAPONS = {
     height: 15,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "A white-and-blue railgun that fires beams of light."
+  },
+
+  gun21: {
+    name: "Crimson Fury Cannon",
+    requiredType: "berserker",
+    image: "image/gun21.png",
+    category: "weapon",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    width: 30,
+    height: 15,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A blood-red cannon built for relentless firepower and reckless fighters."
   }
 
 };

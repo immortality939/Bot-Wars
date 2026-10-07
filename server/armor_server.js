@@ -9,6 +9,7 @@
 // when they join an online match; the game then uses them instead of the
 // offline tables until the player leaves.
 // =============================================================================
+
 // armor.js
 //
 // Armor items — equippable gear placed in the Armor slot (or the Gear
@@ -149,8 +150,6 @@ const ARMOR_TYPES = {
     requiredType: "berserker",
     image: "image/armor1.png",
     radius: 10,
-    physicalDamage:30,
-    pow:30,
     category: "armor",
     spawnChance: 0.025,
     timeLife: 300000,    // ms — despawns if not looted within 30 sec
@@ -619,6 +618,78 @@ const ARMOR_TYPES = {
     description: "Ultimate reinforced plate, the finest armor in the set."
   },
   
+  armor44: {
+    name: "armor44",
+    requiredType: "berserker",
+    image: "image/armor44.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Warbringer plate. Crimson-forged armor for fighters who live for brute strength and never back down."
+  },
+
+  armor45: {
+    name: "armor45",
+    requiredType: "magemaster",
+    image: "image/armor45.png",
+    radius: 10,
+    category: "armor",
+    magicalAttack: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Arcane Regalia. Rune-etched armor that hums with magic and sharpens every spell its wearer casts."
+  },
+
+  armor46: {
+    name: "armor46",
+    requiredType: "bullwark",
+    image: "image/armor46.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Aegis Bastion plate. A towering wall of steel for the defenders who hold the line and outlast everyone."
+  },
+
   armor1A: {
     name: "armor1A",
     image: "image/armor43.png",
@@ -630,7 +701,7 @@ const ARMOR_TYPES = {
   },
 
   // ---------------------------------------------------------------------------
-  // RINGS — category: "ring" (sprites ring01.png - ring40.png)
+  // RINGS — category: "ring" (sprites ring01.png - ring43.png)
   // ---------------------------------------------------------------------------
 
   ring01: {
@@ -1073,8 +1144,80 @@ const ARMOR_TYPES = {
     description: "Dark red spiked ring with a crosshair. Perfect aim for lethal critical hits."
   },
 
+  ring41: {
+    name: "ring41",
+    requiredType: "berserker",
+    image: "image/ring41.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blood Crest ring. A heavy red band that feeds a fighter's raw power and killing instinct."
+  },
+
+  ring42: {
+    name: "ring42",
+    requiredType: "magemaster",
+    image: "image/ring42.png",
+    radius: 10,
+    category: "ring",
+    magicalAttack: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Astral Sigil ring. A glowing violet ring that channels pure magic into every spell."
+  },
+
+  ring43: {
+    name: "ring43",
+    requiredType: "bullwark",
+    image: "image/ring43.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Ironclad Seal ring. A thick steel band that hardens its wearer against every blow."
+  },
+
   // ---------------------------------------------------------------------------
-  // ACCESSORIES — category: "accessory" (sprites accessory01.png - accessory36.png)
+  // ACCESSORIES — category: "accessory" (sprites accessory01.png - accessory39.png)
   // ---------------------------------------------------------------------------
 
   accessory01: {
@@ -1471,6 +1614,78 @@ const ARMOR_TYPES = {
     spawnChance: 0.025,
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
     description: "Red battle banner with a fiery crest. A warning to every enemy that sees it."
+  },
+
+  accessory37: {
+    name: "accessory37",
+    requiredType: "berserker",
+    image: "image/accessory37.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Warlord's Fang. A jagged trophy charm that stirs the fury of anyone who wears it."
+  },
+
+  accessory38: {
+    name: "accessory38",
+    requiredType: "magemaster",
+    image: "image/accessory38.png",
+    radius: 10,
+    category: "accessory",
+    magicalAttack: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Mystic Orb Pendant. A floating crystal charm that overflows with arcane energy."
+  },
+
+  accessory39: {
+    name: "accessory39",
+    requiredType: "bullwark",
+    image: "image/accessory39.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Guardian's Crest. A sturdy emblem of the unbreakable defender, steady under any attack."
   }
 
 };
