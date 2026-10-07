@@ -143,25 +143,14 @@ function rollRequiredStat(requiredType, enemyLevel, fixedRequiredStat) {
 // ARMOR TYPES
 // ---------------------------------------------------------------------------
 const ARMOR_TYPES = {
-armor1A: {
-    name: "armor1",
-    requiredType: "berserker",
-    image: "image/armor1.png",
-    radius: 10,
-    physicalDamage:80,
-    pow:60,
-    category: "armor",
-    spawnChance: 0.025,
-    timeLife: 300000,    // ms — despawns if not looted within 30 sec
-    description: "Padded scout vest. Light and quick to wear, with a small boost to defense and health."
-  },
 
-  
   armor1: {
     name: "armor1",
     requiredType: "berserker",
     image: "image/armor1.png",
     radius: 10,
+    physicalDamage:30,
+    pow:30,
     category: "armor",
     spawnChance: 0.025,
     timeLife: 300000,    // ms — despawns if not looted within 30 sec
