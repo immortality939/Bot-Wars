@@ -5075,12 +5075,13 @@ const BOT_TYPES = {
     description: "A powerful fire-type boss bot covered in heavy armor and blazing energy. It attacks enemies with explosive fire strikes and becomes more dangerous when enraged.",
 
     health: 50000,
-    physicalDefense: "armor3",
+    physicalDefense: 100,
+    magicalDefense: 100,
     movementSpeed: 60,
     weaponName: "uzi",
 
     image: "image/boss1.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 300,
     viewAngle: 90,
@@ -5090,42 +5091,43 @@ const BOT_TYPES = {
 
     lookDuration: 1800,
 
-    respawn: 3600,
+    respawn: 20,
     active: false,
 
-    spawnItem: "sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29",
+    spawnItem: "gun1,sword1,gauntlet1,armor1,armor15,armor29,accessory01,accessory13,accessory25,ring01,ring14,ring27,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 150,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
-    level: 50,
-    increaseSpawnGet: 10.0,
-    expGet: 150,
+    level: 5,
+    increaseSpawnGet: 0.4,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 300,
 
     attackSpeed: 1,
-    physicalDamage: 440,
+    physicalDamage: 350,
     attack: "melee",
     criticalChance: 0.1,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "slash1,holynova"
   },
 
   boss2: {
     name: "Tempest Sentinel",
     description: "A storm-type boss bot with silver plating and a swirling blue energy core. It lashes out with crackling bursts of lightning and keeps enemies off balance.",
 
-    health: 345,
-    physicalDefense: "armor3",
+    health: 53130,
+    physicalDefense: 113,
+    magicalDefense: 113,
     movementSpeed: 62,
     weaponName: "shotgun",
-
     image: "image/boss2.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 309,
     viewAngle: 100,
@@ -5135,42 +5137,44 @@ const BOT_TYPES = {
 
     lookDuration: 2000,
 
-    respawn: 65,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30",
+    spawnItem: "gun2,sword2,gauntlet2,armor2,armor16,armor30,accessory02,accessory14,accessory26,ring02,ring15,ring28,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 190,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
-    level: 6,
+    level: 5,
     increaseSpawnGet: 0,
-    expGet: 185,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 319,
 
     attackSpeed: 1,
-    physicalDamage: 22,
+    magicalAttack: 366,
     attack: "melee",
     criticalChance: 0.105,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "fireexplosion,fireball"
   },
 
   boss3: {
     name: "Shadow Drake",
     description: "A dark dragon-type boss bot wrapped in black armor and glowing violet energy. It strikes from the shadows with sharp, piercing attacks.",
 
-    health: 390,
-    physicalDefense: "armor4",
+    health: 56250,
+    physicalDefense: 125,
+    magicalDefense: 125,
     movementSpeed: 58,
     weaponName: "ak47",
 
     image: "image/boss3.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 318,
     viewAngle: 85,
@@ -5180,10 +5184,10 @@ const BOT_TYPES = {
 
     lookDuration: 2200,
 
-    respawn: 70,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31",
+    spawnItem: "gun3,sword3,gauntlet3,armor3,armor17,armor31,accessory02,accessory14,accessory26,ring03,ring16,ring29,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 230,       // gold given when this bot's orb is picked up
 
@@ -5191,31 +5195,33 @@ const BOT_TYPES = {
 
     level: 6,
     increaseSpawnGet: 0,
-    expGet: 220,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 338,
 
     attackSpeed: 1,
-    physicalDamage: 23,
+    physicalDamage: 381,
     attack: "melee",
     criticalChance: 0.11,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "firevortex,shockring"
   },
 
   boss4: {
     name: "Golden Tyrant",
     description: "A heavy dragon-type boss bot studded with golden spikes over black plating. It charges straight into enemies and crushes anything that gets too close.",
 
-    health: 435,
-    physicalDefense: "armor4",
+    health: 59380,
+    physicalDefense: 138,
+    magicalDefense: 138,
     movementSpeed: 70,
     weaponName: "sniper",
 
     image: "image/boss4.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 327,
     viewAngle: 95,
@@ -5225,42 +5231,44 @@ const BOT_TYPES = {
 
     lookDuration: 2400,
 
-    respawn: 75,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32",
+    spawnItem: "gun5,sword5,gauntlet5,armor3,armor17,armor32,accessory03,accessory15,accessory27,ring03,ring16,ring29,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 270,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
-    level: 7,
+    level: 6,
     increaseSpawnGet: 0,
-    expGet: 255,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 356,
 
     attackSpeed: 1,
-    physicalDamage: 24,
+    magicalAttack: 397,
     attack: "melee",
     criticalChance: 0.115,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "iceburst,barrage"
   },
 
   boss5: {
     name: "Frostbite Colossus",
     description: "An ice-type boss bot armored in silver plates and jagged blue crystals. It freezes the battlefield with icy blasts and slows down anyone who stays near it.",
 
-    health: 480,
-    physicalDefense: "armor5",
+    health: 62500,
+    physicalDefense: 150,
+    magicalDefense: 150,
     movementSpeed: 75,
     weaponName: "uzi",
 
     image: "image/boss5.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 336,
     viewAngle: 110,
@@ -5270,42 +5278,44 @@ const BOT_TYPES = {
 
     lookDuration: 1800,
 
-    respawn: 80,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33",
+    spawnItem: "gun6,sword6,gauntlet6,armor4,armor18,armor33,accessory04,accessory16,accessory28,ring04,ring17,ring30,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 310,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
-    level: 7,
+    level: 6,
     increaseSpawnGet: 0,
-    expGet: 290,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 375,
 
     attackSpeed: 1,
-    physicalDamage: 26,
+    physicalDamage: 413,
     attack: "melee",
     criticalChance: 0.12,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "bloodburst,poisonburst"
   },
 
   boss6: {
     name: "Plague Reaper",
     description: "A poison-type boss bot with a biohazard core and razor-sharp green claws. It spreads toxic energy across the area and wears enemies down over time.",
 
-    health: 525,
-    physicalDefense: "armor5",
+    health: 65630,
+    physicalDefense: 163,
+    magicalDefense: 163,
     movementSpeed: 72,
     weaponName: "shotgun",
 
     image: "image/boss6.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 345,
     viewAngle: 120,
@@ -5315,10 +5325,10 @@ const BOT_TYPES = {
 
     lookDuration: 2000,
 
-    respawn: 85,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34",
+    spawnItem: "gun7,sword7,gauntlet7,armor5,armor19,armor33,accessory04,accessory16,accessory28,ring05,ring18,ring31,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 350,       // gold given when this bot's orb is picked up
 
@@ -5326,31 +5336,33 @@ const BOT_TYPES = {
 
     level: 7,
     increaseSpawnGet: 0,
-    expGet: 325,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 394,
 
     attackSpeed: 1,
-    physicalDamage: 28,
+    magicalAttack: 428,
     attack: "melee",
     criticalChance: 0.125,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "voidhole,cannonblast"
   },
 
   boss7: {
     name: "Doom Skull",
     description: "A heavy artillery-type boss bot with a glowing skull core and cannon pods on its armor. It bombards enemies with explosive blasts from a distance.",
 
-    health: 570,
-    physicalDefense: "armor6",
+    health: 68750,
+    physicalDefense: 175,
+    magicalDefense: 175,
     movementSpeed: 64,
     weaponName: "ak47",
 
     image: "image/boss7.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 354,
     viewAngle: 90,
@@ -5360,42 +5372,44 @@ const BOT_TYPES = {
 
     lookDuration: 2200,
 
-    respawn: 90,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35",
+    spawnItem: "gun8,sword8,gauntlet8,armor6,armor20,armor34,accessory05,accessory17,accessory29,ring06,ring19,ring32,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 390,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
-    level: 8,
+    level: 7,
     increaseSpawnGet: 0,
-    expGet: 360,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 413,
 
     attackSpeed: 1,
-    physicalDamage: 29,
+    physicalDamage: 444,
     attack: "melee",
     criticalChance: 0.13,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "holynova,flamespiral"
   },
 
   boss8: {
     name: "Void Seer",
     description: "A void-type boss bot with a glowing violet eye and jagged spiked armor. It watches from afar and strikes with warped dark energy.",
 
-    health: 615,
-    physicalDefense: "armor6",
+    health: 71880,
+    physicalDefense: 188,
+    magicalDefense: 188,
     movementSpeed: 80,
     weaponName: "sniper",
 
     image: "image/boss8.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 363,
     viewAngle: 105,
@@ -5405,42 +5419,44 @@ const BOT_TYPES = {
 
     lookDuration: 2400,
 
-    respawn: 95,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36",
+    spawnItem: "gun9,sword9,gauntlet9,armor7,armor21,armor35,accessory06,accessory18,accessory30,ring06,ring19,ring33,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 430,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
-    level: 8,
+    level: 7,
     increaseSpawnGet: 0,
-    expGet: 395,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 431,
 
     attackSpeed: 1,
-    physicalDamage: 30,
+    magicalAttack: 459,
     attack: "melee",
     criticalChance: 0.135,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "fireball,deadlystrike"
   },
 
   boss9: {
     name: "Crown Commander",
     description: "A royal elite boss bot in blue and gold armor marked with a golden crown. It commands the battlefield with disciplined, powerful strikes.",
 
-    health: 660,
-    physicalDefense: "armor7",
+    health: 75000,
+    physicalDefense: 200,
+    magicalDefense: 200,
     movementSpeed: 85,
     weaponName: "uzi",
 
     image: "image/boss9.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 372,
     viewAngle: 100,
@@ -5450,10 +5466,10 @@ const BOT_TYPES = {
 
     lookDuration: 1800,
 
-    respawn: 100,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37",
+    spawnItem: "gun11,sword11,gauntlet11,armor8,armor22,armor36,accessory07,accessory19,accessory31,ring07,ring20,ring34,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 470,       // gold given when this bot's orb is picked up
 
@@ -5461,31 +5477,33 @@ const BOT_TYPES = {
 
     level: 8,
     increaseSpawnGet: 0,
-    expGet: 430,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 450,
 
     attackSpeed: 1,
-    physicalDamage: 32,
+    physicalDamage: 475,
     attack: "melee",
     criticalChance: 0.14,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "shockring,voidvortex"
   },
 
   boss10: {
     name: "Crimson Demon",
     description: "A demon-type boss bot with black armor, glowing red veins and curved horns. It hunts relentlessly and hits with brutal force.",
 
-    health: 705,
-    physicalDefense: "armor7",
+    health: 78130,
+    physicalDefense: 213,
+    magicalDefense: 213,
     movementSpeed: 60,
     weaponName: "shotgun",
 
     image: "image/boss10.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 381,
     viewAngle: 80,
@@ -5495,42 +5513,44 @@ const BOT_TYPES = {
 
     lookDuration: 2000,
 
-    respawn: 105,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38",
+    spawnItem: "gun12,sword12,gauntlet12,armor8,armor22,armor37,accessory07,accessory19,accessory31,ring08,ring21,ring34,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 510,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
-    level: 9,
+    level: 8,
     increaseSpawnGet: 0,
-    expGet: 465,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 469,
 
     attackSpeed: 1,
-    physicalDamage: 34,
+    magicalAttack: 491,
     attack: "melee",
     criticalChance: 0.145,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "barrage,fireexplosion"
   },
 
   boss11: {
     name: "Bloodsight Hunter",
     description: "A hunter-type boss bot with a red targeting eye and spiked black armor. It locks onto its prey and never lets it escape.",
 
-    health: 750,
-    physicalDefense: "armor7",
+    health: 81250,
+    physicalDefense: 225,
+    magicalDefense: 225,
     movementSpeed: 66,
     weaponName: "ak47",
 
     image: "image/boss11.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 390,
     viewAngle: 85,
@@ -5540,42 +5560,44 @@ const BOT_TYPES = {
 
     lookDuration: 2200,
 
-    respawn: 110,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39",
+    spawnItem: "gun13,sword13,gauntlet13,armor9,armor23,armor38,accessory08,accessory20,accessory32,ring09,ring22,ring35,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 550,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
-    level: 9,
+    level: 8,
     increaseSpawnGet: 0,
-    expGet: 500,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 488,
 
     attackSpeed: 1,
-    physicalDamage: 35,
+    physicalDamage: 506,
     attack: "melee",
     criticalChance: 0.15,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "poisonburst,icespear"
   },
 
   boss12: {
     name: "Azure Dragon",
     description: "A dragon-type boss bot in silver armor with a glowing blue dragon emblem. It fiercely guards its territory and unleashes bursts of blue energy.",
 
-    health: 795,
-    physicalDefense: "armor8",
+    health: 84380,
+    physicalDefense: 238,
+    magicalDefense: 238,
     movementSpeed: 78,
     weaponName: "sniper",
 
     image: "image/boss12.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 399,
     viewAngle: 95,
@@ -5585,42 +5607,44 @@ const BOT_TYPES = {
 
     lookDuration: 2400,
 
-    respawn: 115,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40",
+    spawnItem: "gun14,sword14,gauntlet14,armor10,armor24,armor39,accessory09,accessory21,accessory33,ring09,ring22,ring36,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 590,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
-    level: 9,
+    level: 8,
     increaseSpawnGet: 0,
-    expGet: 535,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 506,
 
     attackSpeed: 1,
-    physicalDamage: 36,
+    magicalAttack: 522,
     attack: "melee",
     criticalChance: 0.155,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "cannonblast,iceburst"
   },
 
   boss13: {
     name: "Violet Wyrm",
     description: "A dark dragon-type boss bot with large purple horns and glowing violet plating. Its towering frame overwhelms enemies with heavy, slashing attacks.",
 
-    health: 840,
-    physicalDefense: "armor8",
+    health: 87500,
+    physicalDefense: 250,
+    magicalDefense: 250,
     movementSpeed: 82,
     weaponName: "uzi",
 
     image: "image/boss13.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 408,
     viewAngle: 110,
@@ -5630,42 +5654,44 @@ const BOT_TYPES = {
 
     lookDuration: 1800,
 
-    respawn: 120,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27",
+    spawnItem: "gun15,sword15,gauntlet15,armor11,armor25,armor40,accessory09,accessory21,accessory33,ring10,ring23,ring37,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 630,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
-    level: 10,
+    level: 9,
     increaseSpawnGet: 0,
-    expGet: 570,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 525,
 
     attackSpeed: 1,
-    physicalDamage: 38,
+    physicalDamage: 538,
     attack: "melee",
     criticalChance: 0.16,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "flamespiral,lightningbolt"
   },
 
   boss14: {
     name: "Magma Dragon",
     description: "A molten dragon-type boss bot built from black armor plates glowing with orange heat. It burns everything around it and gets tougher the longer the fight lasts.",
 
-    health: 885,
-    physicalDefense: "armor9",
+    health: 90630,
+    physicalDefense: 263,
+    magicalDefense: 263,
     movementSpeed: 74,
     weaponName: "shotgun",
 
     image: "image/boss14.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 417,
     viewAngle: 100,
@@ -5675,42 +5701,44 @@ const BOT_TYPES = {
 
     lookDuration: 2000,
 
-    respawn: 125,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28",
+    spawnItem: "gun16,sword16,gauntlet16,armor12,armor26,armor40,accessory10,accessory22,accessory34,ring11,ring24,ring38,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 670,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
-    level: 10,
+    level: 9,
     increaseSpawnGet: 0,
-    expGet: 605,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 544,
 
     attackSpeed: 1,
-    physicalDamage: 40,
+    magicalAttack: 553,
     attack: "melee",
     criticalChance: 0.165,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "deadlystrike,voidhole"
   },
 
   boss15: {
     name: "Glacier Warden",
     description: "An ice-type boss bot with a snowflake core and sharp crystal spikes. It guards its area coldly and punishes anyone who steps in.",
 
-    health: 930,
-    physicalDefense: "armor9",
+    health: 93750,
+    physicalDefense: 275,
+    magicalDefense: 275,
     movementSpeed: 88,
     weaponName: "ak47",
 
     image: "image/boss15.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 426,
     viewAngle: 115,
@@ -5720,42 +5748,44 @@ const BOT_TYPES = {
 
     lookDuration: 2200,
 
-    respawn: 130,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29",
+    spawnItem: "gun18,sword18,gauntlet18,armor12,armor26,armor41,accessory11,accessory23,accessory35,ring12,ring25,ring38,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 710,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
-    level: 10,
+    level: 9,
     increaseSpawnGet: 0,
-    expGet: 640,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 563,
 
     attackSpeed: 1,
-    physicalDamage: 41,
+    physicalDamage: 569,
     attack: "melee",
     criticalChance: 0.17,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "voidvortex,slash1"
   },
 
   boss16: {
     name: "Toxic Behemoth",
     description: "A huge poison-type boss bot with heavy green plating and curved claws around a biohazard core. It is slow but extremely tough, and it poisons the ground it walks on.",
 
-    health: 975,
-    physicalDefense: "armor10",
+    health: 96880,
+    physicalDefense: 288,
+    magicalDefense: 288,
     movementSpeed: 90,
     weaponName: "sniper",
 
     image: "image/boss16.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 435,
     viewAngle: 105,
@@ -5765,42 +5795,44 @@ const BOT_TYPES = {
 
     lookDuration: 2400,
 
-    respawn: 135,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30",
+    spawnItem: "gun19,sword19,gauntlet19,armor13,armor27,armor42,accessory11,accessory23,accessory35,ring12,ring25,ring39,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 750,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
-    level: 11,
+    level: 10,
     increaseSpawnGet: 0,
-    expGet: 675,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 581,
 
     attackSpeed: 1,
-    physicalDamage: 42,
+    magicalAttack: 584,
     attack: "melee",
     criticalChance: 0.175,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "fireexplosion,fireball"
   },
 
   boss17: {
     name: "Deathbringer",
     description: "The most feared boss bot, a heavy artillery machine with a white skull core and cannon barrels on its armor. It shows no mercy and wipes out anything in its range.",
 
-    health: 1020,
-    physicalDefense: "armor10",
+    health: 100000,
+    physicalDefense: 300,
+    magicalDefense: 300,
     movementSpeed: 68,
     weaponName: "uzi",
 
     image: "image/boss17.png",
-    radius: 16,
+    radius: 18,
 
     viewRange: 444,
     viewAngle: 120,
@@ -5810,29 +5842,30 @@ const BOT_TYPES = {
 
     lookDuration: 1800,
 
-    respawn: 140,
+    respawn: 20,
     active: false,
 
-    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor5,armor19,armor39,accessory11,accessory23,accessory35,ring01,ring14,ring31",
+    spawnItem: "gun20,sword20,gauntlet20,armor14,armor28,armor43,accessory12,accessory24,accessory36,ring13,ring26,ring40,specialstone,iceorb,electricorb,fireorb",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 790,       // gold given when this bot's orb is picked up
 
     unitExplode: "unitexplode",
 
-    level: 11,
+    level: 10,
     increaseSpawnGet: 0,
-    expGet: 710,
+    increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
+    expGet: 600,
 
     attackSpeed: 1,
-    physicalDamage: 44,
+    physicalDamage: 600,
     attack: "melee",
     criticalChance: 0.18,
     criticalDamage: 0.05,
     mana: 100,
     hpRegen: 0.005,
-    manaRegen: 0.01,
+    manaRegen: 0.1,
 
-    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+    botSkill: "icespear,firevortex"
   },
 
   // Add more bot classes the same way — and mirror the same entry in the

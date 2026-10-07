@@ -460,7 +460,15 @@ function spawnItemsOnBotDeath(spawnItemList, x, y, bot) {
       continue;
     }
 
-    if (Math.random() < (def.spawnChance || 0)) {
+    // increaseSpawnChance (BOT_TYPES in bot_server.js, e.g. 0.4 = +40%) is ADDED to the
+    // item's own spawnChance: armor1 spawnChance 0.2 + boss increaseSpawnChance 0.4 = 0.6.
+    // Capped at 100%.
+    const botDef = (bot && typeof BOT_TYPES !== "undefined" && BOT_TYPES[bot.type]) ? BOT_TYPES[bot.type] : null;
+    const extraChance = (bot && typeof bot.increaseSpawnChance === "number") ? bot.increaseSpawnChance
+      : (botDef && typeof botDef.increaseSpawnChance === "number") ? botDef.increaseSpawnChance : 0;
+    const finalChance = Math.min(1, (def.spawnChance || 0) + Math.max(0, extraChance));
+
+    if (Math.random() < finalChance) {
       // Scatter multiple drops from the same death apart a little so
       // they don't render exactly on top of each other.
       const angle = Math.random() * Math.PI * 2;
