@@ -415,7 +415,7 @@ const SKILLS = {
     // RANGE — how far forward the blast rectangle extends from the
     // player, in the direction of the ground tap (see
     // runBlastSkillEffect() in game.js).
-    range: 100,
+    range: 200,
 
     // WIDTH — how wide the blast rectangle is (perpendicular to its
     // facing direction). Any bot inside this range x width rectangle
@@ -439,9 +439,7 @@ const SKILLS = {
 
     // AIM UI — same generic maxRange/radius ring art weapon.js/barrage use
     // (see game.js draw()'s aim UI).
-    imagerange: "image/maxrange.png",
-    imageradius: "image/radius.png",
-
+    
     // Player must be at least this character level (character.js's
     // level/exp system) before the skill can be activated/used.
     requiredLevel: 1
@@ -476,7 +474,7 @@ const SKILLS = {
 
 
     // RANGE
-    range: 300,
+    range: 200,
 
     // WIDTH
     width: 80,
