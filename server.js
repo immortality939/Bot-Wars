@@ -154,7 +154,20 @@ GAME_DATA.START_MAP = START_MAP;
 // save_guard.js). The whole GAME_DATA is passed so it knows the real item names,
 // shop prices, characters and level cap.
 const { createSaveGuard } = require("./save_guard.js");
-const saveGuard = createSaveGuard(GAME_DATA);
+
+// CDM item list (server/cmd_server.js) — what the hidden CDM screen can hand out.
+const CMD_DATA = require("./server/cmd_server.js");
+// Items that exist ONLY in cmd_server.js (e.g. armor44) must still count as real items
+// for save_guard, or they'd be removed from an inventory the next time it is saved.
+const cmdOnly = (cmdTbl, gameTbl) => {
+  const extra = {};
+  for (const k of Object.keys(cmdTbl || {})) if (!Object.prototype.hasOwnProperty.call(gameTbl || {}, k)) extra[k] = cmdTbl[k];
+  return Object.assign({}, gameTbl, extra);
+};
+const saveGuard = createSaveGuard(Object.assign({}, GAME_DATA, {
+  WEAPONS: cmdOnly(CMD_DATA.CMD_WEAPONS, GAME_DATA.WEAPONS),
+  ARMOR_TYPES: cmdOnly(CMD_DATA.CMD_ARMORS, GAME_DATA.ARMOR_TYPES)
+}));
 
 // CODE — the raw SOURCE of every ./server/*_server.js file, sent to each
 // client inside GAME_DATA (as GAME_DATA.CODE) so online.js's
@@ -2547,6 +2560,24 @@ wss.on("connection", (ws) => {
         cancelActiveTrade(me, "cancelled");
         break;
 
+      // CDM CATALOG — the item list the CDM screen searches (server/cmd_server.js). Sent
+      // only on request and only with the code (+ CMD_GIVE_ADMINS if set), so normal players
+      // never download it.
+      case "cmdCatalog": {
+        if (!me.name) break;
+        const denied = msg.code !== CMD_GIVE_CODE ||
+          (CMD_GIVE_ADMINS.length && !CMD_GIVE_ADMINS.includes(String(me.name).toLowerCase()));
+        if (denied) { send(ws, { type: "cmdCatalog", ok: false }); break; }
+        const nowCat = Date.now();
+        if (me.cmdCatalogAt && nowCat - me.cmdCatalogAt < 1500) break;
+        me.cmdCatalogAt = nowCat;
+        send(ws, {
+          type: "cmdCatalog", ok: true,
+          catalog: { weapon: CMD_DATA.CMD_WEAPONS, armor: CMD_DATA.CMD_ARMORS, upgrade: CMD_DATA.CMD_UPGRADE_ITEMS }
+        });
+        break;
+      }
+
       // CDM SEND — see CMD_GIVE_CODE above. The sender picks an item in the CDM screen and
       // types a player name; the server checks the code, finds that player (any map/channel),
       // credits the item to THEIR save_guard allowance and relays it. The receiving client
@@ -2573,10 +2604,9 @@ wss.on("connection", (ws) => {
         const gType = String(gi.type || ""), gName = String(gi.name || "");
         const has = (tbl) => !!(tbl && Object.prototype.hasOwnProperty.call(tbl, gName));
         const known =
-          (gType === "weapon" && has(GAME_DATA.WEAPONS)) ||
-          ((gType === "armor" || gType === "ring" || gType === "accessory") && has(GAME_DATA.ARMOR_TYPES)) ||
-          (gType === "stone" && has(GAME_DATA.STONE_TYPES)) ||
-          (gType === "orb" && has(GAME_DATA.ORB_TYPES));
+          (gType === "weapon" && (has(GAME_DATA.WEAPONS) || has(CMD_DATA.CMD_WEAPONS))) ||
+          ((gType === "armor" || gType === "ring" || gType === "accessory") && (has(GAME_DATA.ARMOR_TYPES) || has(CMD_DATA.CMD_ARMORS))) ||
+          ((gType === "stone" || gType === "orb") && (has(GAME_DATA.STONE_TYPES) || has(GAME_DATA.ORB_TYPES) || has(CMD_DATA.CMD_UPGRADE_ITEMS)));
         if (!CMD_GIVE_TYPES.includes(gType) || !known) { fail("Unknown item"); break; }
         const gQty = (gType === "stone" || gType === "orb") ? Math.max(1, Math.min(999, Math.trunc(num(gi.qty, 1)))) : 1;
         let gData = null;
