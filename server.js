@@ -102,8 +102,8 @@ const BOSS_EVENT = {
   KEY: "BOSSEVENT",
   MIN_LEVEL: 20,
   DAYS: [1, 3, 5],        // 0=Sunday ... 1=Monday, 3=Wednesday, 5=Friday
-  START_HOUR: 23,         // 8 PM
-  END_HOUR: 24,           // 10 PM (everyone is sent back to their last map)
+  START_HOUR: 19,         // 8 PM
+  END_HOUR: 20,           // 10 PM (everyone is sent back to their last map)
   TZ_OFFSET_HOURS: 8      // Philippines
 };
 // ---- CLAN WAR (hard-coded) ---------------------------------------------------
