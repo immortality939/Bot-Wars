@@ -4991,6 +4991,8 @@ function olApplyServerGold(fixed) {
 async function olCloudWriteOnce(user, payload) {
   const r = await olApiPost("/api/save", { session: olSessionId || null, game_data: payload });
   const j = r.json || {};
+  // Another account already uses this character name (checked BEFORE the session check: it is also a 409).
+  if (j.error === "NAME_TAKEN") return { error: { message: "NAME_TAKEN" } };
   // The server refuses saves from any device that does not own the account right now.
   if (r.status === 409 || j.error === "SESSION_TAKEN") {
     olHandleKicked("A: server refused the save (owner=" + String(olSessionId).slice(0, 8) + ", claimed=" + olSessionClaimed + ")");
@@ -5574,6 +5576,12 @@ async function olUploadPayload(payload) {
     const { error, cloud } = await olCloudWrite(user, payload);
     if (error) {
       if (olKicked) { olLastSaveNote = "BLOCKED - account taken by another device"; return false; }
+      if (error.message === "NAME_TAKEN") {   // someone took this name a moment ago: drop it and ask for another
+        olClearPending(user.id, payload.savedAt);
+        olNameWasTaken(user.id);
+        olLastSaveNote = "NAME TAKEN - choose another name";
+        return false;
+      }
       console.error("Save online player data error:", error);
       const kb = Math.round(JSON.stringify(payload).length / 1024);
       olLastSaveNote = "FAILED " + (error.message || "").slice(0, 50) + " (" + kb + "KB, retrying)";
@@ -6447,6 +6455,33 @@ window.onlineCharacterCreated = function (name, playerName) {
 // Small popup shown right after picking a character on the Create Character
 // screen: the player types the name their character will be known by online
 // (shown above their health bar, and to other players), then taps Create.
+// Ask the server if a character name is free (names are unique, ignoring upper/lower case).
+// Returns { available:true } | { available:false, reason } | { error:true, reason }.
+async function olCheckNameAvailable(name) {
+  try {
+    const r = await olApiPost("/api/checkname", { name });
+    const j = r.json || {};
+    if (r.status === 200 && j.ok) return { available: !!j.available, reason: j.reason || "This name is already in use. Choose another name." };
+    return { error: true, reason: "Could not check the name right now. Check your internet and try again." };
+  } catch (e) {
+    return { error: true, reason: "Could not check the name right now. Check your internet and try again." };
+  }
+}
+
+// The server refused a save because the name got taken in the meantime (two players typed the
+// same name at once): forget the name + character and send the player back to Create Character.
+function olNameWasTaken(uid) {
+  try { localStorage.removeItem("onlineCharacter:" + uid); } catch (e) {}
+  try { localStorage.removeItem("onlinePlayerName:" + uid); } catch (e) {}
+  onlineCharacterName = null;
+  onlinePlayerName = null;
+  setTimeout(() => {
+    alert("This character name was just taken by another player. Please choose a different name.");
+    try { olHide(); olStopPolling(); } catch (e) {}
+    openCharacterSelectFromHub("online-create");
+  }, 0);
+}
+
 function olOpenNamePopup(characterName, onCreated) {
   olEnsureStyles();
   if (document.getElementById("olNamePopup")) return;
@@ -6469,9 +6504,17 @@ function olOpenNamePopup(characterName, onCreated) {
   const err = wrap.querySelector(".olDeleteErr");
   const close = () => wrap.remove();
 
-  const tryCreate = () => {
+  let checking = false;
+  const tryCreate = async () => {
+    if (checking) return;
     const typed = input.value.trim().replace(/\s+/g, " ");
     if (!typed) { err.textContent = "Enter a name for your character."; return; }
+    checking = true;
+    err.textContent = "Checking name...";
+    const res = await olCheckNameAvailable(typed);
+    checking = false;
+    if (!wrap.isConnected) return;   // popup was cancelled while checking
+    if (res.error || !res.available) { err.textContent = res.reason; return; }
     close();
     onCreated(typed);
   };
