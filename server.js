@@ -117,9 +117,9 @@ const BOSS_EVENT = {
 //          { kind:"weapon"|"armor"|"ring"|"accessory"|"stone"|"orb", type:"<item name>" } -> 1 each
 const CLAN_WAR = {
   KEY: "CWmap",
-  DAYS: [2, 4, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
-  START_HOUR: 23,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
-  END_HOUR: 23.5,         // 9 PM  (21)
+  DAYS: [2, 3, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
+  START_HOUR: 19,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
+  END_HOUR: 19.25,         // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,     // Philippines
   // The AUTHENTICATE / CLAIM REWARD pad on the map floor (x, y = center, size = width/height).
   // Keep in sync with OL_CW.PAD in online_client.js.
