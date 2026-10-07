@@ -5100,7 +5100,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 5,
+    level: 25,
     increaseSpawnGet: 0.4,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 300,
@@ -5146,7 +5146,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 5,
+    level: 25,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 319,
@@ -5193,7 +5193,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 6,
+    level: 36,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 338,
@@ -5240,7 +5240,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 6,
+    level: 36,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 356,
@@ -5287,7 +5287,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 6,
+    level: 36,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 375,
@@ -5334,7 +5334,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 7,
+    level: 27,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 394,
@@ -5381,7 +5381,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 7,
+    level: 30,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 413,
@@ -5428,7 +5428,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 7,
+    level: 33,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 431,
@@ -5475,7 +5475,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 8,
+    level: 28,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 450,
@@ -5522,7 +5522,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 8,
+    level: 28,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 469,
@@ -5569,7 +5569,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 8,
+    level: 34,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 488,
@@ -5616,7 +5616,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 8,
+    level: 35,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 506,
@@ -5663,7 +5663,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 9,
+    level: 32,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 525,
@@ -5710,7 +5710,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 9,
+    level: 33,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 544,
@@ -5757,7 +5757,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 9,
+    level: 30,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 563,
@@ -5804,7 +5804,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 10,
+    level: 30,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 581,
@@ -5851,7 +5851,7 @@ const BOT_TYPES = {
 
     unitExplode: "unitexplode",
 
-    level: 10,
+    level: 30,
     increaseSpawnGet: 0,
     increaseSpawnChance: 0.4, // +40% added to every spawnChance of this boss's drop items (capped at 100%)
     expGet: 600,
