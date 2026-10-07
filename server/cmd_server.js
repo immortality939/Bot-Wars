@@ -24,9 +24,8 @@
 // NAME (Frostplate Vanguard ...), or part of either. The KEY (the word before the
 // colon) is what the game stores in the inventory, so never change a key.
 //
-// NAMES: change the  name: "..."  line to rename an item. Armors and rings have
-// names already. Weapons keep their names; accessories still show their key as
-// the name (send their images to get names for them).
+// NAMES: change the  name: "..."  line to rename an item. Armors, rings and
+// accessories all have names already; weapons keep the names they had.
 //
 // armor44 exists ONLY here (it was not in armor_server.js): it is not a drop and
 // not in shops, you can only get it through CDM.
@@ -4145,7 +4144,7 @@ const CMD_ARMORS = {
   },
 
   accessory01: {
-    name: "accessory01",
+    name: "Frostspire Crown",
     requiredType: "berserker",
     image: "image/accessory01.png",
     radius: 10,
@@ -4172,7 +4171,7 @@ const CMD_ARMORS = {
   },
 
   accessory02: {
-    name: "accessory02",
+    name: "Skyfeather Wings",
     requiredType: "berserker",
     image: "image/accessory02.png",
     radius: 10,
@@ -4199,7 +4198,7 @@ const CMD_ARMORS = {
   },
 
   accessory03: {
-    name: "accessory03",
+    name: "Tidal Mantle",
     requiredType: "berserker",
     image: "image/accessory03.png",
     radius: 10,
@@ -4226,7 +4225,7 @@ const CMD_ARMORS = {
   },
 
   accessory04: {
-    name: "accessory04",
+    name: "Azure Earcom",
     requiredType: "berserker",
     image: "image/accessory04.png",
     radius: 10,
@@ -4253,7 +4252,7 @@ const CMD_ARMORS = {
   },
 
   accessory05: {
-    name: "accessory05",
+    name: "Skybot Drone",
     requiredType: "berserker",
     image: "image/accessory05.png",
     radius: 10,
@@ -4280,7 +4279,7 @@ const CMD_ARMORS = {
   },
 
   accessory06: {
-    name: "accessory06",
+    name: "Sapphire Pendant",
     requiredType: "berserker",
     image: "image/accessory06.png",
     radius: 10,
@@ -4307,7 +4306,7 @@ const CMD_ARMORS = {
   },
 
   accessory07: {
-    name: "accessory07",
+    name: "Cinderspire Crown",
     requiredType: "berserker",
     image: "image/accessory07.png",
     radius: 10,
@@ -4334,7 +4333,7 @@ const CMD_ARMORS = {
   },
 
   accessory08: {
-    name: "accessory08",
+    name: "Emberwing Wings",
     requiredType: "berserker",
     image: "image/accessory08.png",
     radius: 10,
@@ -4361,7 +4360,7 @@ const CMD_ARMORS = {
   },
 
   accessory09: {
-    name: "accessory09",
+    name: "Crimson Shroud",
     requiredType: "berserker",
     image: "image/accessory09.png",
     radius: 10,
@@ -4388,7 +4387,7 @@ const CMD_ARMORS = {
   },
 
   accessory10: {
-    name: "accessory10",
+    name: "Inferno Earcom",
     requiredType: "berserker",
     image: "image/accessory10.png",
     radius: 10,
@@ -4415,7 +4414,7 @@ const CMD_ARMORS = {
   },
 
   accessory11: {
-    name: "accessory11",
+    name: "Cinderbot Drone",
     requiredType: "berserker",
     image: "image/accessory11.png",
     radius: 10,
@@ -4442,7 +4441,7 @@ const CMD_ARMORS = {
   },
 
   accessory12: {
-    name: "accessory12",
+    name: "Ruby Pendant",
     requiredType: "berserker",
     image: "image/accessory12.png",
     radius: 10,
@@ -4469,7 +4468,7 @@ const CMD_ARMORS = {
   },
 
   accessory13: {
-    name: "accessory13",
+    name: "Emerald Fang Crown",
     requiredType: "bullwark",
     image: "image/accessory13.png",
     radius: 10,
@@ -4496,7 +4495,7 @@ const CMD_ARMORS = {
   },
 
   accessory14: {
-    name: "accessory14",
+    name: "Venomwing Wings",
     requiredType: "bullwark",
     image: "image/accessory14.png",
     radius: 10,
@@ -4523,7 +4522,7 @@ const CMD_ARMORS = {
   },
 
   accessory15: {
-    name: "accessory15",
+    name: "Forest Shroud",
     requiredType: "bullwark",
     image: "image/accessory15.png",
     radius: 10,
@@ -4550,7 +4549,7 @@ const CMD_ARMORS = {
   },
 
   accessory16: {
-    name: "accessory16",
+    name: "Biohazard Visor",
     requiredType: "bullwark",
     image: "image/accessory16.png",
     radius: 10,
@@ -4577,7 +4576,7 @@ const CMD_ARMORS = {
   },
 
   accessory17: {
-    name: "accessory17",
+    name: "Mantis Drone",
     requiredType: "bullwark",
     image: "image/accessory17.png",
     radius: 10,
@@ -4604,7 +4603,7 @@ const CMD_ARMORS = {
   },
 
   accessory18: {
-    name: "accessory18",
+    name: "Emerald Pendant",
     requiredType: "bullwark",
     image: "image/accessory18.png",
     radius: 10,
@@ -4631,7 +4630,7 @@ const CMD_ARMORS = {
   },
 
   accessory19: {
-    name: "accessory19",
+    name: "Umbral Crown",
     requiredType: "bullwark",
     image: "image/accessory19.png",
     radius: 10,
@@ -4658,7 +4657,7 @@ const CMD_ARMORS = {
   },
 
   accessory20: {
-    name: "accessory20",
+    name: "Dusk Wings",
     requiredType: "bullwark",
     image: "image/accessory20.png",
     radius: 10,
@@ -4685,7 +4684,7 @@ const CMD_ARMORS = {
   },
 
   accessory21: {
-    name: "accessory21",
+    name: "Umbral Shroud",
     requiredType: "bullwark",
     image: "image/accessory21.png",
     radius: 10,
@@ -4712,7 +4711,7 @@ const CMD_ARMORS = {
   },
 
   accessory22: {
-    name: "accessory22",
+    name: "Phantom Earcom",
     requiredType: "bullwark",
     image: "image/accessory22.png",
     radius: 10,
@@ -4739,7 +4738,7 @@ const CMD_ARMORS = {
   },
 
   accessory23: {
-    name: "accessory23",
+    name: "Wraith Drone",
     requiredType: "bullwark",
     image: "image/accessory23.png",
     radius: 10,
@@ -4766,7 +4765,7 @@ const CMD_ARMORS = {
   },
 
   accessory24: {
-    name: "accessory24",
+    name: "Amethyst Pendant",
     requiredType: "bullwark",
     image: "image/accessory24.png",
     radius: 10,
@@ -4793,7 +4792,7 @@ const CMD_ARMORS = {
   },
 
   accessory25: {
-    name: "accessory25",
+    name: "Sunforged Crown",
     requiredType: "magemaster",
     image: "image/accessory25.png",
     radius: 10,
@@ -4820,7 +4819,7 @@ const CMD_ARMORS = {
   },
 
   accessory26: {
-    name: "accessory26",
+    name: "Seraph Wings",
     requiredType: "magemaster",
     image: "image/accessory26.png",
     radius: 10,
@@ -4847,7 +4846,7 @@ const CMD_ARMORS = {
   },
 
   accessory27: {
-    name: "accessory27",
+    name: "Aurum Mantle",
     requiredType: "magemaster",
     image: "image/accessory27.png",
     radius: 10,
@@ -4874,7 +4873,7 @@ const CMD_ARMORS = {
   },
 
   accessory28: {
-    name: "accessory28",
+    name: "Valkyrie Earcom",
     requiredType: "magemaster",
     image: "image/accessory28.png",
     radius: 10,
@@ -4901,7 +4900,7 @@ const CMD_ARMORS = {
   },
 
   accessory29: {
-    name: "accessory29",
+    name: "Cherub Drone",
     requiredType: "magemaster",
     image: "image/accessory29.png",
     radius: 10,
@@ -4928,7 +4927,7 @@ const CMD_ARMORS = {
   },
 
   accessory30: {
-    name: "accessory30",
+    name: "Sunstar Pendant",
     requiredType: "magemaster",
     image: "image/accessory30.png",
     radius: 10,
@@ -4955,7 +4954,7 @@ const CMD_ARMORS = {
   },
 
   accessory31: {
-    name: "accessory31",
+    name: "Skyrunner Jetpack",
     requiredType: "magemaster",
     image: "image/accessory31.png",
     radius: 10,
@@ -4982,7 +4981,7 @@ const CMD_ARMORS = {
   },
 
   accessory32: {
-    name: "accessory32",
+    name: "Hellfire Jetpack",
     requiredType: "magemaster",
     image: "image/accessory32.png",
     radius: 10,
@@ -5009,7 +5008,7 @@ const CMD_ARMORS = {
   },
 
   accessory33: {
-    name: "accessory33",
+    name: "Voidrunner Jetpack",
     requiredType: "magemaster",
     image: "image/accessory33.png",
     radius: 10,
@@ -5036,7 +5035,7 @@ const CMD_ARMORS = {
   },
 
   accessory34: {
-    name: "accessory34",
+    name: "Venom Jetpack",
     requiredType: "magemaster",
     image: "image/accessory34.png",
     radius: 10,
@@ -5063,7 +5062,7 @@ const CMD_ARMORS = {
   },
 
   accessory35: {
-    name: "accessory35",
+    name: "Griffin War Banner",
     requiredType: "magemaster",
     image: "image/accessory35.png",
     radius: 10,
@@ -5090,7 +5089,7 @@ const CMD_ARMORS = {
   },
 
   accessory36: {
-    name: "accessory36",
+    name: "Phoenix War Banner",
     requiredType: "magemaster",
     image: "image/accessory36.png",
     radius: 10,
