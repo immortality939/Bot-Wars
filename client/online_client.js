@@ -1101,6 +1101,10 @@ function netRegisterWorldMaps(maps, startKey, mapMusic) {
   if (typeof registerCustomMap !== "function") throw new Error("custommaps.js is not loaded");
   netLevelByMap = {};
   netMapByLevel = {};
+  // Online uses ONLY the server's maps. Throw away every level the game had loaded for OFFLINE
+  // (level.js + offline_worldmap.js also have maps named LEVEL1, LEVEL2 ... and the portals would
+  // find those first). netRestoreOfflineData() puts the offline list back on exit.
+  for (const k of Object.keys(LEVELS)) delete LEVELS[k];
   for (const key of Object.keys(maps)) {
     const before = Object.keys(LEVELS).length;
     registerCustomMap(maps[key]);
@@ -4412,6 +4416,7 @@ function netHandle(msg) {
     // just tell the player why (no clan yet, already in one, clan full...).
     case "clanError":
       if (msg.reason) netToast(msg.reason);
+      if (typeof window.applyClanError === "function") window.applyClanError(msg);   // stops "Creating..." + shows the reason in the CREATE CLAN window
       break;
 
     // Someone touched me and tapped TRADE — show the ACCEPT / CANCEL popup
