@@ -35,10 +35,7 @@
 // top-left of page 1/4).
 
 const SHOP_WEAPONS = [
-  { name: "uzi", price: 300 },
-  { name: "ak47", price: 500 },
-  { name: "sniper", price: 850 },
-  { name: "shotgun", price: 650 },
+
   // --- shop sets: 4 tiers (price 300 / 375 / 450 / 525) x berserker, magemaster, bullwark ---
   { name: "gun22", price: 300 },
   { name: "sword22", price: 300 },
@@ -55,9 +52,7 @@ const SHOP_WEAPONS = [
 ];
 
 const SHOP_ARMORS = [
-  { name: "armor1", price: 400 },
-  { name: "armor2", price: 600 },
-  { name: "armor3", price: 900 },
+
   // --- shop sets: 4 tiers (price 300 / 375 / 450 / 525) x berserker, magemaster, bullwark ---
   { name: "armor47", price: 300 },
   { name: "armor48", price: 300 },
