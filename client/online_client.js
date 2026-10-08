@@ -4412,6 +4412,7 @@ function netHandle(msg) {
     // just tell the player why (no clan yet, already in one, clan full...).
     case "clanError":
       if (msg.reason) netToast(msg.reason);
+      if (typeof window.applyClanError === "function") window.applyClanError(msg);   // stops "Creating..." + shows the reason in the CREATE CLAN window
       break;
 
     // Someone touched me and tapped TRADE — show the ACCEPT / CANCEL popup
