@@ -89,6 +89,35 @@ runSkillActivation = function (s, target) {
   return _localRunSkillActivation.apply(this, arguments);
 };
 
+// PERCENT HEAL (online) — skill_server.js's heal1 has healAmount: 0.3, meaning "heal
+// 30% of MAX health" (a value above 1 is still the old flat amount, which game.js
+// handles by itself). game.js's runInstantSkillEffect() adds healAmount as a flat
+// number, so online it is wrapped here: the normal effect/sound/speed boost still
+// run (with a 0 heal), then the percent heal is applied to me, and the server is
+// asked to heal the party members inside the skill's `range` (server.js "skillBuff").
+function netIsPercentHeal(s) {
+  return !!s && typeof s.healAmount === "number" && s.healAmount > 0 && s.healAmount <= 1 &&
+    !s.attackIncrease && !s.defenseIncrease;
+}
+function netApplyPercentHeal(s) {
+  const maxHealth = player.health || player.baseMaxHealth || 100;
+  const gain = Math.round(maxHealth * s.healAmount);
+  player.currentHealth = Math.min(maxHealth, (player.currentHealth || 0) + gain);
+  if (typeof healthDisplay !== "undefined" && healthDisplay) {
+    healthDisplay.textContent = Math.max(0, Math.round(player.currentHealth));
+  }
+}
+const _localRunInstantSkillEffect = runInstantSkillEffect;
+runInstantSkillEffect = function (s) {
+  if (netIsPercentHeal(s)) {
+    const result = _localRunInstantSkillEffect.call(this, Object.assign({}, s, { healAmount: 0 }));
+    netApplyPercentHeal(s);
+    if (netIsOnline()) netSend({ type: "skillBuff", skill: s.skill });
+    return result;
+  }
+  return _localRunInstantSkillEffect.apply(this, arguments);
+};
+
 // Only the bot host actually steps the enemy AI/physics forward each frame
 // (movement, aggro, shooting, status effects, respawn timers...). Everyone
 // else's `bots` array is just a set of puppets kept in sync by whatever the
@@ -3312,8 +3341,8 @@ const OL_BOSS = {
   KEY: "BOSSEVENT",
   MIN_LEVEL: 1,
   DAYS: [1, 3, 5],       // Monday, Wednesday, Friday
-  START_HOUR: 20,        // 8 PM
-  END_HOUR: 22,          // 10 PM
+  START_HOUR: 19,        // 8 PM
+  END_HOUR: 24,          // 10 PM
   TZ_OFFSET_HOURS: 8,    // Philippine time
   CLOSED_TEXT: "BOSS EVENT is only available on Monday, Wednesday and Friday, at 8PM only."
 };
@@ -3524,8 +3553,8 @@ function olBossApplyMove(msg) {
 // Hard-coded here (keep in sync with CLAN_WAR in server.js):
 const OL_CW = {
   KEY: "CWmap",
-  DAYS: [2, 4, 6, 0],    // Tuesday, Thursday, Saturday, Sunday
-  START_HOUR: 20,        // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
+  DAYS: [3, 4, 6, 0],    // Tuesday, Thursday, Saturday, Sunday
+  START_HOUR: 19,        // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
   END_HOUR: 21,        // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,    // Philippine time
   // The AUTHENTICATE / CLAIM REWARD pad lying on the map floor (top middle of the map).
@@ -4315,6 +4344,13 @@ function netHandle(msg) {
       if (def && (def.attackIncrease || def.defenseIncrease) && typeof applyAuraBuff === "function") {
         applyAuraBuff(def);
         netToast("Party buff: " + def.skill);
+      } else if (def && netIsPercentHeal(def)) {
+        // A party member in range used HEAL — heal me by the same percent.
+        netApplyPercentHeal(def);
+        if (def.hitEffect && typeof createHitEffect === "function" && typeof playerPos !== "undefined") {
+          createHitEffect(playerPos.x, playerPos.y, def.hitEffect, playerPos);
+        }
+        netToast("Healed by a party member");
       }
       break;
     }
