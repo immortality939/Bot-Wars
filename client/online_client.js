@@ -1840,10 +1840,15 @@ function drawRemotePlayers(ctx, offX, offY) {
     ctx.save();
     ctx.font = "9px 'Courier New', Courier, monospace";
     ctx.textAlign = "center";
-    ctx.shadowColor = "rgba(0,0,0,0.9)";
-    ctx.shadowBlur = 3;
+    // PERF: was shadowColor/shadowBlur (slow on phones, once per other player
+    // per frame). A thin dark outline gives the same readable look for free.
+    ctx.strokeStyle = "rgba(0,0,0,0.9)";
+    ctx.lineWidth = 2.5;
+    ctx.lineJoin = "round";
+    ctx.strokeText(p.name, sx, sy - p.radius - 13);
     ctx.fillStyle = netPlayerNameColor(p);   // red = can be damaged, white = can't (channel 1 / party / clan)
     ctx.fillText(p.name, sx, sy - p.radius - 13);
+    ctx.strokeText("Lv " + p.level, sx, sy - p.radius - 22);
     ctx.fillStyle = "#ff8080";
     ctx.fillText("Lv " + p.level, sx, sy - p.radius - 22);
     ctx.restore();
@@ -3848,8 +3853,8 @@ setInterval(() => {
 //     "moving:0" here tells you the AI loop itself isn't advancing them.
 // ---------------------------------------------------------------------------
 let netDebugTimer = 0;
-// Set to true only while you are debugging. The badge rewrites on-screen text
-// several times a second, which costs frame rate on phones.
+// Set to true only while debugging: the badge rewrites on-screen text several
+// times a second, which costs frame rate on phones.
 const OL_SHOW_DEBUG_BADGE = false;
 function netDebugTick(dt) {
   if (!OL_SHOW_DEBUG_BADGE) {
