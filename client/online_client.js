@@ -3848,7 +3848,15 @@ setInterval(() => {
 //     "moving:0" here tells you the AI loop itself isn't advancing them.
 // ---------------------------------------------------------------------------
 let netDebugTimer = 0;
+// Set to true only while you are debugging. The badge rewrites on-screen text
+// several times a second, which costs frame rate on phones.
+const OL_SHOW_DEBUG_BADGE = false;
 function netDebugTick(dt) {
+  if (!OL_SHOW_DEBUG_BADGE) {
+    const old = document.getElementById("netDebugBadge");
+    if (old) old.remove();
+    return;
+  }
   netDebugTimer += dt * 1000;
   if (netDebugTimer < 400) return;
   netDebugTimer = 0;
