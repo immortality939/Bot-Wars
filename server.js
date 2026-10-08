@@ -1,1 +1,2800 @@
-let vmX=typeof globalThis!=='undefined'?globalThis:typeof self!=='undefined'?self:typeof window!=='undefined'?window:typeof global!=='undefined'?global:void 0x0,vmh_89ae91=vmX['vmh_89ae91']||(vmX['vmh_89ae91']={});const vmP_43eb5a=(function(){var k=Object['defineProperty'],r=Object['setPrototypeOf'],z=Object['getOwnPropertyNames'],C=Object['getPrototypeOf'],P=Function['prototype']['call'],h=Object['create'],o=Reflect['apply'],n=Object['getOwnPropertyDescriptor'],X=Object['getOwnPropertySymbols'],U=WeakSet['prototype']['has'],i=Function['prototype']['apply'],Q=WeakMap['prototype']['get'],c=WeakMap['prototype']['has'],A=WeakMap['prototype']['set'],l=WeakSet['prototype']['add'];let H=['ExCn+DK///T/PopKSdv0/3//EHq0qtpgLo20Se3Fr0JH/AZC/3rJrAjr/7AHo/jr/o/Hq/==','ExCn+DK////tto3HrA==','ExCn+DKP//A/HE6XZ7hOZ7hCwilXh/////xKZ7pK/3tFPJ///3/jrAjr/YUr/3/Mrg/Prg/P/3ps/3e+/AZK','ExCz+DKP//3/tyh5k1pENyNRN//+31q9T7/k/3/r//9PAJ//rATH/3/r/39PAJ//rcMU/ZsP/M3P1A3MM/HS/o3PPrj=','ExTz+DKtrx3/Gt6cniNWq//jnONDCJtr/J/FCehgqH6KS7r0/rvUT7p5qOD3Ci6JZ7hKS3/jTOEmL/tP//vxCIplZOsr/DAr7/Zz/3+4/3t//Anz/3tr+At//AZbr9Ttr0JHQ/jHQ/jHS/tPbAjr/FJHSAtt1A3HS/tGSAtE1A3HS/tGSAtE1A3HiAjrr4JtroUr/sJr/3Pz/3ttVAtrr3jHVAtrrcUr/3jHCALdr/ZCrg/Prg/PrgsG/35J/ALJ/AZs/3u+/AtPM/3Hl/jHfA4r/gsG/34M/3GB/JtGI/3H6A4H1A3H+/n3/3nVr/LB/JtECALB/Jtt0A3H1/tH1A3HW/tr//jHVAtrPEJHQ/jHQ/jH+AtrQ/jHQ/jHfA4r/g/Prg/ProArPCUP/3pKrAsREPDs3yxTnHUUCeZOSAjJ/HDQ','ExCn+DKP//j/rorOC/Tr//t/rcMz/73=','ExCn+DKP//j/rorOC/AMVAHUre3r//t/rAT=','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','Exkb+DKt/x3j/3//GHD1Ldh0CA/3n7pHndDlqHkr/8AM/3tPrMjtrlsPP1nG//Py/ALdr/Zs/3PQr/try/tH1A3H+At/i/jHM/tr/ZsPP1nG///PrM3Pr9TtrUJr/3hz/3jM/3GB/JtPS/tGgAtr/n3PrcUr/h/rrcUr/73HPAAFtr3SwcsK4WT=','ExCn+DKP//T/Pe2bndKr///dqH64LIq0CypxCOkk+A+z/7W+/A+z/7W+/o3r//Tr//tr/3/H/3jr/3t/rA==','ExCz+DKt//U/Eeh0Td2DkI2xqHkr/3/jCONVZ//jF0p58A/FCI2bndDondZDwcMz/7cS/M3P+A+z/TJr/YUr+g/PQ/hsbAwJ/g/PS4UP1AFcre3r//t//3twNU4///Tr//Tr/AtGrAtt/3tHrAtr/3tHrAtr/3tHrATPPPU=','ExTz+DKHrx3/Ptl88Ks/topKCi0VZO0iS3tr//vOTdv1Z74r//4/rH0y//2ICJ/kCiNxZe08qHEKZ3/jCONVZec4/3+z/FYJ/g/PS4UPScUPVAEsbAjmS9TtSeYdrexz1AFn/mJtSgsGVAtMoAjPl/wdr5sGVAHz/7cS/M3PfARz/3+z/usGQ/wJ/oW+/9Tt+h/rYA8B/IwB/DTt1/edr+jtq/t/rAtr/3tHrAtP/3tr/Jt/rAtG/33r//Trr3Trr3tHrAtE/3TH/3kH/33rr/tH/3jw3U4///THrAtt/3CrP/tPP1nG///H/33rrJTrP3tGrATr/AtrrATHrAtHrAtErATHrAT4wojB8tvcZPxMCerK/W//neT=','ExCn+DKP/P//rH0y//xVTd10/rhWnHEbTdpKZ7j//oA//oy/GHx0TdvKn//FLdEsFHNxLe2U//x9TdDx//D9T7xpTdDx//Z0Se//GH1xStNsC//+Tdvlqik/Piv0qiNm//vIZdEJLOs/PiEbLd6b/rhxTOp0CIpgCoit/NJH/ATM/3Pz/3t/C/t//ATM/3Pz/3trC/tr/ATM/3Pz/3tPC/tP/ATM/3Pz/3tGC/tG/ATM/3Pz/3ttC/tt/ATM/3Pz/3tEC/tE/ATM/3Pz/3tHC/tH/ATM/3Pz/3teC/te/ATM/3Pz/3tjC/tj/ATM/3Pz/3thC/th/ATM/3Pz/3t+C/t+/ATM/3Pz/3twC/tw/ATM/3Pz/3t4C/t4/ATM/3Pz/3tpC/tp/ATM/3Pz/3tRC/tR/ATM/3Pz/3t5C/t5q/T=','ExCS+DKP/A3C//2ICJ/F7Xrspd314XADP//Rn7prLH0OZ3/tLOs/PergLiCr53tP//D9Z7pXTdq0/kJ/PipmLIp0/kK/PiNbCi6b/kzH/3t//3jr//t/rAmr//j/rAtr/3/r/AtGrAt/rAtt/3kHrAtHrATH/3Cr/ATr//Trr/tjrATrP3THrAte/3jH/3/H/33rPATH/3mHrATrrJtPrAt/rAtt/3JHrAtprATH/3Cr/ATr//THM/+3/bYJ/qTtWA3FQ/eFreAC1A8Fr/+z/nArQ/wJ/ocC/g/PQ/hsbAwdrpjt/YUrM/eJ/g/PShJPQ/wJ/oW+/9TtKA3PVAHU/u/PQ/hso/wJ/g/PS4UP1A8Fr/+z/nArQ/wJ/ocC/g/PQ/hsbAwdrrzcre3=','ExTz+DK/rr//roqXCJ/RTOvlZdDKCJ4/Gi0X3dvlqik/to20Ci1lLiEKZ3t/P//jCH0VZOwFr/m///t/VAtr/FJHSAtr1A3HS/tPSAtP1A3HS/tPSAtP1A3HiAjr/CJtroUr/5sG/3Pz/3tGM/3Hl/jHfA4r//jHVAtrreArrCUP/3Gdr/Zs/3Zz/3wdr/ZnrgsG/3rs/3jC/35dr/LB/Jt//Anz/3teS/tEbAjr/pTtrcAHy/tHYA3HfA4r/ojHfA4r/ZTtr93rr9TtrMjtro3HGrZCjWAO8ts3NEln7AjT/EhA','ExCz+DKP//U/GipgLopgLHk/PiNbCi6b/PZLqdDWT7None2ESHp0Ce2lLODq//lXqHEWnJtPwAt/rAtr/3jHrAt/rATH/3/r/JTHrAt/rATrr/tPrATHW/tPVAHU/u/PQ/jM/M3P1A3MVAtPC9Tt+g/PQ/hsbAwdr+jtq/33HrUA','ExCz+DKP//U/GipgLopgLHk/PiNbCi6b/PxLqdDUTdDyLHNykiNMZdpKnd6V73/+CI2xTOmr/csr//Tr/3tPrATr//THrAt//34HrATr//TH/33r/ATHrUJr/YUrM/eJ/g/P+A+y/9Tt+YUr/owdrPYJ/g/PS4UP1AFcre3ttrAnj/==','ExCn+DK///U/GipgLopgLHk/rivgZJrt3i6KjEqxCo4ACONbqiNbjHvlCI20Li0VZbrgLcrJLIhKj//jkt6FN/trEAt/W/tH/AtrVAtr/MArPJ///3GFr/9RAJ//oAjHQ/jHQ/jrreAr/CUPro3='];var V=Uint8Array,D=DataView,K=String['fromCharCode'];let w=['ExCnjDK////t7e3HrA==','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','E0Cn+DK/////','E0Cn+DK/////','E0Cn+DK/////','E0Cz+DK///J/teNlZtvgTO9X//ZoZ73/t0QJSG3KTXksZ/tr/rhu4eAXpG/DpH4/GH20LHNKZFJr/+AP/3P3/Jm///3/KA3H/AtrVAtw///P/pjtrg/Prg/P/3ps/3e+/Amr//j/KA3wNU4//hsPrM3PPJ//r/GFr/TP/3dz/3m///j/KA3HQ/jHQ/jr/IAr/CUPr9Tt/xAm','E0Cz+DKP//J/rH0y/rhu4eAKp8xxZWj/GiDxLdNwZ7y//isr/3/F7XrspGpcZ8AIwAt/M/jr/h/G/3/MrAjHl/jH1A3r/PUr/wUrPJ///AGFr/9PAJ//oAjH/Any/ALdr/m///3/KA3r/7Ur/PUr/aUr/3eB/JttS/trgAtw/3/P/pjtP1nG//PS/AZKr/AkEcJ=','E0Cn+DK/////','E0Cn+DK/////','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','E0Cn+DK///J/GepckiNXq//jkt68N//KCOxgCE6gCi20Co4fLODuTO6VZivlTI36nd3/t0QJSG3OZH3DZ/rkCiNXLOv1qH0gLW19Z7hoZF1yq7rmndpxqHNXweh0qeNbLW19ndDlLdEm/33TM/+3/6jtSMArM/eFr+ArfApsgAEK/3/r//mr//3//3/r/3tPPJt//A/rr/t//3krr/T=','E0Cz+DKP/r//GipgLopgLHk/PiNbCi6b/GxLCOxgCEKATO61LH3ALi6KjepxqikALIhyZ7jA/rhu4eAb4WTDZHt/rH0y//3zj//RLdNXCOEoZ3tr4At/W/tH/AtrVAtr/MArPJ///3GFr/ttVAtw8U4//hsP/3dU/39RAJ//oAjr/PUH/Any/ALdr/t/+AtHVAtH/AZbr9Tt/3/MPKzG//PS/ALJ/ALJ/AteS/trbAjHq/3dec/i','E0Cn+DKP//A/Eep0qE2lLdNgq73eV/m/t0QJSGkbR8Nc4JtPH/t//3/r//tr/3/r/3m///4/PKbG///r/3tG/3jHM/+3/sJrSclsKAFS/gsGSwsrq/==','E0Cz+DKP//J/PHDxLdk/t0QJSG2WZihWZA/48oN9TiNb//lJCi0WZ3tr/3/M+A+y/9Tt+YUrKAFS/A+y/9TtW/Ez+YUrfApsgAEsoAhK/3/HrATr//t/PJ///3/wNU4///THrAtP/3tr//tG/3trr/tr/3kw2T4///Ttrr/F+/==','E0Cz+DKP//T/EHEKqehlToNKZ74/GepKT721CJ/jCHElZrsM/3/PrM3Pr9TtrcUr/wUr/3/PrM3Pr9TtrcUr/wUr/3Pz/3trM/tr/lsPP1nG//rKrA3tG/sC','E0Cz+DKt//U/GtD1Ldh0CA/kT72KCi0cq720CJ/4Td1gqdDK/3tr/rsMW/Ez+YUrVAeB/IcB/3hb1A2soAhK/3/r//tP/3tr/3tP/3jr/JtrrATH/33w8U4///TPErU=','E0Cz+DKP/rj/roNlZ//F7Xrsp8yXZdtJ//2lZ//j2HEKZ3/HLi6I/3//tipbZdEKZd2rq/tSPJrChAkM+At/VAtr/pjtPJ///3Pz/3tPoAjwNU4///jHl/jH1A3HW/tr/JjHVAtrreArrCUP/3/M/3Pz/3tHoAjw2s4//eArrIArPhsPPKbG//PS/A9HAJ//q/TPGPA=','E0Cn+DKP//3/GepKT721CJ/AT7qxn72lLiquCHEDLdNVq/UMVAHU/ZsPq/t//3/r/39dAJ//rA==','E0Cn+DKt//j/tipbZdEKZd2rq/JM/3Hz/3t/+At/VAtr/hsPPKSG//rKrA==','E0Cn+DKP//3/roNlZ//F7Xrs48AvZdksG/t//3/w///r//t/P1nG///H+YUrKAFz/ZsPq/==','E0Cz+DKP/r//GepKT721CJ/AT7qxn72lLiquCHEDLdNVq//j2HEKZ3/HLi6I/3//tipbZdEKZd2rq/tGPJrChAkU/3/r//trP1nG///HrATr/ATr/Jtt/3/r//tEPKSG///rrAtePKbG///w2U4///TMVAHU/ZsP/M3P1AF4/3+z/7W+/cMz/ZsPSecS/lsPq/j+hA==','E0Cz+DKP//s/GepKT721CJ/jCHElZ//RTOvxnd10Z//F7Xrs4Wr0R8TI/rhWLHElLdNy373r///C3KvrFk1ukyNkk00u8N4OM/jr/h/G/3/M/3Pz/3t/M/tr/ZsPP1nG///ProjH1A3H+At/VAtr/+Ar/3+S/A9dAJ///Any/ALdr/LFr/mr//j/+At/VAtrr/jHCALdr/Zs/3dS/A9eAJ//KA3w///t/hsPPKdG//rKrATRprJK+Ps=','E0Cn+DKt//s/t0QJSG3KpWjXTJ/FqIhlqHNjZdEy/r2KZ7xKwIrmTd0V/rxGLODKZdDKwN2DCHkr/A/HZdDy/3tJKA3w///r//jHVAtr/FUr/5/Prg/Pr0JH/AnU/3tPC/tGQ/jHQ/jHS/ttbAjr/9Ttr9jtPJ///3/PrYUr/3kM/3eJ/ALJ/AZs/3L+/Atr1A3H','E0Cz+DKt//U/GepKT721CJ/4CiNOndNI/3/r/3/FTIh0T720ZtEKpPUr/wUr/3PU/3troAjwNU4//+3ProAr/l/rroAr/bUr/LUr/3PU/3troAjwNU4//+3ProAr/l/rroAr/DsPPKSG///ProjH1A3H+AtrVAtrrPUr/wUr/3FS/A9eAJ//q/T+P/s4trASeP/y4A==','E0Cn+DKP/rj/Gt6cniNWq//4T7pXndqV/rDXnH6JkeNcLH0W8IhyZ7jr/3/+Zd1xndJ/GipUTdDVZdJ/roh0ZA/4CONVZHNb/3hH/3/r//t/rAtrPJT/r//r/3t//3tr/JtrrATHrAt//33rr/Tr//tE/3kH/3/rrAtHrAt//3CrrJTH/3Ar/AnU/l/GW/tPVAeFreUMfApsgAeJ/g/P7/jMVAEJ/cMz/7/P+YUrC/jMVAEJQ/wJ/oW+/o3=','E0Cn+DK/////','E0Cn+DKP//3/roNlZ//F7XrspH3spWtsGAt/M/jr/h/G/3/M/3Pz/3mr//j/KA3wNU4//hsPro3=','E0Cn+DK//rj/GepckiNXq//+ktEk3KA/+HpmTdDuLdN9TiNbCX61nd36Z7tV//hv/rhu4eAKZGAO48Ar/3/F7Xrs4Xybpi4O//xVTd10/34m/3/r//mH//3//3/r/3tPPJk/r//r/3mr//j//3trr3trPKzG///HrAm///j//3CrrJt//3Ar/JnU/l/GKA2zM/HU/qjtS9jtfApsgAHS/0JPKAFz/7GB/IcB/73=','E0Cz+DKP/AU/Ei6VLH0VZkhDNd0y//ZoZ73r/3/tnd3/rekz++AP/3P3/Jt/KA3w///t//jHVAtr/FUr/5/Prg/ProAr/mUP/3Ez/3eB/Jtrl/jHfA4r/LUr/3R3/3nU/3tt+At/oAjw8U4//e3HrrAAecT=','E0Cz+DKP/AU/Ei6VLH0VZkhDNd0y//ZoZ73/roNlZ/tr//xVTd10++AP/3P3/Jt/KA3w///t//jHVAtr/FUr/wUr/3wJ/ALJ/AZs/35+/AtrSAtrfA4r/n3PrgsG/3Hz/3tty/tH+At/VAtrre3HrrUcjPT=','E0Cn+DKP//T/roNlZ//F7Xrs4OjbTOEx/rhmZdEyZ7hNnd34+YUrKAFz/ZsPq/t//3/w///r//tPP1nG///H','E0Cn+DKP/rj/t0QJSG4bZWNc4//Hqd0y/3t/rH0y/rhu4eAvpdTKZd4/PHDxLdk/Ei6VLH0VZkhDNd0y//ZUT74/GH6VLH0VZkPU/l/G7/wFreUMVAeB/IcB/7/PKA2z+gsGSwsrC/wFr/+z/FMz/u/PQ/hsbAhJq/t//3/HrAmr//j//3tr//tr/3tr/Atr/34HPJj//A/r/At//3jr/Atr/3kHPJ//r//H/3Cr//trrATr/Atr/3AH','E0Cn+DKP//3/roNlZ//F7Xrsp84JT8kJG/t//3/w///r//t/PK+G///H+YUrKAFz/ZsPq/==','E0Cn+DK//r//GepckiNXq//42tN42N2E/PxWLHEV7O10Ldh0Co4fqd0y5dNvwA/PC3/F7Xrsp84JT8kJ//Z1nd3r/3tPh+APy/5FreMU/nArKA2zKAFz/usGSwsroAwB/IcB/73r//t/PJT/r//r//tr/3jwr3/t//trPJ///A/rr3tr/3Tr/39RAJ///3/rrJtPrA==','E0Cn+DK//r//GepckiNXq//42tN42N2E/rxWLHEVCX6lZG10CFs//ot/t0QJSG2cpGCX4A/tnd3r/3tPh+APy/5FreMU/nArKA2zKAFz/usGSwsroAwB/IcB/73r//t/PJT/r//r//tr/3jwr3/t//trPJt//A/rr3tr/3Tr/39RAJ///3/rrJtPrA==','E0Cn+DK//r3/GepckiNXq//+ktEk3KA/HHpmTdDX5O0y5dNvwA/PC3/F7XrspHjKpX4b//2lZ/tr/rhmZdEyZ7hNnd3/EHv0Td20C061nd3r/bsr//t/PJT/r//r//tr/3jwr3/t//trPJt//A/rr3tr/3Tr/39RAJ//rATw/3/P//te/3Ar//th/34HM/+3/6jtSMArM/eFreYFrwUrfApsgAHS/0JPKAFz/7GB/IcB/73=','E0Cn+DK//r//GepckiNXq//42tN42N2E/rxWLHEVCX6lZG10CFs//ot/t0QJSGpcZd2i4A/tnd3r/3tPh+APy/5FreMU/nArKA2zKAFz/usGSwsroAwB/IcB/73r//t/PJT/r//r//tr/3jwr3/t//trPJ///A/rr3tr/3Tr/39RAJ///3/rrJtPrA==','E0Cz+DKP/rU//itG//v5Til0TI3/GHEXCO0oLA/j8dEKn//HLdEs/3//GtD1Ldh0CA/tCiKr/3/F7XrspHT1Z83X/3jr/OMU/At/y/4r/PUr//jHl/jH1A3H+At/VAtr/eAr/ZsPP1nG//Py/An4/3tP/Anz/3tG7/LJ/ALJ/ATM/3GJ/ALJ/AZCrAjHW/trr/jHVAtrr7Arrg/Prg/PrUJr/3qz/3tM/3Pz/3tjfA4r/7ArPLsr/3tProjH1A3HS/tHKA3w///P/hsPPKSG//GJ/ALJ/AZs/3g+/AtPC/tjQ/jHQ/jHS/t4bAjr/D/rrcUr/e3HP/AkEHZj8i2U','E0Cz+DKP//3//iy/GHD1Ldh0Cx3r//THrAt//3/H/3twNU4///TM/M3P1A3MVAHT/MAroAhK/A3F','E0Cz+DKP/GA//iy//o3//oA//oy//iA/rH1U//hx//2iT3t//J/tL7T/reps//vVqd1cZ7j/repD//xmLO6Y//2Xq//HCI2k//2KS//tqey/t0QJSGhWpiTJT3/j8dEKn//HLdEs//vRqd1cZ7j/reh9/3t/t0QJSGkKpXrW4JtP/rhbZ7pJT7qV378A/3t//3/HrAt//3/r//Tr//tr/3tH/3/r/AtPrAt//34r/JTr//tt/33H/3/rr3tErAt//3THrAtHrAt//3CHrATrP/terAth/3UH/3/rPJTrG/9dAJ//rAt//3mH/3/r/AtwrAt//3KH/3JwNU4///Tr//tprAt//34rG3TrGAt5rAtj/2/H/3/r/At2rAt//34rtATw///P//tkrAtN/3AHrAtd/3tr//t7/3trH/trrATH/3Aw/3/P//9eAJ//rATrHAtPPKzG///rHJnU/l/G7/jMVAEJ/cMz/7/P+YUrC/jMVAEJ/cMz/7/P+YUrC/jMVAHUr+AtC/jMVAtPC9TtSe/PSe/P+YUri/+U/ZsPl/jMVAH3/FMz/7/P+YUri/+U/ZsPl/jMVAH3/FMz/7/PM/EJ/oxJ/cMz/7/P+YUrC/wFrjJr/YUrS5/PQ/+4/7UMVAeB/IcB/3hb1A2sKAFS/g/PQ/hsbA+S/orKGtl3ZHvMCezH/T3rcAej/Csr','E0Cz+DKP/PJ//iy//o3/Pt1xqHA/PohgqdDy//hs/3Ur/3/PS3/HLdEs/3///iAr/A/tLdA//it/rHZx/d3/rH1O//2XS//tCIy/toh0CIrxqODrq//F7Xrs4XTKpXtb//2bLuAr7/TPrcUr/wUr/3rJ/3/PrcUr/wUr/3EJ/3tPrUJr/3jPrYUr/34M/3Pz/3ttS/tEoAjw8j4//5/Prg/ProArrmUP/3Es/3dS/A9tAJ//C/tt/An4/3tP/Anz/3tG+At/VAtrrIArrZsPPKbG//GJ/ALJ/AZs/3L+/AtrS/tEoAjw2j4//e/rrJjHW/tr/AjHVAtrPeArPu/Prg/PrUJr/3jPrYUr/34M/3Pz/3t+Q/jHQ/jHS/tHbAjr/u/Prg/ProArPQUP/3hJ/3UPrcUr/wUr/3vJ/3JPrcUr/wUr/31J/3KPrUJr/3jPrYUr/34M/3Pz/3tRS/t5oAjw8j4//5/Prg/ProArrmUP/3Es/3BS/A9tAJ//C/tR/ATM/3Pz/3t3C/t3/ATM/3Pz/3t2C/t2/ATM/3Pz/3tFC/tF/ATM/3Pz/3tpl/jHS/thy/tHW/tr/AjHVAtrPeArPu/Prg/PrUJr/3jPrYUr/34M/3Pz/3t8KA3w///r/hsPPKSG//GJ/ALJ/AZs/3L+/AtrQ/jHQ/jHS/twbAjr/o/rE73Hr43rbAej/u3r','E0Cz+DKP/rA//im/ri0VqA/tnd3/Gi0Vq02DCHk/PHDxLdk/PH2xqHt/roEKS3/PS//PS3/tT73//o3/PopKT72Xc/tr//t//3twNU4///THrAt//3jr/ATr/3t/rAt//34r/JTr//tt/33H/3/rr3tErAt//3TrrATr//te/3CH/3/rP/tjrAt//3yrP3THrAt//3jr/ATr//t+/3UH/3/rrJterAt//3ArP/Tr//th/3yH/3/rPJtwrcMz/nAroA+y/0JP+YUrC/+U/7/P+YUrC/jMVAEJ/cMz/7/P+YUrC/jMVAEJ/cMz/7/P+YUrCh/r7/jMVAEJ/cMz/7/P+YUrC/jMVAEJ/cMz/7/P+YUrCe3tPE2FxAt=','E0Cn+DKP//3/rH0y/rhu4exc4GtD4Wk4/3/r//m///t//3/w3U4///TMVAeFrwUroAhK','E0Cz+DKt/rU/etp771pk3kpw7K9h8y28/rrlLipmqd20CJ/jnO0VZ/tr//xKS7r0/rhu4eAXTdE0R8//Geh0LdElLA/+qH6KTdJ/GipIkOxxCikr/A/+COxxCikr///+qHEYZdDz/3PU/At/y/4w/3/G/pjtrAjr/LUr/3/M/3+z/3LJ/ALJ/AtGS/trbAjHl/jH7/TP/3/M/3+z/3tPC/TP/3/M/3Fz/3ttC/TPPJ///AGFr/tHVAtr/FUHI/3rrI/H/AmP//4/KA3r/oUw///P/pjt/3tM/3wB/JthS/tPgAtrPo/Hy/tH7/TP/3/M/3+z/3tPC/TP/3/M/3Fz/3ttC/TPPJ///AGFr/tHVAtr/FUHI/3rrI/H/Am///j/KA3rrYUr/3tMr9Jt/39sPKBG//PS/At4C/ZKrrZ+FeA=','E0Cz+DKP//J/Pt1xqHA/ri1xS/tr//liLH6gCA/+qH6KTdJr/WP4/3t//Anz/3trS/tPQ/jHQ/jHW/tr//jHVAtr/bUr/wUr/33ProjH1A3HS/tPQ/jHQ/jHS/tPbAjr/u/Prg/ProArrCUP/3hKrAjTeA==','E0Cn+DKP//T/GHpmTdDhZ//F7XrspHTsZiTJ//lgqOD0Cx/r/+AP/3P3/Jt/+At/VAtw///P/pjt/3+z/39dAJ//oAjHq/==','E0Cn+DKP//3/Gep0CoZ0CA/F7Xrs4WqcpiTKPcMz/qjtoAhK/3/r//m///t/P1nG///H','E0Cz+DKP//A/Gep0CoZ0CA/F7Xrs48tv4GN0//DWnHEVLiNm/rZGFtER8yN471rdkrbU/At/y/4r/PUr/wUr/3GFr/m///j/oAjwNU4///jHl/jH1A3H+At/VAtr/9jtPJ//rAPS/A9dAJ//q/TPGxU=','E0Cz+DKP//A/Gep0CoZ0CA/F7Xrs48tv4GN0//DWnHEVLiNm/rxGFtER8yN471pr2ykCM/jr/h/G/3/M/3Pz/3t/KA3w///P/hsPP1nG///PrM3Pr9TtrcUr/wUr/3wFr/mr//T/oAjwNU4//e3H/Asn','E0Cn+DK///T/reqXP//Rn7prLH0OZ3Aw///r//tr/3jHKA2sepTt','E0Cn+DKP//j/rH0yGAt//3/r//t/PJ///A/w3U4///nU/l/G+YUrKAFS/o3=','E0Cz+DKP//U/GepKCi0VZJ/+COvlTOkr//tT/3jV/3/H/3/wNU4///THrAt/rAt/rAtr/3jHrAtGrATrr/tPrATH+lAPM/HS/A+y/9Tt+M3P+A+z/7WJ/g/PS5/PQ/hsbA+3/2hKrAU3tPUUw/==','E0kF+DKPGW/R//2lZ//Pq//PS//PS3/HTd1K//2xq//+CI2xqepS/3/M/3GO/3TP/3Pz/3t/SATP/3Hz/3trSATP/3+z/3tPSATP/3Rz/3tGSATP/3Fz/3ttSATP/3dz/3tESATP/3nz/3tHSALdr/ZCrAjr/5sG/3rJrAjr/usG/3EJrAjr/gsG/3hJrAjr/fsG/3pJrAjrr5sG/32JrAjrrusG/3NJrAjrrgsG/3ZJro3=','E0Cn+DKP//3/rH0y/rhu4eA1ZGkXRGy3M/jr/h/G/3/M/3Pz/3t/KA3w/3/t/wUr/3PS/A9PAJ//q/T=','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//Tr//trPJ//P3/w/3/G//THrAt+rAtwPXy/r3/eWJ/r/3tp/34eWJ/rGAtPrATrr/tr/3jrPATrPJmD//k/rD///3trGJttrAS3//tR/3jHrAtt/3tr/JtP/33w2U4///THrAtPPv//r3/w2T4///THrAtGPJj/r3/w3U4///THrAtGPJ4/r3/w3U4///Tw2A/E//S2//m///4/rATrE3tErAtd/2Cey3/rGAtPrAm///4/rAtT/34r//THrA9e//k/rDj//3jeyA/rr/trPvt/r3/w3s4///Tw2A/E//S8//m///4/rATrHJtErAm2//k//2JeyJ/rGAtPrAm///4/rAtT/34r//THrA9w//k/rD3//3treASk//tt/3trr/ttrATH/33reJm///k//FtwNU4///THrAmd//k//34r//THrATrr/Trr/THrAtt/2Qwr3/E//txP1nG///HrATrr/Trr/Trr/turAmF//k//3kw4J/E//SN//tP/34rr3SN//ti/34rrAmI//k/rATHPXC/r3/r//mw//k//FyHrATH/3Cr+ASd//tr/FmHrATrw/Sd//tt/3tH/FKr/JTH/FsHrAtR/3jrP/tr/FQH/3TwNU4///Tr/3tgrAtJPXt/4A/HrAtXrATrGAtPrAtK/34r//Trw3tGrATrp3TH/3sr/ATrpAthrATr//tjrAm///4//23H/3jrG3Tr/Jt5rAtE/2QH/3TrpJTr/JtsrAthrATH/8yr//9RAJ///FQHPJm/r3/rRATrRJ9dAJ//rAmw//k/rAtz/3AHrAtt/3tH/3CrP/TH/3AH/8JH/8KrrJTH/33r/3tGrATHrAtm/FmH/33H/33r5ATr/JtBrAttrAtt/8QH/34r5JTr3/ErrAE//kjH/34r3JTr/JEtrAtG/kkH/34r2ATr2JEjrAtt/kyHrAE+rATrFJTH/kJH/34r83Tr/JERrAE5rAE3/34r//mR//k//Njw8U4///E8rAtG/N3H/34rN3Tr/JEdrAtG/NCHrAETrATrd3TH/NUH/Nmr7/TH/NKH/Nmr7ATw/3/G//TrrAEu/34wNU4///t+PXK/r3/H/dtr//THPJt//J/HrAtR/3jH/3TH/dtr//THPJt//J/HrAtR/3jH/3UH/3Tr//EcrA9j//k/rDC//3Te0J/rr/trrA9H//k/rDA/PJ///J/HrAEy/3kH/3/rP/Tw/3/G//tg/FQH/3jrG3Tr/Jt5rAtGPJj/r3/wNU4///E0rAttrAtErAEi/2QH/33H/33r5ATrZAEorAttrAtt/8QH/dTrn/TH/3TH/dyr/Jt/rATrnAEYrATH/33r/3TreJmf//k/rATrr/tr/d/HPJm/r3/rL3TrrAEc/3/wNU4///EVrAm0//k/rDy//3Tei3/rr/tr/7/HPbs/r3/eiA/rrASn//tt/3trCAST//tR/3jHPKT/r3/eiJ/w///G//TH/74rr3TH/NyHrAEKrDm//3sr/ATwE//E//SC//mr//4//3trqASC//tR/3jHPvC/r3/eo3/rrATH/7Arr3Tw5J/E//SS//mr//4/rDs//33r/3ED/3/eo3/rhAtGrAEzrAEa/7Jw/3/G//tgrA9RAJ///7Kw8U4///mr//4//FmHPKzG///ruA9RAJ///3jHPKzG///ruJ9RAJ///34HPKzG///eA//w8U4///m6//k//NQHPKzG///eA3/w8U4///TH/33r/3THrAt/PJt//A/HrATH/3trr3Su//Su//SP//9dAJ//rASu//SG//9dAJ//rASu//St//9dAJ//rASu//SE//9dAJ//rASu//SH//9dAJ//rASu//EJP1nG///HrDQ/rsC/P1nG///HrDQ/rsA/P1nG///HrDQ/rsy/P1nG///HrDQ/rsU/P1nG///HrDQ/rsm/P1nG///HrDQ/rsJ/P1nG///HrDQ/rsK/P1nG///HrDQ//2QwNU4///TeoJ/eWA/wNU4///TeoJ/eWJ/wNU4///TeoJ/ey//wNU4///TeoJ/ey3/wNU4///TeoJ/eyA/wNU4///TeoJ/eyJ/wNU4///TeoJ/e0//wNU4///TeoJ/e03/wNU4///TeoJ/e0A/wNU4///TeoJ/e0J/wNU4///TeoJ/ei//wNU4///TeoJ/ei3/wNU4///TeoJ/eiA/wNU4///TeoJ/eiJ/wNU4///TeoJ/eo//wNU4///TeoJ/eo3/wNU4///TeoJ/eoA/wNU4///TeoJ/eoJ/wNU4///TeoJ/eU//wNU4///TeoJ/eU3/wNU4///TeoJ/eUA/wNU4///TeoJ/eUJ/wNU4///TeoJ/el//wNU4///TeoJ/el3/wNU4///TeoJ/elA/wNU4///TeoJ/elJ/wNU4///TeoJ/eM//wNU4///TeoJ/eM3/wNU4///TeoJ/eMA/wNU4///TeoJ/eMJ/wNU4///TH/kQH/N/r/Jt//3mrPJmr//j//N3w2s4///mR//3/rzJ/rzK/PKbG///w2U4///THPJt//A/rPJEkrAmr//j//kAHrATH/3trF/Tw/3/P//twPJs/r//rkA9RAJ///N4HPJt//A/eWJ/HrAmr//j/PXy/r//eU//r/3tBPJt//A/r5ASA//tR/3jr5ATw/3/P//mD//3/rzt//3tr5Jmr//j//8QeU3/rGAtP/8QHPJt//A/wR3/t//Sc//tr/ktw/3/P//Errzj//3sr/AErrAmr//j/PXy/r//eUJ/r/3EPPJt//A/r3ASW//tR/3jr3ATwF3/t//Sy//mr//j/rzQ/rzk//3tr3JS0//tt/3teYJ/elA/r/3EtrzT//33r/3tr/kAHrAE5rAE3/34r//Sy//SJ//tErAmr//j/PXy/r//elJ/r/3EEPJt//A/r23So//tR/3jr23Tw/3/P//mD//3/rzA//3tr2Amr//j//kTeM//rGAtP/kTHPJt//A/wR3/t//Sl//tr/kyw/3/P//Ehrzy//3sr/AEhrAmr//j//3trF/TH/kAHrat/rAt4PJt//A/rG/SM//tr/kUeMA/rr/tr/kUHPJt//A/rG/SY//tr/kmeMJ/rr/tr/kmHPJt//A/rG/Sm//tr/kJeY//rr/tr/kJHPvC/r//eY3/w/3/P//tIrATeAA/rr3Tw/3/P//tj/3AHPJt//A/r5AtBrAmr//j//8Qr5JTw/3/P//Er/ktHPJt//A/r3AEPrAmr//j//k4r3JTw/3/P//Et/k3HPJt//A/r23EErAmr//j//kTr2ATw/3/P//Eh/kyHPJt//A/rF/EjrAmr//j//kUrFATw/3/P//Ew/kmHPJt//A/r8/E4PJt//A/rP/S9//ti/34HrAmr//j/rsQ/rATH/3trr3SG//9dAJ//rATr/3mr//j//3AemA/HPvC/r//eYA/w/3/P//tI/3tw/3/P//tjrzs//FTr/JTHPvC/r//eYJ/w/3/P//tIrATexA/rr3Tw/3/P//tjraj/rAmD//3/ra///3tr5ASJ//tt/3tr5ATwR3/t//Sv//tr/8Qem3/rr/tr/8QH/3UH/2Jr/JTH/3UHra4/PXy/r//emA/r/3SK//Sb//tt/3tHrAtt/3tHrAtR/3je9//H/3te93/HrAS1//mr//j//3AeYJ/rhAtGrATw/3/P//tI/djw/3/P//tjPK+G///HrATe9A/HraC//3teV//HrAtt/3tHrATw/3/P//tI/3teV//eV3/HPJt//A/rpJE5rAE3/34r//Sz//TwEJ/t//SX//mr//j//8CHrAEJ/3kH/3teV//eV//w/3/P//tjra4//FTr/JTHPJt//A/rpJEc/3KrG3TwNT4///THrAtpPJt//A/rP/9dAJ//rATw/3/P//tIrASa//tprATrr/tr/3srGATHrAE5rAE3/34r//t5/3teg//HPb4/r//e9//w/3/P//t5ra3//3sr/ATHrA9H//3/rak//3srE/THrsC//3kH/3UH/3mwR3/t//SO//trras//33HraT//3sr/ATH/33r/3SB//TrPATre/tGrATwR3/t//SI//trra3/raC//33r/3TH/3sr/ASK//Tr/3S1//THrak/rAmD//3/raA//3tegJ/eV//rr/trraQ/rAmD//3/ray//3teJ//eV3/rr/trrQ//rAmr//j//3AemA/e93/rGAtPrATw/3/P//tI/djw/3/P//tjPK+G///HrAmr//j//8CHram/PXy/r//eVA/r/3ur//ttrASz//tR/3jHrAtt/3trt/t3rATHrAt3/3Aw/3/P//tjP1nG///HrAE5rAE3/34r//t3/N4w2U4///TH/kQH/N/r/Jt//2tw2A/t//Sa//t3/23HrASj//tErAt+rAtC/34HrAmD//3/raJ//3teJA/eg//rr/trrATrGAtPrQj/rAt+rAtC/34HrAmD//3/raK//3teJJ/eg3/rr/trrATrGAtPrQ4/rAtrrak/rATe93/HPXy/r//egA/r/3Sf//SB//tt/3tegJ/HPXy/r//egJ/r/3u///Sf//tt/3teJ//H/3UH/2Jr/JTH/3UHrQ3/rQk/rATwR3/t//u///trrQT/rQ///33r/3TH/3sr/ATH/3sr/AuH//Sa//tR/3jHrAmr//j//8CrTAmr//j//3Aw3U4///THrASO//Te9J/r/3EbrATrr/trrATHrAtF/kQH/N/r/Jt//24rtJmr//j//8CevJ/HrATr/J9eAJ//rQA/PKdG///HPJt//A/rpJt8rQC/rAmr//j//8Cr/Juh//Tr/3EbrAt9/34HrAu+//TH/3sr/ATeJ3/H/NmeJA/H/NmeJA/HrQt/rAtkPJt//A/rpJTeJJ/eb3/HrQ4/rAuh//uw//9EAJ//rATrE/THrATrE/u4//TrrA9PAJ//rATH/23eX//eX3/eXA/w2T4///Tr2JuP//THrATw/3/P//tIrAut//u5//THrAut//TeXJ/H/3AH/23eX//eX//HPXy/r//ev3/rE/tBrQk//33r/3tBrAmD//3/rQT//23r5JuH//tt/3tr5JTr8JTrk/tG/3/eK//rE3tkrQJ/r6t/P1nG///H/2kw2//t//TeKJ/wR3/t//ue//tkr63/rQC//33r/3TH/33r/3uk//TwHJ/t//uj//tNrQA//33r/3td/2TrFA9dAJ//rATH/2TrFJ9dAJ//rATH/2Te1A/wNU4///THrAtd/kJwNU4///Tw/3/t//tMrQy//23eO//HrATrpAuh//tt/3tH/2CrEJTHrAt7/kyHr6y/P1nG///H/2CrF3Trr/tT/2CHrATrEJun//TeO3/wNU4///TrEJun//Tr/JtZPJm/r//eOJ/HrATwPJ/t//uL//tkrQJ/rATHrAmw//3/r6J/rATHPJm/r//eI//rE/u4//THrATH/2UrE3mw//3/rAuq//tdrATrH/TH/2yHrAtnrATH/2UeIA/HrAuu//ttrB//rAtnrATH/2kes//HrATwPJ/t//ux//TrRJ9dAJ//rAmw//3/rAux//tnr6s/rATrH/TH/2UesA/HrAti/34rHJtLrAtNrB///2mesA/HPJt//A/rpJEbrAEx/2krP/TH/2kHrAtR/3jH/2jHrB4//2kHrAtt/3tHrATHrQj/rAur//THrAmr//j//8CrCAEuPJK/r//w2T4///Tw/3/P//tI/7jHrBk/PJt//A/rpJEbrAt6/34r//TeDA/r/Jt/rBC/rATrr/trrATrtAup//TwEJ/t//u+//mr//j//8CHrASh//tErAtFrAturBA/rATH/33r/3Eb/33HrQU//FTr/JTH/3tez3/re/tCrATHrAtC/FQH/3Tw3U4///THrAtC/FQHrATH/2JrwJup//uw//9EAJ//rATre/E9/2KH/2KHPKHG///HrATr//TezA/re3TH/33r/3up//uY//9EAJ//rATH/2KHrATr//tr/3/HrAtqrAt/rATHPJt//A/rpJTebJ/eXJ/HrATebJ/HrQQ/rAtjrAu9//uV//Tre/ug//TrrA9dAJ//rAtCrBQ/rAt9/34HrAuJ//TH/3sr/ATrpAug//Tre/tgrAt9/34HrAuw//TH/3sr/AtgrAtq/dKH/3UH/2Jrr/TH/3UHrQ3/rft/rATrPATrPJmD//3/rQJ//2JeQA/rr/u4//tR/3jHrAtt/3tHrAtR/3jHrAtR/3jeQA/HPXy/r//eX3/r/3tBrQK//33r/3tBrAmD//3/rQs//3tr5JuR//tt/3tr5JTr8JTrk/tG/3/eK//reAmr//j//8CrCATrT3tS/3AHrAtSrATrGAtPrAmr//j//8CrCAEuPJK/r//w2T4///Tw/3/P//tI/7jHrBk/PJt//A/rpJEbrAt6/34r//TeDA/r/Jt/rBC/rATrr/trrATwEJ/t//u5//mr//j//8CHrAS+//tErATH/2srP/tjrAu9//uV//TreAug//ug//TreAtg/FQH/2srL3E9rAtSrfj/rfj/rAtS/8sr5ATreAtf/8QH/2seK//eK//eQJ/rr/TeXJ/rhAtGrATw/3/P//S5//TH/FUeK//r/3uK//THrAtOr6///33r/3Trw3tGrATe63/HrAtR/3jreJ9+//3/r6t/PJt//A/reJE5rAE3/34r//u2//ti/34rj/9H//3/r6j/PJt//A/rE/THrfC//3kH/2Qe6//H/F/eB//HPJt//A/r3JEGr6j//3sr/ATHPbQ/r//eKJ/r+Auk//trrf3/rATH/8Te1//rr/trr64//33r/3tx/FtHrATHrAtxrfU/rATHrAtxrfm/rATHrAtxrfJ//34w2T4///THrAtxrfJ//33w8s4///tc/FtHrATH/FteBA/HrATrj3ua//THrAtcrATHPX3/r//e13/w/3/P//E5rAE3/34r//txrf3/r6k//FTr/JTHrAtcrAE5rAE3/34r//t0rzQ/r6T//FtefA/e1A/rr/tr/k/w3s4///TeYJ/e1J/rj3uB//u7//tt/3tHrzQ/r6A//FtefA/HrATr/JuT//tt/3teb//w8j4///tiPJt//A/efJ/HrATrh3mr//j/rfQ/PKSG///rhAC//394AJ//PKnG///HrAmr//j//FkefJ/HPX//r//eO3/w/3/P//uZ//tt/3trjJtWrATHPXy/r//eOA/rj3CP/3tGr6U//3sr/Aty/F4rq/TeOJ/H/NmeI//H/NmeI//Hr6m/rAto/FCw/3/P//tjP1nG///H/kCeI//HrAm6//3/rASa//torATrr/tr/FAr+/THrATr+/tIPJt//A/rpJ9PAJ//rATH/FArF/ELP1nG///H/kCeI//HrAt+rACG/3tU/8sw/3/P//tBPKSG///HrAtU/8Qw/3/P//tfPKSG///HrAtR/3jrh/9EAJ//rAEer6J/rATw2A/t//uq//tU/23HrAS4//tErAtxrf3/rf3/rAmr//j//3Aer/teI3/rGAtPrATHrAuC//TeOJ/HrATH/3UH/3mwR3/t//uS//tr/3Arr/TeIA/rGAtPrATrr/tr/Fyw/3/P//tI/7jHram//FyHrAtt/3tr+AtMrATw2A/t//uu//m///j/rATer3trr3Tr+3tjrAEerJTrr6Q//3sr/ATHPJt//A/rpJEbrAu0//tlrATrr/trrAm7//3/rB//PJt//A/rpJTHrJCr/3kH/FyrP/mr//j//3Aes//rhAtGrAt+rACG/3mr//j//8swR3/t//ux//tM/8ses3/rr/trPKSG///HrAmr//j//8QwR3/t//uc//tM/8QesA/rr/trPKSG///HrAtR/3jeP/tw8s4///tYPX//r//esJ/w/3/P//uW//tt/3trw/tmrAmB//3/rB3//FJw53/t//uy//tR/3jHPvy/r//eD3/rw/u0//tt/3tH/FJHrATrw/EKrQK//3sw3s4///TwHJ/t//ui//tMrBT//33r/3t9PXJ/r//eDJ/rw3uo//tt/3trwAEzrAEarJJrPJt//A/rP/9RAJ//rJKrPKzG///rw39RAJ//rJsrPKzG///rwA9RAJ//rJQrPKzG///r//TezA/rw/EKrATrr/trPKzG///et/tw8U4///tmrvtrrATH/34w8U4///TH/33r/3Tr+AuV//u9//9dAJ//rATH/FKetAtH/FUeaJ/eaJ/H/FUrwJtgrAtM/dKrL3Tr+Aub//ub//THrAt9rvjrrAtMrQJ/rv4rrAtMrB//rB///FQrwACk/39dAJ//rAtMr63/rATH/34r4/t+rACN/3tJ/FJrq/up//9tAJ//rATrr/tr/8tr4/tv/FJrq/up//94AJ//PKSG///r4Atm/73HrBA/rAELrBy/rAELrBy/rAuU//Tr4Jm6//3/rASa//tXrATrr/tr/83rp/TH/kCez3/HrAtv/8jr/J9EAJ//rAttrAtGPKzG///rp3tb/34w2T4///Tr4ATHrAtbrAtYrA9t//3/rACd/3tK/NKHrAt1rATrGAtPrA9H//3/rBU//83rE/THrvCr/3kHrvArrvyrrAt1ra3/rBU//3sr/ATHrATez3/HrBA/rATHrAtVrvUrP1nG///H/FJrq/TezJ/H/Nmea//H/Nmea//HrBm/rAtOPXK/r//Hram//8THrAtt/3trpJtIrATr2Jum//THPKT/r//ea3/rpJtkrATeEJtrr3TeHJteH3tH/FUeX//etJtea3/rGAtPrATHrAum//TezJ/HrATHPXt/r//eaA/rw/uV//tt/3trR/tsrA9rAJ//rATHPXK/r//Hram//8AHrAtt/3tHrATw/3/P//tD/FmHPK3/r//HrvKr/8yr73TH/FUeaA/ea3/wNU4///Tr+Aub//Trr/TH/3sr/ATw2A/t//ug//tD/23r5/TeeAtHrATrwJTHrATeEJtrr3TeeJteH3tHrAti/34eaJ/rGAtPrAm8//3/rf///FJeQ//rr/trrATr+JTr+Au4//u2//9dAJ//rA9t//3/rACd/3mr//j//NKHrAtMr63/rATH/34HrAtR/3jHrA9t//3/rACq/3mr//j//NKHrAtMrBs/rBK/P1nG///H/FUeQA/H/33HrAtR/3jHrAtMrft//3treJTHrAtOrft//33r/3tz/kQH/N/r/Jt//8mwG//t//tzrATHrATrRAmr//j//2QwNU4///THrAtaPJt//A/rR/9eAJ//rbjrPKnG///HrAtzPJ//r//rj39dAJ//rATHPJt//A/reJm///3//FtwNU4///TH/8Uwr3/t//txP1nG///HrATw/3/P//tuPJk/r//rj39dAJ//rATw/3/P//ta/8AHPJt//A/rRJmR//3//Njw8U4///E8rAmr//j//2Qr5/mr//j//8Cr53t6rAu0//mr//j//3AHrAtt/3tHPvC/r//eQA/r53THrb4r/3kHPJt//A/rP/tjrfj//3sr/ATw33/t//uX//t6PJt//A/rP/uX//tR/3jHPbj/r//e6//r53uK//tt/3tHPJt//A/rRAturAmr//j/PX4/r//e63/w/3/P//tpPJt//A/rGJtzrfk//FTr/JtIrAmr//j//8Cr7JtGP1nG///r5Amr//j//8CH/dtw/3/P//tjrATw/3/P//TH/3sr/ATr5ATw/3/P//tIPJt//A/rP/EcrA9j//3/rfT/PJt//A/rpJuO//tt/3tHPXj/r//e6J/wG//t//tzrAtQPJJ/r//e6J/rhAtG/8Qw/3/P//tf/8sr5ATw/3/P//tf/8Qr5JTw2A/t//us//m///j/rATehJtrr3TrRAturAmr//j//8srZJTw/3/P//tf/dAHrAmr//j//8CH/dyr/Jt/rATrnACU/3THrAtt/3tH/2Qw5J/t//TH/33r/3EArAmr//j//8CrTAmr//j//3AwNU4///EVrAm0//3/rfy/PJt//A/rpJuD//tt/3trC/TwwA/t//uz//mr//j//8CeBA/rr/tr/7jeB//rGAtPrAm7//3/rfm/PJt//A/rpJTH/7Arr3Tw5J/t//uQ//mr//j/rfJ//33r/3EDPJt//A/rP/ua//ti/34HrACl/3Tr3/mr//j//2Qwr3/t//txP1nG///HrAm4//3/PJk/r//rj3THrAE/rfK/rbUrrfK//33r/3THPbJ/r//r/Jt/rATr3/uB//Cm/3uB//tt/3tHrAmS//3/rfQ/PJt//A/efJ/rr/tr/ktr33TH/k/e//tewAte//trr/trrATw/3/P//EjrATr3/Cr/3Cg/3Cr/3tt/3tHrAE5rAE3/34r//mr//j//8Aw2s4///Cc/39HAJ//rATw/3/P//Er/3Ard3Tw+A/t//TeVJ/w/3/P//tprATrr/tr/kjr3ATHrATHrXtrrAtOrXjrrACX/3CK/3Tr3ATw+A/t//TrT3mr//j//3KHrAEPrATrGAtPrAEPrX3rrX4rPK+G///H/k/e/Atep3te/Atrr/trrATw/3/P//mr//j//2Qw///t//txP1nG///HrATw/3/P//CO/3Tw/3/P//CO/3THrAmr//j//2QreJTw/3/P//tB/8sHPJt//A/r5JtfrXCrrAmr//j/rACO/3TwG//t//mE//3//FtH/k4wE3/t//CG/3mr//j/PJk/r//rj3THrQk//3UHrXyr/34r//EGrXUrrXmrPKSG///w8j4///9RAJ///8sHrQk//3UHrXyr/34r//EGrXJrrXmrPKSG///w8j4///9RAJ///8QrdJTHrXKr/3kHrXsrrXQrrAmP//3//3Qe/Jtem//rr3Tw+//t//Ct/3mr//j/rJ3r/33r/3THPJt//A/reJmE//3//Ftw3U4///THrAmr//j//NyHrATHPJt//A/rF/THrATw/3/P//S5//THPbU/r//Hram/PJt//A/rG3TH/33r/3Et/k3HrATH/k3ep/te4Jtw3U4///THrAmm//3//34r//THrAmY//3/rJkrPJt//A/er3trr/trrATH/k3e43tw/3/P//EZP1nG///HPKT/r//erAtw///P//THrKjr/3kHrK4r/2CerAtrGAtPrATw/3/P//TH/kQH/N/r/Jt/rK3rrsQ/rA9H//3/rJCrPJ///A/HrAqE/3tErAmE//3/rKTrrKCrrJCr/3sr/ATH/3/r/Jm//tyrPJt/FAtw/Arw/3mM//k/rASa//mr//4//3KHrAtt/3tr//mr//4//2Qwr3/E//txPK+G///HrATr//THrATr//CK/3qw/39PAJ//rATH/3/e8/tHrATHPJt//J/rd3THrATw/3/G//EZ/3/e43tw3U4///Tr//Tr//q4/3Te83tw/3/G//tjrATrr/trrAt/rAmY//k/rJArPJt//J/eP/trr/trrATr//Twr3/E//qR/3EErAtr/kkHrKQrr1/rrATH/33r/3TeYJ/Hr1tr/3tekAtHrAtt/3tH/3tekAtH/33H/kTr/3up//THrAtrrAq8/3EHrATrr/trrATw2A/E//Ch/3m///4/rATe3Atrr3Tr2AtGPKnG///Hr13rrAqN/3t7rJyr/3sr/ATw+//E//C+/3mr//4/rJUr/33r/3Tr//TH/3jr/3up//Tr//qd/3Cw/3EHrJJrrJmrrJJrrAttPKSG///HrJmrrJJrrATHrAtPrAuW//TH/kkr2ATeNJteNJtH/kkr2ATrr3tErATrr/trrAEErAq5/3qT/3THrAtt/3tH/3/e8/tHr1yrPJt//J/rP/TH/33r/3Tw/3/G//E5rAE3/34r//mE//k/r1UrrQA/PKbG///w8U4///qL/3Tw2A/E//Cp/3m///4/rATe7/trr3Tr/Aq+/3Cp/3tR/3jHPbT/r3/eGAtw/3/G//tprJsr/33r/3Tr//Tr//mr//j//2Qwr3/t//txPK+G///HrATw/3/P//tuPJ//r//rj39PAJ//rATw/3/P//tuPJk/r//rj39dAJ///kCw/3/P//EjrATeYJ/eGJtwGA/t//qS/3C5/3tt/3tHrATe7Jteb//w8j4///Eh/3teT/tHrATr2JTHrAE5rAE3/34r//mr//j/rOtrrATH/34w2s4///EhrOjrPKSG///w3s4///THPKT/r//et/tw///P//TH/kCHrKjrrAqW/3tErAqy/3t7rv/r/3sr/ATHPJt//A/r2JEjrAE5rAE3/34r//mr//j//8Aw2s4///Cc/39HAJ//rATwFJ/t//C2/3EerAmr//j/rXCrrATHPJt//A/epAtHPJt//A/epAtHrATw/3/P//CI/3C2/3tt/3trF/EjrATHrAEj/2Qwr3/t//txP1nG///HrATrF/tuPJ//r//rj39dAJ//rAm4//3/Pvj/r//H/kUHrAmF//3//2QH/kUeRAtrGA9tAJ///8sH/kUe5/trGA9tAJ///8QH/kAHPJt//A/eWJ/HPbC/r//etAtw/3/P//CF/3tt/3tHPJt//A/HrXCrrAmr//j/rACO/3TwE3/t//C8/3mr//j//kAreJTH/kAr5AtBrAEj/8Qr5JELrATe53trr3TeZAte5JtetJtem//rr3THrOCrrAEwPJt//A/reJm///3//FtwNU4///THPJJ/r//w///t//txrATH/kmeE/ten/teE/trr/trrATwEA/t//tG/3/HrAEwrvkrrOyrrvkr/33r/3THPXy/r//eEAtw/3/P//Eh/33eEAtrGAtPPJ//r//enAtw2U4///TrFJC7/3qY/3m///3/rOUrPKzG///eL/tw8U4///C7/3tt/3tHrAmr//j//kAHrAEwrvArrbQrrvAr/33r/3TH/kQH/N/r/Jt/PJt//A/rR/9eAJ//rbjrPKnG///HrAmr//j/PJt//A/reJmE//3//FtwNU4///THrAmr//j/rXCrrAmr//j/rXCrrATHPJt//A/reJturAmr//j//8sr5ATw/3/P//tf/8QepAtHPJt//A/HrXCrrAm4//3/PJ//r//rj3Tr8/mN//3/rvyrPJt//A/w///t//txrATr8/Cz/3tRPKFG///rPATeR3tr/Jt/rbjrPKbG///eL3tw2s4///9RAJ///8sH/kJe5/teLAtw2s4///tf/NmeH3teIJ/rr/THPJt//A/eWJ/HrAmr//j//3Qw/A/t//9PAJ//rATHPJt//A/reJmE//3//Ftw3U4///THPJt//A/rpJTeVJ/wR3/t//Cn/3trrQt//33HrvUr/3sr/ATH/33r/3Ep/kKHrATH/kKrP/mr//j//3AwNU4///TH/kQH/N/r/Jt//kKrkJ9HAJ//rATwpA/t//CL/3mr//j//NAr83ETrvmr/3sr/ATHPXk/r//ee/tw/3/P//EZ/kKrd3CC/3tR/3jHrAE5rAE3/34r//ER/3teg//HPb4/r//ee3tw/3/P//ERrvKr/3sr/ATHrA9H//3/rvsr/kKrE/THrD4//3kHPJt//A/rP/Sb//TrPATre/tGrATwR3/t//Cu/3trrQj/rvQr/33r/3TH/3sr/AuP//TrPATre/tGrATwR3/t//CA/3trrQ4/rb/r/33r/3TH/3sr/AuG//Tr/3S1//THrak/rAmD//3/rbtr/3tegJ/ej3trr/trraQ/rAmD//3/rbjr/3teJ//ejAtrr/trrQ//rAt+rAtC/34HrAt+rAut//uE//THPXy/r//ejJtr/3uH//CW/3tt/3tHrAtR/3jHrAtR/3jevA/eeAtrGAtPrATw/3/P//tIrASa//mD//3/rb3r/3teJ3/rr/Teh/trGAtPrATrr/tr/kQr8JTHrATr8JtjPJt//A/rP/9dAJ//rATw2A/t//C0/3E5/23HrASk//tErAmr//j//3AemA/HPJt//A/rwJqv/3C0/3tR/3jHrAmr//j//8CHram/PXy/r//ehAtr/3ur//ttrACi/3tR/3jHrAtt/3trk/E3rATHrAE3/3Aw/3/P//tjP1nG///HrA9H//3/rbCr/N/rE/THrDk//3kHPJt//A/rP/Sb//Tw/3/P//tgrItrrAtrrIjrrATeCAtehJtrGAtPrATw/3/P//tIrASa//mD//3/rbAr/3teJ3/rr/Te+/trGAtPrATrr/tr/Ntrk3THrATrk3tjPJt//A/rP/9dAJ//rATw4//t//Cl/3mr//j/rbyr/33r/3EF/NjHrATrkAEKrQK/PJQ/r//w3s4///Tw2A/t//CM/3m///j/rATeq/trr3Teq3twGJ/t//9RAJ//rITrPKzG///rEJCM/3tR/3jHrAmJ//3/rbmr/Nte+Jtrr/trrA9H//3/rbJrPJ///A/HrAqK/3tErAE2/FQHrATeqJteS/tw8U4///t7rbJr/3sr/ATHPKT/r//ew3trk3tkrATe0A/rr3Tw/3/P//tjraj/rAmr//j//FQeC3tew3trGAtPrATw53/t//TeVJ/wR3/t//CV/3trrQt//33Hrbsr/3sr/ATH/33r/3E8/N4HrATH/N4rP/mr//j//3AwNU4///TH/3teCAtHrA9H//3/rbQr/N4rE/THrDC//3kHPJt//A/rP/Sb//Tw/3/P//tgrItrrAELrIjrrbQr/3sr/ATHPX//r//e4/tw/3/P//CJ/3tt/3tHPKT/r//e43tw///P//THrI3r/3kHrIyr/2Ce43trGAtPrATw4//t//Cb/3E8rXjr/33r/3Ek/N3HrATHPXA/r//HrATwR//t//tjrATrkJtjrAEKrAtGrvtrrAEkrAma//3/rAEx/N3rP/TH/N3HrAtR/3jH/N4rN/tj/NAH/N3rq/up//m5//3/PKRG///HPKT/r//e4Jtw///P//THrI3r/3kHrIJr/2Ce4JtrGAtPrATrN/EKrAuW//mr//j//3AHrAtt/3tHPJt//A/rN/tj/NAHPKT/r//ep/trkJtkrATe0J/rr3Tw/3/P//tjraj/rAmr//j//FQeC3tH/kCeCAtep/trGAtPrAmZ//3/rXkr/N3ep3trr/trrATw3J/t//CO/3mr//j/rXTr/33r/3THPX//r//epJtw/3/P//CI/3tt/3trN3ENrATHrAEN/73r/JTw/3/P//tjPK+G///HrAm6//3/rASa//mD//3/rXAr/3teJ3/rr/TeR/trGAtPrATrr/tr/NTrNATHrATw4//t//CD/3EdrXyr/33r/3ENPK+G///HrA9G//3/rXUr/NTeRAtrr/trrA9H//3/rXmr/NTrE/THrIsr/3keRJtrGAtPrATw4//t//CQ/3mr//j/rXJr/33r/3E7/NCHrATw53/t//TeVJ/wR3/t//C6/3trrQt//33HrXKr/3sr/ATH/33r/3ET/NAHrATH/NArP/mr//j//3AwNU4///THrAE7/73Hr14r/NArP/TH/33r/3THrAt+rAtC/34HrAt+rASX//mD//3/rXsr/3te9//r/JCB/3tR/3jHrAtt/3tHrAtR/3jrd3EZ/34w8s4///THPKT/r//e5Jtrd/tkrATeiA/rr3Trd3SK//Tw/3/P//tjrJ3rrXQr/3sr/ATHPJt//A/rwJTHrAtrrIQrrs/rP1nG///Hrs/rrASr/3En/FUe3/tr/3SP/3THrAtOrK/r/33r/3Tr4/mv/Gj/rATr4JTH/3sr/ATrp/tG/3/H/FKr/JTHrQk/rATrGAtP/NmrdJTHrAEnrs/rP1nG///H/Nmr/JTeAJtw3U4///Tw2A/t//qr/3m///j/rATex/trr3Tex3trEJqr/3tR/3jHrAELrAt9/33HrAtt/3tr7/ECrASH/3tG/3/r73Tr7AtG/NQw53/t//Trn3tG/3/HrKjrrAELrK4rrAELrK4rrAqP/3TrTAEc/FQHrATH/djrwJup//EuPKBG///H/kCe3JtHrAEc/FQHrsTr/34r//EW/NKrTJ9dAJ//rATH/NKHrsCr/d4r4J9RAJ//rATrr/trrAEcrAESrAEc/FQeX3/H/NQHrATHrK4rrAqP/3THrAESrATw2A/t//qt/3m///j/rATex/trr3Tex3trEJqt/3tR/3jHrAECrAt9/NQHrAtt/3tH/83r/Jt//d/rT/THPKT/r//e23tw///P//THrs3r/3kHrskr/2Ce23trGAtPrATr7AtjPJt//A/rP/9dAJ//rA9H//3/rKTrPJ///A/HrASt/3tErASj/3t7rKTr/3sr/ATHrATeiJ/rr3TeA/teuJtHPJt//A/rwJqv/3Tr7AtgrsyrrAEArsjr/dtw2A/t//qe/3ES/23rT3qe/3tR/3jHPKT/r//eF/tw///P//ExrKAr/3sr/ATHrATeiJ/rr3TeA3teuJtHPJt//A/rwJqv/3TrdJSP/3EyPXK/r//H/dyr/Jt/rAqh/3TrdJq+/3TrdJq+/3TeF3tH/dkrZ3tpPJt//A/rG39dAJ//rATH/dkrGJmr//j//3QwNU4///Tw2A/t//qw/3E0/23rZ/qw/3tR/3jHrATHrKUrrAqh/3THrATr//trPJ//cJtwe//E//q4/3mr//4/rKJr/33r/3TH/3/HPvs/r3/e83tw/3/G//qp/3tt/3tHPKT/r3/e8Atw///G//THrsJr/3kHrsKr/2Ce8AtrGAtPrAt/rAtMrKQr/3trwJTHrAtOrKQr/33r/3Tr4/mv/Gj/rATr4JTH/3sr/ATrw3tGrATebA/HrAtR/3jH/83r/Jt//dTrZATH/3/HrATwh//E//TeWJtey/tHrAtt/3tH/3jey3tHrAtt/3trP/TrZAtgrAmr//4//NKeyAtH/8TeyJtHrATHPJt//J/r73EqrAmr//4//FQrwJTrq/t/Pbt/r3/H/dtr//tjrATr//TH/3sr/ATweJ/E//TrT3mr//4//NKHrAt//3AHrAtR/3jHPJt//J/r//tj/NyHPvK/r3/ek/te0JtHr1/r/33r/3Tw2A/E//q2/3m///4/Pb//r3/ekAtr//qF/3tt/3tek3trGAtPrAt/rAt//3/r/3m//hUrPvs/r3/ekJtw/3/G//q8/3tt/3tr//t/rATw2A/E//qk/3m///4/rATeW/trr3TeiAtrEJqk/3tR/3jH/3/H/3/eyAtw/3/G//EqPK+G///HPKT/r3/eN3tw///G//THrsJr/3kHrDmr/2CeN3trGAtPrAt/rAt//FUeNAtr/3SP/3THrAtOr1Tr/33r/3Tr4/mv/Gj/rATr4JTH/3sr/ATrw3tGrATr3/TH/3sr/ATrp/tG/3/eyJtHPvK/r3/eNJteo/tHr1Cr/33r/3TwH//E//qT/3t/r1Ar/33r/3Tr//Tr//mr//j//8CHram/PXy/r//ed3tr/3ur//ttrAqZ/3tR/3jHrAtt/3trZJEorATHrAEo/3Aw/3/P//tjP1nG///HrAmS//3/r1UrPJt//A/edAtrr/tr/dArn/THPKT/r//edJtw///P//THrsJr/3kHrDUr/2CedJtrGAtPrATrZJEqrATw2A/t//qC/3m///j/rATeW/trr3TrZJtgrATHrICrrDsrPKzG///rEJqC/3tR/3jHrAmS//3/r1Kr/dCe73trr/trrA9H//3/r1srPJ///A/HrAS4/3tErAEo/FQHrATeqJteoJtw8U4///t7r1sr/3sr/ATHPKT/r//e7JtrZJtkrATeoA/rr3Tw/3/P//tjraj/rAmr//j//FQeC3tH/dArP/EZrAEU/FQeU/te7JtrGAtPrATr//trPJ//UAtr/3qb/3TH/3/HPvJ/r3/eT/tw/3/G//qA/3tt/3tHrAt/rAmS//k/rOtrPJt//J/eT3trr/trrA9H//k/rOjrPJ///J/HrAS4/3tErASp/3t7rOjr/3sr/ATr//Twj3/E//TeVJ/r+AqW/3tr/NyeTJtrr/trrATrr/tr/3/r//THPKT/r3/eZ/tw///G//THrsJr/3kHrzjr/2CeZ/trGAtPrAt/rAt//73eX3/wr//E//9GAJ//rA9H//k/rOkrPJ///J/HrAS4/3tErASy/3t7rOkr/3sr/ATr//Tr//EKrAuW//THPJt//J/r73EqrAmr//4//FQrwJTH/33r/3TweJ/E//TrT3mr//4//NKHrAt//3AHrAtR/3jHPJt//J/r//tj/NyHPvK/r3/eZAtel3tHrOTr/33r/3TwH//E//qo/3t/rOCr/33r/3Tr//Tr//mS//3/rOArPJt//A/en/trr/trrATw2A/t//ql/3m///j/rATrCJtErATrd3TH/73en3trGAtPrATw3A/t//qM/3mr//j/rOUr/33r/3THPvs/r//enJtw/3/P//qY/3tt/3trn3ElrATw2A/t//qm/3m///j/rATrCJtErATrd3TH/73eL/trGAtPrATrn3SF/3mr//j//NKw3U4///Tw2A/t//q9/3m///j/rATeW/trr3TelJtrEJq9/3tR/3jHrAm9//3/rOsrPJt//A/eLAtrr/trrATw/3/P//tIrASa//mD//3/rOQr/3teJ3/rr/TeLJtrGAtPrATrr/tr/dUrnATHrATrnAtjPJt//A/rP/9dAJ//rATw/3/P//EnrA9rAJ//rA9H//3/rI/rPJ///A/HrASl/3tErASM/3t7rI/r/3sr/ATH/dUrdATw3T4///Tw2A/t//qv/3m///j/rATeM3trr3TrnAtgrATHrICrrzmrPKzG///rEJqv/3tR/3jHrA9H//3/rIjr/dUrE/THrzj//3kHPJt//A/rP/Sb//Tw/3/P//tgrItrrIjr/3sr/ATHPXK/r//Hram/PXy/r//eCJtr/3ur//ttrAqX/3tR/3jHrAtt/3trnJEYrATHrAEY/3Aw/3/P//tjP1nG///HrAtrrIjrrATw2A/t//qK/3EY/23HrASW//tErAmr//j//3AemA/HPJt//A/rwJqv/3TrdJqb/3qK/3tR/3jHrAmr//j//NUHPKHG///HrATrnJEnrA9rAJ//rA9H//3/rIkrPJ///A/HrASl/3tErASm/3t7rIkr/3sr/ATHPJt//A/rnJtj/NUHPJt//A/rdJECrAmr//j//34eY3tHPJt//A/r/JSV/3TrnJmr//j//3ArdATrnJEL/NJH/dmr/JS9/3TrnJtGrzsrrA9H//3/rITr/dmrE/THrzQr/3kHPJt//A/rP/Sb//Tw/3/P//tgrItrrITr/3sr/ATw2A/t//qI/3m///j/rATeYJtrr3TrnJtjraj/rAEY/FQeC3teqJtrGAtPrATw/3/P//EnrA9NAJ//rATHPXy/r//eS/tr/3ur//ttrAqs/3tR/3jw/3/P//EnPK+G///HrAm6//3/rASa//mr//j//NUHrAtt/3trL/EmrATHrAEm/NUw/3/P//tjPK+G///HrASO//Te9J/r/3q+/3TH/33r/3Tr/3q+/3Trw3tGrATwGA/t//SJ/3TH/3sr/ATH/dKrPATre/tGrATrPATev//wGA/t//Sv/3TH/3UH/3mwR3/t//qD/3trrvAr/34eS3trGAtPrATrr/trrATrGAtPrATrGAtP/dsw/3/P//EL/NJH/dJrdJECrAmr//j//dseY3tHPJt//A/rL3TemAtemJtHrATr/JTH/3sr/ASV/3Tw2A/t//qz/3Em/23HrASy//tErAmr//j//3AemA/H/dKeFAtH/dseH/teSAtrGAtPrATw/3/P//EnrA9NAJ//rATHPXy/r//eSJtr/3ur//ttrAqa/3tR/3jw/3/P//EnPK+G///HrAm6//3/rASa//mr//j//NUHrAtt/3trLJEgrATHrAEg/NUw/3/P//tjPK+G///HrAmr//j//kCr7/Tw2A/t//qQ/3Eg/23HrAS0//tErAmr//j//3AemA/eu/trGAtPrAEg/NJHPK3/r//HrvTr/dQr73THPJt//A/eY3tHrATr/JTH/3sr/ATw2//t//TeEAtw/3/P//EqrATrLJS9/3THrAtGrATrGAtPrA9t//3/rACq/3Eg/NKHrAmr//j/rzsrrATH/34HrAtR/3jHPK3/r//HrvKrPJt//A/r73TH/dQeYAtHrATr/JTH/3sr/ATw/3/P//tGrzKrrAmr//j//34eYAtH/dQr/JS9/3TrLJtGrzsrrA9H//3/rIKrPJ///A/HrASK/3tErIKr/3sr/ATw2A/t//qB/3Eg/23HrASK/3tErIsr/3sr/ATw/3/P//TrdATw/3/P//EL/NJH/dQH/NUH/dQrdJECrATwHA/t//qf/3mr//j/raTrrIQr/3sr/ATHPJt//A/rwJTHrAtrraCrPJA/r//w3U4///THrAme//3/rQK/rATHPJC/r//Hr14r/FUeA/tw/3/P//tgrs/r/33r/3TexAtr/Jt/rATrr/trrAEJ/7/HPKT/r//eA3tw///P//THrzC//3kH/NmeB//eA3trGAtPrATr8JTrk/tG/3/rC3mr//j/raUrrATH/7tw/3/P//Sz/39eAJ//ramrPKnG///HrAmr//j//7teVAtHPKT/r//eAAtw///P//THrzC//3kH/kCeB//HrATwrA/t//S6/3E+rAmH//3/rasr/kmHPJT/r//egJteJ/teJ3teAAtrGAtPrATr//trPJ//JJteJJtH/7jw/3/G//tgrATr//Tr/3SI/3mj//k/PK+G///H/7jeAJtev/teAJtrr/trrAt/rAme//k/rQK/rATHPJC/r3/Hr14r/FUex/tw/3/G//tgrs3r/33r/3TexAtr/Jt/rATrr/trrATrCASE/3ut/3SE/3tt/3tH/3/H/kQH/N/r/Jt//74w/3/G//uE/3THrAEXPJt//J/ev3teK//w2s4///uH/39HAJ//rAEbrsTrrQCrrsTr/33r/3Tr//Tr+ASe/3trrQArrATH/8TexJtrr/trrAtJPXt/4A/HrAtXrATrGAtPrAtK/34r//TexAtr/Jt//73rq/TH/7jec/teb3tec/trr/trrAt/rATrq3m6//k/rAEl/34r//Tec3tH/NmecAtH/NmecAtHrsyrrAEQ/7JrwJTHrAtMrsmr/7JrwJSw/3tt/3tHrsTr/34r//EKP1nG///H/7JH/7kHrATHrAS+/3Tec3tHrATrq3TH/7jeW/tebAtr+ASp/3trrQArrsKr/33r/3Trw3tGrATeQ//HrAtR/3jw8U4///uw/39RAJ//rsJr/33r/3Tr//Trq3tjPJt//J/rP/9dAJ//rAEbrssrrQJrrssr/33r/3Tr//Tr/3Cu/3EO/7THrATH/7THrQKrPK+G///H/7jeWJteXAteWJtrr/trrAt/rAtMrD/r/7Trr3THrAtOrD/r/33r/3EI/FUey3trqAtgrATH/8Tey3trr/tr/3/eXJtH/7ArqJE+P1nG///HrATrS/SF/3mw//k/r6m/rDjr/33r/3THrAEsrD4rPJT/r3/eg3teyJtrr/trrATH/7CrFJ9dAJ//rATH/7Ce1A/wNU4///THrAEI/kJwNU4///THrAEsrD3rPJm/r3/eI//e0/trr/trrATH/7Ae03twrA/E//SB/3SN/3tt/3tHrATrqJu3/39dAJ//rATH/7CeK3twNU4///THrAEsrDTrPJm/r3/eKAte0Atrr/trrATH/7Ae0JtwPJ/E//u8/3S7/3tt/3tHrATrS/ST/3mH//k/raQrrDAr/33r/3EDPJy/r3/Hr14r/7CHrAtt/3tHrATH/7yHrAEbrDyrr6krrDyr/33r/3Tr//TrqJu3/39dAJ//rATH/7CeK3twNU4///TrPATre/ttrATrPATev//eQ3/HrAt+rAtwPXy/r3/eiAtrqAub//ttrDUr/3sr/ATH/33r/3TH/3sr/ATH/3sr/ATrr/EzrAEa/7TrL3THrAEO/dKHrQKrP1nG///HrAt/rAuM//EO/dKHrAtt/3tru3E6rQK/r6TrPKdG///H/7jeiJte1JteiJtrr/trrAt/rAt/rAtr/7KHrAtt/3tH/7mHrATr//tr/3/rCASC/3uR/3SC/3tt/3tH/3/r//Tr//Tw2//E//Tee3trq3EqrATrSATH/3sr/ATw/3/G//TH/7krP/ur//TrCJu3//Tr//uZ/3uE/3Tw2A/E//Sq/3E1/23HrASU//tErAmr//4//3Aer/tHPJt//J/rwJqv/3THrAEI/3kH/3/rwJTrSJE9rAEzrfj/rvQrrDKr/3sr/ATr//Tr//m6//3/rASa//mD//3/rDsr/3teOAtrr/TeoAtrGAtPrATrr/tr/7sruATHrATruAuE/3THrATruAuE/3ur//mr//j//3Aw3U4///TH/7sev3truJEBrAuE/3Tw2A/t//Su/3EB/23HrAuL/3tErAtrrfA/rATeB//HPJt//A/rwJSh/3TruJuZ/3uZ/3Tr/3us//TrpATw/3/P//tgrATHrICrr6JrPKzG///rEJSu/3tR/3jHrAE5rAE3/34r//S///S///mr//j/r6KrrATH/34w2s4///uE//9HAJ//rATw/3/P//S///uq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','E0Cn+DK/////'],I={'0':0x8,'1':0x1bc,'2':0x8f,'3':0x1ac,'4':0x1c3,'5':0x84,'6':0x19,'7':0x113,'8':0x118,'9':0xc,'10':0x191,'11':0xe0,'12':0x1e3,'13':0x40,'14':0xfa,'15':0x97,'16':0x18c,'17':0x187,'18':0xd,'19':0x1db,'20':0x3,'21':0x1fd,'22':0x10,'23':0x1b5,'24':0xbf,'25':0xcb,'26':0xd3,'27':0x14b,'28':0x83,'29':0x177,'32':0x13,'40':0x50,'41':0xb0,'42':0x85,'43':0x10c,'44':0xe3,'45':0xb,'46':0x26,'47':0x9d,'50':0xb7,'51':0xb6,'52':0x41,'53':0x180,'54':0xdd,'55':0x17b,'56':0x1b1,'57':0x104,'58':0x25,'59':0x1a9,'60':0x1fb,'61':0x1c8,'62':0x1bf,'63':0x123,'64':0xee,'70':0x1e,'71':0x54,'72':0xd7,'73':0xd4,'74':0x13a,'75':0x136,'76':0x111,'77':0x127,'79':0x1c4,'81':0xdc,'83':0x13e,'84':0xb2,'90':0x170,'91':0x1a4,'93':0x2a,'94':0xf5,'95':0x178,'100':0x1a3,'104':0x9c,'105':0x1ed,'106':0x14f,'107':0x163,'110':0xfe,'111':0x1f3,'112':0xd2,'120':0x56,'121':0x199,'122':0x198,'123':0x3c,'124':0x98,'127':0x16c,'128':0xbe,'129':0xd9,'130':0x7e,'131':0x1b2,'132':0x7b,'140':0x103,'141':0xcc,'142':0x1d3,'143':0xe1,'144':0x1ce,'145':0x158,'146':0xbd,'147':0x79,'148':0x89,'149':0x19d,'160':0xf6,'161':0x9,'162':0x92,'163':0x168,'164':0x94,'165':0x12c,'166':0x4f,'167':0x188,'168':0xa,'169':0x8b,'180':0x76,'181':0x1d6,'182':0xe8,'183':0x175,'184':0x1da,'185':0xf1,'200':0x15d,'201':0x23,'210':0x8a,'213':0x21,'214':0x1fc,'220':0x18d,'250':0x18,'251':0x1b4,'252':0x1e9,'253':0xa5,'254':0xfc,'255':0xe7,'256':0x5b,'262':0x7f,'263':0xe6,'264':0xe2,'265':0x1,'266':0x1cd,'267':0x131,'268':0x13b,'269':0x1c5,'270':0x1ba,'272':0x5e,'273':0x9a,'274':0x11,'275':0xea,'276':0x19b,'277':0x1c2,'278':0x120,'279':0x194,'280':0x1df,'281':0x1ee,'282':0x167,'283':0x0,'284':0xc3,'285':0x10e,'286':0x1d5,'287':0x6,'288':0x1eb,'293':0x64,'294':0x19c,'295':0x1b6,'296':0xed,'297':0x110,'298':0x1a,'299':0x24,'300':0x15c,'301':0xa0,'302':0x16b,'303':0x1dc,'304':0x17f};const L=0x1,O=0x2,j=0x3,M=0x4,J=0x4f,G=0xfe,R=0x53,p=typeof 0x0n,u=[];let W=0x0;const v=function(){throw new TypeError('\x27caller\x27,\x20\x27callee\x27,\x20and\x20\x27arguments\x27\x20properties\x20may\x20not\x20be\x20accessed\x20on\x20strict\x20mode\x20functions\x20or\x20the\x20arguments\x20objects\x20for\x20calls\x20to\x20them');};Object['preventExtensions'](v);let F=new WeakSet(),N=new WeakSet(),a;function E(rA,rl,rH){a=rA;try{return o(rA,rl,rH);}finally{a=undefined;}}const b=new WeakMap();function Z(rA,rl){A['call'](b,rA,rl);}function Y(rA,rl){return rA['_$JGFZLu']=rl,rl;}function d(rA){return Q['call'](b,rA);}function T(rA){return c['call'](b,rA);}let B=new WeakMap(),m=[],S=Array['prototype'][Symbol['iterator']],s=Symbol['iterator'],g=null,k0=null,k1=null,k2=null,k3=null;try{let rA=function*(){};g=C(rA),k0=g&&g['prototype'];}catch(rl){}try{let rH=async function*(){};k1=C(rH),k2=k1&&k1['prototype'];}catch(rV){}try{let rD=async function(){};k3=C(rD);}catch(rK){}function k4(rw,rI,rL){try{k(rw,rI,rL);}catch(rO){}}function k5(rw,rI){let rL=new Array(rI),rO=![];for(let rM=rI-0x1;rM>=0x0;rM--){let rJ=rw();rJ&&typeof rJ==='object'&&U['call'](F,rJ)?(rO=!![],rL[rM]=rJ):rL[rM]=rJ;}if(!rO)return rL;let rj=[];for(let rG=0x0;rG<rI;rG++){let rR=rL[rG];if(rR&&typeof rR==='object'&&U['call'](F,rR)){let rq=rR['value'];if(Array['isArray'](rq)){for(let rt=0x0;rt<rq['length'];rt++)rj['push'](rq[rt]);}}else rj['push'](rR);}return rj;}function k6(rw){return typeof rw==='object'||typeof rw==='function';}function k7(rw){return{'value':rw,'writable':!![],'configurable':!![]};}function k8(rw,rI){return rw&&k6(rw)?rw:rI;}function k9(rw,rI){try{r(rw,rI);}catch(rL){}}function kk(rw,rI){let rL=rw===null||rw===undefined?undefined:rw[rI];if(rL===null||rL===undefined)return undefined;if(typeof rL!=='function')throw new TypeError('Method\x20is\x20not\x20callable');return rL;}function kr(rw){if(rw===null||typeof rw!=='object'&&typeof rw!=='function')throw new TypeError('Iterator\x20result\x20'+rw+'\x20is\x20not\x20an\x20object');}function kz(rw){let rI=rw['done'];return{'done':rI,'value':rI?rw['value']:undefined};}function kC(rw){let rI=kk(rw,Symbol['asyncIterator']),rL,rO;if(rI!==undefined)rL=o(rI,rw,[]),rO=![];else{let rM=kk(rw,Symbol['iterator']);if(rM===undefined)throw new TypeError(typeof rw+'\x20is\x20not\x20iterable');rL=o(rM,rw,[]),rO=!![];}if(rL===null||typeof rL!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');let rj=rL['next'];if(typeof rj!=='function')throw new TypeError('Iterator\x20next\x20is\x20not\x20a\x20function');return{'iter':rL,'nextMethod':rj,'isSync':rO};}function kP(rw){let rI=[];for(let rL in rw){rI['push'](rL);}return rI;}function kh(rw){return Array['prototype']['slice']['call'](rw);}function ko(rw){return typeof rw==='function'&&rw['prototype']?rw['prototype']:rw;}function kn(rw){if(typeof rw==='function')return C(rw);let rI=C(rw),rL=rI&&n(rI,'constructor'),rO=rL&&rL['value'],rj=rO&&typeof rO==='function'&&(rO['prototype']===rI||C(rO['prototype'])===C(rI));if(rj)return C(rI);return rI;}function kX(rw,rI){let rL=rw;while(rL!==null){let rO=n(rL,rI);if(rO)return{'desc':rO,'proto':rL};rL=C(rL);}return{'desc':null,'proto':rw};}function kU(rw){let rI=typeof rw;if(rw!==null&&(rI==='object'||rI==='function')){let rL=h(null);return rL[rw]=0x0,Reflect['ownKeys'](rL)[0x0];}if(rI!=='symbol')return String(rw);return rw;}function ki(rw,rI){let rL=rw;while(rL){let rO=rL['_$FKgfCN'];if(rO>=0x0){let rj=rL['_$Oewzd2'];if(rj){let rM=rI(rj,rO);if(rM!==undefined)return rM;}}rL=rL['_$hqCtQl'];}}function kQ(rw,rI){ki(rw,function(rL,rO){rL[rO]===rL&&(rL[rO]=rI);});}function kc(rw){return ki(rw,function(rI,rL){let rO=rI[rL];if(rO!==rI&&rO!==undefined)return rO;});}function kA(rw,rI){var rL=rw[rI],rO=function(){vmh_89ae91['_$7NuQBd']=!![];var rj=vmh_89ae91['_$VgdMyk'];vmh_89ae91['_$VgdMyk']=rw;try{return Reflect['apply'](rL,this,arguments);}finally{vmh_89ae91['_$VgdMyk']=rj;}};Object['defineProperties'](rO,{'length':{'value':rL['length'],'configurable':!![]},'name':{'value':rL['name'],'configurable':!![]}}),rw[rI]=rO,(vmh_89ae91['_$Ef7RTO']||(vmh_89ae91['_$Ef7RTO']=new WeakMap()))['set'](rO,rw);}vmh_89ae91['_$9PHEVd']=kA;function kl(rw,rI,rL,rO){if(!rw||rI[0xf*rO[0x0]+rO[0x1]&0x1f]||rI[0x14*rO[0x0]+rO[0x1]&0x1f]||rI[0xd*rO[0x0]+rO[0x1]&0x1f])return;!T(rw)&&Z(rw,{['_$gYdy5e']:rI,['_$QaM83m']:rL,['_$JGFZLu']:rI,['_$ot1z1R']:undefined});}function kH(rw,rI,rL,rO,rj,rM){let rJ;if(rM){rO?rJ={'ZUNXlz'(){'use strict';let rG=new.target!==undefined?new.target:vmh_89ae91['_$4yNSDH'];return new.target===undefined&&'_$4yNSDH'in vmh_89ae91&&!('_$pgruUw'in vmh_89ae91)&&delete vmh_89ae91['_$4yNSDH'],rw(rI,arguments,rL,rG,this,rJ);}}['ZUNXlz']:rJ={'ZUNXlz'(){let rG=new.target!==undefined?new.target:vmh_89ae91['_$4yNSDH'];return new.target===undefined&&'_$4yNSDH'in vmh_89ae91&&!('_$pgruUw'in vmh_89ae91)&&delete vmh_89ae91['_$4yNSDH'],rw(rI,arguments,rL,rG,this,rJ);}}['ZUNXlz'];try{delete rJ['prototype'];}catch(rG){}}else rO?rJ=function rR(){'use strict';let rq=new.target!==undefined?new.target:vmh_89ae91['_$4yNSDH'];return new.target===undefined&&'_$4yNSDH'in vmh_89ae91&&!('_$pgruUw'in vmh_89ae91)&&delete vmh_89ae91['_$4yNSDH'],rw(rI,arguments,rL,rq,this,rJ);}:rJ=function rq(){let rt=new.target!==undefined?new.target:vmh_89ae91['_$4yNSDH'];return new.target===undefined&&'_$4yNSDH'in vmh_89ae91&&!('_$pgruUw'in vmh_89ae91)&&delete vmh_89ae91['_$4yNSDH'],rw(rI,arguments,rL,rt,this,rJ);};return Z(rJ,{['_$gYdy5e']:rI,['_$QaM83m']:rL,['_$JGFZLu']:undefined,['_$ot1z1R']:undefined}),rJ;}function kV(rw,rI,rL,rO,rj){let rM;rO?rM={'ZUNXlz'(){'use strict';let rJ=new.target!==undefined?new.target:vmh_89ae91['_$4yNSDH'];return new.target===undefined&&'_$4yNSDH'in vmh_89ae91&&!('_$pgruUw'in vmh_89ae91)&&delete vmh_89ae91['_$4yNSDH'],rw(rI,arguments,rL,rJ,this,rM,undefined);}}['ZUNXlz']:rM={'ZUNXlz'(){let rJ=new.target!==undefined?new.target:vmh_89ae91['_$4yNSDH'];return new.target===undefined&&'_$4yNSDH'in vmh_89ae91&&!('_$pgruUw'in vmh_89ae91)&&delete vmh_89ae91['_$4yNSDH'],rw(rI,arguments,rL,rJ,this,rM,undefined);}}['ZUNXlz'];if(k3)k9(rM,k3);return rM;}function kD(rw,rI,rL,rO,rj,rM,rJ){let rG;rj?rG={'ZUNXlz'(){'use strict';return rw(rI,arguments,rL,this,rG,vmh_89ae91['_$VgdMyk']);}}['ZUNXlz']:rG={'ZUNXlz'(){return rw(rI,arguments,rL,this,rG,vmh_89ae91['_$VgdMyk']);}}['ZUNXlz'];l['call'](rO,rG);let rR=rJ?k1:g,rq=rJ?k2:k0;if(rR)k9(rG,rR);try{k(rG,'prototype',{'value':rq?h(rq):h({}),'writable':!![],'enumerable':![],'configurable':![]});}catch(rt){}return rG;}function kK(rw,rI,rL,rO){let rj=vmh_89ae91['_$VgdMyk'],rM;return rM={'ZUNXlz':(...rJ)=>{return rj!==undefined&&(vmh_89ae91['_$7NuQBd']=!![],vmh_89ae91['_$VgdMyk']=rj),rw(rI,rJ,rL,undefined,rO,rM);}}['ZUNXlz'],rM;}function kw(rw,rI,rL,rO){let rj;rj={'ZUNXlz':(...rM)=>{return rw(rI,rM,rL,undefined,rO,rj,undefined);}}['ZUNXlz'];if(k3)k9(rj,k3);return rj;}function kI(rw,rI,rL,rO,rj,rM){let rJ=[void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0],rG=0x0,rR=rh(rw[0x20],rw[0x21]),rq,rt,rp,ru;switch(rR[0x1]&0x3){case 0x0:rt=rw[0x10*rR[0x0]+rR[0x1]&0x1f],rq=rw[0x5*rR[0x0]+rR[0x1]&0x1f],rp=rw[0xa*rR[0x0]+rR[0x1]&0x1f]||u,ru=rw[0x12*rR[0x0]+rR[0x1]&0x1f]||u;break;case 0x1:rq=rw[0x5*rR[0x0]+rR[0x1]&0x1f],rp=rw[0xa*rR[0x0]+rR[0x1]&0x1f]||u,ru=rw[0x12*rR[0x0]+rR[0x1]&0x1f]||u,rt=rw[0x10*rR[0x0]+rR[0x1]&0x1f];break;case 0x2:rp=rw[0xa*rR[0x0]+rR[0x1]&0x1f]||u,ru=rw[0x12*rR[0x0]+rR[0x1]&0x1f]||u,rt=rw[0x10*rR[0x0]+rR[0x1]&0x1f],rq=rw[0x5*rR[0x0]+rR[0x1]&0x1f];break;default:ru=rw[0x12*rR[0x0]+rR[0x1]&0x1f]||u,rt=rw[0x10*rR[0x0]+rR[0x1]&0x1f],rq=rw[0x5*rR[0x0]+rR[0x1]&0x1f],rp=rw[0xa*rR[0x0]+rR[0x1]&0x1f]||u;break;}let rf=new Array((rw[0x20]||0x0)+(rw[0x21]||0x0)),rW=0x0,rv=rt['length']>>0x1,rF=(rw[0x20]*0x864f^rw[0x21]*0xbceb^rv*0xc963^rq['length']*0xf12d)>>>0x0&0x3,rN,ry,ra;switch(rF){case 0x1:rN=0x0,ry=0x1,ra=0x1;break;case 0x2:rN=0x0,ry=rv,ra=0x0;break;case 0x3:rN=rv,ry=0x0,ra=0x0;break;default:rN=0x1,ry=0x0,ra=0x1;break;}let rE=null,rb=null,rZ=![],rY=undefined,rd=![],rT=0x0,re=undefined,rB=![],rm=0x0,rS=undefined,rs=-0x1,rg=-0x1,rx=!!rw[0x3*rR[0x0]+rR[0x1]&0x1f],z0=!!rw[0x9*rR[0x0]+rR[0x1]&0x1f],z1=!!rw[0x16*rR[0x0]+rR[0x1]&0x1f],z2=!!rw[0x11*rR[0x0]+rR[0x1]&0x1f],z3=rj,z4=!!rw[0xd*rR[0x0]+rR[0x1]&0x1f];!rx&&!z4&&(rj===undefined||rj===null)&&(rj=vmX);let z5=zQ=>{rJ[rG++]=zQ;},z6=()=>rJ[--rG],z7=rw[0x0*rR[0x0]+rR[0x1]&0x1f]||0x0,z8={['_$Oewzd2']:z7?new Array(z7)['fill'](void 0x0):u,['_$jg6o0g']:null,['_$FKgfCN']:-0x1,['_$hqCtQl']:rL};if(rI){let zQ=rw[0x20]||0x0;for(let zc=0x0,zA=rI['length']<zQ?rI['length']:zQ;zc<zA;zc++){rf[zc]=rI[zc];}}let z9=rI?rI['length']:0x0,zk=(rx||!z0)&&rI?kh(rI):null,zr=null,zz=![],zC=(rw[0x20]||0x0)+(rw[0x21]||0x0),zP=null,zh=0x0;kl(rM,rw,rL,rR);var zo,zn,zX,zU;zU=[0x0,0x2e,0x0,0xb,0x0,0x0,0x0,0x0,0x9,0x15,0x1c,0x0,0x0,0x0,0x34,0x0,0x0,0x0,0x0,0x2b,0x0,0x12,0x0,0x0,0x21,0x0,0x0,0x1a,0x27,0xd,0x0,0x0,0x24,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x22,0x0,0x0,0x30,0x0,0x0,0x0,0xa,0x0,0x0,0x0,0x0,0xf,0x0,0x35,0x0,0x0,0xe,0x0,0x0,0x1e,0x6,0x2f,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2a,0x0,0x13,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x11,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x36,0x0,0x0,0x0,0x0,0x0,0x0,0x14,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x32,0x0,0x0,0x0,0x0,0x0,0x18,0x0,0x37,0x0,0x0,0x5,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x33,0x0,0x0,0x25,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0xc,0x0,0x0,0x0,0x0,0x23,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2d,0x10,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1d,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x2c,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1b,0x3,0x0,0x0,0x16,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2,0x26,0x0,0x0,0x29,0x8,0x0,0x0,0x0,0x0,0x0,0x0,0x20,0x0,0x0,0x0,0x1f,0x31,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x19,0x7,0x4,0x0,0x0,0x28,0x0,0x17],zn=function(zl,zH){switch(zl){case 0x78:{let zK=zH,zw=rJ[--rG];z8['_$Oewzd2'][zK]=zw,rW++;break;}case 0x64:{let zI=rJ[--rG];zI!==null&&zI!==undefined?rW=rp[rW]:rW++;break;}case 0x16:{let zL=rJ[--rG];if(zL==null)throw new TypeError(zL+'\x20is\x20not\x20iterable');let zO=zL[s];if(Array['isArray'](zL)&&zO===S)rJ[rG++]={['_$uklCC6']:zL,['_$DwcVPq']:0x0},rW++;else{if(typeof zO!=='function')throw new TypeError(zL+'\x20is\x20not\x20iterable');let zj=o(zO,zL,[]);kr(zj);let zM=zj['next'];rJ[rG++]={'i':zj,'n':zM},rW++;}break;}case 0x38:{let zJ=rJ[--rG],zG=rJ[--rG],zR=rq[zH];k(zG,zR,{'value':zJ,'writable':!![],'enumerable':!![],'configurable':!![]});typeof zJ==='function'&&(!vmh_89ae91['_$Ef7RTO']&&(vmh_89ae91['_$Ef7RTO']=new WeakMap()),A['call'](vmh_89ae91['_$Ef7RTO'],zJ,zG));rW++;break;}case 0x11:{let zq=rJ[--rG],zt=rJ[rG-0x1],zp=rq[zH],zu=ko(zt);k(zu,zp,{'set':zq,'enumerable':zu===zt,'configurable':!![]}),rW++;break;}case 0x34:{let zf=rJ[--rG];if((typeof zf==='object'||typeof zf==='function')&&zf!==null){const zW=zf[Symbol['toPrimitive']];if(zW!=null){zf=zW['call'](zf,'number');if(zf!==null&&(typeof zf==='object'||typeof zf==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const zv=zf['valueOf']();if(zv===null||typeof zv!=='object'&&typeof zv!=='function')zf=zv;else{const zF=zf['toString']();if(zF!==null&&(typeof zF==='object'||typeof zF==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');zf=zF;}}}rJ[rG++]=typeof zf===p?zf+0x1n:+zf+0x1,rW++;break;}case 0x1d:{let zN=rI[zH];if((typeof zN==='object'||typeof zN==='function')&&zN!==null){const zy=zN[Symbol['toPrimitive']];if(zy!=null){zN=zy['call'](zN,'number');if(zN!==null&&(typeof zN==='object'||typeof zN==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const za=zN['valueOf']();if(za===null||typeof za!=='object'&&typeof za!=='function')zN=za;else{const zE=zN['toString']();if(zE!==null&&(typeof zE==='object'||typeof zE==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');zN=zE;}}}rI[zH]=typeof zN===p?zN-0x1n:+zN-0x1,rW++;break;}case 0x13:{let zb=rJ[--rG],zZ=rJ[--rG];rJ[rG++]=zZ*zb,rW++;break;}case 0x37:{let zY=rJ[--rG],zd=rJ[--rG],zT=rJ[rG-0x1];k(zT['prototype'],zd,{'value':zY,'writable':!![],'enumerable':![],'configurable':!![]});typeof zY==='function'&&(!vmh_89ae91['_$Ef7RTO']&&(vmh_89ae91['_$Ef7RTO']=new WeakMap()),A['call'](vmh_89ae91['_$Ef7RTO'],zY,zT['prototype']));rW++;break;}case 0x33:{rJ[rG++]=rO,rW++;break;}case 0x39:{rJ[--rG]?rW=rp[rW]:rW++;break;}case 0x5d:{let ze=rJ[--rG],zB=rq[zH];if(ze===null||ze===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+ze+'\x20(reading\x20'+'\x27'+String(zB)+'\x27'+')');rJ[rG++]=ze[zB],rW++;break;}case 0x5:{let zm=rJ[--rG],zS;if(zm===null||zm===undefined)throw new TypeError(zm+'\x20is\x20not\x20iterable');let zs=zm[s];if(Array['isArray'](zm)&&zs===S){let zx=zm['length'];zS=new Array(zx);for(let C0=0x0;C0<zx;C0++){zS[C0]=zm[C0];}}else{if(zs===null||zs===undefined||typeof zs!=='function')throw new TypeError(zm+'\x20is\x20not\x20iterable');let C1=o(zs,zm,[]);if(C1===null||typeof C1!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');zS=[];while(!![]){let C2=C1['next']();kr(C2);if(C2['done'])break;zS['push'](C2['value']);}}let zg={'value':zS};l['call'](F,zg),rJ[rG++]=zg,rW++;break;}case 0xc:{let C3=rJ[--rG],C4=rJ[--rG],C5={};if(C4!==null&&C4!==undefined){let C6=Object(C4),C7=Reflect['ownKeys'](C6);for(let C8=0x0;C8<C7['length'];C8++){let C9=C7[C8],Ck=![];for(let Cz=0x0;Cz<C3['length'];Cz++){let CC=C3[Cz];if((typeof CC==='symbol'?CC:String(CC))===C9){Ck=!![];break;}}if(Ck)continue;let Cr=n(C6,C9);Cr!==undefined&&Cr['enumerable']&&k(C5,C9,{'value':C6[C9],'writable':!![],'enumerable':!![],'configurable':!![]});}}rJ[rG++]=C5,rW++;break;}case 0x54:{rJ[rG++]=rq[zH],rW++;break;}case 0x15:{rJ[rG++]=rI[zH],rW++;break;}case 0x1a:{let CP=rJ[--rG],Ch=rq[zH];if(vmh_89ae91['_$vpyVbT']&&Ch in vmh_89ae91['_$vpyVbT'])throw new ReferenceError('Cannot\x20access\x20\x27'+Ch+'\x27\x20before\x20initialization');let Co=!(Ch in vmh_89ae91)&&!(Ch in vmX);vmh_89ae91[Ch]=CP;Ch in vmX&&(vmX[Ch]=CP);Co&&(vmX[Ch]=CP);rJ[rG++]=CP,rW++;break;}case 0x2b:{let Cn=zH&0xffff,CX=zH>>>0x10;rJ[rG++]=rf[Cn]<rq[CX],rW++;break;}case 0x2e:{rJ[rG++]={},rW++;break;}case 0xd:{throw rJ[--rG];break;}case 0x6b:{let CU=rJ[--rG];rJ[rG++]=import(CU),rW++;break;}case 0x79:{let Ci=rJ[--rG],CQ=rJ[--rG];rJ[rG++]=CQ<Ci,rW++;break;}case 0x8:{let Cc=rJ[--rG],CA=rJ[--rG];rJ[rG++]=CA>=Cc,rW++;break;}case 0x6e:{let Cl=rJ[--rG],CH=rJ[rG-0x1],CV=rq[zH];k(CH,CV,{'set':Cl,'enumerable':![],'configurable':!![]}),rW++;break;}case 0x12:{rJ[rG++]=vmi[zH],rW++;break;}case 0x51:{let CD=rq[zH],CK=rJ[--rG],Cw=rJ[--rG];if(typeof CK!=='function')throw new TypeError(CK+'\x20is\x20not\x20a\x20function');let CI=vmh_89ae91['_$Ef7RTO'],CL=CI&&Q['call'](CI,CK);!CL&&CI&&(CK===P||CK===i)&&(CL=Q['call'](CI,Cw));let CO=vmh_89ae91['_$VgdMyk'];CL&&(vmh_89ae91['_$7NuQBd']=!![],vmh_89ae91['_$VgdMyk']=CL);let Cj;try{if(CD===0x0)Cj=o(CK,Cw,u);else{if(CD===0x1){let CM=rJ[--rG];Cj=CM&&typeof CM==='object'&&U['call'](F,CM)?o(CK,Cw,CM['value']):o(CK,Cw,[CM]);}else Cj=o(CK,Cw,k5(z6,CD));}rJ[rG++]=Cj;}finally{CL&&(vmh_89ae91['_$7NuQBd']=![],vmh_89ae91['_$VgdMyk']=CO);}rW++;break;}case 0x3:{let CJ=zH&0xffff,CG=zH>>>0x10;rJ[rG++]=rI[CJ]<=rq[CG],rW++;break;}case 0xf:{z8=z8['_$hqCtQl'],rW++;break;}case 0x2f:{let CR=zH&0xffff,Cq=zH>>>0x10;rJ[rG++]=rf[CR]+rq[Cq],rW++;break;}case 0x29:{k:{let Ct=rJ[--rG],Cp=rJ[rG-0x1];if(Ct===null){r(Cp['prototype'],null),r(Cp,Function['prototype']),Cp['_$cnAhaa']=null,rW++;break k;}if(typeof Ct!=='function')throw new TypeError('Class\x20extends\x20value\x20'+String(Ct)+'\x20is\x20not\x20a\x20constructor\x20or\x20null');let Cu=![],Cf=T(Ct);if(!Cf){let CW=n(Ct,'prototype');Cu=!!CW&&CW['writable']===![];}if(Cu){let Cv=Cp,CF=vmh_89ae91,CN='_$4yNSDH',Cy='_$pgruUw',Ca='_$50oEfs';function zD(...CE){if(new.target===undefined)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');let Cb=h(Ct['prototype']);CF[Ca]={'parent':Ct,'newTarget':new.target||zD,'outer':zD},CF[Cy]=new.target||zD;let CZ=CN in CF;!CZ&&(CF[CN]=new.target);try{let CY=E(Cv,Cb,CE);CY!==undefined&&CY!==null&&k6(CY)&&(Cb=CY);}finally{delete CF[Ca],delete CF[Cy],!CZ&&delete CF[CN];}return Cb;}zD['prototype']=h(Ct['prototype']),zD['prototype']['constructor']=zD,r(zD,Ct),z(Cv)['forEach'](function(CE){CE!=='prototype'&&CE!=='name'&&k4(zD,CE,n(Cv,CE));});Cv['prototype']&&(z(Cv['prototype'])['forEach'](function(CE){CE!=='constructor'&&k4(zD['prototype'],CE,n(Cv['prototype'],CE));}),X(Cv['prototype'])['forEach'](function(CE){k4(zD['prototype'],CE,n(Cv['prototype'],CE));}));rJ[--rG],rJ[rG++]=zD,zD['_$cnAhaa']=Ct,rW++;break k;}r(Cp['prototype'],Ct['prototype']),r(Cp,Ct),Cp['_$cnAhaa']=Ct,rW++;}break;}case 0x2d:{r:{let CE=rp[rW];while(rE&&rE['length']>0x0){let Cb=rE[rE['length']-0x1];if(Cb['_$50e6p1']!==undefined||!(CE>=Cb['_$Q1YSaw']||CE<=Cb['_$xi1r70']))break;rE['pop']();}if(rE&&rE['length']>0x0){let CZ=rE[rE['length']-0x1];if(CZ['_$50e6p1']!==undefined&&(CE>=CZ['_$Q1YSaw']||CE<=CZ['_$xi1r70'])){rb=null,rZ=![],rY=undefined,rd=![],rT=0x0,re=undefined,rB=!![],rm=CE,rS=z8,rs=CZ['_$xi1r70'],rg=CZ['_$Q1YSaw'],rW=CZ['_$50e6p1'];break r;}}(rZ||rd||rB||rb!==null)&&(CE>=rg||CE<=rs)&&(rZ=![],rY=undefined,rd=![],rT=0x0,re=undefined,rB=![],rm=0x0,rS=undefined,rb=null),rW=CE;}break;}case 0xe:{let CY=rJ[--rG],Cd=rJ[--rG],CT=rq[zH];if(Cd===null||Cd===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+Cd+'\x20(setting\x20'+'\x27'+String(CT)+'\x27'+')');if(rx){let Ce=typeof Cd==='object'||typeof Cd==='function'?Cd:Object(Cd);if(!Reflect['set'](Ce,CT,CY,Cd))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(CT)+'\x27\x20of\x20object');}else Cd[CT]=CY;rJ[rG++]=CY,rW++;break;}case 0x46:{let CB=rq[zH],Cm;if(vmh_89ae91['_$vpyVbT']&&CB in vmh_89ae91['_$vpyVbT'])throw new ReferenceError('Cannot\x20access\x20\x27'+CB+'\x27\x20before\x20initialization');if(CB in vmh_89ae91)Cm=vmh_89ae91[CB];else{if(CB in vmX)Cm=vmX[CB];else throw new ReferenceError(CB+'\x20is\x20not\x20defined');}rJ[rG++]=Cm,rW++;break;}case 0x10:{let CS=rJ[--rG],Cs=rJ[rG-0x1];if(CS!==null&&CS!==undefined){let Cg=Object(CS),Cx=Reflect['ownKeys'](Cg);for(let P0=0x0;P0<Cx['length'];P0++){let P1=Cx[P0],P2=n(Cg,P1);P2!==undefined&&P2['enumerable']&&k(Cs,P1,{'value':Cg[P1],'writable':!![],'enumerable':!![],'configurable':!![]});}}rW++;break;}case 0x32:{let P3=rJ[--rG],P4=P3&&P3['i']?P3['i']:P3;if(rb!==null)try{P4&&typeof P4['return']==='function'?rJ[rG++]=Promise['resolve'](P4['return']())['catch'](function(){return undefined;}):rJ[rG++]=Promise['resolve']();}catch(P5){rJ[rG++]=Promise['resolve']();}else{let P6=P4!=null?P4['return']:undefined;if(P6==null)rJ[rG++]=Promise['resolve']();else typeof P6!=='function'?rJ[rG++]=Promise['reject'](new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable')):rJ[rG++]=Promise['resolve'](P6['call'](P4));}rW++;break;}case 0x6a:{z:{let P7=rp[rW];if(P7===rg){if(rb!==null){rZ=![],rd=![],rB=![];let P8=rb;rb=null;throw P8;}if(rZ){while(rE&&rE['length']>0x0){let Pk=rE[rE['length']-0x1];if(Pk['_$50e6p1']!==undefined)break;rE['pop']();}if(rE&&rE['length']>0x0){let Pr=rE[rE['length']-0x1];if(Pr['_$50e6p1']!==undefined){rs=Pr['_$xi1r70'],rg=Pr['_$Q1YSaw'],rW=Pr['_$50e6p1'];break z;}}let P9=rY;return rZ=![],rY=undefined,zo=P9,0x1;}if(rd){while(rE&&rE['length']>0x0){let PC=rE[rE['length']-0x1];if(PC['_$50e6p1']!==undefined||!(rT>=PC['_$Q1YSaw']||rT<=PC['_$xi1r70']))break;rE['pop']();}if(rE&&rE['length']>0x0){let PP=rE[rE['length']-0x1];if(PP['_$50e6p1']!==undefined&&(rT>=PP['_$Q1YSaw']||rT<=PP['_$xi1r70'])){rs=PP['_$xi1r70'],rg=PP['_$Q1YSaw'],rW=PP['_$50e6p1'];break z;}}let Pz=rT;rd=![],rT=0x0;re!==undefined&&(z8=re,re=undefined);rW=Pz;break z;}if(rB){while(rE&&rE['length']>0x0){let Po=rE[rE['length']-0x1];if(Po['_$50e6p1']!==undefined||!(rm>=Po['_$Q1YSaw']||rm<=Po['_$xi1r70']))break;rE['pop']();}if(rE&&rE['length']>0x0){let Pn=rE[rE['length']-0x1];if(Pn['_$50e6p1']!==undefined&&(rm>=Pn['_$Q1YSaw']||rm<=Pn['_$xi1r70'])){rs=Pn['_$xi1r70'],rg=Pn['_$Q1YSaw'],rW=Pn['_$50e6p1'];break z;}}let Ph=rm;rB=![],rm=0x0;rS!==undefined&&(z8=rS,rS=undefined);rW=Ph;break z;}}rW++;}break;}case 0x4c:{let PX=rJ[--rG],PU=rJ[--rG];rJ[rG++]=PU<<PX,rW++;break;}case 0x6:{if(typeof rJ[rG-0x1]==='symbol')throw new TypeError('Cannot\x20convert\x20a\x20Symbol\x20value\x20to\x20a\x20string');rJ[rG-0x1]=String(rJ[rG-0x1]),rW++;break;}case 0x3d:{rf[zH]=rJ[--rG],rW++;break;}case 0xb:{let Pi=rJ[--rG],PQ=rJ[rG-0x1];if(Array['isArray'](Pi)&&Pi[s]===S){let Pc=PQ['length'],PA=Pi['length'];for(let Pl=0x0;Pl<PA;Pl++){PQ[Pc+Pl]=Pi[Pl];}}else for(let PH of Pi){PQ['push'](PH);}rW++;break;}case 0x7:{let PV=rJ[--rG];if(PV==null)throw new TypeError(PV+'\x20is\x20not\x20iterable');let PD=PV[Symbol['asyncIterator']];if(typeof PD==='function')rJ[rG++]=PD['call'](PV);else{let PK=PV[Symbol['iterator']];if(typeof PK!=='function')throw new TypeError(PV+'\x20is\x20not\x20iterable');let Pw=PK['call'](PV);if(Pw===null||typeof Pw!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');let PI=async function(PO){if(PO===null||typeof PO!=='object')throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');let Pj=await PO['value'];return{'value':Pj,'done':!!PO['done']};},PL={'next':function(PO){let Pj;try{Pj=Pw['next'](PO);}catch(PM){return Promise['reject'](PM);}return PI(Pj);},'return':function(PO){if(typeof Pw['return']!=='function')return Promise['resolve']({'value':PO,'done':!![]});let Pj;try{Pj=Pw['return'](PO);}catch(PM){return Promise['reject'](PM);}return PI(Pj);},'throw':function(PO){if(typeof Pw['throw']!=='function')return Promise['reject'](PO);let Pj;try{Pj=Pw['throw'](PO);}catch(PM){return Promise['reject'](PM);}return PI(Pj);},[Symbol['asyncIterator']]:function(){return this;}};rJ[rG++]=PL;}rW++;break;}case 0x4d:{let PO=rJ[--rG],Pj=rJ[--rG],PM=rJ[rG-0x1],PJ=ko(PM);k(PJ,Pj,{'set':PO,'enumerable':PJ===PM,'configurable':!![]}),rW++;break;}case 0x2a:{let PG=rq[zH];rJ[rG++]=Symbol['for'](PG),rW++;break;}case 0x2c:{let PR=rJ[--rG],Pq=rJ[--rG];rJ[rG++]=Pq in PR,rW++;break;}case 0x5a:{C:{let Pt=rJ[--rG],Pp=k5(z6,Pt),Pu=rJ[--rG];if(zH===0x1){rJ[rG++]=Pp,rW++;break C;}if(vmh_89ae91['_$AKIGb6']){rW++;break C;}let Pf=vmh_89ae91['_$50oEfs'];if(Pf){let PF=Pf['outer'],PN=PF?C(PF):Pf['parent'];if(typeof PN!=='function')throw new TypeError('Super\x20constructor\x20'+String(PN)+'\x20of\x20'+(PF&&PF['name']||'anonymous')+'\x20is\x20not\x20a\x20constructor');let Py=Pf['newTarget'],Pa=Reflect['construct'](PN,Pp,Py);rj&&rj!==Pa&&z(rj)['forEach'](function(PE){!(PE in Pa)&&(Pa[PE]=rj[PE]);});rj=Pa,zz=!![],kQ(z8,rj),rW++;break C;}if(typeof Pu!=='function')throw new TypeError('Super\x20expression\x20must\x20be\x20a\x20constructor');let PW;B['has'](rM)?PW=kc(z8):PW=zz?rj:undefined;let Pv=rO!==undefined?rO:vmh_89ae91['_$4yNSDH'];vmh_89ae91['_$4yNSDH']=rO;try{let PE;T(Pu)?PE=E(Pu,rj,Pp):PE=Pv!==undefined?Reflect['construct'](Pu,Pp,Pv):Reflect['construct'](Pu,Pp),PE!==undefined&&PE!==rj&&k6(PE)&&(rj&&Object['assign'](PE,rj),rj=PE,rO&&rO['prototype']&&C(rj)!==rO['prototype']&&r(rj,rO['prototype'])),zz=!![],kQ(z8,rj);}finally{delete vmh_89ae91['_$4yNSDH'];}if(PW!==undefined)throw new ReferenceError('Super\x20constructor\x20may\x20only\x20be\x20called\x20once');rW++;}break;}case 0x0:{let Pb=rJ[--rG],PZ=rJ[rG-0x1];PZ['push'](Pb),rW++;break;}case 0x20:{let PY=rJ[--rG],Pd=rJ[--rG];rJ[rG++]=Pd!=PY,rW++;break;}case 0x5b:{let PT=rJ[--rG],Pe=rJ[--rG];rJ[rG++]=Pe|PT,rW++;break;}case 0x1c:{rf[zH]=rf[zH]+0x1,rW++;break;}case 0x3c:{rJ[rG++]=rq[zH],rW++;break;}case 0x70:{let PB=rJ[--rG],Pm=rJ[--rG];rJ[rG++]=Pm>>>PB,rW++;break;}case 0x3a:{P:{while(rE&&rE['length']>0x0){let Ps=rE[rE['length']-0x1];if(Ps['_$50e6p1']!==undefined)break;rE['pop']();}if(rE&&rE['length']>0x0){let Pg=rE[rE['length']-0x1];if(Pg['_$50e6p1']!==undefined){rb=null,rd=![],rT=0x0,re=undefined,rB=![],rm=0x0,rS=undefined,rZ=!![],rY=rJ[--rG],rs=Pg['_$xi1r70'],rg=Pg['_$Q1YSaw'],rW=Pg['_$50e6p1'];break P;}}(rZ||rd||rB)&&(rZ=![],rY=undefined,rd=![],rT=0x0,re=undefined,rB=![],rm=0x0,rS=undefined);rb=null;let PS=rJ[--rG];if(z1&&PS===undefined&&!zz)throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return zo=PS,0x1;}break;}case 0x4a:{rf[zH]=rf[zH]-0x1,rW++;break;}case 0x4b:{let Px=rq[zH],h0=!![];Px in vmX&&(h0=delete vmX[Px]);h0&&Px in vmh_89ae91&&(h0=delete vmh_89ae91[Px]);rJ[rG++]=h0,rW++;break;}case 0x2:{rJ[--rG],rJ[rG++]=undefined,rW++;break;}case 0x14:{rE['pop'](),rW++;break;}case 0x36:{let h1=rI[zH];if((typeof h1==='object'||typeof h1==='function')&&h1!==null){const h2=h1[Symbol['toPrimitive']];if(h2!=null){h1=h2['call'](h1,'number');if(h1!==null&&(typeof h1==='object'||typeof h1==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const h3=h1['valueOf']();if(h3===null||typeof h3!=='object'&&typeof h3!=='function')h1=h3;else{const h4=h1['toString']();if(h4!==null&&(typeof h4==='object'||typeof h4==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');h1=h4;}}}rI[zH]=typeof h1===p?h1+0x1n:+h1+0x1,rW++;break;}case 0x5e:{let h5=rq[zH];h5 in vmh_89ae91?rJ[rG++]=typeof vmh_89ae91[h5]:rJ[rG++]=typeof vmX[h5];rW++;break;}case 0x7b:{let h6=rJ[rG-0x1];if(h6==null){var zV=rq[zH];if(zV===null)throw new TypeError('Cannot\x20destructure\x20\x27'+h6+'\x27\x20as\x20it\x20is\x20'+h6+'.');throw new TypeError('Cannot\x20destructure\x20property\x20\x27'+zV+'\x27\x20of\x20\x27'+h6+'\x27\x20as\x20it\x20is\x20'+h6+'.');}rW++;break;}case 0x1b:{let h7=rJ[--rG];if((typeof h7==='object'||typeof h7==='function')&&h7!==null){const h8=h7[Symbol['toPrimitive']];if(h8!=null){h7=h8['call'](h7,'number');if(h7!==null&&(typeof h7==='object'||typeof h7==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const h9=h7['valueOf']();if(h9===null||typeof h9!=='object'&&typeof h9!=='function')h7=h9;else{const hk=h7['toString']();if(hk!==null&&(typeof hk==='object'||typeof hk==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');h7=hk;}}}rJ[rG++]=typeof h7===p?h7-0x1n:+h7-0x1,rW++;break;}case 0x68:{rJ[rG-0x1]=~rJ[rG-0x1],rW++;break;}case 0x4:{let hr=zH&0xffff,hz=zH>>>0x10,hC=rq[hr],hP=rq[hz];rJ[rG++]=new RegExp(hC,hP),rW++;break;}case 0x6f:{rJ[rG++]=z3,rW++;break;}case 0x18:{let hh=rJ[--rG],ho=rJ[--rG];rJ[rG++]=ho>hh,rW++;break;}case 0x19:{let hn=rJ[--rG];rJ[rG++]=Symbol['keyFor'](hn),rW++;break;}case 0x17:{let hX=rJ[--rG],hU=kU(rJ[--rG]),hi=rJ[--rG],hQ=vmh_89ae91['_$VgdMyk'],hc=hQ?C(hQ):kn(hi);if(hc===null||hc===undefined)throw new TypeError('Cannot\x20convert\x20'+hc+'\x20to\x20object');let hA=kX(hc,hU),hl=![];if(hA['desc']){let hH=hA['desc'];if(hH['set']){let hV=vmh_89ae91['_$VgdMyk'];vmh_89ae91['_$VgdMyk']=hA['proto']||hc,vmh_89ae91['_$7NuQBd']=!![];try{hH['set']['call'](hi,hX);}finally{vmh_89ae91['_$7NuQBd']=![],vmh_89ae91['_$VgdMyk']=hV;}}else{if(hH['get']||!('value'in hH)){if(rx)throw new TypeError('Cannot\x20set\x20property\x20\x27'+String(hU)+'\x27\x20of\x20object\x20which\x20has\x20only\x20a\x20getter');}else{if(hH['writable']===![]){if(rx)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(hU)+'\x27\x20of\x20object');}else hl=!![];}}}else hl=!![];if(hl){let hD=Object['getOwnPropertyDescriptor'](hi,hU);if(hD){if('value'in hD){if(hD['writable'])hi[hU]=hX;else{if(rx)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(hU)+'\x27\x20of\x20object');}}else{if(rx)throw new TypeError('Cannot\x20redefine\x20property:\x20'+String(hU));}}else{let hK=Reflect['defineProperty'](hi,hU,{'value':hX,'writable':!![],'enumerable':!![],'configurable':!![]});if(!hK&&rx)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(hU)+'\x27\x20of\x20object');}}rJ[rG++]=hX,rW++;break;}case 0x7a:{let hw=rJ[--rG],hI=rJ[--rG],hL=rJ[--rG];k(hL,hI,{'value':hw,'writable':!![],'enumerable':!![],'configurable':!![]});typeof hw==='function'&&(!vmh_89ae91['_$Ef7RTO']&&(vmh_89ae91['_$Ef7RTO']=new WeakMap()),A['call'](vmh_89ae91['_$Ef7RTO'],hw,hL));rW++;break;}case 0x35:{let hO=rJ[--rG],hj=rJ[rG-0x1];(hO===null||k6(hO))&&r(hj,hO);rW++;break;}case 0x69:{let hM=rJ[--rG];rJ[rG++]=hM['next'](),rW++;break;}case 0xa:{rJ[rG-0x1]?rW=rp[rW]:(rJ[--rG],rW++);break;}case 0x48:{rW=rp[rW];break;}case 0x1:{let hJ=rJ[rG-0x1];rJ[rG++]=hJ,rW++;break;}case 0x3e:{let hG=rJ[--rG],hR=rJ[--rG];rJ[rG++]=hR<=hG,rW++;break;}case 0x28:{let hq=rf[zH];if((typeof hq==='object'||typeof hq==='function')&&hq!==null){const ht=hq[Symbol['toPrimitive']];if(ht!=null){hq=ht['call'](hq,'number');if(hq!==null&&(typeof hq==='object'||typeof hq==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hp=hq['valueOf']();if(hp===null||typeof hp!=='object'&&typeof hp!=='function')hq=hp;else{const hu=hq['toString']();if(hu!==null&&(typeof hu==='object'||typeof hu==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hq=hu;}}}rf[zH]=typeof hq===p?hq+0x1n:+hq+0x1,rW++;break;}case 0x49:{let hf=m[zH],hW=rJ[--rG];if(hf){for(let hv=0x0;hv<hW;hv++)rJ[--rG];for(let hF=0x0;hF<hW;hF++)rJ[--rG];rJ[rG++]=hf;}else{let hN=new Array(hW);for(let ha=hW-0x1;ha>=0x0;ha--)hN[ha]=rJ[--rG];let hy=new Array(hW);for(let hE=hW-0x1;hE>=0x0;hE--)hy[hE]=rJ[--rG];k(hy,'raw',{'value':Object['freeze'](hN)}),Object['freeze'](hy),m[zH]=hy,rJ[rG++]=hy;}rW++;break;}case 0x3f:{let hb=rJ[--rG],hZ=rJ[--rG],hY=rJ[rG-0x1];k(hY,hZ,{'value':hb,'writable':!![],'enumerable':![],'configurable':!![]});typeof hb==='function'&&(!vmh_89ae91['_$Ef7RTO']&&(vmh_89ae91['_$Ef7RTO']=new WeakMap()),A['call'](vmh_89ae91['_$Ef7RTO'],hb,hY));rW++;break;}case 0x5f:{h:{let hd=rJ[--rG],hT=rJ[--rG];if(typeof hT!=='function')throw new TypeError(hT+'\x20is\x20not\x20a\x20function');let he=vmh_89ae91['_$Ef7RTO'],hB=!vmh_89ae91['_$VgdMyk']&&!vmh_89ae91['_$4yNSDH']&&!(he&&Q['call'](he,hT))&&d(hT);if(hB&&hB['_$ot1z1R']!==![]){let hx=hB['_$JGFZLu']||Y(hB,typeof hB['_$gYdy5e']==='object'?hB['_$gYdy5e']['n']!==undefined?0x0?rU(hB['_$gYdy5e']['n']):hB['_$gYdy5e']['d']||(hB['_$gYdy5e']['d']=rU(hB['_$gYdy5e']['n'])):hB['_$gYdy5e']:rX(hB['_$gYdy5e']));if(hx){let o0;if(hd===0x0)o0=[];else{if(hd===0x1){let o3=rJ[--rG];o0=o3&&typeof o3==='object'&&U['call'](F,o3)?o3['value']:[o3];}else o0=k5(z6,hd);}let o1=hx===rw?rR:rh(hx[0x20],hx[0x21]),o2=hx[0x17*o1[0x0]+o1[0x1]&0x1f];if(o2&&hx===rw&&!hx[0x12*o1[0x0]+o1[0x1]&0x1f]&&hB['_$QaM83m']===rL){!zP&&(zP=[]);zP[zh++]=rG,zP[zh++]=z8,zP[zh++]=zk,zP[zh++]=rI,zP[zh++]=zr,zP[zh++]=rW;for(let o4=0x0;o4<zC;o4++){zP[zh++]=rf[o4];}rI=o0,zr=null;if(hx[0x9*o1[0x0]+o1[0x1]&0x1f]){zk=null;let o5=hx[0x20]||0x0;for(let o6=0x0;o6<o5&&o6<o0['length'];o6++){rf[o6]=o0[o6];}for(let o7=o0['length']<o5?o0['length']:o5;o7<zC;o7++){rf[o7]=undefined;}rW=o2;}else{zk=kh(o0);for(let o8=0x0;o8<zC;o8++){rf[o8]=undefined;}rW=0x0;}break h;}vmh_89ae91['_$7NuQBd']?vmh_89ae91['_$7NuQBd']=![]:vmh_89ae91['_$VgdMyk']=undefined;rJ[rG++]=kI(hx,o0,hB['_$QaM83m'],undefined,undefined,hT),rW++;break h;}}let hm=vmh_89ae91['_$VgdMyk'],hS=vmh_89ae91['_$Ef7RTO'],hs=hS&&Q['call'](hS,hT);hs?(vmh_89ae91['_$7NuQBd']=!![],vmh_89ae91['_$VgdMyk']=hs):vmh_89ae91['_$VgdMyk']=undefined;let hg;try{if(hd===0x0)hg=hT();else{if(hd===0x1){let o9=rJ[--rG];hg=o9&&typeof o9==='object'&&U['call'](F,o9)?o(hT,undefined,o9['value']):hT(o9);}else hg=o(hT,undefined,k5(z6,hd));}rJ[rG++]=hg;}finally{hs&&(vmh_89ae91['_$7NuQBd']=![]),vmh_89ae91['_$VgdMyk']=hm;}rW++;}break;}case 0x40:{let ok=rJ[--rG];rJ[rG++]=kP(ok),rW++;break;}case 0x47:{let or=rJ[--rG],oz=rJ[--rG];rJ[rG++]=oz&or,rW++;break;}case 0x9:{rJ[rG++]=null,rW++;break;}}},zX=function(zl,zH){switch(zl){case 0x8c:{rJ[rG-0x1]=typeof rJ[rG-0x1],rW++;break;}case 0xa9:{k:{let zV=kU(rJ[--rG]),zD=rJ[--rG],zK=vmh_89ae91['_$VgdMyk'],zw=zK?C(zK):kn(zD),zI=kX(zw,zV);if(zI['desc']&&zI['desc']['get']){let zO=vmh_89ae91['_$VgdMyk'];vmh_89ae91['_$VgdMyk']=zI['proto']||zw,vmh_89ae91['_$7NuQBd']=!![];let zj;try{zj=zI['desc']['get']['call'](zD);}finally{vmh_89ae91['_$7NuQBd']=![],vmh_89ae91['_$VgdMyk']=zO;}rJ[rG++]=zj,rW++;break k;}if(zI['desc']&&zI['desc']['set']&&!('value'in zI['desc'])){rJ[rG++]=undefined,rW++;break k;}let zL=zI['proto']?zI['proto'][zV]:zw[zV];if(typeof zL==='function'){let zM=zI['proto']||zw,zJ=zL['constructor']&&zL['constructor']['name'],zG=zJ==='GeneratorFunction'||zJ==='AsyncFunction'||zJ==='AsyncGeneratorFunction';!zG&&(!vmh_89ae91['_$Ef7RTO']&&(vmh_89ae91['_$Ef7RTO']=new WeakMap()),A['call'](vmh_89ae91['_$Ef7RTO'],zL,zM));}rJ[rG++]=zL,rW++;}break;}case 0xb7:{let zR=rJ[--rG],zq=rJ[rG-0x1],zt=rq[zH];k(zq,zt,{'value':zR,'writable':!![],'enumerable':![],'configurable':!![]});typeof zR==='function'&&(!vmh_89ae91['_$Ef7RTO']&&(vmh_89ae91['_$Ef7RTO']=new WeakMap()),A['call'](vmh_89ae91['_$Ef7RTO'],zR,zq));rW++;break;}case 0xdc:{debugger;rW++;break;}case 0xd5:{let zp=rJ[--rG],zu=rJ[--rG],zf=rJ[rG-0x1],zW=ko(zf);k(zW,zu,{'get':zp,'enumerable':zW===zf,'configurable':!![]}),rW++;break;}case 0x84:{let zv=zH&0xffff,zF=zH>>>0x10,zN=rf[zv],zy=rq[zF];if(zN===null||zN===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+zN+'\x20(reading\x20'+'\x27'+String(zy)+'\x27'+')');rJ[rG++]=zN[zy],rW++;break;}case 0xb4:{let za=rJ[--rG],zE=rJ[--rG];rJ[rG++]=zE%za,rW++;break;}case 0x107:{let zb=zH&0xffff,zZ=z8['_$Oewzd2'];zZ[zb]=zZ;let zY=zH>>>0x10;zY&&((z8['_$uS9lzo']||(z8['_$uS9lzo']={}))[zb]=rq[zY-0x1]);rW++;break;}case 0x81:{let zd=rJ[--rG],zT=rJ[--rG];rJ[rG++]=zT==zd,rW++;break;}case 0xfd:{let ze=rJ[--rG],zB=rJ[--rG];rJ[rG++]=zB**ze,rW++;break;}case 0x10d:{rJ[rG-0x1]=rJ[rG-0x1]>>>0x0,rW++;break;}case 0x130:{let zm=rJ[rG-0x1],zS=rq[zH];if(zm===null||zm===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+zm+'\x20(reading\x20'+'\x27'+String(zS)+'\x27'+')');rJ[rG++]=zm[zS],rW++;break;}case 0xb8:{let zs=rJ[rG-0x3],zg=rJ[rG-0x2],zx=rJ[rG-0x1];rJ[rG-0x3]=zg,rJ[rG-0x2]=zx,rJ[rG-0x1]=zs,rW++;break;}case 0xfc:{let C0=rJ[--rG],C1=rJ[--rG];rJ[rG++]=C1-C0,rW++;break;}case 0xc9:{if(z1&&!zz){let C4=kc(z8);if(C4!==undefined)rj=C4,zz=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let C2=rj,C3=rq[zH];if(C2===null||C2===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+C2+'\x20(reading\x20'+'\x27'+String(C3)+'\x27'+')');rJ[rG++]=C2[C3],rW++;break;}case 0xb5:{let C5=rJ[--rG];if((typeof C5==='object'||typeof C5==='function')&&C5!==null){const C6=C5[Symbol['toPrimitive']];if(C6!=null){C5=C6['call'](C5,'number');if(C5!==null&&(typeof C5==='object'||typeof C5==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const C7=C5['valueOf']();if(C7===null||typeof C7!=='object'&&typeof C7!=='function')C5=C7;else{const C8=C5['toString']();if(C8!==null&&(typeof C8==='object'||typeof C8==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');C5=C8;}}}rJ[rG++]=typeof C5===p?C5:+C5,rW++;break;}case 0xa2:{rJ[rG++]=vmU[zH],rW++;break;}case 0x12e:{let C9=rJ[--rG],Ck=rJ[--rG];if(Ck===null||Ck===undefined){if(C9===Symbol['iterator'])throw new TypeError((Ck===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Ck+'\x20(reading\x20'+(typeof C9==='symbol'?'\x27'+C9['toString']()+'\x27':typeof C9==='string'?'\x27'+C9+'\x27':typeof C9==='object'||typeof C9==='function'?'\x27<computed\x20key>\x27':'\x27'+String(C9)+'\x27')+')');}rJ[rG++]=Ck[C9],rW++;break;}case 0xa4:{let Cr=rJ[--rG],Cz=rJ[--rG];rJ[rG++]=Cr==null||typeof Cr!=='object'&&typeof Cr!=='function'?!![]:Cz in Cr,rW++;break;}case 0x127:{let CC=rJ[--rG],CP=rJ[--rG],Ch=rJ[rG-0x1];k(Ch,CP,{'set':CC,'enumerable':![],'configurable':!![]}),rW++;break;}case 0xb9:{r:{let Co=rp[rW];while(rE&&rE['length']>0x0){let Cn=rE[rE['length']-0x1];if(Cn['_$50e6p1']!==undefined||!(Co>=Cn['_$Q1YSaw']||Co<=Cn['_$xi1r70']))break;rE['pop']();}if(rE&&rE['length']>0x0){let CX=rE[rE['length']-0x1];if(CX['_$50e6p1']!==undefined&&(Co>=CX['_$Q1YSaw']||Co<=CX['_$xi1r70'])){rb=null,rZ=![],rY=undefined,rB=![],rm=0x0,rS=undefined,rd=!![],rT=Co,re=z8,rs=CX['_$xi1r70'],rg=CX['_$Q1YSaw'],rW=CX['_$50e6p1'];break r;}}(rZ||rd||rB||rb!==null)&&(Co>=rg||Co<=rs)&&(rZ=![],rY=undefined,rd=![],rT=0x0,re=undefined,rB=![],rm=0x0,rS=undefined,rb=null),rW=Co;}break;}case 0x111:{rJ[rG++]=undefined,rW++;break;}case 0x117:{if(rE&&rE['length']>0x0){let CU=rE[rE['length']-0x1];CU['_$50e6p1']===rW&&(CU['_$nKuEAm']!==undefined&&(rb=CU['_$nKuEAm'],rs=CU['_$xi1r70'],rg=CU['_$Q1YSaw']),CU['_$ka9dHy']!==undefined&&(z8=CU['_$ka9dHy']),rE['pop']());}rW++;break;}case 0xd2:{let Ci=rJ[--rG],CQ=rJ[--rG];rJ[rG++]=CQ+Ci,rW++;break;}case 0x119:{let Cc=rJ[--rG],CA=rJ[--rG];rJ[rG++]=CA!==Cc,rW++;break;}case 0x90:{let Cl=rJ[--rG],CH=rJ[--rG];rJ[rG++]=CH^Cl,rW++;break;}case 0xa5:{let CV=rJ[--rG],CD=rJ[--rG],CK=rJ[--rG];if(typeof CD!=='function')throw new TypeError(CD+'\x20is\x20not\x20a\x20function');let Cw=vmh_89ae91['_$Ef7RTO'],CI=Cw&&Q['call'](Cw,CD);!CI&&Cw&&(CD===P||CD===i)&&(CI=Q['call'](Cw,CK));let CL=vmh_89ae91['_$VgdMyk'];CI&&(vmh_89ae91['_$7NuQBd']=!![],vmh_89ae91['_$VgdMyk']=CI);let CO;try{if(CV===0x0)CO=o(CD,CK,u);else{if(CV===0x1){let Cj=rJ[--rG];CO=Cj&&typeof Cj==='object'&&U['call'](F,Cj)?o(CD,CK,Cj['value']):o(CD,CK,[Cj]);}else CO=o(CD,CK,k5(z6,CV));}rJ[rG++]=CO;}finally{CI&&(vmh_89ae91['_$7NuQBd']=![],vmh_89ae91['_$VgdMyk']=CL);}rW++;break;}case 0x108:{let CM=rJ[rG-0x1];CM['length']++,rW++;break;}case 0x7f:{let CJ=rJ[--rG],CG=rJ[--rG];rJ[rG++]=CG/CJ,rW++;break;}case 0x118:{let CR=zH;z8['_$Oewzd2'][CR]=rM;let Cq=z8['_$jg6o0g'];!Cq&&(Cq=h(null),z8['_$jg6o0g']=Cq);Cq[CR]=0x2,rW++;break;}case 0x12b:{rJ[--rG],rW++;break;}case 0x113:{z:{let Ct=zH&0xffff,Cp=zH>>>0x10,Cu=rJ[--rG],Cf=z8;for(let CN=0x0;CN<Cp;CN++){Cf=Cf['_$hqCtQl'];}let CW=Cf['_$Oewzd2'];if(CW[Ct]===CW){let Cy=Cf['_$uS9lzo'];throw new ReferenceError('Cannot\x20access\x20\x27'+(Cy&&Cy[Ct]||'variable')+'\x27\x20before\x20initialization');}let Cv=Cf['_$jg6o0g'],CF=Cv&&Cv[Ct];if(CF){if(CF===0x2&&!rx){rW++;break z;}throw new TypeError('Assignment\x20to\x20constant\x20variable.');}CW[Ct]=Cu,rW++;break z;}break;}case 0x116:{let Ca=rJ[--rG],CE=rJ[--rG];rJ[rG++]=CE instanceof Ca,rW++;break;}case 0x94:{rJ[rG++]=z8,rW++;break;}case 0x12a:{let Cb=zH&0xffff,CZ=zH>>>0x10;rJ[rG++]=rf[Cb]-rq[CZ],rW++;break;}case 0xb6:{let CY=rJ[--rG];rJ[rG++]=!!CY['done'],rW++;break;}case 0xa3:{let Cd=rf[zH];if((typeof Cd==='object'||typeof Cd==='function')&&Cd!==null){const CT=Cd[Symbol['toPrimitive']];if(CT!=null){Cd=CT['call'](Cd,'number');if(Cd!==null&&(typeof Cd==='object'||typeof Cd==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const Ce=Cd['valueOf']();if(Ce===null||typeof Ce!=='object'&&typeof Ce!=='function')Cd=Ce;else{const CB=Cd['toString']();if(CB!==null&&(typeof CB==='object'||typeof CB==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Cd=CB;}}}rf[zH]=typeof Cd===p?Cd-0x1n:+Cd-0x1,rW++;break;}case 0x82:{let Cm=rJ[--rG],CS=rJ[--rG],Cs=zH,Cg=function(Cx,P0){let P1=function(){let P2=a===P1;a=undefined;if(new.target===undefined&&!P2)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');if(Cx){P0&&(vmh_89ae91['_$pgruUw']=P1);let P3='_$4yNSDH'in vmh_89ae91;!P3&&(vmh_89ae91['_$4yNSDH']=new.target);try{let P4=Cx['apply'](this,kh(arguments));if(P0&&P4!==undefined&&(P4===null||typeof P4!=='object'&&typeof P4!=='function'))throw new TypeError('Derived\x20constructors\x20may\x20only\x20return\x20object\x20or\x20undefined');return P4;}finally{P0&&delete vmh_89ae91['_$pgruUw'],!P3&&delete vmh_89ae91['_$4yNSDH'];}}};return P1;}(CS,Cs);Cm&&k(Cg,'name',{'value':Cm,'configurable':!![]});CS&&k(Cg,'length',{'value':CS['length'],'configurable':!![]});if(CS&&!T(Cg)){let Cx=d(CS);Cx&&(Cx['_$ot1z1R']=![],Z(Cg,Cx));}rJ[rG++]=Cg,rW++;break;}case 0x91:{let P0=rJ[--rG],P1=rJ[--rG],P2=rJ[rG-0x1];k(P2,P1,{'get':P0,'enumerable':![],'configurable':!![]}),rW++;break;}case 0x10b:{let P3=rJ[--rG],P4=P3&&P3['i']?P3['i']:P3;if(P4!=null){if(rb!==null)try{let P5=P4['return'];typeof P5==='function'&&P5['call'](P4);}catch(P6){}else{let P7=P4['return'];if(P7!=null){if(typeof P7!=='function')throw new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable');let P8=P7['call'](P4);kr(P8);}}}rW++;break;}case 0x112:{let P9=zH&0xffff,Pk=zH>>>0x10;rJ[rG++]=rf[P9]*rq[Pk],rW++;break;}case 0x12c:{let Pr=rJ[--rG],Pz=k5(z6,Pr),PC=rJ[--rG];if(typeof PC!=='function')throw new TypeError(PC+'\x20is\x20not\x20a\x20constructor');if(U['call'](N,PC))throw new TypeError(PC['name']+'\x20is\x20not\x20a\x20constructor');let PP=vmh_89ae91['_$VgdMyk'];vmh_89ae91['_$VgdMyk']=undefined;let Ph;try{Ph=Reflect['construct'](PC,Pz);}finally{vmh_89ae91['_$VgdMyk']=PP;}rJ[rG++]=Ph,rW++;break;}case 0xff:{rJ[rG++]=rf[zH],rW++;break;}case 0x11c:{let Po,Pn;zH>=0x0?(Pn=rJ[--rG],Po=rq[zH]):(Po=rJ[--rG],Pn=rJ[--rG]);let PX=delete Pn[Po];if(rx&&!PX)throw new TypeError('Cannot\x20delete\x20property\x20\x27'+String(Po)+'\x27\x20of\x20object');rJ[rG++]=PX,rW++;break;}case 0x11b:{rJ[rG-0x1]=+rJ[rG-0x1],rW++;break;}case 0x92:{!rJ[--rG]?rW=rp[rW]:rW++;break;}case 0xa1:{let PU=rJ[--rG],Pi=PU&&PU['i']?PU['i']:PU;try{if(Pi!=null){let PQ=Pi['return'];typeof PQ==='function'&&PQ['call'](Pi);}}catch(Pc){}rW++;break;}case 0x11f:{let PA=vmh_89ae91['_$pgruUw'];PA===undefined&&rM&&B['has'](rM)&&(PA=B['get'](rM));if(PA===undefined)throw new ReferenceError('\x27super\x27\x20keyword\x20is\x20only\x20valid\x20inside\x20a\x20derived\x20constructor');rJ[rG++]=PA,rW++;break;}case 0x115:{let Pl=rJ[rG-0x3],PH=rJ[rG-0x2],PV=rJ[rG-0x1];rJ[rG-0x3]=PV,rJ[rG-0x2]=Pl,rJ[rG-0x1]=PH,rW++;break;}case 0x8d:{let PD=rf[zH],PK=PD&&PD['_$uklCC6'];if(PK!==undefined){let Pw=PD['_$DwcVPq'];Pw>=PK['length']?rW=rp[rW]:(PD['_$DwcVPq']=Pw+0x1,rJ[rG++]=PK[Pw],rW++);}else{let PI=PD['i'],PL=o(PD['n'],PI,[]);kr(PL),PL['done']?rW=rp[rW]:(rJ[rG++]=PL['value'],rW++);}break;}case 0x120:{let PO=rJ[--rG],Pj=typeof PO;if(PO!==null&&(Pj==='object'||Pj==='function')){let PM=h(null);PM[PO]=0x0,PO=Reflect['ownKeys'](PM)[0x0];}else Pj!=='symbol'&&(PO=String(PO));rJ[rG++]=PO,rW++;break;}case 0x125:{if(z1&&!zz){let PJ=kc(z8);if(PJ!==undefined)rj=PJ,zz=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}rJ[rG++]=rj,rW++;break;}case 0xa0:{let PG=rJ[--rG],PR=rq[zH];if(rx&&!(PR in vmX)&&!(PR in vmh_89ae91))throw new ReferenceError(PR+'\x20is\x20not\x20defined');vmh_89ae91[PR]=PG,vmX[PR]=PG,rJ[rG++]=PG,rW++;break;}case 0xc8:{let Pq=rJ[--rG],Pt={['_$Oewzd2']:new Array(zH),['_$jg6o0g']:null,['_$FKgfCN']:-0x1,['_$hqCtQl']:Pq};z8=Pt,rW++;break;}case 0x7c:{let Pp=rJ[--rG],Pu=rJ[--rG];rJ[rG++]=Pu>>Pp,rW++;break;}case 0x126:{let Pf=ru[rW];if(!rE)rE=[];rE['push']({['_$G0ywXp']:Pf[0x0]>=0x0?Pf[0x0]:undefined,['_$50e6p1']:Pf[0x1]>=0x0?Pf[0x1]:undefined,['_$Q1YSaw']:Pf[0x2]>=0x0?Pf[0x2]:undefined,['_$1Pyucq']:rG,['_$xi1r70']:rW,['_$ka9dHy']:z8}),rW++;break;}case 0x8f:{let PW=rJ[--rG],Pv=rJ[--rG],PF=(zH^0x8347)>>>0x0,PN;PF<0x10?PF<0x8?PF<0x4?PF<0x2?PN=PF<0x1?Pv-PW:Pv<PW:PN=PF<0x3?Pv>PW:Pv/PW:PF<0x6?PN=PF<0x5?Pv>=PW:Pv!==PW:PN=PF<0x7?Pv!=PW:Pv^PW:PF<0xc?PF<0xa?PN=PF<0x9?Pv<=PW:Pv+PW:PN=PF<0xb?Pv<<PW:Pv*PW:PF<0xe?PN=PF<0xd?Pv|PW:Pv%PW:PN=PF<0xf?Pv>>>PW:Pv&PW:PF<0x14?PF<0x12?PN=PF<0x11?Pv**PW:Pv===PW:PN=PF<0x13?Pv==PW:Pv>>PW:PF<0x18?PN=PF<0x16?Pv|PW:Pv&PW:PN=PF<0x1c?Pv^PW:PW-Pv;rJ[rG++]=PN,rW++;break;}case 0x106:{let Py=rJ[--rG],Pa=rJ[rG-0x1],PE=rq[zH];k(Pa['prototype'],PE,{'value':Py,'writable':!![],'enumerable':![],'configurable':!![]});typeof Py==='function'&&(!vmh_89ae91['_$Ef7RTO']&&(vmh_89ae91['_$Ef7RTO']=new WeakMap()),A['call'](vmh_89ae91['_$Ef7RTO'],Py,Pa['prototype']));rW++;break;}case 0x11e:{rI[zH]=rJ[--rG],rW++;break;}case 0x12d:{rW++;break;}case 0x110:{let Pb=rJ[--rG],PZ=rJ[rG-0x1],PY=rq[zH];k(PZ,PY,{'get':Pb,'enumerable':![],'configurable':!![]}),rW++;break;}case 0x129:{let Pd=zH&0xffff,PT=zH>>>0x10,Pe=z8;for(let PS=0x0;PS<PT;PS++){Pe=Pe['_$hqCtQl'];}let PB=Pe['_$Oewzd2'],Pm=PB[Pd];if(Pm===PB){let Ps=Pe['_$uS9lzo'];throw new ReferenceError('Cannot\x20access\x20\x27'+(Ps&&Ps[Pd]||'variable')+'\x27\x20before\x20initialization');}rJ[rG++]=Pm,rW++;break;}case 0x10a:{rJ[rG++]=[],rW++;break;}case 0x100:{let Pg=rJ[rG-0x1];rJ[rG-0x1]=rJ[rG-0x2],rJ[rG-0x2]=Pg,rW++;break;}case 0x80:{rJ[rG-0x1]=-rJ[rG-0x1],rW++;break;}case 0x10e:{let Px=rJ[--rG],h0=rJ[--rG];rJ[rG++]=h0===Px,rW++;break;}case 0xa7:{if(zH===-0x2){}else zH===-0x1?rJ[--rG]:z8['_$Oewzd2'][zH]=rJ[--rG];rW++;break;}case 0x128:{let h1=rJ[--rG],h2=h1&&h1['_$uklCC6'];if(h2!==undefined){let h3=h1['_$DwcVPq'],h4;h3>=h2['length']?h4={'value':undefined,'done':!![]}:(h1['_$DwcVPq']=h3+0x1,h4={'value':h2[h3],'done':![]}),rJ[rG++]=h4,rW++;}else{let h5=h1&&h1['i']?h1['i']:h1,h6=h1&&h1['n']?h1['n']:h5&&h5['next'];if(typeof h6!=='function')throw new TypeError('iterator.next\x20is\x20not\x20a\x20function');let h7=o(h6,h5,[]);kr(h7),rJ[rG++]=h7,rW++;}break;}case 0xa6:{!rJ[--rG]?rW=rp[rW]:(rJ[--rG],rW++);break;}case 0x114:{rJ[rG-0x1]=!rJ[rG-0x1],rW++;break;}case 0xfa:{C:{let h8=rq[zH],h9=rJ[--rG];if(typeof h9!=='function')throw new TypeError(h9+'\x20is\x20not\x20a\x20function');let hk=vmh_89ae91['_$Ef7RTO'],hr=!vmh_89ae91['_$VgdMyk']&&!vmh_89ae91['_$4yNSDH']&&!(hk&&Q['call'](hk,h9))&&d(h9);if(hr&&hr['_$ot1z1R']!==![]){let ho=hr['_$JGFZLu']||Y(hr,typeof hr['_$gYdy5e']==='object'?hr['_$gYdy5e']['n']!==undefined?0x0?rU(hr['_$gYdy5e']['n']):hr['_$gYdy5e']['d']||(hr['_$gYdy5e']['d']=rU(hr['_$gYdy5e']['n'])):hr['_$gYdy5e']:rX(hr['_$gYdy5e']));if(ho){let hn;if(h8===0x0)hn=[];else{if(h8===0x1){let hi=rJ[--rG];hn=hi&&typeof hi==='object'&&U['call'](F,hi)?hi['value']:[hi];}else hn=k5(z6,h8);}let hX=ho===rw?rR:rh(ho[0x20],ho[0x21]),hU=ho[0x17*hX[0x0]+hX[0x1]&0x1f];if(hU&&ho===rw&&!ho[0x12*hX[0x0]+hX[0x1]&0x1f]&&hr['_$QaM83m']===rL){!zP&&(zP=[]);zP[zh++]=rG,zP[zh++]=z8,zP[zh++]=zk,zP[zh++]=rI,zP[zh++]=zr,zP[zh++]=rW;for(let hQ=0x0;hQ<zC;hQ++){zP[zh++]=rf[hQ];}rI=hn,zr=null;if(ho[0x9*hX[0x0]+hX[0x1]&0x1f]){zk=null;let hc=ho[0x20]||0x0;for(let hA=0x0;hA<hc&&hA<hn['length'];hA++){rf[hA]=hn[hA];}for(let hl=hn['length']<hc?hn['length']:hc;hl<zC;hl++){rf[hl]=undefined;}rW=hU;}else{zk=kh(hn);for(let hH=0x0;hH<zC;hH++){rf[hH]=undefined;}rW=0x0;}break C;}vmh_89ae91['_$7NuQBd']?vmh_89ae91['_$7NuQBd']=![]:vmh_89ae91['_$VgdMyk']=undefined;rJ[rG++]=kI(ho,hn,hr['_$QaM83m'],undefined,undefined,h9),rW++;break C;}}let hz=vmh_89ae91['_$VgdMyk'],hC=vmh_89ae91['_$Ef7RTO'],hP=hC&&Q['call'](hC,h9);hP?(vmh_89ae91['_$7NuQBd']=!![],vmh_89ae91['_$VgdMyk']=hP):vmh_89ae91['_$VgdMyk']=undefined;let hh;try{if(h8===0x0)hh=h9();else{if(h8===0x1){let hV=rJ[--rG];hh=hV&&typeof hV==='object'&&U['call'](F,hV)?o(h9,undefined,hV['value']):h9(hV);}else hh=o(h9,undefined,k5(z6,h8));}rJ[rG++]=hh;}finally{hP&&(vmh_89ae91['_$7NuQBd']=![]),vmh_89ae91['_$VgdMyk']=hz;}rW++;}break;}case 0xd6:{!rJ[rG-0x1]?rW=rp[rW]:(rJ[--rG],rW++);break;}case 0x109:{let hD=zH,hK=rJ[--rG];z8['_$Oewzd2'][hD]=hK;let hw=z8['_$jg6o0g'];!hw&&(hw=h(null),z8['_$jg6o0g']=hw);hw[hD]=0x1,rW++;break;}case 0x10c:{let hI=rJ[--rG],hL=rJ[rG-0x1],hO=rq[zH],hj=ko(hL);k(hj,hO,{'get':hI,'enumerable':hj===hL,'configurable':!![]}),rW++;break;}case 0x83:{let hM=z8['_$Oewzd2'];hM[zH]=hM,z8['_$FKgfCN']=zH,rW++;break;}case 0x12f:{if(zr===null){if(rx||!z0){let hJ=zk||rI,hG=hJ?hJ['length']:0x0;zr=h(Object['prototype']);for(let hR=0x0;hR<hG;hR++){zr[hR]=hJ[hR];}k(zr,'length',{'value':hG,'writable':!![],'enumerable':![],'configurable':!![]}),k(zr,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),zr=new Proxy(zr,{'has':function(hq,ht){if(ht===Symbol['toStringTag'])return![];return ht in hq;},'get':function(hq,ht,hp){if(ht===Symbol['toStringTag'])return'Arguments';return Reflect['get'](hq,ht,hp);}}),rx?k(zr,'callee',{'get':v,'set':v,'enumerable':![],'configurable':![]}):k(zr,'callee',{'value':rM,'writable':!![],'enumerable':![],'configurable':!![]});}else{let hq=z9,ht={},hp={},hu=rM,hf=![],hW=!![],hv={},hF=function(hb){if(typeof hb!=='string')return NaN;let hZ=+hb;return hZ>=0x0&&hZ%0x1===0x0&&String(hZ)===hb?hZ:NaN;},hN=function(hb){return!isNaN(hb)&&hb>=0x0;},hy=function(hb){if(hb in hp)return undefined;if(hb in ht)return ht[hb];return hb<z9?rI[hb]:undefined;},ha=function(hb){if(hb in hp)return![];if(hb in ht)return!![];return hb<z9?hb in rI:![];},hE={};k(hE,'length',{'value':hq,'writable':!![],'enumerable':![],'configurable':!![]}),k(hE,'callee',{'value':rM,'writable':!![],'enumerable':![],'configurable':!![]}),k(hE,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),zr=new Proxy(hE,{'get':function(hb,hZ,hY){if(hZ==='length')return hq;if(hZ==='callee')return hf?undefined:hu;if(hZ===Symbol['toStringTag'])return'Arguments';let hd=hF(hZ);if(hN(hd)){if(hd in hv)return Reflect['get'](hb,hZ,hY);return hy(hd);}return Reflect['get'](hb,hZ,hY);},'set':function(hb,hZ,hY){if(hZ==='length'){if(!hW)return![];return hq=hY,hb['length']=hY,!![];}if(hZ==='callee')return hu=hY,hf=![],hb['callee']=hY,!![];let hd=hF(hZ);if(hN(hd)){if(hd in hv)return Reflect['set'](hb,hZ,hY);let hT=n(hb,String(hd));if(hT&&!hT['writable'])return![];if(hd in hp)delete hp[hd],ht[hd]=hY;else hd<z9?rI[hd]=hY:ht[hd]=hY;return!![];}return hb[hZ]=hY,!![];},'has':function(hb,hZ){if(hZ==='length')return!![];if(hZ==='callee')return!hf;if(hZ===Symbol['toStringTag'])return![];let hY=hF(hZ);if(hN(hY)){if(String(hY)in hb)return!![];return ha(hY);}return hZ in hb;},'defineProperty':function(hb,hZ,hY){if(hZ==='length')return'value'in hY&&(hq=hY['value']),'writable'in hY&&(hW=hY['writable']),k(hb,hZ,hY),!![];if(hZ==='callee')return'value'in hY&&(hu=hY['value']),hf=![],k(hb,hZ,hY),!![];let hd=hF(hZ);if(hN(hd)){let hT='get'in hY||'set'in hY,he=n(hb,String(hd)),hB=hd in hv?he?he['value']:undefined:hy(hd),hm=he?he['writable']!==![]:!![],hS=he?he['enumerable']!==![]:!![],hs=he?he['configurable']!==![]:!![],hg;if(hT)hg=hY,hv[hd]=0x1,hd in ht&&delete ht[hd],hd in hp&&delete hp[hd];else{let hx='value'in hY?hY['value']:hB,o0='writable'in hY?hY['writable']:hm,o1='enumerable'in hY?hY['enumerable']:hS,o2='configurable'in hY?hY['configurable']:hs;hg={'value':hx,'writable':o0,'enumerable':o1,'configurable':o2},'value'in hY&&(!(hd in hv)&&(hd<z9&&!(hd in hp)?rI[hd]=hY['value']:(ht[hd]=hY['value'],hd in hp&&delete hp[hd]))),'writable'in hY&&hY['writable']===![]&&(hv[hd]=0x1,hd in ht&&delete ht[hd],hd in hp&&delete hp[hd]);}return k(hb,String(hd),hg),!![];}return k(hb,hZ,hY),!![];},'deleteProperty':function(hb,hZ){if(hZ==='callee')return hf=!![],delete hb['callee'],!![];let hY=hF(hZ);if(hN(hY)){let hT=n(hb,String(hY));if(hT&&hT['configurable']===![])return![];return hY in hv&&delete hv[hY],hY<z9?hp[hY]=0x1:delete ht[hY],delete hb[hZ],!![];}let hd=n(hb,hZ);if(hd&&hd['configurable']===![])return![];return delete hb[hZ],!![];},'preventExtensions':function(hb){let hZ=z9;for(let hY=0x0;hY<hZ;hY++){!(hY in hp)&&!n(hb,String(hY))&&k(hb,String(hY),{'value':hy(hY),'writable':!![],'enumerable':!![],'configurable':!![]});}for(let hd in ht){!n(hb,hd)&&k(hb,hd,{'value':ht[hd],'writable':!![],'enumerable':!![],'configurable':!![]});}return Object['preventExtensions'](hb),!![];},'getOwnPropertyDescriptor':function(hb,hZ){if(hZ==='callee'){if(hf)return undefined;return n(hb,'callee');}if(hZ==='length')return n(hb,'length');let hY=hF(hZ);if(hN(hY)){if(hY in hv)return n(hb,hZ);if(ha(hY)){let hT=n(hb,String(hY));return{'value':hy(hY),'writable':hT?hT['writable']:!![],'enumerable':hT?hT['enumerable']:!![],'configurable':hT?hT['configurable']:!![]};}return n(hb,hZ);}let hd=n(hb,hZ);if(hd)return hd;return undefined;},'ownKeys':function(hb){let hZ=[],hY=z9;for(let hT=0x0;hT<hY;hT++){!(hT in hp)&&hZ['push'](String(hT));}for(let he in ht){hZ['indexOf'](he)===-0x1&&hZ['push'](he);}hZ['push']('length');!hf&&hZ['push']('callee');let hd=Reflect['ownKeys'](hb);for(let hB=0x0;hB<hd['length'];hB++){hZ['indexOf'](hd[hB])===-0x1&&hZ['push'](hd[hB]);}return hZ;}});}}rJ[rG++]=zr,rW++;break;}case 0xa8:{let hb=zH&0xffff,hZ=zH>>>0x10;rJ[rG++]=rI[hb]-rq[hZ],rW++;break;}case 0x11d:{rJ[rG-0x1]=rJ[rG-0x1]|0x0,rW++;break;}case 0x93:{if(zH===-0x1)rJ[rG++]=Symbol();else{let hY=rJ[--rG];rJ[rG++]=Symbol(hY);}rW++;break;}case 0x8e:{let hd=rJ[--rG],hT=hd,he=0x0&&typeof hd!=='object'?rU(hd,0x1):undefined,hB,hm,hS,hs,hg,hx,o0,o1;if(he)hm=he[0x0]&0x1,hS=he[0x0]&0x2,hs=he[0x0]&0x4,hg=he[0x0]&0x8,o0=he[0x0]&0x10,hx=he[0x1]||0x0,o1=he[0x2]||undefined,hB={'n':hd};else{hB=typeof hd==='object'?hd:rU(hd);let o5=hB&&rh(hB[0x20],hB[0x21]);hm=hB&&hB[0xd*o5[0x0]+o5[0x1]&0x1f],hS=hB&&hB[0xf*o5[0x0]+o5[0x1]&0x1f],hs=hB&&hB[0x14*o5[0x0]+o5[0x1]&0x1f],hg=hB&&hB[0x4*o5[0x0]+o5[0x1]&0x1f],hx=hB&&hB[0x20]||0x0,o0=hB&&hB[0x3*o5[0x0]+o5[0x1]&0x1f];let o6=hB&&hB[0xe*o5[0x0]+o5[0x1]&0x1f];o1=o6!==undefined?hB[0x5*o5[0x0]+o5[0x1]&0x1f][o6]:undefined;}hd=0x0&&typeof hT!=='object'?{'n':hT}:hB;let o2=hm?z3:undefined,o3=z8,o4;if(hs)o4=kD(rQ,hd,o3,N,o0,vmX,hS);else{if(hS)hm?o4=kw(ri,hd,o3,o2):o4=kV(ri,hd,o3,o0,vmX);else{if(hm){o4=kK(kJ,hd,o3,o2);let o7=vmh_89ae91['_$pgruUw'];o7===undefined&&rM&&B['has'](rM)&&(o7=B['get'](rM)),o7!==undefined&&B['set'](o4,o7);}else o4=kH(kJ,hd,o3,o0,vmX,hg);}}k4(o4,'length',{'value':hx,'writable':![],'enumerable':![],'configurable':!![]});o1!==undefined&&k4(o4,'name',{'value':o1,'writable':![],'enumerable':![],'configurable':!![]});rJ[rG++]=o4,rW++;break;}case 0xfb:{let o8=rJ[--rG],o9=rJ[--rG],ok=rJ[--rG];if(ok===null||ok===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+ok+'\x20(setting\x20'+(typeof o9==='symbol'?'\x27'+o9['toString']()+'\x27':typeof o9==='string'?'\x27'+o9+'\x27':typeof o9==='object'||typeof o9==='function'?'\x27<computed\x20key>\x27':'\x27'+String(o9)+'\x27')+')');if(rx){let or=typeof ok==='object'||typeof ok==='function'?ok:Object(ok);if(!Reflect['set'](or,o9,o8,ok))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(o9)+'\x27\x20of\x20object');}else ok[o9]=o8;rJ[rG++]=o8,rW++;break;}}};while(rW<rv){try{while(rW<rv){let zl=rW<<ra,zH=rt[rN+zl],zV=rt[ry+zl];switch(zU[zH]){case 0x1:{let zD=rJ[--rG],zK=rJ[--rG];rJ[rG++]=zK+zD,rW++;continue;}case 0x2:{rJ[rG-0x1]=rJ[rG-0x1]>>>0x0,rW++;continue;}case 0x3:{let zw=rJ[--rG],zI=rJ[--rG];rJ[rG++]=zI-zw,rW++;continue;}case 0x4:{rJ[--rG],rW++;continue;}case 0x5:{let zL=zV&0xffff,zO=zV>>>0x10,zj=rf[zL],zM=rq[zO];if(zj===null||zj===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+zj+'\x20(reading\x20'+'\x27'+String(zM)+'\x27'+')');rJ[rG++]=zj[zM],rW++;continue;}case 0x6:{rf[zV]=rJ[--rG],rW++;continue;}case 0x7:{let zJ=zV&0xffff,zG=zV>>>0x10;rJ[rG++]=rf[zJ]-rq[zG],rW++;continue;}case 0x8:{let zR=zV&0xffff,zq=zV>>>0x10;rJ[rG++]=rf[zR]*rq[zq],rW++;continue;}case 0x9:{let zt=rJ[--rG],zp=rJ[--rG];rJ[rG++]=zp>=zt,rW++;continue;}case 0xa:{let zu=zV&0xffff,zf=zV>>>0x10;rJ[rG++]=rf[zu]+rq[zf],rW++;continue;}case 0xb:{let zW=zV&0xffff,zv=zV>>>0x10;rJ[rG++]=rI[zW]<=rq[zv],rW++;continue;}case 0xc:{let zF=rf[zV];if((typeof zF==='object'||typeof zF==='function')&&zF!==null){const zN=zF[Symbol['toPrimitive']];if(zN!=null){zF=zN['call'](zF,'number');if(zF!==null&&(typeof zF==='object'||typeof zF==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const zy=zF['valueOf']();if(zy===null||typeof zy!=='object'&&typeof zy!=='function')zF=zy;else{const za=zF['toString']();if(za!==null&&(typeof za==='object'||typeof za==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');zF=za;}}}rf[zV]=typeof zF===p?zF-0x1n:+zF-0x1,rW++;continue;}case 0xd:{let zE=rI[zV];if((typeof zE==='object'||typeof zE==='function')&&zE!==null){const zb=zE[Symbol['toPrimitive']];if(zb!=null){zE=zb['call'](zE,'number');if(zE!==null&&(typeof zE==='object'||typeof zE==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const zZ=zE['valueOf']();if(zZ===null||typeof zZ!=='object'&&typeof zZ!=='function')zE=zZ;else{const zY=zE['toString']();if(zY!==null&&(typeof zY==='object'||typeof zY==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');zE=zY;}}}rI[zV]=typeof zE===p?zE-0x1n:+zE-0x1,rW++;continue;}case 0xe:{rJ[--rG]?rW=rp[rW]:rW++;continue;}case 0xf:{let zd=rJ[--rG];if((typeof zd==='object'||typeof zd==='function')&&zd!==null){const zT=zd[Symbol['toPrimitive']];if(zT!=null){zd=zT['call'](zd,'number');if(zd!==null&&(typeof zd==='object'||typeof zd==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const ze=zd['valueOf']();if(ze===null||typeof ze!=='object'&&typeof ze!=='function')zd=ze;else{const zB=zd['toString']();if(zB!==null&&(typeof zB==='object'||typeof zB==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');zd=zB;}}}rJ[rG++]=typeof zd===p?zd+0x1n:+zd+0x1,rW++;continue;}case 0x10:{let zm=rJ[--rG];if((typeof zm==='object'||typeof zm==='function')&&zm!==null){const zS=zm[Symbol['toPrimitive']];if(zS!=null){zm=zS['call'](zm,'number');if(zm!==null&&(typeof zm==='object'||typeof zm==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const zs=zm['valueOf']();if(zs===null||typeof zs!=='object'&&typeof zs!=='function')zm=zs;else{const zg=zm['toString']();if(zg!==null&&(typeof zg==='object'||typeof zg==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');zm=zg;}}}rJ[rG++]=typeof zm===p?zm:+zm,rW++;continue;}case 0x11:{rJ[rG++]=rq[zV],rW++;continue;}case 0x12:{rJ[rG++]=rI[zV],rW++;continue;}case 0x13:{rf[zV]=rf[zV]-0x1,rW++;continue;}case 0x14:{let zx=rJ[--rG];zx!==null&&zx!==undefined?rW=rp[rW]:rW++;continue;}case 0x15:{rJ[rG++]=null,rW++;continue;}case 0x16:{rJ[rG++]=rf[zV],rW++;continue;}case 0x17:{let C0=rJ[rG-0x1],C1=rq[zV];if(C0===null||C0===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+C0+'\x20(reading\x20'+'\x27'+String(C1)+'\x27'+')');rJ[rG++]=C0[C1],rW++;continue;}case 0x18:{let C2=rJ[--rG],C3=rJ[--rG];rJ[rG++]=C3/C2,rW++;continue;}case 0x19:{let C4=zV&0xffff,C5=zV>>>0x10,C6=z8;for(let C9=0x0;C9<C5;C9++){C6=C6['_$hqCtQl'];}let C7=C6['_$Oewzd2'],C8=C7[C4];if(C8===C7){let Ck=C6['_$uS9lzo'];throw new ReferenceError('Cannot\x20access\x20\x27'+(Ck&&Ck[C4]||'variable')+'\x27\x20before\x20initialization');}rJ[rG++]=C8,rW++;continue;}case 0x1a:{let Cr=rJ[--rG];if((typeof Cr==='object'||typeof Cr==='function')&&Cr!==null){const Cz=Cr[Symbol['toPrimitive']];if(Cz!=null){Cr=Cz['call'](Cr,'number');if(Cr!==null&&(typeof Cr==='object'||typeof Cr==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const CC=Cr['valueOf']();if(CC===null||typeof CC!=='object'&&typeof CC!=='function')Cr=CC;else{const CP=Cr['toString']();if(CP!==null&&(typeof CP==='object'||typeof CP==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Cr=CP;}}}rJ[rG++]=typeof Cr===p?Cr-0x1n:+Cr-0x1,rW++;continue;}case 0x1b:{let Ch=rJ[--rG],Co=rJ[--rG],Cn=rJ[--rG];if(Cn===null||Cn===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+Cn+'\x20(setting\x20'+(typeof Co==='symbol'?'\x27'+Co['toString']()+'\x27':typeof Co==='string'?'\x27'+Co+'\x27':typeof Co==='object'||typeof Co==='function'?'\x27<computed\x20key>\x27':'\x27'+String(Co)+'\x27')+')');if(rx){let CX=typeof Cn==='object'||typeof Cn==='function'?Cn:Object(Cn);if(!Reflect['set'](CX,Co,Ch,Cn))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(Co)+'\x27\x20of\x20object');}else Cn[Co]=Ch;rJ[rG++]=Ch,rW++;continue;}case 0x1c:{rJ[rG-0x1]?rW=rp[rW]:(rJ[--rG],rW++);continue;}case 0x1d:{if(z1&&!zz){let CQ=kc(z8);if(CQ!==undefined)rj=CQ,zz=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let CU=rj,Ci=rq[zV];if(CU===null||CU===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+CU+'\x20(reading\x20'+'\x27'+String(Ci)+'\x27'+')');rJ[rG++]=CU[Ci],rW++;continue;}case 0x1e:{rJ[rG++]=rq[zV],rW++;continue;}case 0x1f:{rJ[rG-0x1]=rJ[rG-0x1]|0x0,rW++;continue;}case 0x20:{let Cc=rJ[--rG],CA=rJ[--rG];rJ[rG++]=CA!==Cc,rW++;continue;}case 0x21:{let Cl=rJ[--rG],CH=rJ[--rG];rJ[rG++]=CH>Cl,rW++;continue;}case 0x22:{let CV=rf[zV];if((typeof CV==='object'||typeof CV==='function')&&CV!==null){const CD=CV[Symbol['toPrimitive']];if(CD!=null){CV=CD['call'](CV,'number');if(CV!==null&&(typeof CV==='object'||typeof CV==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const CK=CV['valueOf']();if(CK===null||typeof CK!=='object'&&typeof CK!=='function')CV=CK;else{const Cw=CV['toString']();if(Cw!==null&&(typeof Cw==='object'||typeof Cw==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');CV=Cw;}}}rf[zV]=typeof CV===p?CV+0x1n:+CV+0x1,rW++;continue;}case 0x23:{let CI=zV&0xffff,CL=zV>>>0x10;rJ[rG++]=rI[CI]-rq[CL],rW++;continue;}case 0x24:{let CO=rJ[--rG],Cj=rJ[--rG];rJ[rG++]=Cj!=CO,rW++;continue;}case 0x25:{!rJ[--rG]?rW=rp[rW]:rW++;continue;}case 0x26:{let CM=rJ[--rG],CJ=rJ[--rG];rJ[rG++]=CJ===CM,rW++;continue;}case 0x27:{rf[zV]=rf[zV]+0x1,rW++;continue;}case 0x28:{let CG=rJ[--rG],CR=rJ[--rG];if(CR===null||CR===undefined){if(CG===Symbol['iterator'])throw new TypeError((CR===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+CR+'\x20(reading\x20'+(typeof CG==='symbol'?'\x27'+CG['toString']()+'\x27':typeof CG==='string'?'\x27'+CG+'\x27':typeof CG==='object'||typeof CG==='function'?'\x27<computed\x20key>\x27':'\x27'+String(CG)+'\x27')+')');}rJ[rG++]=CR[CG],rW++;continue;}case 0x29:{rJ[rG++]=undefined,rW++;continue;}case 0x2a:{rW=rp[rW];continue;}case 0x2b:{let Cq=rJ[--rG],Ct=rJ[--rG];rJ[rG++]=Ct*Cq,rW++;continue;}case 0x2c:{!rJ[rG-0x1]?rW=rp[rW]:(rJ[--rG],rW++);continue;}case 0x2d:{let Cp=rJ[--rG],Cu=rJ[--rG];rJ[rG++]=Cu%Cp,rW++;continue;}case 0x2e:{let Cf=rJ[rG-0x1];rJ[rG++]=Cf,rW++;continue;}case 0x2f:{let CW=rJ[--rG],Cv=rJ[--rG];rJ[rG++]=Cv<=CW,rW++;continue;}case 0x30:{let CF=zV&0xffff,CN=zV>>>0x10;rJ[rG++]=rf[CF]<rq[CN],rW++;continue;}case 0x31:{rI[zV]=rJ[--rG],rW++;continue;}case 0x32:{let Cy=rJ[--rG],Ca=rJ[--rG];rJ[rG++]=Ca<Cy,rW++;continue;}case 0x33:{let CE=rJ[--rG],Cb=rJ[--rG],CZ=(zV^0x8347)>>>0x0,CY;CZ<0x10?CZ<0x8?CZ<0x4?CZ<0x2?CY=CZ<0x1?Cb-CE:Cb<CE:CY=CZ<0x3?Cb>CE:Cb/CE:CZ<0x6?CY=CZ<0x5?Cb>=CE:Cb!==CE:CY=CZ<0x7?Cb!=CE:Cb^CE:CZ<0xc?CZ<0xa?CY=CZ<0x9?Cb<=CE:Cb+CE:CY=CZ<0xb?Cb<<CE:Cb*CE:CZ<0xe?CY=CZ<0xd?Cb|CE:Cb%CE:CY=CZ<0xf?Cb>>>CE:Cb&CE:CZ<0x14?CZ<0x12?CY=CZ<0x11?Cb**CE:Cb===CE:CY=CZ<0x13?Cb==CE:Cb>>CE:CZ<0x18?CY=CZ<0x16?Cb|CE:Cb&CE:CY=CZ<0x1c?Cb^CE:CE-Cb;rJ[rG++]=CY,rW++;continue;}case 0x34:{let Cd=rJ[--rG],CT=rJ[--rG],Ce=rq[zV];if(CT===null||CT===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+CT+'\x20(setting\x20'+'\x27'+String(Ce)+'\x27'+')');if(rx){let CB=typeof CT==='object'||typeof CT==='function'?CT:Object(CT);if(!Reflect['set'](CB,Ce,Cd,CT))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(Ce)+'\x27\x20of\x20object');}else CT[Ce]=Cd;rJ[rG++]=Cd,rW++;continue;}case 0x35:{let Cm=rI[zV];if((typeof Cm==='object'||typeof Cm==='function')&&Cm!==null){const CS=Cm[Symbol['toPrimitive']];if(CS!=null){Cm=CS['call'](Cm,'number');if(Cm!==null&&(typeof Cm==='object'||typeof Cm==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const Cs=Cm['valueOf']();if(Cs===null||typeof Cs!=='object'&&typeof Cs!=='function')Cm=Cs;else{const Cg=Cm['toString']();if(Cg!==null&&(typeof Cg==='object'||typeof Cg==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Cm=Cg;}}}rI[zV]=typeof Cm===p?Cm+0x1n:+Cm+0x1,rW++;continue;}case 0x36:{let Cx=rJ[--rG],P0=rq[zV];if(Cx===null||Cx===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Cx+'\x20(reading\x20'+'\x27'+String(P0)+'\x27'+')');rJ[rG++]=Cx[P0],rW++;continue;}case 0x37:{let P1=rJ[--rG],P2=rJ[--rG];rJ[rG++]=P2==P1,rW++;continue;}}if(zH<0x7c){if(zn(zH,zV)){if(zh>0x0){for(let P3=zC-0x1;P3>=0x0;P3--){rf[P3]=zP[--zh];}rW=zP[--zh],zr=zP[--zh],rI=zP[--zh],zk=zP[--zh],z8=zP[--zh],rG=zP[--zh],rJ[rG++]=zo,rW++;continue;}return zo;}}else{if(zX(zH,zV)){if(zh>0x0){for(let P4=zC-0x1;P4>=0x0;P4--){rf[P4]=zP[--zh];}rW=zP[--zh],zr=zP[--zh],rI=zP[--zh],zk=zP[--zh],z8=zP[--zh],rG=zP[--zh],rJ[rG++]=zo,rW++;continue;}return zo;}}}break;}catch(P5){W=0x0;if(rE&&rE['length']>0x0){let P6=rE[rE['length']-0x1];rG=P6['_$1Pyucq'];P6['_$ka9dHy']!==undefined&&(z8=P6['_$ka9dHy']);if(P6['_$G0ywXp']!==undefined)rb=null,z5(P5),rW=P6['_$G0ywXp'],P6['_$G0ywXp']=undefined,P6['_$50e6p1']===undefined&&rE['pop']();else P6['_$50e6p1']!==undefined?(rW=P6['_$50e6p1'],P6['_$nKuEAm']=P5):(rW=P6['_$Q1YSaw'],rE['pop']());continue;}throw P5;}}if(z1&&!zz){let P7=kc(z8);P7!==undefined&&(rj=P7,zz=!![]);}let zi=rG>0x0?rJ[--rG]:zz?rj:undefined;if(z1&&!zz&&(zi===undefined||zi===null||typeof zi!=='object'&&typeof zi!=='function'))throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return zi;}function kL(rw,rI,rL,rO,rj,rM){let rJ=[void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0],rG=0x0,rR=rh(rw[0x20],rw[0x21]),rq,rt,rp,ru;switch(rR[0x1]&0x3){case 0x0:rt=rw[0x10*rR[0x0]+rR[0x1]&0x1f],rq=rw[0x5*rR[0x0]+rR[0x1]&0x1f],rp=rw[0xa*rR[0x0]+rR[0x1]&0x1f]||u,ru=rw[0x12*rR[0x0]+rR[0x1]&0x1f]||u;break;case 0x1:rq=rw[0x5*rR[0x0]+rR[0x1]&0x1f],rp=rw[0xa*rR[0x0]+rR[0x1]&0x1f]||u,ru=rw[0x12*rR[0x0]+rR[0x1]&0x1f]||u,rt=rw[0x10*rR[0x0]+rR[0x1]&0x1f];break;case 0x2:rp=rw[0xa*rR[0x0]+rR[0x1]&0x1f]||u,ru=rw[0x12*rR[0x0]+rR[0x1]&0x1f]||u,rt=rw[0x10*rR[0x0]+rR[0x1]&0x1f],rq=rw[0x5*rR[0x0]+rR[0x1]&0x1f];break;default:ru=rw[0x12*rR[0x0]+rR[0x1]&0x1f]||u,rt=rw[0x10*rR[0x0]+rR[0x1]&0x1f],rq=rw[0x5*rR[0x0]+rR[0x1]&0x1f],rp=rw[0xa*rR[0x0]+rR[0x1]&0x1f]||u;break;}let rf=new Array((rw[0x20]||0x0)+(rw[0x21]||0x0)),rW=0x0,rv=rt['length']>>0x1,rF=(rw[0x20]*0x864f^rw[0x21]*0xbceb^rv*0xc963^rq['length']*0xf12d)>>>0x0&0x3,rN,ry,ra;switch(rF){case 0x1:rN=0x0,ry=0x1,ra=0x1;break;case 0x2:rN=0x0,ry=rv,ra=0x0;break;case 0x3:rN=rv,ry=0x0,ra=0x0;break;default:rN=0x1,ry=0x0,ra=0x1;break;}let rE=null,rb=null,rZ=![],rY=undefined,rd=![],rT=0x0,re=undefined,rB=![],rm=0x0,rS=undefined,rs=-0x1,rg=-0x1,rx=!!rw[0x3*rR[0x0]+rR[0x1]&0x1f],z0=!!rw[0x9*rR[0x0]+rR[0x1]&0x1f],z1=!!rw[0x16*rR[0x0]+rR[0x1]&0x1f],z2=!!rw[0x11*rR[0x0]+rR[0x1]&0x1f],z3=rj,z4=!!rw[0xd*rR[0x0]+rR[0x1]&0x1f];!rx&&!z4&&(rj===undefined||rj===null)&&(rj=vmX);let z5=rw[0x1*rR[0x0]+rR[0x1]&0x1f],z6,z7,z8,z9,zk,zr;if(z5!==undefined){let zc=zA=>typeof zA==='number'&&(zA|0x0)===zA&&!Object['is'](zA,-0x0)?zA^z5|0x0:zA;z6=zA=>{rJ[rG++]=zc(zA);},z7=()=>zc(rJ[--rG]),z8=()=>zc(rJ[rG-0x1]),z9=zA=>{rJ[rG-0x1]=zc(zA);},zk=zA=>zc(rJ[rG-zA]),zr=(zA,zl)=>{rJ[rG-zA]=zc(zl);};}else z6=zA=>{rJ[rG++]=zA;},z7=()=>rJ[--rG],z8=()=>rJ[rG-0x1],z9=zA=>{rJ[rG-0x1]=zA;},zk=zA=>rJ[rG-zA],zr=(zA,zl)=>{rJ[rG-zA]=zl;};let zz=rw[0x0*rR[0x0]+rR[0x1]&0x1f]||0x0,zC={['_$Oewzd2']:zz?new Array(zz)['fill'](void 0x0):u,['_$jg6o0g']:null,['_$FKgfCN']:-0x1,['_$hqCtQl']:rL};if(rI){let zA=rw[0x20]||0x0;for(let zl=0x0,zH=rI['length']<zA?rI['length']:zA;zl<zH;zl++){rf[zl]=rI[zl];}}let zP=rI?rI['length']:0x0,zh=(rx||!z0)&&rI?kh(rI):null,zo=null,zn=![],zX=(rw[0x20]||0x0)+(rw[0x21]||0x0),zU=null,zi=0x0;kl(rM,rw,rL,rR);function zQ(zV,zD){if(zV===0x1)z6(zD);else{if(zV===0x2){if(rE&&rE['length']>0x0){let zj=rE[rE['length']-0x1];rG=zj['_$1Pyucq'];zj['_$ka9dHy']!==undefined&&(zC=zj['_$ka9dHy']);if(zj['_$G0ywXp']!==undefined)z6(zD),rW=zj['_$G0ywXp'],zj['_$G0ywXp']=undefined,zj['_$50e6p1']===undefined&&rE['pop']();else zj['_$50e6p1']!==undefined?(rW=zj['_$50e6p1'],zj['_$nKuEAm']=zD):(rW=zj['_$Q1YSaw'],rE['pop']());}else throw zD;}else{if(zV===0x3){let zM=zD;while(rE&&rE['length']>0x0){let zJ=rE[rE['length']-0x1];if(zJ['_$50e6p1']!==undefined)break;rE['pop']();}if(rE&&rE['length']>0x0){let zG=rE[rE['length']-0x1];if(zG['_$50e6p1']!==undefined)rb=null,rd=![],rT=0x0,re=undefined,rB=![],rm=0x0,rS=undefined,rZ=!![],rY=zM,rs=zG['_$xi1r70'],rg=zG['_$Q1YSaw'],rW=zG['_$50e6p1'];else return zM;}else return zM;}}}var zK,zw,zI,zL;zL=[0x0,0x2e,0x0,0xb,0x0,0x0,0x0,0x0,0x9,0x15,0x1c,0x0,0x0,0x0,0x34,0x0,0x0,0x0,0x0,0x2b,0x0,0x12,0x0,0x0,0x21,0x0,0x0,0x1a,0x27,0xd,0x0,0x0,0x24,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x22,0x0,0x0,0x30,0x0,0x0,0x0,0xa,0x0,0x0,0x0,0x0,0xf,0x0,0x35,0x0,0x0,0xe,0x0,0x0,0x1e,0x6,0x2f,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2a,0x0,0x13,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x11,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x36,0x0,0x0,0x0,0x0,0x0,0x0,0x14,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x32,0x0,0x0,0x0,0x0,0x0,0x18,0x0,0x37,0x0,0x0,0x5,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x33,0x0,0x0,0x25,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0xc,0x0,0x0,0x0,0x0,0x23,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2d,0x10,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1d,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x2c,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1b,0x3,0x0,0x0,0x16,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2,0x26,0x0,0x0,0x29,0x8,0x0,0x0,0x0,0x0,0x0,0x0,0x20,0x0,0x0,0x0,0x1f,0x31,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x19,0x7,0x4,0x0,0x0,0x28,0x0,0x17],zw=function(zR,zq){switch(zR){case 0x78:{let zu=zq,zf=rJ[--rG];zC['_$Oewzd2'][zu]=zf,rW++;break;}case 0x64:{let zW=rJ[--rG];zW!==null&&zW!==undefined?rW=rp[rW]:rW++;break;}case 0x16:{let zv=rJ[--rG];if(zv==null)throw new TypeError(zv+'\x20is\x20not\x20iterable');let zF=zv[s];if(Array['isArray'](zv)&&zF===S)rJ[rG++]={['_$uklCC6']:zv,['_$DwcVPq']:0x0},rW++;else{if(typeof zF!=='function')throw new TypeError(zv+'\x20is\x20not\x20iterable');let zN=o(zF,zv,[]);kr(zN);let zy=zN['next'];rJ[rG++]={'i':zN,'n':zy},rW++;}break;}case 0x38:{let za=rJ[--rG],zE=rJ[--rG],zb=rq[zq];k(zE,zb,{'value':za,'writable':!![],'enumerable':!![],'configurable':!![]});typeof za==='function'&&(!vmh_89ae91['_$Ef7RTO']&&(vmh_89ae91['_$Ef7RTO']=new WeakMap()),A['call'](vmh_89ae91['_$Ef7RTO'],za,zE));rW++;break;}case 0x11:{let zZ=rJ[--rG],zY=rJ[rG-0x1],zd=rq[zq],zT=ko(zY);k(zT,zd,{'set':zZ,'enumerable':zT===zY,'configurable':!![]}),rW++;break;}case 0x34:{let ze=rJ[--rG];if((typeof ze==='object'||typeof ze==='function')&&ze!==null){const zB=ze[Symbol['toPrimitive']];if(zB!=null){ze=zB['call'](ze,'number');if(ze!==null&&(typeof ze==='object'||typeof ze==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const zm=ze['valueOf']();if(zm===null||typeof zm!=='object'&&typeof zm!=='function')ze=zm;else{const zS=ze['toString']();if(zS!==null&&(typeof zS==='object'||typeof zS==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');ze=zS;}}}rJ[rG++]=typeof ze===p?ze+0x1n:+ze+0x1,rW++;break;}case 0x1d:{let zs=rI[zq];if((typeof zs==='object'||typeof zs==='function')&&zs!==null){const zg=zs[Symbol['toPrimitive']];if(zg!=null){zs=zg['call'](zs,'number');if(zs!==null&&(typeof zs==='object'||typeof zs==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const zx=zs['valueOf']();if(zx===null||typeof zx!=='object'&&typeof zx!=='function')zs=zx;else{const C0=zs['toString']();if(C0!==null&&(typeof C0==='object'||typeof C0==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');zs=C0;}}}rI[zq]=typeof zs===p?zs-0x1n:+zs-0x1,rW++;break;}case 0x13:{let C1=rJ[--rG],C2=rJ[--rG];rJ[rG++]=C2*C1,rW++;break;}case 0x37:{let C3=rJ[--rG],C4=rJ[--rG],C5=rJ[rG-0x1];k(C5['prototype'],C4,{'value':C3,'writable':!![],'enumerable':![],'configurable':!![]});typeof C3==='function'&&(!vmh_89ae91['_$Ef7RTO']&&(vmh_89ae91['_$Ef7RTO']=new WeakMap()),A['call'](vmh_89ae91['_$Ef7RTO'],C3,C5['prototype']));rW++;break;}case 0x33:{rJ[rG++]=rO,rW++;break;}case 0x39:{rJ[--rG]?rW=rp[rW]:rW++;break;}case 0x5d:{let C6=rJ[--rG],C7=rq[zq];if(C6===null||C6===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+C6+'\x20(reading\x20'+'\x27'+String(C7)+'\x27'+')');rJ[rG++]=C6[C7],rW++;break;}case 0x5:{let C8=rJ[--rG],C9;if(C8===null||C8===undefined)throw new TypeError(C8+'\x20is\x20not\x20iterable');let Ck=C8[s];if(Array['isArray'](C8)&&Ck===S){let Cz=C8['length'];C9=new Array(Cz);for(let CC=0x0;CC<Cz;CC++){C9[CC]=C8[CC];}}else{if(Ck===null||Ck===undefined||typeof Ck!=='function')throw new TypeError(C8+'\x20is\x20not\x20iterable');let CP=o(Ck,C8,[]);if(CP===null||typeof CP!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');C9=[];while(!![]){let Ch=CP['next']();kr(Ch);if(Ch['done'])break;C9['push'](Ch['value']);}}let Cr={'value':C9};l['call'](F,Cr),rJ[rG++]=Cr,rW++;break;}case 0xc:{let Co=rJ[--rG],Cn=rJ[--rG],CX={};if(Cn!==null&&Cn!==undefined){let CU=Object(Cn),Ci=Reflect['ownKeys'](CU);for(let CQ=0x0;CQ<Ci['length'];CQ++){let Cc=Ci[CQ],CA=![];for(let CH=0x0;CH<Co['length'];CH++){let CV=Co[CH];if((typeof CV==='symbol'?CV:String(CV))===Cc){CA=!![];break;}}if(CA)continue;let Cl=n(CU,Cc);Cl!==undefined&&Cl['enumerable']&&k(CX,Cc,{'value':CU[Cc],'writable':!![],'enumerable':!![],'configurable':!![]});}}rJ[rG++]=CX,rW++;break;}case 0x54:{rJ[rG++]=rq[zq],rW++;break;}case 0x15:{rJ[rG++]=rI[zq],rW++;break;}case 0x1a:{let CD=rJ[--rG],CK=rq[zq];if(vmh_89ae91['_$vpyVbT']&&CK in vmh_89ae91['_$vpyVbT'])throw new ReferenceError('Cannot\x20access\x20\x27'+CK+'\x27\x20before\x20initialization');let Cw=!(CK in vmh_89ae91)&&!(CK in vmX);vmh_89ae91[CK]=CD;CK in vmX&&(vmX[CK]=CD);Cw&&(vmX[CK]=CD);rJ[rG++]=CD,rW++;break;}case 0x2b:{let CI=zq&0xffff,CL=zq>>>0x10;rJ[rG++]=rf[CI]<rq[CL],rW++;break;}case 0x2e:{rJ[rG++]={},rW++;break;}case 0xd:{throw rJ[--rG];break;}case 0x6b:{let CO=rJ[--rG];rJ[rG++]=import(CO),rW++;break;}case 0x79:{let Cj=rJ[--rG],CM=rJ[--rG];rJ[rG++]=CM<Cj,rW++;break;}case 0x8:{let CJ=rJ[--rG],CG=rJ[--rG];rJ[rG++]=CG>=CJ,rW++;break;}case 0x6e:{let CR=rJ[--rG],Cq=rJ[rG-0x1],Ct=rq[zq];k(Cq,Ct,{'set':CR,'enumerable':![],'configurable':!![]}),rW++;break;}case 0x12:{rJ[rG++]=vmi[zq],rW++;break;}case 0x51:{let Cp=rq[zq],Cu=rJ[--rG],Cf=rJ[--rG];if(typeof Cu!=='function')throw new TypeError(Cu+'\x20is\x20not\x20a\x20function');let CW=vmh_89ae91['_$Ef7RTO'],Cv=CW&&Q['call'](CW,Cu);!Cv&&CW&&(Cu===P||Cu===i)&&(Cv=Q['call'](CW,Cf));let CF=vmh_89ae91['_$VgdMyk'];Cv&&(vmh_89ae91['_$7NuQBd']=!![],vmh_89ae91['_$VgdMyk']=Cv);let CN;try{if(Cp===0x0)CN=o(Cu,Cf,u);else{if(Cp===0x1){let Cy=rJ[--rG];CN=Cy&&typeof Cy==='object'&&U['call'](F,Cy)?o(Cu,Cf,Cy['value']):o(Cu,Cf,[Cy]);}else CN=o(Cu,Cf,k5(z7,Cp));}rJ[rG++]=CN;}finally{Cv&&(vmh_89ae91['_$7NuQBd']=![],vmh_89ae91['_$VgdMyk']=CF);}rW++;break;}case 0x3:{let Ca=zq&0xffff,CE=zq>>>0x10;rJ[rG++]=rI[Ca]<=rq[CE],rW++;break;}case 0xf:{zC=zC['_$hqCtQl'],rW++;break;}case 0x2f:{let Cb=zq&0xffff,CZ=zq>>>0x10;rJ[rG++]=rf[Cb]+rq[CZ],rW++;break;}case 0x29:{k:{let CY=rJ[--rG],Cd=rJ[rG-0x1];if(CY===null){r(Cd['prototype'],null),r(Cd,Function['prototype']),Cd['_$cnAhaa']=null,rW++;break k;}if(typeof CY!=='function')throw new TypeError('Class\x20extends\x20value\x20'+String(CY)+'\x20is\x20not\x20a\x20constructor\x20or\x20null');let CT=![],Ce=T(CY);if(!Ce){let CB=n(CY,'prototype');CT=!!CB&&CB['writable']===![];}if(CT){let Cm=Cd,CS=vmh_89ae91,Cs='_$4yNSDH',Cg='_$pgruUw',Cx='_$50oEfs';function zp(...P0){if(new.target===undefined)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');let P1=h(CY['prototype']);CS[Cx]={'parent':CY,'newTarget':new.target||zp,'outer':zp},CS[Cg]=new.target||zp;let P2=Cs in CS;!P2&&(CS[Cs]=new.target);try{let P3=E(Cm,P1,P0);P3!==undefined&&P3!==null&&k6(P3)&&(P1=P3);}finally{delete CS[Cx],delete CS[Cg],!P2&&delete CS[Cs];}return P1;}zp['prototype']=h(CY['prototype']),zp['prototype']['constructor']=zp,r(zp,CY),z(Cm)['forEach'](function(P0){P0!=='prototype'&&P0!=='name'&&k4(zp,P0,n(Cm,P0));});Cm['prototype']&&(z(Cm['prototype'])['forEach'](function(P0){P0!=='constructor'&&k4(zp['prototype'],P0,n(Cm['prototype'],P0));}),X(Cm['prototype'])['forEach'](function(P0){k4(zp['prototype'],P0,n(Cm['prototype'],P0));}));rJ[--rG],rJ[rG++]=zp,zp['_$cnAhaa']=CY,rW++;break k;}r(Cd['prototype'],CY['prototype']),r(Cd,CY),Cd['_$cnAhaa']=CY,rW++;}break;}case 0x2d:{r:{let P0=rp[rW];while(rE&&rE['length']>0x0){let P1=rE[rE['length']-0x1];if(P1['_$50e6p1']!==undefined||!(P0>=P1['_$Q1YSaw']||P0<=P1['_$xi1r70']))break;rE['pop']();}if(rE&&rE['length']>0x0){let P2=rE[rE['length']-0x1];if(P2['_$50e6p1']!==undefined&&(P0>=P2['_$Q1YSaw']||P0<=P2['_$xi1r70'])){rb=null,rZ=![],rY=undefined,rd=![],rT=0x0,re=undefined,rB=!![],rm=P0,rS=zC,rs=P2['_$xi1r70'],rg=P2['_$Q1YSaw'],rW=P2['_$50e6p1'];break r;}}(rZ||rd||rB||rb!==null)&&(P0>=rg||P0<=rs)&&(rZ=![],rY=undefined,rd=![],rT=0x0,re=undefined,rB=![],rm=0x0,rS=undefined,rb=null),rW=P0;}break;}case 0xe:{let P3=rJ[--rG],P4=rJ[--rG],P5=rq[zq];if(P4===null||P4===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+P4+'\x20(setting\x20'+'\x27'+String(P5)+'\x27'+')');if(rx){let P6=typeof P4==='object'||typeof P4==='function'?P4:Object(P4);if(!Reflect['set'](P6,P5,P3,P4))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(P5)+'\x27\x20of\x20object');}else P4[P5]=P3;rJ[rG++]=P3,rW++;break;}case 0x46:{let P7=rq[zq],P8;if(vmh_89ae91['_$vpyVbT']&&P7 in vmh_89ae91['_$vpyVbT'])throw new ReferenceError('Cannot\x20access\x20\x27'+P7+'\x27\x20before\x20initialization');if(P7 in vmh_89ae91)P8=vmh_89ae91[P7];else{if(P7 in vmX)P8=vmX[P7];else throw new ReferenceError(P7+'\x20is\x20not\x20defined');}rJ[rG++]=P8,rW++;break;}case 0x10:{let P9=rJ[--rG],Pk=rJ[rG-0x1];if(P9!==null&&P9!==undefined){let Pr=Object(P9),Pz=Reflect['ownKeys'](Pr);for(let PC=0x0;PC<Pz['length'];PC++){let PP=Pz[PC],Ph=n(Pr,PP);Ph!==undefined&&Ph['enumerable']&&k(Pk,PP,{'value':Pr[PP],'writable':!![],'enumerable':!![],'configurable':!![]});}}rW++;break;}case 0x32:{let Po=rJ[--rG],Pn=Po&&Po['i']?Po['i']:Po;if(rb!==null)try{Pn&&typeof Pn['return']==='function'?rJ[rG++]=Promise['resolve'](Pn['return']())['catch'](function(){return undefined;}):rJ[rG++]=Promise['resolve']();}catch(PX){rJ[rG++]=Promise['resolve']();}else{let PU=Pn!=null?Pn['return']:undefined;if(PU==null)rJ[rG++]=Promise['resolve']();else typeof PU!=='function'?rJ[rG++]=Promise['reject'](new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable')):rJ[rG++]=Promise['resolve'](PU['call'](Pn));}rW++;break;}case 0x6a:{z:{let Pi=rp[rW];if(Pi===rg){if(rb!==null){rZ=![],rd=![],rB=![];let PQ=rb;rb=null;throw PQ;}if(rZ){while(rE&&rE['length']>0x0){let PA=rE[rE['length']-0x1];if(PA['_$50e6p1']!==undefined)break;rE['pop']();}if(rE&&rE['length']>0x0){let Pl=rE[rE['length']-0x1];if(Pl['_$50e6p1']!==undefined){rs=Pl['_$xi1r70'],rg=Pl['_$Q1YSaw'],rW=Pl['_$50e6p1'];break z;}}let Pc=rY;return rZ=![],rY=undefined,zK=Pc,0x1;}if(rd){while(rE&&rE['length']>0x0){let PV=rE[rE['length']-0x1];if(PV['_$50e6p1']!==undefined||!(rT>=PV['_$Q1YSaw']||rT<=PV['_$xi1r70']))break;rE['pop']();}if(rE&&rE['length']>0x0){let PD=rE[rE['length']-0x1];if(PD['_$50e6p1']!==undefined&&(rT>=PD['_$Q1YSaw']||rT<=PD['_$xi1r70'])){rs=PD['_$xi1r70'],rg=PD['_$Q1YSaw'],rW=PD['_$50e6p1'];break z;}}let PH=rT;rd=![],rT=0x0;re!==undefined&&(zC=re,re=undefined);rW=PH;break z;}if(rB){while(rE&&rE['length']>0x0){let Pw=rE[rE['length']-0x1];if(Pw['_$50e6p1']!==undefined||!(rm>=Pw['_$Q1YSaw']||rm<=Pw['_$xi1r70']))break;rE['pop']();}if(rE&&rE['length']>0x0){let PI=rE[rE['length']-0x1];if(PI['_$50e6p1']!==undefined&&(rm>=PI['_$Q1YSaw']||rm<=PI['_$xi1r70'])){rs=PI['_$xi1r70'],rg=PI['_$Q1YSaw'],rW=PI['_$50e6p1'];break z;}}let PK=rm;rB=![],rm=0x0;rS!==undefined&&(zC=rS,rS=undefined);rW=PK;break z;}}rW++;}break;}case 0x4c:{let PL=rJ[--rG],PO=rJ[--rG];rJ[rG++]=PO<<PL,rW++;break;}case 0x6:{if(typeof rJ[rG-0x1]==='symbol')throw new TypeError('Cannot\x20convert\x20a\x20Symbol\x20value\x20to\x20a\x20string');rJ[rG-0x1]=String(rJ[rG-0x1]),rW++;break;}case 0x3d:{rf[zq]=rJ[--rG],rW++;break;}case 0xb:{let Pj=rJ[--rG],PM=rJ[rG-0x1];if(Array['isArray'](Pj)&&Pj[s]===S){let PJ=PM['length'],PG=Pj['length'];for(let PR=0x0;PR<PG;PR++){PM[PJ+PR]=Pj[PR];}}else for(let Pq of Pj){PM['push'](Pq);}rW++;break;}case 0x7:{let Pt=rJ[--rG];if(Pt==null)throw new TypeError(Pt+'\x20is\x20not\x20iterable');let Pp=Pt[Symbol['asyncIterator']];if(typeof Pp==='function')rJ[rG++]=Pp['call'](Pt);else{let Pu=Pt[Symbol['iterator']];if(typeof Pu!=='function')throw new TypeError(Pt+'\x20is\x20not\x20iterable');let Pf=Pu['call'](Pt);if(Pf===null||typeof Pf!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');let PW=async function(PF){if(PF===null||typeof PF!=='object')throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');let PN=await PF['value'];return{'value':PN,'done':!!PF['done']};},Pv={'next':function(PF){let PN;try{PN=Pf['next'](PF);}catch(Py){return Promise['reject'](Py);}return PW(PN);},'return':function(PF){if(typeof Pf['return']!=='function')return Promise['resolve']({'value':PF,'done':!![]});let PN;try{PN=Pf['return'](PF);}catch(Py){return Promise['reject'](Py);}return PW(PN);},'throw':function(PF){if(typeof Pf['throw']!=='function')return Promise['reject'](PF);let PN;try{PN=Pf['throw'](PF);}catch(Py){return Promise['reject'](Py);}return PW(PN);},[Symbol['asyncIterator']]:function(){return this;}};rJ[rG++]=Pv;}rW++;break;}case 0x4d:{let PF=rJ[--rG],PN=rJ[--rG],Py=rJ[rG-0x1],Pa=ko(Py);k(Pa,PN,{'set':PF,'enumerable':Pa===Py,'configurable':!![]}),rW++;break;}case 0x2a:{let PE=rq[zq];rJ[rG++]=Symbol['for'](PE),rW++;break;}case 0x2c:{let Pb=rJ[--rG],PZ=rJ[--rG];rJ[rG++]=PZ in Pb,rW++;break;}case 0x5a:{C:{let PY=rJ[--rG],Pd=k5(z7,PY),PT=rJ[--rG];if(zq===0x1){rJ[rG++]=Pd,rW++;break C;}if(vmh_89ae91['_$AKIGb6']){rW++;break C;}let Pe=vmh_89ae91['_$50oEfs'];if(Pe){let PS=Pe['outer'],Ps=PS?C(PS):Pe['parent'];if(typeof Ps!=='function')throw new TypeError('Super\x20constructor\x20'+String(Ps)+'\x20of\x20'+(PS&&PS['name']||'anonymous')+'\x20is\x20not\x20a\x20constructor');let Pg=Pe['newTarget'],Px=Reflect['construct'](Ps,Pd,Pg);rj&&rj!==Px&&z(rj)['forEach'](function(h0){!(h0 in Px)&&(Px[h0]=rj[h0]);});rj=Px,zn=!![],kQ(zC,rj),rW++;break C;}if(typeof PT!=='function')throw new TypeError('Super\x20expression\x20must\x20be\x20a\x20constructor');let PB;B['has'](rM)?PB=kc(zC):PB=zn?rj:undefined;let Pm=rO!==undefined?rO:vmh_89ae91['_$4yNSDH'];vmh_89ae91['_$4yNSDH']=rO;try{let h0;T(PT)?h0=E(PT,rj,Pd):h0=Pm!==undefined?Reflect['construct'](PT,Pd,Pm):Reflect['construct'](PT,Pd),h0!==undefined&&h0!==rj&&k6(h0)&&(rj&&Object['assign'](h0,rj),rj=h0,rO&&rO['prototype']&&C(rj)!==rO['prototype']&&r(rj,rO['prototype'])),zn=!![],kQ(zC,rj);}finally{delete vmh_89ae91['_$4yNSDH'];}if(PB!==undefined)throw new ReferenceError('Super\x20constructor\x20may\x20only\x20be\x20called\x20once');rW++;}break;}case 0x0:{let h1=rJ[--rG],h2=rJ[rG-0x1];h2['push'](h1),rW++;break;}case 0x20:{let h3=rJ[--rG],h4=rJ[--rG];rJ[rG++]=h4!=h3,rW++;break;}case 0x5b:{let h5=rJ[--rG],h6=rJ[--rG];rJ[rG++]=h6|h5,rW++;break;}case 0x1c:{rf[zq]=rf[zq]+0x1,rW++;break;}case 0x3c:{rJ[rG++]=rq[zq],rW++;break;}case 0x70:{let h7=rJ[--rG],h8=rJ[--rG];rJ[rG++]=h8>>>h7,rW++;break;}case 0x3a:{P:{while(rE&&rE['length']>0x0){let hk=rE[rE['length']-0x1];if(hk['_$50e6p1']!==undefined)break;rE['pop']();}if(rE&&rE['length']>0x0){let hr=rE[rE['length']-0x1];if(hr['_$50e6p1']!==undefined){rb=null,rd=![],rT=0x0,re=undefined,rB=![],rm=0x0,rS=undefined,rZ=!![],rY=rJ[--rG],rs=hr['_$xi1r70'],rg=hr['_$Q1YSaw'],rW=hr['_$50e6p1'];break P;}}(rZ||rd||rB)&&(rZ=![],rY=undefined,rd=![],rT=0x0,re=undefined,rB=![],rm=0x0,rS=undefined);rb=null;let h9=rJ[--rG];if(z1&&h9===undefined&&!zn)throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return zK=h9,0x1;}break;}case 0x4a:{rf[zq]=rf[zq]-0x1,rW++;break;}case 0x4b:{let hz=rq[zq],hC=!![];hz in vmX&&(hC=delete vmX[hz]);hC&&hz in vmh_89ae91&&(hC=delete vmh_89ae91[hz]);rJ[rG++]=hC,rW++;break;}case 0x2:{rJ[--rG],rJ[rG++]=undefined,rW++;break;}case 0x14:{rE['pop'](),rW++;break;}case 0x36:{let hP=rI[zq];if((typeof hP==='object'||typeof hP==='function')&&hP!==null){const hh=hP[Symbol['toPrimitive']];if(hh!=null){hP=hh['call'](hP,'number');if(hP!==null&&(typeof hP==='object'||typeof hP==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const ho=hP['valueOf']();if(ho===null||typeof ho!=='object'&&typeof ho!=='function')hP=ho;else{const hn=hP['toString']();if(hn!==null&&(typeof hn==='object'||typeof hn==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hP=hn;}}}rI[zq]=typeof hP===p?hP+0x1n:+hP+0x1,rW++;break;}case 0x5e:{let hX=rq[zq];hX in vmh_89ae91?rJ[rG++]=typeof vmh_89ae91[hX]:rJ[rG++]=typeof vmX[hX];rW++;break;}case 0x7b:{let hU=rJ[rG-0x1];if(hU==null){var zt=rq[zq];if(zt===null)throw new TypeError('Cannot\x20destructure\x20\x27'+hU+'\x27\x20as\x20it\x20is\x20'+hU+'.');throw new TypeError('Cannot\x20destructure\x20property\x20\x27'+zt+'\x27\x20of\x20\x27'+hU+'\x27\x20as\x20it\x20is\x20'+hU+'.');}rW++;break;}case 0x1b:{let hi=rJ[--rG];if((typeof hi==='object'||typeof hi==='function')&&hi!==null){const hQ=hi[Symbol['toPrimitive']];if(hQ!=null){hi=hQ['call'](hi,'number');if(hi!==null&&(typeof hi==='object'||typeof hi==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hc=hi['valueOf']();if(hc===null||typeof hc!=='object'&&typeof hc!=='function')hi=hc;else{const hA=hi['toString']();if(hA!==null&&(typeof hA==='object'||typeof hA==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hi=hA;}}}rJ[rG++]=typeof hi===p?hi-0x1n:+hi-0x1,rW++;break;}case 0x68:{rJ[rG-0x1]=~rJ[rG-0x1],rW++;break;}case 0x4:{let hl=zq&0xffff,hH=zq>>>0x10,hV=rq[hl],hD=rq[hH];rJ[rG++]=new RegExp(hV,hD),rW++;break;}case 0x6f:{rJ[rG++]=z3,rW++;break;}case 0x18:{let hK=rJ[--rG],hw=rJ[--rG];rJ[rG++]=hw>hK,rW++;break;}case 0x19:{let hI=rJ[--rG];rJ[rG++]=Symbol['keyFor'](hI),rW++;break;}case 0x17:{let hL=rJ[--rG],hO=kU(rJ[--rG]),hj=rJ[--rG],hM=vmh_89ae91['_$VgdMyk'],hJ=hM?C(hM):kn(hj);if(hJ===null||hJ===undefined)throw new TypeError('Cannot\x20convert\x20'+hJ+'\x20to\x20object');let hG=kX(hJ,hO),hR=![];if(hG['desc']){let hq=hG['desc'];if(hq['set']){let ht=vmh_89ae91['_$VgdMyk'];vmh_89ae91['_$VgdMyk']=hG['proto']||hJ,vmh_89ae91['_$7NuQBd']=!![];try{hq['set']['call'](hj,hL);}finally{vmh_89ae91['_$7NuQBd']=![],vmh_89ae91['_$VgdMyk']=ht;}}else{if(hq['get']||!('value'in hq)){if(rx)throw new TypeError('Cannot\x20set\x20property\x20\x27'+String(hO)+'\x27\x20of\x20object\x20which\x20has\x20only\x20a\x20getter');}else{if(hq['writable']===![]){if(rx)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(hO)+'\x27\x20of\x20object');}else hR=!![];}}}else hR=!![];if(hR){let hp=Object['getOwnPropertyDescriptor'](hj,hO);if(hp){if('value'in hp){if(hp['writable'])hj[hO]=hL;else{if(rx)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(hO)+'\x27\x20of\x20object');}}else{if(rx)throw new TypeError('Cannot\x20redefine\x20property:\x20'+String(hO));}}else{let hu=Reflect['defineProperty'](hj,hO,{'value':hL,'writable':!![],'enumerable':!![],'configurable':!![]});if(!hu&&rx)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(hO)+'\x27\x20of\x20object');}}rJ[rG++]=hL,rW++;break;}case 0x7a:{let hf=rJ[--rG],hW=rJ[--rG],hv=rJ[--rG];k(hv,hW,{'value':hf,'writable':!![],'enumerable':!![],'configurable':!![]});typeof hf==='function'&&(!vmh_89ae91['_$Ef7RTO']&&(vmh_89ae91['_$Ef7RTO']=new WeakMap()),A['call'](vmh_89ae91['_$Ef7RTO'],hf,hv));rW++;break;}case 0x35:{let hF=rJ[--rG],hN=rJ[rG-0x1];(hF===null||k6(hF))&&r(hN,hF);rW++;break;}case 0x69:{let hy=rJ[--rG];rJ[rG++]=hy['next'](),rW++;break;}case 0xa:{rJ[rG-0x1]?rW=rp[rW]:(rJ[--rG],rW++);break;}case 0x48:{rW=rp[rW];break;}case 0x1:{let ha=rJ[rG-0x1];rJ[rG++]=ha,rW++;break;}case 0x3e:{let hE=rJ[--rG],hb=rJ[--rG];rJ[rG++]=hb<=hE,rW++;break;}case 0x28:{let hZ=rf[zq];if((typeof hZ==='object'||typeof hZ==='function')&&hZ!==null){const hY=hZ[Symbol['toPrimitive']];if(hY!=null){hZ=hY['call'](hZ,'number');if(hZ!==null&&(typeof hZ==='object'||typeof hZ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hd=hZ['valueOf']();if(hd===null||typeof hd!=='object'&&typeof hd!=='function')hZ=hd;else{const hT=hZ['toString']();if(hT!==null&&(typeof hT==='object'||typeof hT==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hZ=hT;}}}rf[zq]=typeof hZ===p?hZ+0x1n:+hZ+0x1,rW++;break;}case 0x49:{let he=m[zq],hB=rJ[--rG];if(he){for(let hm=0x0;hm<hB;hm++)rJ[--rG];for(let hS=0x0;hS<hB;hS++)rJ[--rG];rJ[rG++]=he;}else{let hs=new Array(hB);for(let hx=hB-0x1;hx>=0x0;hx--)hs[hx]=rJ[--rG];let hg=new Array(hB);for(let o0=hB-0x1;o0>=0x0;o0--)hg[o0]=rJ[--rG];k(hg,'raw',{'value':Object['freeze'](hs)}),Object['freeze'](hg),m[zq]=hg,rJ[rG++]=hg;}rW++;break;}case 0x3f:{let o1=rJ[--rG],o2=rJ[--rG],o3=rJ[rG-0x1];k(o3,o2,{'value':o1,'writable':!![],'enumerable':![],'configurable':!![]});typeof o1==='function'&&(!vmh_89ae91['_$Ef7RTO']&&(vmh_89ae91['_$Ef7RTO']=new WeakMap()),A['call'](vmh_89ae91['_$Ef7RTO'],o1,o3));rW++;break;}case 0x5f:{h:{let o4=rJ[--rG],o5=rJ[--rG];if(typeof o5!=='function')throw new TypeError(o5+'\x20is\x20not\x20a\x20function');let o6=vmh_89ae91['_$Ef7RTO'],o7=!vmh_89ae91['_$VgdMyk']&&!vmh_89ae91['_$4yNSDH']&&!(o6&&Q['call'](o6,o5))&&d(o5);if(o7&&o7['_$ot1z1R']!==![]){let oz=o7['_$JGFZLu']||Y(o7,typeof o7['_$gYdy5e']==='object'?o7['_$gYdy5e']['n']!==undefined?0x0?rU(o7['_$gYdy5e']['n']):o7['_$gYdy5e']['d']||(o7['_$gYdy5e']['d']=rU(o7['_$gYdy5e']['n'])):o7['_$gYdy5e']:rX(o7['_$gYdy5e']));if(oz){let oC;if(o4===0x0)oC=[];else{if(o4===0x1){let oo=rJ[--rG];oC=oo&&typeof oo==='object'&&U['call'](F,oo)?oo['value']:[oo];}else oC=k5(z7,o4);}let oP=oz===rw?rR:rh(oz[0x20],oz[0x21]),oh=oz[0x17*oP[0x0]+oP[0x1]&0x1f];if(oh&&oz===rw&&!oz[0x12*oP[0x0]+oP[0x1]&0x1f]&&o7['_$QaM83m']===rL){!zU&&(zU=[]);zU[zi++]=rG,zU[zi++]=zC,zU[zi++]=zh,zU[zi++]=rI,zU[zi++]=zo,zU[zi++]=rW;for(let on=0x0;on<zX;on++){zU[zi++]=rf[on];}rI=oC,zo=null;if(oz[0x9*oP[0x0]+oP[0x1]&0x1f]){zh=null;let oX=oz[0x20]||0x0;for(let oU=0x0;oU<oX&&oU<oC['length'];oU++){rf[oU]=oC[oU];}for(let oi=oC['length']<oX?oC['length']:oX;oi<zX;oi++){rf[oi]=undefined;}rW=oh;}else{zh=kh(oC);for(let oQ=0x0;oQ<zX;oQ++){rf[oQ]=undefined;}rW=0x0;}break h;}vmh_89ae91['_$7NuQBd']?vmh_89ae91['_$7NuQBd']=![]:vmh_89ae91['_$VgdMyk']=undefined;rJ[rG++]=kI(oz,oC,o7['_$QaM83m'],undefined,undefined,o5),rW++;break h;}}let o8=vmh_89ae91['_$VgdMyk'],o9=vmh_89ae91['_$Ef7RTO'],ok=o9&&Q['call'](o9,o5);ok?(vmh_89ae91['_$7NuQBd']=!![],vmh_89ae91['_$VgdMyk']=ok):vmh_89ae91['_$VgdMyk']=undefined;let or;try{if(o4===0x0)or=o5();else{if(o4===0x1){let oc=rJ[--rG];or=oc&&typeof oc==='object'&&U['call'](F,oc)?o(o5,undefined,oc['value']):o5(oc);}else or=o(o5,undefined,k5(z7,o4));}rJ[rG++]=or;}finally{ok&&(vmh_89ae91['_$7NuQBd']=![]),vmh_89ae91['_$VgdMyk']=o8;}rW++;}break;}case 0x40:{let oA=rJ[--rG];rJ[rG++]=kP(oA),rW++;break;}case 0x47:{let ol=rJ[--rG],oH=rJ[--rG];rJ[rG++]=oH&ol,rW++;break;}case 0x9:{rJ[rG++]=null,rW++;break;}}},zI=function(zR,zq){switch(zR){case 0x8c:{rJ[rG-0x1]=typeof rJ[rG-0x1],rW++;break;}case 0xa9:{k:{let zt=kU(rJ[--rG]),zp=rJ[--rG],zu=vmh_89ae91['_$VgdMyk'],zf=zu?C(zu):kn(zp),zW=kX(zf,zt);if(zW['desc']&&zW['desc']['get']){let zF=vmh_89ae91['_$VgdMyk'];vmh_89ae91['_$VgdMyk']=zW['proto']||zf,vmh_89ae91['_$7NuQBd']=!![];let zN;try{zN=zW['desc']['get']['call'](zp);}finally{vmh_89ae91['_$7NuQBd']=![],vmh_89ae91['_$VgdMyk']=zF;}rJ[rG++]=zN,rW++;break k;}if(zW['desc']&&zW['desc']['set']&&!('value'in zW['desc'])){rJ[rG++]=undefined,rW++;break k;}let zv=zW['proto']?zW['proto'][zt]:zf[zt];if(typeof zv==='function'){let zy=zW['proto']||zf,za=zv['constructor']&&zv['constructor']['name'],zE=za==='GeneratorFunction'||za==='AsyncFunction'||za==='AsyncGeneratorFunction';!zE&&(!vmh_89ae91['_$Ef7RTO']&&(vmh_89ae91['_$Ef7RTO']=new WeakMap()),A['call'](vmh_89ae91['_$Ef7RTO'],zv,zy));}rJ[rG++]=zv,rW++;}break;}case 0xb7:{let zb=rJ[--rG],zZ=rJ[rG-0x1],zY=rq[zq];k(zZ,zY,{'value':zb,'writable':!![],'enumerable':![],'configurable':!![]});typeof zb==='function'&&(!vmh_89ae91['_$Ef7RTO']&&(vmh_89ae91['_$Ef7RTO']=new WeakMap()),A['call'](vmh_89ae91['_$Ef7RTO'],zb,zZ));rW++;break;}case 0xdc:{debugger;rW++;break;}case 0xd5:{let zd=rJ[--rG],zT=rJ[--rG],ze=rJ[rG-0x1],zB=ko(ze);k(zB,zT,{'get':zd,'enumerable':zB===ze,'configurable':!![]}),rW++;break;}case 0x84:{let zm=zq&0xffff,zS=zq>>>0x10,zs=rf[zm],zg=rq[zS];if(zs===null||zs===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+zs+'\x20(reading\x20'+'\x27'+String(zg)+'\x27'+')');rJ[rG++]=zs[zg],rW++;break;}case 0xb4:{let zx=rJ[--rG],C0=rJ[--rG];rJ[rG++]=C0%zx,rW++;break;}case 0x107:{let C1=zq&0xffff,C2=zC['_$Oewzd2'];C2[C1]=C2;let C3=zq>>>0x10;C3&&((zC['_$uS9lzo']||(zC['_$uS9lzo']={}))[C1]=rq[C3-0x1]);rW++;break;}case 0x81:{let C4=rJ[--rG],C5=rJ[--rG];rJ[rG++]=C5==C4,rW++;break;}case 0xfd:{let C6=rJ[--rG],C7=rJ[--rG];rJ[rG++]=C7**C6,rW++;break;}case 0x10d:{rJ[rG-0x1]=rJ[rG-0x1]>>>0x0,rW++;break;}case 0x130:{let C8=rJ[rG-0x1],C9=rq[zq];if(C8===null||C8===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+C8+'\x20(reading\x20'+'\x27'+String(C9)+'\x27'+')');rJ[rG++]=C8[C9],rW++;break;}case 0xb8:{let Ck=rJ[rG-0x3],Cr=rJ[rG-0x2],Cz=rJ[rG-0x1];rJ[rG-0x3]=Cr,rJ[rG-0x2]=Cz,rJ[rG-0x1]=Ck,rW++;break;}case 0xfc:{let CC=rJ[--rG],CP=rJ[--rG];rJ[rG++]=CP-CC,rW++;break;}case 0xc9:{if(z1&&!zn){let Cn=kc(zC);if(Cn!==undefined)rj=Cn,zn=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let Ch=rj,Co=rq[zq];if(Ch===null||Ch===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Ch+'\x20(reading\x20'+'\x27'+String(Co)+'\x27'+')');rJ[rG++]=Ch[Co],rW++;break;}case 0xb5:{let CX=rJ[--rG];if((typeof CX==='object'||typeof CX==='function')&&CX!==null){const CU=CX[Symbol['toPrimitive']];if(CU!=null){CX=CU['call'](CX,'number');if(CX!==null&&(typeof CX==='object'||typeof CX==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const Ci=CX['valueOf']();if(Ci===null||typeof Ci!=='object'&&typeof Ci!=='function')CX=Ci;else{const CQ=CX['toString']();if(CQ!==null&&(typeof CQ==='object'||typeof CQ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');CX=CQ;}}}rJ[rG++]=typeof CX===p?CX:+CX,rW++;break;}case 0xa2:{rJ[rG++]=vmU[zq],rW++;break;}case 0x12e:{let Cc=rJ[--rG],CA=rJ[--rG];if(CA===null||CA===undefined){if(Cc===Symbol['iterator'])throw new TypeError((CA===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+CA+'\x20(reading\x20'+(typeof Cc==='symbol'?'\x27'+Cc['toString']()+'\x27':typeof Cc==='string'?'\x27'+Cc+'\x27':typeof Cc==='object'||typeof Cc==='function'?'\x27<computed\x20key>\x27':'\x27'+String(Cc)+'\x27')+')');}rJ[rG++]=CA[Cc],rW++;break;}case 0xa4:{let Cl=rJ[--rG],CH=rJ[--rG];rJ[rG++]=Cl==null||typeof Cl!=='object'&&typeof Cl!=='function'?!![]:CH in Cl,rW++;break;}case 0x127:{let CV=rJ[--rG],CD=rJ[--rG],CK=rJ[rG-0x1];k(CK,CD,{'set':CV,'enumerable':![],'configurable':!![]}),rW++;break;}case 0xb9:{r:{let Cw=rp[rW];while(rE&&rE['length']>0x0){let CI=rE[rE['length']-0x1];if(CI['_$50e6p1']!==undefined||!(Cw>=CI['_$Q1YSaw']||Cw<=CI['_$xi1r70']))break;rE['pop']();}if(rE&&rE['length']>0x0){let CL=rE[rE['length']-0x1];if(CL['_$50e6p1']!==undefined&&(Cw>=CL['_$Q1YSaw']||Cw<=CL['_$xi1r70'])){rb=null,rZ=![],rY=undefined,rB=![],rm=0x0,rS=undefined,rd=!![],rT=Cw,re=zC,rs=CL['_$xi1r70'],rg=CL['_$Q1YSaw'],rW=CL['_$50e6p1'];break r;}}(rZ||rd||rB||rb!==null)&&(Cw>=rg||Cw<=rs)&&(rZ=![],rY=undefined,rd=![],rT=0x0,re=undefined,rB=![],rm=0x0,rS=undefined,rb=null),rW=Cw;}break;}case 0x111:{rJ[rG++]=undefined,rW++;break;}case 0x117:{if(rE&&rE['length']>0x0){let CO=rE[rE['length']-0x1];CO['_$50e6p1']===rW&&(CO['_$nKuEAm']!==undefined&&(rb=CO['_$nKuEAm'],rs=CO['_$xi1r70'],rg=CO['_$Q1YSaw']),CO['_$ka9dHy']!==undefined&&(zC=CO['_$ka9dHy']),rE['pop']());}rW++;break;}case 0xd2:{let Cj=rJ[--rG],CM=rJ[--rG];rJ[rG++]=CM+Cj,rW++;break;}case 0x119:{let CJ=rJ[--rG],CG=rJ[--rG];rJ[rG++]=CG!==CJ,rW++;break;}case 0x90:{let CR=rJ[--rG],Cq=rJ[--rG];rJ[rG++]=Cq^CR,rW++;break;}case 0xa5:{let Ct=rJ[--rG],Cp=rJ[--rG],Cu=rJ[--rG];if(typeof Cp!=='function')throw new TypeError(Cp+'\x20is\x20not\x20a\x20function');let Cf=vmh_89ae91['_$Ef7RTO'],CW=Cf&&Q['call'](Cf,Cp);!CW&&Cf&&(Cp===P||Cp===i)&&(CW=Q['call'](Cf,Cu));let Cv=vmh_89ae91['_$VgdMyk'];CW&&(vmh_89ae91['_$7NuQBd']=!![],vmh_89ae91['_$VgdMyk']=CW);let CF;try{if(Ct===0x0)CF=o(Cp,Cu,u);else{if(Ct===0x1){let CN=rJ[--rG];CF=CN&&typeof CN==='object'&&U['call'](F,CN)?o(Cp,Cu,CN['value']):o(Cp,Cu,[CN]);}else CF=o(Cp,Cu,k5(z7,Ct));}rJ[rG++]=CF;}finally{CW&&(vmh_89ae91['_$7NuQBd']=![],vmh_89ae91['_$VgdMyk']=Cv);}rW++;break;}case 0x108:{let Cy=rJ[rG-0x1];Cy['length']++,rW++;break;}case 0x7f:{let Ca=rJ[--rG],CE=rJ[--rG];rJ[rG++]=CE/Ca,rW++;break;}case 0x118:{let Cb=zq;zC['_$Oewzd2'][Cb]=rM;let CZ=zC['_$jg6o0g'];!CZ&&(CZ=h(null),zC['_$jg6o0g']=CZ);CZ[Cb]=0x2,rW++;break;}case 0x12b:{rJ[--rG],rW++;break;}case 0x113:{z:{let CY=zq&0xffff,Cd=zq>>>0x10,CT=rJ[--rG],Ce=zC;for(let Cs=0x0;Cs<Cd;Cs++){Ce=Ce['_$hqCtQl'];}let CB=Ce['_$Oewzd2'];if(CB[CY]===CB){let Cg=Ce['_$uS9lzo'];throw new ReferenceError('Cannot\x20access\x20\x27'+(Cg&&Cg[CY]||'variable')+'\x27\x20before\x20initialization');}let Cm=Ce['_$jg6o0g'],CS=Cm&&Cm[CY];if(CS){if(CS===0x2&&!rx){rW++;break z;}throw new TypeError('Assignment\x20to\x20constant\x20variable.');}CB[CY]=CT,rW++;break z;}break;}case 0x116:{let Cx=rJ[--rG],P0=rJ[--rG];rJ[rG++]=P0 instanceof Cx,rW++;break;}case 0x94:{rJ[rG++]=zC,rW++;break;}case 0x12a:{let P1=zq&0xffff,P2=zq>>>0x10;rJ[rG++]=rf[P1]-rq[P2],rW++;break;}case 0xb6:{let P3=rJ[--rG];rJ[rG++]=!!P3['done'],rW++;break;}case 0xa3:{let P4=rf[zq];if((typeof P4==='object'||typeof P4==='function')&&P4!==null){const P5=P4[Symbol['toPrimitive']];if(P5!=null){P4=P5['call'](P4,'number');if(P4!==null&&(typeof P4==='object'||typeof P4==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const P6=P4['valueOf']();if(P6===null||typeof P6!=='object'&&typeof P6!=='function')P4=P6;else{const P7=P4['toString']();if(P7!==null&&(typeof P7==='object'||typeof P7==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');P4=P7;}}}rf[zq]=typeof P4===p?P4-0x1n:+P4-0x1,rW++;break;}case 0x82:{let P8=rJ[--rG],P9=rJ[--rG],Pk=zq,Pr=function(Pz,PC){let PP=function(){let Ph=a===PP;a=undefined;if(new.target===undefined&&!Ph)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');if(Pz){PC&&(vmh_89ae91['_$pgruUw']=PP);let Po='_$4yNSDH'in vmh_89ae91;!Po&&(vmh_89ae91['_$4yNSDH']=new.target);try{let Pn=Pz['apply'](this,kh(arguments));if(PC&&Pn!==undefined&&(Pn===null||typeof Pn!=='object'&&typeof Pn!=='function'))throw new TypeError('Derived\x20constructors\x20may\x20only\x20return\x20object\x20or\x20undefined');return Pn;}finally{PC&&delete vmh_89ae91['_$pgruUw'],!Po&&delete vmh_89ae91['_$4yNSDH'];}}};return PP;}(P9,Pk);P8&&k(Pr,'name',{'value':P8,'configurable':!![]});P9&&k(Pr,'length',{'value':P9['length'],'configurable':!![]});if(P9&&!T(Pr)){let Pz=d(P9);Pz&&(Pz['_$ot1z1R']=![],Z(Pr,Pz));}rJ[rG++]=Pr,rW++;break;}case 0x91:{let PC=rJ[--rG],PP=rJ[--rG],Ph=rJ[rG-0x1];k(Ph,PP,{'get':PC,'enumerable':![],'configurable':!![]}),rW++;break;}case 0x10b:{let Po=rJ[--rG],Pn=Po&&Po['i']?Po['i']:Po;if(Pn!=null){if(rb!==null)try{let PX=Pn['return'];typeof PX==='function'&&PX['call'](Pn);}catch(PU){}else{let Pi=Pn['return'];if(Pi!=null){if(typeof Pi!=='function')throw new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable');let PQ=Pi['call'](Pn);kr(PQ);}}}rW++;break;}case 0x112:{let Pc=zq&0xffff,PA=zq>>>0x10;rJ[rG++]=rf[Pc]*rq[PA],rW++;break;}case 0x12c:{let Pl=rJ[--rG],PH=k5(z7,Pl),PV=rJ[--rG];if(typeof PV!=='function')throw new TypeError(PV+'\x20is\x20not\x20a\x20constructor');if(U['call'](N,PV))throw new TypeError(PV['name']+'\x20is\x20not\x20a\x20constructor');let PD=vmh_89ae91['_$VgdMyk'];vmh_89ae91['_$VgdMyk']=undefined;let PK;try{PK=Reflect['construct'](PV,PH);}finally{vmh_89ae91['_$VgdMyk']=PD;}rJ[rG++]=PK,rW++;break;}case 0xff:{rJ[rG++]=rf[zq],rW++;break;}case 0x11c:{let Pw,PI;zq>=0x0?(PI=rJ[--rG],Pw=rq[zq]):(Pw=rJ[--rG],PI=rJ[--rG]);let PL=delete PI[Pw];if(rx&&!PL)throw new TypeError('Cannot\x20delete\x20property\x20\x27'+String(Pw)+'\x27\x20of\x20object');rJ[rG++]=PL,rW++;break;}case 0x11b:{rJ[rG-0x1]=+rJ[rG-0x1],rW++;break;}case 0x92:{!rJ[--rG]?rW=rp[rW]:rW++;break;}case 0xa1:{let PO=rJ[--rG],Pj=PO&&PO['i']?PO['i']:PO;try{if(Pj!=null){let PM=Pj['return'];typeof PM==='function'&&PM['call'](Pj);}}catch(PJ){}rW++;break;}case 0x11f:{let PG=vmh_89ae91['_$pgruUw'];PG===undefined&&rM&&B['has'](rM)&&(PG=B['get'](rM));if(PG===undefined)throw new ReferenceError('\x27super\x27\x20keyword\x20is\x20only\x20valid\x20inside\x20a\x20derived\x20constructor');rJ[rG++]=PG,rW++;break;}case 0x115:{let PR=rJ[rG-0x3],Pq=rJ[rG-0x2],Pt=rJ[rG-0x1];rJ[rG-0x3]=Pt,rJ[rG-0x2]=PR,rJ[rG-0x1]=Pq,rW++;break;}case 0x8d:{let Pp=rf[zq],Pu=Pp&&Pp['_$uklCC6'];if(Pu!==undefined){let Pf=Pp['_$DwcVPq'];Pf>=Pu['length']?rW=rp[rW]:(Pp['_$DwcVPq']=Pf+0x1,rJ[rG++]=Pu[Pf],rW++);}else{let PW=Pp['i'],Pv=o(Pp['n'],PW,[]);kr(Pv),Pv['done']?rW=rp[rW]:(rJ[rG++]=Pv['value'],rW++);}break;}case 0x120:{let PF=rJ[--rG],PN=typeof PF;if(PF!==null&&(PN==='object'||PN==='function')){let Py=h(null);Py[PF]=0x0,PF=Reflect['ownKeys'](Py)[0x0];}else PN!=='symbol'&&(PF=String(PF));rJ[rG++]=PF,rW++;break;}case 0x125:{if(z1&&!zn){let Pa=kc(zC);if(Pa!==undefined)rj=Pa,zn=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}rJ[rG++]=rj,rW++;break;}case 0xa0:{let PE=rJ[--rG],Pb=rq[zq];if(rx&&!(Pb in vmX)&&!(Pb in vmh_89ae91))throw new ReferenceError(Pb+'\x20is\x20not\x20defined');vmh_89ae91[Pb]=PE,vmX[Pb]=PE,rJ[rG++]=PE,rW++;break;}case 0xc8:{let PZ=rJ[--rG],PY={['_$Oewzd2']:new Array(zq),['_$jg6o0g']:null,['_$FKgfCN']:-0x1,['_$hqCtQl']:PZ};zC=PY,rW++;break;}case 0x7c:{let Pd=rJ[--rG],PT=rJ[--rG];rJ[rG++]=PT>>Pd,rW++;break;}case 0x126:{let Pe=ru[rW];if(!rE)rE=[];rE['push']({['_$G0ywXp']:Pe[0x0]>=0x0?Pe[0x0]:undefined,['_$50e6p1']:Pe[0x1]>=0x0?Pe[0x1]:undefined,['_$Q1YSaw']:Pe[0x2]>=0x0?Pe[0x2]:undefined,['_$1Pyucq']:rG,['_$xi1r70']:rW,['_$ka9dHy']:zC}),rW++;break;}case 0x8f:{let PB=rJ[--rG],Pm=rJ[--rG],PS=(zq^0x8347)>>>0x0,Ps;PS<0x10?PS<0x8?PS<0x4?PS<0x2?Ps=PS<0x1?Pm-PB:Pm<PB:Ps=PS<0x3?Pm>PB:Pm/PB:PS<0x6?Ps=PS<0x5?Pm>=PB:Pm!==PB:Ps=PS<0x7?Pm!=PB:Pm^PB:PS<0xc?PS<0xa?Ps=PS<0x9?Pm<=PB:Pm+PB:Ps=PS<0xb?Pm<<PB:Pm*PB:PS<0xe?Ps=PS<0xd?Pm|PB:Pm%PB:Ps=PS<0xf?Pm>>>PB:Pm&PB:PS<0x14?PS<0x12?Ps=PS<0x11?Pm**PB:Pm===PB:Ps=PS<0x13?Pm==PB:Pm>>PB:PS<0x18?Ps=PS<0x16?Pm|PB:Pm&PB:Ps=PS<0x1c?Pm^PB:PB-Pm;rJ[rG++]=Ps,rW++;break;}case 0x106:{let Pg=rJ[--rG],Px=rJ[rG-0x1],h0=rq[zq];k(Px['prototype'],h0,{'value':Pg,'writable':!![],'enumerable':![],'configurable':!![]});typeof Pg==='function'&&(!vmh_89ae91['_$Ef7RTO']&&(vmh_89ae91['_$Ef7RTO']=new WeakMap()),A['call'](vmh_89ae91['_$Ef7RTO'],Pg,Px['prototype']));rW++;break;}case 0x11e:{rI[zq]=rJ[--rG],rW++;break;}case 0x12d:{rW++;break;}case 0x110:{let h1=rJ[--rG],h2=rJ[rG-0x1],h3=rq[zq];k(h2,h3,{'get':h1,'enumerable':![],'configurable':!![]}),rW++;break;}case 0x129:{let h4=zq&0xffff,h5=zq>>>0x10,h6=zC;for(let h9=0x0;h9<h5;h9++){h6=h6['_$hqCtQl'];}let h7=h6['_$Oewzd2'],h8=h7[h4];if(h8===h7){let hk=h6['_$uS9lzo'];throw new ReferenceError('Cannot\x20access\x20\x27'+(hk&&hk[h4]||'variable')+'\x27\x20before\x20initialization');}rJ[rG++]=h8,rW++;break;}case 0x10a:{rJ[rG++]=[],rW++;break;}case 0x100:{let hr=rJ[rG-0x1];rJ[rG-0x1]=rJ[rG-0x2],rJ[rG-0x2]=hr,rW++;break;}case 0x80:{rJ[rG-0x1]=-rJ[rG-0x1],rW++;break;}case 0x10e:{let hz=rJ[--rG],hC=rJ[--rG];rJ[rG++]=hC===hz,rW++;break;}case 0xa7:{if(zq===-0x2){}else zq===-0x1?rJ[--rG]:zC['_$Oewzd2'][zq]=rJ[--rG];rW++;break;}case 0x128:{let hP=rJ[--rG],hh=hP&&hP['_$uklCC6'];if(hh!==undefined){let ho=hP['_$DwcVPq'],hn;ho>=hh['length']?hn={'value':undefined,'done':!![]}:(hP['_$DwcVPq']=ho+0x1,hn={'value':hh[ho],'done':![]}),rJ[rG++]=hn,rW++;}else{let hX=hP&&hP['i']?hP['i']:hP,hU=hP&&hP['n']?hP['n']:hX&&hX['next'];if(typeof hU!=='function')throw new TypeError('iterator.next\x20is\x20not\x20a\x20function');let hi=o(hU,hX,[]);kr(hi),rJ[rG++]=hi,rW++;}break;}case 0xa6:{!rJ[--rG]?rW=rp[rW]:(rJ[--rG],rW++);break;}case 0x114:{rJ[rG-0x1]=!rJ[rG-0x1],rW++;break;}case 0xfa:{C:{let hQ=rq[zq],hc=rJ[--rG];if(typeof hc!=='function')throw new TypeError(hc+'\x20is\x20not\x20a\x20function');let hA=vmh_89ae91['_$Ef7RTO'],hl=!vmh_89ae91['_$VgdMyk']&&!vmh_89ae91['_$4yNSDH']&&!(hA&&Q['call'](hA,hc))&&d(hc);if(hl&&hl['_$ot1z1R']!==![]){let hw=hl['_$JGFZLu']||Y(hl,typeof hl['_$gYdy5e']==='object'?hl['_$gYdy5e']['n']!==undefined?0x0?rU(hl['_$gYdy5e']['n']):hl['_$gYdy5e']['d']||(hl['_$gYdy5e']['d']=rU(hl['_$gYdy5e']['n'])):hl['_$gYdy5e']:rX(hl['_$gYdy5e']));if(hw){let hI;if(hQ===0x0)hI=[];else{if(hQ===0x1){let hj=rJ[--rG];hI=hj&&typeof hj==='object'&&U['call'](F,hj)?hj['value']:[hj];}else hI=k5(z7,hQ);}let hL=hw===rw?rR:rh(hw[0x20],hw[0x21]),hO=hw[0x17*hL[0x0]+hL[0x1]&0x1f];if(hO&&hw===rw&&!hw[0x12*hL[0x0]+hL[0x1]&0x1f]&&hl['_$QaM83m']===rL){!zU&&(zU=[]);zU[zi++]=rG,zU[zi++]=zC,zU[zi++]=zh,zU[zi++]=rI,zU[zi++]=zo,zU[zi++]=rW;for(let hM=0x0;hM<zX;hM++){zU[zi++]=rf[hM];}rI=hI,zo=null;if(hw[0x9*hL[0x0]+hL[0x1]&0x1f]){zh=null;let hJ=hw[0x20]||0x0;for(let hG=0x0;hG<hJ&&hG<hI['length'];hG++){rf[hG]=hI[hG];}for(let hR=hI['length']<hJ?hI['length']:hJ;hR<zX;hR++){rf[hR]=undefined;}rW=hO;}else{zh=kh(hI);for(let hq=0x0;hq<zX;hq++){rf[hq]=undefined;}rW=0x0;}break C;}vmh_89ae91['_$7NuQBd']?vmh_89ae91['_$7NuQBd']=![]:vmh_89ae91['_$VgdMyk']=undefined;rJ[rG++]=kI(hw,hI,hl['_$QaM83m'],undefined,undefined,hc),rW++;break C;}}let hH=vmh_89ae91['_$VgdMyk'],hV=vmh_89ae91['_$Ef7RTO'],hD=hV&&Q['call'](hV,hc);hD?(vmh_89ae91['_$7NuQBd']=!![],vmh_89ae91['_$VgdMyk']=hD):vmh_89ae91['_$VgdMyk']=undefined;let hK;try{if(hQ===0x0)hK=hc();else{if(hQ===0x1){let ht=rJ[--rG];hK=ht&&typeof ht==='object'&&U['call'](F,ht)?o(hc,undefined,ht['value']):hc(ht);}else hK=o(hc,undefined,k5(z7,hQ));}rJ[rG++]=hK;}finally{hD&&(vmh_89ae91['_$7NuQBd']=![]),vmh_89ae91['_$VgdMyk']=hH;}rW++;}break;}case 0xd6:{!rJ[rG-0x1]?rW=rp[rW]:(rJ[--rG],rW++);break;}case 0x109:{let hp=zq,hu=rJ[--rG];zC['_$Oewzd2'][hp]=hu;let hf=zC['_$jg6o0g'];!hf&&(hf=h(null),zC['_$jg6o0g']=hf);hf[hp]=0x1,rW++;break;}case 0x10c:{let hW=rJ[--rG],hv=rJ[rG-0x1],hF=rq[zq],hN=ko(hv);k(hN,hF,{'get':hW,'enumerable':hN===hv,'configurable':!![]}),rW++;break;}case 0x83:{let hy=zC['_$Oewzd2'];hy[zq]=hy,zC['_$FKgfCN']=zq,rW++;break;}case 0x12f:{if(zo===null){if(rx||!z0){let ha=zh||rI,hE=ha?ha['length']:0x0;zo=h(Object['prototype']);for(let hb=0x0;hb<hE;hb++){zo[hb]=ha[hb];}k(zo,'length',{'value':hE,'writable':!![],'enumerable':![],'configurable':!![]}),k(zo,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),zo=new Proxy(zo,{'has':function(hZ,hY){if(hY===Symbol['toStringTag'])return![];return hY in hZ;},'get':function(hZ,hY,hd){if(hY===Symbol['toStringTag'])return'Arguments';return Reflect['get'](hZ,hY,hd);}}),rx?k(zo,'callee',{'get':v,'set':v,'enumerable':![],'configurable':![]}):k(zo,'callee',{'value':rM,'writable':!![],'enumerable':![],'configurable':!![]});}else{let hZ=zP,hY={},hd={},hT=rM,he=![],hB=!![],hm={},hS=function(o1){if(typeof o1!=='string')return NaN;let o2=+o1;return o2>=0x0&&o2%0x1===0x0&&String(o2)===o1?o2:NaN;},hs=function(o1){return!isNaN(o1)&&o1>=0x0;},hg=function(o1){if(o1 in hd)return undefined;if(o1 in hY)return hY[o1];return o1<zP?rI[o1]:undefined;},hx=function(o1){if(o1 in hd)return![];if(o1 in hY)return!![];return o1<zP?o1 in rI:![];},o0={};k(o0,'length',{'value':hZ,'writable':!![],'enumerable':![],'configurable':!![]}),k(o0,'callee',{'value':rM,'writable':!![],'enumerable':![],'configurable':!![]}),k(o0,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),zo=new Proxy(o0,{'get':function(o1,o2,o3){if(o2==='length')return hZ;if(o2==='callee')return he?undefined:hT;if(o2===Symbol['toStringTag'])return'Arguments';let o4=hS(o2);if(hs(o4)){if(o4 in hm)return Reflect['get'](o1,o2,o3);return hg(o4);}return Reflect['get'](o1,o2,o3);},'set':function(o1,o2,o3){if(o2==='length'){if(!hB)return![];return hZ=o3,o1['length']=o3,!![];}if(o2==='callee')return hT=o3,he=![],o1['callee']=o3,!![];let o4=hS(o2);if(hs(o4)){if(o4 in hm)return Reflect['set'](o1,o2,o3);let o5=n(o1,String(o4));if(o5&&!o5['writable'])return![];if(o4 in hd)delete hd[o4],hY[o4]=o3;else o4<zP?rI[o4]=o3:hY[o4]=o3;return!![];}return o1[o2]=o3,!![];},'has':function(o1,o2){if(o2==='length')return!![];if(o2==='callee')return!he;if(o2===Symbol['toStringTag'])return![];let o3=hS(o2);if(hs(o3)){if(String(o3)in o1)return!![];return hx(o3);}return o2 in o1;},'defineProperty':function(o1,o2,o3){if(o2==='length')return'value'in o3&&(hZ=o3['value']),'writable'in o3&&(hB=o3['writable']),k(o1,o2,o3),!![];if(o2==='callee')return'value'in o3&&(hT=o3['value']),he=![],k(o1,o2,o3),!![];let o4=hS(o2);if(hs(o4)){let o5='get'in o3||'set'in o3,o6=n(o1,String(o4)),o7=o4 in hm?o6?o6['value']:undefined:hg(o4),o8=o6?o6['writable']!==![]:!![],o9=o6?o6['enumerable']!==![]:!![],ok=o6?o6['configurable']!==![]:!![],or;if(o5)or=o3,hm[o4]=0x1,o4 in hY&&delete hY[o4],o4 in hd&&delete hd[o4];else{let oz='value'in o3?o3['value']:o7,oC='writable'in o3?o3['writable']:o8,oP='enumerable'in o3?o3['enumerable']:o9,oh='configurable'in o3?o3['configurable']:ok;or={'value':oz,'writable':oC,'enumerable':oP,'configurable':oh},'value'in o3&&(!(o4 in hm)&&(o4<zP&&!(o4 in hd)?rI[o4]=o3['value']:(hY[o4]=o3['value'],o4 in hd&&delete hd[o4]))),'writable'in o3&&o3['writable']===![]&&(hm[o4]=0x1,o4 in hY&&delete hY[o4],o4 in hd&&delete hd[o4]);}return k(o1,String(o4),or),!![];}return k(o1,o2,o3),!![];},'deleteProperty':function(o1,o2){if(o2==='callee')return he=!![],delete o1['callee'],!![];let o3=hS(o2);if(hs(o3)){let o5=n(o1,String(o3));if(o5&&o5['configurable']===![])return![];return o3 in hm&&delete hm[o3],o3<zP?hd[o3]=0x1:delete hY[o3],delete o1[o2],!![];}let o4=n(o1,o2);if(o4&&o4['configurable']===![])return![];return delete o1[o2],!![];},'preventExtensions':function(o1){let o2=zP;for(let o3=0x0;o3<o2;o3++){!(o3 in hd)&&!n(o1,String(o3))&&k(o1,String(o3),{'value':hg(o3),'writable':!![],'enumerable':!![],'configurable':!![]});}for(let o4 in hY){!n(o1,o4)&&k(o1,o4,{'value':hY[o4],'writable':!![],'enumerable':!![],'configurable':!![]});}return Object['preventExtensions'](o1),!![];},'getOwnPropertyDescriptor':function(o1,o2){if(o2==='callee'){if(he)return undefined;return n(o1,'callee');}if(o2==='length')return n(o1,'length');let o3=hS(o2);if(hs(o3)){if(o3 in hm)return n(o1,o2);if(hx(o3)){let o5=n(o1,String(o3));return{'value':hg(o3),'writable':o5?o5['writable']:!![],'enumerable':o5?o5['enumerable']:!![],'configurable':o5?o5['configurable']:!![]};}return n(o1,o2);}let o4=n(o1,o2);if(o4)return o4;return undefined;},'ownKeys':function(o1){let o2=[],o3=zP;for(let o5=0x0;o5<o3;o5++){!(o5 in hd)&&o2['push'](String(o5));}for(let o6 in hY){o2['indexOf'](o6)===-0x1&&o2['push'](o6);}o2['push']('length');!he&&o2['push']('callee');let o4=Reflect['ownKeys'](o1);for(let o7=0x0;o7<o4['length'];o7++){o2['indexOf'](o4[o7])===-0x1&&o2['push'](o4[o7]);}return o2;}});}}rJ[rG++]=zo,rW++;break;}case 0xa8:{let o1=zq&0xffff,o2=zq>>>0x10;rJ[rG++]=rI[o1]-rq[o2],rW++;break;}case 0x11d:{rJ[rG-0x1]=rJ[rG-0x1]|0x0,rW++;break;}case 0x93:{if(zq===-0x1)rJ[rG++]=Symbol();else{let o3=rJ[--rG];rJ[rG++]=Symbol(o3);}rW++;break;}case 0x8e:{let o4=rJ[--rG],o5=o4,o6=0x0&&typeof o4!=='object'?rU(o4,0x1):undefined,o7,o8,o9,ok,or,oz,oC,oP;if(o6)o8=o6[0x0]&0x1,o9=o6[0x0]&0x2,ok=o6[0x0]&0x4,or=o6[0x0]&0x8,oC=o6[0x0]&0x10,oz=o6[0x1]||0x0,oP=o6[0x2]||undefined,o7={'n':o4};else{o7=typeof o4==='object'?o4:rU(o4);let oX=o7&&rh(o7[0x20],o7[0x21]);o8=o7&&o7[0xd*oX[0x0]+oX[0x1]&0x1f],o9=o7&&o7[0xf*oX[0x0]+oX[0x1]&0x1f],ok=o7&&o7[0x14*oX[0x0]+oX[0x1]&0x1f],or=o7&&o7[0x4*oX[0x0]+oX[0x1]&0x1f],oz=o7&&o7[0x20]||0x0,oC=o7&&o7[0x3*oX[0x0]+oX[0x1]&0x1f];let oU=o7&&o7[0xe*oX[0x0]+oX[0x1]&0x1f];oP=oU!==undefined?o7[0x5*oX[0x0]+oX[0x1]&0x1f][oU]:undefined;}o4=0x0&&typeof o5!=='object'?{'n':o5}:o7;let oh=o8?z3:undefined,oo=zC,on;if(ok)on=kD(rQ,o4,oo,N,oC,vmX,o9);else{if(o9)o8?on=kw(ri,o4,oo,oh):on=kV(ri,o4,oo,oC,vmX);else{if(o8){on=kK(kJ,o4,oo,oh);let oi=vmh_89ae91['_$pgruUw'];oi===undefined&&rM&&B['has'](rM)&&(oi=B['get'](rM)),oi!==undefined&&B['set'](on,oi);}else on=kH(kJ,o4,oo,oC,vmX,or);}}k4(on,'length',{'value':oz,'writable':![],'enumerable':![],'configurable':!![]});oP!==undefined&&k4(on,'name',{'value':oP,'writable':![],'enumerable':![],'configurable':!![]});rJ[rG++]=on,rW++;break;}case 0xfb:{let oQ=rJ[--rG],oc=rJ[--rG],oA=rJ[--rG];if(oA===null||oA===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+oA+'\x20(setting\x20'+(typeof oc==='symbol'?'\x27'+oc['toString']()+'\x27':typeof oc==='string'?'\x27'+oc+'\x27':typeof oc==='object'||typeof oc==='function'?'\x27<computed\x20key>\x27':'\x27'+String(oc)+'\x27')+')');if(rx){let ol=typeof oA==='object'||typeof oA==='function'?oA:Object(oA);if(!Reflect['set'](ol,oc,oQ,oA))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(oc)+'\x27\x20of\x20object');}else oA[oc]=oQ;rJ[rG++]=oQ,rW++;break;}}};while(rW<rv){try{while(rW<rv){let zR=rW<<ra,zq=rt[rN+zR],zt=rt[ry+zR];if(zq===R){let zp=z7();return rW++,{['_$CgbwSr']:L,['_$TRdnTY']:zp,['_$OnRhvE']:zQ};}if(zq===J){let zu=z7();return rW++,{['_$CgbwSr']:O,['_$TRdnTY']:zu,['_$OnRhvE']:zQ};}if(zq===G){let zf=z7();return rW++,{['_$CgbwSr']:j,['_$TRdnTY']:zf,['_$OnRhvE']:zQ};}switch(zL[zq]){case 0x1:{let zW=rJ[--rG],zv=rJ[--rG];rJ[rG++]=zv+zW,rW++;continue;}case 0x2:{rJ[rG-0x1]=rJ[rG-0x1]>>>0x0,rW++;continue;}case 0x3:{let zF=rJ[--rG],zN=rJ[--rG];rJ[rG++]=zN-zF,rW++;continue;}case 0x4:{rJ[--rG],rW++;continue;}case 0x5:{let zy=zt&0xffff,za=zt>>>0x10,zE=rf[zy],zb=rq[za];if(zE===null||zE===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+zE+'\x20(reading\x20'+'\x27'+String(zb)+'\x27'+')');rJ[rG++]=zE[zb],rW++;continue;}case 0x6:{rf[zt]=rJ[--rG],rW++;continue;}case 0x7:{let zZ=zt&0xffff,zY=zt>>>0x10;rJ[rG++]=rf[zZ]-rq[zY],rW++;continue;}case 0x8:{let zd=zt&0xffff,zT=zt>>>0x10;rJ[rG++]=rf[zd]*rq[zT],rW++;continue;}case 0x9:{let ze=rJ[--rG],zB=rJ[--rG];rJ[rG++]=zB>=ze,rW++;continue;}case 0xa:{let zm=zt&0xffff,zS=zt>>>0x10;rJ[rG++]=rf[zm]+rq[zS],rW++;continue;}case 0xb:{let zs=zt&0xffff,zg=zt>>>0x10;rJ[rG++]=rI[zs]<=rq[zg],rW++;continue;}case 0xc:{let zx=rf[zt];if((typeof zx==='object'||typeof zx==='function')&&zx!==null){const C0=zx[Symbol['toPrimitive']];if(C0!=null){zx=C0['call'](zx,'number');if(zx!==null&&(typeof zx==='object'||typeof zx==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const C1=zx['valueOf']();if(C1===null||typeof C1!=='object'&&typeof C1!=='function')zx=C1;else{const C2=zx['toString']();if(C2!==null&&(typeof C2==='object'||typeof C2==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');zx=C2;}}}rf[zt]=typeof zx===p?zx-0x1n:+zx-0x1,rW++;continue;}case 0xd:{let C3=rI[zt];if((typeof C3==='object'||typeof C3==='function')&&C3!==null){const C4=C3[Symbol['toPrimitive']];if(C4!=null){C3=C4['call'](C3,'number');if(C3!==null&&(typeof C3==='object'||typeof C3==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const C5=C3['valueOf']();if(C5===null||typeof C5!=='object'&&typeof C5!=='function')C3=C5;else{const C6=C3['toString']();if(C6!==null&&(typeof C6==='object'||typeof C6==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');C3=C6;}}}rI[zt]=typeof C3===p?C3-0x1n:+C3-0x1,rW++;continue;}case 0xe:{rJ[--rG]?rW=rp[rW]:rW++;continue;}case 0xf:{let C7=rJ[--rG];if((typeof C7==='object'||typeof C7==='function')&&C7!==null){const C8=C7[Symbol['toPrimitive']];if(C8!=null){C7=C8['call'](C7,'number');if(C7!==null&&(typeof C7==='object'||typeof C7==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const C9=C7['valueOf']();if(C9===null||typeof C9!=='object'&&typeof C9!=='function')C7=C9;else{const Ck=C7['toString']();if(Ck!==null&&(typeof Ck==='object'||typeof Ck==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');C7=Ck;}}}rJ[rG++]=typeof C7===p?C7+0x1n:+C7+0x1,rW++;continue;}case 0x10:{let Cr=rJ[--rG];if((typeof Cr==='object'||typeof Cr==='function')&&Cr!==null){const Cz=Cr[Symbol['toPrimitive']];if(Cz!=null){Cr=Cz['call'](Cr,'number');if(Cr!==null&&(typeof Cr==='object'||typeof Cr==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const CC=Cr['valueOf']();if(CC===null||typeof CC!=='object'&&typeof CC!=='function')Cr=CC;else{const CP=Cr['toString']();if(CP!==null&&(typeof CP==='object'||typeof CP==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Cr=CP;}}}rJ[rG++]=typeof Cr===p?Cr:+Cr,rW++;continue;}case 0x11:{rJ[rG++]=rq[zt],rW++;continue;}case 0x12:{rJ[rG++]=rI[zt],rW++;continue;}case 0x13:{rf[zt]=rf[zt]-0x1,rW++;continue;}case 0x14:{let Ch=rJ[--rG];Ch!==null&&Ch!==undefined?rW=rp[rW]:rW++;continue;}case 0x15:{rJ[rG++]=null,rW++;continue;}case 0x16:{rJ[rG++]=rf[zt],rW++;continue;}case 0x17:{let Co=rJ[rG-0x1],Cn=rq[zt];if(Co===null||Co===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Co+'\x20(reading\x20'+'\x27'+String(Cn)+'\x27'+')');rJ[rG++]=Co[Cn],rW++;continue;}case 0x18:{let CX=rJ[--rG],CU=rJ[--rG];rJ[rG++]=CU/CX,rW++;continue;}case 0x19:{let Ci=zt&0xffff,CQ=zt>>>0x10,Cc=zC;for(let CH=0x0;CH<CQ;CH++){Cc=Cc['_$hqCtQl'];}let CA=Cc['_$Oewzd2'],Cl=CA[Ci];if(Cl===CA){let CV=Cc['_$uS9lzo'];throw new ReferenceError('Cannot\x20access\x20\x27'+(CV&&CV[Ci]||'variable')+'\x27\x20before\x20initialization');}rJ[rG++]=Cl,rW++;continue;}case 0x1a:{let CD=rJ[--rG];if((typeof CD==='object'||typeof CD==='function')&&CD!==null){const CK=CD[Symbol['toPrimitive']];if(CK!=null){CD=CK['call'](CD,'number');if(CD!==null&&(typeof CD==='object'||typeof CD==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const Cw=CD['valueOf']();if(Cw===null||typeof Cw!=='object'&&typeof Cw!=='function')CD=Cw;else{const CI=CD['toString']();if(CI!==null&&(typeof CI==='object'||typeof CI==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');CD=CI;}}}rJ[rG++]=typeof CD===p?CD-0x1n:+CD-0x1,rW++;continue;}case 0x1b:{let CL=rJ[--rG],CO=rJ[--rG],Cj=rJ[--rG];if(Cj===null||Cj===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+Cj+'\x20(setting\x20'+(typeof CO==='symbol'?'\x27'+CO['toString']()+'\x27':typeof CO==='string'?'\x27'+CO+'\x27':typeof CO==='object'||typeof CO==='function'?'\x27<computed\x20key>\x27':'\x27'+String(CO)+'\x27')+')');if(rx){let CM=typeof Cj==='object'||typeof Cj==='function'?Cj:Object(Cj);if(!Reflect['set'](CM,CO,CL,Cj))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(CO)+'\x27\x20of\x20object');}else Cj[CO]=CL;rJ[rG++]=CL,rW++;continue;}case 0x1c:{rJ[rG-0x1]?rW=rp[rW]:(rJ[--rG],rW++);continue;}case 0x1d:{if(z1&&!zn){let CR=kc(zC);if(CR!==undefined)rj=CR,zn=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let CJ=rj,CG=rq[zt];if(CJ===null||CJ===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+CJ+'\x20(reading\x20'+'\x27'+String(CG)+'\x27'+')');rJ[rG++]=CJ[CG],rW++;continue;}case 0x1e:{rJ[rG++]=rq[zt],rW++;continue;}case 0x1f:{rJ[rG-0x1]=rJ[rG-0x1]|0x0,rW++;continue;}case 0x20:{let Cq=rJ[--rG],Ct=rJ[--rG];rJ[rG++]=Ct!==Cq,rW++;continue;}case 0x21:{let Cp=rJ[--rG],Cu=rJ[--rG];rJ[rG++]=Cu>Cp,rW++;continue;}case 0x22:{let Cf=rf[zt];if((typeof Cf==='object'||typeof Cf==='function')&&Cf!==null){const CW=Cf[Symbol['toPrimitive']];if(CW!=null){Cf=CW['call'](Cf,'number');if(Cf!==null&&(typeof Cf==='object'||typeof Cf==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const Cv=Cf['valueOf']();if(Cv===null||typeof Cv!=='object'&&typeof Cv!=='function')Cf=Cv;else{const CF=Cf['toString']();if(CF!==null&&(typeof CF==='object'||typeof CF==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Cf=CF;}}}rf[zt]=typeof Cf===p?Cf+0x1n:+Cf+0x1,rW++;continue;}case 0x23:{let CN=zt&0xffff,Cy=zt>>>0x10;rJ[rG++]=rI[CN]-rq[Cy],rW++;continue;}case 0x24:{let Ca=rJ[--rG],CE=rJ[--rG];rJ[rG++]=CE!=Ca,rW++;continue;}case 0x25:{!rJ[--rG]?rW=rp[rW]:rW++;continue;}case 0x26:{let Cb=rJ[--rG],CZ=rJ[--rG];rJ[rG++]=CZ===Cb,rW++;continue;}case 0x27:{rf[zt]=rf[zt]+0x1,rW++;continue;}case 0x28:{let CY=rJ[--rG],Cd=rJ[--rG];if(Cd===null||Cd===undefined){if(CY===Symbol['iterator'])throw new TypeError((Cd===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Cd+'\x20(reading\x20'+(typeof CY==='symbol'?'\x27'+CY['toString']()+'\x27':typeof CY==='string'?'\x27'+CY+'\x27':typeof CY==='object'||typeof CY==='function'?'\x27<computed\x20key>\x27':'\x27'+String(CY)+'\x27')+')');}rJ[rG++]=Cd[CY],rW++;continue;}case 0x29:{rJ[rG++]=undefined,rW++;continue;}case 0x2a:{rW=rp[rW];continue;}case 0x2b:{let CT=rJ[--rG],Ce=rJ[--rG];rJ[rG++]=Ce*CT,rW++;continue;}case 0x2c:{!rJ[rG-0x1]?rW=rp[rW]:(rJ[--rG],rW++);continue;}case 0x2d:{let CB=rJ[--rG],Cm=rJ[--rG];rJ[rG++]=Cm%CB,rW++;continue;}case 0x2e:{let CS=rJ[rG-0x1];rJ[rG++]=CS,rW++;continue;}case 0x2f:{let Cs=rJ[--rG],Cg=rJ[--rG];rJ[rG++]=Cg<=Cs,rW++;continue;}case 0x30:{let Cx=zt&0xffff,P0=zt>>>0x10;rJ[rG++]=rf[Cx]<rq[P0],rW++;continue;}case 0x31:{rI[zt]=rJ[--rG],rW++;continue;}case 0x32:{let P1=rJ[--rG],P2=rJ[--rG];rJ[rG++]=P2<P1,rW++;continue;}case 0x33:{let P3=rJ[--rG],P4=rJ[--rG],P5=(zt^0x8347)>>>0x0,P6;P5<0x10?P5<0x8?P5<0x4?P5<0x2?P6=P5<0x1?P4-P3:P4<P3:P6=P5<0x3?P4>P3:P4/P3:P5<0x6?P6=P5<0x5?P4>=P3:P4!==P3:P6=P5<0x7?P4!=P3:P4^P3:P5<0xc?P5<0xa?P6=P5<0x9?P4<=P3:P4+P3:P6=P5<0xb?P4<<P3:P4*P3:P5<0xe?P6=P5<0xd?P4|P3:P4%P3:P6=P5<0xf?P4>>>P3:P4&P3:P5<0x14?P5<0x12?P6=P5<0x11?P4**P3:P4===P3:P6=P5<0x13?P4==P3:P4>>P3:P5<0x18?P6=P5<0x16?P4|P3:P4&P3:P6=P5<0x1c?P4^P3:P3-P4;rJ[rG++]=P6,rW++;continue;}case 0x34:{let P7=rJ[--rG],P8=rJ[--rG],P9=rq[zt];if(P8===null||P8===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+P8+'\x20(setting\x20'+'\x27'+String(P9)+'\x27'+')');if(rx){let Pk=typeof P8==='object'||typeof P8==='function'?P8:Object(P8);if(!Reflect['set'](Pk,P9,P7,P8))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(P9)+'\x27\x20of\x20object');}else P8[P9]=P7;rJ[rG++]=P7,rW++;continue;}case 0x35:{let Pr=rI[zt];if((typeof Pr==='object'||typeof Pr==='function')&&Pr!==null){const Pz=Pr[Symbol['toPrimitive']];if(Pz!=null){Pr=Pz['call'](Pr,'number');if(Pr!==null&&(typeof Pr==='object'||typeof Pr==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const PC=Pr['valueOf']();if(PC===null||typeof PC!=='object'&&typeof PC!=='function')Pr=PC;else{const PP=Pr['toString']();if(PP!==null&&(typeof PP==='object'||typeof PP==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Pr=PP;}}}rI[zt]=typeof Pr===p?Pr+0x1n:+Pr+0x1,rW++;continue;}case 0x36:{let Ph=rJ[--rG],Po=rq[zt];if(Ph===null||Ph===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Ph+'\x20(reading\x20'+'\x27'+String(Po)+'\x27'+')');rJ[rG++]=Ph[Po],rW++;continue;}case 0x37:{let Pn=rJ[--rG],PX=rJ[--rG];rJ[rG++]=PX==Pn,rW++;continue;}}if(zq<0x7c){if(zw(zq,zt)){if(zi>0x0){for(let PU=zX-0x1;PU>=0x0;PU--){rf[PU]=zU[--zi];}rW=zU[--zi],zo=zU[--zi],rI=zU[--zi],zh=zU[--zi],zC=zU[--zi],rG=zU[--zi],rJ[rG++]=zK,rW++;continue;}return zK;}}else{if(zI(zq,zt)){if(zi>0x0){for(let Pi=zX-0x1;Pi>=0x0;Pi--){rf[Pi]=zU[--zi];}rW=zU[--zi],zo=zU[--zi],rI=zU[--zi],zh=zU[--zi],zC=zU[--zi],rG=zU[--zi],rJ[rG++]=zK,rW++;continue;}return zK;}}}break;}catch(PQ){W=0x0;if(rE&&rE['length']>0x0){let Pc=rE[rE['length']-0x1];rG=Pc['_$1Pyucq'];Pc['_$ka9dHy']!==undefined&&(zC=Pc['_$ka9dHy']);if(Pc['_$G0ywXp']!==undefined)rb=null,z6(PQ),rW=Pc['_$G0ywXp'],Pc['_$G0ywXp']=undefined,Pc['_$50e6p1']===undefined&&rE['pop']();else Pc['_$50e6p1']!==undefined?(rW=Pc['_$50e6p1'],Pc['_$nKuEAm']=PQ):(rW=Pc['_$Q1YSaw'],rE['pop']());continue;}throw PQ;}}if(z1&&!zn){let PA=kc(zC);PA!==undefined&&(rj=PA,zn=!![]);}let zO=rG>0x0?rJ[--rG]:zn?rj:undefined;if(z1&&!zn&&(zO===undefined||zO===null||typeof zO!=='object'&&typeof zO!=='function'))throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return zO;}return zQ(0x0);}function*kO(rw,rI,rL,rO,rj,rM){let rJ=kL(rw,rI,rL,rO,rj,rM);while(!![]){if(rJ&&typeof rJ==='object'&&rJ['_$CgbwSr']!==undefined){let rG=rJ['_$OnRhvE'],rR;try{rR=yield rJ;}catch(rq){rJ=rG(0x2,rq);continue;}rR&&typeof rR==='object'&&rR['_$CgbwSr']===M?rJ=rG(0x3,rR['_$TRdnTY']):rJ=rG(0x1,rR);}else return rJ;}}let kj=0x0,kM=function(rw){let rI=rw['next'],rL=rw['throw'],rO=rw['return'];return rw['next']=function(rj){kj++;try{return rI['call'](rw,rj);}finally{kj--;}},rw['throw']=function(rj){kj++;try{return rL['call'](rw,rj);}finally{kj--;}},rw['return']=function(rj){kj++;try{return rO['call'](rw,rj);}finally{kj--;}},rw;},kJ=function(rw,rI,rL,rO,rj,rM){kj++;try{vmh_89ae91['_$7NuQBd']?vmh_89ae91['_$7NuQBd']=![]:vmh_89ae91['_$VgdMyk']=undefined;let rJ=typeof rw==='object'?rw['n']!==undefined?0x0?rU(rw['n']):rw['d']||(rw['d']=rU(rw['n'])):rw:rX(rw),rG=rJ&&rh(rJ[0x20],rJ[0x21]);return kI(rJ,rI,rL,rO,rj,rM);}finally{kj--;}},kG=0x6,kR=0xa,kq=0x3,kt=0x8,kp=0x1,ku=0x7,kf=0xb,kW=0x4,kv=0x0,kF=0x9,kN=0x2,ky=0x5,ka=0x40,kE=0x4000,kb=0x20,kZ=0x200,kY=0x400000,kd=0x4,kT=0x40000,ke=0x80,kB=0x200000,km=0x8,kS=0x100,ks=0x2000,kg=0x1,kx=0x1000,r0=0x80000,r1=0x20000,r2=0x2,r3=0x10000,r4=0x8000,r5=0x800,r6=0x400,r7=0x100000;function r8(rw){this['_$NUTZjk']=rw,this['_$5m6Qvw']=new D(rw['buffer'],rw['byteOffset'],rw['byteLength']),this['_$puuLaS']=0x0;}r8['prototype']['_$VeEUf5']=function(){return this['_$NUTZjk'][this['_$puuLaS']++];},r8['prototype']['_$D9bMoO']=function(){let rw=this['_$5m6Qvw']['getUint16'](this['_$puuLaS'],!![]);return this['_$puuLaS']+=0x2,rw;},r8['prototype']['_$GWoV0A']=function(){let rw=this['_$5m6Qvw']['getUint32'](this['_$puuLaS'],!![]);return this['_$puuLaS']+=0x4,rw;},r8['prototype']['_$uhZGaZ']=function(){let rw=this['_$5m6Qvw']['getInt32'](this['_$puuLaS'],!![]);return this['_$puuLaS']+=0x4,rw;},r8['prototype']['_$Bi5xQC']=function(){let rw=this['_$5m6Qvw']['getFloat64'](this['_$puuLaS'],!![]);return this['_$puuLaS']+=0x8,rw;},r8['prototype']['_$82oGab']=function(){let rw=0x0,rI=0x0,rL;do{rL=this['_$VeEUf5'](),rw|=(rL&0x7f)<<rI,rI+=0x7;}while(rL>=0x80);return rw>>>0x1^-(rw&0x1);},r8['prototype']['_$FfwdHA']=function(){let rw=this['_$82oGab'](),rI=this['_$NUTZjk'],rL=this['_$puuLaS'],rO=rL+rw;this['_$puuLaS']=rO;var rj='';while(rL<rO){var rM=rI[rL++];if(rM<0x80)rj+=K(rM);else{if(rM<0xe0)rj+=K((rM&0x1f)<<0x6|rI[rL++]&0x3f);else{if(rM<0xf0)rj+=K((rM&0xf)<<0xc|(rI[rL++]&0x3f)<<0x6|rI[rL++]&0x3f);else{var rJ=(rM&0x7)<<0x12|(rI[rL++]&0x3f)<<0xc|(rI[rL++]&0x3f)<<0x6|rI[rL++]&0x3f;rJ-=0x10000,rj+=K((rJ>>0xa)+0xd800,(rJ&0x3ff)+0xdc00);}}}}return rj;};var r9='/rPGtEHejh+w4pR532F8kNd7TZnLCqSuAxcWy0ioUlMYm9VgJvbXK1OIsDzaQ6Bf',rk=new V(0x80);for(var rr=0x0;rr<r9['length'];rr++){rk[r9['charCodeAt'](rr)]=rr;}function rz(rw){var rI=rw['charCodeAt'](rw['length']-0x1)===0x3d?rw['charCodeAt'](rw['length']-0x2)===0x3d?0x2:0x1:0x0,rL=(rw['length']*0x3>>0x2)-rI,rO=new V(rL),rj=0x0;for(var rM=0x0;rM<rw['length'];rM+=0x4){var rJ=rk[rw['charCodeAt'](rM)],rG=rk[rw['charCodeAt'](rM+0x1)],rR=rk[rw['charCodeAt'](rM+0x2)],rq=rk[rw['charCodeAt'](rM+0x3)];rO[rj++]=rJ<<0x2|rG>>0x4,rj<rL&&(rO[rj++]=(rG&0xf)<<0x4|rR>>0x2),rj<rL&&(rO[rj++]=(rR&0x3)<<0x6|rq);}return rO;}function rC(rw,rI,rL){let rO=rw['_$82oGab'](),rj=(rL^rI*0x9e3779b1)>>>0x0||0x1,rM=0x0;var rJ='';function rG(){return rj=(rj^rj<<0xd)>>>0x0,rj=(rj^rj>>>0x11)>>>0x0,rj=(rj^rj<<0x5)>>>0x0,rM++,rw['_$VeEUf5']()^rj&0xff;}while(rM<rO){var rR=rG();if(rR<0x80)rJ+=K(rR);else{if(rR<0xe0)rJ+=K((rR&0x1f)<<0x6|rG()&0x3f);else{if(rR<0xf0)rJ+=K((rR&0xf)<<0xc|(rG()&0x3f)<<0x6|rG()&0x3f);else{var rq=((rR&0x7)<<0x12|(rG()&0x3f)<<0xc|(rG()&0x3f)<<0x6|rG()&0x3f)-0x10000;rJ+=K((rq>>0xa)+0xd800,(rq&0x3ff)+0xdc00);}}}}return rJ;}function rP(rw,rI,rL){let rO=rw['_$VeEUf5']();switch(rO){case kG:return null;case kR:return undefined;case kq:return![];case kt:return!![];case kp:{let rj=rw['_$VeEUf5']();return rj>0x7f?rj-0x100:rj;}case ku:{let rM=rw['_$D9bMoO']();return rM>0x7fff?rM-0x10000:rM;}case kf:return rw['_$uhZGaZ']();case kW:return rw['_$Bi5xQC']();case kv:return rL?rC(rw,rI,rL):rw['_$FfwdHA']();case kF:return BigInt(rw['_$FfwdHA']());case kN:{let rJ=rw['_$FfwdHA'](),rG=rw['_$FfwdHA']();return new RegExp(rJ,rG);}case ky:{let rR=rw['_$82oGab'](),rq=new V(rR);for(let rt=0x0;rt<rR;rt++){rq[rt]=rw['_$VeEUf5']();}return ro(rq);}default:return null;}}function rh(rw,rI){var rL=(Math['imul']((rw>>>0x0)+0x1,0x6ae21102|0x1)^Math['imul']((rI>>>0x0)+0x1,0x6ae21102>>>0x9|0x1)^0x6ae21102)>>>0x0;return[(rL|0x1)>>>0x0,Math['imul'](rL,0x3b373659)+0xbfed4359>>>0x0];}function ro(rw){let rI;if(rw&&rw['_$puuLaS']!==undefined)rI=rw;else{let ry=typeof rw==='string'?rz(rw):rw;rI=new r8(ry);}let rL=rI['_$VeEUf5'](),rO=(rI['_$GWoV0A']()^0x9d2b1a15)>>>0x0,rj=rI['_$82oGab'](),rM=rI['_$82oGab'](),rJ=[],rG=rh(rj,rM);rJ[0x20]=rj,rJ[0x21]=rM;rO&ke&&(rJ[0x15*rG[0x0]+rG[0x1]&0x1f]=rI['_$GWoV0A']());rO&kZ&&(rJ[0xe*rG[0x0]+rG[0x1]&0x1f]=rI['_$82oGab']());rO&kS&&(rJ[0x1*rG[0x0]+rG[0x1]&0x1f]=rI['_$GWoV0A']());rO&km&&(rJ[0x18*rG[0x0]+rG[0x1]&0x1f]=rI['_$82oGab']());rO&kB&&(rJ[0x7*rG[0x0]+rG[0x1]&0x1f]=rI['_$GWoV0A']());rO&kT&&(rJ[0x8*rG[0x0]+rG[0x1]&0x1f]=rI['_$GWoV0A']());rO&kd&&(rJ[0xc*rG[0x0]+rG[0x1]&0x1f]=rI['_$GWoV0A']());rO&r5&&(rJ[0x17*rG[0x0]+rG[0x1]&0x1f]=rI['_$82oGab']());rO&r6&&(rJ[0x0*rG[0x0]+rG[0x1]&0x1f]=rI['_$82oGab']());if(rO&kY){let ra=rI['_$82oGab'](),rE={};for(let rb=0x0;rb<ra;rb++){let rZ=rI['_$82oGab'](),rY=rI['_$82oGab']();rE[rZ]=rY;}rJ[0x19*rG[0x0]+rG[0x1]&0x1f]=rE;}rO&ka&&(rJ[0xd*rG[0x0]+rG[0x1]&0x1f]=0x1);rO&kE&&(rJ[0xf*rG[0x0]+rG[0x1]&0x1f]=0x1);rO&kb&&(rJ[0x14*rG[0x0]+rG[0x1]&0x1f]=0x1);rO&r0&&(rJ[0x4*rG[0x0]+rG[0x1]&0x1f]=0x1);rO&r1&&(rJ[0x3*rG[0x0]+rG[0x1]&0x1f]=0x1);rO&r2&&(rJ[0x9*rG[0x0]+rG[0x1]&0x1f]=0x1);rO&r3&&(rJ[0x16*rG[0x0]+rG[0x1]&0x1f]=0x1);rO&r4&&(rJ[0x11*rG[0x0]+rG[0x1]&0x1f]=0x1);rO&kx&&(rJ[0xb*rG[0x0]+rG[0x1]&0x1f]=0x1);let rR=rI['_$82oGab'](),rq=[];k9(rq,null);let rt=rJ[0x15*rG[0x0]+rG[0x1]&0x1f]||0x0;for(let rd=0x0;rd<rR;rd++){rq[rd]=rP(rI,rd,rt);}rJ[0x5*rG[0x0]+rG[0x1]&0x1f]=rq;function rp(rT){let re=rT['_$VeEUf5']();switch(re){case kG:return-0x1;case kp:{let rB=rT['_$VeEUf5']();return rB>0x7f?rB-0x100:rB;}case ku:{let rm=rT['_$D9bMoO']();return rm>0x7fff?rm-0x10000:rm;}case kf:return rT['_$uhZGaZ']();case kW:return rT['_$Bi5xQC']()|0x0;case kv:return rT['_$FfwdHA']()|0x0;default:return-0x1;}}let ru=rI['_$82oGab'](),rf=!!(rO&r7),rW=rf?ru*0x3:ru<<0x1;if(ru<0x0||rW<0x0)throw new RangeError('Invalid\x20array\x20length');let rv=null,rF={'__proto__':rv,'length':rW},rN=0x0;if(rf){let rT=rJ[0x6*rG[0x0]+rG[0x1]&0x1f]<=0x80;for(let re=0x0;re<ru;re++){rF[rN++]=rI['_$82oGab'](),rF[rN++]=rp(rI);let rB=0x0,rm=0x0,rS;do{rS=rI['_$VeEUf5'](),rB|=(rS&0x7f)<<rm,rm+=0x7;}while(rS>=0x80);rB=rB>>>0x0,rF[rN++]=rT?(rB&0x7f)<<0x14|(rB>>>0x7&0x7f)<<0xa|rB>>>0xe&0x7f:(rB&0xfff)<<0x14|(rB>>>0xc&0x3ff)<<0xa|rB>>>0x16&0x3ff;}}else{let rs=(rj*0x864f^rM*0xbceb^ru*0xc963^rR*0xf12d)>>>0x0&0x3;switch(rs){case 0x1:for(let rg=0x0;rg<ru;rg++){rF[rN++]=rI['_$82oGab'](),rF[rN++]=rp(rI);}break;case 0x2:for(let rx=0x0;rx<ru;rx++){rF[rN++]=rI['_$82oGab']();}for(let z0=0x0;z0<ru;z0++){rF[rN++]=rp(rI);}break;case 0x3:for(let z1=0x0;z1<ru;z1++){rF[rN++]=rp(rI);}for(let z2=0x0;z2<ru;z2++){rF[rN++]=rI['_$82oGab']();}break;default:for(let z3=0x0;z3<ru;z3++){rF[rN++]=rp(rI),rF[rN++]=rI['_$82oGab']();}break;}}rJ[0x10*rG[0x0]+rG[0x1]&0x1f]=rF;if(rO&ks){let z4=rI['_$82oGab'](),z5={};for(let z6=0x0;z6<z4;z6++){let z7=rI['_$82oGab'](),z8=rI['_$82oGab']();z5[z7]=z8;}rJ[0xa*rG[0x0]+rG[0x1]&0x1f]=z5;}if(rO&kg){let z9=rI['_$82oGab'](),zk={};for(let zr=0x0;zr<z9;zr++){let zz=rI['_$82oGab'](),zC=rI['_$82oGab']()-0x1,zP=rI['_$82oGab']()-0x1,zh=rI['_$82oGab']()-0x1;zk[zz]=[zC,zP,zh];}rJ[0x12*rG[0x0]+rG[0x1]&0x1f]=zk;}return rJ;}let rn=function(rw,rI){let rL={};return function(rO){if(rI!==undefined&&rO>>>0x0>=rI>>>0x0)throw 0x0;let rj=rO;if(rL[rj])return rL[rj];let rM=rw[rj];return typeof rM==='string'?rL[rj]=ro(rM):rL[rj]=rM,rL[rj];};},rX=rn(H);H=null;let rU=rn(w,undefined,0x0);w=null;let ri=async function(rw,rI,rL,rO,rj,rM,rJ){kj++;try{let rG=typeof rw==='object'?rw['n']!==undefined?0x0?rU(rw['n']):rw['d']||(rw['d']=rU(rw['n'])):rw:rX(rw),rR=rG&&rh(rG[0x20],rG[0x21]),rq=kO(rG,rI,rL,rO,rj,rM),rt=rq['next']();while(!rt['done']){if(rt['value']['_$CgbwSr']!==L)throw new Error('Unexpected\x20yield\x20in\x20async\x20context');try{let rp;rp=await rt['value']['_$TRdnTY'],vmh_89ae91['_$VgdMyk']=rJ,rt=rq['next'](rp);}catch(ru){vmh_89ae91['_$VgdMyk']=rJ,rt=rq['throw'](ru);}}return rt['value'];}finally{kj--;}},rQ=function(rw,rI,rL,rO,rj,rM){let rJ,rG;kj++;try{rJ=typeof rw==='object'?rw['n']!==undefined?0x0?rU(rw['n']):rw['d']||(rw['d']=rU(rw['n'])):rw:rX(rw),rG=rJ&&rh(rJ[0x20],rJ[0x21]);}finally{kj--;}let rR=kM(kO(rJ,rI,rL,undefined,rO,rj)),rq=rJ&&rJ[0x14*rG[0x0]+rG[0x1]&0x1f]&&!rJ[0x9*rG[0x0]+rG[0x1]&0x1f],rt=null;rq&&(rt=rR['next']());let rp=![],ru=![],rf=null,rW=undefined,rv=![];function rF(rT,re){if(rp)return{'value':undefined,'done':!![]};ru=!![],vmh_89ae91['_$VgdMyk']=rM;if(rf){let rm,rS,rs;try{if(re){if(typeof rf['throw']==='function')rm=rf['throw'](rT);else{typeof rf['return']==='function'&&rf['return']();rf=null;throw new TypeError('The\x20iterator\x20does\x20not\x20provide\x20a\x20\x27throw\x27\x20method.');}}else rm=rf['next'](rT);try{kr(rm);}catch(rx){rf=null;throw rx;}let rg=kz(rm);rS=rg['done'],rs=rg['value'];}catch(z0){rf=null;try{let z1=rR['throw'](z0);return rN(z1);}catch(z2){rp=!![];throw z2;}}if(!rS)return rm;rf=null,rT=rs,re=![];}let rB;if(rt!==null)rB=rt,rt=null;else try{rB=re?rR['throw'](rT):rR['next'](rT);}catch(z3){rp=!![];throw z3;}return rN(rB);}function rN(rT){if(rT['done'])return rp=!![],rv=![],{'value':rT['value'],'done':!![]};let re=rT['value'];if(re['_$CgbwSr']===O)return{'value':re['_$TRdnTY'],'done':![]};if(re['_$CgbwSr']===j){let rB=re['_$TRdnTY'],rm;try{if(rB==null)throw new TypeError(rB+'\x20is\x20not\x20iterable');let rx=rB[Symbol['iterator']];if(typeof rx!=='function')throw new TypeError(rB+'\x20is\x20not\x20iterable');rm=rx['call'](rB),kr(rm);if(typeof rm['next']!=='function')throw new TypeError('Iterator\x20next\x20is\x20not\x20a\x20function');}catch(z0){try{let z1=rR['throw'](z0);return rN(z1);}catch(z2){rp=!![];throw z2;}}let rS,rs,rg;try{rS=rm['next'](undefined),kr(rS);let z3=kz(rS);rs=z3['done'],rg=z3['value'];}catch(z4){try{let z5=rR['throw'](z4);return rN(z5);}catch(z6){rp=!![];throw z6;}}if(!rs)return rf=rm,rS;return rF(rg,![]);}throw new Error('Unexpected\x20signal\x20in\x20generator');}let ry=rJ&&rJ[0xf*rG[0x0]+rG[0x1]&0x1f],ra=async function(rT){if(rp)return{'value':rT,'done':!![]};if(!ru)return rp=!![],{'value':rT,'done':!![]};if(rf){let rB=rf,rm;try{rm=kk(rB['iter'],'return');}catch(rS){rf=null,rp=!![];throw rS;}if(rm===undefined){rf=null;try{rT=await Promise['resolve'](rT);}catch(rs){rp=!![];throw rs;}}else{let rg;try{rg=o(rm,rB['iter'],[rT]),!rB['isSync']&&(rg=await rg);}catch(z3){rf=null,rp=!![];throw z3;}if(rg===null||typeof rg!=='object'){rf=null,rp=!![];throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');}let rx,z0,z1,z2=![];try{rx=rg['done'],z0=rg['value'];}catch(z4){z2=!![],z1=z4;}if(z2){rf=null;let z5;try{vmh_89ae91['_$VgdMyk']=rM,z5=rR['throw'](z1);}catch(z6){rp=!![];throw z6;}while(!z5['done']){let z7=z5['value'];if(z7&&z7['_$CgbwSr']===L){let z8;try{z8=await z7['_$TRdnTY'],vmh_89ae91['_$VgdMyk']=rM,z5=rR['next'](z8);}catch(z9){vmh_89ae91['_$VgdMyk']=rM,z5=rR['throw'](z9);}continue;}if(z7&&z7['_$CgbwSr']===O){let zk;try{zk=await Promise['resolve'](z7['_$TRdnTY']);}catch(zr){rp=!![];throw zr;}return{'value':zk,'done':![]};}break;}return rp=!![],{'value':z5['value'],'done':!![]};}if(!rx){let zz;try{zz=await Promise['resolve'](z0);}catch(zC){rf=null,rp=!![];throw zC;}return{'value':zz,'done':![]};}rf=null;try{rT=await Promise['resolve'](z0);}catch(zP){rp=!![];throw zP;}}}let re;try{vmh_89ae91['_$VgdMyk']=rM,re=rR['next']({['_$CgbwSr']:M,['_$TRdnTY']:rT});}catch(zh){rp=!![];throw zh;}while(!re['done']){let zo=re['value'];if(zo['_$CgbwSr']===L)try{let zn=await zo['_$TRdnTY'];vmh_89ae91['_$VgdMyk']=rM,re=rR['next'](zn);}catch(zX){vmh_89ae91['_$VgdMyk']=rM,re=rR['throw'](zX);}else{if(zo['_$CgbwSr']===O){let zU;try{zU=await Promise['resolve'](zo['_$TRdnTY']);}catch(zi){rp=!![];throw zi;}return{'value':zU,'done':![]};}else break;}}return rp=!![],{'value':re['value'],'done':!![]};},rE=function(rT){if(rp)return{'value':rT,'done':!![]};if(!ru)return rp=!![],{'value':rT,'done':!![]};if(rf){let rB,rm=![];try{let rS=rf['return'];typeof rS==='function'&&(rm=!![],rB=rS['call'](rf,rT),kr(rB));}catch(rs){rf=null;let rg;try{rg=rR['throw'](rs);}catch(rx){rp=!![];throw rx;}return rN(rg);}if(rm){let z0;try{z0=rB['done'];}catch(z2){rf=null;let z3;try{z3=rR['throw'](z2);}catch(z4){rp=!![];throw z4;}return rN(z3);}if(!z0)return rB;let z1;try{z1=rB['value'];}catch(z5){rf=null;let z6;try{z6=rR['throw'](z5);}catch(z7){rp=!![];throw z7;}return rN(z6);}rf=null,rT=z1;}}rW=rT,rv=!![];let re;try{vmh_89ae91['_$VgdMyk']=rM,re=rR['next']({['_$CgbwSr']:M,['_$TRdnTY']:rT});}catch(z8){rp=!![],rv=![];throw z8;}return rN(re);};if(ry){async function rT(rs,rg){let rx=rf,z0;try{if(rg){let z5;try{z5=kk(rx['iter'],'throw');}catch(z6){rf=null;try{return vmh_89ae91['_$VgdMyk']=rM,re(rR['throw'](z6));}catch(z7){rp=!![];throw z7;}}if(z5===undefined){let z8;try{z8=kk(rx['iter'],'return');}catch(z9){rf=null;try{return vmh_89ae91['_$VgdMyk']=rM,re(rR['throw'](z9));}catch(zk){rp=!![];throw zk;}}if(z8!==undefined)try{let zr=o(z8,rx['iter'],[]);!rx['isSync']&&(zr=await zr);if(zr!==null&&typeof zr!=='object')throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');}catch(zz){}rf=null;try{return vmh_89ae91['_$VgdMyk']=rM,re(rR['throw'](new TypeError('The\x20iterator\x20does\x20not\x20provide\x20a\x20throw\x20method')));}catch(zC){rp=!![];throw zC;}}z0=o(z5,rx['iter'],[rs]),!rx['isSync']&&(z0=await z0);}else z0=o(rx['nextMethod'],rx['iter'],[rs]),!rx['isSync']&&(z0=await z0);}catch(zP){rf=null;try{return vmh_89ae91['_$VgdMyk']=rM,re(rR['throw'](zP));}catch(zh){rp=!![];throw zh;}}if(z0===null||typeof z0!=='object'){rf=null;try{return vmh_89ae91['_$VgdMyk']=rM,re(rR['throw'](new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object')));}catch(zo){rp=!![];throw zo;}}let z1,z2;try{z1=z0['done'],z2=z0['value'];}catch(zn){rf=null;try{return vmh_89ae91['_$VgdMyk']=rM,re(rR['throw'](zn));}catch(zX){rp=!![];throw zX;}}if(!z1){let zU;try{zU=await z2;}catch(zi){rf=null,rp=!![];throw zi;}return{'value':zU,'done':![]};}rf=null;let z3;try{z3=await z2;}catch(zQ){try{return vmh_89ae91['_$VgdMyk']=rM,re(rR['throw'](zQ));}catch(zc){rp=!![];throw zc;}}let z4;try{vmh_89ae91['_$VgdMyk']=rM,z4=rR['next'](z3);}catch(zA){rp=!![];throw zA;}return re(z4);}function rd(rs,rg){if(rp)return Promise['resolve']({'value':undefined,'done':!![]});ru=!![],vmh_89ae91['_$VgdMyk']=rM;if(rf)return rT(rs,rg);let rx;if(rt!==null)rx=rt,rt=null;else try{rx=rg?rR['throw'](rs):rR['next'](rs);}catch(z0){return rp=!![],Promise['reject'](z0);}if(!rx['done']){let z1=rx['value'];if(z1&&z1['_$CgbwSr']===O)return Promise['resolve'](z1['_$TRdnTY'])['then'](function(z2){return{'value':z2,'done':![]};},function(z2){rp=!![];throw z2;});}return re(rx);}async function re(rs){while(!rs['done']){let rg=rs['value'];if(rg['_$CgbwSr']===L){let rx;try{rx=await rg['_$TRdnTY'],vmh_89ae91['_$VgdMyk']=rM,rs=rR['next'](rx);}catch(z0){vmh_89ae91['_$VgdMyk']=rM,rs=rR['throw'](z0);}continue;}if(rg['_$CgbwSr']===O){let z1;try{z1=await rg['_$TRdnTY'];}catch(z2){rp=!![];throw z2;}return{'value':z1,'done':![]};}if(rg['_$CgbwSr']===j){let z3=rg['_$TRdnTY'],z4;try{z4=kC(z3);}catch(zr){vmh_89ae91['_$VgdMyk']=rM;try{rs=rR['throw'](zr);}catch(zz){rp=!![];throw zz;}continue;}let z5=z4['iter'],z6=z4['nextMethod'],z7=z4['isSync'],z8;try{z8=o(z6,z5,[undefined]),!z7&&(z8=await z8);}catch(zC){vmh_89ae91['_$VgdMyk']=rM;try{rs=rR['throw'](zC);}catch(zP){rp=!![];throw zP;}continue;}if(z8===null||typeof z8!=='object'){vmh_89ae91['_$VgdMyk']=rM;try{rs=rR['throw'](new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object'));}catch(zh){rp=!![];throw zh;}continue;}let z9,zk;try{z9=z8['done'],zk=z8['value'];}catch(zo){vmh_89ae91['_$VgdMyk']=rM;try{rs=rR['throw'](zo);}catch(zn){rp=!![];throw zn;}continue;}if(z9){let zX;try{zX=await Promise['resolve'](zk);}catch(zU){vmh_89ae91['_$VgdMyk']=rM;try{rs=rR['throw'](zU);}catch(zi){rp=!![];throw zi;}continue;}vmh_89ae91['_$VgdMyk']=rM,rs=rR['next'](zX);continue;}rf={'iter':z5,'nextMethod':z6,'isSync':z7};if(z7){let zQ;try{zQ=await Promise['resolve'](zk);}catch(zc){rf=null,rp=!![];throw zc;}return{'value':zQ,'done':![]};}return{'value':zk,'done':![]};}throw new Error('Unexpected\x20signal\x20in\x20async\x20generator');}rp=!![];if(rv)return rv=![],{'value':rW,'done':!![]};return{'value':rs['value'],'done':!![]};}let rB=null,rm=0x0;function rY(){}function rZ(){rm--,rm===0x0&&(rB=null);}function rb(rs){let rg;if(rm===0x0)try{rg=rs();}catch(rx){rg=Promise['reject'](rx);}else rg=rB['then'](rs,rs);return rm++,rB=rg,rg['then'](rZ,rZ),rg;}let rS=k8(rj&&rj['prototype'],k2);return rS?h(rS,{'next':k7(function(rs){return rb(function(){return rd(rs,![]);});}),'return':k7(function(rs){return rb(function(){return ra(rs);});}),'throw':k7(function(rs){return rb(function(){if(rp)return Promise['reject'](rs);return rd(rs,!![]);});}),[Symbol['asyncIterator']]:k7(function(){return this;})}):{'next':function(rs){return rb(function(){return rd(rs,![]);});},'return':function(rs){return rb(function(){return ra(rs);});},'throw':function(rs){return rb(function(){if(rp)return Promise['reject'](rs);return rd(rs,!![]);});},[Symbol['asyncIterator']]:function(){return this;}};}else{let rs=k8(rj&&rj['prototype'],k0);return rs?h(rs,{'next':k7(function(rg){return rF(rg,![]);}),'return':k7(rE),'throw':k7(function(rg){if(rp)throw rg;return rF(rg,!![]);}),[Symbol['iterator']]:k7(function(){return this;})}):{'next':function(rg){return rF(rg,![]);},'return':rE,'throw':function(rg){if(rp)throw rg;return rF(rg,!![]);},[Symbol['iterator']]:function(){return this;}};}};var rc=function(rw,rI,rL,rO,rj,rM){kj++;try{let rJ=rX(rI),rG=rJ&&rh(rJ[0x20],rJ[0x21]),rR=rM;if(rJ&&rJ[0x14*rG[0x0]+rG[0x1]&0x1f]){let rq=vmh_89ae91['_$VgdMyk'];return rQ(rJ,rL,rj,rR,rw,rq);}if(rJ&&rJ[0xf*rG[0x0]+rG[0x1]&0x1f]){let rt=vmh_89ae91['_$VgdMyk'];return ri(rJ,rL,rj,rO,rR,rw,rt);}return kJ(rJ,rL,rj,rO,rR,rw);}finally{kj--;}};return rc['_$QEAf1v']=function(rw,rI){if(!rw)return;if(0x0||0x0){!T(rw)&&Z(rw,{['_$gYdy5e']:rI,['_$QaM83m']:undefined,['_$JGFZLu']:undefined,['_$ot1z1R']:undefined});return;}var rL;kj++;try{rL=rX(rI);}finally{kj--;}if(!rL)return;var rO=rh(rL[0x20],rL[0x21]);if(rL[0xf*rO[0x0]+rO[0x1]&0x1f]||rL[0x14*rO[0x0]+rO[0x1]&0x1f]||rL[0xd*rO[0x0]+rO[0x1]&0x1f])return;!T(rw)&&Z(rw,{['_$gYdy5e']:rI,['_$QaM83m']:undefined,['_$JGFZLu']:rL,['_$ot1z1R']:undefined});},rc;}());vmP_43eb5a['_$QEAf1v'](path_join,0x7),vmP_43eb5a['_$QEAf1v'](apiReply,0x12),vmP_43eb5a['_$QEAf1v'](readJsonBody,0x13),vmP_43eb5a['_$QEAf1v'](nameKey,0x16),vmP_43eb5a['_$QEAf1v'](nameProblem,0x19),vmP_43eb5a['_$QEAf1v'](shopPublicOrder,0x29),vmP_43eb5a['_$QEAf1v'](pickNewHost,0x3c),vmP_43eb5a['_$QEAf1v'](send,0x5e),vmP_43eb5a['_$QEAf1v'](broadcast,0x5f),vmP_43eb5a['_$QEAf1v'](publicInfo,0x60),delete vmP_43eb5a['_$QEAf1v'];try{global,Object['defineProperty'](vmh_89ae91,'global',{'get':function(){return global;},'set':function(k){global=k;},'configurable':!![]});}catch(vmoV){}try{Object,Object['defineProperty'](vmh_89ae91,'Object',{'get':function(){return Object;},'set':function(k){Object=k;},'configurable':!![]});}catch(vmoD){}try{Error,Object['defineProperty'](vmh_89ae91,'Error',{'get':function(){return Error;},'set':function(k){Error=k;},'configurable':!![]});}catch(vmoK){}try{console,Object['defineProperty'](vmh_89ae91,'console',{'get':function(){return console;},'set':function(k){console=k;},'configurable':!![]});}catch(vmow){}try{JSON,Object['defineProperty'](vmh_89ae91,'JSON',{'get':function(){return JSON;},'set':function(k){JSON=k;},'configurable':!![]});}catch(vmoI){}try{process,Object['defineProperty'](vmh_89ae91,'process',{'get':function(){return process;},'set':function(k){process=k;},'configurable':!![]});}catch(vmoL){}try{undefined,Object['defineProperty'](vmh_89ae91,'undefined',{'get':function(){return undefined;},'set':function(k){undefined=k;},'configurable':!![]});}catch(vmoO){}try{Map,Object['defineProperty'](vmh_89ae91,'Map',{'get':function(){return Map;},'set':function(k){Map=k;},'configurable':!![]});}catch(vmoj){}try{fetch,Object['defineProperty'](vmh_89ae91,'fetch',{'get':function(){return fetch;},'set':function(k){fetch=k;},'configurable':!![]});}catch(vmoM){}try{AbortSignal,Object['defineProperty'](vmh_89ae91,'AbortSignal',{'get':function(){return AbortSignal;},'set':function(k){AbortSignal=k;},'configurable':!![]});}catch(vmoJ){}try{Promise,Object['defineProperty'](vmh_89ae91,'Promise',{'get':function(){return Promise;},'set':function(k){Promise=k;},'configurable':!![]});}catch(vmoG){}try{encodeURIComponent,Object['defineProperty'](vmh_89ae91,'encodeURIComponent',{'get':function(){return encodeURIComponent;},'set':function(k){encodeURIComponent=k;},'configurable':!![]});}catch(vmoR){}try{setTimeout,Object['defineProperty'](vmh_89ae91,'setTimeout',{'get':function(){return setTimeout;},'set':function(k){setTimeout=k;},'configurable':!![]});}catch(vmoq){}try{Math,Object['defineProperty'](vmh_89ae91,'Math',{'get':function(){return Math;},'set':function(k){Math=k;},'configurable':!![]});}catch(vmot){}try{Date,Object['defineProperty'](vmh_89ae91,'Date',{'get':function(){return Date;},'set':function(k){Date=k;},'configurable':!![]});}catch(vmop){}try{Buffer,Object['defineProperty'](vmh_89ae91,'Buffer',{'get':function(){return Buffer;},'set':function(k){Buffer=k;},'configurable':!![]});}catch(vmou){}try{String,Object['defineProperty'](vmh_89ae91,'String',{'get':function(){return String;},'set':function(k){String=k;},'configurable':!![]});}catch(vmof){}try{Array,Object['defineProperty'](vmh_89ae91,'Array',{'get':function(){return Array;},'set':function(k){Array=k;},'configurable':!![]});}catch(vmoW){}try{Number,Object['defineProperty'](vmh_89ae91,'Number',{'get':function(){return Number;},'set':function(k){Number=k;},'configurable':!![]});}catch(vmov){}try{Boolean,Object['defineProperty'](vmh_89ae91,'Boolean',{'get':function(){return Boolean;},'set':function(k){Boolean=k;},'configurable':!![]});}catch(vmoF){}try{isFinite,Object['defineProperty'](vmh_89ae91,'isFinite',{'get':function(){return isFinite;},'set':function(k){isFinite=k;},'configurable':!![]});}catch(vmoN){}try{setInterval,Object['defineProperty'](vmh_89ae91,'setInterval',{'get':function(){return setInterval;},'set':function(k){setInterval=k;},'configurable':!![]});}catch(vmoy){}try{Set,Object['defineProperty'](vmh_89ae91,'Set',{'get':function(){return Set;},'set':function(k){Set=k;},'configurable':!![]});}catch(vmoa){}vmh_89ae91['publicInfo']=publicInfo;globalThis['publicInfo']=vmh_89ae91['publicInfo'];vmh_89ae91['broadcast']=broadcast;globalThis['broadcast']=vmh_89ae91['broadcast'];vmh_89ae91['send']=send;globalThis['send']=vmh_89ae91['send'];vmh_89ae91['serverList']=serverList;globalThis['serverList']=vmh_89ae91['serverList'];vmh_89ae91['countPlayers']=countPlayers;globalThis['countPlayers']=vmh_89ae91['countPlayers'];vmh_89ae91['sweepExpiredDrops']=sweepExpiredDrops;globalThis['sweepExpiredDrops']=vmh_89ae91['sweepExpiredDrops'];vmh_89ae91['cwAuthDone']=cwAuthDone;globalThis['cwAuthDone']=vmh_89ae91['cwAuthDone'];vmh_89ae91['cwKick']=cwKick;globalThis['cwKick']=vmh_89ae91['cwKick'];vmh_89ae91['cwCancelAuth']=cwCancelAuth;globalThis['cwCancelAuth']=vmh_89ae91['cwCancelAuth'];vmh_89ae91['cwBroadcastState']=cwBroadcastState;globalThis['cwBroadcastState']=vmh_89ae91['cwBroadcastState'];vmh_89ae91['cwSendState']=cwSendState;globalThis['cwSendState']=vmh_89ae91['cwSendState'];vmh_89ae91['cwRewardView']=cwRewardView;globalThis['cwRewardView']=vmh_89ae91['cwRewardView'];vmh_89ae91['cwShare']=cwShare;globalThis['cwShare']=vmh_89ae91['cwShare'];vmh_89ae91['cwRoom']=cwRoom;globalThis['cwRoom']=vmh_89ae91['cwRoom'];vmh_89ae91['cwTouchingPad']=cwTouchingPad;globalThis['cwTouchingPad']=vmh_89ae91['cwTouchingPad'];vmh_89ae91['cwWindowOpen']=cwWindowOpen;globalThis['cwWindowOpen']=vmh_89ae91['cwWindowOpen'];vmh_89ae91['bossReturnSpot']=bossReturnSpot;globalThis['bossReturnSpot']=vmh_89ae91['bossReturnSpot'];vmh_89ae91['bossMovePlayer']=bossMovePlayer;globalThis['bossMovePlayer']=vmh_89ae91['bossMovePlayer'];vmh_89ae91['bossWindowOpen']=bossWindowOpen;globalThis['bossWindowOpen']=vmh_89ae91['bossWindowOpen'];vmh_89ae91['bossManilaNow']=bossManilaNow;globalThis['bossManilaNow']=vmh_89ae91['bossManilaNow'];vmh_89ae91['clearDropsIfEmpty']=clearDropsIfEmpty;globalThis['clearDropsIfEmpty']=vmh_89ae91['clearDropsIfEmpty'];vmh_89ae91['dropList']=dropList;globalThis['dropList']=vmh_89ae91['dropList'];vmh_89ae91['pruneDrops']=pruneDrops;globalThis['pruneDrops']=vmh_89ae91['pruneDrops'];vmh_89ae91['categoryForDrop']=categoryForDrop;globalThis['categoryForDrop']=vmh_89ae91['categoryForDrop'];vmh_89ae91['simTickRoom']=simTickRoom;globalThis['simTickRoom']=vmh_89ae91['simTickRoom'];vmh_89ae91['simSolveObstacles']=simSolveObstacles;globalThis['simSolveObstacles']=vmh_89ae91['simSolveObstacles'];vmh_89ae91['stopOfflineSim']=stopOfflineSim;globalThis['stopOfflineSim']=vmh_89ae91['stopOfflineSim'];vmh_89ae91['startOfflineSim']=startOfflineSim;globalThis['startOfflineSim']=vmh_89ae91['startOfflineSim'];vmh_89ae91['reassignHost']=reassignHost;globalThis['reassignHost']=vmh_89ae91['reassignHost'];vmh_89ae91['currentBots']=currentBots;globalThis['currentBots']=vmh_89ae91['currentBots'];vmh_89ae91['pickNewHost']=pickNewHost;globalThis['pickNewHost']=vmh_89ae91['pickNewHost'];vmh_89ae91['getRoom']=getRoom;globalThis['getRoom']=vmh_89ae91['getRoom'];vmh_89ae91['cancelActiveTrade']=cancelActiveTrade;globalThis['cancelActiveTrade']=vmh_89ae91['cancelActiveTrade'];vmh_89ae91['disbandClan']=disbandClan;globalThis['disbandClan']=vmh_89ae91['disbandClan'];vmh_89ae91['removeFromClan']=removeFromClan;globalThis['removeFromClan']=vmh_89ae91['removeFromClan'];vmh_89ae91['validateSavedSpot']=validateSavedSpot;globalThis['validateSavedSpot']=vmh_89ae91['validateSavedSpot'];vmh_89ae91['broadcastClanUpdate']=broadcastClanUpdate;globalThis['broadcastClanUpdate']=vmh_89ae91['broadcastClanUpdate'];vmh_89ae91['clanRosterPayload']=clanRosterPayload;globalThis['clanRosterPayload']=vmh_89ae91['clanRosterPayload'];vmh_89ae91['clanAccountReady']=clanAccountReady;globalThis['clanAccountReady']=vmh_89ae91['clanAccountReady'];vmh_89ae91['findOnlinePlayerByName']=findOnlinePlayerByName;globalThis['findOnlinePlayerByName']=vmh_89ae91['findOnlinePlayerByName'];vmh_89ae91['clanOf']=clanOf;globalThis['clanOf']=vmh_89ae91['clanOf'];vmh_89ae91['attachAccount']=attachAccount;globalThis['attachAccount']=vmh_89ae91['attachAccount'];vmh_89ae91['handleShopOwner']=handleShopOwner;globalThis['handleShopOwner']=vmh_89ae91['handleShopOwner'];vmh_89ae91['adminAllowed']=adminAllowed;globalThis['adminAllowed']=vmh_89ae91['adminAllowed'];vmh_89ae91['shopOnJoin']=shopOnJoin;globalThis['shopOnJoin']=vmh_89ae91['shopOnJoin'];vmh_89ae91['apiShop']=apiShop;globalThis['apiShop']=vmh_89ae91['apiShop'];vmh_89ae91['shopAck']=shopAck;globalThis['shopAck']=vmh_89ae91['shopAck'];vmh_89ae91['shopClaim']=shopClaim;globalThis['shopClaim']=vmh_89ae91['shopClaim'];vmh_89ae91['shopListOrders']=shopListOrders;globalThis['shopListOrders']=vmh_89ae91['shopListOrders'];vmh_89ae91['shopPublicOrder']=shopPublicOrder;globalThis['shopPublicOrder']=vmh_89ae91['shopPublicOrder'];vmh_89ae91['shopSubmitManual']=shopSubmitManual;globalThis['shopSubmitManual']=vmh_89ae91['shopSubmitManual'];vmh_89ae91['shopStartPaymongo']=shopStartPaymongo;globalThis['shopStartPaymongo']=vmh_89ae91['shopStartPaymongo'];vmh_89ae91['shopVerifyPaymongo']=shopVerifyPaymongo;globalThis['shopVerifyPaymongo']=vmh_89ae91['shopVerifyPaymongo'];vmh_89ae91['paymongoHeaders']=paymongoHeaders;globalThis['paymongoHeaders']=vmh_89ae91['paymongoHeaders'];vmh_89ae91['shopMarkPaid']=shopMarkPaid;globalThis['shopMarkPaid']=vmh_89ae91['shopMarkPaid'];vmh_89ae91['shopNewOrder']=shopNewOrder;globalThis['shopNewOrder']=vmh_89ae91['shopNewOrder'];vmh_89ae91['shopOpenCount']=shopOpenCount;globalThis['shopOpenCount']=vmh_89ae91['shopOpenCount'];vmh_89ae91['shopFind']=shopFind;globalThis['shopFind']=vmh_89ae91['shopFind'];vmh_89ae91['loadShopOrders']=loadShopOrders;globalThis['loadShopOrders']=vmh_89ae91['loadShopOrders'];vmh_89ae91['shopSave']=shopSave;globalThis['shopSave']=vmh_89ae91['shopSave'];vmh_89ae91['handleApi']=handleApi;globalThis['handleApi']=vmh_89ae91['handleApi'];vmh_89ae91['apiSession']=apiSession;globalThis['apiSession']=vmh_89ae91['apiSession'];vmh_89ae91['apiSave']=apiSave;globalThis['apiSave']=vmh_89ae91['apiSave'];vmh_89ae91['apiCheckName']=apiCheckName;globalThis['apiCheckName']=vmh_89ae91['apiCheckName'];vmh_89ae91['nameProblem']=nameProblem;globalThis['nameProblem']=vmh_89ae91['nameProblem'];vmh_89ae91['withNameLock']=withNameLock;globalThis['withNameLock']=vmh_89ae91['withNameLock'];vmh_89ae91['isNameTaken']=isNameTaken;globalThis['isNameTaken']=vmh_89ae91['isNameTaken'];vmh_89ae91['nameKey']=nameKey;globalThis['nameKey']=vmh_89ae91['nameKey'];vmh_89ae91['writePlayerRow']=writePlayerRow;globalThis['writePlayerRow']=vmh_89ae91['writePlayerRow'];vmh_89ae91['withUidLock']=withUidLock;globalThis['withUidLock']=vmh_89ae91['withUidLock'];vmh_89ae91['readJsonBody']=readJsonBody;globalThis['readJsonBody']=vmh_89ae91['readJsonBody'];vmh_89ae91['apiReply']=apiReply;globalThis['apiReply']=vmh_89ae91['apiReply'];vmh_89ae91['verifyAccountToken']=verifyAccountToken;globalThis['verifyAccountToken']=vmh_89ae91['verifyAccountToken'];vmh_89ae91['verifyAccountUser']=verifyAccountUser;globalThis['verifyAccountUser']=vmh_89ae91['verifyAccountUser'];vmh_89ae91['loadClans']=loadClans;globalThis['loadClans']=vmh_89ae91['loadClans'];vmh_89ae91['clanDb']=clanDb;globalThis['clanDb']=vmh_89ae91['clanDb'];vmh_89ae91['sbRest']=sbRest;globalThis['sbRest']=vmh_89ae91['sbRest'];vmh_89ae91['removeFromParty']=removeFromParty;globalThis['removeFromParty']=vmh_89ae91['removeFromParty'];vmh_89ae91['broadcastPartyUpdate']=broadcastPartyUpdate;globalThis['broadcastPartyUpdate']=vmh_89ae91['broadcastPartyUpdate'];vmh_89ae91['partyRosterPayload']=partyRosterPayload;globalThis['partyRosterPayload']=vmh_89ae91['partyRosterPayload'];vmh_89ae91['getParty']=getParty;globalThis['getParty']=vmh_89ae91['getParty'];vmh_89ae91['path_join']=path_join;globalThis['path_join']=vmh_89ae91['path_join'];vmh_89ae91['_$vpyVbT']={'http':!![],'WebSocketServer':!![],'isPlayerSkillLocked':!![],'lockPlayerSkillUse':!![],'getPortalArrivalSpawn':!![],'syncReportedMana':!![],'tryPaySkillUse':!![],'hasPaidSkillUse':!![],'consumeSkillHit':!![],'findSkillDef':!![],'ONLINE_RULES':!![],'GAME_DATA':!![],'fs':!![],'path':!![],'SERVER_JS_FILES':!![],'MAPS':!![],'START_MAP':!![],'BOSS_EVENT':!![],'CLAN_WAR':!![],'createSaveGuard':!![],'CMD_DATA':!![],'cmdOnly':!![],'saveGuard':!![],'SERVER_CODE':!![],'PORT':!![],'SERVER_COUNT':!![],'SERVER_MAX_PLAYERS':!![],'CHANNEL_PVP':!![],'CHANNEL_SAFE':!![],'ONLINE_CLIENT_FILE':!![],'server':!![],'wss':!![],'nextId':!![],'players':!![],'nextPartyId':!![],'parties':!![],'PARTY_MAX_SIZE':!![],'isPartyFriendlyFire':!![],'isClanFriendlyFire':!![],'getPartyLootTurnId':!![],'advancePartyLootTurn':!![],'partyLootRuleForCategory':!![],'prunePartyMembers':!![],'crypto':!![],'SB_URL':!![],'SB_ANON_KEY':!![],'SB_SERVICE_KEY':!![],'CLAN_DB_ON':!![],'CLAN_MAX_SIZE':!![],'clans':!![],'clanOfUid':!![],'onlineByUid':!![],'clanLoaded':!![],'clanDbQueue':!![],'q':!![],'tokenCache':!![],'PD_HAS_USERNAME':!![],'uidLocks':!![],'nameLockChain':!![],'nameCheckTimes':!![],'UUID_RE':!![],'PAYMONGO_KEY':!![],'PAYMONGO_METHODS':!![],'SHOP_ADMIN_KEY':!![],'REAL_SHOP':!![],'SHOP_TYPES':!![],'shopOrders':!![],'CLAIM_RETRY_MS':!![],'ORDER_OPEN_LIMIT':!![],'shopDbQueue':!![],'adminFails':!![],'ADMIN_PAGE':!![],'rooms':!![],'ROOM_BOTS_KEEP_MS':!![],'BOT_TYPES':!![],'OBSTACLE_TYPES':!![],'MAX_ROOM_DROPS':!![],'ITEM_DESPAWN_TIME':!![],'DROP_MAX_AGE_MS':!![],'cwStates':!![],'CW_STACK_KINDS':!![],'serverPlayerCount':!![],'num':!![],'CMD_GIVE_CODE':!![],'CMD_GIVE_ADMINS':!![],'CMD_GIVE_TYPES':!![]},global['window']=global['window']||{},global['Image']=global['Image']||function(){},global['Audio']=global['Audio']||function(){},global['document']=global['document']||{'createElement'(){return vmP_43eb5a(undefined,0x0,arguments,new.target,undefined,this,0xcb,0x2c,0x8d);},'getElementById'(){return vmP_43eb5a(undefined,0x1,arguments,new.target,undefined,this,0xcb,0x2c,0x8d);}};const http=require('http');delete vmh_89ae91['_$vpyVbT']['http'],vmh_89ae91['http']=http;globalThis['http']=vmh_89ae91['_$vpyVbT']['http']?(function(){throw new ReferenceError("Cannot access 'http' before initialization");}()):vmh_89ae91['http'];const {WebSocketServer}=require('ws');delete vmh_89ae91['_$vpyVbT']['WebSocketServer'],vmh_89ae91['WebSocketServer']=WebSocketServer;globalThis['WebSocketServer']=vmh_89ae91['_$vpyVbT']['WebSocketServer']?(function(){throw new ReferenceError("Cannot access 'WebSocketServer' before initialization");}()):vmh_89ae91['WebSocketServer'];const {isPlayerSkillLocked,lockPlayerSkillUse,getPortalArrivalSpawn,syncReportedMana,tryPaySkillUse,hasPaidSkillUse,consumeSkillHit,findSkillDef}=require('./server/game_server.js');delete vmh_89ae91['_$vpyVbT']['isPlayerSkillLocked'],vmh_89ae91['isPlayerSkillLocked']=isPlayerSkillLocked;globalThis['isPlayerSkillLocked']=vmh_89ae91['_$vpyVbT']['isPlayerSkillLocked']?(function(){throw new ReferenceError("Cannot access 'isPlayerSkillLocked' before initialization");}()):vmh_89ae91['isPlayerSkillLocked'];delete vmh_89ae91['_$vpyVbT']['lockPlayerSkillUse'],vmh_89ae91['lockPlayerSkillUse']=lockPlayerSkillUse;globalThis['lockPlayerSkillUse']=vmh_89ae91['_$vpyVbT']['lockPlayerSkillUse']?(function(){throw new ReferenceError("Cannot access 'lockPlayerSkillUse' before initialization");}()):vmh_89ae91['lockPlayerSkillUse'];delete vmh_89ae91['_$vpyVbT']['getPortalArrivalSpawn'],vmh_89ae91['getPortalArrivalSpawn']=getPortalArrivalSpawn;globalThis['getPortalArrivalSpawn']=getPortalArrivalSpawn;delete vmh_89ae91['_$vpyVbT']['syncReportedMana'],vmh_89ae91['syncReportedMana']=syncReportedMana;globalThis['syncReportedMana']=syncReportedMana;delete vmh_89ae91['_$vpyVbT']['tryPaySkillUse'],vmh_89ae91['tryPaySkillUse']=tryPaySkillUse;globalThis['tryPaySkillUse']=tryPaySkillUse;delete vmh_89ae91['_$vpyVbT']['hasPaidSkillUse'],vmh_89ae91['hasPaidSkillUse']=hasPaidSkillUse;globalThis['hasPaidSkillUse']=hasPaidSkillUse;delete vmh_89ae91['_$vpyVbT']['consumeSkillHit'],vmh_89ae91['consumeSkillHit']=consumeSkillHit;globalThis['consumeSkillHit']=consumeSkillHit;delete vmh_89ae91['_$vpyVbT']['findSkillDef'],vmh_89ae91['findSkillDef']=findSkillDef;globalThis['findSkillDef']=findSkillDef;const {ONLINE_RULES}=require('./server/online_server.js');delete vmh_89ae91['_$vpyVbT']['ONLINE_RULES'],vmh_89ae91['ONLINE_RULES']=ONLINE_RULES;globalThis['ONLINE_RULES']=ONLINE_RULES;const GAME_DATA=Object['assign']({},require('./server/weapon_server.js'),require('./server/armor_server.js'),require('./server/attackmode_server.js'),require('./server/character_server.js'),require('./server/skill_server.js'),require('./server/upgrade_server.js'),require('./server/shop_server.js'),require('./server/item_server.js'),require('./server/level_server.js'),require('./server/bot_server.js'),require('./server/game_server.js'),require('./server/online_server.js'));delete vmh_89ae91['_$vpyVbT']['GAME_DATA'],vmh_89ae91['GAME_DATA']=GAME_DATA;globalThis['GAME_DATA']=GAME_DATA;const fs=require('fs');delete vmh_89ae91['_$vpyVbT']['fs'],vmh_89ae91['fs']=fs;globalThis['fs']=fs;const path=require('path');delete vmh_89ae91['_$vpyVbT']['path'],vmh_89ae91['path']=path;globalThis['path']=vmh_89ae91['_$vpyVbT']['path']?(function(){throw new ReferenceError("Cannot access 'path' before initialization");}()):vmh_89ae91['path'];const SERVER_JS_FILES=fs['readdirSync'](vmh_89ae91['path']['join'](__dirname,'server'))['filter'](k=>{return vmP_43eb5a(undefined,0x2,[k],undefined,undefined,this,0xcb,0x2c,0x8d);})['sort']();delete vmh_89ae91['_$vpyVbT']['SERVER_JS_FILES'],vmh_89ae91['SERVER_JS_FILES']=SERVER_JS_FILES;globalThis['SERVER_JS_FILES']=vmh_89ae91['_$vpyVbT']['SERVER_JS_FILES']?(function(){throw new ReferenceError("Cannot access 'SERVER_JS_FILES' before initialization");}()):vmh_89ae91['SERVER_JS_FILES'];for(const f of vmh_89ae91['_$vpyVbT']['SERVER_JS_FILES']?(function(){throw new ReferenceError('Cannot\x20access\x20\x27SERVER_JS_FILES\x27\x20before\x20initialization');}()):vmh_89ae91['SERVER_JS_FILES']){require('./server/'+f);}const MAPS=global['window']&&global['window']['CUSTOM_MAPS']||{};delete vmh_89ae91['_$vpyVbT']['MAPS'],vmh_89ae91['MAPS']=MAPS;globalThis['MAPS']=MAPS;if(!Object['keys'](MAPS)['length'])throw new Error('No\x20map\x20found:\x20server/worldmap_server.js\x20must\x20define\x20window.CUSTOM_MAPS[\x22worldmap\x22]');if(MAPS['BOSSEVENT']){const bossMap=MAPS['BOSSEVENT'];delete MAPS['BOSSEVENT'],MAPS['BOSSEVENT']=bossMap;}const START_MAP=MAPS['worldmap']?'worldmap':MAPS['LEVEL1']?'LEVEL1':Object['keys'](MAPS)['find'](k=>{return vmP_43eb5a(undefined,0x3,[k],undefined,undefined,this,0xcb,0x2c,0x8d);});delete vmh_89ae91['_$vpyVbT']['START_MAP'],vmh_89ae91['START_MAP']=START_MAP;globalThis['START_MAP']=START_MAP;const BOSS_EVENT={'KEY':'BOSSEVENT','MIN_LEVEL':0x1,'DAYS':[0x1,0x3,0x5],'START_HOUR':0x13,'END_HOUR':0x18,'TZ_OFFSET_HOURS':0x8};delete vmh_89ae91['_$vpyVbT']['BOSS_EVENT'],vmh_89ae91['BOSS_EVENT']=BOSS_EVENT;globalThis['BOSS_EVENT']=BOSS_EVENT;const CLAN_WAR={'KEY':'CWmap','DAYS':[0x3,0x4,0x6,0x0],'START_HOUR':0x13,'END_HOUR':0x15,'TZ_OFFSET_HOURS':0x8,'PAD':{'x':0x3e8,'y':0x96,'size':0x6e},'AUTH_SECONDS':0x1e,'CLAIM_EXIT_SECONDS':0x14,'CLAIM_TIMEOUT_SECONDS':0x258,'REWARDS':[{'kind':'gold','total':0xf4240},{'kind':'stone','type':'specialstone','total':0xfa},{'kind':'armor','type':'armor44','total':0x5},{'kind':'armor','type':'armor45','total':0x5},{'kind':'armor','type':'armor46','total':0x5},{'kind':'ring','type':'ring41','total':0x5},{'kind':'ring','type':'ring42','total':0x5},{'kind':'ring','type':'ring43','total':0x5},{'kind':'accessory','type':'accessory37','total':0x5},{'kind':'accessory','type':'accessory38','total':0x5},{'kind':'accessory','type':'accessory39','total':0x5},{'kind':'weapon','type':'sword21','total':0x5},{'kind':'weapon','type':'gun21','total':0x5},{'kind':'weapon','type':'gauntlet21','total':0x5}]};delete vmh_89ae91['_$vpyVbT']['CLAN_WAR'],vmh_89ae91['CLAN_WAR']=CLAN_WAR;globalThis['CLAN_WAR']=CLAN_WAR;if(!MAPS[CLAN_WAR['KEY']])console['error']('WARNING:\x20clan\x20war\x20map\x20missing\x20-\x20upload\x20server/cwmap_server.js.\x20CLAN\x20WAR\x20is\x20disabled\x20until\x20then.');if(!MAPS[BOSS_EVENT['KEY']])console['warn']('[boss\x20event]\x20server/boss1_server.js\x20not\x20found\x20—\x20BOSS\x20EVENT\x20is\x20disabled\x20until\x20it\x20is\x20uploaded.');GAME_DATA['WORLD_MAPS']=MAPS,GAME_DATA['START_MAP']=START_MAP;const {createSaveGuard}=require('./save_guard.js');delete vmh_89ae91['_$vpyVbT']['createSaveGuard'],vmh_89ae91['createSaveGuard']=createSaveGuard;globalThis['createSaveGuard']=vmh_89ae91['_$vpyVbT']['createSaveGuard']?(function(){throw new ReferenceError("Cannot access 'createSaveGuard' before initialization");}()):vmh_89ae91['createSaveGuard'];const CMD_DATA=require('./server/cmd_server.js');delete vmh_89ae91['_$vpyVbT']['CMD_DATA'],vmh_89ae91['CMD_DATA']=CMD_DATA;globalThis['CMD_DATA']=CMD_DATA;const cmdOnly=(k,r)=>{return vmP_43eb5a(undefined,0x4,[k,r],undefined,undefined,this,0xcb,0x2c,0x8d);};delete vmh_89ae91['_$vpyVbT']['cmdOnly'],vmh_89ae91['cmdOnly']=cmdOnly;globalThis['cmdOnly']=vmh_89ae91['_$vpyVbT']['cmdOnly']?(function(){throw new ReferenceError("Cannot access 'cmdOnly' before initialization");}()):vmh_89ae91['cmdOnly'];const saveGuard=(0x0,vmh_89ae91['createSaveGuard'])(Object['assign']({},GAME_DATA,{'WEAPONS':(0x0,vmh_89ae91['cmdOnly'])(CMD_DATA['CMD_WEAPONS'],GAME_DATA['WEAPONS']),'ARMOR_TYPES':(0x0,vmh_89ae91['cmdOnly'])(CMD_DATA['CMD_ARMORS'],GAME_DATA['ARMOR_TYPES'])}));delete vmh_89ae91['_$vpyVbT']['saveGuard'],vmh_89ae91['saveGuard']=saveGuard;globalThis['saveGuard']=saveGuard;const SERVER_CODE={};delete vmh_89ae91['_$vpyVbT']['SERVER_CODE'],vmh_89ae91['SERVER_CODE']=SERVER_CODE;globalThis['SERVER_CODE']=vmh_89ae91['_$vpyVbT']['SERVER_CODE']?(function(){throw new ReferenceError("Cannot access 'SERVER_CODE' before initialization");}()):vmh_89ae91['SERVER_CODE'];for(const f of vmh_89ae91['_$vpyVbT']['SERVER_JS_FILES']?(function(){throw new ReferenceError('Cannot\x20access\x20\x27SERVER_JS_FILES\x27\x20before\x20initialization');}()):vmh_89ae91['SERVER_JS_FILES']){(vmh_89ae91['_$vpyVbT']['SERVER_CODE']?(function(){throw new ReferenceError('Cannot\x20access\x20\x27SERVER_CODE\x27\x20before\x20initialization');}()):vmh_89ae91['SERVER_CODE'])[f]=fs['readFileSync']((vmh_89ae91['_$vpyVbT']['path']?(function(){throw new ReferenceError('Cannot\x20access\x20\x27path\x27\x20before\x20initialization');}()):vmh_89ae91['path'])['join'](__dirname,'server',f),'utf8');}GAME_DATA['CODE']=vmh_89ae91['_$vpyVbT']['SERVER_CODE']?(function(){throw new ReferenceError('Cannot\x20access\x20\x27SERVER_CODE\x27\x20before\x20initialization');}()):vmh_89ae91['SERVER_CODE'],console['log']('Maps\x20loaded:\x20'+Object['keys'](MAPS)['join'](',\x20')+'\x20(start:\x20'+START_MAP+')'),JSON['stringify'](GAME_DATA),console['log']('Online\x20game\x20data\x20loaded:\x20'+Object['keys'](GAME_DATA)['join'](',\x20')),console['log']('Server\x20code\x20sent\x20to\x20clients:\x20'+(vmh_89ae91['_$vpyVbT']['SERVER_JS_FILES']?(function(){throw new ReferenceError('Cannot\x20access\x20\x27SERVER_JS_FILES\x27\x20before\x20initialization');}()):vmh_89ae91['SERVER_JS_FILES'])['join'](',\x20'));const PORT=process.env.PORT||0x1f90;delete vmh_89ae91['_$vpyVbT']['PORT'],vmh_89ae91['PORT']=PORT;globalThis['PORT']=PORT;const SERVER_COUNT=ONLINE_RULES['SERVER_COUNT'];delete vmh_89ae91['_$vpyVbT']['SERVER_COUNT'],vmh_89ae91['SERVER_COUNT']=SERVER_COUNT;globalThis['SERVER_COUNT']=SERVER_COUNT;const SERVER_MAX_PLAYERS=ONLINE_RULES['SERVER_MAX_PLAYERS'];delete vmh_89ae91['_$vpyVbT']['SERVER_MAX_PLAYERS'],vmh_89ae91['SERVER_MAX_PLAYERS']=SERVER_MAX_PLAYERS;globalThis['SERVER_MAX_PLAYERS']=SERVER_MAX_PLAYERS;const CHANNEL_PVP=ONLINE_RULES['CHANNELS']['find'](k=>{return vmP_43eb5a(undefined,0x5,[k],undefined,undefined,this,0xcb,0x2c,0x8d);})['id'];delete vmh_89ae91['_$vpyVbT']['CHANNEL_PVP'],vmh_89ae91['CHANNEL_PVP']=CHANNEL_PVP;globalThis['CHANNEL_PVP']=CHANNEL_PVP;const CHANNEL_SAFE=ONLINE_RULES['CHANNELS']['find'](k=>{return vmP_43eb5a(undefined,0x6,[k],undefined,undefined,this,0xcb,0x2c,0x8d);})['id'];delete vmh_89ae91['_$vpyVbT']['CHANNEL_SAFE'],vmh_89ae91['CHANNEL_SAFE']=CHANNEL_SAFE;globalThis['CHANNEL_SAFE']=CHANNEL_SAFE;const ONLINE_CLIENT_FILE=path_join(__dirname,'client','online_client.js');delete vmh_89ae91['_$vpyVbT']['ONLINE_CLIENT_FILE'],vmh_89ae91['ONLINE_CLIENT_FILE']=ONLINE_CLIENT_FILE;globalThis['ONLINE_CLIENT_FILE']=ONLINE_CLIENT_FILE;function path_join(){return vmP_43eb5a(typeof path_join!=='undefined'?path_join:undefined,0x7,arguments,new.target,undefined,this,0xcb,0x2c,0x8d);}const server=vmh_89ae91['http']['createServer']((k,r)=>{return vmP_43eb5a(undefined,0x8,[k,r],undefined,{['_$Oewzd2']:[GAME_DATA,ONLINE_CLIENT_FILE,apiReply,fs,handleApi,handleShopOwner,players,serverList],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1,0x0,0x1,0x0,0x0,0x1,0x0]},this,0xcb,0x2c,0x8d);});delete vmh_89ae91['_$vpyVbT']['server'],vmh_89ae91['server']=server;globalThis['server']=vmh_89ae91['_$vpyVbT']['server']?(function(){throw new ReferenceError("Cannot access 'server' before initialization");}()):vmh_89ae91['server'];const wss=new vmh_89ae91['WebSocketServer']({'server':vmh_89ae91['server'],'maxPayload':0x40*0x400});delete vmh_89ae91['_$vpyVbT']['wss'],vmh_89ae91['wss']=wss;globalThis['wss']=wss;let nextId=0x1;delete vmh_89ae91['_$vpyVbT']['nextId'],vmh_89ae91['nextId']=nextId;globalThis['nextId']=nextId;const players=new Map();delete vmh_89ae91['_$vpyVbT']['players'],vmh_89ae91['players']=players;globalThis['players']=players;let nextPartyId=0x1;delete vmh_89ae91['_$vpyVbT']['nextPartyId'],vmh_89ae91['nextPartyId']=nextPartyId;globalThis['nextPartyId']=nextPartyId;const parties=new Map();delete vmh_89ae91['_$vpyVbT']['parties'],vmh_89ae91['parties']=parties;globalThis['parties']=parties;const PARTY_MAX_SIZE=ONLINE_RULES['PARTY_MAX_SIZE'];delete vmh_89ae91['_$vpyVbT']['PARTY_MAX_SIZE'],vmh_89ae91['PARTY_MAX_SIZE']=PARTY_MAX_SIZE;globalThis['PARTY_MAX_SIZE']=PARTY_MAX_SIZE;const {isPartyFriendlyFire,isClanFriendlyFire,getPartyLootTurnId,advancePartyLootTurn,partyLootRuleForCategory,prunePartyMembers}=GAME_DATA;delete vmh_89ae91['_$vpyVbT']['isPartyFriendlyFire'],vmh_89ae91['isPartyFriendlyFire']=isPartyFriendlyFire;globalThis['isPartyFriendlyFire']=isPartyFriendlyFire;delete vmh_89ae91['_$vpyVbT']['isClanFriendlyFire'],vmh_89ae91['isClanFriendlyFire']=isClanFriendlyFire;globalThis['isClanFriendlyFire']=isClanFriendlyFire;delete vmh_89ae91['_$vpyVbT']['getPartyLootTurnId'],vmh_89ae91['getPartyLootTurnId']=getPartyLootTurnId;globalThis['getPartyLootTurnId']=getPartyLootTurnId;delete vmh_89ae91['_$vpyVbT']['advancePartyLootTurn'],vmh_89ae91['advancePartyLootTurn']=advancePartyLootTurn;globalThis['advancePartyLootTurn']=advancePartyLootTurn;delete vmh_89ae91['_$vpyVbT']['partyLootRuleForCategory'],vmh_89ae91['partyLootRuleForCategory']=partyLootRuleForCategory;globalThis['partyLootRuleForCategory']=partyLootRuleForCategory;delete vmh_89ae91['_$vpyVbT']['prunePartyMembers'],vmh_89ae91['prunePartyMembers']=prunePartyMembers;globalThis['prunePartyMembers']=prunePartyMembers;function getParty(k){return vmP_43eb5a(typeof getParty!=='undefined'?getParty:undefined,0x9,arguments,new.target,{['_$Oewzd2']:[parties],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function partyRosterPayload(k){return vmP_43eb5a(typeof partyRosterPayload!=='undefined'?partyRosterPayload:undefined,0xa,arguments,new.target,{['_$Oewzd2']:[players],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function broadcastPartyUpdate(k){return vmP_43eb5a(typeof broadcastPartyUpdate!=='undefined'?broadcastPartyUpdate:undefined,0xb,arguments,new.target,{['_$Oewzd2']:[partyRosterPayload,players,send],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x0,0x1,0x0]},this,0xcb,0x2c,0x8d);}function removeFromParty(k){return vmP_43eb5a(typeof removeFromParty!=='undefined'?removeFromParty:undefined,0xc,arguments,new.target,{['_$Oewzd2']:[broadcastPartyUpdate,getParty,parties,players,send],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x0,0x0,0x1,0x1,0x0]},this,0xcb,0x2c,0x8d);}const crypto=require('crypto');delete vmh_89ae91['_$vpyVbT']['crypto'],vmh_89ae91['crypto']=crypto;globalThis['crypto']=crypto;const SB_URL=(process.env.SUPABASE_URL||'https://qumhiffgbmcnlsdstbux.supabase.co')['replace'](/\/+$/,'');delete vmh_89ae91['_$vpyVbT']['SB_URL'],vmh_89ae91['SB_URL']=SB_URL;globalThis['SB_URL']=SB_URL;const SB_ANON_KEY=process.env.SUPABASE_ANON_KEY||'sb_publishable_Ssjk_M8lMetBMWbUhha-6g_eM2do4gn';delete vmh_89ae91['_$vpyVbT']['SB_ANON_KEY'],vmh_89ae91['SB_ANON_KEY']=SB_ANON_KEY;globalThis['SB_ANON_KEY']=SB_ANON_KEY;const SB_SERVICE_KEY=process.env.SUPABASE_SERVICE_KEY||'';delete vmh_89ae91['_$vpyVbT']['SB_SERVICE_KEY'],vmh_89ae91['SB_SERVICE_KEY']=SB_SERVICE_KEY;globalThis['SB_SERVICE_KEY']=SB_SERVICE_KEY;const CLAN_DB_ON=!!SB_SERVICE_KEY&&typeof fetch==='function';delete vmh_89ae91['_$vpyVbT']['CLAN_DB_ON'],vmh_89ae91['CLAN_DB_ON']=CLAN_DB_ON;globalThis['CLAN_DB_ON']=CLAN_DB_ON;const CLAN_MAX_SIZE=0x19;delete vmh_89ae91['_$vpyVbT']['CLAN_MAX_SIZE'],vmh_89ae91['CLAN_MAX_SIZE']=CLAN_MAX_SIZE;globalThis['CLAN_MAX_SIZE']=CLAN_MAX_SIZE;const clans=new Map();delete vmh_89ae91['_$vpyVbT']['clans'],vmh_89ae91['clans']=clans;globalThis['clans']=clans;const clanOfUid=new Map();delete vmh_89ae91['_$vpyVbT']['clanOfUid'],vmh_89ae91['clanOfUid']=clanOfUid;globalThis['clanOfUid']=clanOfUid;const onlineByUid=new Map();delete vmh_89ae91['_$vpyVbT']['onlineByUid'],vmh_89ae91['onlineByUid']=onlineByUid;globalThis['onlineByUid']=onlineByUid;let clanLoaded=![];delete vmh_89ae91['_$vpyVbT']['clanLoaded'],vmh_89ae91['clanLoaded']=clanLoaded;globalThis['clanLoaded']=clanLoaded;function sbRest(k,r,z,C){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0xd,arguments,new.target,{['_$Oewzd2']:[SB_SERVICE_KEY,SB_URL],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1]},this,0xcb,0x2c,0x8d);}let clanDbQueue=Promise['resolve']();delete vmh_89ae91['_$vpyVbT']['clanDbQueue'],vmh_89ae91['clanDbQueue']=clanDbQueue;globalThis['clanDbQueue']=clanDbQueue;function clanDb(k){return vmP_43eb5a(typeof clanDb!=='undefined'?clanDb:undefined,0xe,arguments,new.target,{['_$Oewzd2']:Object['defineProperties']({},{['0']:{'value':CLAN_DB_ON,'writable':!![],'enumerable':!![]},['1']:{'get':function(){return clanDbQueue;},'enumerable':!![],'set':function(r){clanDbQueue=r;}}}),['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0]},this,0xcb,0x2c,0x8d);}const q=encodeURIComponent;delete vmh_89ae91['_$vpyVbT']['q'],vmh_89ae91['q']=q;globalThis['q']=q;function loadClans(){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0xf,arguments,new.target,{['_$Oewzd2']:Object['defineProperties']({},{['0']:{'value':CLAN_DB_ON,'writable':!![],'enumerable':!![]},['1']:{'get':function(){return clanLoaded;},'enumerable':!![],'set':function(k){clanLoaded=k;}},['2']:{'value':clanOf,'writable':!![],'enumerable':!![]},['3']:{'value':clanOfUid,'writable':!![],'enumerable':!![]},['4']:{'value':clanRosterPayload,'writable':!![],'enumerable':!![]},['5']:{'value':clans,'writable':!![],'enumerable':!![]},['6']:{'value':onlineByUid,'writable':!![],'enumerable':!![]},['7']:{'value':sbRest,'writable':!![],'enumerable':!![]},['8']:{'value':send,'writable':!![],'enumerable':!![]}}),['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0,0x0,0x1,0x0,0x1,0x1,0x0,0x0]},this,0xcb,0x2c,0x8d);}loadClans();const tokenCache=new Map();delete vmh_89ae91['_$vpyVbT']['tokenCache'],vmh_89ae91['tokenCache']=tokenCache;globalThis['tokenCache']=tokenCache;function verifyAccountUser(k){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x10,arguments,new.target,{['_$Oewzd2']:[SB_ANON_KEY,SB_URL,tokenCache],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1,0x1]},this,0xcb,0x2c,0x8d);}function verifyAccountToken(k){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x11,arguments,new.target,{['_$Oewzd2']:[verifyAccountUser],['_$hqCtQl']:undefined},this,0xcb,0x2c,0x8d);}let PD_HAS_USERNAME=!![];delete vmh_89ae91['_$vpyVbT']['PD_HAS_USERNAME'],vmh_89ae91['PD_HAS_USERNAME']=PD_HAS_USERNAME;globalThis['PD_HAS_USERNAME']=PD_HAS_USERNAME;function apiReply(k,r,z){return vmP_43eb5a(typeof apiReply!=='undefined'?apiReply:undefined,0x12,arguments,new.target,undefined,this,0xcb,0x2c,0x8d);}function readJsonBody(k,r){return vmP_43eb5a(typeof readJsonBody!=='undefined'?readJsonBody:undefined,0x13,arguments,new.target,undefined,this,0xcb,0x2c,0x8d);}const uidLocks=new Map();delete vmh_89ae91['_$vpyVbT']['uidLocks'],vmh_89ae91['uidLocks']=uidLocks;globalThis['uidLocks']=uidLocks;function withUidLock(k,r){return vmP_43eb5a(typeof withUidLock!=='undefined'?withUidLock:undefined,0x14,arguments,new.target,{['_$Oewzd2']:[uidLocks],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function writePlayerRow(k,r){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x15,arguments,new.target,{['_$Oewzd2']:Object['defineProperties']({},{['0']:{'get':function(){return PD_HAS_USERNAME;},'enumerable':!![],'set':function(z){PD_HAS_USERNAME=z;}},['1']:{'value':sbRest,'writable':!![],'enumerable':!![]}}),['_$hqCtQl']:undefined},this,0xcb,0x2c,0x8d);}function nameKey(k){return vmP_43eb5a(typeof nameKey!=='undefined'?nameKey:undefined,0x16,arguments,new.target,undefined,this,0xcb,0x2c,0x8d);}function isNameTaken(k,r){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x17,arguments,new.target,{['_$Oewzd2']:[nameKey,q,sbRest],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x0,0x1,0x0]},this,0xcb,0x2c,0x8d);}let nameLockChain=Promise['resolve']();delete vmh_89ae91['_$vpyVbT']['nameLockChain'],vmh_89ae91['nameLockChain']=nameLockChain;globalThis['nameLockChain']=nameLockChain;function withNameLock(k){return vmP_43eb5a(typeof withNameLock!=='undefined'?withNameLock:undefined,0x18,arguments,new.target,{['_$Oewzd2']:Object['defineProperties']({},{['0']:{'get':function(){return nameLockChain;},'enumerable':!![],'set':function(r){nameLockChain=r;}}}),['_$hqCtQl']:undefined},this,0xcb,0x2c,0x8d);}function nameProblem(k){return vmP_43eb5a(typeof nameProblem!=='undefined'?nameProblem:undefined,0x19,arguments,new.target,undefined,this,0xcb,0x2c,0x8d);}const nameCheckTimes=new Map();delete vmh_89ae91['_$vpyVbT']['nameCheckTimes'],vmh_89ae91['nameCheckTimes']=nameCheckTimes;globalThis['nameCheckTimes']=nameCheckTimes;function apiCheckName(k,r){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x1a,arguments,new.target,{['_$Oewzd2']:[isNameTaken,nameCheckTimes,nameProblem],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x0,0x1,0x0]},this,0xcb,0x2c,0x8d);}function apiSave(k,r){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x1b,arguments,new.target,{['_$Oewzd2']:[isNameTaken,nameKey,nameProblem,q,saveGuard,sbRest,withNameLock,withUidLock,writePlayerRow],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x0,0x0,0x0,0x1,0x1,0x0,0x0,0x0,0x0]},this,0xcb,0x2c,0x8d);}const UUID_RE=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;delete vmh_89ae91['_$vpyVbT']['UUID_RE'],vmh_89ae91['UUID_RE']=UUID_RE;globalThis['UUID_RE']=UUID_RE;function apiSession(k,r){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x1c,arguments,new.target,{['_$Oewzd2']:[UUID_RE,q,sbRest,withUidLock],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1,0x0,0x0]},this,0xcb,0x2c,0x8d);}function handleApi(k,r,z){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x1d,arguments,new.target,{['_$Oewzd2']:[CLAN_DB_ON,apiCheckName,apiReply,apiSave,apiSession,apiShop,readJsonBody,verifyAccountUser],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0,0x0,0x0,0x0,0x0,0x0,0x0]},this,0xcb,0x2c,0x8d);}const PAYMONGO_KEY=process.env.PAYMONGO_SECRET_KEY||'';delete vmh_89ae91['_$vpyVbT']['PAYMONGO_KEY'],vmh_89ae91['PAYMONGO_KEY']=PAYMONGO_KEY;globalThis['PAYMONGO_KEY']=PAYMONGO_KEY;const PAYMONGO_METHODS=(process.env.PAYMONGO_METHODS||'gcash,paymaya,grab_pay,card')['split'](',')['map'](k=>{return vmP_43eb5a(undefined,0x1e,[k],undefined,undefined,this,0xcb,0x2c,0x8d);})['filter'](Boolean);delete vmh_89ae91['_$vpyVbT']['PAYMONGO_METHODS'],vmh_89ae91['PAYMONGO_METHODS']=PAYMONGO_METHODS;globalThis['PAYMONGO_METHODS']=PAYMONGO_METHODS;const SHOP_ADMIN_KEY=process.env.SHOP_ADMIN_KEY||'';delete vmh_89ae91['_$vpyVbT']['SHOP_ADMIN_KEY'],vmh_89ae91['SHOP_ADMIN_KEY']=SHOP_ADMIN_KEY;globalThis['SHOP_ADMIN_KEY']=SHOP_ADMIN_KEY;const REAL_SHOP=GAME_DATA['REAL_SHOP']||{};delete vmh_89ae91['_$vpyVbT']['REAL_SHOP'],vmh_89ae91['REAL_SHOP']=REAL_SHOP;globalThis['REAL_SHOP']=REAL_SHOP;const SHOP_TYPES=['weapon','armor','stone','accessory'];delete vmh_89ae91['_$vpyVbT']['SHOP_TYPES'],vmh_89ae91['SHOP_TYPES']=SHOP_TYPES;globalThis['SHOP_TYPES']=SHOP_TYPES;const shopOrders=new Map();delete vmh_89ae91['_$vpyVbT']['shopOrders'],vmh_89ae91['shopOrders']=shopOrders;globalThis['shopOrders']=shopOrders;const CLAIM_RETRY_MS=0x2*0x3c*0x3e8;delete vmh_89ae91['_$vpyVbT']['CLAIM_RETRY_MS'],vmh_89ae91['CLAIM_RETRY_MS']=CLAIM_RETRY_MS;globalThis['CLAIM_RETRY_MS']=CLAIM_RETRY_MS;const ORDER_OPEN_LIMIT=0xa;delete vmh_89ae91['_$vpyVbT']['ORDER_OPEN_LIMIT'],vmh_89ae91['ORDER_OPEN_LIMIT']=ORDER_OPEN_LIMIT;globalThis['ORDER_OPEN_LIMIT']=ORDER_OPEN_LIMIT;let shopDbQueue=Promise['resolve']();delete vmh_89ae91['_$vpyVbT']['shopDbQueue'],vmh_89ae91['shopDbQueue']=shopDbQueue;globalThis['shopDbQueue']=shopDbQueue;function shopSave(k){return vmP_43eb5a(typeof shopSave!=='undefined'?shopSave:undefined,0x1f,arguments,new.target,{['_$Oewzd2']:Object['defineProperties']({},{['0']:{'value':CLAN_DB_ON,'writable':!![],'enumerable':!![]},['1']:{'value':sbRest,'writable':!![],'enumerable':!![]},['2']:{'get':function(){return shopDbQueue;},'enumerable':!![],'set':function(r){shopDbQueue=r;}}}),['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0,0x0]},this,0xcb,0x2c,0x8d);}function loadShopOrders(){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x20,arguments,new.target,{['_$Oewzd2']:[CLAN_DB_ON,sbRest,shopOrders],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0,0x1]},this,0xcb,0x2c,0x8d);}loadShopOrders();function shopFind(k,r){return vmP_43eb5a(typeof shopFind!=='undefined'?shopFind:undefined,0x21,arguments,new.target,{['_$Oewzd2']:[REAL_SHOP,SHOP_TYPES],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1]},this,0xcb,0x2c,0x8d);}function shopOpenCount(k){return vmP_43eb5a(typeof shopOpenCount!=='undefined'?shopOpenCount:undefined,0x22,arguments,new.target,{['_$Oewzd2']:[shopOrders],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function shopNewOrder(k,r,z,C){return vmP_43eb5a(typeof shopNewOrder!=='undefined'?shopNewOrder:undefined,0x23,arguments,new.target,{['_$Oewzd2']:[crypto,shopOrders,shopSave],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1,0x0]},this,0xcb,0x2c,0x8d);}function shopMarkPaid(k){return vmP_43eb5a(typeof shopMarkPaid!=='undefined'?shopMarkPaid:undefined,0x24,arguments,new.target,{['_$Oewzd2']:[onlineByUid,send,shopSave],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0,0x0]},this,0xcb,0x2c,0x8d);}function paymongoHeaders(){return vmP_43eb5a(typeof paymongoHeaders!=='undefined'?paymongoHeaders:undefined,0x25,arguments,new.target,{['_$Oewzd2']:[PAYMONGO_KEY],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function shopVerifyPaymongo(k){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x26,arguments,new.target,{['_$Oewzd2']:[PAYMONGO_KEY,paymongoHeaders,shopMarkPaid],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0,0x0]},this,0xcb,0x2c,0x8d);}function shopStartPaymongo(k,r){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x27,arguments,new.target,{['_$Oewzd2']:[ORDER_OPEN_LIMIT,PAYMONGO_KEY,PAYMONGO_METHODS,paymongoHeaders,shopFind,shopNewOrder,shopOpenCount,shopSave],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1,0x1,0x0,0x0,0x0,0x0,0x0]},this,0xcb,0x2c,0x8d);}function shopSubmitManual(k,r){return vmP_43eb5a(typeof shopSubmitManual!=='undefined'?shopSubmitManual:undefined,0x28,arguments,new.target,{['_$Oewzd2']:[ORDER_OPEN_LIMIT,shopFind,shopNewOrder,shopOpenCount,shopOrders,shopSave],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0,0x0,0x0,0x1,0x0]},this,0xcb,0x2c,0x8d);}function shopPublicOrder(k){return vmP_43eb5a(typeof shopPublicOrder!=='undefined'?shopPublicOrder:undefined,0x29,arguments,new.target,undefined,this,0xcb,0x2c,0x8d);}function shopListOrders(k){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x2a,arguments,new.target,{['_$Oewzd2']:[shopOrders,shopPublicOrder,shopVerifyPaymongo],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0,0x0]},this,0xcb,0x2c,0x8d);}function shopClaim(k){return vmP_43eb5a(typeof shopClaim!=='undefined'?shopClaim:undefined,0x2b,arguments,new.target,{['_$Oewzd2']:[CLAIM_RETRY_MS,saveGuard,shopOrders,shopSave],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1,0x1,0x0]},this,0xcb,0x2c,0x8d);}function shopAck(k,r){return vmP_43eb5a(typeof shopAck!=='undefined'?shopAck:undefined,0x2c,arguments,new.target,{['_$Oewzd2']:[shopOrders,shopSave],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0]},this,0xcb,0x2c,0x8d);}function apiShop(k,r,z){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x2d,arguments,new.target,{['_$Oewzd2']:[shopAck,shopClaim,shopListOrders,shopStartPaymongo,shopSubmitManual],['_$hqCtQl']:undefined},this,0xcb,0x2c,0x8d);}function shopOnJoin(k){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x2e,arguments,new.target,{['_$Oewzd2']:[CLAIM_RETRY_MS,send,shopOrders,shopVerifyPaymongo],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0,0x1,0x0]},this,0xcb,0x2c,0x8d);}const adminFails=new Map();delete vmh_89ae91['_$vpyVbT']['adminFails'],vmh_89ae91['adminFails']=adminFails;globalThis['adminFails']=adminFails;function adminAllowed(k){return vmP_43eb5a(typeof adminAllowed!=='undefined'?adminAllowed:undefined,0x2f,arguments,new.target,{['_$Oewzd2']:[SHOP_ADMIN_KEY,adminFails,crypto],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1,0x1]},this,0xcb,0x2c,0x8d);}const ADMIN_PAGE='<!doctype\x20html><html><head><meta\x20charset=\x22utf-8\x22><meta\x20name=\x22viewport\x22\x20content=\x22width=device-width,initial-scale=1\x22>\x0a<title>Metal\x20War\x20-\x20Shop\x20orders</title>\x0a<style>body{font:14px\x20system-ui,sans-serif;background:#0b1218;color:#dff;margin:0;padding:12px}h1{font-size:18px}\x0a.o{border:1px\x20solid\x20#2a4a5a;border-radius:8px;padding:10px;margin:8px\x200;background:#101c26}.o\x20b{color:#8fe}\x0abutton{padding:8px\x2014px;border-radius:6px;border:0;margin:6px\x206px\x200\x200;font-weight:700}.ok{background:#3c6}.no{background:#d55;color:#fff}\x0a.s{color:#9bd;font-size:12px}</style></head><body><h1>Shop\x20orders</h1>\x0a<div\x20class=\x22s\x22>Open\x20your\x20GCash\x20/\x20bank\x20app,\x20find\x20the\x20reference\x20number\x20below,\x20then\x20Approve.\x20Approve\x20only\x20money\x20you\x20actually\x20received.</div>\x0a<div\x20id=\x22l\x22>Loading...</div>\x0a<script>\x0alet\x20key=sessionStorage.getItem(\x22k\x22)||prompt(\x22Admin\x20key\x22)||\x22\x22;sessionStorage.setItem(\x22k\x22,key);\x0aasync\x20function\x20api(p,b){const\x20r=await\x20fetch(p,{method:\x22POST\x22,headers:{\x22x-admin-key\x22:key,\x22Content-Type\x22:\x22application/json\x22},body:JSON.stringify(b||{})});\x0aif(r.status==401){sessionStorage.removeItem(\x22k\x22);document.getElementById(\x22l\x22).textContent=\x22Wrong\x20key.\x20Reload.\x22;throw\x200}\x0aif(!r.ok){document.getElementById(\x22l\x22).textContent=\x22Error\x20\x22+r.status;throw\x200}return\x20r.json()}\x0afunction\x20esc(s){return\x20String(s).replace(/[&<>\x22]/g,c=>({\x22&\x22:\x22&amp;\x22,\x22<\x22:\x22&lt;\x22,\x22>\x22:\x22&gt;\x22,\x27\x22\x27:\x22&quot;\x22}[c]))}\x0aasync\x20function\x20load(){const\x20d=await\x20api(\x22/api/admin/orders\x22);const\x20l=document.getElementById(\x22l\x22);\x0al.innerHTML=d.orders.map(o=>\x27<div\x20class=\x22o\x22><b>\x27+esc(o.name)+\x27</b>\x20(\x27+esc(o.type)+\x27)\x20&mdash;\x20<b>P\x27+o.price+\x27</b><br>\x27+\x0a\x27<span\x20class=\x22s\x22>status:\x20\x27+esc(o.status)+\x27\x20|\x20\x27+esc(o.method)+(o.channel?\x27/\x27+esc(o.channel):\x27\x27)+\x27\x20|\x20\x27+new\x20Date(o.createdAt).toLocaleString()+\x27<br>account:\x20\x27+esc(o.email)+\x0a(o.ref?\x27<br>reference:\x20<b>\x27+esc(o.ref)+\x27</b>\x20|\x20sender:\x20\x27+esc(o.sender):\x27\x27)+\x27</span>\x27+\x0a(o.status==\x22review\x22?\x27<br><button\x20class=\x22ok\x22\x20onclick=\x22dec(\x5c\x27\x27+o.id+\x27\x5c\x27,true)\x22>Approve</button><button\x20class=\x22no\x22\x20onclick=\x22dec(\x5c\x27\x27+o.id+\x27\x5c\x27,false)\x22>Reject</button>\x27:\x27\x27)+\x27</div>\x27).join(\x22\x22)||\x22No\x20orders\x20yet.\x22}\x0aasync\x20function\x20dec(id,a){if(!confirm(a?\x22Money\x20received?\x20Approve\x20and\x20deliver\x20the\x20item?\x22:\x22Reject\x20this\x20order?\x22))return;await\x20api(\x22/api/admin/decide\x22,{id:id,approve:a});load()}\x0aload();\x0a</script></body></html>';delete vmh_89ae91['_$vpyVbT']['ADMIN_PAGE'],vmh_89ae91['ADMIN_PAGE']=ADMIN_PAGE;globalThis['ADMIN_PAGE']=ADMIN_PAGE;function handleShopOwner(k,r,z){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x30,arguments,new.target,{['_$Oewzd2']:[ADMIN_PAGE,adminAllowed,apiReply,readJsonBody,shopMarkPaid,shopOrders,shopPublicOrder,shopSave,shopVerifyPaymongo],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0,0x0,0x0,0x0,0x1,0x0,0x0,0x0]},this,0xcb,0x2c,0x8d);}function attachAccount(k,r){if(new.target)throw new TypeError();return vmP_43eb5a(undefined,0x31,arguments,new.target,{['_$Oewzd2']:Object['defineProperties']({},{['0']:{'value':broadcastClanUpdate,'writable':!![],'enumerable':!![]},['1']:{'value':clanDb,'writable':!![],'enumerable':!![]},['2']:{'get':function(){return clanLoaded;},'enumerable':!![],'set':function(z){clanLoaded=z;}},['3']:{'value':clanOf,'writable':!![],'enumerable':!![]},['4']:{'value':onlineByUid,'writable':!![],'enumerable':!![]},['5']:{'value':q,'writable':!![],'enumerable':!![]},['6']:{'value':sbRest,'writable':!![],'enumerable':!![]},['7']:{'value':shopOnJoin,'writable':!![],'enumerable':!![]},['8']:{'value':verifyAccountToken,'writable':!![],'enumerable':!![]}}),['_$hqCtQl']:undefined,['_$jg6o0g']:[0x0,0x0,0x0,0x0,0x1,0x1,0x0,0x0,0x0]},this,0xcb,0x2c,0x8d);}function clanOf(k){return vmP_43eb5a(typeof clanOf!=='undefined'?clanOf:undefined,0x32,arguments,new.target,{['_$Oewzd2']:[clanOfUid,clans],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1]},this,0xcb,0x2c,0x8d);}function findOnlinePlayerByName(k){return vmP_43eb5a(typeof findOnlinePlayerByName!=='undefined'?findOnlinePlayerByName:undefined,0x33,arguments,new.target,{['_$Oewzd2']:[players],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function clanAccountReady(k){return vmP_43eb5a(typeof clanAccountReady!=='undefined'?clanAccountReady:undefined,0x34,arguments,new.target,{['_$Oewzd2']:Object['defineProperties']({},{['0']:{'get':function(){return clanLoaded;},'enumerable':!![],'set':function(r){clanLoaded=r;}},['1']:{'value':send,'writable':!![],'enumerable':!![]}}),['_$hqCtQl']:undefined},this,0xcb,0x2c,0x8d);}function clanRosterPayload(k){return vmP_43eb5a(typeof clanRosterPayload!=='undefined'?clanRosterPayload:undefined,0x35,arguments,new.target,{['_$Oewzd2']:[onlineByUid],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function broadcastClanUpdate(k){return vmP_43eb5a(typeof broadcastClanUpdate!=='undefined'?broadcastClanUpdate:undefined,0x36,arguments,new.target,{['_$Oewzd2']:[clanRosterPayload,onlineByUid,send],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x0,0x1,0x0]},this,0xcb,0x2c,0x8d);}function validateSavedSpot(k){return vmP_43eb5a(typeof validateSavedSpot!=='undefined'?validateSavedSpot:undefined,0x37,arguments,new.target,{['_$Oewzd2']:[MAPS],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function removeFromClan(k){return vmP_43eb5a(typeof removeFromClan!=='undefined'?removeFromClan:undefined,0x38,arguments,new.target,{['_$Oewzd2']:[broadcastClanUpdate,clanDb,clanOf,clanOfUid,clans,q,sbRest,send],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x0,0x0,0x0,0x1,0x1,0x1,0x0,0x0]},this,0xcb,0x2c,0x8d);}function disbandClan(k){return vmP_43eb5a(typeof disbandClan!=='undefined'?disbandClan:undefined,0x39,arguments,new.target,{['_$Oewzd2']:[clanDb,clanOf,clanOfUid,clans,onlineByUid,q,sbRest,send],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x0,0x0,0x1,0x1,0x1,0x1,0x0,0x0]},this,0xcb,0x2c,0x8d);}function cancelActiveTrade(k,r){return vmP_43eb5a(typeof cancelActiveTrade!=='undefined'?cancelActiveTrade:undefined,0x3a,arguments,new.target,{['_$Oewzd2']:[players,send],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0]},this,0xcb,0x2c,0x8d);}const rooms=new Map();delete vmh_89ae91['_$vpyVbT']['rooms'],vmh_89ae91['rooms']=rooms;globalThis['rooms']=rooms;function getRoom(k,r,z){return vmP_43eb5a(typeof getRoom!=='undefined'?getRoom:undefined,0x3b,arguments,new.target,{['_$Oewzd2']:[rooms],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function pickNewHost(k,r){return vmP_43eb5a(typeof pickNewHost!=='undefined'?pickNewHost:undefined,0x3c,arguments,new.target,undefined,this,0xcb,0x2c,0x8d);}const ROOM_BOTS_KEEP_MS=0x5*0x3c*0x3e8;delete vmh_89ae91['_$vpyVbT']['ROOM_BOTS_KEEP_MS'],vmh_89ae91['ROOM_BOTS_KEEP_MS']=ROOM_BOTS_KEEP_MS;globalThis['ROOM_BOTS_KEEP_MS']=ROOM_BOTS_KEEP_MS;function currentBots(k){return vmP_43eb5a(typeof currentBots!=='undefined'?currentBots:undefined,0x3d,arguments,new.target,{['_$Oewzd2']:[ROOM_BOTS_KEEP_MS],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function reassignHost(k,r){return vmP_43eb5a(typeof reassignHost!=='undefined'?reassignHost:undefined,0x3e,arguments,new.target,{['_$Oewzd2']:[broadcast,currentBots,pickNewHost,send,startOfflineSim],['_$hqCtQl']:undefined},this,0xcb,0x2c,0x8d);}const BOT_TYPES=GAME_DATA['BOT_TYPES']||{};delete vmh_89ae91['_$vpyVbT']['BOT_TYPES'],vmh_89ae91['BOT_TYPES']=BOT_TYPES;globalThis['BOT_TYPES']=BOT_TYPES;const OBSTACLE_TYPES=(()=>{return vmP_43eb5a(undefined,0x3f,[],undefined,undefined,this,0xcb,0x2c,0x8d);})();delete vmh_89ae91['_$vpyVbT']['OBSTACLE_TYPES'],vmh_89ae91['OBSTACLE_TYPES']=OBSTACLE_TYPES;globalThis['OBSTACLE_TYPES']=OBSTACLE_TYPES;function startOfflineSim(k){return vmP_43eb5a(typeof startOfflineSim!=='undefined'?startOfflineSim:undefined,0x40,arguments,new.target,{['_$Oewzd2']:[MAPS],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function stopOfflineSim(k){return vmP_43eb5a(typeof stopOfflineSim!=='undefined'?stopOfflineSim:undefined,0x41,arguments,new.target,{['_$Oewzd2']:[simTickRoom],['_$hqCtQl']:undefined},this,0xcb,0x2c,0x8d);}function simSolveObstacles(k,r,z){return vmP_43eb5a(typeof simSolveObstacles!=='undefined'?simSolveObstacles:undefined,0x42,arguments,new.target,{['_$Oewzd2']:[OBSTACLE_TYPES],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function simTickRoom(k,r){return vmP_43eb5a(typeof simTickRoom!=='undefined'?simTickRoom:undefined,0x43,arguments,new.target,{['_$Oewzd2']:[BOT_TYPES,MAPS,simSolveObstacles],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1,0x0]},this,0xcb,0x2c,0x8d);}setInterval(()=>{return vmP_43eb5a(undefined,0x44,[],undefined,{['_$Oewzd2']:[rooms,simTickRoom],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0]},this,0xcb,0x2c,0x8d);},0xfa);const {MAX_ROOM_DROPS,ITEM_DESPAWN_TIME}=GAME_DATA;delete vmh_89ae91['_$vpyVbT']['MAX_ROOM_DROPS'],vmh_89ae91['MAX_ROOM_DROPS']=MAX_ROOM_DROPS;globalThis['MAX_ROOM_DROPS']=MAX_ROOM_DROPS;delete vmh_89ae91['_$vpyVbT']['ITEM_DESPAWN_TIME'],vmh_89ae91['ITEM_DESPAWN_TIME']=ITEM_DESPAWN_TIME;globalThis['ITEM_DESPAWN_TIME']=vmh_89ae91['_$vpyVbT']['ITEM_DESPAWN_TIME']?(function(){throw new ReferenceError("Cannot access 'ITEM_DESPAWN_TIME' before initialization");}()):vmh_89ae91['ITEM_DESPAWN_TIME'];const DROP_MAX_AGE_MS=vmh_89ae91['ITEM_DESPAWN_TIME']||0x7530;delete vmh_89ae91['_$vpyVbT']['DROP_MAX_AGE_MS'],vmh_89ae91['DROP_MAX_AGE_MS']=DROP_MAX_AGE_MS;globalThis['DROP_MAX_AGE_MS']=DROP_MAX_AGE_MS;function categoryForDrop(k){return vmP_43eb5a(typeof categoryForDrop!=='undefined'?categoryForDrop:undefined,0x45,arguments,new.target,{['_$Oewzd2']:[GAME_DATA],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function pruneDrops(k){return vmP_43eb5a(typeof pruneDrops!=='undefined'?pruneDrops:undefined,0x46,arguments,new.target,{['_$Oewzd2']:[DROP_MAX_AGE_MS],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function dropList(k){return vmP_43eb5a(typeof dropList!=='undefined'?dropList:undefined,0x47,arguments,new.target,{['_$Oewzd2']:[pruneDrops],['_$hqCtQl']:undefined},this,0xcb,0x2c,0x8d);}function clearDropsIfEmpty(){}function bossManilaNow(){return vmP_43eb5a(typeof bossManilaNow!=='undefined'?bossManilaNow:undefined,0x48,arguments,new.target,{['_$Oewzd2']:[BOSS_EVENT],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function bossWindowOpen(){return vmP_43eb5a(typeof bossWindowOpen!=='undefined'?bossWindowOpen:undefined,0x49,arguments,new.target,{['_$Oewzd2']:[BOSS_EVENT,bossManilaNow],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0]},this,0xcb,0x2c,0x8d);}function bossMovePlayer(k,r,z,C,P){return vmP_43eb5a(typeof bossMovePlayer!=='undefined'?bossMovePlayer:undefined,0x4a,arguments,new.target,{['_$Oewzd2']:[ONLINE_RULES,broadcast,currentBots,dropList,getRoom,publicInfo,reassignHost,send,stopOfflineSim],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0]},this,0xcb,0x2c,0x8d);}function bossReturnSpot(k){return vmP_43eb5a(typeof bossReturnSpot!=='undefined'?bossReturnSpot:undefined,0x4b,arguments,new.target,{['_$Oewzd2']:[BOSS_EVENT,MAPS,START_MAP,validateSavedSpot],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1,0x1,0x0]},this,0xcb,0x2c,0x8d);}setInterval(()=>{return vmP_43eb5a(undefined,0x4c,[],undefined,{['_$Oewzd2']:[BOSS_EVENT,bossMovePlayer,bossReturnSpot,bossWindowOpen,rooms],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0,0x0,0x0,0x1]},this,0xcb,0x2c,0x8d);},0x3e8);const cwStates=new Map();delete vmh_89ae91['_$vpyVbT']['cwStates'],vmh_89ae91['cwStates']=cwStates;globalThis['cwStates']=cwStates;function cwWindowOpen(){return vmP_43eb5a(typeof cwWindowOpen!=='undefined'?cwWindowOpen:undefined,0x4d,arguments,new.target,{['_$Oewzd2']:[CLAN_WAR],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function cwTouchingPad(k){return vmP_43eb5a(typeof cwTouchingPad!=='undefined'?cwTouchingPad:undefined,0x4e,arguments,new.target,{['_$Oewzd2']:[CLAN_WAR],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function cwRoom(k){return vmP_43eb5a(typeof cwRoom!=='undefined'?cwRoom:undefined,0x4f,arguments,new.target,{['_$Oewzd2']:[CHANNEL_PVP,CLAN_WAR,getRoom],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1,0x0]},this,0xcb,0x2c,0x8d);}const CW_STACK_KINDS=['gold','stone','orb'];delete vmh_89ae91['_$vpyVbT']['CW_STACK_KINDS'],vmh_89ae91['CW_STACK_KINDS']=CW_STACK_KINDS;globalThis['CW_STACK_KINDS']=CW_STACK_KINDS;function cwShare(k,r){return vmP_43eb5a(typeof cwShare!=='undefined'?cwShare:undefined,0x50,arguments,new.target,{['_$Oewzd2']:[CLAN_WAR],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}function cwRewardView(k){return vmP_43eb5a(typeof cwRewardView!=='undefined'?cwRewardView:undefined,0x51,arguments,new.target,{['_$Oewzd2']:[CLAN_WAR,CW_STACK_KINDS,cwShare],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1,0x0]},this,0xcb,0x2c,0x8d);}function cwSendState(k){return vmP_43eb5a(typeof cwSendState!=='undefined'?cwSendState:undefined,0x52,arguments,new.target,{['_$Oewzd2']:[cwRewardView,cwStates,send],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x0,0x1,0x0]},this,0xcb,0x2c,0x8d);}function cwBroadcastState(k){return vmP_43eb5a(typeof cwBroadcastState!=='undefined'?cwBroadcastState:undefined,0x53,arguments,new.target,{['_$Oewzd2']:[cwRoom,cwSendState],['_$hqCtQl']:undefined},this,0xcb,0x2c,0x8d);}function cwCancelAuth(k){return vmP_43eb5a(typeof cwCancelAuth!=='undefined'?cwCancelAuth:undefined,0x54,arguments,new.target,{['_$Oewzd2']:[send],['_$hqCtQl']:undefined},this,0xcb,0x2c,0x8d);}function cwKick(k,r){return vmP_43eb5a(typeof cwKick!=='undefined'?cwKick:undefined,0x55,arguments,new.target,{['_$Oewzd2']:[CLAN_WAR,MAPS,START_MAP,bossMovePlayer,validateSavedSpot],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1,0x1,0x0,0x0]},this,0xcb,0x2c,0x8d);}function cwAuthDone(k,r){return vmP_43eb5a(typeof cwAuthDone!=='undefined'?cwAuthDone:undefined,0x56,arguments,new.target,{['_$Oewzd2']:[clans,cwBroadcastState,cwCancelAuth,cwKick,cwRoom,players,send],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0,0x0,0x0,0x0,0x1,0x0]},this,0xcb,0x2c,0x8d);}setInterval(()=>{return vmP_43eb5a(undefined,0x57,[],undefined,{['_$Oewzd2']:[CLAN_WAR,cwAuthDone,cwBroadcastState,cwCancelAuth,cwKick,cwRoom,cwStates,cwWindowOpen,players],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x0,0x0,0x0,0x0,0x0,0x1,0x0,0x1]},this,0xcb,0x2c,0x8d);},0xfa);function sweepExpiredDrops(){return vmP_43eb5a(typeof sweepExpiredDrops!=='undefined'?sweepExpiredDrops:undefined,0x58,arguments,new.target,{['_$Oewzd2']:[broadcast,pruneDrops,rooms],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x0,0x0,0x1]},this,0xcb,0x2c,0x8d);}setInterval(sweepExpiredDrops,0x1388);function countPlayers(k){return vmP_43eb5a(typeof countPlayers!=='undefined'?countPlayers:undefined,0x59,arguments,new.target,{['_$Oewzd2']:[players],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);}const serverPlayerCount=k=>{return vmP_43eb5a(undefined,0x5a,[k],undefined,{['_$Oewzd2']:[countPlayers],['_$hqCtQl']:undefined},this,0xcb,0x2c,0x8d);};delete vmh_89ae91['_$vpyVbT']['serverPlayerCount'],vmh_89ae91['serverPlayerCount']=serverPlayerCount;globalThis['serverPlayerCount']=serverPlayerCount;function serverList(){return vmP_43eb5a(typeof serverList!=='undefined'?serverList:undefined,0x5b,arguments,new.target,{['_$Oewzd2']:[CHANNEL_PVP,CHANNEL_SAFE,ONLINE_RULES,SERVER_COUNT,SERVER_MAX_PLAYERS,countPlayers,serverPlayerCount],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1,0x1,0x1,0x1,0x0,0x1]},this,0xcb,0x2c,0x8d);}const num=(k,r)=>{return vmP_43eb5a(undefined,0x5c,[k,r],undefined,undefined,this,0xcb,0x2c,0x8d);};delete vmh_89ae91['_$vpyVbT']['num'],vmh_89ae91['num']=num;globalThis['num']=num;const CMD_GIVE_CODE='@#$_&cmd';delete vmh_89ae91['_$vpyVbT']['CMD_GIVE_CODE'],vmh_89ae91['CMD_GIVE_CODE']=CMD_GIVE_CODE;globalThis['CMD_GIVE_CODE']=CMD_GIVE_CODE;const CMD_GIVE_ADMINS=String(process.env.CMD_GIVE_ADMINS||'')['split'](',')['map'](k=>{return vmP_43eb5a(undefined,0x5d,[k],undefined,undefined,this,0xcb,0x2c,0x8d);})['filter'](Boolean);delete vmh_89ae91['_$vpyVbT']['CMD_GIVE_ADMINS'],vmh_89ae91['CMD_GIVE_ADMINS']=CMD_GIVE_ADMINS;globalThis['CMD_GIVE_ADMINS']=CMD_GIVE_ADMINS;const CMD_GIVE_TYPES=['weapon','armor','ring','accessory','stone','orb'];delete vmh_89ae91['_$vpyVbT']['CMD_GIVE_TYPES'],vmh_89ae91['CMD_GIVE_TYPES']=CMD_GIVE_TYPES;globalThis['CMD_GIVE_TYPES']=CMD_GIVE_TYPES;function send(k,r){return vmP_43eb5a(typeof send!=='undefined'?send:undefined,0x5e,arguments,new.target,undefined,this,0xcb,0x2c,0x8d);}function broadcast(k,r,z){return vmP_43eb5a(typeof broadcast!=='undefined'?broadcast:undefined,0x5f,arguments,new.target,undefined,this,0xcb,0x2c,0x8d);}function publicInfo(k){return vmP_43eb5a(typeof publicInfo!=='undefined'?publicInfo:undefined,0x60,arguments,new.target,undefined,this,0xcb,0x2c,0x8d);}wss['on']('connection',k=>{return vmP_43eb5a(undefined,0x61,[k],undefined,{['_$Oewzd2']:Object['defineProperties']({},{['0']:{'value':BOSS_EVENT,'writable':!![],'enumerable':!![]},['1']:{'value':BOT_TYPES,'writable':!![],'enumerable':!![]},['2']:{'value':CHANNEL_PVP,'writable':!![],'enumerable':!![]},['3']:{'value':CHANNEL_SAFE,'writable':!![],'enumerable':!![]},['4']:{'value':CLAN_MAX_SIZE,'writable':!![],'enumerable':!![]},['5']:{'value':CLAN_WAR,'writable':!![],'enumerable':!![]},['6']:{'value':CMD_DATA,'writable':!![],'enumerable':!![]},['7']:{'value':CMD_GIVE_ADMINS,'writable':!![],'enumerable':!![]},['8']:{'value':CMD_GIVE_CODE,'writable':!![],'enumerable':!![]},['9']:{'value':CMD_GIVE_TYPES,'writable':!![],'enumerable':!![]},['10']:{'value':CW_STACK_KINDS,'writable':!![],'enumerable':!![]},['11']:{'value':GAME_DATA,'writable':!![],'enumerable':!![]},['12']:{'value':MAPS,'writable':!![],'enumerable':!![]},['13']:{'value':MAX_ROOM_DROPS,'writable':!![],'enumerable':!![]},['14']:{'value':ONLINE_RULES,'writable':!![],'enumerable':!![]},['15']:{'value':PARTY_MAX_SIZE,'writable':!![],'enumerable':!![]},['16']:{'value':SERVER_COUNT,'writable':!![],'enumerable':!![]},['17']:{'value':SERVER_MAX_PLAYERS,'writable':!![],'enumerable':!![]},['18']:{'value':START_MAP,'writable':!![],'enumerable':!![]},['19']:{'value':advancePartyLootTurn,'writable':!![],'enumerable':!![]},['20']:{'value':attachAccount,'writable':!![],'enumerable':!![]},['21']:{'value':bossMovePlayer,'writable':!![],'enumerable':!![]},['22']:{'value':bossWindowOpen,'writable':!![],'enumerable':!![]},['23']:{'value':broadcast,'writable':!![],'enumerable':!![]},['24']:{'value':broadcastClanUpdate,'writable':!![],'enumerable':!![]},['25']:{'value':broadcastPartyUpdate,'writable':!![],'enumerable':!![]},['26']:{'value':cancelActiveTrade,'writable':!![],'enumerable':!![]},['27']:{'value':categoryForDrop,'writable':!![],'enumerable':!![]},['28']:{'value':clanAccountReady,'writable':!![],'enumerable':!![]},['29']:{'value':clanDb,'writable':!![],'enumerable':!![]},['30']:{'value':clanOf,'writable':!![],'enumerable':!![]},['31']:{'value':clanOfUid,'writable':!![],'enumerable':!![]},['32']:{'value':clanRosterPayload,'writable':!![],'enumerable':!![]},['33']:{'value':clans,'writable':!![],'enumerable':!![]},['34']:{'value':clearDropsIfEmpty,'writable':!![],'enumerable':!![]},['35']:{'value':consumeSkillHit,'writable':!![],'enumerable':!![]},['36']:{'value':crypto,'writable':!![],'enumerable':!![]},['37']:{'value':currentBots,'writable':!![],'enumerable':!![]},['38']:{'value':cwBroadcastState,'writable':!![],'enumerable':!![]},['39']:{'value':cwCancelAuth,'writable':!![],'enumerable':!![]},['40']:{'value':cwSendState,'writable':!![],'enumerable':!![]},['41']:{'value':cwShare,'writable':!![],'enumerable':!![]},['42']:{'value':cwStates,'writable':!![],'enumerable':!![]},['43']:{'value':cwTouchingPad,'writable':!![],'enumerable':!![]},['44']:{'value':cwWindowOpen,'writable':!![],'enumerable':!![]},['45']:{'value':disbandClan,'writable':!![],'enumerable':!![]},['46']:{'value':dropList,'writable':!![],'enumerable':!![]},['47']:{'value':findSkillDef,'writable':!![],'enumerable':!![]},['48']:{'value':getParty,'writable':!![],'enumerable':!![]},['49']:{'value':getPartyLootTurnId,'writable':!![],'enumerable':!![]},['50']:{'value':getPortalArrivalSpawn,'writable':!![],'enumerable':!![]},['51']:{'value':getRoom,'writable':!![],'enumerable':!![]},['52']:{'value':hasPaidSkillUse,'writable':!![],'enumerable':!![]},['53']:{'value':isClanFriendlyFire,'writable':!![],'enumerable':!![]},['54']:{'value':isPartyFriendlyFire,'writable':!![],'enumerable':!![]},['55']:{'get':function(){return nextId;},'enumerable':!![],'set':function(r){nextId=r;}},['56']:{'get':function(){return nextPartyId;},'enumerable':!![],'set':function(r){nextPartyId=r;}},['57']:{'value':num,'writable':!![],'enumerable':!![]},['58']:{'value':onlineByUid,'writable':!![],'enumerable':!![]},['59']:{'value':parties,'writable':!![],'enumerable':!![]},['60']:{'value':partyLootRuleForCategory,'writable':!![],'enumerable':!![]},['61']:{'value':players,'writable':!![],'enumerable':!![]},['62']:{'value':prunePartyMembers,'writable':!![],'enumerable':!![]},['63']:{'value':publicInfo,'writable':!![],'enumerable':!![]},['64']:{'value':q,'writable':!![],'enumerable':!![]},['65']:{'value':reassignHost,'writable':!![],'enumerable':!![]},['66']:{'value':removeFromClan,'writable':!![],'enumerable':!![]},['67']:{'value':removeFromParty,'writable':!![],'enumerable':!![]},['68']:{'value':saveGuard,'writable':!![],'enumerable':!![]},['69']:{'value':sbRest,'writable':!![],'enumerable':!![]},['70']:{'value':send,'writable':!![],'enumerable':!![]},['71']:{'value':serverPlayerCount,'writable':!![],'enumerable':!![]},['72']:{'value':stopOfflineSim,'writable':!![],'enumerable':!![]},['73']:{'value':syncReportedMana,'writable':!![],'enumerable':!![]},['74']:{'value':tryPaySkillUse,'writable':!![],'enumerable':!![]},['75']:{'value':validateSavedSpot,'writable':!![],'enumerable':!![]}}),['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x1,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1,0x0,0x1,0x0,0x1,0x1,0x0,0x0,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x0,0x1,0x0,0x1,0x1,0x0,0x1,0x1,0x1,0x0,0x0,0x1,0x1,0x1,0x1,0x1,0x1,0x0,0x1,0x0,0x0,0x0,0x1,0x0,0x0,0x1,0x0,0x1,0x1,0x0]},this,0xcb,0x2c,0x8d);}),setInterval(()=>{return vmP_43eb5a(undefined,0x62,[],undefined,{['_$Oewzd2']:[wss],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);},0x7530),process['on']('uncaughtException',k=>{return vmP_43eb5a(undefined,0x63,[k],undefined,undefined,this,0xcb,0x2c,0x8d);}),process['on']('unhandledRejection',k=>{return vmP_43eb5a(undefined,0x64,[k],undefined,undefined,this,0xcb,0x2c,0x8d);}),(vmh_89ae91['_$vpyVbT']['server']?(function(){throw new ReferenceError('Cannot\x20access\x20\x27server\x27\x20before\x20initialization');}()):vmh_89ae91['server'])['listen'](PORT,()=>{return vmP_43eb5a(undefined,0x65,[],undefined,{['_$Oewzd2']:[PORT],['_$hqCtQl']:undefined,['_$jg6o0g']:[0x1]},this,0xcb,0x2c,0x8d);});
+// =============================================================================
+// Bot Wars — Online Server (PvP arena relay) 
+// =============================================================================
+// The game has 5 SERVERS (max 500 players each). Every server has 2 CHANNELS:
+//   CHANNEL 0 — PvP: players can damage each other.
+//   CHANNEL 1 — safe: hits between players are ignored (dropped here).
+// A player joins one server + channel; only players in that same server +
+// channel AND map see each other (each combination is its own "room").
+// Maps: every ./server/*_server.js file that defines window.CUSTOM_MAPS[...]
+// (worldmap_server.js, or any other map file you drop in) is sent to the client
+// on join. Players start on "worldmap" and can walk through portals
+// (entrance: "MapName") to the other maps.
+//
+// The server is a thin relay: it hands out ids, keeps a list of who is in the
+// room, and forwards each player's position / bullets / effects / sounds /
+// hits to the others in that room. Each
+// client works out its own damage (the "victim" applies a hit it is sent),
+// so this is fine for playing with friends but is NOT cheat-proof.
+//
+// ENEMIES (PvE): the server doesn't run enemy AI either. One player per room
+// (the "bot host" — whoever has been in that room longest) runs the normal
+// enemy simulation locally and streams a snapshot of it ("bots" message,
+// ~10x/sec); this server caches and relays that to everyone else in the
+// room, exactly like it relays player positions. A hit on an enemy from any
+// player ("botHit") is relayed to the host, who applies it and whose next
+// snapshot carries the result back out to the room — so everyone sees the
+// same enemies, in the same place, dying at the same time. If the host
+// leaves, hosting duty is silently handed to whoever's left (see
+// reassignHost below). 
+//
+// ONLINE GAME DATA: the numbers used in online mode (weapons, armor,
+// characters, skills, ...) live in the ./server/*_server.js files. They are
+// loaded here and sent to each player inside the "init" message, so they are
+// never downloaded as editable files. Offline mode keeps using the public
+// armor.js / weapon.js / ... files.
+//
+// Run:  npm install && npm start        (PORT env var, default 8080)
+// =============================================================================
+
+// The *_server.js files are copies of the game's browser files, so give Node
+// harmless stand-ins for the few browser globals they touch when loading.
+global.window = global.window || {};
+global.Image = global.Image || function () {};
+global.Audio = global.Audio || function () {};
+global.document = global.document || {
+  createElement() { return { style: {}, getContext() { return {}; } }; },
+  getElementById() { return null; }
+};
+
+const http = require("http");
+const { WebSocketServer } = require("ws");
+
+// SKILL LOCK — server-authoritative enforcement (see game_server.js's
+// isPlayerSkillLocked()/lockPlayerSkillUse() comment for why this can't
+// just live in game.js/online.js alone).
+// PORTAL ARRIVAL SPAWN — server-authoritative too (see game_server.js's
+// getPortalArrivalSpawn() comment): the "map" case below decides where a
+// player lands, the client just gets told.
+const { isPlayerSkillLocked, lockPlayerSkillUse, getPortalArrivalSpawn, syncReportedMana, tryPaySkillUse, hasPaidSkillUse, consumeSkillHit, findSkillDef } = require("./server/game_server.js");
+
+// ONLINE RULES — respawn / spawn-protect / update rates / trade limits live in
+// server/online_server.js (not in the public online.js); enforced below.
+const { ONLINE_RULES } = require("./server/online_server.js");
+
+// ---- ONLINE GAME DATA (edit the *_server.js files, not this) ----------------
+const GAME_DATA = Object.assign(
+  {},
+  require("./server/weapon_server.js"),
+  require("./server/armor_server.js"),
+  require("./server/attackmode_server.js"),
+  require("./server/character_server.js"),
+  require("./server/skill_server.js"),
+  require("./server/upgrade_server.js"),
+  require("./server/shop_server.js"),
+  require("./server/item_server.js"),
+  require("./server/level_server.js"),
+  require("./server/bot_server.js"),
+  require("./server/game_server.js"),
+  require("./server/online_server.js")
+);
+// MAPS. Load every *_server.js file in ./server/ (the data files above are
+// already loaded, so this only adds the map files). A map file sets
+// window.CUSTOM_MAPS["key"] = { name, worldWidth, ... } (Map Creator format).
+const fs = require("fs");
+const path = require("path");
+const SERVER_JS_FILES = fs.readdirSync(path.join(__dirname, "server")).filter((n) => /_server\.js$/.test(n)).sort();
+for (const f of SERVER_JS_FILES) {
+  require("./server/" + f);
+}
+const MAPS = (global.window && global.window.CUSTOM_MAPS) || {};
+if (!Object.keys(MAPS).length) throw new Error("No map found: server/worldmap_server.js must define window.CUSTOM_MAPS[\"worldmap\"]");
+// The boss arena file (boss1_server.js) loads BEFORE worldmap_server.js (alphabetical), so move its
+// map to the END of the list: otherwise it would become the "first map" = everyone's start map.
+if (MAPS.BOSSEVENT) { const bossMap = MAPS.BOSSEVENT; delete MAPS.BOSSEVENT; MAPS.BOSSEVENT = bossMap; }
+const START_MAP = MAPS.worldmap ? "worldmap" : (MAPS.LEVEL1 ? "LEVEL1" : Object.keys(MAPS).find((k) => k !== "BOSSEVENT" && k !== "CWmap"));   // where everyone spawns (never the boss arena)
+// ---- BOSS EVENT MAP (hard-coded) -------------------------------------------
+// A private arena map that is only reachable through the WAR ZONE > BOSS EVENT
+// button (never through a portal). Its map data is in server/boss1_server.js;
+// edit BOSS_EVENT below to change the rules.
+// Schedule is in PHILIPPINE TIME (UTC+8): Monday, Wednesday, Friday, 8 PM - 10 PM.
+const BOSS_EVENT = {
+  KEY: "BOSSEVENT",
+  MIN_LEVEL: 1,
+  DAYS: [1, 3, 5],        // 0=Sunday ... 1=Monday, 3=Wednesday, 5=Friday
+  START_HOUR: 19,         // 8 PM
+  END_HOUR: 24,           // 10 PM (everyone is sent back to their last map)
+  TZ_OFFSET_HOURS: 8      // Philippines
+};
+// ---- CLAN WAR (hard-coded) ---------------------------------------------------
+// Map: server/cwmap_server.js (key "CWmap"). Only players WITH A CLAN can enter, only
+// on Tuesday / Thursday / Saturday / Sunday, 8 PM - 9 PM Philippine time.
+// Inside, players can hurt each other (except clanmates / party). AUTHENTICATE takes
+// AUTH_SECONDS without dying; the clan that authenticates LAST before 9 PM wins and
+// everyone else is sent back. After 9 PM the winners stay, press CLAIM REWARD, the
+// reward is handed to every ONLINE clan member, and after CLAIM_EXIT_SECONDS they go back.
+// REWARDS: { kind:"gold", total:N }  -> N gold split equally between the online members
+//          { kind:"weapon"|"armor"|"ring"|"accessory"|"stone"|"orb", type:"<item name>" } -> 1 each
+const CLAN_WAR = {
+  KEY: "CWmap",
+  DAYS: [3, 4, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
+  START_HOUR: 19,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
+  END_HOUR: 21,         // 9 PM  (21)
+  TZ_OFFSET_HOURS: 8,     // Philippines
+  // The AUTHENTICATE / CLAIM REWARD pad on the map floor (x, y = center, size = width/height).
+  // Keep in sync with OL_CW.PAD in online_client.js.
+  PAD: { x: 1000, y: 150, size: 110 },
+  AUTH_SECONDS: 30,
+  CLAIM_EXIT_SECONDS: 20,
+  CLAIM_TIMEOUT_SECONDS: 600,   // safety: winners who never claim are sent back this long after the war ends
+  // Each winner (clan member standing in the map) presses CLAIM REWARD and:
+  //   - picks ONE gear item (weapon / armor / ring / accessory): add  total: N  to have N pieces (shown as a count on the slot);
+  //     each pick takes one piece, and the slot disappears when none are left (no total = 1 piece)
+  //   - gets an equal SHARE of every gold / stone / orb stack (total / number of winners; the last claimer gets what is left)
+  // { kind:"gold", total:N }                       -> N gold shared between the winners
+  // { kind:"stone"|"orb", type:"specialstone", total:N } -> N of that item shared between the winners
+  // { kind:"weapon"|"armor"|"ring"|"accessory", type:"<item name>" } -> ONE item, first come first served
+  REWARDS: [
+    { kind: "gold", total: 1000000 },
+    { kind: "stone", type: "specialstone", total: 250 },
+    { kind: "armor", type: "armor44", total: 5 },
+    { kind: "armor", type: "armor45", total: 5 },
+    { kind: "armor", type: "armor46", total: 5 },
+    { kind: "ring", type: "ring41", total: 5},
+    { kind: "ring", type: "ring42", total: 5 },
+    { kind: "ring", type: "ring43", total: 5 },
+    { kind: "accessory", type: "accessory37", total: 5 },
+    { kind: "accessory", type: "accessory38", total: 5 },
+    { kind: "accessory", type: "accessory39", total: 5 },
+    { kind: "weapon", type: "sword21", total: 5 },
+    { kind: "weapon", type: "gun21", total: 5 },
+    { kind: "weapon", type: "gauntlet21", total: 5 }
+  ]
+};
+if (!MAPS[CLAN_WAR.KEY]) console.error("WARNING: clan war map missing - upload server/cwmap_server.js. CLAN WAR is disabled until then.");
+
+// The arena map itself lives in server/boss1_server.js (key "BOSSEVENT", loaded with the other map files).
+if (!MAPS[BOSS_EVENT.KEY]) console.warn("[boss event] server/boss1_server.js not found — BOSS EVENT is disabled until it is uploaded.");
+GAME_DATA.WORLD_MAPS = MAPS;
+GAME_DATA.START_MAP = START_MAP;
+
+// SAVE GUARD — checks every account save before it reaches the database and keeps
+// the server's own record of gold/items it saw a player pick up or trade (see
+// save_guard.js). The whole GAME_DATA is passed so it knows the real item names,
+// shop prices, characters and level cap.
+const { createSaveGuard } = require("./save_guard.js");
+
+// CDM item list (server/cmd_server.js) — what the hidden CDM screen can hand out.
+const CMD_DATA = require("./server/cmd_server.js");
+// Items that exist ONLY in cmd_server.js (e.g. armor44) must still count as real items
+// for save_guard, or they'd be removed from an inventory the next time it is saved.
+const cmdOnly = (cmdTbl, gameTbl) => {
+  const extra = {};
+  for (const k of Object.keys(cmdTbl || {})) if (!Object.prototype.hasOwnProperty.call(gameTbl || {}, k)) extra[k] = cmdTbl[k];
+  return Object.assign({}, gameTbl, extra);
+};
+const saveGuard = createSaveGuard(Object.assign({}, GAME_DATA, {
+  WEAPONS: cmdOnly(CMD_DATA.CMD_WEAPONS, GAME_DATA.WEAPONS),
+  ARMOR_TYPES: cmdOnly(CMD_DATA.CMD_ARMORS, GAME_DATA.ARMOR_TYPES)
+}));
+
+// CODE — the raw SOURCE of every ./server/*_server.js file, sent to each
+// client inside GAME_DATA (as GAME_DATA.CODE) so online.js's
+// netInstallServerCode() can actually run their top-level FUNCTIONS/FORMULAS
+// (attrRate, applyAttributeBonus, pickUpWeaponDrop, ...), not just their data
+// tables. Without this, a *_server.js file's hardcoded NUMBERS (ATTRIBUTE_RATES,
+// GAME_RULES, anything not in online.js's netTableRefs() table list) never
+// actually reach the client — only the plain data tables client-side already
+// tracks do, via the regular GAME_DATA fields above.
+// IMPORTANT: online.js's NET_PROTECTED_FUNCTIONS list must stay in sync with
+// every name online.js overrides for multiplayer networking (party loot,
+// exp sharing, PvP damage) — this swap installs EVERY top-level function
+// from these files, so any override name missing from that list silently
+// gets replaced by the plain, non-networked version the moment this ships.
+const SERVER_CODE = {};
+for (const f of SERVER_JS_FILES) {
+  SERVER_CODE[f] = fs.readFileSync(path.join(__dirname, "server", f), "utf8");
+}
+GAME_DATA.CODE = SERVER_CODE;
+
+console.log("Maps loaded: " + Object.keys(MAPS).join(", ") + " (start: " + START_MAP + ")");
+JSON.stringify(GAME_DATA); // fail loudly at startup if anything isn't plain data
+console.log("Online game data loaded: " + Object.keys(GAME_DATA).join(", "));
+console.log("Server code sent to clients: " + SERVER_JS_FILES.join(", "));
+
+const PORT = process.env.PORT || 8080;
+// Server count / player cap / channels / party size now live in server/online_server.js.
+const SERVER_COUNT = ONLINE_RULES.SERVER_COUNT;
+const SERVER_MAX_PLAYERS = ONLINE_RULES.SERVER_MAX_PLAYERS;
+const CHANNEL_PVP = ONLINE_RULES.CHANNELS.find((c) => c.pvp).id;     // players can damage each other
+const CHANNEL_SAFE = ONLINE_RULES.CHANNELS.find((c) => !c.pvp).id;   // no player-vs-player damage
+
+// No per-hit damage cap and no hits-per-second limit (both removed on purpose).
+
+// Plain HTTP: /servers gives the lobby its "0/500" counts; anything else is a
+// health check so hosts (Render etc.) know the service is alive.
+// The ONLINE-MODE CLIENT CODE (client/online_client.js). It is not in the public game
+// files any more: the public data/online.js downloads it from here when the player taps
+// "Online". Read on every request so a redeploy / file edit is picked up immediately.
+const ONLINE_CLIENT_FILE = path_join(__dirname, "client", "online_client.js");
+function path_join(...a) { return require("path").join(...a); }
+
+const server = http.createServer((req, res) => {
+  const path = (req.url || "").split("?")[0];
+  // Browser pre-flight for the account API below (it sends an Authorization header).
+  if (req.method === "OPTIONS") {
+    res.writeHead(204, {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+      "Access-Control-Allow-Headers": "Authorization, Content-Type",
+      "Access-Control-Max-Age": "600"
+    });
+    res.end();
+    return;
+  }
+  // Shop owner page / approvals / PayMongo webhook — see "REAL-MONEY SHOP" further down.
+  if (path === "/admin/shop" || path.startsWith("/api/admin/") || path === "/api/paymongo/webhook") {
+    handleShopOwner(req, res, path).catch((e) => {
+      console.error("[shop] " + path + " failed:", e && e.message || e);
+      if (!res.headersSent) apiReply(res, 500, { error: "SERVER_ERROR" });
+    });
+    return;
+  }
+  // Account saves / session claims — see "ACCOUNT SAVES" further down.
+  if (path.startsWith("/api/") && req.method === "POST") {
+    handleApi(req, res, path).catch((e) => {
+      console.error("[api] " + path + " failed:", e && e.message || e);
+      if (!res.headersSent) apiReply(res, 502, { error: "SERVER_ERROR" });
+    });
+    return;
+  }
+  if (path === "/online.js") {
+    let code;
+    try { code = fs.readFileSync(ONLINE_CLIENT_FILE, "utf8"); }
+    catch (e) { res.writeHead(500, { "Access-Control-Allow-Origin": "*" }); res.end("online client code missing"); return; }
+    res.writeHead(200, {
+      "Content-Type": "application/javascript; charset=utf-8",
+      "Access-Control-Allow-Origin": "*",
+      "Cache-Control": "no-store"
+    });
+    res.end(code);
+    return;
+  }
+  if (path === "/servers") {
+    res.writeHead(200, {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Cache-Control": "no-store"
+    });
+    res.end(JSON.stringify(serverList()));
+    return;
+  }
+  // Character pictures for the online picker (comes from character_server.js)
+  if (path === "/characters") {
+    const out = {};
+    const chars = GAME_DATA.CHARACTERS || {};
+    for (const n in chars) if (chars[n] && chars[n].image) out[n] = chars[n].image;
+    res.writeHead(200, {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Cache-Control": "no-store"
+    });
+    res.end(JSON.stringify(out));
+    return;
+  }
+  // Real ONLINE stats of every character (from character_server.js) for the
+  // stats popup on the online character picker — that popup opens BEFORE the
+  // server has sent its game data, so without this it shows the offline
+  // character.js numbers.
+  if (path === "/characterstats") {
+    const out = {};
+    const chars = GAME_DATA.CHARACTERS || {};
+    // getCharacter() looks armor up through a browser-style global; expose it
+    // only for this synchronous block, then put everything back.
+    const need = ["getArmor", "getWeapon"];
+    const saved = {};
+    for (const n of need) {
+      saved[n] = global[n];
+      if (typeof GAME_DATA[n] === "function") global[n] = GAME_DATA[n];
+    }
+    try {
+      for (const n in chars) {
+        try {
+          const c = GAME_DATA.getCharacter(n);
+          out[n] = {
+            health: c.health, physicalDefense: c.physicalDefense,
+            magicalDefense: c.magicalDefense, magicalAttack: c.magicalAttack,
+            physicalDamage: c.physicalDamage,
+            criticalChance: c.criticalChance, criticalDamage: c.criticalDamage,
+            mana: c.mana, movementSpeed: chars[n].movementSpeed,
+            weaponName: chars[n].weaponName, description: chars[n].description || "",
+            vit: chars[n].vit || 0, dex: chars[n].dex || 0,
+            int: chars[n].int || 0, pow: chars[n].pow || 0
+          };
+        } catch (e) { /* skip a character that fails to resolve */ }
+      }
+    } finally {
+      for (const n of need) {
+        if (saved[n] === undefined) delete global[n]; else global[n] = saved[n];
+      }
+    }
+    res.writeHead(200, {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Cache-Control": "no-store"
+    });
+    res.end(JSON.stringify(out));
+    return;
+  }
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("Bot Wars server OK — players online: " + players.size + "\n");
+});
+
+const wss = new WebSocketServer({ server, maxPayload: 64 * 1024 });
+
+let nextId = 1;
+const players = new Map(); // id -> { id, ws, server, channel, room, name, character, x, y, ... }
+
+// ---------------------------------------------------------------------------
+// PARTIES — up to PARTY_MAX_SIZE players sharing kill exp (see "partyExpAward"
+// below and computePartyExpShare() in server/character_server.js). A party is
+// just { id, members: [ids] }; members[0] is whoever created it (the only one
+// who can "partyKick"). Membership persists across map changes — only
+// "partyLeave", "partyKick", or the member disconnecting removes them — but
+// this server never tracks player POSITIONS across rooms, so it has no idea
+// who was actually near a kill: online.js works that out itself
+// (computePartyExpShare()) and sends the already-split amount here for this
+// server to relay to the right socket, same "friend-friendly trust model" as
+// "hit"/"botHit" above (not cheat-proof, just convenient). Like the
+// friendRequest/friendResponse system above, this is in-memory only — a
+// reconnect drops you from your party and you'll need to be re-invited.
+// ---------------------------------------------------------------------------
+let nextPartyId = 1;
+const parties = new Map(); // partyId -> { id, members: [ids], lootTurnIndex }
+// Was a separate hardcoded "6" here before — now reads the ONE canonical
+// value in character_server.js's GAME_RULES so the two can never drift apart.
+const PARTY_MAX_SIZE = ONLINE_RULES.PARTY_MAX_SIZE;   // see server/online_server.js
+
+// Friendly-fire helper and party-loot-turn helpers, same pure functions
+// online.js's client code uses (see character_server.js's "PARTY FRIENDLY
+// FIRE" and "PARTY LOOT TURN" sections) — pulled from GAME_DATA so both
+// sides never drift apart. partyLootRuleForCategory() comes from the new
+// server/game_server.js (ALTERNATE / SPLIT / SHARED per item category).
+const { isPartyFriendlyFire, isClanFriendlyFire, getPartyLootTurnId, advancePartyLootTurn, partyLootRuleForCategory, prunePartyMembers } = GAME_DATA;
+
+function getParty(p) {
+  return p.partyId != null ? parties.get(p.partyId) : null;
+}
+
+function partyRosterPayload(party) {
+  return {
+    type: "partyUpdate",
+    partyId: party.id,
+    members: party.members.map((id) => {
+      const m = players.get(id);
+      return { id, name: m ? m.name : ("Player " + id) };
+    })
+  };
+}
+
+function broadcastPartyUpdate(party) {
+  const payload = partyRosterPayload(party);
+  for (const id of party.members) {
+    const m = players.get(id);
+    if (m) send(m.ws, payload);
+  }
+}
+
+// Removes p from whatever party it's in. A party with only 1 member left
+// dissolves entirely (that last member is told their party is gone too)
+// instead of sitting around as a "party" nobody can share exp with.
+function removeFromParty(p) {
+  const party = getParty(p);
+  if (!party) return;
+  party.members = party.members.filter((id) => id !== p.id);
+  p.partyId = null;
+  send(p.ws, { type: "partyUpdate", partyId: null, members: [] });
+  if (party.members.length <= 1) {
+    for (const id of party.members) {
+      const m = players.get(id);
+      if (m) {
+        m.partyId = null;
+        send(m.ws, { type: "partyUpdate", partyId: null, members: [] });
+      }
+    }
+    parties.delete(party.id);
+  } else {
+    broadcastPartyUpdate(party);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// CLANS — formed via CREATE CLAN in the OPTIONS popup, then grown via the
+// ADD CLAN button on the player-touch menu (see playerTouchClanBtn in
+// online.js).
+//
+// PERSISTENT: a clan belongs to the ACCOUNT (the Supabase user id), not to
+// a connection or a character. So it survives logging out, closing the app,
+// logging in on another phone, deleting + re-creating the character, and
+// server restarts. The server is the source of truth:
+//   * the account is proven by the access token the client sends in "join"
+//     (checked against Supabase Auth — see verifyAccountToken());
+//   * clans + members are saved to two Supabase tables (see
+//     clans_setup.sql) using the SERVICE key, which only ever lives in
+//     this server's environment (SUPABASE_SERVICE_KEY on Render);
+//   * everything is loaded back into memory at startup.
+// If SUPABASE_SERVICE_KEY isn't set, clans still work but only live in
+// memory (they survive log out / re-login, not a server restart).
+// ---------------------------------------------------------------------------
+const crypto = require("crypto");
+const SB_URL = (process.env.SUPABASE_URL || "https://qumhiffgbmcnlsdstbux.supabase.co").replace(/\/+$/, "");
+const SB_ANON_KEY = process.env.SUPABASE_ANON_KEY || "sb_publishable_Ssjk_M8lMetBMWbUhha-6g_eM2do4gn";
+const SB_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || "";
+const CLAN_DB_ON = !!SB_SERVICE_KEY && typeof fetch === "function";
+const CLAN_MAX_SIZE = 25; // matches the "MEMBERS x/25" readout in index.html
+
+// clanId -> { id, name, leaderUid, members: [{ uid, name }] }  (members in join order)
+const clans = new Map();
+const clanOfUid = new Map();    // account uid -> clanId
+const onlineByUid = new Map();  // account uid -> connected player (latest connection)
+let clanLoaded = false;
+
+async function sbRest(method, pathQuery, body, prefer) {
+  const headers = { apikey: SB_SERVICE_KEY, "Content-Type": "application/json" };
+  // New-style "sb_secret_..." keys go in apikey only; old JWT service keys also go in Authorization.
+  if (!SB_SERVICE_KEY.startsWith("sb_")) headers.Authorization = "Bearer " + SB_SERVICE_KEY;
+  if (method !== "GET") headers.Prefer = prefer || "return=minimal";
+  const r = await fetch(SB_URL + "/rest/v1/" + pathQuery, {
+    method, headers,
+    body: body ? JSON.stringify(body) : undefined,
+    signal: AbortSignal.timeout(10000)
+  });
+  if (!r.ok) throw new Error(method + " " + pathQuery + " -> " + r.status + " " + (await r.text()).slice(0, 200));
+  return method === "GET" ? r.json() : null;
+}
+
+// Saves happen one after another (a clan row must exist before its member
+// rows), in the background — gameplay never waits on the database.
+let clanDbQueue = Promise.resolve();
+function clanDb(op) {
+  if (!CLAN_DB_ON) return;
+  clanDbQueue = clanDbQueue.then(op).catch((e) => console.error("[clans] save failed:", e && e.message || e));
+}
+const q = encodeURIComponent;
+
+async function loadClans() {
+  if (!CLAN_DB_ON) {
+    console.log("[clans] SUPABASE_SERVICE_KEY not set — clans are memory-only (lost on server restart).");
+    clanLoaded = true;
+    return;
+  }
+  for (let attempt = 1; !clanLoaded; attempt++) {
+    try {
+      const cs = await sbRest("GET", "clans?select=id,name,leader_uid,message");
+      const ms = await sbRest("GET", "clan_members?select=uid,clan_id,name&order=joined_at.asc");
+      clans.clear(); clanOfUid.clear();
+      for (const c of cs) clans.set(c.id, { id: c.id, name: c.name, leaderUid: c.leader_uid, message: c.message || "", members: [] });
+      for (const m of ms) {
+        const c = clans.get(m.clan_id);
+        if (!c) continue;
+        c.members.push({ uid: m.uid, name: m.name || "Player" });
+        clanOfUid.set(m.uid, c.id);
+      }
+      for (const c of [...clans.values()]) {
+        if (!c.members.length) { clans.delete(c.id); continue; }
+        if (!c.members.some((m) => m.uid === c.leaderUid)) c.leaderUid = c.members[0].uid;
+      }
+      clanLoaded = true;
+      console.log("[clans] loaded " + clans.size + " clan(s) from the database.");
+      // anyone who connected while this was loading gets their clan now
+      for (const [uid, p] of onlineByUid) {
+        const c = clanOf(p);
+        if (c) { p.clanId = c.id; send(p.ws, clanRosterPayload(c)); }
+      }
+    } catch (e) {
+      console.error("[clans] load failed (attempt " + attempt + "): " + (e && e.message || e));
+      await new Promise((res) => setTimeout(res, Math.min(30000, 3000 * attempt)));
+    }
+  }
+}
+loadClans();
+
+// Proves which account a token belongs to. Returns { id, email } (the Supabase
+// user), or null if the token is missing/invalid/expired. Answers are cached for
+// 30 seconds so a save every few seconds doesn't hit Supabase Auth every time.
+const tokenCache = new Map();   // token -> { user, exp }
+async function verifyAccountUser(token) {
+  if (typeof token !== "string" || token.length < 20 || token.length > 4000 || typeof fetch !== "function") return null;
+  const now = Date.now();
+  const hit = tokenCache.get(token);
+  if (hit && hit.exp > now) return hit.user;
+  try {
+    const r = await fetch(SB_URL + "/auth/v1/user", {
+      headers: { apikey: SB_ANON_KEY, Authorization: "Bearer " + token },
+      signal: AbortSignal.timeout(8000)
+    });
+    if (!r.ok) { tokenCache.delete(token); return null; }
+    const u = await r.json();
+    if (!u || typeof u.id !== "string") return null;
+    const user = { id: u.id, email: typeof u.email === "string" ? u.email : "" };
+    if (tokenCache.size > 2000) { for (const [k, v] of tokenCache) if (v.exp <= now) tokenCache.delete(k); if (tokenCache.size > 2000) tokenCache.clear(); }
+    tokenCache.set(token, { user, exp: now + 30000 });
+    return user;
+  } catch { return null; }
+}
+async function verifyAccountToken(token) {
+  const u = await verifyAccountUser(token);
+  return u ? u.id : null;
+}
+
+// ---------------------------------------------------------------------------
+// ACCOUNT SAVES — the ONLY code that writes the player_data table.
+// ---------------------------------------------------------------------------
+// The game used to write player_data straight from the player's phone, so a
+// modified client could store any gold / items / level. Now:
+//   * supabase_lockdown.sql removes every client write permission on the table
+//     (players can still READ their own row);
+//   * the client sends its save here (POST /api/save) with its login token;
+//   * save_guard.js reviews it, then THIS server writes it with the service key;
+//   * the single-device "active_session" claim/release also goes through here.
+// Needs SUPABASE_SERVICE_KEY (same one the clans use). Without it saving is
+// refused (503) rather than silently skipped.
+// ---------------------------------------------------------------------------
+let PD_HAS_USERNAME = true;   // flips off by itself if the table has no "username" column
+
+function apiReply(res, code, obj) {
+  res.writeHead(code, {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Cache-Control": "no-store"
+  });
+  res.end(JSON.stringify(obj));
+}
+
+function readJsonBody(req, limit) {
+  return new Promise((resolve, reject) => {
+    let size = 0; const chunks = [];
+    req.on("data", (c) => {
+      size += c.length;
+      if (size > limit) { reject(new Error("too big")); req.destroy(); return; }
+      chunks.push(c);
+    });
+    req.on("end", () => { try { resolve(JSON.parse(Buffer.concat(chunks).toString("utf8") || "{}")); } catch (e) { reject(e); } });
+    req.on("error", reject);
+  });
+}
+
+// One database operation per account at a time (read-check-write must not interleave).
+const uidLocks = new Map();
+function withUidLock(uid, fn) {
+  const prev = uidLocks.get(uid) || Promise.resolve();
+  const next = prev.catch(() => {}).then(fn);
+  uidLocks.set(uid, next);
+  next.then(() => {}, () => {}).then(() => { if (uidLocks.get(uid) === next) uidLocks.delete(uid); });
+  return next;
+}
+
+async function writePlayerRow(user, gameData) {
+  const row = { id: user.id, game_data: gameData };
+  if (PD_HAS_USERNAME && user.email) row.username = user.email;
+  const prefer = "resolution=merge-duplicates,return=minimal";   // upsert: only the columns we send change (active_session is left alone)
+  try {
+    await sbRest("POST", "player_data?on_conflict=id", row, prefer);
+  } catch (e) {
+    if (PD_HAS_USERNAME && /username/i.test(String(e && e.message))) {
+      PD_HAS_USERNAME = false;
+      delete row.username;
+      await sbRest("POST", "player_data?on_conflict=id", row, prefer);
+    } else throw e;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// UNIQUE CHARACTER NAMES — no two accounts may use the same character name.
+// Names are compared ignoring upper/lower case and extra spaces ("Maximus" = "maximus").
+// The name lives in player_data.game_data.onlinePlayerName, so deleting the character
+// (the client saves onlinePlayerName = null) frees the name again right away.
+// Checked here on the server, so a modified game cannot skip it.
+// ---------------------------------------------------------------------------
+function nameKey(n) {
+  return String(n || "").replace(/[\r\n\t]+/g, " ").replace(/\s+/g, " ").trim().toLowerCase();
+}
+
+// Is this name (case-insensitive) already used by ANOTHER account? true / false.
+async function isNameTaken(name, exceptUid) {
+  const key = nameKey(name);
+  if (!key) return false;
+  // Ask the database for a loose match (every odd character becomes a wildcard), then compare exactly here.
+  const pattern = key.replace(/\s+/g, "%").replace(/[^a-z0-9%]/g, "_");
+  const rows = await sbRest("GET", "player_data?select=id,n:game_data->>onlinePlayerName&game_data->>onlinePlayerName=ilike." + q(pattern) + "&limit=200");
+  if (!Array.isArray(rows)) return false;
+  return rows.some((r) => r && r.id !== exceptUid && nameKey(r.n) === key);
+}
+
+// The name checks + the save that stores a new name run one after another, so two players
+// picking the same name at the same moment cannot both get it.
+let nameLockChain = Promise.resolve();
+function withNameLock(fn) {
+  const run = nameLockChain.catch(() => {}).then(fn);
+  nameLockChain = run.catch(() => {});
+  return run;
+}
+
+function nameProblem(name) {
+  const n = String(name || "").replace(/[\r\n\t]+/g, " ").replace(/\s+/g, " ").trim();
+  if (!n) return "Enter a name for your character.";
+  if (n.length > 16) return "The name can be at most 16 characters.";
+  if (/^player \d+$/i.test(n)) return "This name is reserved. Choose another name.";
+  return null;
+}
+
+const nameCheckTimes = new Map();   // uid -> recent /api/checkname times (small anti-spam)
+async function apiCheckName(user, body) {
+  const now = Date.now();
+  const list = (nameCheckTimes.get(user.id) || []).filter((t) => now - t < 60000);
+  if (list.length >= 30) return [429, { error: "RATE_LIMITED" }];
+  list.push(now); nameCheckTimes.set(user.id, list);
+  const bad = nameProblem(body.name);
+  if (bad) return [200, { ok: true, available: false, reason: bad }];
+  const taken = await isNameTaken(body.name, user.id);
+  return [200, { ok: true, available: !taken, reason: taken ? "This name is already in use. Choose another name." : "" }];
+}
+
+async function apiSave(user, body) {
+  if (!saveGuard.allowSaveRate(user.id)) return [429, { error: "RATE_LIMITED" }];
+  return withUidLock(user.id, async () => {
+    const rows = await sbRest("GET", "player_data?select=game_data,active_session&id=eq." + q(user.id));
+    const row = (Array.isArray(rows) && rows[0]) || null;
+    const session = typeof body.session === "string" ? body.session.toLowerCase() : null;
+    // Only the device that owns the account right now may save.
+    if (row && row.active_session && row.active_session !== session) return [409, { error: "SESSION_TAKEN" }];
+    const stored = row && row.game_data && typeof row.game_data === "object" ? row.game_data : null;
+    const incoming = body.game_data;
+    // Older than (or same as) what is stored: nothing to write, just report what the database holds.
+    if (stored && incoming && Number(incoming.savedAt) <= Number(stored.savedAt || 0)) return [200, { ok: true, cloud: stored }];
+    const rev = saveGuard.review(user.id, stored, incoming);
+    if (!rev.ok) return [400, { error: rev.error }];
+    // A NEW character name must not be used by another account (deleting a character sends null = frees it).
+    const newName = rev.gameData && typeof rev.gameData.onlinePlayerName === "string" ? rev.gameData.onlinePlayerName : "";
+    const oldName = stored && typeof stored.onlinePlayerName === "string" ? stored.onlinePlayerName : "";
+    if (newName && nameKey(newName) !== nameKey(oldName)) {
+      if (nameProblem(newName)) return [409, { error: "NAME_TAKEN" }];
+      return withNameLock(async () => {
+        if (await isNameTaken(newName, user.id)) return [409, { error: "NAME_TAKEN" }];
+        await writePlayerRow(user, rev.gameData);
+        rev.commit();
+        if (rev.notes.length) console.log("[save] " + user.id.slice(0, 8) + " corrected: " + rev.notes.slice(0, 6).join("; "));
+        return [200, { ok: true, cloud: rev.gameData, goldFixed: rev.goldFixed }];
+      });
+    }
+    await writePlayerRow(user, rev.gameData);
+    rev.commit();
+    if (rev.notes.length) console.log("[save] " + user.id.slice(0, 8) + " corrected: " + rev.notes.slice(0, 6).join("; "));
+    return [200, { ok: true, cloud: rev.gameData, goldFixed: rev.goldFixed }];
+  });
+}
+
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+async function apiSession(user, body) {
+  const sid = typeof body.session === "string" && UUID_RE.test(body.session) ? body.session.toLowerCase() : null;
+  if (!sid) return [400, { error: "BAD_SESSION" }];
+  return withUidLock(user.id, async () => {
+    if (body.action === "claim") {
+      await sbRest("POST", "player_data?on_conflict=id", { id: user.id, active_session: sid }, "resolution=merge-duplicates,return=minimal");
+      return [200, { ok: true }];
+    }
+    if (body.action === "release") {
+      // only clears the claim if it is still OURS
+      await sbRest("PATCH", "player_data?id=eq." + q(user.id) + "&active_session=eq." + q(sid), { active_session: null });
+      return [200, { ok: true }];
+    }
+    return [400, { error: "BAD_ACTION" }];
+  });
+}
+
+async function handleApi(req, res, urlPath) {
+  if (!CLAN_DB_ON) { apiReply(res, 503, { error: "SAVES_DISABLED" }); return; }   // no SUPABASE_SERVICE_KEY on this server
+  const auth = String(req.headers.authorization || "");
+  const user = await verifyAccountUser(auth.startsWith("Bearer ") ? auth.slice(7) : "");
+  if (!user) { apiReply(res, 401, { error: "UNAUTHORIZED" }); return; }
+  let body;
+  try { body = await readJsonBody(req, 256 * 1024); } catch (e) { apiReply(res, 400, { error: "BAD_REQUEST" }); return; }
+  if (!body || typeof body !== "object") { apiReply(res, 400, { error: "BAD_REQUEST" }); return; }
+  let out;
+  if (urlPath === "/api/save") out = await apiSave(user, body);
+  else if (urlPath === "/api/session") out = await apiSession(user, body);
+  else if (urlPath === "/api/checkname") out = await apiCheckName(user, body);
+  else if (urlPath.startsWith("/api/shop/")) out = await apiShop(user, urlPath, body);
+  else out = [404, { error: "NOT_FOUND" }];
+  apiReply(res, out[0], out[1]);
+}
+
+// ---------------------------------------------------------------------------
+// REAL-MONEY SHOP — items sold for pesos (see server/shop_server.js REAL_SHOP)
+// ---------------------------------------------------------------------------
+// Two ways to pay:
+//   AUTOMATIC  PayMongo hosted checkout (GCash, Maya, GrabPay, cards). Set the
+//              environment variable PAYMONGO_SECRET_KEY (sk_live_... / sk_test_...).
+//              An order is only marked paid after THIS server asks PayMongo for
+//              the checkout session and sees a paid payment — the player's phone
+//              (or a forged webhook) can never mark an order paid by itself.
+//              Optional: PAYMONGO_METHODS="gcash,paymaya,grab_pay,card" to change
+//              which methods are offered.
+//   MANUAL     the player sends money to the GCash/bank in PAYMENT_INFO and
+//              submits the reference number; the OWNER approves it at
+//              /admin/shop (environment variable SHOP_ADMIN_KEY = your password).
+//
+// DELIVERY: a paid order is handed to the player's game client (POST /api/shop/claim)
+// which puts the item in the inventory and saves; the client then confirms
+// (/api/shop/ack). The save guard is told to expect the extra item first, so the
+// normal anti-cheat check does not strip it.
+//
+// ORDERS are kept in memory and in the Supabase table "shop_orders" so they survive
+// restarts (create it once with the SQL in the setup notes):
+//   create table if not exists shop_orders (
+//     id text primary key, uid text not null, data jsonb not null,
+//     updated_at timestamptz not null default now());
+//   alter table shop_orders enable row level security;   -- no policies: only the server key can use it
+// ---------------------------------------------------------------------------
+const PAYMONGO_KEY = process.env.PAYMONGO_SECRET_KEY || "";
+const PAYMONGO_METHODS = (process.env.PAYMONGO_METHODS || "gcash,paymaya,grab_pay,card").split(",").map((s) => s.trim()).filter(Boolean);
+const SHOP_ADMIN_KEY = process.env.SHOP_ADMIN_KEY || "";
+const REAL_SHOP = GAME_DATA.REAL_SHOP || {};
+const SHOP_TYPES = ["weapon", "armor", "stone", "accessory"];
+const shopOrders = new Map();   // order id -> order
+const CLAIM_RETRY_MS = 2 * 60 * 1000;     // a claimed-but-never-confirmed order is offered again after this
+const ORDER_OPEN_LIMIT = 10;               // most unfinished orders one account may have at once
+
+let shopDbQueue = Promise.resolve();
+function shopSave(o) {
+  if (!CLAN_DB_ON) return;
+  const row = { id: o.id, uid: o.uid, data: o, updated_at: new Date().toISOString() };
+  shopDbQueue = shopDbQueue
+    .then(() => sbRest("POST", "shop_orders?on_conflict=id", row, "resolution=merge-duplicates,return=minimal"))
+    .catch((e) => console.error("[shop] could not save order " + o.id + ": " + (e && e.message || e)));
+}
+
+async function loadShopOrders() {
+  if (!CLAN_DB_ON) { console.log("[shop] SUPABASE_SERVICE_KEY not set — shop orders are memory-only."); return; }
+  for (let attempt = 1; attempt <= 6; attempt++) {
+    try {
+      const rows = await sbRest("GET", "shop_orders?select=id,uid,data&order=updated_at.desc&limit=5000");
+      for (const r of rows) if (r && r.data && r.data.id && !shopOrders.has(r.data.id)) shopOrders.set(r.data.id, r.data);
+      console.log("[shop] loaded " + shopOrders.size + " order(s).");
+      return;
+    } catch (e) {
+      console.error("[shop] load failed (attempt " + attempt + "): " + (e && e.message || e) + (attempt === 1 ? "  — did you create the shop_orders table?" : ""));
+      await new Promise((res) => setTimeout(res, 3000 * attempt));
+    }
+  }
+  console.error("[shop] giving up loading orders; new orders are kept in memory and saved when the table works.");
+}
+loadShopOrders();
+
+function shopFind(type, name) {
+  if (SHOP_TYPES.indexOf(type) < 0) return null;
+  const list = REAL_SHOP[type];
+  if (!Array.isArray(list)) return null;
+  const e = list.find((x) => x && x.name === name && Number(x.price) > 0);
+  return e ? { type, name: e.name, price: Math.round(Number(e.price) * 100) / 100 } : null;
+}
+
+function shopOpenCount(uid) {
+  let n = 0;
+  for (const o of shopOrders.values()) if (o.uid === uid && (o.status === "awaiting_payment" || o.status === "review")) n++;
+  return n;
+}
+
+function shopNewOrder(user, item, method, extra) {
+  const o = Object.assign({
+    id: crypto.randomUUID(), uid: user.id, email: user.email || "",
+    type: item.type, name: item.name, price: item.price,
+    method, status: "pending", createdAt: Date.now()
+  }, extra || {});
+  shopOrders.set(o.id, o);
+  shopSave(o);
+  return o;
+}
+
+function shopMarkPaid(o) {
+  if (o.status === "paid" || o.status === "claimed" || o.status === "delivered") return;
+  o.status = "paid";
+  o.paidAt = Date.now();
+  shopSave(o);
+  console.log("[shop] PAID " + o.id.slice(0, 8) + " " + o.name + " P" + o.price + " (" + o.method + ")");
+  const p = onlineByUid.get(o.uid);
+  if (p && p.ws) send(p.ws, { type: "shopPaid" });   // wakes the game so it claims right away
+}
+
+function paymongoHeaders() {
+  return { Authorization: "Basic " + Buffer.from(PAYMONGO_KEY + ":").toString("base64"), "Content-Type": "application/json" };
+}
+
+// Asks PayMongo whether this order's checkout session was really paid.
+async function shopVerifyPaymongo(o) {
+  if (!PAYMONGO_KEY || o.method !== "paymongo" || o.status !== "awaiting_payment" || !o.checkoutId) return;
+  try {
+    const r = await fetch("https://api.paymongo.com/v1/checkout_sessions/" + encodeURIComponent(o.checkoutId), {
+      headers: paymongoHeaders(), signal: AbortSignal.timeout(12000)
+    });
+    if (!r.ok) return;
+    const d = await r.json();
+    const a = d && d.data && d.data.attributes;
+    if (!a) return;
+    if (a.reference_number && a.reference_number !== o.id) return;   // not this order's session
+    const need = Math.round(o.price * 100);
+    const pays = Array.isArray(a.payments) ? a.payments.filter((p) => p && p.attributes && p.attributes.status === "paid") : [];
+    const paidAmount = pays.reduce((sum, p) => sum + (Number(p.attributes.amount) || 0), 0);
+    const intentOk = !!(a.payment_intent && a.payment_intent.attributes && a.payment_intent.attributes.status === "succeeded");
+    if ((pays.length && paidAmount >= need) || (!pays.length && (intentOk || a.status === "paid"))) shopMarkPaid(o);
+  } catch (e) { /* PayMongo unreachable right now — checked again on the next poll */ }
+}
+
+async function shopStartPaymongo(user, body) {
+  if (!PAYMONGO_KEY) return [503, { error: "AUTO_PAYMENT_OFF" }];
+  const item = shopFind(String(body.type || ""), String(body.name || ""));
+  if (!item) return [400, { error: "BAD_ITEM" }];
+  if (shopOpenCount(user.id) >= ORDER_OPEN_LIMIT) return [429, { error: "TOO_MANY_OPEN_ORDERS" }];
+  let ret = String(body.returnUrl || "");
+  if (!/^https?:\/\/[^\s]{3,500}$/i.test(ret)) ret = "";
+  const order = shopNewOrder(user, item, "paymongo");
+  const attrs = {
+    line_items: [{ currency: "PHP", amount: Math.round(item.price * 100), name: "Metal War - " + item.name, quantity: 1 }],
+    payment_method_types: PAYMONGO_METHODS,
+    description: "Metal War item: " + item.name,
+    reference_number: order.id,
+    metadata: { order_id: order.id },
+    success_url: ret || undefined,
+    cancel_url: ret || undefined,
+    send_email_receipt: false,
+    show_description: true,
+    show_line_items: true
+  };
+  if (user.email) attrs.billing = { email: user.email };
+  try {
+    const r = await fetch("https://api.paymongo.com/v1/checkout_sessions", {
+      method: "POST", headers: paymongoHeaders(),
+      body: JSON.stringify({ data: { attributes: attrs } }),
+      signal: AbortSignal.timeout(15000)
+    });
+    const txt = await r.text();
+    let d = null; try { d = JSON.parse(txt); } catch (e) {}
+    const url = d && d.data && d.data.attributes && d.data.attributes.checkout_url;
+    if (!r.ok || !url) {
+      order.status = "failed"; order.note = "provider " + r.status; shopSave(order);
+      console.error("[shop] PayMongo refused checkout: " + r.status + " " + txt.slice(0, 300));
+      return [502, { error: "PAYMENT_PROVIDER_ERROR" }];
+    }
+    order.checkoutId = d.data.id;
+    order.status = "awaiting_payment";
+    shopSave(order);
+    return [200, { ok: true, orderId: order.id, checkoutUrl: url }];
+  } catch (e) {
+    order.status = "failed"; order.note = "network"; shopSave(order);
+    return [502, { error: "PAYMENT_PROVIDER_ERROR" }];
+  }
+}
+
+function shopSubmitManual(user, body) {
+  const item = shopFind(String(body.type || ""), String(body.name || ""));
+  if (!item) return [400, { error: "BAD_ITEM" }];
+  const channel = body.channel === "bank" ? "bank" : "gcash";
+  const ref = String(body.ref || "").replace(/[\s-]+/g, "").toUpperCase();
+  if (!/^[A-Z0-9]{8,24}$/.test(ref)) return [400, { error: "BAD_REFERENCE" }];
+  const sender = String(body.sender || "").replace(/[^\w .+@-]/g, "").trim().slice(0, 40);
+  if (sender.length < 3) return [400, { error: "BAD_SENDER" }];
+  for (const o of shopOrders.values()) if (o.method === "manual" && o.ref === ref) return [409, { error: "REFERENCE_USED" }];
+  if (shopOpenCount(user.id) >= ORDER_OPEN_LIMIT) return [429, { error: "TOO_MANY_OPEN_ORDERS" }];
+  const order = shopNewOrder(user, item, "manual", { channel, ref, sender });
+  order.status = "review";
+  shopSave(order);
+  console.log("[shop] REVIEW " + order.id.slice(0, 8) + " " + item.name + " P" + item.price + " via " + channel + " ref " + ref);
+  return [200, { ok: true, orderId: order.id }];
+}
+
+function shopPublicOrder(o) {
+  return { id: o.id, type: o.type, name: o.name, price: o.price, method: o.method, status: o.status, createdAt: o.createdAt };
+}
+
+async function shopListOrders(user) {
+  const mine = [...shopOrders.values()].filter((o) => o.uid === user.id && Date.now() - o.createdAt < 30 * 86400000);
+  await Promise.all(mine.filter((o) => o.status === "awaiting_payment").slice(0, 5).map(shopVerifyPaymongo));
+  mine.sort((a, b) => b.createdAt - a.createdAt);
+  return [200, { ok: true, orders: mine.slice(0, 30).map(shopPublicOrder) }];
+}
+
+// The game asks for items it has not received yet. They stay "claimed" until the
+// game confirms (ack) after saving; an unconfirmed one is offered again later.
+function shopClaim(user) {
+  const now = Date.now();
+  const items = [];
+  for (const o of shopOrders.values()) {
+    if (o.uid !== user.id) continue;
+    if (o.status === "paid" || (o.status === "claimed" && now - (o.claimedAt || 0) > CLAIM_RETRY_MS)) {
+      o.status = "claimed"; o.claimedAt = now; shopSave(o);
+      items.push({ orderId: o.id, type: o.type, name: o.name });
+      if (items.length >= 10) break;
+    }
+  }
+  if (items.length) saveGuard.creditItems(user.id, items.length);
+  return [200, { ok: true, items }];
+}
+
+function shopAck(user, body) {
+  const ids = Array.isArray(body.orderIds) ? body.orderIds.slice(0, 20) : [];
+  for (const id of ids) {
+    const o = shopOrders.get(String(id));
+    if (o && o.uid === user.id && o.status === "claimed") { o.status = "delivered"; o.deliveredAt = Date.now(); shopSave(o); }
+  }
+  return [200, { ok: true }];
+}
+
+async function apiShop(user, urlPath, body) {
+  const act = urlPath.slice("/api/shop/".length);
+  if (act === "paymongo") return shopStartPaymongo(user, body);
+  if (act === "manual") return shopSubmitManual(user, body);
+  if (act === "orders") return shopListOrders(user);
+  if (act === "claim") return shopClaim(user);
+  if (act === "ack") return shopAck(user, body);
+  return [404, { error: "NOT_FOUND" }];
+}
+
+// When a player connects: check their unfinished card payments and tell the game
+// to claim anything that is paid.
+async function shopOnJoin(p) {
+  if (!p.uid) return;
+  const mine = [...shopOrders.values()].filter((o) => o.uid === p.uid);
+  await Promise.all(mine.filter((o) => o.status === "awaiting_payment" && Date.now() - o.createdAt < 3 * 86400000).slice(0, 5).map(shopVerifyPaymongo));
+  const now = Date.now();
+  if (mine.some((o) => o.status === "paid" || (o.status === "claimed" && now - (o.claimedAt || 0) > CLAIM_RETRY_MS))) send(p.ws, { type: "shopPaid" });
+}
+
+// ---- OWNER SIDE: /admin/shop page, order list, approve/reject, PayMongo webhook ----
+const adminFails = new Map();   // ip -> { n, t }
+function adminAllowed(req) {
+  if (SHOP_ADMIN_KEY.length < 12) return 503;   // not configured (or too short to be safe)
+  const ip = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim();
+  const f = adminFails.get(ip);
+  if (f && Date.now() - f.t < 600000 && f.n >= 10) return 429;
+  const given = crypto.createHash("sha256").update(String(req.headers["x-admin-key"] || "")).digest();
+  const real = crypto.createHash("sha256").update(SHOP_ADMIN_KEY).digest();
+  if (crypto.timingSafeEqual(given, real)) { adminFails.delete(ip); return 200; }
+  adminFails.set(ip, { n: (f && Date.now() - f.t < 600000 ? f.n : 0) + 1, t: Date.now() });
+  return 401;
+}
+
+const ADMIN_PAGE = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Metal War - Shop orders</title>
+<style>body{font:14px system-ui,sans-serif;background:#0b1218;color:#dff;margin:0;padding:12px}h1{font-size:18px}
+.o{border:1px solid #2a4a5a;border-radius:8px;padding:10px;margin:8px 0;background:#101c26}.o b{color:#8fe}
+button{padding:8px 14px;border-radius:6px;border:0;margin:6px 6px 0 0;font-weight:700}.ok{background:#3c6}.no{background:#d55;color:#fff}
+.s{color:#9bd;font-size:12px}</style></head><body><h1>Shop orders</h1>
+<div class="s">Open your GCash / bank app, find the reference number below, then Approve. Approve only money you actually received.</div>
+<div id="l">Loading...</div>
+<script>
+let key=sessionStorage.getItem("k")||prompt("Admin key")||"";sessionStorage.setItem("k",key);
+async function api(p,b){const r=await fetch(p,{method:"POST",headers:{"x-admin-key":key,"Content-Type":"application/json"},body:JSON.stringify(b||{})});
+if(r.status==401){sessionStorage.removeItem("k");document.getElementById("l").textContent="Wrong key. Reload.";throw 0}
+if(!r.ok){document.getElementById("l").textContent="Error "+r.status;throw 0}return r.json()}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+async function load(){const d=await api("/api/admin/orders");const l=document.getElementById("l");
+l.innerHTML=d.orders.map(o=>'<div class="o"><b>'+esc(o.name)+'</b> ('+esc(o.type)+') &mdash; <b>P'+o.price+'</b><br>'+
+'<span class="s">status: '+esc(o.status)+' | '+esc(o.method)+(o.channel?'/'+esc(o.channel):'')+' | '+new Date(o.createdAt).toLocaleString()+'<br>account: '+esc(o.email)+
+(o.ref?'<br>reference: <b>'+esc(o.ref)+'</b> | sender: '+esc(o.sender):'')+'</span>'+
+(o.status=="review"?'<br><button class="ok" onclick="dec(\\''+o.id+'\\',true)">Approve</button><button class="no" onclick="dec(\\''+o.id+'\\',false)">Reject</button>':'')+'</div>').join("")||"No orders yet."}
+async function dec(id,a){if(!confirm(a?"Money received? Approve and deliver the item?":"Reject this order?"))return;await api("/api/admin/decide",{id:id,approve:a});load()}
+load();
+</script></body></html>`;
+
+async function handleShopOwner(req, res, urlPath) {
+  const plain = (code, text) => { res.writeHead(code, { "Content-Type": "text/plain" }); res.end(text); };
+  if (urlPath === "/admin/shop" && req.method === "GET") {
+    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "X-Frame-Options": "DENY" });
+    res.end(ADMIN_PAGE);
+    return;
+  }
+  if (urlPath === "/api/paymongo/webhook" && req.method === "POST") {
+    // Answer at once. The body is NOT trusted: it only tells us which order to
+    // re-check, and the check asks PayMongo directly (shopVerifyPaymongo).
+    let ev = null;
+    try { ev = await readJsonBody(req, 128 * 1024); } catch (e) {}
+    res.writeHead(200); res.end("ok");
+    try {
+      const inner = (ev && ev.data && ev.data.attributes && ev.data.attributes.data) || (ev && ev.data) || {};
+      const at = inner.attributes || {};
+      const id = String(at.reference_number || (at.metadata && at.metadata.order_id) || "");
+      let o = shopOrders.get(id);
+      if (!o && typeof inner.id === "string") for (const x of shopOrders.values()) if (x.checkoutId === inner.id) { o = x; break; }
+      if (o) await shopVerifyPaymongo(o);
+    } catch (e) {}
+    return;
+  }
+  if (req.method !== "POST") { plain(405, "method not allowed"); return; }
+  const gate = adminAllowed(req);
+  if (gate !== 200) { apiReply(res, gate, { error: gate === 503 ? "ADMIN_OFF" : "DENIED" }); return; }
+  let body = {};
+  try { body = await readJsonBody(req, 16 * 1024); } catch (e) { apiReply(res, 400, { error: "BAD_REQUEST" }); return; }
+  if (urlPath === "/api/admin/orders") {
+    const list = [...shopOrders.values()].sort((a, b) => (a.status === "review" ? 0 : 1) - (b.status === "review" ? 0 : 1) || b.createdAt - a.createdAt).slice(0, 100);
+    apiReply(res, 200, { ok: true, orders: list.map((o) => Object.assign(shopPublicOrder(o), { email: o.email, channel: o.channel, ref: o.ref, sender: o.sender })) });
+    return;
+  }
+  if (urlPath === "/api/admin/decide") {
+    const o = shopOrders.get(String(body.id || ""));
+    if (!o || o.method !== "manual" || o.status !== "review") { apiReply(res, 409, { error: "NOT_PENDING" }); return; }
+    if (body.approve === true) shopMarkPaid(o);
+    else { o.status = "rejected"; shopSave(o); }
+    apiReply(res, 200, { ok: true });
+    return;
+  }
+  apiReply(res, 404, { error: "NOT_FOUND" });
+}
+
+// Runs right after "join": works out the account, then hands the player
+// their clan (if the account has one) and tells the clan they're online.
+async function attachAccount(p, token) {
+  const uid = await verifyAccountToken(token);
+  p.uid = uid;
+  p.uidChecked = true;
+  if (!uid) return;
+  if (p.ws.readyState !== 1) return; // already gone
+  onlineByUid.set(uid, p);
+  shopOnJoin(p).catch(() => {});   // deliver anything the player already paid for
+  if (!clanLoaded) return; // loadClans() sends the roster the moment it finishes
+  const clan = clanOf(p);
+  if (!clan) return;
+  p.clanId = clan.id;
+  const mem = clan.members.find((m) => m.uid === uid);
+  if (mem && mem.name !== p.name) {   // keep the stored display name fresh
+    mem.name = p.name;
+    clanDb(() => sbRest("PATCH", "clan_members?uid=eq." + q(uid), { name: p.name }));
+  }
+  broadcastClanUpdate(clan); // includes me, and shows my clanmates I'm back online
+}
+
+function clanOf(p) {
+  const id = p.uid ? clanOfUid.get(p.uid) : null;
+  return id ? (clans.get(id) || null) : null;
+}
+
+// CHAT: finds any connected player by name (case-insensitive), for the
+// PRIVATE tab's "@PlayerName message" whispers — see the "chatMessage"
+// case below. Global, not room-scoped: a whisper works regardless of
+// which map/channel either side is on.
+function findOnlinePlayerByName(name) {
+  const lower = String(name || "").toLowerCase();
+  if (!lower) return null;
+  for (const p of players.values()) if (p.name && p.name.toLowerCase() === lower) return p;
+  return null;
+}
+
+// Sends the reason and returns false when this player can't use clans yet.
+function clanAccountReady(p) {
+  if (!p.uidChecked) { send(p.ws, { type: "clanError", reason: "Still signing you in — try again in a moment" }); return false; }
+  if (!p.uid) { send(p.ws, { type: "clanError", reason: "Sign in again to use clans" }); return false; }
+  if (!clanLoaded) { send(p.ws, { type: "clanError", reason: "Clan data is loading — try again in a moment" }); return false; }
+  return true;
+}
+
+// Ids in the roster are the live player id when that member is online, or
+// "u:<uid>" when they're offline — index.html only compares them
+// (leaderId === myId decides DISBAND vs LEAVE CLAN), so this stays
+// compatible with the existing client.
+function clanRosterPayload(clan) {
+  const idOf = (uid) => { const o = onlineByUid.get(uid); return o ? o.id : "u:" + uid; };
+  const nameOf = (m) => { const o = onlineByUid.get(m.uid); return o ? o.name : m.name; };
+  const leader = clan.members.find((m) => m.uid === clan.leaderUid) || clan.members[0];
+  return {
+    type: "clanUpdate",
+    clanId: clan.id,
+    name: clan.name,
+    leaderId: idOf(clan.leaderUid),
+    leaderName: leader ? nameOf(leader) : "",
+    message: clan.message || "",
+    members: clan.members.map((m) => ({ id: idOf(m.uid), name: nameOf(m), online: onlineByUid.has(m.uid) }))
+  };
+}
+
+function broadcastClanUpdate(clan) {
+  const payload = clanRosterPayload(clan);
+  for (const m of clan.members) {
+    const o = onlineByUid.get(m.uid);
+    if (o) send(o.ws, payload);
+  }
+}
+
+// LAST POSITION — a player who logs in again starts on the map and at the exact
+// spot where they left (the client saves it with the account and sends it in
+// "join" as lastPos). The server never just trusts it: the map must exist, the
+// point must be inside it and not inside an obstacle, and a spot on top of a
+// portal is moved just past it (same offset getPortalArrivalSpawn() uses) so
+// logging in can't instantly warp you to another map. Returns {map,x,y} or null.
+function validateSavedSpot(lp) {
+  if (!lp || typeof lp !== "object") return null;
+  const key = String(lp.map || "");
+  const map = MAPS[key];
+  if (!map || typeof lp.x !== "number" || typeof lp.y !== "number" || !isFinite(lp.x) || !isFinite(lp.y)) return null;
+  const pad = 20;
+  let x = Math.max(pad, Math.min(map.worldWidth - pad, lp.x));
+  let y = Math.max(pad, Math.min(map.worldHeight - pad, lp.y));
+  for (const p of (map.portals || [])) {
+    if (x >= p.x - 30 && x <= p.x + p.width + 30 && y >= p.y - 30 && y <= p.y + p.height + 30) {
+      const cx = p.x + p.width / 2, cy = p.y + p.height / 2;
+      const dx = map.worldWidth / 2 - cx, dy = map.worldHeight / 2 - cy;
+      const d = Math.hypot(dx, dy) || 1;
+      x = cx + (dx / d) * 45; y = cy + (dy / d) * 45;
+      break;
+    }
+  }
+  // Only a spot really INSIDE an obstacle needs moving (a player can legitimately stand right
+  // beside one). It is pushed just outside the nearest edge instead of being thrown away,
+  // which used to send the player to a random start on the first map.
+  const edge = 14;
+  for (const o of (map.obstacles || [])) {
+    if (x > o.x && x < o.x + o.width && y > o.y && y < o.y + o.height) {
+      const dl = x - o.x, dr = o.x + o.width - x, dt = y - o.y, db = o.y + o.height - y;
+      const m = Math.min(dl, dr, dt, db);
+      if (m === dl) x = o.x - edge; else if (m === dr) x = o.x + o.width + edge;
+      else if (m === dt) y = o.y - edge; else y = o.y + o.height + edge;
+      x = Math.max(pad, Math.min(map.worldWidth - pad, x));
+      y = Math.max(pad, Math.min(map.worldHeight - pad, y));
+    }
+  }
+  return { map: key, x, y };
+}
+
+// Removes p from their clan. A clan with nobody left is deleted; if the
+// leader left, leadership passes to whoever's been in the clan longest.
+function removeFromClan(p) {
+  const clan = clanOf(p);
+  if (!clan) return;
+  clan.members = clan.members.filter((m) => m.uid !== p.uid);
+  clanOfUid.delete(p.uid);
+  p.clanId = null;
+  send(p.ws, { type: "clanUpdate", clanId: null, members: [] });
+  clanDb(() => sbRest("DELETE", "clan_members?uid=eq." + q(p.uid)));
+  if (!clan.members.length) {
+    clans.delete(clan.id);
+    clanDb(() => sbRest("DELETE", "clans?id=eq." + q(clan.id)));
+    return;
+  }
+  if (clan.leaderUid === p.uid) {
+    clan.leaderUid = clan.members[0].uid;
+    clanDb(() => sbRest("PATCH", "clans?id=eq." + q(clan.id), { leader_uid: clan.leaderUid }));
+  }
+  broadcastClanUpdate(clan);
+}
+
+// Leader pressed DISBAND (after CONFIRM): the whole clan is removed and
+// every member — leader included, online or not — loses it. Offline members
+// find no clan the next time they log in.
+function disbandClan(p) {
+  const clan = clanOf(p);
+  if (!clan || clan.leaderUid !== p.uid) return;
+  for (const m of clan.members) {
+    clanOfUid.delete(m.uid);
+    const o = onlineByUid.get(m.uid);
+    if (o) {
+      o.clanId = null;
+      send(o.ws, { type: "clanUpdate", clanId: null, members: [] });
+    }
+  }
+  clans.delete(clan.id);
+  clanDb(() => sbRest("DELETE", "clans?id=eq." + q(clan.id))); // members go with it (cascade)
+}
+
+// TRADE — player-to-player item/gold exchange, started via the TRADE button
+// on the touch menu (see playerTouchTradeBtn in online.js). Same trust model
+// as everything else online: the server never sees either player's real
+// inventory, it just relays "here's what I've put up" between the two of
+// them (like "hit"/"partyExpAward" above) and — once BOTH have pressed
+// ACCEPT — tells both clients to apply the swap. A modified client could
+// therefore claim to offer something it doesn't have, exactly like a
+// modified client could already fake damage numbers; this is a
+// play-with-friends feature, not a cheat-proof marketplace.
+//
+// p.tradePartnerId / p.tradeConfirmed live on the player object (set in the
+// "join" handler below, next to partyId/clanId). Only one trade at a time.
+function cancelActiveTrade(p, notifyReason) {
+  if (!p || p.tradePartnerId == null) return;
+  const partner = players.get(p.tradePartnerId);
+  p.tradePartnerId = null;
+  p.tradeConfirmed = false;
+  p.tradeGold = 0; p.tradeItemCount = 0;
+  if (partner && partner.tradePartnerId === p.id) {
+    partner.tradePartnerId = null;
+    partner.tradeConfirmed = false;
+    partner.tradeGold = 0; partner.tradeItemCount = 0;
+    send(partner.ws, { type: "tradeCancelled", from: p.id, fromName: p.name, reason: notifyReason || "" });
+  }
+}
+
+// rooms: "server:channel:map" -> Map(id -> player). Only players in the same
+// room see and can hit each other.
+//
+// ENEMY BOTS (PvE): the server itself never simulates enemies — one player
+// per room ("the host") runs the exact same enemy AI the game already runs
+// offline, and streams a snapshot of it here (see "bots" below) for this
+// server to relay to everyone else in the room. Each room Map carries two
+// extra properties for this: hostId (who's currently hosting) and lastBots
+// (the most recent snapshot, handed to anyone who joins mid-match so they
+// aren't staring at an empty map until the next tick).
+const rooms = new Map();
+function getRoom(serverId, channel, mapKey) {
+  const k = serverId + ":" + channel + ":" + mapKey;
+  let r = rooms.get(k);
+  if (!r) { r = new Map(); r.hostId = null; r.lastBots = null; r.lastBotsAt = 0; r.mapKey = mapKey; r.simBots = null; r.simLast = 0; r.drops = new Map(); r.nextDropId = 1; rooms.set(k, r); }
+  return r;
+}
+// Picks anyone else left in the room to take over as bot host.
+function pickNewHost(room, excludeId) {
+  for (const p of room.values()) if (p.id !== excludeId) return p;
+  return null;
+}
+// ENEMY MEMORY — how long (ms) a room remembers its enemies (health, position,
+// dead/alive + respawn countdown) after the host left / the room emptied.
+// Whoever hosts or walks into that map inside this window gets the enemies
+// back exactly as they were left (online.js's netRestoreHostedBots()); past
+// it the map starts fresh. Ground loot is remembered separately (drops).
+const ROOM_BOTS_KEEP_MS = 5 * 60 * 1000;   // 5 minutes
+
+// The room's remembered enemy snapshot, ready to hand to a host / joiner.
+// A dead enemy's `rm` (ms left until it respawns) is reduced by the time that
+// passed since the snapshot was taken, so it respawns on schedule instead of
+// getting a full new wait. [] when nothing is remembered (or it expired).
+function currentBots(room) {
+  if (!room.lastBots) return [];
+  const age = Date.now() - (room.lastBotsAt || 0);
+  if (!room.simBots && age > ROOM_BOTS_KEEP_MS) { room.lastBots = null; return []; }   // a room the server is simulating never expires
+  return room.lastBots.map((b) => (b && b.a === false)
+    ? Object.assign({}, b, { rm: Math.max(0, (Number(b.rm) || 0) - age) })
+    : b);
+}
+// Hands bot-hosting duty to `next` (or clears it if the room is now empty)
+// and tells everyone so nobody is left looking at enemies that are no longer
+// being simulated by anyone. The last snapshot is deliberately KEPT (see
+// ENEMY MEMORY above): the new host — or the next player to walk into the
+// emptied room — restores the enemies from it instead of spawning new ones.
+function reassignHost(room, leavingId) {
+  if (room.hostId !== leavingId) return;
+  const next = pickNewHost(room, leavingId);
+  room.hostId = next ? next.id : null;
+  if (next) send(next.ws, { type: "botHost", host: true, bots: currentBots(room) });
+  else startOfflineSim(room);   // nobody left: the server keeps the enemies moving (see below)
+  broadcast(room, { type: "botsReset" }, next ? next.id : -1);
+}
+
+// ---------------------------------------------------------------------------
+// OFFLINE ENEMY SIMULATION — while a room is EMPTY the server itself keeps its
+// enemies alive, the way bot.js would: they patrol (walk to a random point
+// near where they stand, stop and look around, repeat), wounded ones regenerate,
+// and dead ones respawn at their spawn point when their timer runs out. The
+// next player to walk in gets the enemies exactly where they wandered to (via
+// currentBots() -> netRestoreHostedBots() in online.js) and becomes the host.
+// It only runs for rooms that already had enemies (a host streamed a snapshot),
+// and only while the room is empty. Lives in server memory like drops do, so a
+// server restart / Render sleep starts the map fresh.
+// ---------------------------------------------------------------------------
+const BOT_TYPES = GAME_DATA.BOT_TYPES || {};
+const OBSTACLE_TYPES = (() => { try { return require("./server/obstacles_server.js").OBSTACLE_TYPES || {}; } catch (e) { return {}; } })();
+
+function startOfflineSim(room) {
+  if (!Array.isArray(room.lastBots) || !room.lastBots.length || !MAPS[room.mapKey]) { room.simBots = null; return; }
+  const now = Date.now();
+  const age = now - (room.lastBotsAt || now);
+  room.simLast = now;
+  room.simBots = room.lastBots.filter((b) => b && typeof b.i === "number").map((b) => ({
+    i: b.i, t: b.t, x: b.x, y: b.y, h: b.h, mh: b.mh, a: !!b.a,
+    fa: b.fa || 0, mv: false,
+    sx: typeof b.sx === "number" ? b.sx : b.x,
+    sy: typeof b.sy === "number" ? b.sy : b.y,
+    st: "look", stT: 0, tx: b.x, ty: b.y,
+    respawnAt: now + Math.max(0, (Number(b.rm) || 0) - age)   // only used while dead
+  }));
+  room.lastBotsAt = now;
+}
+function stopOfflineSim(room) {
+  if (!room.simBots) return;
+  simTickRoom(room, Date.now());   // catch up to this very moment before handing over
+  room.simBots = null;
+}
+
+function simSolveObstacles(b, radius, obstacles) {
+  for (const obs of obstacles) {
+    const type = OBSTACLE_TYPES[obs.name];
+    let cx, cy;
+    if (type && type.collision === "circle") {
+      const ox = obs.x + obs.width / 2, oy = obs.y + obs.height / 2;
+      const r = Math.min(obs.width, obs.height) / 2;
+      const d = Math.hypot(b.x - ox, b.y - oy) || 1;
+      cx = ox + ((b.x - ox) / d) * r; cy = oy + ((b.y - oy) / d) * r;
+    } else {
+      cx = Math.max(obs.x, Math.min(b.x, obs.x + obs.width));
+      cy = Math.max(obs.y, Math.min(b.y, obs.y + obs.height));
+    }
+    const dx = b.x - cx, dy = b.y - cy;
+    const dist = Math.hypot(dx, dy);
+    if (dist < radius) {
+      const push = radius - dist;
+      if (dist > 0) { b.x += (dx / dist) * push; b.y += (dy / dist) * push; }
+      else { b.x += push; }
+    }
+  }
+}
+
+function simTickRoom(room, now) {
+  const map = MAPS[room.mapKey];
+  if (!map || !room.simBots) { room.simBots = null; return; }
+  const dt = Math.min(0.5, Math.max(0, (now - room.simLast) / 1000));
+  room.simLast = now;
+  const W = map.worldWidth, H = map.worldHeight, obstacles = map.obstacles || [];
+  for (const b of room.simBots) {
+    const def = BOT_TYPES[b.t];
+    if (!def) continue;
+    const radius = def.radius || 12;
+    if (!b.a) {
+      if (now >= b.respawnAt) {
+        b.a = true; b.h = b.mh; b.x = b.sx; b.y = b.sy;
+        b.st = "patrol"; b.stT = 0; b.tx = b.sx; b.ty = b.sy; b.mv = false;
+        b.fa = Math.random() * Math.PI * 2;
+      }
+      continue;
+    }
+    // HP regen: same rate as character.js's tickPercentRegen (max * fraction per second)
+    if (b.h < b.mh && def.hpRegen > 0) b.h = Math.min(b.mh, b.h + b.mh * def.hpRegen * dt);
+
+    b.stT += dt * 1000;
+    if (b.st === "patrol") {
+      const dx = b.tx - b.x, dy = b.ty - b.y;
+      const dist = Math.hypot(dx, dy);
+      if (dist < 5 || b.stT >= (def.patrolInterval || 3000)) {
+        b.st = "look"; b.stT = 0; b.mv = false;
+      } else {
+        b.fa = Math.atan2(dy, dx);
+        const step = Math.min((def.movementSpeed || 80) * dt, dist);
+        b.x += (dx / dist) * step;
+        b.y += (dy / dist) * step;
+        b.mv = true;
+      }
+    } else {   // "look": stand still and scan, then pick a new patrol point
+      b.mv = false;
+      b.fa += Math.sin(b.stT / 400) * dt * 2;
+      if (b.stT >= (def.lookDuration || 1500)) {
+        const pr = def.patrolRadius || 60;
+        b.tx = Math.max(radius, Math.min(W - radius, b.x + (Math.random() * 2 - 1) * pr));
+        b.ty = Math.max(radius, Math.min(H - radius, b.y + (Math.random() * 2 - 1) * pr));
+        b.st = "patrol"; b.stT = 0;
+      }
+    }
+    b.x = Math.max(radius, Math.min(W - radius, b.x));
+    b.y = Math.max(radius, Math.min(H - radius, b.y));
+    simSolveObstacles(b, radius, obstacles);
+  }
+  // Keep the remembered snapshot current so whoever walks in next gets it.
+  room.lastBots = room.simBots.map((b) => ({
+    i: b.i, t: b.t,
+    x: Math.round(b.x * 10) / 10, y: Math.round(b.y * 10) / 10,
+    h: Math.max(0, Math.round(b.h)), mh: b.mh, a: b.a,
+    fa: Math.round(b.fa * 100) / 100, mv: b.mv, sx: b.sx, sy: b.sy,
+    rm: b.a ? 0 : Math.max(0, Math.round(b.respawnAt - now))
+  }));
+  room.lastBotsAt = now;
+}
+setInterval(() => {
+  const now = Date.now();
+  for (const room of rooms.values()) {
+    if (room.simBots && room.size === 0) simTickRoom(room, now);
+  }
+}, 250);
+// Loot lying on the ground in a room (dropped by enemies). The server keeps it
+// so people who join / come back later still see it — but only until it
+// actually despawns. NOTE: it lives in the server's memory, so it is lost
+// whenever the server restarts / goes to sleep (Render free plan).
+// MAX_ROOM_DROPS now lives in server/game_server.js (see that file).
+const { MAX_ROOM_DROPS, ITEM_DESPAWN_TIME } = GAME_DATA;
+// DESPAWN — a drop must disappear for EVERYONE, permanently, ITEM_DESPAWN_TIME
+// (the same 30-sec window item_server.js/item.js use client-side) after it was
+// created — not just while someone happens to be watching it. Before this fix
+// the server kept every drop for up to 72h "so a returning player still finds
+// it", which is exactly why: (1) an item a player watched despawn locally
+// would come BACK after they logged out and back in (rejoining just re-sent
+// the still-there server copy), and (2) a player who joined a minute later
+// would see items that had already visually despawned for everyone else (the
+// client reset each drop's spawn timer to "now" on arrival, instead of using
+// its real age). See sweepExpiredDrops() below and netApplyDrops()/`at` on
+// the wire (online.js) for the other half of the fix.
+const DROP_MAX_AGE_MS = ITEM_DESPAWN_TIME || 30000;
+// Works out a stored drop's item CATEGORY so "dropTake" knows which
+// PARTY_LOOT_RULES rule (see server/game_server.js) applies to it. Mirrors
+// the same lookup order item_server.js's createItemDrop() uses client-side
+// — kept independent here since the server only has the plain data tables
+// (WEAPONS/ARMOR_TYPES/STONE_TYPES/ORB_TYPES/ITEM_TYPES from GAME_DATA), not
+// the browser-only functions that build on them. A manual inventory drop
+// (drop.k === "inv") is always "invItem" — createInventoryItemDrop() never
+// tags it any other way. An unrecognized bot-loot type name falls back to
+// "item" (SHARED), the safe default from game_server.js.
+function categoryForDrop(drop) {
+  if (drop.k === "inv") return "invItem";
+  const t = drop.t;
+  // Gold orbs are kept separate from ITEM_TYPES on purpose (see
+  // server/item_server.js) — their chance/amount come from BOT_TYPES per
+  // bot instead of a shared table entry, so there's no ITEM_TYPES.goldOrb
+  // to look up here.
+  if (t === "goldOrb") return "gold";
+  const w = GAME_DATA.WEAPONS && GAME_DATA.WEAPONS[t];
+  if (w && w.category === "weapon") return "weapon";
+  const a = GAME_DATA.ARMOR_TYPES && GAME_DATA.ARMOR_TYPES[t];
+  if (a && (a.category === "armor" || a.category === "ring" || a.category === "accessory")) return a.category;
+  if (GAME_DATA.STONE_TYPES && GAME_DATA.STONE_TYPES[t]) return "stone";
+  if (GAME_DATA.ORB_TYPES && GAME_DATA.ORB_TYPES[t]) return "orb";
+  const itemDef = GAME_DATA.ITEM_TYPES && GAME_DATA.ITEM_TYPES[t];
+  if (itemDef) return itemDef.category || "item";
+  return "item";
+}
+
+// Removes every drop in `room` that has passed its despawn window and
+// returns the ids that were removed (empty array if none). Pure bookkeeping —
+// callers decide whether/how to tell anyone (see dropList(), which just needs
+// the list clean, vs sweepExpiredDrops() below, which also broadcasts).
+function pruneDrops(room) {
+  const cutoff = Date.now() - DROP_MAX_AGE_MS;
+  const removed = [];
+  for (const [id, d] of room.drops) {
+    if (d.at < cutoff) { room.drops.delete(id); removed.push(id); }
+  }
+  return removed;
+}
+function dropList(room) {
+  pruneDrops(room);
+  return [...room.drops.values()].map((d) => d.k === "inv"
+    ? { id: d.id, k: "inv", invType: d.invType, name: d.name, data: d.data, qty: d.qty, x: d.x, y: d.y, at: d.at }
+    : { id: d.id, t: d.t, x: d.x, y: d.y, at: d.at, stats: d.stats });
+}
+function clearDropsIfEmpty() { /* intentionally keeps loot in empty rooms */ }
+
+// ---------------------------------------------------------------------------
+// BOSS EVENT — schedule check, enter, and the 10 PM teleport-out
+// ---------------------------------------------------------------------------
+function bossManilaNow() { return new Date(Date.now() + BOSS_EVENT.TZ_OFFSET_HOURS * 3600 * 1000); }
+function bossWindowOpen() {
+  const d = bossManilaNow();
+  return BOSS_EVENT.DAYS.includes(d.getUTCDay()) && d.getUTCHours() >= BOSS_EVENT.START_HOUR && d.getUTCHours() < BOSS_EVENT.END_HOUR;
+}
+// Moves one player into/out of the boss arena (server-initiated, so no "map" message needed).
+function bossMovePlayer(p, key, spawn, ended, opts) {
+  opts = opts || {};
+  const oldRoom = p.room;
+  oldRoom.delete(p.id);
+  broadcast(oldRoom, { type: "playerRemove", id: p.id });
+  reassignHost(oldRoom, p.id);
+  p.map = key;
+  p.room = getRoom(p.server, opts.channel != null ? opts.channel : p.channel, key);
+  const first = p.room.size === 0;
+  p.room.set(p.id, p);
+  if (first) { p.room.hostId = p.id; stopOfflineSim(p.room); }
+  p.x = spawn.x; p.y = spawn.y;
+  p.lastMapChange = Date.now();
+  p.protectUntil = Date.now() + ONLINE_RULES.SPAWN_PROTECT_MS;
+  send(p.ws, {
+    type: opts.type || "bossMove", eventName: opts.eventName || "BOSS EVENT", text: opts.text || "", map: key, ended: !!ended,
+    spawnX: p.x, spawnY: p.y,
+    players: [...p.room.values()].filter((o) => o.id !== p.id).map(publicInfo),
+    botHost: p.room.hostId === p.id,
+    bots: currentBots(p.room),
+    drops: dropList(p.room)
+  });
+  broadcast(p.room, { type: "playerAdd", player: publicInfo(p) }, p.id);
+}
+// Where a player goes when the event ends: the exact spot they entered from.
+function bossReturnSpot(p) {
+  const r = validateSavedSpot(p.bossReturn);
+  if (r && r.map !== BOSS_EVENT.KEY) return r;
+  const m = MAPS[START_MAP];
+  return { map: START_MAP, x: m.worldWidth / 2, y: m.worldHeight / 2 };
+}
+// Every second: once it is 10 PM, send everyone still inside back to their last position.
+setInterval(() => {
+  if (bossWindowOpen()) return;
+  for (const room of rooms.values()) {
+    if (room.mapKey !== BOSS_EVENT.KEY || room.size === 0) continue;
+    for (const p of [...room.values()]) {
+      const r = bossReturnSpot(p);
+      p.bossReturn = null;
+      bossMovePlayer(p, r.map, { x: r.x, y: r.y }, true);
+    }
+  }
+}, 1000);
+
+// ---------------------------------------------------------------------------
+// CLAN WAR — enter, authenticate, win, claim, leave
+// ---------------------------------------------------------------------------
+// One state per game server: { owner: clanId|null, ownerName, phase: "open"|"ended", claimed, exitAt }
+const cwStates = new Map();
+function cwWindowOpen() {
+  const d = new Date(Date.now() + CLAN_WAR.TZ_OFFSET_HOURS * 3600 * 1000);
+  const h = d.getUTCHours() + d.getUTCMinutes() / 60;
+  return CLAN_WAR.DAYS.includes(d.getUTCDay()) && h >= CLAN_WAR.START_HOUR && h < CLAN_WAR.END_HOUR;
+}
+// Is this player touching the pad on the floor? (the client sends cwAuth / cwClaim when they walk onto it)
+function cwTouchingPad(p) {
+  const P = CLAN_WAR.PAD, h = P.size / 2, r = (p.radius || 15) + 25;   // +25 = lag allowance
+  const cx = Math.max(P.x - h, Math.min(p.x, P.x + h)), cy = Math.max(P.y - h, Math.min(p.y, P.y + h));
+  return Math.hypot(p.x - cx, p.y - cy) <= r;
+}
+function cwRoom(sid) { return getRoom(sid, CHANNEL_PVP, CLAN_WAR.KEY); }   // both channels share ONE clan war room per server
+const CW_STACK_KINDS = ["gold", "stone", "orb"];
+function cwShare(st, i) {   // what the NEXT claimer gets from stack i
+  const r = CLAN_WAR.REWARDS[i], left = st.remain[i], n = Math.max(1, st.shareCount || 1);
+  const claimsLeft = n - st.claimedIds.size;
+  if (claimsLeft <= 1) return left;
+  return Math.min(left, Math.floor((r.total || 0) / n));
+}
+function cwRewardView(st) {
+  return CLAN_WAR.REWARDS.map((r, i) => CW_STACK_KINDS.includes(r.kind)
+    ? { kind: r.kind, type: r.type, total: st.remain[i], share: cwShare(st, i) }
+    : { kind: r.kind, type: r.type, total: st.remain[i], taken: st.remain[i] <= 0 });   // gear: "total" = how many pieces are left
+}
+function cwSendState(p) {
+  const st = cwStates.get(p.server);
+  if (!st) return;
+  const mine = !!(st.claimedIds && st.claimedIds.has(p.id));
+  const isOwner = !!(p.clanId && p.clanId === st.owner);
+  send(p.ws, {
+    type: "cwState", phase: st.phase, ownerName: st.ownerName || "",
+    owner: isOwner, claimed: mine,   // claimed = THIS player already claimed
+    rewards: (st.phase === "ended" && isOwner && !mine) ? cwRewardView(st) : undefined,   // shown in the CLAIM REWARD box
+    exitIn: mine ? Math.max(0, Math.ceil(((p.cwExitAt || 0) - Date.now()) / 1000)) : 0
+  });
+}
+function cwBroadcastState(sid) { for (const p of cwRoom(sid).values()) cwSendState(p); }
+function cwCancelAuth(p) { p.cwAuth = null; send(p.ws, { type: "cwAuthFail" }); }
+// Sends one player back to the spot they entered from (or the start map).
+function cwKick(p, text) {
+  let r = validateSavedSpot(p.cwReturn);
+  if (!r || r.map === CLAN_WAR.KEY) { const m = MAPS[START_MAP]; r = { map: START_MAP, x: m.worldWidth / 2, y: m.worldHeight / 2 }; }
+  p.cwReturn = null; p.cwAuth = null; p.cwExitAt = 0;
+  bossMovePlayer(p, r.map, { x: r.x, y: r.y }, true, { type: "cwMove", eventName: "CLAN WAR", text });
+}
+function cwAuthDone(p, st) {
+  const clan = clans.get(p.clanId);
+  st.owner = p.clanId;
+  st.ownerName = clan ? clan.name : "A clan";
+  p.cwAuth = null;
+  send(p.ws, { type: "cwAuthDone" });
+  for (const q of [...cwRoom(p.server).values()]) {
+    if (q.clanId === st.owner) { if (q.cwAuth) cwCancelAuth(q); continue; }
+    cwKick(q, "The " + st.ownerName + " owned this Clan War. You were returned to your last position.");
+  }
+  for (const q of players.values()) if (q.server === p.server) send(q.ws, { type: "cwOwned", clanName: st.ownerName });   // everyone on this server sees it, wherever they are
+  cwBroadcastState(p.server);
+}
+setInterval(() => {
+  const open = cwWindowOpen();
+  // authentication progress
+  for (const p of players.values()) {
+    if (!p.cwAuth) continue;
+    const st = cwStates.get(p.server);
+    if (!st || p.map !== CLAN_WAR.KEY || !p.alive || st.phase !== "open" || !open) { cwCancelAuth(p); continue; }
+    if (Date.now() - p.cwAuth.start >= CLAN_WAR.AUTH_SECONDS * 1000) cwAuthDone(p, st);
+  }
+  // end of the window / claim countdown
+  for (const [sid, st] of [...cwStates]) {
+    const room = cwRoom(sid);
+    if (open && st.phase === "ended") {   // leftover winners from a previous event
+      for (const p of [...room.values()]) cwKick(p, "The Clan War has ended. You were returned to your last position.");
+      cwStates.delete(sid); continue;
+    }
+    if (!open && st.phase === "open") {
+      st.phase = "ended";
+      for (const p of [...room.values()]) {
+        if (!st.owner || p.clanId !== st.owner) cwKick(p, "The Clan War has ended. You were returned to your last position.");
+      }
+      if (!st.owner) { cwStates.delete(sid); continue; }
+      st.endedAt = Date.now();
+      st.claimedIds = new Set();
+      st.remain = CLAN_WAR.REWARDS.map((r) => Math.max(1, Math.floor(r.total || 1)));   // gold / stone / orb / gear: how many are left
+      st.shareCount = Math.max(1, [...room.values()].filter((p) => p.clanId === st.owner).length);   // the winners inside the map
+      cwBroadcastState(sid);
+    }
+    if (st.phase === "ended") {
+      if (room.size === 0) { cwStates.delete(sid); continue; }
+      // each winner leaves 20 s after THEIR OWN claim; the others keep waiting
+      for (const p of [...room.values()]) if (p.cwExitAt && Date.now() >= p.cwExitAt) cwKick(p, "Reward claimed. You were returned to your last position.");
+      if (Date.now() - (st.endedAt || 0) > CLAN_WAR.CLAIM_TIMEOUT_SECONDS * 1000) {
+        for (const p of [...room.values()]) cwKick(p, "The Clan War reward time is over. You were returned to your last position.");
+      }
+      if (cwRoom(sid).size === 0) cwStates.delete(sid);
+    }
+  }
+}, 250);
+
+// Runs on a timer (see setInterval below) so a drop disappears for players
+// who are ALREADY in the room the moment it expires, not just for the next
+// person to join/rejoin (dropList() above already keeps those clean). Reuses
+// the same "dropGone" message a pickup sends, so no client changes are needed
+// to receive it — online.js's netRemoveDrop() already handles it.
+function sweepExpiredDrops() {
+  for (const room of rooms.values()) {
+    if (!room.drops.size) continue;
+    const removed = pruneDrops(room);
+    for (const id of removed) broadcast(room, { type: "dropGone", id }, -1);
+  }
+}
+setInterval(sweepExpiredDrops, 5000);
+function countPlayers(test) {
+  let n = 0;
+  for (const p of players.values()) if (test(p)) n++;
+  return n;
+}
+const serverPlayerCount = (serverId) => countPlayers((p) => p.server === serverId);
+
+function serverList() {
+  const list = [];
+  for (let s = 1; s <= SERVER_COUNT; s++) {
+    list.push({
+      id: s,
+      players: serverPlayerCount(s),
+      max: SERVER_MAX_PLAYERS,
+      channels: [
+        countPlayers((p) => p.server === s && p.channel === CHANNEL_PVP),
+        countPlayers((p) => p.server === s && p.channel === CHANNEL_SAFE)
+      ]
+    });
+  }
+  // serverCount + channels: the lobby builds its rows from these (they are no longer hardcoded in online.js)
+  return { max: SERVER_MAX_PLAYERS, serverCount: SERVER_COUNT, channels: ONLINE_RULES.CHANNELS, servers: list };
+}
+
+const num = (v, fallback = 0) => (typeof v === "number" && isFinite(v) ? v : fallback);
+
+// CDM SEND (hidden dev tool, see online_client.js "HIDDEN CDM BUTTON"): lets the CDM
+// screen hand an item straight to another online player's inventory. Keep the code in
+// sync with OL_CMD_SHOW_CODE in client/online_client.js. Optionally restrict it to
+// certain player names with the env var CMD_GIVE_ADMINS="name1,name2" (recommended:
+// the code alone is only as secret as the public client file).
+const CMD_GIVE_CODE = "@#$_&cmd";
+const CMD_GIVE_ADMINS = String(process.env.CMD_GIVE_ADMINS || "").split(",").map((n) => n.trim().toLowerCase()).filter(Boolean);
+const CMD_GIVE_TYPES = ["weapon", "armor", "ring", "accessory", "stone", "orb"];
+
+function send(ws, obj) {
+  if (ws.readyState === 1) ws.send(JSON.stringify(obj));
+}
+
+// Sends to everyone in `room` (a Map of players) except `exceptId`.
+function broadcast(room, obj, exceptId) {
+  const data = JSON.stringify(obj);
+  for (const p of room.values()) {
+    if (p.id !== exceptId && p.ws.readyState === 1) p.ws.send(data);
+  }
+}
+
+function publicInfo(p) {
+  return {
+    id: p.id, name: p.name, character: p.character,
+    x: p.x, y: p.y, health: p.health, maxHealth: p.maxHealth,
+    mana: p.mana, maxMana: p.maxMana, exp: p.exp, maxExp: p.maxExp,
+    alive: p.alive, level: p.level,
+    // Equipped gear names only (see the "state" case below) — lets a
+    // newly-joined client's VIEW popup (online.js) show what everyone
+    // already on the map has on before their next "state" tick arrives.
+    weapon: p.weapon, armor: p.armor, accessory: p.accessory
+  };
+}
+
+wss.on("connection", (ws) => {
+  let me = null; // set once the client sends "join"
+  ws.isAlive = true;
+  ws.on("pong", () => { ws.isAlive = true; });
+
+  ws.on("message", (raw) => {
+    let msg;
+    try { msg = JSON.parse(raw.toString()); } catch { return; }
+    if (!msg || typeof msg.type !== "string") return;
+
+    // ---- JOIN ---------------------------------------------------------
+    if (msg.type === "join") {
+      if (me) return;
+
+      const serverId = Math.trunc(num(msg.server, 0));
+      const channel = Math.trunc(num(msg.channel, -1));
+      if (serverId < 1 || serverId > SERVER_COUNT || (channel !== CHANNEL_PVP && channel !== CHANNEL_SAFE)) {
+        send(ws, { type: "joinError", reason: "That server or channel does not exist" });
+        ws.close();
+        return;
+      }
+      if (serverPlayerCount(serverId) >= SERVER_MAX_PLAYERS) {
+        send(ws, { type: "full", max: SERVER_MAX_PLAYERS });
+        ws.close();
+        return;
+      }
+
+      let savedSpot = validateSavedSpot(msg.lastPos);   // null -> normal start
+      if (savedSpot && savedSpot.map === BOSS_EVENT.KEY && !bossWindowOpen()) savedSpot = null;   // event is over: normal start
+      if (savedSpot && savedSpot.map === CLAN_WAR.KEY) savedSpot = null;   // clan war is entered only via the CLAN WAR button
+      const startMap = savedSpot ? savedSpot.map : START_MAP;
+      const room = getRoom(serverId, channel, startMap);
+      const id = nextId++;
+      const chars = GAME_DATA.CHARACTERS || {};
+      const wanted = String(msg.character || "soldier").slice(0, 24);
+      // Player-typed name from the "Name Your Character" popup (see
+      // olOpenNamePopup in online.js) — falls back to "Player N" if it's
+      // missing, blank, or just whitespace/control characters.
+      const wantedName = typeof msg.name === "string"
+        ? msg.name.replace(/[\r\n\t]+/g, " ").trim().slice(0, 16)
+        : "";
+      me = {
+        id, ws,
+        server: serverId, channel, map: startMap, room, lastMapChange: 0,
+        name: wantedName || ("Player " + id),
+        character: (typeof GAME_DATA.resolveCharacterName === "function") ? GAME_DATA.resolveCharacterName(wanted) : (chars[wanted] ? wanted : (Object.keys(chars)[0] || "soldier")),
+        x: savedSpot ? savedSpot.x : 0, y: savedSpot ? savedSpot.y : 0,
+        health: 100, maxHealth: 100,
+        mana: 0, maxMana: 0, exp: 0, maxExp: 0,
+        alive: true,
+        level: 1,
+        weapon: null, armor: null, accessory: null,
+        hitWindowStart: 0, hitCount: 0,
+        protectUntil: Date.now() + ONLINE_RULES.SPAWN_PROTECT_MS,   // spawn protection (see online_server.js)
+        lastStateAt: 0,   // for the STATE_INTERVAL_MS rate limit
+        botHitWindowStart: 0, botHitCount: 0,
+        skillGlobalLockedUntil: 0, // see game_server.js's isPlayerSkillLocked()
+        partyId: null,
+        clanId: null,
+        tradePartnerId: null, tradeConfirmed: false,   // see the TRADE section below
+        uid: null, uidChecked: false   // Supabase account id, filled in by attachAccount()
+      };
+      const isFirstInRoom = room.size === 0;
+      players.set(id, me);
+      room.set(id, me);
+      if (isFirstInRoom) { room.hostId = id; stopOfflineSim(room); }   // keep room.lastBots: enemies come back as they wandered to
+      send(ws, {
+        type: "init",
+        id,
+        name: me.name,
+        server: serverId,
+        channel,
+        pvp: channel === CHANNEL_PVP,
+        // set only when restoring the spot where this player last logged out
+        map: savedSpot ? startMap : undefined,
+        spawnX: savedSpot ? savedSpot.x : undefined,
+        spawnY: savedSpot ? savedSpot.y : undefined,
+        players: [...room.values()].filter((p) => p.id !== id).map(publicInfo),
+        data: GAME_DATA,   // the online numbers + the world map
+        // PvE: am I responsible for simulating this room's enemies, and (if
+        // not) here's the most recent snapshot so I'm not staring at an
+        // empty map until the host's next tick — see "bots" below.
+        botHost: room.hostId === id,
+        bots: currentBots(room),
+        drops: dropList(room)
+      });
+      // Start with "no clan" (clears anything stale on the client), then work
+      // out which account this is and send its real clan, if it has one.
+      send(ws, { type: "clanUpdate", clanId: null, members: [] });
+      attachAccount(me, msg.token);
+      broadcast(room, { type: "playerAdd", player: publicInfo(me) }, id);
+      console.log(`+ ${me.name} (${me.character}) — server ${serverId} channel ${channel} — ${players.size} online`);
+      return;
+    }
+
+    if (!me) return; // everything below needs a joined player
+
+    switch (msg.type) {
+      // Position + health snapshot (client sends ~20x/second).
+      case "state": {
+        // Rate limit: faster than half the allowed interval is dropped (half = jitter tolerance).
+        const stateNow = Date.now();
+        if (stateNow - me.lastStateAt < ONLINE_RULES.STATE_INTERVAL_MS * 0.5) break;
+        me.lastStateAt = stateNow;
+        // Coming back alive after being dead = a respawn -> spawn protection.
+        if (!me.alive && msg.alive) me.protectUntil = stateNow + ONLINE_RULES.SPAWN_PROTECT_MS;
+        if (!me.cwAuth) {   // a player who is authenticating is frozen on the pad (cannot move)
+          me.x = num(msg.x, me.x);
+          me.y = num(msg.y, me.y);
+        }
+        me.health = num(msg.health, me.health);
+        me.maxHealth = num(msg.maxHealth, me.maxHealth);
+        // MANA — the server keeps its own count (see game_server.js's
+        // syncReportedMana()): the client's number can go down, but can't
+        // jump up faster than real regen.
+        syncReportedMana(me, Number(msg.mana), Number(msg.maxMana), !!msg.alive, Date.now());
+        me.exp = num(msg.exp, me.exp);
+        me.maxExp = num(msg.maxExp, me.maxExp);
+        me.level = num(msg.level, me.level);
+        me.alive = !!msg.alive;
+        // Equipped gear names, just for the VIEW popup (online.js) on
+        // other clients — same 24-char/string-only sanitizing as
+        // "character" above, nothing that looks up game data server-side.
+        const equipName = (v) => (typeof v === "string" && v) ? v.slice(0, 24) : null;
+        me.weapon = equipName(msg.weapon);
+        me.armor = equipName(msg.armor);
+        me.accessory = equipName(msg.accessory);
+        broadcast(me.room, {
+          type: "state", id: me.id,
+          x: me.x, y: me.y, health: me.health, maxHealth: me.maxHealth,
+          mana: me.mana, maxMana: me.maxMana, exp: me.exp, maxExp: me.maxExp,
+          level: me.level, alive: me.alive,
+          weapon: me.weapon, armor: me.armor, accessory: me.accessory
+        }, me.id);
+        break;
+      }
+
+      // Visual relays: bullets in flight, hit/skill effects, gunshot sounds.
+      case "bullet":
+      case "fx":
+      case "sound":
+        if (me.cwAuth && msg.type === "bullet") break;   // no attacking while authenticating
+        msg.from = me.id;
+        broadcast(me.room, msg, me.id);
+        break;
+
+      // A player took damage: tell everyone else in the room so they see the
+      // floating damage number above that player too (attacker + onlookers).
+      case "dmgNum":
+        broadcast(me.room, {
+          type: "dmgNum", from: me.id,
+          x: num(msg.x), y: num(msg.y),
+          amount: Math.max(0, Math.round(num(msg.amount))),
+          isCritical: !!msg.isCritical
+        }, me.id);
+        break;
+
+      // PvE: the room's enemy host streams its enemies' position/health/
+      // alive state here (~10x/sec) — cache it (so late joiners see the
+      // current fight instantly) and relay it to everyone else in the room.
+      case "bots":
+        if (me.room.hostId !== me.id || !Array.isArray(msg.list)) break;
+        me.room.lastBots = msg.list;
+        me.room.lastBotsAt = Date.now();
+        broadcast(me.room, { type: "bots", list: msg.list }, me.id);
+        break;
+
+      // Any player (including the host) can hit an enemy; only the host's
+      // own simulation is allowed to actually apply the damage, so relay
+      // this straight to them (same rate-limit idea as player "hit" above).
+      case "botHit": {
+        const hostId = me.room.hostId;
+        if (hostId == null || hostId === me.id) break;
+        const host = me.room.get(hostId);
+        if (!host) break;
+
+        const now = Date.now();
+
+        // SKILL LOCK — same enforcement as the "hit" case above, for a
+        // player-vs-bot skill hit (online.js's damageBot() override).
+        if (msg.isSkillHit) {
+          if (!consumeSkillHit(me, now)) break;   // not paid on the server / locked / over this cast's hit budget
+        }
+
+        send(host.ws, {
+          type: "botHit",
+          idx: Math.trunc(num(msg.idx, -1)),
+          amount: Math.max(0, num(msg.amount)),
+          isCritical: !!msg.isCritical,
+          srcX: num(msg.srcX), srcY: num(msg.srcY),
+          from: me.id
+        });
+        break;
+      }
+
+      // PvE: the room's bot HOST says one of its enemies just hit a
+      // specific player (bullet landed or melee connected — see bot.js /
+      // online.js's netBotMortarLanded()/netBotMeleeHit()). Only the
+      // current host is trusted to deal this damage (anyone else could
+      // otherwise fake enemy hits on people); forward it straight to the
+      // victim, same rate-limit idea as "hit" above. Not gated by
+      // CHANNEL_SAFE — that only turns off player-vs-player damage, PvE
+      // still applies in both channels.
+      case "botHitPlayer": {
+        if (me.room.hostId !== me.id) break;
+        const target = me.room.get(num(msg.targetId, -1));
+        if (!target || target.id === me.id) break;
+        if (Date.now() < target.protectUntil) break;   // spawn protection
+
+        const now = Date.now();
+
+        send(target.ws, {
+          type: "botHitPlayer",
+          physicalDamage: Math.max(0, num(msg.physicalDamage)),
+          magicalDamage: Math.max(0, num(msg.magicalDamage)),
+          isCritical: !!msg.isCritical,
+          srcX: num(msg.srcX), srcY: num(msg.srcY),
+          knockback: Math.max(0, Math.min(200, num(msg.knockback)))
+        });
+        break;
+      }
+
+      // PvE loot: only the room's enemy host may create ground items (it's
+      // the one that knows an enemy just died). The server numbers them and
+      // tells EVERYONE (host included) so all clients hold identical drops.
+      case "dropAdd": {
+        if (me.room.hostId !== me.id || !Array.isArray(msg.drops)) break;
+        const added = [];
+        // A hacked host must not be able to flood the room with drops (each one can carry gold).
+        const dropNow = Date.now();
+        if (dropNow - (me.room.dropWinAt || 0) > 1000) { me.room.dropWinAt = dropNow; me.room.dropWinN = 0; }
+        for (const d of msg.drops.slice(0, 20)) {
+          if (++me.room.dropWinN > 60) break;
+          if (!d || typeof d.t !== "string" || d.t.length > 40) continue;
+          const drop = { id: me.room.nextDropId++, t: d.t, x: num(d.x), y: num(d.y), at: Date.now() };
+          // Gold orbs carry their own amount (varies per bot type — see
+          // spawnGoldOrbChance/goldOrbAmount on BOT_TYPES), instead of a
+          // single shared amount looked up from ITEM_TYPES. Clamped to a
+          // sane range so a hacked host can't mint arbitrary gold.
+          if (d.t === "goldOrb") drop.amt = saveGuard.clampOrbAmount(num(d.amt));   // never above the biggest real orb (save_guard.js)
+          // GEAR STATS — weapons / armor / rings / accessories are plain in the
+          // *_server.js tables; the stats are rolled HERE, on the server, from the
+          // level of the enemy TYPE that dropped it (looked up in bot_server.js,
+          // never a level the client claims), using rollItemStats() in
+          // server/item_server.js. The host only says which item dropped.
+          const gearCat = categoryForDrop(drop);
+          if (gearCat === "weapon" || gearCat === "armor" || gearCat === "ring" || gearCat === "accessory") {
+            const srcBot = BOT_TYPES[String(d.bt || "")];
+            const enemyLevel = (srcBot && typeof srcBot.level === "number") ? srcBot.level : 1;
+            const spawnBonus = (srcBot && typeof srcBot.increaseSpawnGet === "number") ? srcBot.increaseSpawnGet : 0;
+            // requiredType of the dropped item (weapon_server.js / armor_server.js) decides which
+            // attack stat it rolls: magemaster -> magicalAttack, others -> physicalDamage.
+            const dropDef = (GAME_DATA.WEAPONS && GAME_DATA.WEAPONS[d.t]) || (GAME_DATA.ARMOR_TYPES && GAME_DATA.ARMOR_TYPES[d.t]) || null;
+            drop.stats = GAME_DATA.rollItemStats(gearCat, enemyLevel, spawnBonus, dropDef && dropDef.requiredType);
+            // REQUIRED STAT ("pow=40" etc., armor_server.js): the item's own requiredStat if it has
+            // one, otherwise enemy level x 4 on the stat its requiredType uses. Rolled here so the
+            // number comes from the server's enemy level, never from the host's client.
+            if (dropDef && drop.stats && typeof GAME_DATA.rollRequiredStat === "function") {
+              const reqStat = GAME_DATA.rollRequiredStat(dropDef.requiredType, enemyLevel, dropDef.requiredStat);
+              if (reqStat) drop.stats.requiredStat = reqStat;
+            }
+          }
+          me.room.drops.set(drop.id, drop);
+          added.push(drop);
+        }
+        while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
+        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y, amt, at, stats }) => ({ id, t, x, y, amt, at, stats })) }, -1);
+        break;
+      }
+
+      // Manual drop: any player (not just the bot host) dragging a weapon/
+      // armor/stone out of their Inventory/Equip popup onto open ground.
+      // Unlike bot loot above, this carries the actual inventory entry
+      // (name/data/qty) along instead of a looked-up type name, so armor
+      // stats etc. survive being dropped and picked back up. Server numbers
+      // it and echoes it to EVERYONE including the dropper, same as bot
+      // loot, so the ground copy only ever exists once, server-confirmed.
+      case "invDropAdd": {
+        const entry = msg.entry;
+        if (!entry || typeof entry.name !== "string" || !entry.name || entry.name.length > 60) break;
+        let data = entry.data;
+        try {
+          if (data != null && JSON.stringify(data).length > 4000) data = null;
+        } catch (e) { data = null; }
+        const drop = {
+          id: me.room.nextDropId++,
+          k: "inv",
+          invType: typeof entry.invType === "string" ? entry.invType.slice(0, 30) : "",
+          name: entry.name.slice(0, 60),
+          data,
+          qty: Math.max(1, Math.min(999, Math.trunc(num(entry.qty, 1)))),
+          x: num(msg.x), y: num(msg.y), at: Date.now()
+        };
+        me.room.drops.set(drop.id, drop);
+        while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
+        broadcast(me.room, {
+          type: "invDropAdd",
+          drop: { id: drop.id, k: "inv", invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty, x: drop.x, y: drop.y, at: drop.at }
+        }, -1);
+        break;
+      }
+
+      // SKILL USE — the client says it is firing a skill. The server takes that
+      // skill's manaCost (from skill_server.js) off ITS OWN mana count; only a
+      // paid use lets the skill's "hit"/"botHit"/"skillBuff" messages through
+      // (see game_server.js's tryPaySkillUse()/hasPaidSkillUse()).
+      case "skillUse": {
+        if (me.cwAuth) break;   // no skills while authenticating
+        const skillName = String(msg.skill || "").slice(0, 32);
+        const paid = tryPaySkillUse(me, skillName, Date.now());
+        send(me.ws, { type: "manaSync", skill: skillName, ok: paid, mana: me.mana });
+        break;
+      }
+
+      // POWERBOOST / DEFENSEBOOST (skill_server.js) — the caster tells the server they used
+      // a party-buff skill. The skill's numbers come from the SERVER's own
+      // skill_server.js (never from the client): every party member on the
+      // same map within `range` of the caster gets a "skillBuff" and starts
+      // the buff on their own client (online.js).
+      case "skillBuff": {
+        const def = findSkillDef(String(msg.skill || ""));
+        // HEAL (heal1: healAmount 0.3 = 30% of max health) travels the same way as the
+        // two buffs: it only reaches party members inside the skill's `range`.
+        const isPartyHeal = !!def && !def.attackIncrease && !def.defenseIncrease && def.healAmount > 0 && def.healAmount <= 1;
+        if (!def || !(def.attackIncrease || def.defenseIncrease || isPartyHeal)) break;
+        if (!hasPaidSkillUse(me, Date.now(), def.skill)) break;   // mana not paid on the server
+        if (isPartyHeal) {   // a heal stacks (a buff does not), so also rate-limit it
+          const nowMs = Date.now();
+          const cdMs = Number(def.cooldown) >= 100 ? Number(def.cooldown) : Number(def.cooldown || 0) * 1000;
+          if (me.lastPartyHealAt && nowMs - me.lastPartyHealAt < cdMs * 0.8) break;
+          me.lastPartyHealAt = nowMs;
+        }
+        const party = getParty(me);
+        if (!party) break;
+        const range = num(def.range, 0);
+        for (const id of party.members) {
+          if (id === me.id) continue;
+          const m = players.get(id);
+          if (!m || m.room !== me.room || m.alive === false) continue;
+          if (Math.hypot(m.x - me.x, m.y - me.y) > range) continue;
+          send(m.ws, { type: "skillBuff", skill: def.skill, fromId: me.id });
+        }
+        break;
+      }
+
+      // Someone picked an item up: it's gone for everybody (and for late
+      // joiners). Any party member (or solo player) can claim any ground
+      // drop — first valid claim wins. "dropStillThere" only fires now if
+      // the drop is already gone by the time this message arrives (e.g. a
+      // party member beat you to it a moment ago); see the id check right
+      // above it.
+      //
+      // PARTY LOOT: solo players (or a broken/1-member party record) keep
+      // the old behavior exactly — online.js already applied the pickup to
+      // itself locally before sending this, so there's nothing more to do
+      // here. In a real party (2+ members), online.js does NOT apply
+      // anything locally for a shared drop — it just reports the claim and
+      // waits — so this is where the item actually gets awarded, per
+      // whichever PARTY_LOOT_RULES rule (server/game_server.js) the drop's
+      // category maps to:
+      //   ALTERNATE — one "partyLootAward" to the current turn holder only,
+      //     then advance the turn so the NEXT claim (by anyone) goes to
+      //     whoever's next.
+      //   SPLIT     — gold divided evenly across every member (remainder
+      //     handed out one-each from the front of the turn order).
+      //   SHARED    — one "partyLootAward" to EVERY member (claimer
+      //     included), so a speedup/health/shield/powerup benefits the
+      //     whole party at once.
+      // Each recipient's own client applies the effect using its own local
+      // functions (pickUpWeaponDrop/pickUpArmorDrop/pickUpInventoryDrop/
+      // pickUpUpgradeDrop/pickUpGoldOrb/applyItemEffect) — same
+      // "server relays, each client applies to itself" pattern already used
+      // for party exp ("partyExpAward" above).
+      case "dropTake": {
+        const id = Math.trunc(num(msg.id, -1));
+        const drop = me.room.drops.get(id);
+        if (!drop) {
+          send(ws, { type: "dropStillThere", id, taken: true });
+          break;
+        }
+
+        me.room.drops.delete(id);
+        broadcast(me.room, { type: "dropGone", id }, me.id);
+
+        // What the SERVER saw this player pick up: save_guard.js uses it to tell a real
+        // gold/item gain from a made-up one when the player's save arrives. Only counts if
+        // the picker is actually close to the drop (no vacuuming the map from far away).
+        const pickupNear = Math.hypot(me.x - num(drop.x), me.y - num(drop.y)) <= 450;
+        const party = getParty(me);
+        if (party) {
+          // Drop any stale/disconnected member (see prunePartyMembers() in
+          // server/game_server.js) BEFORE looking at party.members.length or
+          // computing a rule — this is the actual fix for loot repeatedly
+          // landing back on the picker instead of alternating.
+          if (prunePartyMembers(party, players)) broadcastPartyUpdate(party);
+        }
+        if (party && party.members.length >= 2) {
+          const category = categoryForDrop(drop);
+          const rule = partyLootRuleForCategory(category);
+          // Temporary diagnostic — safe to remove later. Shows up in Render's
+          // logs so you can confirm the party really had 2+ members and see
+          // exactly what category/rule/turn each claim resolved to.
+          console.log("[partyLoot] picker=" + me.id + " category=" + category + " rule=" + rule +
+            " partyMembers=" + JSON.stringify(party.members) + " turnIndex=" + (party.lootTurnIndex || 0));
+          // itemType (NOT "type") on purpose — Object.assign lets the LAST
+          // object's keys win on conflict, and every award message needs
+          // its outer "type" to stay "partyLootAward" (that's the field
+          // online.js's switch dispatches the whole message on). A plain
+          // weapon/armor/stone/orb drop's own type name (e.g. "uzi") used
+          // to be stored under this same "type" key, so Object.assign below
+          // silently overwrote "partyLootAward" with "uzi" before the
+          // message ever left the server — online.js's "partyLootAward"
+          // case then never matched on the receiving client, and that
+          // player's award just vanished with no error on either side.
+          // invItem was never affected (it already used "invType"), and
+          // neither was gold/SPLIT or the buff/SHARED path (they build
+          // their own message objects with unique field names instead of
+          // merging itemPayload in at all) — exactly why gold and
+          // health/shield/speedup/powerup always worked while weapon,
+          // armor, and stone/orb (upgrade_server.js) didn't.
+          const itemPayload = drop.k === "inv"
+            ? { category, invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty }
+            : { category, itemType: drop.t, stats: drop.stats };
+
+          if (rule === "SPLIT") {
+            // Gold orbs carry their own amount per drop (varies by which
+            // bot dropped them — see spawnGoldOrbChance/goldOrbAmount on
+            // BOT_TYPES), stored on the drop itself in the dropAdd handler
+            // above, instead of a single shared amount looked up from
+            // ITEM_TYPES.
+            const total = drop.amt || 0;
+            const share = Math.floor(total / party.members.length);
+            let remainder = total - share * party.members.length;
+            for (const pid of party.members) {
+              const m = players.get(pid);
+              if (!m) continue;
+              const amount = share + (remainder > 0 ? 1 : 0);
+              if (remainder > 0) remainder--;
+              if (pickupNear) saveGuard.creditGold(m.uid, amount);
+              send(m.ws, { type: "partyLootAward", mode: "gold", amount });
+            }
+          } else if (rule === "SHARED") {
+            for (const pid of party.members) {
+              const m = players.get(pid);
+              if (!m) continue;
+              send(m.ws, { type: "partyLootAward", mode: "effect", itemType: drop.t });
+            }
+          } else { // ALTERNATE
+            // party.members is now pruned to live ids only (see above), so
+            // this should always resolve to a real, connected player — the
+            // "|| me" is just a last-resort safety net, not the normal path.
+            const recipientId = getPartyLootTurnId(party);
+            const recipient = (recipientId != null && players.get(recipientId)) || me;
+            if (pickupNear) saveGuard.creditItems(recipient.uid, drop.k === "inv" ? drop.qty : 1);
+            // itemPayload spread FIRST, { type, mode } applied LAST — so the
+            // "partyLootAward" discriminator always wins even if itemPayload
+            // ever grows a field that happens to be named "type" or "mode"
+            // again. This is the actual fix for the field-collision bug
+            // above; the itemType rename alone already fixes today's case,
+            // this just stops the same class of bug from coming back.
+            send(recipient.ws, Object.assign({}, itemPayload, { type: "partyLootAward", mode: "item" }));
+            advancePartyLootTurn(party);
+          }
+        } else if (pickupNear) {
+          // Not in a party: the picker's own client applies the award, the server just records it.
+          if (drop.t === "goldOrb") saveGuard.creditGold(me.uid, drop.amt || 0);
+          else saveGuard.creditItems(me.uid, drop.k === "inv" ? drop.qty : 1);
+        }
+        break;
+      }
+
+      // Walked through a portal: move to that map's room (same server + channel).
+      case "map": {
+        const key = String(msg.map || "");
+        const now = Date.now();
+        if (!MAPS[key] || key === me.map || now - me.lastMapChange < 300) break;
+        if (key === BOSS_EVENT.KEY || me.map === BOSS_EVENT.KEY) break;   // the arena is only entered via "bossEnter"
+        if (key === CLAN_WAR.KEY || me.map === CLAN_WAR.KEY) break;       // the clan war map is only entered via "cwEnter"
+        me.lastMapChange = now;
+        me.protectUntil = now + ONLINE_RULES.SPAWN_PROTECT_MS;
+        const fromMapKey = me.map;   // captured BEFORE me.map is overwritten below
+        const oldRoom = me.room;
+        oldRoom.delete(me.id);
+        broadcast(oldRoom, { type: "playerRemove", id: me.id });
+        reassignHost(oldRoom, me.id);   // hand off enemy-hosting if I was hosting that map
+        clearDropsIfEmpty(oldRoom);
+
+        me.map = key;
+        me.room = getRoom(me.server, me.channel, key);
+        const isFirstInNewRoom = me.room.size === 0;
+        me.room.set(me.id, me);
+        if (isFirstInNewRoom) { me.room.hostId = me.id; stopOfflineSim(me.room); }   // keep me.room.lastBots: enemies come back as they wandered to
+
+        // Server decides where I land — not the client. Finds the portal
+        // back to the map I just came from and puts me next to it.
+        const spawn = getPortalArrivalSpawn(MAPS[key], fromMapKey, MAPS);
+        me.x = spawn.x;
+        me.y = spawn.y;
+
+        send(ws, {
+          type: "mapChanged", map: key,
+          spawnX: me.x, spawnY: me.y,
+          players: [...me.room.values()].filter((p) => p.id !== me.id).map(publicInfo),
+          botHost: me.room.hostId === me.id,
+          bots: currentBots(me.room),
+          drops: dropList(me.room)
+        });
+        broadcast(me.room, { type: "playerAdd", player: publicInfo(me) }, me.id);
+        break;
+      }
+
+      // WAR ZONE > CLAN WAR
+      case "cwEnter": {
+        const deny = (reason) => send(ws, { type: "cwDenied", reason });
+        if (me.map === CLAN_WAR.KEY) break;   // (from the Boss Event map you CAN go straight to the Clan War)
+        if (!MAPS[CLAN_WAR.KEY]) { deny("CLAN WAR is not available yet."); break; }
+        if (!cwWindowOpen()) { deny("CLAN WAR is only available on Tuesday, Thursday, Saturday and Sunday, 8PM to 9PM only."); break; }
+        const myClan = clanOf(me);
+        if (!myClan) { deny("Only players with a clan can enter this map."); break; }
+        if (!me.alive) { deny("You cannot enter while you are dead."); break; }
+        if (Date.now() - me.lastMapChange < 300) break;
+        me.clanId = myClan.id;
+        let st = cwStates.get(me.server);
+        if (!st) { st = { owner: null, ownerName: "", phase: "open" }; cwStates.set(me.server, st); }
+        if (st.phase !== "open") { deny("CLAN WAR is over for today."); break; }
+        // brought back here when you leave: the World Map spot you came from (kept when you hop from the Boss Event map)
+        me.cwReturn = (me.map === BOSS_EVENT.KEY && me.bossReturn) ? me.bossReturn : { map: me.map, x: me.x, y: me.y };
+        me.bossReturn = null;
+        const m = MAPS[CLAN_WAR.KEY];
+        bossMovePlayer(me, CLAN_WAR.KEY, { x: 200 + Math.random() * (m.worldWidth - 400), y: 200 + Math.random() * (m.worldHeight - 400) }, false,
+          { type: "cwMove", eventName: "CLAN WAR", channel: CHANNEL_PVP });
+        cwSendState(me);
+        break;
+      }
+      case "cwAuth": {
+        if (me.map !== CLAN_WAR.KEY || !me.clanId || !me.alive || me.cwAuth) break;
+        const st = cwStates.get(me.server);
+        if (!st || st.phase !== "open" || !cwWindowOpen()) break;
+        if (!cwTouchingPad(me)) break;   // must be standing on the AUTHENTICATE pad
+        if (st.owner === me.clanId) { send(ws, { type: "cwDenied", reason: "Your clan already owns this Clan War." }); break; }
+        me.cwAuth = { start: Date.now() };
+        send(ws, { type: "cwAuthStart", seconds: CLAN_WAR.AUTH_SECONDS });
+        break;
+      }
+      case "cwClaim": {
+        const st = cwStates.get(me.server);
+        if (me.map !== CLAN_WAR.KEY || !st || st.phase !== "ended" || !st.claimedIds || !me.clanId || me.clanId !== st.owner) break;
+        if (st.claimedIds.has(me.id)) break;          // everybody claims once
+        if (!cwTouchingPad(me)) break;                // must be standing on the CLAIM REWARD pad
+        const R = CLAN_WAR.REWARDS;
+        const gearLeft = [];
+        R.forEach((r, i) => { if (!CW_STACK_KINDS.includes(r.kind) && st.remain[i] > 0) gearLeft.push(i); });
+        const pick = Number.isInteger(msg.pick) ? msg.pick : -1;
+        if (gearLeft.length && !gearLeft.includes(pick)) {
+          send(ws, { type: "cwDenied", reason: pick < 0 ? "Choose one item first." : "That item was already taken. Choose another one." });
+          cwSendState(me);
+          break;
+        }
+        const items = [];
+        if (gearLeft.length) { st.remain[pick] -= 1; items.push({ kind: R[pick].kind, type: R[pick].type }); }   // one piece less for the other clanmates (gone at 0)
+        R.forEach((r, i) => {
+          if (!CW_STACK_KINDS.includes(r.kind)) return;
+          const amount = cwShare(st, i);
+          if (amount <= 0) return;
+          st.remain[i] -= amount;
+          items.push({ kind: r.kind, type: r.type, amount });
+        });
+        st.claimedIds.add(me.id);
+        me.cwExitAt = Date.now() + CLAN_WAR.CLAIM_EXIT_SECONDS * 1000;   // MY 20 s countdown starts now
+        send(ws, { type: "cwReward", items });
+        cwBroadcastState(me.server);
+        break;
+      }
+      // WAR ZONE > WORLD MAP (from the Clan War / Boss Event map): back to the exact spot you left in the World Map
+      case "worldEnter": {
+        if (me.map !== CLAN_WAR.KEY && me.map !== BOSS_EVENT.KEY) break;
+        const inCw = me.map === CLAN_WAR.KEY;
+        if (!me.alive) {
+          // Dying inside the Clan War: when the respawn timer ends the client asks to respawn in the World Map.
+          const respawnMs = (Number(ONLINE_RULES.RESPAWN_SECONDS) || 10) * 1000;
+          if (!(msg.respawn && inCw && Date.now() - (me.diedAt || 0) >= respawnMs - 2000)) {
+            send(ws, { type: inCw ? "cwDenied" : "bossDenied", reason: "You cannot leave while you are dead." });
+            break;
+          }
+          me.alive = true;
+        }
+        if (Date.now() - me.lastMapChange < 300) break;
+        let r = validateSavedSpot(inCw ? (me.cwReturn || me.bossReturn) : (me.bossReturn || me.cwReturn));
+        if (!r || r.map === CLAN_WAR.KEY || r.map === BOSS_EVENT.KEY) { const m = MAPS[START_MAP]; r = { map: START_MAP, x: m.worldWidth / 2, y: m.worldHeight / 2 }; }
+        if (me.cwAuth) cwCancelAuth(me);
+        me.cwReturn = null; me.bossReturn = null;
+        bossMovePlayer(me, r.map, { x: r.x, y: r.y }, false, { type: "cwMove", eventName: "WORLD MAP" });
+        break;
+      }
+      case "bossEnter": {
+        const deny = (reason) => send(ws, { type: "bossDenied", reason });
+        if (me.map === BOSS_EVENT.KEY) break;   // (from the Clan War map you CAN go straight to the Boss Event)
+        if (!MAPS[BOSS_EVENT.KEY]) { deny("BOSS EVENT is not available yet."); break; }
+        if (!bossWindowOpen()) { deny("BOSS EVENT is only available on Monday, Wednesday and Friday, at 8PM only."); break; }
+        if (num(me.level, 1) < BOSS_EVENT.MIN_LEVEL) { deny("You cannot enter the map. Required level " + BOSS_EVENT.MIN_LEVEL + " and above."); break; }
+        if (!me.alive) { deny("You cannot enter while you are dead."); break; }
+        if (Date.now() - me.lastMapChange < 300) break;
+        me.bossReturn = (me.map === CLAN_WAR.KEY && me.cwReturn) ? me.cwReturn : { map: me.map, x: me.x, y: me.y };   // brought back here at 10 PM (the World Map spot you came from)
+        me.cwReturn = null;
+        const m = MAPS[BOSS_EVENT.KEY];
+        bossMovePlayer(me, BOSS_EVENT.KEY, { x: m.worldWidth / 2 + (Math.random() * 300 - 150), y: m.worldHeight - 250 }, false);
+        break;
+      }
+
+      // Attacker says "I hit targetId" -> only that player is told.
+      case "hit": {
+        if (me.cwAuth) break;   // no attacking while authenticating
+        // CHANNEL 1 is a no-damage channel: drop every player-vs-player hit.
+        if (me.channel !== CHANNEL_PVP && me.map !== CLAN_WAR.KEY) break;   // (the clan war map is PvP on every channel)
+        const target = me.room.get(num(msg.targetId, -1));   // same server + channel only
+        if (!target || target.id === me.id) break;
+        if (Date.now() < target.protectUntil) break;   // spawn protection
+
+        // Party members never damage each other, even on a PvP channel.
+        if (isPartyFriendlyFire(me.partyId, target.partyId)) break;
+
+        // Clanmates never damage each other, either.
+        if (isClanFriendlyFire(me.clanId, target.clanId)) break;
+
+        const now = Date.now();
+
+        // SKILL LOCK — server-authoritative version of game.js's
+        // player.skillGlobalLockedUntil (see game_server.js). Only
+        // hits the client tagged isSkillHit go through this; drop it
+        // if this player's own skill lock (tracked here, not on the
+        // client) hasn't expired yet, no matter what that client claims.
+        if (msg.isSkillHit) {
+          if (!consumeSkillHit(me, now)) break;   // not paid on the server / locked / over this cast's hit budget
+        }
+
+        send(target.ws, {
+          type: "hit",
+          from: me.id,
+          physicalDamage: Math.max(0, num(msg.physicalDamage)),
+          magicalDamage: Math.max(0, num(msg.magicalDamage)),
+          isCritical: !!msg.isCritical,
+          srcX: num(msg.srcX), srcY: num(msg.srcY),
+          knockback: Math.max(0, Math.min(200, num(msg.knockback)))
+        });
+        break;
+      }
+
+      // A player tapped ADD FRIEND on someone they're near — relay the
+      // request to that specific player (same targeted-send pattern as
+      // "hit" above), same server + channel + map room only.
+      case "friendRequest": {
+        const target = me.room.get(num(msg.targetId, -1));
+        if (!target || target.id === me.id) break;
+        send(target.ws, { type: "friendRequest", from: me.id, fromName: me.name });
+        break;
+      }
+
+      // ACCEPT / DECLINE reply, relayed back to whoever sent the request.
+      case "friendResponse": {
+        const target = me.room.get(num(msg.targetId, -1));
+        if (!target || target.id === me.id) break;
+        send(target.ws, { type: "friendResponse", from: me.id, fromName: me.name, accept: !!msg.accept });
+        break;
+      }
+
+      // Sent when the INVITE PARTY button is tapped on a nearby player (see
+      // playerTouchInviteBtn in online.js) — relay it to that player, same
+      // targeted-send pattern as "friendRequest" above (proximity was
+      // already enforced client-side by NET_TOUCH_RANGE).
+      case "partyInvite": {
+        const target = me.room.get(num(msg.targetId, -1));
+        if (!target || target.id === me.id) break;
+        const myParty = getParty(me);
+        if (myParty && myParty.members.length >= PARTY_MAX_SIZE) {
+          send(ws, { type: "partyError", reason: "Your party is full (max " + PARTY_MAX_SIZE + ")" });
+          break;
+        }
+        if (getParty(target)) {
+          send(ws, { type: "partyError", reason: (target.name || "That player") + " is already in a party" });
+          break;
+        }
+        send(target.ws, { type: "partyInvite", from: me.id, fromName: me.name });
+        break;
+      }
+
+      // ACCEPT / DECLINE reply to a party invite. Looked up by player id
+      // across the whole server (not just this room) — the inviter may have
+      // walked to a different map by now and this should still reach them,
+      // same as party membership itself persists across map changes.
+      case "partyResponse": {
+        const inviter = players.get(num(msg.targetId, -1));
+        if (!inviter || inviter.id === me.id) break;
+        if (!msg.accept) {
+          send(inviter.ws, { type: "partyResponse", from: me.id, fromName: me.name, accept: false });
+          break;
+        }
+        if (getParty(me)) { send(ws, { type: "partyError", reason: "You're already in a party" }); break; }
+        let party = getParty(inviter);
+        if (!party) {
+          party = { id: nextPartyId++, members: [inviter.id], lootTurnIndex: 0 };
+          parties.set(party.id, party);
+          inviter.partyId = party.id;
+        }
+        if (party.members.length >= PARTY_MAX_SIZE) {
+          send(ws, { type: "partyError", reason: "That party is full" });
+          break;
+        }
+        party.members.push(me.id);
+        me.partyId = party.id;
+        send(inviter.ws, { type: "partyResponse", from: me.id, fromName: me.name, accept: true });
+        broadcastPartyUpdate(party);
+        break;
+      }
+
+      // Leaving my own party.
+      case "partyLeave":
+        removeFromParty(me);
+        break;
+
+      // Only the party's creator (members[0]) can kick someone out.
+      case "partyKick": {
+        const party = getParty(me);
+        if (!party || party.members[0] !== me.id) break;
+        const target = players.get(num(msg.targetId, -1));
+        if (!target || getParty(target) !== party) break;
+        removeFromParty(target);
+        send(target.ws, { type: "partyKicked" });
+        break;
+      }
+
+      // A party member's client worked out (via computePartyExpShare() in
+      // server/character_server.js) that a fellow member within range gets a
+      // share of a kill they just landed — pass it straight to that member.
+      // Same trust model as "hit"/"botHit" above: the amount is taken on
+      // faith, so this is only as cheat-proof as everything else online.
+      case "partyExpAward": {
+        const party = getParty(me);
+        if (!party) break;
+        const target = players.get(num(msg.targetId, -1));
+        if (!target || target.id === me.id || !party.members.includes(target.id)) break;
+        const amount = Math.max(0, Math.round(num(msg.amount, 0)));
+        if (amount <= 0) break;
+        send(target.ws, { type: "partyExpAward", amount, fromId: me.id });
+        break;
+      }
+
+      // Player pressed CREATE CLAN in the OPTIONS popup (see
+      // submitClanCreate() in index.html). The clan is saved to the ACCOUNT
+      // (see the CLANS section above). Gold cost is enforced client-side
+      // only (same trust model as everything else online).
+      // CHAT BOX (online gameplay) — index.html's CHATBOX window sends
+      // { type: "chatMessage", scope: "world"|"private", text }.
+      // WORLD: broadcast to everyone on my exact server+channel (not
+      // room/map — chat spans every map inside that server/channel).
+      // PRIVATE: text must be "@PlayerName message" (index.html's PRIVATE
+      // tab pre-fills the "@" for the player); relayed to that player AND
+      // echoed back to me, so my own outgoing whisper shows up in my own
+      // PRIVATE tab too — see window.applyChatMessage in index.html.
+      case "chatMessage": {
+        if (!me.name) break;
+        const scope = msg.scope === "private" ? "private" : "world";
+        const raw = String(msg.text || "").replace(/[\r\n\t]+/g, " ").trim().slice(0, 200);
+        if (!raw) break;
+
+        if (scope === "private") {
+          if (raw[0] !== "@") { send(ws, { type: "chatError", reason: "Type @PlayerName then your message" }); break; }
+          const rest = raw.slice(1);
+          // Player names can contain spaces (e.g. "john bert"), so a fixed
+          // "first word = name" split breaks for them. Instead, check every
+          // currently online name as a possible prefix of what was typed,
+          // and keep the LONGEST one that matches — so if both "john" and
+          // "john bert" are online, "@john bert hi" goes to "john bert",
+          // not "john" with the message "bert hi".
+          const lowerRest = rest.toLowerCase();
+          let target = null, matchedLen = 0;
+          for (const p of players.values()) {
+            if (!p.name || p.name.length <= matchedLen) continue;
+            const lname = p.name.toLowerCase();
+            if (lowerRest === lname || lowerRest.startsWith(lname + " ")) {
+              target = p; matchedLen = p.name.length;
+            }
+          }
+          if (!target) { send(ws, { type: "chatError", reason: "Type @PlayerName then your message" }); break; }
+          const body = rest.slice(matchedLen).trim();
+          if (!body) { send(ws, { type: "chatError", reason: "Type @PlayerName then your message" }); break; }
+          if (target.id === me.id) { send(ws, { type: "chatError", reason: "You can't whisper yourself" }); break; }
+          const payload = { type: "chatMessage", scope: "private", fromName: me.name, toName: target.name, text: body };
+          send(target.ws, payload);
+          send(ws, payload);
+        } else {
+          const payload = { type: "chatMessage", scope: "world", fromName: me.name, text: raw };
+          for (const p of players.values()) {
+            if (p.server === me.server && p.channel === me.channel) send(p.ws, payload);
+          }
+        }
+        break;
+      }
+
+      case "clanCreate": {
+        if (!clanAccountReady(me)) break;
+        if (clanOf(me)) { send(ws, { type: "clanError", reason: "You're already in a clan" }); break; }
+        const name = String(msg.name || "").replace(/[\r\n\t]+/g, " ").slice(0, 20).trim();
+        if (!name) break;
+        const clan = { id: crypto.randomBytes(6).toString("hex"), name, leaderUid: me.uid, message: "", members: [{ uid: me.uid, name: me.name }] };
+        clans.set(clan.id, clan);
+        clanOfUid.set(me.uid, clan.id);
+        me.clanId = clan.id;
+        clanDb(async () => {
+          await sbRest("POST", "clans", { id: clan.id, name: clan.name, leader_uid: clan.leaderUid });
+          await sbRest("POST", "clan_members", { uid: me.uid, clan_id: clan.id, name: me.name });
+        });
+        send(ws, clanRosterPayload(clan));
+        break;
+      }
+
+      // MESSAGE: button (clan leader) -> index.html's "clanMsgSubmitBtn"
+      // sends { type: "clanMessage", text }. Leader-only, saved on the clan
+      // and re-broadcast so it shows up beside MESSAGE: for every member,
+      // including whoever just set it (index.html reads it off clanUpdate).
+      case "clanMessage": {
+        const clan = clanOf(me);
+        if (!clan) { send(ws, { type: "clanError", reason: "You don't have a clan yet" }); break; }
+        if (clan.leaderUid !== me.uid) { send(ws, { type: "clanError", reason: "Only the leader can set the clan message" }); break; }
+        clan.message = String(msg.text || "").replace(/[\r\n\t]+/g, " ").slice(0, 100).trim();
+        clanDb(() => sbRest("PATCH", "clans?id=eq." + q(clan.id), { message: clan.message }));
+        broadcastClanUpdate(clan);
+        break;
+      }
+
+      // ADD CLAN on a nearby player (see playerTouchClanBtn in online.js) —
+      // only works if I actually have a clan; relay the invite to that
+      // player, same targeted-send pattern as "partyInvite" above.
+      case "clanInvite": {
+        const target = me.room.get(num(msg.targetId, -1));
+        if (!target || target.id === me.id) break;
+        const myClan = clanOf(me);
+        if (!myClan) { send(ws, { type: "clanError", reason: "You don't have a clan yet" }); break; }
+        if (!target.uid) { send(ws, { type: "clanError", reason: (target.name || "That player") + " can't join clans right now" }); break; }
+        if (clanOf(target)) { send(ws, { type: "clanError", reason: (target.name || "That player") + " is already in a clan" }); break; }
+        send(target.ws, { type: "clanInvite", from: me.id, fromName: me.name, clanId: myClan.id, clanName: myClan.name });
+        break;
+      }
+
+      // ACCEPT CLAN / REJECT reply to a clan invite. Looked up by clanId
+      // (not the inviter's player id) so it still resolves even if the
+      // inviter has since walked to a different map.
+      case "clanResponse": {
+        if (!msg.accept) break;   // silent reject — no need to notify the inviter
+        if (!clanAccountReady(me)) break;
+        if (clanOf(me)) { send(ws, { type: "clanError", reason: "You're already in a clan" }); break; }
+        const clan = clans.get(String(msg.clanId));
+        if (!clan) { send(ws, { type: "clanError", reason: "That clan no longer exists" }); break; }
+        if (clan.members.length >= CLAN_MAX_SIZE) { send(ws, { type: "clanError", reason: "That clan is full" }); break; }
+        clan.members.push({ uid: me.uid, name: me.name });
+        clanOfUid.set(me.uid, clan.id);
+        me.clanId = clan.id;
+        clanDb(() => sbRest("POST", "clan_members", { uid: me.uid, clan_id: clan.id, name: me.name }));
+        broadcastClanUpdate(clan);
+        break;
+      }
+
+      // Leaving my own clan (a member's LEAVE CLAN).
+      case "clanLeave":
+        if (!clanOf(me)) { send(ws, { type: "clanUpdate", clanId: null, members: [] }); break; }
+        removeFromClan(me);
+        break;
+
+      // DISBAND — leader only; removes the clan and all its members.
+      case "clanDisband": {
+        const c = clanOf(me);
+        if (!c) { send(ws, { type: "clanUpdate", clanId: null, members: [] }); break; }
+        if (c.leaderUid !== me.uid) { send(ws, { type: "clanError", reason: "Only the leader can disband" }); break; }
+        disbandClan(me);
+        break;
+      }
+
+      // ---- TRADE --------------------------------------------------------
+      // Sent when the TRADE button is tapped on a nearby player (see
+      // playerTouchTradeBtn in online.js) — same targeted-send pattern as
+      // "partyInvite"/"clanInvite" above (proximity already enforced
+      // client-side by NET_TOUCH_RANGE).
+      case "tradeRequest": {
+        const target = me.room.get(num(msg.targetId, -1));
+        if (!target || target.id === me.id) break;
+        if (me.tradePartnerId != null) { send(ws, { type: "tradeError", reason: "You're already trading" }); break; }
+        if (target.tradePartnerId != null) { send(ws, { type: "tradeError", reason: (target.name || "That player") + " is already trading" }); break; }
+        send(target.ws, { type: "tradeRequest", from: me.id, fromName: me.name });
+        break;
+      }
+
+      // ACCEPT / DECLINE reply to a trade request. Looked up server-wide
+      // (like "partyResponse") in case the inviter walked to a different
+      // map while the request popup was up.
+      case "tradeResponse": {
+        const inviter = players.get(num(msg.targetId, -1));
+        if (!inviter || inviter.id === me.id) break;
+        if (!msg.accept) {
+          send(inviter.ws, { type: "tradeResponse", from: me.id, fromName: me.name, accept: false });
+          break;
+        }
+        if (me.tradePartnerId != null || inviter.tradePartnerId != null) {
+          send(ws, { type: "tradeError", reason: "That trade is no longer available" });
+          break;
+        }
+        me.tradePartnerId = inviter.id; me.tradeConfirmed = false; me.tradeGold = 0; me.tradeItemCount = 0;
+        inviter.tradePartnerId = me.id; inviter.tradeConfirmed = false; inviter.tradeGold = 0; inviter.tradeItemCount = 0;
+        send(inviter.ws, { type: "tradeStart", from: me.id, fromName: me.name });
+        send(ws, { type: "tradeStart", from: inviter.id, fromName: inviter.name });
+        break;
+      }
+
+      // My offer box (items + gold orb amount) changed — relay it to my
+      // trade partner so their screen mirrors what I've put up. Changing
+      // an offer un-confirms BOTH sides (same as most trade UIs — you
+      // don't want an ACCEPT to lock in something the other player then
+      // quietly edits).
+      case "tradeOffer": {
+        if (me.tradePartnerId == null || num(msg.targetId, -1) !== me.tradePartnerId) break;
+        const partner = players.get(me.tradePartnerId);
+        if (!partner || partner.tradePartnerId !== me.id) break;
+        const items = Array.isArray(msg.items) ? msg.items.slice(0, ONLINE_RULES.TRADE_OFFER_SIZE) : [];
+        const gold = Math.max(0, Math.min(ONLINE_RULES.TRADE_MAX_GOLD, Math.trunc(num(msg.gold, 0))));
+        me.tradeConfirmed = false;
+        partner.tradeConfirmed = false;
+        // remembered so a completed trade can be credited to the receiver (save_guard.js)
+        me.tradeGold = gold;
+        me.tradeItemCount = items.reduce((n, it) => n + (it && typeof it === "object" ? Math.max(1, Math.min(999, Math.trunc(num(it.qty, 1)))) : 0), 0);
+        send(partner.ws, { type: "tradeOffer", from: me.id, items, gold });
+        break;
+      }
+
+      // ACCEPT on the trade screen itself (final confirm, not the initial
+      // request). Once BOTH sides have confirmed, tell both to apply the
+      // swap — each client already knows both offers from "tradeOffer"
+      // above, so no payload is needed here.
+      case "tradeConfirm": {
+        if (me.tradePartnerId == null || num(msg.targetId, -1) !== me.tradePartnerId) break;
+        const partner = players.get(me.tradePartnerId);
+        if (!partner || partner.tradePartnerId !== me.id) break;
+        me.tradeConfirmed = true;
+        send(partner.ws, { type: "tradeConfirm", from: me.id });
+        if (partner.tradeConfirmed) {
+          saveGuard.creditGold(partner.uid, me.tradeGold || 0);
+          saveGuard.creditGold(me.uid, partner.tradeGold || 0);
+          saveGuard.creditItems(partner.uid, me.tradeItemCount || 0);
+          saveGuard.creditItems(me.uid, partner.tradeItemCount || 0);
+          me.tradeGold = 0; me.tradeItemCount = 0; partner.tradeGold = 0; partner.tradeItemCount = 0;
+          send(ws, { type: "tradeComplete" });
+          send(partner.ws, { type: "tradeComplete" });
+          me.tradePartnerId = null; me.tradeConfirmed = false;
+          partner.tradePartnerId = null; partner.tradeConfirmed = false;
+        }
+        break;
+      }
+
+      // DECLINE / CANCEL, at any point (request popup, or the trade screen
+      // itself). Silent on the sender's side — the partner gets notified
+      // via cancelActiveTrade()'s "tradeCancelled".
+      case "tradeCancel":
+        cancelActiveTrade(me, "cancelled");
+        break;
+
+      // CDM CATALOG — the item list the CDM screen searches (server/cmd_server.js). Sent
+      // only on request and only with the code (+ CMD_GIVE_ADMINS if set), so normal players
+      // never download it.
+      case "cmdCatalog": {
+        if (!me.name) break;
+        const denied = msg.code !== CMD_GIVE_CODE ||
+          (CMD_GIVE_ADMINS.length && !CMD_GIVE_ADMINS.includes(String(me.name).toLowerCase()));
+        if (denied) { send(ws, { type: "cmdCatalog", ok: false }); break; }
+        const nowCat = Date.now();
+        if (me.cmdCatalogAt && nowCat - me.cmdCatalogAt < 1500) break;
+        me.cmdCatalogAt = nowCat;
+        send(ws, {
+          type: "cmdCatalog", ok: true,
+          catalog: { weapon: CMD_DATA.CMD_WEAPONS, armor: CMD_DATA.CMD_ARMORS, upgrade: CMD_DATA.CMD_UPGRADE_ITEMS }
+        });
+        break;
+      }
+
+      // CDM SEND — see CMD_GIVE_CODE above. The sender picks an item in the CDM screen and
+      // types a player name; the server checks the code, finds that player (any map/channel),
+      // credits the item to THEIR save_guard allowance and relays it. The receiving client
+      // adds it to its inventory and answers with "cmdGiveAck", which becomes the sender's
+      // "cmdGiveResult" (so a full inventory is reported back instead of silently lost).
+      case "cmdGive": {
+        const fail = (reason) => send(ws, { type: "cmdGiveResult", ok: false, reason });
+        if (!me.name) break;
+        if (msg.code !== CMD_GIVE_CODE) { fail("Not allowed"); break; }
+        if (CMD_GIVE_ADMINS.length && !CMD_GIVE_ADMINS.includes(String(me.name).toLowerCase())) { fail("Not allowed"); break; }
+        const nowGive = Date.now();
+        if (me.cmdGivePending && nowGive - me.cmdGivePending.at < 10000) { fail("Wait for the last item to arrive"); break; }
+        const wantName = String(msg.targetName || "").replace(/[\r\n\t]+/g, " ").trim().toLowerCase();
+        if (!wantName) { fail("Type a player name"); break; }
+        let giveTarget = null;
+        for (const p of players.values()) {
+          if (p.name && String(p.name).toLowerCase() === wantName) { giveTarget = p; break; }
+        }
+        if (!giveTarget) { fail("No player named \"" + String(msg.targetName).slice(0, 30) + "\" is online"); break; }
+        if (giveTarget.id === me.id) { fail("That's you - use Get Item"); break; }
+
+        const gi = msg.item;
+        if (!gi || typeof gi !== "object") { fail("Bad item"); break; }
+        const gType = String(gi.type || ""), gName = String(gi.name || "");
+        const has = (tbl) => !!(tbl && Object.prototype.hasOwnProperty.call(tbl, gName));
+        const known =
+          (gType === "weapon" && (has(GAME_DATA.WEAPONS) || has(CMD_DATA.CMD_WEAPONS))) ||
+          ((gType === "armor" || gType === "ring" || gType === "accessory") && (has(GAME_DATA.ARMOR_TYPES) || has(CMD_DATA.CMD_ARMORS))) ||
+          ((gType === "stone" || gType === "orb") && (has(GAME_DATA.STONE_TYPES) || has(GAME_DATA.ORB_TYPES) || has(CMD_DATA.CMD_UPGRADE_ITEMS)));
+        if (!CMD_GIVE_TYPES.includes(gType) || !known) { fail("Unknown item"); break; }
+        const gQty = (gType === "stone" || gType === "orb") ? Math.max(1, Math.min(999, Math.trunc(num(gi.qty, 1)))) : 1;
+        let gData = null;
+        if (gi.data && typeof gi.data === "object") {
+          try {
+            const txt = JSON.stringify(gi.data);
+            if (txt.length > 6000) { fail("Item data too big"); break; }
+            gData = JSON.parse(txt);
+          } catch (e) { fail("Bad item"); break; }
+        }
+        saveGuard.creditItems(giveTarget.uid, gQty);
+        me.cmdGivePending = { targetId: giveTarget.id, at: nowGive, itemName: gName };
+        send(giveTarget.ws, { type: "cmdGive", fromId: me.id, fromName: me.name, item: { type: gType, name: gName, data: gData, qty: gQty } });
+        break;
+      }
+
+      case "cmdGiveAck": {
+        const giver = players.get(num(msg.toId, -1));
+        if (!giver || !giver.cmdGivePending || giver.cmdGivePending.targetId !== me.id) break;
+        const pending = giver.cmdGivePending;
+        giver.cmdGivePending = null;
+        send(giver.ws, {
+          type: "cmdGiveResult", ok: !!msg.ok, toName: me.name, itemName: pending.itemName,
+          reason: msg.ok ? "" : ((me.name || "That player") + "'s inventory is full")
+        });
+        break;
+      }
+
+      // SELL — the player sold an item from the inventory popup. The server works
+      // out the price itself from ITS OWN numbers (armor_server.js / upgrade_server.js),
+      // never from a price sent by the client, and credits that gold so save_guard.js
+      // accepts the gold increase on the next save. Not cheat-proof (the server does not
+      // hold the inventory), but it is rate-limited and capped by the price formula.
+      case "sell": {
+        const sellNow = Date.now();
+        if (sellNow - (me.lastSellAt || 0) < 200) break;
+        me.lastSellAt = sellNow;
+        const it = msg.item;
+        if (!it || typeof it !== "object") break;
+        const sType = String(it.type || ""), sName = String(it.name || "");
+        const sData = (it.data && typeof it.data === "object") ? it.data : {};
+        let sellPrice = 0;
+        if (sType === "weapon" && GAME_DATA.WEAPONS && GAME_DATA.WEAPONS[sName]) {
+          sellPrice = GAME_DATA.calcGearSellPrice(sData, sType);
+        } else if ((sType === "armor" || sType === "ring" || sType === "accessory") && GAME_DATA.ARMOR_TYPES && GAME_DATA.ARMOR_TYPES[sName]) {
+          sellPrice = GAME_DATA.calcGearSellPrice(sData, sType);
+        } else if ((sType === "stone" && GAME_DATA.STONE_TYPES && GAME_DATA.STONE_TYPES[sName]) ||
+                   (sType === "orb" && GAME_DATA.ORB_TYPES && GAME_DATA.ORB_TYPES[sName])) {
+          sellPrice = GAME_DATA.getUpgradeItemSellPrice(sName);
+        }
+        if (sellPrice > 0) saveGuard.creditGold(me.uid, sellPrice);
+        break;
+      }
+
+      // Victim reports who killed them -> everyone sees the kill feed.
+      case "died": {
+        const killer = me.room.get(num(msg.killerId, -1));
+        me.alive = false;
+        me.diedAt = Date.now();
+        if (me.cwAuth) cwCancelAuth(me);   // dying fails the clan war authentication
+        broadcast(me.room, {
+          type: "kill",
+          victimId: me.id, victimName: me.name,
+          killerId: killer ? killer.id : null,
+          killerName: killer ? killer.name : null
+        });
+        break;
+      }
+    }
+  });
+
+  ws.on("close", () => {
+    if (!me) return;
+    removeFromParty(me);
+    cancelActiveTrade(me, "left");
+    // Closing the app does NOT leave the clan (it's saved to the account) —
+    // just go offline and let the clan see it.
+    if (me.uid && onlineByUid.get(me.uid) === me) {
+      onlineByUid.delete(me.uid);
+      const myClan = clanOf(me);
+      if (myClan) broadcastClanUpdate(myClan);
+    }
+    players.delete(me.id);
+    me.room.delete(me.id);
+    broadcast(me.room, { type: "playerRemove", id: me.id });
+    reassignHost(me.room, me.id);   // hand off enemy-hosting if I was hosting
+    clearDropsIfEmpty(me.room);
+    console.log(`- ${me.name} — server ${me.server} channel ${me.channel} — ${players.size} online`);
+  });
+
+  ws.on("error", () => {});
+});
+
+// Drop dead connections and keep the socket warm behind proxies (30s ping).
+setInterval(() => {
+  for (const ws of wss.clients) {
+    if (!ws.isAlive) { ws.terminate(); continue; }
+    ws.isAlive = false;
+    ws.ping();
+  }
+}, 30000);
+
+// SAFETY NET: one unexpected error inside a timer, a database call or a message
+// handler must not take the whole game server (and every connected player) down.
+process.on("uncaughtException", (e) => { console.error("[uncaughtException]", e && e.stack || e); });
+process.on("unhandledRejection", (e) => { console.error("[unhandledRejection]", e && e.stack || e); });
+
+server.listen(PORT, () => console.log("Bot Wars server listening on port " + PORT));
