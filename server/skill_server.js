@@ -415,7 +415,7 @@ const SKILLS = {
     // RANGE — how far forward the blast rectangle extends from the
     // player, in the direction of the ground tap (see
     // runBlastSkillEffect() in game.js).
-    range: 100,
+    range: 200,
 
     // WIDTH — how wide the blast rectangle is (perpendicular to its
     // facing direction). Any bot inside this range x width rectangle
