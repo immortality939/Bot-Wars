@@ -1,1 +1,1240 @@
-let vmg=typeof globalThis!=='undefined'?globalThis:typeof self!=='undefined'?self:typeof window!=='undefined'?window:typeof global!=='undefined'?global:void 0x0,vmk_308c3f=vmg['vmk_308c3f']||(vmg['vmk_308c3f']={});const vmQ_3a7525=(function(){var K=Object['getOwnPropertyNames'],c=WeakSet['prototype']['add'],l=WeakMap['prototype']['get'],d=Object['defineProperty'],Q=Object['setPrototypeOf'],k=WeakSet['prototype']['has'],R=Object['getOwnPropertySymbols'],T=Reflect['apply'],g=Function['prototype']['call'],r=Function['prototype']['apply'],J=Object['create'],G=Object['getPrototypeOf'],D=Object['getOwnPropertyDescriptor'],h=WeakMap['prototype']['has'],O=WeakMap['prototype']['set'];let B=['YCZvcYBmee22fkE0TOrhXk5Tie5reeereSlmrBf5eBUaeTiemEKFmYprmgTfmT22fB==','YCZvc2BeeeB2fFw7gCOVEeB5EC0zE1O9meqQct0TXnqXrBFRrBeWrBFreeereeiWrB5xeTC4e+2rkeRTe/TrjeZgr2KFIe5='];var b=Uint8Array,i=DataView,v=String['fromCharCode'];let W=[],N={'0':0xd2,'1':0x137,'2':0xd0,'3':0x1c,'4':0x152,'5':0x4d,'6':0x1f9,'7':0x1a0,'8':0x9,'9':0xda,'10':0x190,'11':0x25,'12':0x4e,'13':0x184,'14':0x1bf,'15':0x1fb,'16':0xd3,'17':0x12d,'18':0x140,'19':0xce,'20':0x70,'21':0x51,'22':0x117,'23':0x13,'24':0x86,'25':0x162,'26':0x179,'27':0x72,'28':0x17c,'29':0xc1,'32':0x9b,'40':0x1ca,'41':0x8f,'42':0xf7,'43':0x15d,'44':0xa7,'45':0x142,'46':0x76,'47':0x12c,'50':0x1e0,'51':0x2a,'52':0x114,'53':0x19f,'54':0x1fa,'55':0xbc,'56':0xd7,'57':0xe8,'58':0xee,'59':0x1f6,'60':0x45,'61':0xbe,'62':0x175,'63':0x13d,'64':0x18e,'70':0xdd,'71':0x38,'72':0x102,'73':0x7a,'74':0x1ed,'75':0x16a,'76':0x5d,'77':0x1d,'79':0x15b,'81':0x67,'83':0xe5,'84':0x16b,'90':0x7f,'91':0xf0,'93':0x174,'94':0xd9,'95':0xf8,'100':0x11a,'104':0xc,'105':0x99,'106':0x1e2,'107':0x6b,'110':0xf3,'111':0x126,'112':0x5e,'120':0x58,'121':0x133,'122':0xb6,'123':0x187,'124':0x9e,'127':0x3,'128':0x2c,'129':0x14,'130':0x14c,'131':0x1bc,'132':0x1c3,'140':0x8d,'141':0x118,'142':0x1bb,'143':0x55,'144':0x98,'145':0x9c,'146':0xa2,'147':0xd6,'148':0x90,'149':0x1b6,'160':0x136,'161':0x64,'162':0x107,'163':0x53,'164':0x172,'165':0x1df,'166':0x1d3,'167':0x154,'168':0x3a,'169':0x5f,'180':0x1db,'181':0x106,'182':0x87,'183':0xe2,'184':0xa4,'185':0x1e9,'200':0xdf,'201':0x1cf,'210':0x8,'213':0x166,'214':0x125,'220':0xe1,'250':0x1b3,'251':0x186,'252':0x1f5,'253':0xf1,'254':0xeb,'255':0xe6,'256':0x1d1,'262':0x1ff,'263':0x10e,'264':0x160,'265':0xab,'266':0x194,'267':0xe4,'268':0x13c,'269':0x1c1,'270':0x113,'272':0x169,'273':0x19d,'274':0x2d,'275':0x111,'276':0x16c,'277':0x1a5,'278':0x96,'279':0x91,'280':0x1d7,'281':0x43,'282':0x13b,'283':0x79,'284':0x14f,'285':0x159,'286':0x167,'287':0xad,'288':0x10a,'293':0x120,'294':0x1f4,'295':0x82,'296':0x17d,'297':0x15a,'298':0xdc,'299':0xf5,'300':0xd1,'301':0x1f1,'302':0x89,'303':0x3c,'304':0x3f};const y=0x1,a=0x2,Z=0x3,w=0x4,M=0xa9,z=0x68,P=0x3b,A=typeof 0x0n,S=[];let n=0x0;const X=function(){throw new TypeError('\x27caller\x27,\x20\x27callee\x27,\x20and\x20\x27arguments\x27\x20properties\x20may\x20not\x20be\x20accessed\x20on\x20strict\x20mode\x20functions\x20or\x20the\x20arguments\x20objects\x20for\x20calls\x20to\x20them');};Object['preventExtensions'](X);let s=new WeakSet(),p=new WeakSet(),u;function q(cg,cr,cJ){u=cg;try{return T(cg,cr,cJ);}finally{u=undefined;}}const V=new WeakMap();function I(cg,cr){O['call'](V,cg,cr);}function j(cg,cr){return cg['_$GBxYZ5']=cr,cr;}function x(cg){return l['call'](V,cg);}function H(cg){return h['call'](V,cg);}let C=new WeakMap(),E=[],L=Array['prototype'][Symbol['iterator']],t=Symbol['iterator'],F=null,o=null,f=null,Y=null,U=null;try{let cg=function*(){};F=G(cg),o=F&&F['prototype'];}catch(cr){}try{let cJ=async function*(){};f=G(cJ),Y=f&&f['prototype'];}catch(cG){}try{let cD=async function(){};U=G(cD);}catch(ch){}function m(cO,cB,cb){try{d(cO,cB,cb);}catch(ci){}}function K0(cO,cB){let cb=new Array(cB),ci=![];for(let cW=cB-0x1;cW>=0x0;cW--){let cN=cO();cN&&typeof cN==='object'&&k['call'](s,cN)?(ci=!![],cb[cW]=cN):cb[cW]=cN;}if(!ci)return cb;let cv=[];for(let cy=0x0;cy<cB;cy++){let ca=cb[cy];if(ca&&typeof ca==='object'&&k['call'](s,ca)){let cZ=ca['value'];if(Array['isArray'](cZ)){for(let cw=0x0;cw<cZ['length'];cw++)cv['push'](cZ[cw]);}}else cv['push'](ca);}return cv;}function K1(cO){return typeof cO==='object'||typeof cO==='function';}function K2(cO){return{'value':cO,'writable':!![],'configurable':!![]};}function K3(cO,cB){return cO&&K1(cO)?cO:cB;}function K4(cO,cB){try{Q(cO,cB);}catch(cb){}}function K5(cO,cB){let cb=cO===null||cO===undefined?undefined:cO[cB];if(cb===null||cb===undefined)return undefined;if(typeof cb!=='function')throw new TypeError('Method\x20is\x20not\x20callable');return cb;}function K6(cO){if(cO===null||typeof cO!=='object'&&typeof cO!=='function')throw new TypeError('Iterator\x20result\x20'+cO+'\x20is\x20not\x20an\x20object');}function K7(cO){let cB=cO['done'];return{'done':cB,'value':cB?cO['value']:undefined};}function K8(cO){let cB=K5(cO,Symbol['asyncIterator']),cb,ci;if(cB!==undefined)cb=T(cB,cO,[]),ci=![];else{let cW=K5(cO,Symbol['iterator']);if(cW===undefined)throw new TypeError(typeof cO+'\x20is\x20not\x20iterable');cb=T(cW,cO,[]),ci=!![];}if(cb===null||typeof cb!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');let cv=cb['next'];if(typeof cv!=='function')throw new TypeError('Iterator\x20next\x20is\x20not\x20a\x20function');return{'iter':cb,'nextMethod':cv,'isSync':ci};}function K9(cO){let cB=[];for(let cb in cO){cB['push'](cb);}return cB;}function KK(cO){return Array['prototype']['slice']['call'](cO);}function Kc(cO){return typeof cO==='function'&&cO['prototype']?cO['prototype']:cO;}function Kl(cO){if(typeof cO==='function')return G(cO);let cB=G(cO),cb=cB&&D(cB,'constructor'),ci=cb&&cb['value'],cv=ci&&typeof ci==='function'&&(ci['prototype']===cB||G(ci['prototype'])===G(cB));if(cv)return G(cB);return cB;}function Kd(cO,cB){let cb=cO;while(cb!==null){let ci=D(cb,cB);if(ci)return{'desc':ci,'proto':cb};cb=G(cb);}return{'desc':null,'proto':cO};}function KQ(cO){let cB=typeof cO;if(cO!==null&&(cB==='object'||cB==='function')){let cb=J(null);return cb[cO]=0x0,Reflect['ownKeys'](cb)[0x0];}if(cB!=='symbol')return String(cO);return cO;}function Kk(cO,cB){let cb=cO;while(cb){let ci=cb['_$PID1Ut'];if(ci>=0x0){let cv=cb['_$3vCbqT'];if(cv){let cW=cB(cv,ci);if(cW!==undefined)return cW;}}cb=cb['_$kVba6v'];}}function KR(cO,cB){Kk(cO,function(cb,ci){cb[ci]===cb&&(cb[ci]=cB);});}function KT(cO){return Kk(cO,function(cB,cb){let ci=cB[cb];if(ci!==cB&&ci!==undefined)return ci;});}function Kg(cO,cB){var cb=cO[cB],ci=function(){vmk_308c3f['_$PuTE2f']=!![];var cv=vmk_308c3f['_$oCzQEs'];vmk_308c3f['_$oCzQEs']=cO;try{return Reflect['apply'](cb,this,arguments);}finally{vmk_308c3f['_$oCzQEs']=cv;}};Object['defineProperties'](ci,{'length':{'value':cb['length'],'configurable':!![]},'name':{'value':cb['name'],'configurable':!![]}}),cO[cB]=ci,(vmk_308c3f['_$JBjidn']||(vmk_308c3f['_$JBjidn']=new WeakMap()))['set'](ci,cO);}vmk_308c3f['_$xJsBTO']=Kg;function Kr(cO,cB,cb,ci){if(!cO||cB[0x4*ci[0x0]+ci[0x1]&0x1f]||cB[0x10*ci[0x0]+ci[0x1]&0x1f]||cB[0xa*ci[0x0]+ci[0x1]&0x1f])return;!H(cO)&&I(cO,{['_$xPQAao']:cB,['_$r2vEjJ']:cb,['_$GBxYZ5']:cB,['_$R3crfR']:undefined});}function KJ(cO,cB,cb,ci,cv,cW){let cN;if(cW){ci?cN={'qJKUeV'(){'use strict';let cy=new.target!==undefined?new.target:vmk_308c3f['_$1p9m05'];return new.target===undefined&&'_$1p9m05'in vmk_308c3f&&!('_$K5UPIM'in vmk_308c3f)&&delete vmk_308c3f['_$1p9m05'],cO(cB,cb,this,arguments,cN,cy);}}['qJKUeV']:cN={'qJKUeV'(){let cy=new.target!==undefined?new.target:vmk_308c3f['_$1p9m05'];return new.target===undefined&&'_$1p9m05'in vmk_308c3f&&!('_$K5UPIM'in vmk_308c3f)&&delete vmk_308c3f['_$1p9m05'],cO(cB,cb,this,arguments,cN,cy);}}['qJKUeV'];try{delete cN['prototype'];}catch(cy){}}else ci?cN=function ca(){'use strict';let cZ=new.target!==undefined?new.target:vmk_308c3f['_$1p9m05'];return new.target===undefined&&'_$1p9m05'in vmk_308c3f&&!('_$K5UPIM'in vmk_308c3f)&&delete vmk_308c3f['_$1p9m05'],cO(cB,cb,this,arguments,cN,cZ);}:cN=function cZ(){let cw=new.target!==undefined?new.target:vmk_308c3f['_$1p9m05'];return new.target===undefined&&'_$1p9m05'in vmk_308c3f&&!('_$K5UPIM'in vmk_308c3f)&&delete vmk_308c3f['_$1p9m05'],cO(cB,cb,this,arguments,cN,cw);};return I(cN,{['_$xPQAao']:cB,['_$r2vEjJ']:cb,['_$GBxYZ5']:undefined,['_$R3crfR']:undefined}),cN;}function KG(cO,cB,cb,ci,cv){let cW;ci?cW={'qJKUeV'(){'use strict';let cN=new.target!==undefined?new.target:vmk_308c3f['_$1p9m05'];return new.target===undefined&&'_$1p9m05'in vmk_308c3f&&!('_$K5UPIM'in vmk_308c3f)&&delete vmk_308c3f['_$1p9m05'],cO(cB,cb,this,undefined,arguments,cW,cN);}}['qJKUeV']:cW={'qJKUeV'(){let cN=new.target!==undefined?new.target:vmk_308c3f['_$1p9m05'];return new.target===undefined&&'_$1p9m05'in vmk_308c3f&&!('_$K5UPIM'in vmk_308c3f)&&delete vmk_308c3f['_$1p9m05'],cO(cB,cb,this,undefined,arguments,cW,cN);}}['qJKUeV'];if(U)K4(cW,U);return cW;}function KD(cO,cB,cb,ci,cv,cW,cN){let cy;cv?cy={'qJKUeV'(){'use strict';return cO(cB,cb,this,vmk_308c3f['_$oCzQEs'],arguments,cy);}}['qJKUeV']:cy={'qJKUeV'(){return cO(cB,cb,this,vmk_308c3f['_$oCzQEs'],arguments,cy);}}['qJKUeV'];c['call'](ci,cy);let ca=cN?f:F,cZ=cN?Y:o;if(ca)K4(cy,ca);try{d(cy,'prototype',{'value':cZ?J(cZ):J({}),'writable':!![],'enumerable':![],'configurable':![]});}catch(cw){}return cy;}function Kh(cO,cB,cb,ci){let cv=vmk_308c3f['_$oCzQEs'],cW;return cW={'qJKUeV':(...cN)=>{return cv!==undefined&&(vmk_308c3f['_$PuTE2f']=!![],vmk_308c3f['_$oCzQEs']=cv),cO(cB,cb,ci,cN,cW,undefined);}}['qJKUeV'],cW;}function KO(cO,cB,cb,ci){let cv;cv={'qJKUeV':(...cW)=>{return cO(cB,cb,ci,undefined,cW,cv,undefined);}}['qJKUeV'];if(U)K4(cv,U);return cv;}function KB(cO,cB,cb,ci,cv,cW){let cN=[void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0],cy=0x0,ca=cK(cO[0x20],cO[0x21]),cZ,cw,cM,cz;switch(ca[0x1]&0x3){case 0x0:cw=cO[0x18*ca[0x0]+ca[0x1]&0x1f],cZ=cO[0xe*ca[0x0]+ca[0x1]&0x1f],cM=cO[0x16*ca[0x0]+ca[0x1]&0x1f]||S,cz=cO[0x5*ca[0x0]+ca[0x1]&0x1f]||S;break;case 0x1:cZ=cO[0xe*ca[0x0]+ca[0x1]&0x1f],cM=cO[0x16*ca[0x0]+ca[0x1]&0x1f]||S,cz=cO[0x5*ca[0x0]+ca[0x1]&0x1f]||S,cw=cO[0x18*ca[0x0]+ca[0x1]&0x1f];break;case 0x2:cM=cO[0x16*ca[0x0]+ca[0x1]&0x1f]||S,cz=cO[0x5*ca[0x0]+ca[0x1]&0x1f]||S,cw=cO[0x18*ca[0x0]+ca[0x1]&0x1f],cZ=cO[0xe*ca[0x0]+ca[0x1]&0x1f];break;default:cz=cO[0x5*ca[0x0]+ca[0x1]&0x1f]||S,cw=cO[0x18*ca[0x0]+ca[0x1]&0x1f],cZ=cO[0xe*ca[0x0]+ca[0x1]&0x1f],cM=cO[0x16*ca[0x0]+ca[0x1]&0x1f]||S;break;}let cP=new Array((cO[0x20]||0x0)+(cO[0x21]||0x0)),ce=0x0,cA=cw['length']>>0x1,cS=(cO[0x20]*0x2bfb^cO[0x21]*0x8703^cA*0x8b1^cZ['length']*0x6183)>>>0x0&0x3,cn,cX,cs;switch(cS){case 0x1:cn=cA,cX=0x0,cs=0x0;break;case 0x2:cn=0x1,cX=0x0,cs=0x1;break;case 0x3:cn=0x0,cX=cA,cs=0x0;break;default:cn=0x0,cX=0x1,cs=0x1;break;}let cp=null,cu=null,cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cL=-0x1,ct=-0x1,cF=!!cO[0x2*ca[0x0]+ca[0x1]&0x1f],co=!!cO[0x0*ca[0x0]+ca[0x1]&0x1f],cf=!!cO[0x3*ca[0x0]+ca[0x1]&0x1f],cY=!!cO[0x9*ca[0x0]+ca[0x1]&0x1f],cU=cb,cm=!!cO[0xa*ca[0x0]+ca[0x1]&0x1f];!cF&&!cm&&(cb===undefined||cb===null)&&(cb=vmg);let l0=lT=>{cN[cy++]=lT;},l1=()=>cN[--cy],l2=cO[0x15*ca[0x0]+ca[0x1]&0x1f]||0x0,l3={['_$3vCbqT']:l2?new Array(l2)['fill'](void 0x0):S,['_$qq4u5O']:null,['_$PID1Ut']:-0x1,['_$kVba6v']:cB};if(ci){let lT=cO[0x20]||0x0;for(let lg=0x0,lr=ci['length']<lT?ci['length']:lT;lg<lr;lg++){cP[lg]=ci[lg];}}let l4=ci?ci['length']:0x0,l5=(cF||!co)&&ci?KK(ci):null,l6=null,l7=![],l8=(cO[0x20]||0x0)+(cO[0x21]||0x0),l9=null,lK=0x0;Kr(cv,cO,cB,ca);var lc,ll,ld,lQ,lk;lk=[0x34,0x0,0x0,0x0,0x0,0x0,0x0,0x16,0x15,0xd,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x10,0x0,0x37,0x6,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x13,0x1f,0x0,0x0,0x0,0x0,0x1e,0x1,0x0,0x23,0x33,0x0,0x2a,0x0,0x0,0x0,0x35,0x0,0x9,0x0,0x0,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x5,0x0,0x0,0x21,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1a,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0xb,0x0,0x0,0x22,0x0,0x0,0x0,0x18,0x0,0x0,0x0,0x4,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0xc,0x27,0x0,0x2b,0x0,0xa,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2c,0x0,0x0,0x1b,0x0,0x8,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x7,0x0,0x0,0x0,0x2d,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2e,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x32,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x28,0x24,0x26,0x1d,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2f,0x0,0x0,0x0,0x31,0x29,0x25,0xe,0x14,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x19,0x36,0x3,0x20,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x30,0x1c,0x0,0x0,0x0,0x0,0x12,0x0,0xf,0x0,0x17,0x11],ll=function(lJ,lG){switch(lJ){case 0x20:{let lh=cN[--cy],lO=cN[cy-0x1],lB=cZ[lG];d(lO['prototype'],lB,{'value':lh,'writable':!![],'enumerable':![],'configurable':!![]});typeof lh==='function'&&(!vmk_308c3f['_$JBjidn']&&(vmk_308c3f['_$JBjidn']=new WeakMap()),O['call'](vmk_308c3f['_$JBjidn'],lh,lO['prototype']));ce++;break;}case 0x2f:{!cN[--cy]?ce=cM[ce]:ce++;break;}case 0x6:{K:{let lb=cZ[lG],li=cN[--cy];if(typeof li!=='function')throw new TypeError(li+'\x20is\x20not\x20a\x20function');let lv=vmk_308c3f['_$JBjidn'],lW=!vmk_308c3f['_$oCzQEs']&&!vmk_308c3f['_$1p9m05']&&!(lv&&l['call'](lv,li))&&x(li);if(lW&&lW['_$R3crfR']!==![]){let lw=lW['_$GBxYZ5']||j(lW,typeof lW['_$xPQAao']==='object'?lW['_$xPQAao']['n']!==undefined?0x0?cQ(lW['_$xPQAao']['n']):lW['_$xPQAao']['d']||(lW['_$xPQAao']['d']=cQ(lW['_$xPQAao']['n'])):lW['_$xPQAao']:cd(lW['_$xPQAao']));if(lw){let lM;if(lb===0x0)lM=[];else{if(lb===0x1){let le=cN[--cy];lM=le&&typeof le==='object'&&k['call'](s,le)?le['value']:[le];}else lM=K0(l1,lb);}let lz=lw===cO?ca:cK(lw[0x20],lw[0x21]),lP=lw[0x6*lz[0x0]+lz[0x1]&0x1f];if(lP&&lw===cO&&!lw[0x5*lz[0x0]+lz[0x1]&0x1f]&&lW['_$r2vEjJ']===cB){!l9&&(l9=[]);l9[lK++]=ce,l9[lK++]=l6,l9[lK++]=l5,l9[lK++]=cy,l9[lK++]=ci,l9[lK++]=l3;for(let lA=0x0;lA<l8;lA++){l9[lK++]=cP[lA];}ci=lM,l6=null;if(lw[0x0*lz[0x0]+lz[0x1]&0x1f]){l5=null;let lS=lw[0x20]||0x0;for(let ln=0x0;ln<lS&&ln<lM['length'];ln++){cP[ln]=lM[ln];}for(let lX=lM['length']<lS?lM['length']:lS;lX<l8;lX++){cP[lX]=undefined;}ce=lP;}else{l5=KK(lM);for(let ls=0x0;ls<l8;ls++){cP[ls]=undefined;}ce=0x0;}break K;}vmk_308c3f['_$PuTE2f']?vmk_308c3f['_$PuTE2f']=![]:vmk_308c3f['_$oCzQEs']=undefined;cN[cy++]=KB(lw,lW['_$r2vEjJ'],undefined,lM,li,undefined),ce++;break K;}}let lN=vmk_308c3f['_$oCzQEs'],ly=vmk_308c3f['_$JBjidn'],la=ly&&l['call'](ly,li);la?(vmk_308c3f['_$PuTE2f']=!![],vmk_308c3f['_$oCzQEs']=la):vmk_308c3f['_$oCzQEs']=undefined;let lZ;try{if(lb===0x0)lZ=li();else{if(lb===0x1){let lp=cN[--cy];lZ=lp&&typeof lp==='object'&&k['call'](s,lp)?T(li,undefined,lp['value']):li(lp);}else lZ=T(li,undefined,K0(l1,lb));}cN[cy++]=lZ;}finally{la&&(vmk_308c3f['_$PuTE2f']=![]),vmk_308c3f['_$oCzQEs']=lN;}ce++;}break;}case 0x1d:{let lu=cN[--cy],lq=cN[cy-0x1],lV=cZ[lG];d(lq,lV,{'get':lu,'enumerable':![],'configurable':!![]}),ce++;break;}case 0x2d:{cN[cy++]={},ce++;break;}case 0xb:{cN[cy++]=[],ce++;break;}case 0x4:{throw cN[--cy];break;}case 0x38:{let lI=cN[--cy],lj=cN[--cy],lx=(lG^0xf476)>>>0x0,lH;lx<0x10?lx<0x8?lx<0x4?lx<0x2?lH=lx<0x1?lj>lI:lj+lI:lH=lx<0x3?lj<=lI:lj===lI:lx<0x6?lH=lx<0x5?lj!=lI:lj>>>lI:lH=lx<0x7?lj&lI:lj^lI:lx<0xc?lx<0xa?lH=lx<0x9?lj|lI:lj-lI:lH=lx<0xb?lj**lI:lj!==lI:lx<0xe?lH=lx<0xd?lj%lI:lj>>lI:lH=lx<0xf?lj<<lI:lj>=lI:lx<0x14?lx<0x12?lH=lx<0x11?lj*lI:lj==lI:lH=lx<0x13?lj<lI:lj/lI:lx<0x18?lH=lx<0x16?lj|lI:lj&lI:lH=lx<0x1c?lj^lI:lI-lj;cN[cy++]=lH,ce++;break;}case 0x14:{let lC=cN[--cy],lE=cN[cy-0x1];if(lC!==null&&lC!==undefined){let lL=Object(lC),lt=Reflect['ownKeys'](lL);for(let lF=0x0;lF<lt['length'];lF++){let lo=lt[lF],lf=D(lL,lo);lf!==undefined&&lf['enumerable']&&d(lE,lo,{'value':lL[lo],'writable':!![],'enumerable':!![],'configurable':!![]});}}ce++;break;}case 0x1a:{let lY=cN[--cy];cN[cy++]=lY['next'](),ce++;break;}case 0x3d:{c:{let lU=cN[--cy],lm=K0(l1,lU),d0=cN[--cy];if(lG===0x1){cN[cy++]=lm,ce++;break c;}if(vmk_308c3f['_$MzgD8F']){ce++;break c;}let d1=vmk_308c3f['_$v6RZze'];if(d1){let d4=d1['outer'],d5=d4?G(d4):d1['parent'];if(typeof d5!=='function')throw new TypeError('Super\x20constructor\x20'+String(d5)+'\x20of\x20'+(d4&&d4['name']||'anonymous')+'\x20is\x20not\x20a\x20constructor');let d6=d1['newTarget'],d7=Reflect['construct'](d5,lm,d6);cb&&cb!==d7&&K(cb)['forEach'](function(d8){!(d8 in d7)&&(d7[d8]=cb[d8]);});cb=d7,l7=!![],KR(l3,cb),ce++;break c;}if(typeof d0!=='function')throw new TypeError('Super\x20expression\x20must\x20be\x20a\x20constructor');let d2;C['has'](cv)?d2=KT(l3):d2=l7?cb:undefined;let d3=cW!==undefined?cW:vmk_308c3f['_$1p9m05'];vmk_308c3f['_$1p9m05']=cW;try{let d8;H(d0)?d8=q(d0,cb,lm):d8=d3!==undefined?Reflect['construct'](d0,lm,d3):Reflect['construct'](d0,lm),d8!==undefined&&d8!==cb&&K1(d8)&&(cb&&Object['assign'](d8,cb),cb=d8,cW&&cW['prototype']&&G(cb)!==cW['prototype']&&Q(cb,cW['prototype'])),l7=!![],KR(l3,cb);}finally{delete vmk_308c3f['_$1p9m05'];}if(d2!==undefined)throw new ReferenceError('Super\x20constructor\x20may\x20only\x20be\x20called\x20once');ce++;}break;}case 0x15:{let d9=cN[--cy],dK=cN[--cy];cN[cy++]=dK!==d9,ce++;break;}case 0x3e:{cN[cy++]=undefined,ce++;break;}case 0x11:{let dc=cN[--cy],dl=cZ[lG];if(vmk_308c3f['_$TWGPn8']&&dl in vmk_308c3f['_$TWGPn8'])throw new ReferenceError('Cannot\x20access\x20\x27'+dl+'\x27\x20before\x20initialization');let dd=!(dl in vmk_308c3f)&&!(dl in vmg);vmk_308c3f[dl]=dc;dl in vmg&&(vmg[dl]=dc);dd&&(vmg[dl]=dc);cN[cy++]=dc,ce++;break;}case 0x3a:{if(cf&&!l7){let dR=KT(l3);if(dR!==undefined)cb=dR,l7=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let dQ=cb,dk=cZ[lG];if(dQ===null||dQ===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dQ+'\x20(reading\x20'+'\x27'+String(dk)+'\x27'+')');cN[cy++]=dQ[dk],ce++;break;}case 0x39:{if(cp&&cp['length']>0x0){let dT=cp[cp['length']-0x1];dT['_$a9t47i']===ce&&(dT['_$yq9CyO']!==undefined&&(cu=dT['_$yq9CyO'],cL=dT['_$1TlS2C'],ct=dT['_$cc27pr']),dT['_$63Q91f']!==undefined&&(l3=dT['_$63Q91f']),cp['pop']());}ce++;break;}case 0x36:{let dg=cN[cy-0x1];cN[cy-0x1]=cN[cy-0x2],cN[cy-0x2]=dg,ce++;break;}case 0xc:{let dr=cN[--cy],dJ=cZ[lG];if(cF&&!(dJ in vmg)&&!(dJ in vmk_308c3f))throw new ReferenceError(dJ+'\x20is\x20not\x20defined');vmk_308c3f[dJ]=dr,vmg[dJ]=dr,cN[cy++]=dr,ce++;break;}case 0x0:{cN[--cy]?ce=cM[ce]:ce++;break;}case 0x8:{let dG=cN[--cy];dG!==null&&dG!==undefined?ce=cM[ce]:ce++;break;}case 0x5:{let dD=cN[--cy];cN[cy++]=!!dD['done'],ce++;break;}case 0x3c:{l:{let dh=lG&0xffff,dO=lG>>>0x10,dB=cN[--cy],db=l3;for(let dN=0x0;dN<dO;dN++){db=db['_$kVba6v'];}let di=db['_$3vCbqT'];if(di[dh]===di){let dy=db['_$Ij0Mgj'];throw new ReferenceError('Cannot\x20access\x20\x27'+(dy&&dy[dh]||'variable')+'\x27\x20before\x20initialization');}let dv=db['_$qq4u5O'],dW=dv&&dv[dh];if(dW){if(dW===0x2&&!cF){ce++;break l;}throw new TypeError('Assignment\x20to\x20constant\x20variable.');}di[dh]=dB,ce++;break l;}break;}case 0x1:{let da=cN[--cy],dZ=cN[--cy],dw=cN[--cy];d(dw,dZ,{'value':da,'writable':!![],'enumerable':!![],'configurable':!![]});typeof da==='function'&&(!vmk_308c3f['_$JBjidn']&&(vmk_308c3f['_$JBjidn']=new WeakMap()),O['call'](vmk_308c3f['_$JBjidn'],da,dw));ce++;break;}case 0x7:{let dM=cN[--cy],dz=cN[--cy];cN[cy++]=dz<=dM,ce++;break;}case 0x12:{d:{let dP=cM[ce];if(dP===ct){if(cu!==null){cq=![],cI=![],cH=![];let de=cu;cu=null;throw de;}if(cq){while(cp&&cp['length']>0x0){let dS=cp[cp['length']-0x1];if(dS['_$a9t47i']!==undefined)break;cp['pop']();}if(cp&&cp['length']>0x0){let dn=cp[cp['length']-0x1];if(dn['_$a9t47i']!==undefined){cL=dn['_$1TlS2C'],ct=dn['_$cc27pr'],ce=dn['_$a9t47i'];break d;}}let dA=cV;return cq=![],cV=undefined,lc=dA,0x1;}if(cI){while(cp&&cp['length']>0x0){let ds=cp[cp['length']-0x1];if(ds['_$a9t47i']!==undefined||!(cj>=ds['_$cc27pr']||cj<=ds['_$1TlS2C']))break;cp['pop']();}if(cp&&cp['length']>0x0){let dp=cp[cp['length']-0x1];if(dp['_$a9t47i']!==undefined&&(cj>=dp['_$cc27pr']||cj<=dp['_$1TlS2C'])){cL=dp['_$1TlS2C'],ct=dp['_$cc27pr'],ce=dp['_$a9t47i'];break d;}}let dX=cj;cI=![],cj=0x0;cx!==undefined&&(l3=cx,cx=undefined);ce=dX;break d;}if(cH){while(cp&&cp['length']>0x0){let dq=cp[cp['length']-0x1];if(dq['_$a9t47i']!==undefined||!(cC>=dq['_$cc27pr']||cC<=dq['_$1TlS2C']))break;cp['pop']();}if(cp&&cp['length']>0x0){let dV=cp[cp['length']-0x1];if(dV['_$a9t47i']!==undefined&&(cC>=dV['_$cc27pr']||cC<=dV['_$1TlS2C'])){cL=dV['_$1TlS2C'],ct=dV['_$cc27pr'],ce=dV['_$a9t47i'];break d;}}let du=cC;cH=![],cC=0x0;cE!==undefined&&(l3=cE,cE=undefined);ce=du;break d;}}ce++;}break;}case 0x33:{cN[cy-0x1]=-cN[cy-0x1],ce++;break;}case 0xf:{let dI=lG&0xffff,dj=lG>>>0x10,dx=cZ[dI],dH=cZ[dj];cN[cy++]=new RegExp(dx,dH),ce++;break;}case 0x2e:{let dC=cN[--cy],dE=cN[--cy];cN[cy++]=dE<dC,ce++;break;}case 0x18:{let dL=cN[cy-0x1],dt=cZ[lG];if(dL===null||dL===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dL+'\x20(reading\x20'+'\x27'+String(dt)+'\x27'+')');cN[cy++]=dL[dt],ce++;break;}case 0x17:{let dF=cN[--cy],df=cN[--cy];cN[cy++]=df-dF,ce++;break;}case 0x28:{l3=l3['_$kVba6v'],ce++;break;}case 0x35:{let dY=cN[--cy],dU=cN[--cy];cN[cy++]=dU*dY,ce++;break;}case 0x16:{let dm=cZ[lG],Q0=cN[--cy],Q1=cN[--cy];if(typeof Q0!=='function')throw new TypeError(Q0+'\x20is\x20not\x20a\x20function');let Q2=vmk_308c3f['_$JBjidn'],Q3=Q2&&l['call'](Q2,Q0);!Q3&&Q2&&(Q0===g||Q0===r)&&(Q3=l['call'](Q2,Q1));let Q4=vmk_308c3f['_$oCzQEs'];Q3&&(vmk_308c3f['_$PuTE2f']=!![],vmk_308c3f['_$oCzQEs']=Q3);let Q5;try{if(dm===0x0)Q5=T(Q0,Q1,S);else{if(dm===0x1){let Q6=cN[--cy];Q5=Q6&&typeof Q6==='object'&&k['call'](s,Q6)?T(Q0,Q1,Q6['value']):T(Q0,Q1,[Q6]);}else Q5=T(Q0,Q1,K0(l1,dm));}cN[cy++]=Q5;}finally{Q3&&(vmk_308c3f['_$PuTE2f']=![],vmk_308c3f['_$oCzQEs']=Q4);}ce++;break;}case 0x3:{let Q7=cN[--cy],Q8=cN[cy-0x1];Q8['push'](Q7),ce++;break;}case 0x32:{let Q9=cN[--cy],QK=cN[cy-0x1],Qc=cZ[lG];d(QK,Qc,{'set':Q9,'enumerable':![],'configurable':!![]}),ce++;break;}case 0x2c:{let Ql=cN[--cy],Qd=cN[--cy];cN[cy++]=Qd<<Ql,ce++;break;}case 0x19:{cN[cy-0x1]=!cN[cy-0x1],ce++;break;}case 0x37:{cN[cy++]=cZ[lG],ce++;break;}case 0xa:{let QQ=cN[--cy],Qk=QQ&&QQ['_$P15or3'];if(Qk!==undefined){let QR=QQ['_$6NuUYd'],QT;QR>=Qk['length']?QT={'value':undefined,'done':!![]}:(QQ['_$6NuUYd']=QR+0x1,QT={'value':Qk[QR],'done':![]}),cN[cy++]=QT,ce++;}else{let Qg=QQ&&QQ['i']?QQ['i']:QQ,Qr=QQ&&QQ['n']?QQ['n']:Qg&&Qg['next'];if(typeof Qr!=='function')throw new TypeError('iterator.next\x20is\x20not\x20a\x20function');let QJ=T(Qr,Qg,[]);K6(QJ),cN[cy++]=QJ,ce++;}break;}case 0xd:{let QG=lG,QD=cN[--cy];l3['_$3vCbqT'][QG]=QD,ce++;break;}case 0x13:{let Qh=cN[--cy];if(Qh==null)throw new TypeError(Qh+'\x20is\x20not\x20iterable');let QO=Qh[t];if(Array['isArray'](Qh)&&QO===L)cN[cy++]={['_$P15or3']:Qh,['_$6NuUYd']:0x0},ce++;else{if(typeof QO!=='function')throw new TypeError(Qh+'\x20is\x20not\x20iterable');let QB=T(QO,Qh,[]);K6(QB);let Qb=QB['next'];cN[cy++]={'i':QB,'n':Qb},ce++;}break;}case 0x2:{let Qi=cN[--cy],Qv=cN[--cy],QW=cN[cy-0x1];d(QW,Qv,{'value':Qi,'writable':!![],'enumerable':![],'configurable':!![]});typeof Qi==='function'&&(!vmk_308c3f['_$JBjidn']&&(vmk_308c3f['_$JBjidn']=new WeakMap()),O['call'](vmk_308c3f['_$JBjidn'],Qi,QW));ce++;break;}case 0x29:{let QN=cN[--cy];cN[cy++]=Symbol['keyFor'](QN),ce++;break;}case 0x1b:{let Qy=cN[--cy],Qa=cN[--cy];cN[cy++]=Qa^Qy,ce++;break;}case 0x1c:{cN[cy++]=vmr[lG],ce++;break;}case 0xe:{cN[cy++]=l3,ce++;break;}case 0x9:{let QZ=cN[--cy];if((typeof QZ==='object'||typeof QZ==='function')&&QZ!==null){const Qw=QZ[Symbol['toPrimitive']];if(Qw!=null){QZ=Qw['call'](QZ,'number');if(QZ!==null&&(typeof QZ==='object'||typeof QZ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const QM=QZ['valueOf']();if(QM===null||typeof QM!=='object'&&typeof QM!=='function')QZ=QM;else{const Qz=QZ['toString']();if(Qz!==null&&(typeof Qz==='object'||typeof Qz==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');QZ=Qz;}}}cN[cy++]=typeof QZ===A?QZ:+QZ,ce++;break;}case 0x34:{let QP=cN[--cy],Qe=cN[--cy];cN[cy++]=Qe>=QP,ce++;break;}case 0x10:{Q:{let QA=cN[--cy],QS=cN[cy-0x1];if(QA===null){Q(QS['prototype'],null),Q(QS,Function['prototype']),QS['_$jrm2Vr']=null,ce++;break Q;}if(typeof QA!=='function')throw new TypeError('Class\x20extends\x20value\x20'+String(QA)+'\x20is\x20not\x20a\x20constructor\x20or\x20null');let Qn=![],QX=H(QA);if(!QX){let Qs=D(QA,'prototype');Qn=!!Qs&&Qs['writable']===![];}if(Qn){let Qp=QS,Qu=vmk_308c3f,Qq='_$1p9m05',QV='_$K5UPIM',QI='_$v6RZze';function lD(...Qj){if(new.target===undefined)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');let Qx=J(QA['prototype']);Qu[QI]={'parent':QA,'newTarget':new.target||lD,'outer':lD},Qu[QV]=new.target||lD;let QH=Qq in Qu;!QH&&(Qu[Qq]=new.target);try{let QC=q(Qp,Qx,Qj);QC!==undefined&&QC!==null&&K1(QC)&&(Qx=QC);}finally{delete Qu[QI],delete Qu[QV],!QH&&delete Qu[Qq];}return Qx;}lD['prototype']=J(QA['prototype']),lD['prototype']['constructor']=lD,Q(lD,QA),K(Qp)['forEach'](function(Qj){Qj!=='prototype'&&Qj!=='name'&&m(lD,Qj,D(Qp,Qj));});Qp['prototype']&&(K(Qp['prototype'])['forEach'](function(Qj){Qj!=='constructor'&&m(lD['prototype'],Qj,D(Qp['prototype'],Qj));}),R(Qp['prototype'])['forEach'](function(Qj){m(lD['prototype'],Qj,D(Qp['prototype'],Qj));}));cN[--cy],cN[cy++]=lD,lD['_$jrm2Vr']=QA,ce++;break Q;}Q(QS['prototype'],QA['prototype']),Q(QS,QA),QS['_$jrm2Vr']=QA,ce++;}break;}}},ld=function(lJ,lG){switch(lJ){case 0xa3:{let lh=cN[--cy],lO=cN[--cy],lB=cZ[lG];if(lO===null||lO===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+lO+'\x20(setting\x20'+'\x27'+String(lB)+'\x27'+')');if(cF){let lb=typeof lO==='object'||typeof lO==='function'?lO:Object(lO);if(!Reflect['set'](lb,lB,lh,lO))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(lB)+'\x27\x20of\x20object');}else lO[lB]=lh;cN[cy++]=lh,ce++;break;}case 0x51:{let li=cN[--cy],lv=li&&li['i']?li['i']:li;try{if(lv!=null){let lW=lv['return'];typeof lW==='function'&&lW['call'](lv);}}catch(lN){}ce++;break;}case 0x92:{cN[cy-0x1]=typeof cN[cy-0x1],ce++;break;}case 0x4c:{let ly=cN[--cy],la=ly&&ly['i']?ly['i']:ly;if(cu!==null)try{la&&typeof la['return']==='function'?cN[cy++]=Promise['resolve'](la['return']())['catch'](function(){return undefined;}):cN[cy++]=Promise['resolve']();}catch(lZ){cN[cy++]=Promise['resolve']();}else{let lw=la!=null?la['return']:undefined;if(lw==null)cN[cy++]=Promise['resolve']();else typeof lw!=='function'?cN[cy++]=Promise['reject'](new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable')):cN[cy++]=Promise['resolve'](lw['call'](la));}ce++;break;}case 0x54:{let lM=cN[--cy],lz=cN[--cy];cN[cy++]=lz>>>lM,ce++;break;}case 0x78:{let lP=cN[--cy],le=cN[cy-0x1],lA=cZ[lG],lS=Kc(le);d(lS,lA,{'get':lP,'enumerable':lS===le,'configurable':!![]}),ce++;break;}case 0x6b:{let ln=cN[--cy],lX=cN[--cy];cN[cy++]=ln==null||typeof ln!=='object'&&typeof ln!=='function'?!![]:lX in ln,ce++;break;}case 0x6e:{let ls=cN[--cy],lp=cN[cy-0x1];(ls===null||K1(ls))&&Q(lp,ls);ce++;break;}case 0x79:{let lu=cN[cy-0x1];cN[cy++]=lu,ce++;break;}case 0xa7:{let lq=cN[--cy],lV=cN[--cy],lI=cN[cy-0x1];d(lI['prototype'],lV,{'value':lq,'writable':!![],'enumerable':![],'configurable':!![]});typeof lq==='function'&&(!vmk_308c3f['_$JBjidn']&&(vmk_308c3f['_$JBjidn']=new WeakMap()),O['call'](vmk_308c3f['_$JBjidn'],lq,lI['prototype']));ce++;break;}case 0x69:{if(cf&&!l7){let lj=KT(l3);if(lj!==undefined)cb=lj,l7=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}cN[cy++]=cb,ce++;break;}case 0x4f:{let lx=vmk_308c3f['_$K5UPIM'];lx===undefined&&cv&&C['has'](cv)&&(lx=C['get'](cv));if(lx===undefined)throw new ReferenceError('\x27super\x27\x20keyword\x20is\x20only\x20valid\x20inside\x20a\x20derived\x20constructor');cN[cy++]=lx,ce++;break;}case 0xa6:{let lH=cN[--cy],lC=cN[--cy];if(lC===null||lC===undefined){if(lH===Symbol['iterator'])throw new TypeError((lC===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+lC+'\x20(reading\x20'+(typeof lH==='symbol'?'\x27'+lH['toString']()+'\x27':typeof lH==='string'?'\x27'+lH+'\x27':typeof lH==='object'||typeof lH==='function'?'\x27<computed\x20key>\x27':'\x27'+String(lH)+'\x27')+')');}cN[cy++]=lC[lH],ce++;break;}case 0x93:{let lE=cP[lG];if((typeof lE==='object'||typeof lE==='function')&&lE!==null){const lL=lE[Symbol['toPrimitive']];if(lL!=null){lE=lL['call'](lE,'number');if(lE!==null&&(typeof lE==='object'||typeof lE==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const lt=lE['valueOf']();if(lt===null||typeof lt!=='object'&&typeof lt!=='function')lE=lt;else{const lF=lE['toString']();if(lF!==null&&(typeof lF==='object'||typeof lF==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');lE=lF;}}}cP[lG]=typeof lE===A?lE+0x1n:+lE+0x1,ce++;break;}case 0x8d:{let lo=cZ[lG],lf=!![];lo in vmg&&(lf=delete vmg[lo]);lf&&lo in vmk_308c3f&&(lf=delete vmk_308c3f[lo]);cN[cy++]=lf,ce++;break;}case 0x90:{let lY=lG&0xffff,lU=lG>>>0x10;cN[cy++]=cP[lY]<cZ[lU],ce++;break;}case 0x53:{let lm=cN[--cy],d0=cN[--cy];cN[cy++]=d0**lm,ce++;break;}case 0x5a:{let d1=cN[cy-0x3],d2=cN[cy-0x2],d3=cN[cy-0x1];cN[cy-0x3]=d2,cN[cy-0x2]=d3,cN[cy-0x1]=d1,ce++;break;}case 0xa4:{let d4=cN[--cy],d5=cN[cy-0x1];if(Array['isArray'](d4)&&d4[t]===L){let d6=d5['length'],d7=d4['length'];for(let d8=0x0;d8<d7;d8++){d5[d6+d8]=d4[d8];}}else for(let d9 of d4){d5['push'](d9);}ce++;break;}case 0xa1:{let dK=cN[--cy];cN[cy++]=import(dK),ce++;break;}case 0x5e:{let dc=lG&0xffff,dl=lG>>>0x10;cN[cy++]=ci[dc]-cZ[dl],ce++;break;}case 0x5f:{let dd=cZ[lG],dQ;if(vmk_308c3f['_$TWGPn8']&&dd in vmk_308c3f['_$TWGPn8'])throw new ReferenceError('Cannot\x20access\x20\x27'+dd+'\x27\x20before\x20initialization');if(dd in vmk_308c3f)dQ=vmk_308c3f[dd];else{if(dd in vmg)dQ=vmg[dd];else throw new ReferenceError(dd+'\x20is\x20not\x20defined');}cN[cy++]=dQ,ce++;break;}case 0x81:{let dk=cZ[lG];cN[cy++]=Symbol['for'](dk),ce++;break;}case 0x70:{cp['pop'](),ce++;break;}case 0x47:{let dR=l3['_$3vCbqT'];dR[lG]=dR,l3['_$PID1Ut']=lG,ce++;break;}case 0x7a:{cN[cy-0x1]=~cN[cy-0x1],ce++;break;}case 0x80:{let dT=cP[lG];if((typeof dT==='object'||typeof dT==='function')&&dT!==null){const dg=dT[Symbol['toPrimitive']];if(dg!=null){dT=dg['call'](dT,'number');if(dT!==null&&(typeof dT==='object'||typeof dT==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dr=dT['valueOf']();if(dr===null||typeof dr!=='object'&&typeof dr!=='function')dT=dr;else{const dJ=dT['toString']();if(dJ!==null&&(typeof dJ==='object'||typeof dJ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dT=dJ;}}}cP[lG]=typeof dT===A?dT-0x1n:+dT-0x1,ce++;break;}case 0x6a:{let dG=cN[--cy],dD=cN[--cy];cN[cy++]=dD in dG,ce++;break;}case 0x8e:{let dh=cN[--cy];cN[cy++]=K9(dh),ce++;break;}case 0x46:{cN[cy++]=null,ce++;break;}case 0x48:{cN[--cy],cN[cy++]=undefined,ce++;break;}case 0xa0:{let dO=cN[--cy],dB=K0(l1,dO),db=cN[--cy];if(typeof db!=='function')throw new TypeError(db+'\x20is\x20not\x20a\x20constructor');if(k['call'](p,db))throw new TypeError(db['name']+'\x20is\x20not\x20a\x20constructor');let di=vmk_308c3f['_$oCzQEs'];vmk_308c3f['_$oCzQEs']=undefined;let dv;try{dv=Reflect['construct'](db,dB);}finally{vmk_308c3f['_$oCzQEs']=di;}cN[cy++]=dv,ce++;break;}case 0x84:{ci[lG]=cN[--cy],ce++;break;}case 0x83:{let dW=cN[--cy],dN=cN[--cy];cN[cy++]=dN&dW,ce++;break;}case 0x82:{ce++;break;}case 0x4a:{let dy=cN[--cy],da=cN[--cy];cN[cy++]=da>dy,ce++;break;}case 0xa5:{let dZ=cN[cy-0x1];if(dZ==null){var lD=cZ[lG];if(lD===null)throw new TypeError('Cannot\x20destructure\x20\x27'+dZ+'\x27\x20as\x20it\x20is\x20'+dZ+'.');throw new TypeError('Cannot\x20destructure\x20property\x20\x27'+lD+'\x27\x20of\x20\x27'+dZ+'\x27\x20as\x20it\x20is\x20'+dZ+'.');}ce++;break;}case 0x5d:{let dw=cN[--cy],dM;if(dw===null||dw===undefined)throw new TypeError(dw+'\x20is\x20not\x20iterable');let dz=dw[t];if(Array['isArray'](dw)&&dz===L){let de=dw['length'];dM=new Array(de);for(let dA=0x0;dA<de;dA++){dM[dA]=dw[dA];}}else{if(dz===null||dz===undefined||typeof dz!=='function')throw new TypeError(dw+'\x20is\x20not\x20iterable');let dS=T(dz,dw,[]);if(dS===null||typeof dS!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');dM=[];while(!![]){let dn=dS['next']();K6(dn);if(dn['done'])break;dM['push'](dn['value']);}}let dP={'value':dM};c['call'](s,dP),cN[cy++]=dP,ce++;break;}case 0x8f:{if(l6===null){if(cF||!co){let dX=l5||ci,ds=dX?dX['length']:0x0;l6=J(Object['prototype']);for(let dp=0x0;dp<ds;dp++){l6[dp]=dX[dp];}d(l6,'length',{'value':ds,'writable':!![],'enumerable':![],'configurable':!![]}),d(l6,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),l6=new Proxy(l6,{'has':function(du,dq){if(dq===Symbol['toStringTag'])return![];return dq in du;},'get':function(du,dq,dV){if(dq===Symbol['toStringTag'])return'Arguments';return Reflect['get'](du,dq,dV);}}),cF?d(l6,'callee',{'get':X,'set':X,'enumerable':![],'configurable':![]}):d(l6,'callee',{'value':cv,'writable':!![],'enumerable':![],'configurable':!![]});}else{let du=l4,dq={},dV={},dI=cv,dj=![],dx=!![],dH={},dC=function(df){if(typeof df!=='string')return NaN;let dY=+df;return dY>=0x0&&dY%0x1===0x0&&String(dY)===df?dY:NaN;},dE=function(df){return!isNaN(df)&&df>=0x0;},dL=function(df){if(df in dV)return undefined;if(df in dq)return dq[df];return df<l4?ci[df]:undefined;},dt=function(df){if(df in dV)return![];if(df in dq)return!![];return df<l4?df in ci:![];},dF={};d(dF,'length',{'value':du,'writable':!![],'enumerable':![],'configurable':!![]}),d(dF,'callee',{'value':cv,'writable':!![],'enumerable':![],'configurable':!![]}),d(dF,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),l6=new Proxy(dF,{'get':function(df,dY,dU){if(dY==='length')return du;if(dY==='callee')return dj?undefined:dI;if(dY===Symbol['toStringTag'])return'Arguments';let dm=dC(dY);if(dE(dm)){if(dm in dH)return Reflect['get'](df,dY,dU);return dL(dm);}return Reflect['get'](df,dY,dU);},'set':function(df,dY,dU){if(dY==='length'){if(!dx)return![];return du=dU,df['length']=dU,!![];}if(dY==='callee')return dI=dU,dj=![],df['callee']=dU,!![];let dm=dC(dY);if(dE(dm)){if(dm in dH)return Reflect['set'](df,dY,dU);let Q0=D(df,String(dm));if(Q0&&!Q0['writable'])return![];if(dm in dV)delete dV[dm],dq[dm]=dU;else dm<l4?ci[dm]=dU:dq[dm]=dU;return!![];}return df[dY]=dU,!![];},'has':function(df,dY){if(dY==='length')return!![];if(dY==='callee')return!dj;if(dY===Symbol['toStringTag'])return![];let dU=dC(dY);if(dE(dU)){if(String(dU)in df)return!![];return dt(dU);}return dY in df;},'defineProperty':function(df,dY,dU){if(dY==='length')return'value'in dU&&(du=dU['value']),'writable'in dU&&(dx=dU['writable']),d(df,dY,dU),!![];if(dY==='callee')return'value'in dU&&(dI=dU['value']),dj=![],d(df,dY,dU),!![];let dm=dC(dY);if(dE(dm)){let Q0='get'in dU||'set'in dU,Q1=D(df,String(dm)),Q2=dm in dH?Q1?Q1['value']:undefined:dL(dm),Q3=Q1?Q1['writable']!==![]:!![],Q4=Q1?Q1['enumerable']!==![]:!![],Q5=Q1?Q1['configurable']!==![]:!![],Q6;if(Q0)Q6=dU,dH[dm]=0x1,dm in dq&&delete dq[dm],dm in dV&&delete dV[dm];else{let Q7='value'in dU?dU['value']:Q2,Q8='writable'in dU?dU['writable']:Q3,Q9='enumerable'in dU?dU['enumerable']:Q4,QK='configurable'in dU?dU['configurable']:Q5;Q6={'value':Q7,'writable':Q8,'enumerable':Q9,'configurable':QK},'value'in dU&&(!(dm in dH)&&(dm<l4&&!(dm in dV)?ci[dm]=dU['value']:(dq[dm]=dU['value'],dm in dV&&delete dV[dm]))),'writable'in dU&&dU['writable']===![]&&(dH[dm]=0x1,dm in dq&&delete dq[dm],dm in dV&&delete dV[dm]);}return d(df,String(dm),Q6),!![];}return d(df,dY,dU),!![];},'deleteProperty':function(df,dY){if(dY==='callee')return dj=!![],delete df['callee'],!![];let dU=dC(dY);if(dE(dU)){let Q0=D(df,String(dU));if(Q0&&Q0['configurable']===![])return![];return dU in dH&&delete dH[dU],dU<l4?dV[dU]=0x1:delete dq[dU],delete df[dY],!![];}let dm=D(df,dY);if(dm&&dm['configurable']===![])return![];return delete df[dY],!![];},'preventExtensions':function(df){let dY=l4;for(let dU=0x0;dU<dY;dU++){!(dU in dV)&&!D(df,String(dU))&&d(df,String(dU),{'value':dL(dU),'writable':!![],'enumerable':!![],'configurable':!![]});}for(let dm in dq){!D(df,dm)&&d(df,dm,{'value':dq[dm],'writable':!![],'enumerable':!![],'configurable':!![]});}return Object['preventExtensions'](df),!![];},'getOwnPropertyDescriptor':function(df,dY){if(dY==='callee'){if(dj)return undefined;return D(df,'callee');}if(dY==='length')return D(df,'length');let dU=dC(dY);if(dE(dU)){if(dU in dH)return D(df,dY);if(dt(dU)){let Q0=D(df,String(dU));return{'value':dL(dU),'writable':Q0?Q0['writable']:!![],'enumerable':Q0?Q0['enumerable']:!![],'configurable':Q0?Q0['configurable']:!![]};}return D(df,dY);}let dm=D(df,dY);if(dm)return dm;return undefined;},'ownKeys':function(df){let dY=[],dU=l4;for(let Q0=0x0;Q0<dU;Q0++){!(Q0 in dV)&&dY['push'](String(Q0));}for(let Q1 in dq){dY['indexOf'](Q1)===-0x1&&dY['push'](Q1);}dY['push']('length');!dj&&dY['push']('callee');let dm=Reflect['ownKeys'](df);for(let Q2=0x0;Q2<dm['length'];Q2++){dY['indexOf'](dm[Q2])===-0x1&&dY['push'](dm[Q2]);}return dY;}});}}cN[cy++]=l6,ce++;break;}case 0x40:{let df=cN[--cy],dY=cN[--cy];cN[cy++]=dY%df,ce++;break;}case 0x5b:{let dU=cN[--cy],dm=cN[--cy];cN[cy++]=dm instanceof dU,ce++;break;}case 0xa8:{let Q0=cN[--cy],Q1=cN[--cy];cN[cy++]=Q1/Q0,ce++;break;}case 0x94:{K:{let Q2=cM[ce];while(cp&&cp['length']>0x0){let Q3=cp[cp['length']-0x1];if(Q3['_$a9t47i']!==undefined||!(Q2>=Q3['_$cc27pr']||Q2<=Q3['_$1TlS2C']))break;cp['pop']();}if(cp&&cp['length']>0x0){let Q4=cp[cp['length']-0x1];if(Q4['_$a9t47i']!==undefined&&(Q2>=Q4['_$cc27pr']||Q2<=Q4['_$1TlS2C'])){cu=null,cq=![],cV=undefined,cH=![],cC=0x0,cE=undefined,cI=!![],cj=Q2,cx=l3,cL=Q4['_$1TlS2C'],ct=Q4['_$cc27pr'],ce=Q4['_$a9t47i'];break K;}}(cq||cI||cH||cu!==null)&&(Q2>=ct||Q2<=cL)&&(cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cu=null),ce=Q2;}break;}case 0x3f:{cN[cy++]=vmJ[lG],ce++;break;}case 0x95:{cN[cy++]=ci[lG],ce++;break;}case 0x7f:{c:{let Q5=KQ(cN[--cy]),Q6=cN[--cy],Q7=vmk_308c3f['_$oCzQEs'],Q8=Q7?G(Q7):Kl(Q6),Q9=Kd(Q8,Q5);if(Q9['desc']&&Q9['desc']['get']){let Qc=vmk_308c3f['_$oCzQEs'];vmk_308c3f['_$oCzQEs']=Q9['proto']||Q8,vmk_308c3f['_$PuTE2f']=!![];let Ql;try{Ql=Q9['desc']['get']['call'](Q6);}finally{vmk_308c3f['_$PuTE2f']=![],vmk_308c3f['_$oCzQEs']=Qc;}cN[cy++]=Ql,ce++;break c;}if(Q9['desc']&&Q9['desc']['set']&&!('value'in Q9['desc'])){cN[cy++]=undefined,ce++;break c;}let QK=Q9['proto']?Q9['proto'][Q5]:Q8[Q5];if(typeof QK==='function'){let Qd=Q9['proto']||Q8,QQ=QK['constructor']&&QK['constructor']['name'],Qk=QQ==='GeneratorFunction'||QQ==='AsyncFunction'||QQ==='AsyncGeneratorFunction';!Qk&&(!vmk_308c3f['_$JBjidn']&&(vmk_308c3f['_$JBjidn']=new WeakMap()),O['call'](vmk_308c3f['_$JBjidn'],QK,Qd));}cN[cy++]=QK,ce++;}break;}case 0x49:{let QR=cN[--cy],QT=QR&&QR['i']?QR['i']:QR;if(QT!=null){if(cu!==null)try{let Qg=QT['return'];typeof Qg==='function'&&Qg['call'](QT);}catch(Qr){}else{let QJ=QT['return'];if(QJ!=null){if(typeof QJ!=='function')throw new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable');let QG=QJ['call'](QT);K6(QG);}}}ce++;break;}case 0x7b:{cN[cy++]=cW,ce++;break;}case 0x4d:{cP[lG]=cN[--cy],ce++;break;}case 0x64:{let QD=cP[lG],Qh=QD&&QD['_$P15or3'];if(Qh!==undefined){let QO=QD['_$6NuUYd'];QO>=Qh['length']?ce=cM[ce]:(QD['_$6NuUYd']=QO+0x1,cN[cy++]=Qh[QO],ce++);}else{let QB=QD['i'],Qb=T(QD['n'],QB,[]);K6(Qb),Qb['done']?ce=cM[ce]:(cN[cy++]=Qb['value'],ce++);}break;}case 0xa2:{let Qi=cN[--cy],Qv=typeof Qi;if(Qi!==null&&(Qv==='object'||Qv==='function')){let QW=J(null);QW[Qi]=0x0,Qi=Reflect['ownKeys'](QW)[0x0];}else Qv!=='symbol'&&(Qi=String(Qi));cN[cy++]=Qi,ce++;break;}case 0x4b:{let QN=cN[--cy];if(QN==null)throw new TypeError(QN+'\x20is\x20not\x20iterable');let Qy=QN[Symbol['asyncIterator']];if(typeof Qy==='function')cN[cy++]=Qy['call'](QN);else{let Qa=QN[Symbol['iterator']];if(typeof Qa!=='function')throw new TypeError(QN+'\x20is\x20not\x20iterable');let QZ=Qa['call'](QN);if(QZ===null||typeof QZ!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');let Qw=async function(Qz){if(Qz===null||typeof Qz!=='object')throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');let QP=await Qz['value'];return{'value':QP,'done':!!Qz['done']};},QM={'next':function(Qz){let QP;try{QP=QZ['next'](Qz);}catch(Qe){return Promise['reject'](Qe);}return Qw(QP);},'return':function(Qz){if(typeof QZ['return']!=='function')return Promise['resolve']({'value':Qz,'done':!![]});let QP;try{QP=QZ['return'](Qz);}catch(Qe){return Promise['reject'](Qe);}return Qw(QP);},'throw':function(Qz){if(typeof QZ['throw']!=='function')return Promise['reject'](Qz);let QP;try{QP=QZ['throw'](Qz);}catch(Qe){return Promise['reject'](Qe);}return Qw(QP);},[Symbol['asyncIterator']]:function(){return this;}};cN[cy++]=QM;}ce++;break;}case 0x8c:{let Qz=cN[--cy],QP=cN[--cy];cN[cy++]=QP|Qz,ce++;break;}case 0x7c:{let Qe=cN[--cy];if((typeof Qe==='object'||typeof Qe==='function')&&Qe!==null){const QA=Qe[Symbol['toPrimitive']];if(QA!=null){Qe=QA['call'](Qe,'number');if(Qe!==null&&(typeof Qe==='object'||typeof Qe==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const QS=Qe['valueOf']();if(QS===null||typeof QS!=='object'&&typeof QS!=='function')Qe=QS;else{const Qn=Qe['toString']();if(Qn!==null&&(typeof Qn==='object'||typeof Qn==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Qe=Qn;}}}cN[cy++]=typeof Qe===A?Qe-0x1n:+Qe-0x1,ce++;break;}case 0x6f:{let QX=lG,Qs=cN[--cy];l3['_$3vCbqT'][QX]=Qs;let Qp=l3['_$qq4u5O'];!Qp&&(Qp=J(null),l3['_$qq4u5O']=Qp);Qp[QX]=0x1,ce++;break;}case 0x91:{ce=cM[ce];break;}}},lQ=function(lJ,lG){switch(lJ){case 0x12f:{cN[--cy],ce++;break;}case 0xb8:{let lD=ci[lG];if((typeof lD==='object'||typeof lD==='function')&&lD!==null){const lh=lD[Symbol['toPrimitive']];if(lh!=null){lD=lh['call'](lD,'number');if(lD!==null&&(typeof lD==='object'||typeof lD==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const lO=lD['valueOf']();if(lO===null||typeof lO!=='object'&&typeof lO!=='function')lD=lO;else{const lB=lD['toString']();if(lB!==null&&(typeof lB==='object'||typeof lB==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');lD=lB;}}}ci[lG]=typeof lD===A?lD+0x1n:+lD+0x1,ce++;break;}case 0x110:{cN[cy-0x1]=+cN[cy-0x1],ce++;break;}case 0xc8:{let lb=lG&0xffff,li=lG>>>0x10,lv=l3;for(let ly=0x0;ly<li;ly++){lv=lv['_$kVba6v'];}let lW=lv['_$3vCbqT'],lN=lW[lb];if(lN===lW){let la=lv['_$Ij0Mgj'];throw new ReferenceError('Cannot\x20access\x20\x27'+(la&&la[lb]||'variable')+'\x27\x20before\x20initialization');}cN[cy++]=lN,ce++;break;}case 0xfb:{cP[lG]=cP[lG]+0x1,ce++;break;}case 0x108:{let lZ=cN[--cy],lw=cN[--cy];cN[cy++]=lw>>lZ,ce++;break;}case 0x10e:{let lM=cN[--cy];if((typeof lM==='object'||typeof lM==='function')&&lM!==null){const lz=lM[Symbol['toPrimitive']];if(lz!=null){lM=lz['call'](lM,'number');if(lM!==null&&(typeof lM==='object'||typeof lM==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const lP=lM['valueOf']();if(lP===null||typeof lP!=='object'&&typeof lP!=='function')lM=lP;else{const le=lM['toString']();if(le!==null&&(typeof le==='object'||typeof le==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');lM=le;}}}cN[cy++]=typeof lM===A?lM+0x1n:+lM+0x1,ce++;break;}case 0x109:{let lA=cN[--cy],lS=cN[--cy],ln=cN[cy-0x1];d(ln,lS,{'set':lA,'enumerable':![],'configurable':!![]}),ce++;break;}case 0xc9:{debugger;ce++;break;}case 0x106:{let lX=cN[--cy],ls=cN[--cy];cN[cy++]=ls==lX,ce++;break;}case 0xb9:{let lp=cN[--cy],lu=KQ(cN[--cy]),lq=cN[--cy],lV=vmk_308c3f['_$oCzQEs'],lI=lV?G(lV):Kl(lq);if(lI===null||lI===undefined)throw new TypeError('Cannot\x20convert\x20'+lI+'\x20to\x20object');let lj=Kd(lI,lu),lx=![];if(lj['desc']){let lH=lj['desc'];if(lH['set']){let lC=vmk_308c3f['_$oCzQEs'];vmk_308c3f['_$oCzQEs']=lj['proto']||lI,vmk_308c3f['_$PuTE2f']=!![];try{lH['set']['call'](lq,lp);}finally{vmk_308c3f['_$PuTE2f']=![],vmk_308c3f['_$oCzQEs']=lC;}}else{if(lH['get']||!('value'in lH)){if(cF)throw new TypeError('Cannot\x20set\x20property\x20\x27'+String(lu)+'\x27\x20of\x20object\x20which\x20has\x20only\x20a\x20getter');}else{if(lH['writable']===![]){if(cF)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(lu)+'\x27\x20of\x20object');}else lx=!![];}}}else lx=!![];if(lx){let lE=Object['getOwnPropertyDescriptor'](lq,lu);if(lE){if('value'in lE){if(lE['writable'])lq[lu]=lp;else{if(cF)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(lu)+'\x27\x20of\x20object');}}else{if(cF)throw new TypeError('Cannot\x20redefine\x20property:\x20'+String(lu));}}else{let lL=Reflect['defineProperty'](lq,lu,{'value':lp,'writable':!![],'enumerable':!![],'configurable':!![]});if(!lL&&cF)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(lu)+'\x27\x20of\x20object');}}cN[cy++]=lp,ce++;break;}case 0x10b:{let lt=lG&0xffff,lF=lG>>>0x10;cN[cy++]=cP[lt]+cZ[lF],ce++;break;}case 0xfd:{let lo=lG&0xffff,lf=lG>>>0x10;cN[cy++]=ci[lo]<=cZ[lf],ce++;break;}case 0x128:{K:{let lY=cN[--cy],lU=cN[--cy];if(typeof lU!=='function')throw new TypeError(lU+'\x20is\x20not\x20a\x20function');let lm=vmk_308c3f['_$JBjidn'],d0=!vmk_308c3f['_$oCzQEs']&&!vmk_308c3f['_$1p9m05']&&!(lm&&l['call'](lm,lU))&&x(lU);if(d0&&d0['_$R3crfR']!==![]){let d5=d0['_$GBxYZ5']||j(d0,typeof d0['_$xPQAao']==='object'?d0['_$xPQAao']['n']!==undefined?0x0?cQ(d0['_$xPQAao']['n']):d0['_$xPQAao']['d']||(d0['_$xPQAao']['d']=cQ(d0['_$xPQAao']['n'])):d0['_$xPQAao']:cd(d0['_$xPQAao']));if(d5){let d6;if(lY===0x0)d6=[];else{if(lY===0x1){let d9=cN[--cy];d6=d9&&typeof d9==='object'&&k['call'](s,d9)?d9['value']:[d9];}else d6=K0(l1,lY);}let d7=d5===cO?ca:cK(d5[0x20],d5[0x21]),d8=d5[0x6*d7[0x0]+d7[0x1]&0x1f];if(d8&&d5===cO&&!d5[0x5*d7[0x0]+d7[0x1]&0x1f]&&d0['_$r2vEjJ']===cB){!l9&&(l9=[]);l9[lK++]=ce,l9[lK++]=l6,l9[lK++]=l5,l9[lK++]=cy,l9[lK++]=ci,l9[lK++]=l3;for(let dK=0x0;dK<l8;dK++){l9[lK++]=cP[dK];}ci=d6,l6=null;if(d5[0x0*d7[0x0]+d7[0x1]&0x1f]){l5=null;let dc=d5[0x20]||0x0;for(let dl=0x0;dl<dc&&dl<d6['length'];dl++){cP[dl]=d6[dl];}for(let dd=d6['length']<dc?d6['length']:dc;dd<l8;dd++){cP[dd]=undefined;}ce=d8;}else{l5=KK(d6);for(let dQ=0x0;dQ<l8;dQ++){cP[dQ]=undefined;}ce=0x0;}break K;}vmk_308c3f['_$PuTE2f']?vmk_308c3f['_$PuTE2f']=![]:vmk_308c3f['_$oCzQEs']=undefined;cN[cy++]=KB(d5,d0['_$r2vEjJ'],undefined,d6,lU,undefined),ce++;break K;}}let d1=vmk_308c3f['_$oCzQEs'],d2=vmk_308c3f['_$JBjidn'],d3=d2&&l['call'](d2,lU);d3?(vmk_308c3f['_$PuTE2f']=!![],vmk_308c3f['_$oCzQEs']=d3):vmk_308c3f['_$oCzQEs']=undefined;let d4;try{if(lY===0x0)d4=lU();else{if(lY===0x1){let dk=cN[--cy];d4=dk&&typeof dk==='object'&&k['call'](s,dk)?T(lU,undefined,dk['value']):lU(dk);}else d4=T(lU,undefined,K0(l1,lY));}cN[cy++]=d4;}finally{d3&&(vmk_308c3f['_$PuTE2f']=![]),vmk_308c3f['_$oCzQEs']=d1;}ce++;}break;}case 0x116:{!cN[--cy]?ce=cM[ce]:(cN[--cy],ce++);break;}case 0x12b:{let dR=cN[--cy],dT=cN[--cy];cN[cy++]=dT+dR,ce++;break;}case 0x11d:{let dg=cN[--cy],dr=cN[--cy],dJ={};if(dr!==null&&dr!==undefined){let dG=Object(dr),dD=Reflect['ownKeys'](dG);for(let dh=0x0;dh<dD['length'];dh++){let dO=dD[dh],dB=![];for(let di=0x0;di<dg['length'];di++){let dv=dg[di];if((typeof dv==='symbol'?dv:String(dv))===dO){dB=!![];break;}}if(dB)continue;let db=D(dG,dO);db!==undefined&&db['enumerable']&&d(dJ,dO,{'value':dG[dO],'writable':!![],'enumerable':!![],'configurable':!![]});}}cN[cy++]=dJ,ce++;break;}case 0x12a:{let dW=cZ[lG];dW in vmk_308c3f?cN[cy++]=typeof vmk_308c3f[dW]:cN[cy++]=typeof vmg[dW];ce++;break;}case 0x11f:{let dN=cN[--cy],dy=cN[cy-0x1],da=cZ[lG],dZ=Kc(dy);d(dZ,da,{'set':dN,'enumerable':dZ===dy,'configurable':!![]}),ce++;break;}case 0x125:{let dw=cN[--cy],dM=cN[--cy],dz=cN[--cy];if(dz===null||dz===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+dz+'\x20(setting\x20'+(typeof dM==='symbol'?'\x27'+dM['toString']()+'\x27':typeof dM==='string'?'\x27'+dM+'\x27':typeof dM==='object'||typeof dM==='function'?'\x27<computed\x20key>\x27':'\x27'+String(dM)+'\x27')+')');if(cF){let dP=typeof dz==='object'||typeof dz==='function'?dz:Object(dz);if(!Reflect['set'](dP,dM,dw,dz))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(dM)+'\x27\x20of\x20object');}else dz[dM]=dw;cN[cy++]=dw,ce++;break;}case 0xb7:{let de=cN[--cy],dA=de,dS=0x0&&typeof de!=='object'?cQ(de,0x1):undefined,dn,dX,ds,dp,du,dq,dV,dI;if(dS)dX=dS[0x0]&0x1,ds=dS[0x0]&0x2,dp=dS[0x0]&0x4,du=dS[0x0]&0x8,dV=dS[0x0]&0x10,dq=dS[0x1]||0x0,dI=dS[0x2]||undefined,dn={'n':de};else{dn=typeof de==='object'?de:cQ(de);let dC=dn&&cK(dn[0x20],dn[0x21]);dX=dn&&dn[0xa*dC[0x0]+dC[0x1]&0x1f],ds=dn&&dn[0x4*dC[0x0]+dC[0x1]&0x1f],dp=dn&&dn[0x10*dC[0x0]+dC[0x1]&0x1f],du=dn&&dn[0x8*dC[0x0]+dC[0x1]&0x1f],dq=dn&&dn[0x20]||0x0,dV=dn&&dn[0x2*dC[0x0]+dC[0x1]&0x1f];let dE=dn&&dn[0x1*dC[0x0]+dC[0x1]&0x1f];dI=dE!==undefined?dn[0xe*dC[0x0]+dC[0x1]&0x1f][dE]:undefined;}de=0x0&&typeof dA!=='object'?{'n':dA}:dn;let dj=dX?cU:undefined,dx=l3,dH;if(dp)dH=KD(cR,de,dx,p,dV,vmg,ds);else{if(ds)dX?dH=KO(ck,de,dx,dj):dH=KG(ck,de,dx,dV,vmg);else{if(dX){dH=Kh(KN,de,dx,dj);let dL=vmk_308c3f['_$K5UPIM'];dL===undefined&&cv&&C['has'](cv)&&(dL=C['get'](cv)),dL!==undefined&&C['set'](dH,dL);}else dH=KJ(KN,de,dx,dV,vmg,du);}}m(dH,'length',{'value':dq,'writable':![],'enumerable':![],'configurable':!![]});dI!==undefined&&m(dH,'name',{'value':dI,'writable':![],'enumerable':![],'configurable':!![]});cN[cy++]=dH,ce++;break;}case 0x117:{if(lG===-0x2){}else lG===-0x1?cN[--cy]:l3['_$3vCbqT'][lG]=cN[--cy];ce++;break;}case 0x100:{let dt=lG;l3['_$3vCbqT'][dt]=cv;let dF=l3['_$qq4u5O'];!dF&&(dF=J(null),l3['_$qq4u5O']=dF);dF[dt]=0x2,ce++;break;}case 0x113:{if(typeof cN[cy-0x1]==='symbol')throw new TypeError('Cannot\x20convert\x20a\x20Symbol\x20value\x20to\x20a\x20string');cN[cy-0x1]=String(cN[cy-0x1]),ce++;break;}case 0x119:{cN[cy-0x1]=cN[cy-0x1]|0x0,ce++;break;}case 0xff:{let df=cz[ce];if(!cp)cp=[];cp['push']({['_$b0iXVH']:df[0x0]>=0x0?df[0x0]:undefined,['_$a9t47i']:df[0x1]>=0x0?df[0x1]:undefined,['_$cc27pr']:df[0x2]>=0x0?df[0x2]:undefined,['_$nvKFmL']:cy,['_$1TlS2C']:ce,['_$63Q91f']:l3}),ce++;break;}case 0x115:{cN[cy++]=cU,ce++;break;}case 0xdc:{let dY=cN[--cy],dU=cN[cy-0x1],dm=cZ[lG];d(dU,dm,{'value':dY,'writable':!![],'enumerable':![],'configurable':!![]});typeof dY==='function'&&(!vmk_308c3f['_$JBjidn']&&(vmk_308c3f['_$JBjidn']=new WeakMap()),O['call'](vmk_308c3f['_$JBjidn'],dY,dU));ce++;break;}case 0xb6:{if(lG===-0x1)cN[cy++]=Symbol();else{let Q0=cN[--cy];cN[cy++]=Symbol(Q0);}ce++;break;}case 0x12d:{cN[cy++]=cZ[lG],ce++;break;}case 0x114:{let Q1=cN[--cy],Q2=cN[--cy],Q3=cN[cy-0x1];d(Q3,Q2,{'get':Q1,'enumerable':![],'configurable':!![]}),ce++;break;}case 0x11a:{cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);break;}case 0x111:{let Q4=cN[--cy],Q5=cN[--cy],Q6=cZ[lG];d(Q5,Q6,{'value':Q4,'writable':!![],'enumerable':!![],'configurable':!![]});typeof Q4==='function'&&(!vmk_308c3f['_$JBjidn']&&(vmk_308c3f['_$JBjidn']=new WeakMap()),O['call'](vmk_308c3f['_$JBjidn'],Q4,Q5));ce++;break;}case 0x120:{let Q7=E[lG],Q8=cN[--cy];if(Q7){for(let Q9=0x0;Q9<Q8;Q9++)cN[--cy];for(let QK=0x0;QK<Q8;QK++)cN[--cy];cN[cy++]=Q7;}else{let Qc=new Array(Q8);for(let Qd=Q8-0x1;Qd>=0x0;Qd--)Qc[Qd]=cN[--cy];let Ql=new Array(Q8);for(let QQ=Q8-0x1;QQ>=0x0;QQ--)Ql[QQ]=cN[--cy];d(Ql,'raw',{'value':Object['freeze'](Qc)}),Object['freeze'](Ql),E[lG]=Ql,cN[cy++]=Ql;}ce++;break;}case 0x130:{!cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);break;}case 0x11e:{let Qk,QR;lG>=0x0?(QR=cN[--cy],Qk=cZ[lG]):(Qk=cN[--cy],QR=cN[--cy]);let QT=delete QR[Qk];if(cF&&!QT)throw new TypeError('Cannot\x20delete\x20property\x20\x27'+String(Qk)+'\x27\x20of\x20object');cN[cy++]=QT,ce++;break;}case 0x10d:{cN[cy++]=cP[lG],ce++;break;}case 0x10c:{let Qg=lG&0xffff,Qr=lG>>>0x10,QJ=cP[Qg],QG=cZ[Qr];if(QJ===null||QJ===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+QJ+'\x20(reading\x20'+'\x27'+String(QG)+'\x27'+')');cN[cy++]=QJ[QG],ce++;break;}case 0x112:{let QD=cN[--cy],Qh={['_$3vCbqT']:new Array(lG),['_$qq4u5O']:null,['_$PID1Ut']:-0x1,['_$kVba6v']:QD};l3=Qh,ce++;break;}case 0xb5:{let QO=cN[cy-0x3],QB=cN[cy-0x2],Qb=cN[cy-0x1];cN[cy-0x3]=Qb,cN[cy-0x2]=QO,cN[cy-0x1]=QB,ce++;break;}case 0xd5:{let Qi=cN[cy-0x1];Qi['length']++,ce++;break;}case 0xd2:{c:{while(cp&&cp['length']>0x0){let QW=cp[cp['length']-0x1];if(QW['_$a9t47i']!==undefined)break;cp['pop']();}if(cp&&cp['length']>0x0){let QN=cp[cp['length']-0x1];if(QN['_$a9t47i']!==undefined){cu=null,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cq=!![],cV=cN[--cy],cL=QN['_$1TlS2C'],ct=QN['_$cc27pr'],ce=QN['_$a9t47i'];break c;}}(cq||cI||cH)&&(cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined);cu=null;let Qv=cN[--cy];if(cf&&Qv===undefined&&!l7)throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return lc=Qv,0x1;}break;}case 0x12c:{let Qy=lG&0xffff,Qa=l3['_$3vCbqT'];Qa[Qy]=Qa;let QZ=lG>>>0x10;QZ&&((l3['_$Ij0Mgj']||(l3['_$Ij0Mgj']={}))[Qy]=cZ[QZ-0x1]);ce++;break;}case 0x10a:{let Qw=cN[--cy],QM=cZ[lG];if(Qw===null||Qw===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Qw+'\x20(reading\x20'+'\x27'+String(QM)+'\x27'+')');cN[cy++]=Qw[QM],ce++;break;}case 0x107:{let Qz=cN[--cy],QP=cN[--cy],Qe=cN[--cy];if(typeof QP!=='function')throw new TypeError(QP+'\x20is\x20not\x20a\x20function');let QA=vmk_308c3f['_$JBjidn'],QS=QA&&l['call'](QA,QP);!QS&&QA&&(QP===g||QP===r)&&(QS=l['call'](QA,Qe));let Qn=vmk_308c3f['_$oCzQEs'];QS&&(vmk_308c3f['_$PuTE2f']=!![],vmk_308c3f['_$oCzQEs']=QS);let QX;try{if(Qz===0x0)QX=T(QP,Qe,S);else{if(Qz===0x1){let Qs=cN[--cy];QX=Qs&&typeof Qs==='object'&&k['call'](s,Qs)?T(QP,Qe,Qs['value']):T(QP,Qe,[Qs]);}else QX=T(QP,Qe,K0(l1,Qz));}cN[cy++]=QX;}finally{QS&&(vmk_308c3f['_$PuTE2f']=![],vmk_308c3f['_$oCzQEs']=Qn);}ce++;break;}case 0x118:{let Qp=lG&0xffff,Qu=lG>>>0x10;cN[cy++]=cP[Qp]-cZ[Qu],ce++;break;}case 0x11c:{let Qq=cN[--cy],QV=cN[--cy],QI=cN[cy-0x1],Qj=Kc(QI);d(Qj,QV,{'set':Qq,'enumerable':Qj===QI,'configurable':!![]}),ce++;break;}case 0x11b:{let Qx=cN[--cy],QH=cN[--cy];cN[cy++]=QH!=Qx,ce++;break;}case 0xfc:{let QC=ci[lG];if((typeof QC==='object'||typeof QC==='function')&&QC!==null){const QE=QC[Symbol['toPrimitive']];if(QE!=null){QC=QE['call'](QC,'number');if(QC!==null&&(typeof QC==='object'||typeof QC==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const QL=QC['valueOf']();if(QL===null||typeof QL!=='object'&&typeof QL!=='function')QC=QL;else{const Qt=QC['toString']();if(Qt!==null&&(typeof Qt==='object'||typeof Qt==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');QC=Qt;}}}ci[lG]=typeof QC===A?QC-0x1n:+QC-0x1,ce++;break;}case 0x126:{cN[cy-0x1]=cN[cy-0x1]>>>0x0,ce++;break;}case 0xb4:{let QF=lG&0xffff,Qo=lG>>>0x10;cN[cy++]=cP[QF]*cZ[Qo],ce++;break;}case 0xd6:{let Qf=cN[--cy],QY=cN[--cy];cN[cy++]=QY===Qf,ce++;break;}case 0x129:{l:{let QU=cM[ce];while(cp&&cp['length']>0x0){let Qm=cp[cp['length']-0x1];if(Qm['_$a9t47i']!==undefined||!(QU>=Qm['_$cc27pr']||QU<=Qm['_$1TlS2C']))break;cp['pop']();}if(cp&&cp['length']>0x0){let k0=cp[cp['length']-0x1];if(k0['_$a9t47i']!==undefined&&(QU>=k0['_$cc27pr']||QU<=k0['_$1TlS2C'])){cu=null,cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=!![],cC=QU,cE=l3,cL=k0['_$1TlS2C'],ct=k0['_$cc27pr'],ce=k0['_$a9t47i'];break l;}}(cq||cI||cH||cu!==null)&&(QU>=ct||QU<=cL)&&(cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cu=null),ce=QU;}break;}case 0x12e:{let k1=cN[--cy],k2=cN[--cy],k3=lG,k4=function(k5,k6){let k7=function(){let k8=u===k7;u=undefined;if(new.target===undefined&&!k8)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');if(k5){k6&&(vmk_308c3f['_$K5UPIM']=k7);let k9='_$1p9m05'in vmk_308c3f;!k9&&(vmk_308c3f['_$1p9m05']=new.target);try{let kK=k5['apply'](this,KK(arguments));if(k6&&kK!==undefined&&(kK===null||typeof kK!=='object'&&typeof kK!=='function'))throw new TypeError('Derived\x20constructors\x20may\x20only\x20return\x20object\x20or\x20undefined');return kK;}finally{k6&&delete vmk_308c3f['_$K5UPIM'],!k9&&delete vmk_308c3f['_$1p9m05'];}}};return k7;}(k2,k3);k1&&d(k4,'name',{'value':k1,'configurable':!![]});k2&&d(k4,'length',{'value':k2['length'],'configurable':!![]});if(k2&&!H(k4)){let k5=x(k2);k5&&(k5['_$R3crfR']=![],I(k4,k5));}cN[cy++]=k4,ce++;break;}case 0xfe:{cP[lG]=cP[lG]-0x1,ce++;break;}case 0x127:{let k6=cN[--cy],k7=cN[--cy],k8=cN[cy-0x1],k9=Kc(k8);d(k9,k7,{'get':k6,'enumerable':k9===k8,'configurable':!![]}),ce++;break;}}};while(ce<cA){try{while(ce<cA){let lJ=ce<<cs,lG=cw[cn+lJ],lD=cw[cX+lJ];switch(lk[lG]){case 0x1:{let lh=cN[--cy],lO=cN[--cy];cN[cy++]=lO*lh,ce++;continue;}case 0x2:{cN[cy++]=null,ce++;continue;}case 0x3:{cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);continue;}case 0x4:{ci[lD]=cN[--cy],ce++;continue;}case 0x5:{let lB=cN[--cy],lb=cN[--cy];cN[cy++]=lb>lB,ce++;continue;}case 0x6:{let li=cN[cy-0x1],lv=cZ[lD];if(li===null||li===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+li+'\x20(reading\x20'+'\x27'+String(lv)+'\x27'+')');cN[cy++]=li[lv],ce++;continue;}case 0x7:{let lW=lD&0xffff,lN=lD>>>0x10;cN[cy++]=cP[lW]*cZ[lN],ce++;continue;}case 0x8:{let ly=cN[--cy],la=cN[--cy];cN[cy++]=la/ly,ce++;continue;}case 0x9:{let lZ=cN[--cy],lw=cN[--cy];cN[cy++]=lw%lZ,ce++;continue;}case 0xa:{cN[cy++]=ci[lD],ce++;continue;}case 0xb:{let lM=cN[cy-0x1];cN[cy++]=lM,ce++;continue;}case 0xc:{let lz=lD&0xffff,lP=lD>>>0x10;cN[cy++]=cP[lz]<cZ[lP],ce++;continue;}case 0xd:{let le=cN[--cy];if((typeof le==='object'||typeof le==='function')&&le!==null){const lA=le[Symbol['toPrimitive']];if(lA!=null){le=lA['call'](le,'number');if(le!==null&&(typeof le==='object'||typeof le==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const lS=le['valueOf']();if(lS===null||typeof lS!=='object'&&typeof lS!=='function')le=lS;else{const ln=le['toString']();if(ln!==null&&(typeof ln==='object'||typeof ln==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');le=ln;}}}cN[cy++]=typeof le===A?le:+le,ce++;continue;}case 0xe:{cN[cy++]=cP[lD],ce++;continue;}case 0xf:{cN[cy++]=cZ[lD],ce++;continue;}case 0x10:{let lX=cN[--cy],ls=cN[--cy];cN[cy++]=ls!==lX,ce++;continue;}case 0x11:{!cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);continue;}case 0x12:{let lp=cN[--cy],lu=cN[--cy];cN[cy++]=lu+lp,ce++;continue;}case 0x13:{let lq=cN[--cy],lV=cN[--cy];cN[cy++]=lV<lq,ce++;continue;}case 0x14:{let lI=cN[--cy];if((typeof lI==='object'||typeof lI==='function')&&lI!==null){const lj=lI[Symbol['toPrimitive']];if(lj!=null){lI=lj['call'](lI,'number');if(lI!==null&&(typeof lI==='object'||typeof lI==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const lx=lI['valueOf']();if(lx===null||typeof lx!=='object'&&typeof lx!=='function')lI=lx;else{const lH=lI['toString']();if(lH!==null&&(typeof lH==='object'||typeof lH==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');lI=lH;}}}cN[cy++]=typeof lI===A?lI+0x1n:+lI+0x1,ce++;continue;}case 0x15:{let lC=cN[--cy];lC!==null&&lC!==undefined?ce=cM[ce]:ce++;continue;}case 0x16:{let lE=cN[--cy],lL=cN[--cy];cN[cy++]=lL<=lE,ce++;continue;}case 0x17:{cN[--cy],ce++;continue;}case 0x18:{let lt=cP[lD];if((typeof lt==='object'||typeof lt==='function')&&lt!==null){const lF=lt[Symbol['toPrimitive']];if(lF!=null){lt=lF['call'](lt,'number');if(lt!==null&&(typeof lt==='object'||typeof lt==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const lo=lt['valueOf']();if(lo===null||typeof lo!=='object'&&typeof lo!=='function')lt=lo;else{const lf=lt['toString']();if(lf!==null&&(typeof lf==='object'||typeof lf==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');lt=lf;}}}cP[lD]=typeof lt===A?lt-0x1n:+lt-0x1,ce++;continue;}case 0x19:{let lY=lD&0xffff,lU=lD>>>0x10;cN[cy++]=cP[lY]-cZ[lU],ce++;continue;}case 0x1a:{let lm=lD&0xffff,d0=lD>>>0x10;cN[cy++]=ci[lm]-cZ[d0],ce++;continue;}case 0x1b:{let d1=cN[--cy],d2=cN[--cy];if(d2===null||d2===undefined){if(d1===Symbol['iterator'])throw new TypeError((d2===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+d2+'\x20(reading\x20'+(typeof d1==='symbol'?'\x27'+d1['toString']()+'\x27':typeof d1==='string'?'\x27'+d1+'\x27':typeof d1==='object'||typeof d1==='function'?'\x27<computed\x20key>\x27':'\x27'+String(d1)+'\x27')+')');}cN[cy++]=d2[d1],ce++;continue;}case 0x1c:{cN[cy-0x1]=cN[cy-0x1]>>>0x0,ce++;continue;}case 0x1d:{cP[lD]=cP[lD]-0x1,ce++;continue;}case 0x1e:{let d3=cN[--cy],d4=cN[--cy];cN[cy++]=d4>=d3,ce++;continue;}case 0x1f:{!cN[--cy]?ce=cM[ce]:ce++;continue;}case 0x20:{let d5=cN[--cy],d6=cN[--cy];cN[cy++]=d6!=d5,ce++;continue;}case 0x21:{cP[lD]=cN[--cy],ce++;continue;}case 0x22:{let d7=cN[--cy];if((typeof d7==='object'||typeof d7==='function')&&d7!==null){const d8=d7[Symbol['toPrimitive']];if(d8!=null){d7=d8['call'](d7,'number');if(d7!==null&&(typeof d7==='object'||typeof d7==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const d9=d7['valueOf']();if(d9===null||typeof d9!=='object'&&typeof d9!=='function')d7=d9;else{const dK=d7['toString']();if(dK!==null&&(typeof dK==='object'||typeof dK==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');d7=dK;}}}cN[cy++]=typeof d7===A?d7-0x1n:+d7-0x1,ce++;continue;}case 0x23:{cN[cy++]=cZ[lD],ce++;continue;}case 0x24:{let dc=ci[lD];if((typeof dc==='object'||typeof dc==='function')&&dc!==null){const dl=dc[Symbol['toPrimitive']];if(dl!=null){dc=dl['call'](dc,'number');if(dc!==null&&(typeof dc==='object'||typeof dc==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dd=dc['valueOf']();if(dd===null||typeof dd!=='object'&&typeof dd!=='function')dc=dd;else{const dQ=dc['toString']();if(dQ!==null&&(typeof dQ==='object'||typeof dQ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dc=dQ;}}}ci[lD]=typeof dc===A?dc-0x1n:+dc-0x1,ce++;continue;}case 0x25:{let dk=lD&0xffff,dR=lD>>>0x10,dT=cP[dk],dg=cZ[dR];if(dT===null||dT===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dT+'\x20(reading\x20'+'\x27'+String(dg)+'\x27'+')');cN[cy++]=dT[dg],ce++;continue;}case 0x26:{let dr=lD&0xffff,dJ=lD>>>0x10;cN[cy++]=ci[dr]<=cZ[dJ],ce++;continue;}case 0x27:{ce=cM[ce];continue;}case 0x28:{cP[lD]=cP[lD]+0x1,ce++;continue;}case 0x29:{let dG=lD&0xffff,dD=lD>>>0x10;cN[cy++]=cP[dG]+cZ[dD],ce++;continue;}case 0x2a:{if(cf&&!l7){let dB=KT(l3);if(dB!==undefined)cb=dB,l7=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let dh=cb,dO=cZ[lD];if(dh===null||dh===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dh+'\x20(reading\x20'+'\x27'+String(dO)+'\x27'+')');cN[cy++]=dh[dO],ce++;continue;}case 0x2b:{let db=cP[lD];if((typeof db==='object'||typeof db==='function')&&db!==null){const di=db[Symbol['toPrimitive']];if(di!=null){db=di['call'](db,'number');if(db!==null&&(typeof db==='object'||typeof db==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dv=db['valueOf']();if(dv===null||typeof dv!=='object'&&typeof dv!=='function')db=dv;else{const dW=db['toString']();if(dW!==null&&(typeof dW==='object'||typeof dW==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');db=dW;}}}cP[lD]=typeof db===A?db+0x1n:+db+0x1,ce++;continue;}case 0x2c:{let dN=cN[--cy],dy=cN[--cy],da=cZ[lD];if(dy===null||dy===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+dy+'\x20(setting\x20'+'\x27'+String(da)+'\x27'+')');if(cF){let dZ=typeof dy==='object'||typeof dy==='function'?dy:Object(dy);if(!Reflect['set'](dZ,da,dN,dy))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(da)+'\x27\x20of\x20object');}else dy[da]=dN;cN[cy++]=dN,ce++;continue;}case 0x2d:{let dw=ci[lD];if((typeof dw==='object'||typeof dw==='function')&&dw!==null){const dM=dw[Symbol['toPrimitive']];if(dM!=null){dw=dM['call'](dw,'number');if(dw!==null&&(typeof dw==='object'||typeof dw==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dz=dw['valueOf']();if(dz===null||typeof dz!=='object'&&typeof dz!=='function')dw=dz;else{const dP=dw['toString']();if(dP!==null&&(typeof dP==='object'||typeof dP==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dw=dP;}}}ci[lD]=typeof dw===A?dw+0x1n:+dw+0x1,ce++;continue;}case 0x2e:{let de=lD&0xffff,dA=lD>>>0x10,dS=l3;for(let ds=0x0;ds<dA;ds++){dS=dS['_$kVba6v'];}let dn=dS['_$3vCbqT'],dX=dn[de];if(dX===dn){let dp=dS['_$Ij0Mgj'];throw new ReferenceError('Cannot\x20access\x20\x27'+(dp&&dp[de]||'variable')+'\x27\x20before\x20initialization');}cN[cy++]=dX,ce++;continue;}case 0x2f:{let du=cN[--cy],dq=cN[--cy];cN[cy++]=dq==du,ce++;continue;}case 0x30:{let dV=cN[--cy],dI=cN[--cy],dj=cN[--cy];if(dj===null||dj===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+dj+'\x20(setting\x20'+(typeof dI==='symbol'?'\x27'+dI['toString']()+'\x27':typeof dI==='string'?'\x27'+dI+'\x27':typeof dI==='object'||typeof dI==='function'?'\x27<computed\x20key>\x27':'\x27'+String(dI)+'\x27')+')');if(cF){let dx=typeof dj==='object'||typeof dj==='function'?dj:Object(dj);if(!Reflect['set'](dx,dI,dV,dj))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(dI)+'\x27\x20of\x20object');}else dj[dI]=dV;cN[cy++]=dV,ce++;continue;}case 0x31:{let dH=cN[--cy],dC=cZ[lD];if(dH===null||dH===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dH+'\x20(reading\x20'+'\x27'+String(dC)+'\x27'+')');cN[cy++]=dH[dC],ce++;continue;}case 0x32:{let dE=cN[--cy],dL=cN[--cy];cN[cy++]=dL===dE,ce++;continue;}case 0x33:{let dt=cN[--cy],dF=cN[--cy],df=(lD^0xf476)>>>0x0,dY;df<0x10?df<0x8?df<0x4?df<0x2?dY=df<0x1?dF>dt:dF+dt:dY=df<0x3?dF<=dt:dF===dt:df<0x6?dY=df<0x5?dF!=dt:dF>>>dt:dY=df<0x7?dF&dt:dF^dt:df<0xc?df<0xa?dY=df<0x9?dF|dt:dF-dt:dY=df<0xb?dF**dt:dF!==dt:df<0xe?dY=df<0xd?dF%dt:dF>>dt:dY=df<0xf?dF<<dt:dF>=dt:df<0x14?df<0x12?dY=df<0x11?dF*dt:dF==dt:dY=df<0x13?dF<dt:dF/dt:df<0x18?dY=df<0x16?dF|dt:dF&dt:dY=df<0x1c?dF^dt:dt-dF;cN[cy++]=dY,ce++;continue;}case 0x34:{cN[--cy]?ce=cM[ce]:ce++;continue;}case 0x35:{cN[cy++]=undefined,ce++;continue;}case 0x36:{cN[cy-0x1]=cN[cy-0x1]|0x0,ce++;continue;}case 0x37:{let dU=cN[--cy],dm=cN[--cy];cN[cy++]=dm-dU,ce++;continue;}}if(lG<0x3f){if(ll(lG,lD)){if(lK>0x0){for(let Q0=l8-0x1;Q0>=0x0;Q0--){cP[Q0]=l9[--lK];}l3=l9[--lK],ci=l9[--lK],cy=l9[--lK],l5=l9[--lK],l6=l9[--lK],ce=l9[--lK],cN[cy++]=lc,ce++;continue;}return lc;}}else{if(lG<0xb4){if(ld(lG,lD)){if(lK>0x0){for(let Q1=l8-0x1;Q1>=0x0;Q1--){cP[Q1]=l9[--lK];}l3=l9[--lK],ci=l9[--lK],cy=l9[--lK],l5=l9[--lK],l6=l9[--lK],ce=l9[--lK],cN[cy++]=lc,ce++;continue;}return lc;}}else{if(lQ(lG,lD)){if(lK>0x0){for(let Q2=l8-0x1;Q2>=0x0;Q2--){cP[Q2]=l9[--lK];}l3=l9[--lK],ci=l9[--lK],cy=l9[--lK],l5=l9[--lK],l6=l9[--lK],ce=l9[--lK],cN[cy++]=lc,ce++;continue;}return lc;}}}}break;}catch(Q3){n=0x0;if(cp&&cp['length']>0x0){let Q4=cp[cp['length']-0x1];cy=Q4['_$nvKFmL'];Q4['_$63Q91f']!==undefined&&(l3=Q4['_$63Q91f']);if(Q4['_$b0iXVH']!==undefined)cu=null,l0(Q3),ce=Q4['_$b0iXVH'],Q4['_$b0iXVH']=undefined,Q4['_$a9t47i']===undefined&&cp['pop']();else Q4['_$a9t47i']!==undefined?(ce=Q4['_$a9t47i'],Q4['_$yq9CyO']=Q3):(ce=Q4['_$cc27pr'],cp['pop']());continue;}throw Q3;}}if(cf&&!l7){let Q5=KT(l3);Q5!==undefined&&(cb=Q5,l7=!![]);}let lR=cy>0x0?cN[--cy]:l7?cb:undefined;if(cf&&!l7&&(lR===undefined||lR===null||typeof lR!=='object'&&typeof lR!=='function'))throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return lR;}function Kb(cO,cB,cb,ci,cv,cW){let cN=[void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0],cy=0x0,ca=cK(cO[0x20],cO[0x21]),cZ,cw,cM,cz;switch(ca[0x1]&0x3){case 0x0:cw=cO[0x18*ca[0x0]+ca[0x1]&0x1f],cZ=cO[0xe*ca[0x0]+ca[0x1]&0x1f],cM=cO[0x16*ca[0x0]+ca[0x1]&0x1f]||S,cz=cO[0x5*ca[0x0]+ca[0x1]&0x1f]||S;break;case 0x1:cZ=cO[0xe*ca[0x0]+ca[0x1]&0x1f],cM=cO[0x16*ca[0x0]+ca[0x1]&0x1f]||S,cz=cO[0x5*ca[0x0]+ca[0x1]&0x1f]||S,cw=cO[0x18*ca[0x0]+ca[0x1]&0x1f];break;case 0x2:cM=cO[0x16*ca[0x0]+ca[0x1]&0x1f]||S,cz=cO[0x5*ca[0x0]+ca[0x1]&0x1f]||S,cw=cO[0x18*ca[0x0]+ca[0x1]&0x1f],cZ=cO[0xe*ca[0x0]+ca[0x1]&0x1f];break;default:cz=cO[0x5*ca[0x0]+ca[0x1]&0x1f]||S,cw=cO[0x18*ca[0x0]+ca[0x1]&0x1f],cZ=cO[0xe*ca[0x0]+ca[0x1]&0x1f],cM=cO[0x16*ca[0x0]+ca[0x1]&0x1f]||S;break;}let cP=new Array((cO[0x20]||0x0)+(cO[0x21]||0x0)),ce=0x0,cA=cw['length']>>0x1,cS=(cO[0x20]*0x2bfb^cO[0x21]*0x8703^cA*0x8b1^cZ['length']*0x6183)>>>0x0&0x3,cn,cX,cs;switch(cS){case 0x1:cn=cA,cX=0x0,cs=0x0;break;case 0x2:cn=0x1,cX=0x0,cs=0x1;break;case 0x3:cn=0x0,cX=cA,cs=0x0;break;default:cn=0x0,cX=0x1,cs=0x1;break;}let cp=null,cu=null,cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cL=-0x1,ct=-0x1,cF=!!cO[0x2*ca[0x0]+ca[0x1]&0x1f],co=!!cO[0x0*ca[0x0]+ca[0x1]&0x1f],cf=!!cO[0x3*ca[0x0]+ca[0x1]&0x1f],cY=!!cO[0x9*ca[0x0]+ca[0x1]&0x1f],cU=cb,cm=!!cO[0xa*ca[0x0]+ca[0x1]&0x1f];!cF&&!cm&&(cb===undefined||cb===null)&&(cb=vmg);let l0=cO[0x17*ca[0x0]+ca[0x1]&0x1f],l1,l2,l3,l4,l5,l6;if(l0!==undefined){let lT=lg=>typeof lg==='number'&&(lg|0x0)===lg&&!Object['is'](lg,-0x0)?lg^l0|0x0:lg;l1=lg=>{cN[cy++]=lT(lg);},l2=()=>lT(cN[--cy]),l3=()=>lT(cN[cy-0x1]),l4=lg=>{cN[cy-0x1]=lT(lg);},l5=lg=>lT(cN[cy-lg]),l6=(lg,lr)=>{cN[cy-lg]=lT(lr);};}else l1=lg=>{cN[cy++]=lg;},l2=()=>cN[--cy],l3=()=>cN[cy-0x1],l4=lg=>{cN[cy-0x1]=lg;},l5=lg=>cN[cy-lg],l6=(lg,lr)=>{cN[cy-lg]=lr;};let l7=cO[0x15*ca[0x0]+ca[0x1]&0x1f]||0x0,l8={['_$3vCbqT']:l7?new Array(l7)['fill'](void 0x0):S,['_$qq4u5O']:null,['_$PID1Ut']:-0x1,['_$kVba6v']:cB};if(ci){let lg=cO[0x20]||0x0;for(let lr=0x0,lJ=ci['length']<lg?ci['length']:lg;lr<lJ;lr++){cP[lr]=ci[lr];}}let l9=ci?ci['length']:0x0,lK=(cF||!co)&&ci?KK(ci):null,lc=null,ll=![],ld=(cO[0x20]||0x0)+(cO[0x21]||0x0),lQ=null,lk=0x0;Kr(cv,cO,cB,ca);function lR(lG,lD){if(lG===0x1)l1(lD);else{if(lG===0x2){if(cp&&cp['length']>0x0){let lW=cp[cp['length']-0x1];cy=lW['_$nvKFmL'];lW['_$63Q91f']!==undefined&&(l8=lW['_$63Q91f']);if(lW['_$b0iXVH']!==undefined)l1(lD),ce=lW['_$b0iXVH'],lW['_$b0iXVH']=undefined,lW['_$a9t47i']===undefined&&cp['pop']();else lW['_$a9t47i']!==undefined?(ce=lW['_$a9t47i'],lW['_$yq9CyO']=lD):(ce=lW['_$cc27pr'],cp['pop']());}else throw lD;}else{if(lG===0x3){let lN=lD;while(cp&&cp['length']>0x0){let ly=cp[cp['length']-0x1];if(ly['_$a9t47i']!==undefined)break;cp['pop']();}if(cp&&cp['length']>0x0){let la=cp[cp['length']-0x1];if(la['_$a9t47i']!==undefined)cu=null,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cq=!![],cV=lN,cL=la['_$1TlS2C'],ct=la['_$cc27pr'],ce=la['_$a9t47i'];else return lN;}else return lN;}}}var lh,lO,lB,lb,li;li=[0x34,0x0,0x0,0x0,0x0,0x0,0x0,0x16,0x15,0xd,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x10,0x0,0x37,0x6,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x13,0x1f,0x0,0x0,0x0,0x0,0x1e,0x1,0x0,0x23,0x33,0x0,0x2a,0x0,0x0,0x0,0x35,0x0,0x9,0x0,0x0,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x5,0x0,0x0,0x21,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1a,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0xb,0x0,0x0,0x22,0x0,0x0,0x0,0x18,0x0,0x0,0x0,0x4,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0xc,0x27,0x0,0x2b,0x0,0xa,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2c,0x0,0x0,0x1b,0x0,0x8,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x7,0x0,0x0,0x0,0x2d,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2e,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x32,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x28,0x24,0x26,0x1d,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2f,0x0,0x0,0x0,0x31,0x29,0x25,0xe,0x14,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x19,0x36,0x3,0x20,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x30,0x1c,0x0,0x0,0x0,0x0,0x12,0x0,0xf,0x0,0x17,0x11],lO=function(lZ,lw){switch(lZ){case 0x20:{let lz=cN[--cy],lP=cN[cy-0x1],le=cZ[lw];d(lP['prototype'],le,{'value':lz,'writable':!![],'enumerable':![],'configurable':!![]});typeof lz==='function'&&(!vmk_308c3f['_$JBjidn']&&(vmk_308c3f['_$JBjidn']=new WeakMap()),O['call'](vmk_308c3f['_$JBjidn'],lz,lP['prototype']));ce++;break;}case 0x2f:{!cN[--cy]?ce=cM[ce]:ce++;break;}case 0x6:{K:{let lA=cZ[lw],lS=cN[--cy];if(typeof lS!=='function')throw new TypeError(lS+'\x20is\x20not\x20a\x20function');let ln=vmk_308c3f['_$JBjidn'],lX=!vmk_308c3f['_$oCzQEs']&&!vmk_308c3f['_$1p9m05']&&!(ln&&l['call'](ln,lS))&&x(lS);if(lX&&lX['_$R3crfR']!==![]){let lV=lX['_$GBxYZ5']||j(lX,typeof lX['_$xPQAao']==='object'?lX['_$xPQAao']['n']!==undefined?0x0?cQ(lX['_$xPQAao']['n']):lX['_$xPQAao']['d']||(lX['_$xPQAao']['d']=cQ(lX['_$xPQAao']['n'])):lX['_$xPQAao']:cd(lX['_$xPQAao']));if(lV){let lI;if(lA===0x0)lI=[];else{if(lA===0x1){let lH=cN[--cy];lI=lH&&typeof lH==='object'&&k['call'](s,lH)?lH['value']:[lH];}else lI=K0(l2,lA);}let lj=lV===cO?ca:cK(lV[0x20],lV[0x21]),lx=lV[0x6*lj[0x0]+lj[0x1]&0x1f];if(lx&&lV===cO&&!lV[0x5*lj[0x0]+lj[0x1]&0x1f]&&lX['_$r2vEjJ']===cB){!lQ&&(lQ=[]);lQ[lk++]=ce,lQ[lk++]=lc,lQ[lk++]=lK,lQ[lk++]=cy,lQ[lk++]=ci,lQ[lk++]=l8;for(let lC=0x0;lC<ld;lC++){lQ[lk++]=cP[lC];}ci=lI,lc=null;if(lV[0x0*lj[0x0]+lj[0x1]&0x1f]){lK=null;let lE=lV[0x20]||0x0;for(let lL=0x0;lL<lE&&lL<lI['length'];lL++){cP[lL]=lI[lL];}for(let lt=lI['length']<lE?lI['length']:lE;lt<ld;lt++){cP[lt]=undefined;}ce=lx;}else{lK=KK(lI);for(let lF=0x0;lF<ld;lF++){cP[lF]=undefined;}ce=0x0;}break K;}vmk_308c3f['_$PuTE2f']?vmk_308c3f['_$PuTE2f']=![]:vmk_308c3f['_$oCzQEs']=undefined;cN[cy++]=KB(lV,lX['_$r2vEjJ'],undefined,lI,lS,undefined),ce++;break K;}}let ls=vmk_308c3f['_$oCzQEs'],lp=vmk_308c3f['_$JBjidn'],lu=lp&&l['call'](lp,lS);lu?(vmk_308c3f['_$PuTE2f']=!![],vmk_308c3f['_$oCzQEs']=lu):vmk_308c3f['_$oCzQEs']=undefined;let lq;try{if(lA===0x0)lq=lS();else{if(lA===0x1){let lo=cN[--cy];lq=lo&&typeof lo==='object'&&k['call'](s,lo)?T(lS,undefined,lo['value']):lS(lo);}else lq=T(lS,undefined,K0(l2,lA));}cN[cy++]=lq;}finally{lu&&(vmk_308c3f['_$PuTE2f']=![]),vmk_308c3f['_$oCzQEs']=ls;}ce++;}break;}case 0x1d:{let lf=cN[--cy],lY=cN[cy-0x1],lU=cZ[lw];d(lY,lU,{'get':lf,'enumerable':![],'configurable':!![]}),ce++;break;}case 0x2d:{cN[cy++]={},ce++;break;}case 0xb:{cN[cy++]=[],ce++;break;}case 0x4:{throw cN[--cy];break;}case 0x38:{let lm=cN[--cy],d0=cN[--cy],d1=(lw^0xf476)>>>0x0,d2;d1<0x10?d1<0x8?d1<0x4?d1<0x2?d2=d1<0x1?d0>lm:d0+lm:d2=d1<0x3?d0<=lm:d0===lm:d1<0x6?d2=d1<0x5?d0!=lm:d0>>>lm:d2=d1<0x7?d0&lm:d0^lm:d1<0xc?d1<0xa?d2=d1<0x9?d0|lm:d0-lm:d2=d1<0xb?d0**lm:d0!==lm:d1<0xe?d2=d1<0xd?d0%lm:d0>>lm:d2=d1<0xf?d0<<lm:d0>=lm:d1<0x14?d1<0x12?d2=d1<0x11?d0*lm:d0==lm:d2=d1<0x13?d0<lm:d0/lm:d1<0x18?d2=d1<0x16?d0|lm:d0&lm:d2=d1<0x1c?d0^lm:lm-d0;cN[cy++]=d2,ce++;break;}case 0x14:{let d3=cN[--cy],d4=cN[cy-0x1];if(d3!==null&&d3!==undefined){let d5=Object(d3),d6=Reflect['ownKeys'](d5);for(let d7=0x0;d7<d6['length'];d7++){let d8=d6[d7],d9=D(d5,d8);d9!==undefined&&d9['enumerable']&&d(d4,d8,{'value':d5[d8],'writable':!![],'enumerable':!![],'configurable':!![]});}}ce++;break;}case 0x1a:{let dK=cN[--cy];cN[cy++]=dK['next'](),ce++;break;}case 0x3d:{c:{let dc=cN[--cy],dl=K0(l2,dc),dd=cN[--cy];if(lw===0x1){cN[cy++]=dl,ce++;break c;}if(vmk_308c3f['_$MzgD8F']){ce++;break c;}let dQ=vmk_308c3f['_$v6RZze'];if(dQ){let dT=dQ['outer'],dg=dT?G(dT):dQ['parent'];if(typeof dg!=='function')throw new TypeError('Super\x20constructor\x20'+String(dg)+'\x20of\x20'+(dT&&dT['name']||'anonymous')+'\x20is\x20not\x20a\x20constructor');let dr=dQ['newTarget'],dJ=Reflect['construct'](dg,dl,dr);cb&&cb!==dJ&&K(cb)['forEach'](function(dG){!(dG in dJ)&&(dJ[dG]=cb[dG]);});cb=dJ,ll=!![],KR(l8,cb),ce++;break c;}if(typeof dd!=='function')throw new TypeError('Super\x20expression\x20must\x20be\x20a\x20constructor');let dk;C['has'](cv)?dk=KT(l8):dk=ll?cb:undefined;let dR=cW!==undefined?cW:vmk_308c3f['_$1p9m05'];vmk_308c3f['_$1p9m05']=cW;try{let dG;H(dd)?dG=q(dd,cb,dl):dG=dR!==undefined?Reflect['construct'](dd,dl,dR):Reflect['construct'](dd,dl),dG!==undefined&&dG!==cb&&K1(dG)&&(cb&&Object['assign'](dG,cb),cb=dG,cW&&cW['prototype']&&G(cb)!==cW['prototype']&&Q(cb,cW['prototype'])),ll=!![],KR(l8,cb);}finally{delete vmk_308c3f['_$1p9m05'];}if(dk!==undefined)throw new ReferenceError('Super\x20constructor\x20may\x20only\x20be\x20called\x20once');ce++;}break;}case 0x15:{let dD=cN[--cy],dh=cN[--cy];cN[cy++]=dh!==dD,ce++;break;}case 0x3e:{cN[cy++]=undefined,ce++;break;}case 0x11:{let dO=cN[--cy],dB=cZ[lw];if(vmk_308c3f['_$TWGPn8']&&dB in vmk_308c3f['_$TWGPn8'])throw new ReferenceError('Cannot\x20access\x20\x27'+dB+'\x27\x20before\x20initialization');let db=!(dB in vmk_308c3f)&&!(dB in vmg);vmk_308c3f[dB]=dO;dB in vmg&&(vmg[dB]=dO);db&&(vmg[dB]=dO);cN[cy++]=dO,ce++;break;}case 0x3a:{if(cf&&!ll){let dW=KT(l8);if(dW!==undefined)cb=dW,ll=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let di=cb,dv=cZ[lw];if(di===null||di===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+di+'\x20(reading\x20'+'\x27'+String(dv)+'\x27'+')');cN[cy++]=di[dv],ce++;break;}case 0x39:{if(cp&&cp['length']>0x0){let dN=cp[cp['length']-0x1];dN['_$a9t47i']===ce&&(dN['_$yq9CyO']!==undefined&&(cu=dN['_$yq9CyO'],cL=dN['_$1TlS2C'],ct=dN['_$cc27pr']),dN['_$63Q91f']!==undefined&&(l8=dN['_$63Q91f']),cp['pop']());}ce++;break;}case 0x36:{let dy=cN[cy-0x1];cN[cy-0x1]=cN[cy-0x2],cN[cy-0x2]=dy,ce++;break;}case 0xc:{let da=cN[--cy],dZ=cZ[lw];if(cF&&!(dZ in vmg)&&!(dZ in vmk_308c3f))throw new ReferenceError(dZ+'\x20is\x20not\x20defined');vmk_308c3f[dZ]=da,vmg[dZ]=da,cN[cy++]=da,ce++;break;}case 0x0:{cN[--cy]?ce=cM[ce]:ce++;break;}case 0x8:{let dw=cN[--cy];dw!==null&&dw!==undefined?ce=cM[ce]:ce++;break;}case 0x5:{let dM=cN[--cy];cN[cy++]=!!dM['done'],ce++;break;}case 0x3c:{l:{let dz=lw&0xffff,dP=lw>>>0x10,de=cN[--cy],dA=l8;for(let ds=0x0;ds<dP;ds++){dA=dA['_$kVba6v'];}let dS=dA['_$3vCbqT'];if(dS[dz]===dS){let dp=dA['_$Ij0Mgj'];throw new ReferenceError('Cannot\x20access\x20\x27'+(dp&&dp[dz]||'variable')+'\x27\x20before\x20initialization');}let dn=dA['_$qq4u5O'],dX=dn&&dn[dz];if(dX){if(dX===0x2&&!cF){ce++;break l;}throw new TypeError('Assignment\x20to\x20constant\x20variable.');}dS[dz]=de,ce++;break l;}break;}case 0x1:{let du=cN[--cy],dq=cN[--cy],dV=cN[--cy];d(dV,dq,{'value':du,'writable':!![],'enumerable':!![],'configurable':!![]});typeof du==='function'&&(!vmk_308c3f['_$JBjidn']&&(vmk_308c3f['_$JBjidn']=new WeakMap()),O['call'](vmk_308c3f['_$JBjidn'],du,dV));ce++;break;}case 0x7:{let dI=cN[--cy],dj=cN[--cy];cN[cy++]=dj<=dI,ce++;break;}case 0x12:{d:{let dx=cM[ce];if(dx===ct){if(cu!==null){cq=![],cI=![],cH=![];let dH=cu;cu=null;throw dH;}if(cq){while(cp&&cp['length']>0x0){let dE=cp[cp['length']-0x1];if(dE['_$a9t47i']!==undefined)break;cp['pop']();}if(cp&&cp['length']>0x0){let dL=cp[cp['length']-0x1];if(dL['_$a9t47i']!==undefined){cL=dL['_$1TlS2C'],ct=dL['_$cc27pr'],ce=dL['_$a9t47i'];break d;}}let dC=cV;return cq=![],cV=undefined,lh=dC,0x1;}if(cI){while(cp&&cp['length']>0x0){let dF=cp[cp['length']-0x1];if(dF['_$a9t47i']!==undefined||!(cj>=dF['_$cc27pr']||cj<=dF['_$1TlS2C']))break;cp['pop']();}if(cp&&cp['length']>0x0){let df=cp[cp['length']-0x1];if(df['_$a9t47i']!==undefined&&(cj>=df['_$cc27pr']||cj<=df['_$1TlS2C'])){cL=df['_$1TlS2C'],ct=df['_$cc27pr'],ce=df['_$a9t47i'];break d;}}let dt=cj;cI=![],cj=0x0;cx!==undefined&&(l8=cx,cx=undefined);ce=dt;break d;}if(cH){while(cp&&cp['length']>0x0){let dU=cp[cp['length']-0x1];if(dU['_$a9t47i']!==undefined||!(cC>=dU['_$cc27pr']||cC<=dU['_$1TlS2C']))break;cp['pop']();}if(cp&&cp['length']>0x0){let dm=cp[cp['length']-0x1];if(dm['_$a9t47i']!==undefined&&(cC>=dm['_$cc27pr']||cC<=dm['_$1TlS2C'])){cL=dm['_$1TlS2C'],ct=dm['_$cc27pr'],ce=dm['_$a9t47i'];break d;}}let dY=cC;cH=![],cC=0x0;cE!==undefined&&(l8=cE,cE=undefined);ce=dY;break d;}}ce++;}break;}case 0x33:{cN[cy-0x1]=-cN[cy-0x1],ce++;break;}case 0xf:{let Q0=lw&0xffff,Q1=lw>>>0x10,Q2=cZ[Q0],Q3=cZ[Q1];cN[cy++]=new RegExp(Q2,Q3),ce++;break;}case 0x2e:{let Q4=cN[--cy],Q5=cN[--cy];cN[cy++]=Q5<Q4,ce++;break;}case 0x18:{let Q6=cN[cy-0x1],Q7=cZ[lw];if(Q6===null||Q6===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Q6+'\x20(reading\x20'+'\x27'+String(Q7)+'\x27'+')');cN[cy++]=Q6[Q7],ce++;break;}case 0x17:{let Q8=cN[--cy],Q9=cN[--cy];cN[cy++]=Q9-Q8,ce++;break;}case 0x28:{l8=l8['_$kVba6v'],ce++;break;}case 0x35:{let QK=cN[--cy],Qc=cN[--cy];cN[cy++]=Qc*QK,ce++;break;}case 0x16:{let Ql=cZ[lw],Qd=cN[--cy],QQ=cN[--cy];if(typeof Qd!=='function')throw new TypeError(Qd+'\x20is\x20not\x20a\x20function');let Qk=vmk_308c3f['_$JBjidn'],QR=Qk&&l['call'](Qk,Qd);!QR&&Qk&&(Qd===g||Qd===r)&&(QR=l['call'](Qk,QQ));let QT=vmk_308c3f['_$oCzQEs'];QR&&(vmk_308c3f['_$PuTE2f']=!![],vmk_308c3f['_$oCzQEs']=QR);let Qg;try{if(Ql===0x0)Qg=T(Qd,QQ,S);else{if(Ql===0x1){let Qr=cN[--cy];Qg=Qr&&typeof Qr==='object'&&k['call'](s,Qr)?T(Qd,QQ,Qr['value']):T(Qd,QQ,[Qr]);}else Qg=T(Qd,QQ,K0(l2,Ql));}cN[cy++]=Qg;}finally{QR&&(vmk_308c3f['_$PuTE2f']=![],vmk_308c3f['_$oCzQEs']=QT);}ce++;break;}case 0x3:{let QJ=cN[--cy],QG=cN[cy-0x1];QG['push'](QJ),ce++;break;}case 0x32:{let QD=cN[--cy],Qh=cN[cy-0x1],QO=cZ[lw];d(Qh,QO,{'set':QD,'enumerable':![],'configurable':!![]}),ce++;break;}case 0x2c:{let QB=cN[--cy],Qb=cN[--cy];cN[cy++]=Qb<<QB,ce++;break;}case 0x19:{cN[cy-0x1]=!cN[cy-0x1],ce++;break;}case 0x37:{cN[cy++]=cZ[lw],ce++;break;}case 0xa:{let Qi=cN[--cy],Qv=Qi&&Qi['_$P15or3'];if(Qv!==undefined){let QW=Qi['_$6NuUYd'],QN;QW>=Qv['length']?QN={'value':undefined,'done':!![]}:(Qi['_$6NuUYd']=QW+0x1,QN={'value':Qv[QW],'done':![]}),cN[cy++]=QN,ce++;}else{let Qy=Qi&&Qi['i']?Qi['i']:Qi,Qa=Qi&&Qi['n']?Qi['n']:Qy&&Qy['next'];if(typeof Qa!=='function')throw new TypeError('iterator.next\x20is\x20not\x20a\x20function');let QZ=T(Qa,Qy,[]);K6(QZ),cN[cy++]=QZ,ce++;}break;}case 0xd:{let Qw=lw,QM=cN[--cy];l8['_$3vCbqT'][Qw]=QM,ce++;break;}case 0x13:{let Qz=cN[--cy];if(Qz==null)throw new TypeError(Qz+'\x20is\x20not\x20iterable');let QP=Qz[t];if(Array['isArray'](Qz)&&QP===L)cN[cy++]={['_$P15or3']:Qz,['_$6NuUYd']:0x0},ce++;else{if(typeof QP!=='function')throw new TypeError(Qz+'\x20is\x20not\x20iterable');let Qe=T(QP,Qz,[]);K6(Qe);let QA=Qe['next'];cN[cy++]={'i':Qe,'n':QA},ce++;}break;}case 0x2:{let QS=cN[--cy],Qn=cN[--cy],QX=cN[cy-0x1];d(QX,Qn,{'value':QS,'writable':!![],'enumerable':![],'configurable':!![]});typeof QS==='function'&&(!vmk_308c3f['_$JBjidn']&&(vmk_308c3f['_$JBjidn']=new WeakMap()),O['call'](vmk_308c3f['_$JBjidn'],QS,QX));ce++;break;}case 0x29:{let Qs=cN[--cy];cN[cy++]=Symbol['keyFor'](Qs),ce++;break;}case 0x1b:{let Qp=cN[--cy],Qu=cN[--cy];cN[cy++]=Qu^Qp,ce++;break;}case 0x1c:{cN[cy++]=vmr[lw],ce++;break;}case 0xe:{cN[cy++]=l8,ce++;break;}case 0x9:{let Qq=cN[--cy];if((typeof Qq==='object'||typeof Qq==='function')&&Qq!==null){const QV=Qq[Symbol['toPrimitive']];if(QV!=null){Qq=QV['call'](Qq,'number');if(Qq!==null&&(typeof Qq==='object'||typeof Qq==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const QI=Qq['valueOf']();if(QI===null||typeof QI!=='object'&&typeof QI!=='function')Qq=QI;else{const Qj=Qq['toString']();if(Qj!==null&&(typeof Qj==='object'||typeof Qj==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Qq=Qj;}}}cN[cy++]=typeof Qq===A?Qq:+Qq,ce++;break;}case 0x34:{let Qx=cN[--cy],QH=cN[--cy];cN[cy++]=QH>=Qx,ce++;break;}case 0x10:{Q:{let QC=cN[--cy],QE=cN[cy-0x1];if(QC===null){Q(QE['prototype'],null),Q(QE,Function['prototype']),QE['_$jrm2Vr']=null,ce++;break Q;}if(typeof QC!=='function')throw new TypeError('Class\x20extends\x20value\x20'+String(QC)+'\x20is\x20not\x20a\x20constructor\x20or\x20null');let QL=![],Qt=H(QC);if(!Qt){let QF=D(QC,'prototype');QL=!!QF&&QF['writable']===![];}if(QL){let Qo=QE,Qf=vmk_308c3f,QY='_$1p9m05',QU='_$K5UPIM',Qm='_$v6RZze';function lM(...k0){if(new.target===undefined)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');let k1=J(QC['prototype']);Qf[Qm]={'parent':QC,'newTarget':new.target||lM,'outer':lM},Qf[QU]=new.target||lM;let k2=QY in Qf;!k2&&(Qf[QY]=new.target);try{let k3=q(Qo,k1,k0);k3!==undefined&&k3!==null&&K1(k3)&&(k1=k3);}finally{delete Qf[Qm],delete Qf[QU],!k2&&delete Qf[QY];}return k1;}lM['prototype']=J(QC['prototype']),lM['prototype']['constructor']=lM,Q(lM,QC),K(Qo)['forEach'](function(k0){k0!=='prototype'&&k0!=='name'&&m(lM,k0,D(Qo,k0));});Qo['prototype']&&(K(Qo['prototype'])['forEach'](function(k0){k0!=='constructor'&&m(lM['prototype'],k0,D(Qo['prototype'],k0));}),R(Qo['prototype'])['forEach'](function(k0){m(lM['prototype'],k0,D(Qo['prototype'],k0));}));cN[--cy],cN[cy++]=lM,lM['_$jrm2Vr']=QC,ce++;break Q;}Q(QE['prototype'],QC['prototype']),Q(QE,QC),QE['_$jrm2Vr']=QC,ce++;}break;}}},lB=function(lZ,lw){switch(lZ){case 0xa3:{let lz=cN[--cy],lP=cN[--cy],le=cZ[lw];if(lP===null||lP===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+lP+'\x20(setting\x20'+'\x27'+String(le)+'\x27'+')');if(cF){let lA=typeof lP==='object'||typeof lP==='function'?lP:Object(lP);if(!Reflect['set'](lA,le,lz,lP))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(le)+'\x27\x20of\x20object');}else lP[le]=lz;cN[cy++]=lz,ce++;break;}case 0x51:{let lS=cN[--cy],ln=lS&&lS['i']?lS['i']:lS;try{if(ln!=null){let lX=ln['return'];typeof lX==='function'&&lX['call'](ln);}}catch(ls){}ce++;break;}case 0x92:{cN[cy-0x1]=typeof cN[cy-0x1],ce++;break;}case 0x4c:{let lp=cN[--cy],lu=lp&&lp['i']?lp['i']:lp;if(cu!==null)try{lu&&typeof lu['return']==='function'?cN[cy++]=Promise['resolve'](lu['return']())['catch'](function(){return undefined;}):cN[cy++]=Promise['resolve']();}catch(lq){cN[cy++]=Promise['resolve']();}else{let lV=lu!=null?lu['return']:undefined;if(lV==null)cN[cy++]=Promise['resolve']();else typeof lV!=='function'?cN[cy++]=Promise['reject'](new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable')):cN[cy++]=Promise['resolve'](lV['call'](lu));}ce++;break;}case 0x54:{let lI=cN[--cy],lj=cN[--cy];cN[cy++]=lj>>>lI,ce++;break;}case 0x78:{let lx=cN[--cy],lH=cN[cy-0x1],lC=cZ[lw],lE=Kc(lH);d(lE,lC,{'get':lx,'enumerable':lE===lH,'configurable':!![]}),ce++;break;}case 0x6b:{let lL=cN[--cy],lt=cN[--cy];cN[cy++]=lL==null||typeof lL!=='object'&&typeof lL!=='function'?!![]:lt in lL,ce++;break;}case 0x6e:{let lF=cN[--cy],lo=cN[cy-0x1];(lF===null||K1(lF))&&Q(lo,lF);ce++;break;}case 0x79:{let lf=cN[cy-0x1];cN[cy++]=lf,ce++;break;}case 0xa7:{let lY=cN[--cy],lU=cN[--cy],lm=cN[cy-0x1];d(lm['prototype'],lU,{'value':lY,'writable':!![],'enumerable':![],'configurable':!![]});typeof lY==='function'&&(!vmk_308c3f['_$JBjidn']&&(vmk_308c3f['_$JBjidn']=new WeakMap()),O['call'](vmk_308c3f['_$JBjidn'],lY,lm['prototype']));ce++;break;}case 0x69:{if(cf&&!ll){let d0=KT(l8);if(d0!==undefined)cb=d0,ll=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}cN[cy++]=cb,ce++;break;}case 0x4f:{let d1=vmk_308c3f['_$K5UPIM'];d1===undefined&&cv&&C['has'](cv)&&(d1=C['get'](cv));if(d1===undefined)throw new ReferenceError('\x27super\x27\x20keyword\x20is\x20only\x20valid\x20inside\x20a\x20derived\x20constructor');cN[cy++]=d1,ce++;break;}case 0xa6:{let d2=cN[--cy],d3=cN[--cy];if(d3===null||d3===undefined){if(d2===Symbol['iterator'])throw new TypeError((d3===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+d3+'\x20(reading\x20'+(typeof d2==='symbol'?'\x27'+d2['toString']()+'\x27':typeof d2==='string'?'\x27'+d2+'\x27':typeof d2==='object'||typeof d2==='function'?'\x27<computed\x20key>\x27':'\x27'+String(d2)+'\x27')+')');}cN[cy++]=d3[d2],ce++;break;}case 0x93:{let d4=cP[lw];if((typeof d4==='object'||typeof d4==='function')&&d4!==null){const d5=d4[Symbol['toPrimitive']];if(d5!=null){d4=d5['call'](d4,'number');if(d4!==null&&(typeof d4==='object'||typeof d4==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const d6=d4['valueOf']();if(d6===null||typeof d6!=='object'&&typeof d6!=='function')d4=d6;else{const d7=d4['toString']();if(d7!==null&&(typeof d7==='object'||typeof d7==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');d4=d7;}}}cP[lw]=typeof d4===A?d4+0x1n:+d4+0x1,ce++;break;}case 0x8d:{let d8=cZ[lw],d9=!![];d8 in vmg&&(d9=delete vmg[d8]);d9&&d8 in vmk_308c3f&&(d9=delete vmk_308c3f[d8]);cN[cy++]=d9,ce++;break;}case 0x90:{let dK=lw&0xffff,dc=lw>>>0x10;cN[cy++]=cP[dK]<cZ[dc],ce++;break;}case 0x53:{let dl=cN[--cy],dd=cN[--cy];cN[cy++]=dd**dl,ce++;break;}case 0x5a:{let dQ=cN[cy-0x3],dk=cN[cy-0x2],dR=cN[cy-0x1];cN[cy-0x3]=dk,cN[cy-0x2]=dR,cN[cy-0x1]=dQ,ce++;break;}case 0xa4:{let dT=cN[--cy],dg=cN[cy-0x1];if(Array['isArray'](dT)&&dT[t]===L){let dr=dg['length'],dJ=dT['length'];for(let dG=0x0;dG<dJ;dG++){dg[dr+dG]=dT[dG];}}else for(let dD of dT){dg['push'](dD);}ce++;break;}case 0xa1:{let dh=cN[--cy];cN[cy++]=import(dh),ce++;break;}case 0x5e:{let dO=lw&0xffff,dB=lw>>>0x10;cN[cy++]=ci[dO]-cZ[dB],ce++;break;}case 0x5f:{let db=cZ[lw],di;if(vmk_308c3f['_$TWGPn8']&&db in vmk_308c3f['_$TWGPn8'])throw new ReferenceError('Cannot\x20access\x20\x27'+db+'\x27\x20before\x20initialization');if(db in vmk_308c3f)di=vmk_308c3f[db];else{if(db in vmg)di=vmg[db];else throw new ReferenceError(db+'\x20is\x20not\x20defined');}cN[cy++]=di,ce++;break;}case 0x81:{let dv=cZ[lw];cN[cy++]=Symbol['for'](dv),ce++;break;}case 0x70:{cp['pop'](),ce++;break;}case 0x47:{let dW=l8['_$3vCbqT'];dW[lw]=dW,l8['_$PID1Ut']=lw,ce++;break;}case 0x7a:{cN[cy-0x1]=~cN[cy-0x1],ce++;break;}case 0x80:{let dN=cP[lw];if((typeof dN==='object'||typeof dN==='function')&&dN!==null){const dy=dN[Symbol['toPrimitive']];if(dy!=null){dN=dy['call'](dN,'number');if(dN!==null&&(typeof dN==='object'||typeof dN==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const da=dN['valueOf']();if(da===null||typeof da!=='object'&&typeof da!=='function')dN=da;else{const dZ=dN['toString']();if(dZ!==null&&(typeof dZ==='object'||typeof dZ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dN=dZ;}}}cP[lw]=typeof dN===A?dN-0x1n:+dN-0x1,ce++;break;}case 0x6a:{let dw=cN[--cy],dM=cN[--cy];cN[cy++]=dM in dw,ce++;break;}case 0x8e:{let dz=cN[--cy];cN[cy++]=K9(dz),ce++;break;}case 0x46:{cN[cy++]=null,ce++;break;}case 0x48:{cN[--cy],cN[cy++]=undefined,ce++;break;}case 0xa0:{let dP=cN[--cy],de=K0(l2,dP),dA=cN[--cy];if(typeof dA!=='function')throw new TypeError(dA+'\x20is\x20not\x20a\x20constructor');if(k['call'](p,dA))throw new TypeError(dA['name']+'\x20is\x20not\x20a\x20constructor');let dS=vmk_308c3f['_$oCzQEs'];vmk_308c3f['_$oCzQEs']=undefined;let dn;try{dn=Reflect['construct'](dA,de);}finally{vmk_308c3f['_$oCzQEs']=dS;}cN[cy++]=dn,ce++;break;}case 0x84:{ci[lw]=cN[--cy],ce++;break;}case 0x83:{let dX=cN[--cy],ds=cN[--cy];cN[cy++]=ds&dX,ce++;break;}case 0x82:{ce++;break;}case 0x4a:{let dp=cN[--cy],du=cN[--cy];cN[cy++]=du>dp,ce++;break;}case 0xa5:{let dq=cN[cy-0x1];if(dq==null){var lM=cZ[lw];if(lM===null)throw new TypeError('Cannot\x20destructure\x20\x27'+dq+'\x27\x20as\x20it\x20is\x20'+dq+'.');throw new TypeError('Cannot\x20destructure\x20property\x20\x27'+lM+'\x27\x20of\x20\x27'+dq+'\x27\x20as\x20it\x20is\x20'+dq+'.');}ce++;break;}case 0x5d:{let dV=cN[--cy],dI;if(dV===null||dV===undefined)throw new TypeError(dV+'\x20is\x20not\x20iterable');let dj=dV[t];if(Array['isArray'](dV)&&dj===L){let dH=dV['length'];dI=new Array(dH);for(let dC=0x0;dC<dH;dC++){dI[dC]=dV[dC];}}else{if(dj===null||dj===undefined||typeof dj!=='function')throw new TypeError(dV+'\x20is\x20not\x20iterable');let dE=T(dj,dV,[]);if(dE===null||typeof dE!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');dI=[];while(!![]){let dL=dE['next']();K6(dL);if(dL['done'])break;dI['push'](dL['value']);}}let dx={'value':dI};c['call'](s,dx),cN[cy++]=dx,ce++;break;}case 0x8f:{if(lc===null){if(cF||!co){let dt=lK||ci,dF=dt?dt['length']:0x0;lc=J(Object['prototype']);for(let df=0x0;df<dF;df++){lc[df]=dt[df];}d(lc,'length',{'value':dF,'writable':!![],'enumerable':![],'configurable':!![]}),d(lc,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),lc=new Proxy(lc,{'has':function(dY,dU){if(dU===Symbol['toStringTag'])return![];return dU in dY;},'get':function(dY,dU,dm){if(dU===Symbol['toStringTag'])return'Arguments';return Reflect['get'](dY,dU,dm);}}),cF?d(lc,'callee',{'get':X,'set':X,'enumerable':![],'configurable':![]}):d(lc,'callee',{'value':cv,'writable':!![],'enumerable':![],'configurable':!![]});}else{let dY=l9,dU={},dm={},Q0=cv,Q1=![],Q2=!![],Q3={},Q4=function(Q9){if(typeof Q9!=='string')return NaN;let QK=+Q9;return QK>=0x0&&QK%0x1===0x0&&String(QK)===Q9?QK:NaN;},Q5=function(Q9){return!isNaN(Q9)&&Q9>=0x0;},Q6=function(Q9){if(Q9 in dm)return undefined;if(Q9 in dU)return dU[Q9];return Q9<l9?ci[Q9]:undefined;},Q7=function(Q9){if(Q9 in dm)return![];if(Q9 in dU)return!![];return Q9<l9?Q9 in ci:![];},Q8={};d(Q8,'length',{'value':dY,'writable':!![],'enumerable':![],'configurable':!![]}),d(Q8,'callee',{'value':cv,'writable':!![],'enumerable':![],'configurable':!![]}),d(Q8,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),lc=new Proxy(Q8,{'get':function(Q9,QK,Qc){if(QK==='length')return dY;if(QK==='callee')return Q1?undefined:Q0;if(QK===Symbol['toStringTag'])return'Arguments';let Ql=Q4(QK);if(Q5(Ql)){if(Ql in Q3)return Reflect['get'](Q9,QK,Qc);return Q6(Ql);}return Reflect['get'](Q9,QK,Qc);},'set':function(Q9,QK,Qc){if(QK==='length'){if(!Q2)return![];return dY=Qc,Q9['length']=Qc,!![];}if(QK==='callee')return Q0=Qc,Q1=![],Q9['callee']=Qc,!![];let Ql=Q4(QK);if(Q5(Ql)){if(Ql in Q3)return Reflect['set'](Q9,QK,Qc);let Qd=D(Q9,String(Ql));if(Qd&&!Qd['writable'])return![];if(Ql in dm)delete dm[Ql],dU[Ql]=Qc;else Ql<l9?ci[Ql]=Qc:dU[Ql]=Qc;return!![];}return Q9[QK]=Qc,!![];},'has':function(Q9,QK){if(QK==='length')return!![];if(QK==='callee')return!Q1;if(QK===Symbol['toStringTag'])return![];let Qc=Q4(QK);if(Q5(Qc)){if(String(Qc)in Q9)return!![];return Q7(Qc);}return QK in Q9;},'defineProperty':function(Q9,QK,Qc){if(QK==='length')return'value'in Qc&&(dY=Qc['value']),'writable'in Qc&&(Q2=Qc['writable']),d(Q9,QK,Qc),!![];if(QK==='callee')return'value'in Qc&&(Q0=Qc['value']),Q1=![],d(Q9,QK,Qc),!![];let Ql=Q4(QK);if(Q5(Ql)){let Qd='get'in Qc||'set'in Qc,QQ=D(Q9,String(Ql)),Qk=Ql in Q3?QQ?QQ['value']:undefined:Q6(Ql),QR=QQ?QQ['writable']!==![]:!![],QT=QQ?QQ['enumerable']!==![]:!![],Qg=QQ?QQ['configurable']!==![]:!![],Qr;if(Qd)Qr=Qc,Q3[Ql]=0x1,Ql in dU&&delete dU[Ql],Ql in dm&&delete dm[Ql];else{let QJ='value'in Qc?Qc['value']:Qk,QG='writable'in Qc?Qc['writable']:QR,QD='enumerable'in Qc?Qc['enumerable']:QT,Qh='configurable'in Qc?Qc['configurable']:Qg;Qr={'value':QJ,'writable':QG,'enumerable':QD,'configurable':Qh},'value'in Qc&&(!(Ql in Q3)&&(Ql<l9&&!(Ql in dm)?ci[Ql]=Qc['value']:(dU[Ql]=Qc['value'],Ql in dm&&delete dm[Ql]))),'writable'in Qc&&Qc['writable']===![]&&(Q3[Ql]=0x1,Ql in dU&&delete dU[Ql],Ql in dm&&delete dm[Ql]);}return d(Q9,String(Ql),Qr),!![];}return d(Q9,QK,Qc),!![];},'deleteProperty':function(Q9,QK){if(QK==='callee')return Q1=!![],delete Q9['callee'],!![];let Qc=Q4(QK);if(Q5(Qc)){let Qd=D(Q9,String(Qc));if(Qd&&Qd['configurable']===![])return![];return Qc in Q3&&delete Q3[Qc],Qc<l9?dm[Qc]=0x1:delete dU[Qc],delete Q9[QK],!![];}let Ql=D(Q9,QK);if(Ql&&Ql['configurable']===![])return![];return delete Q9[QK],!![];},'preventExtensions':function(Q9){let QK=l9;for(let Qc=0x0;Qc<QK;Qc++){!(Qc in dm)&&!D(Q9,String(Qc))&&d(Q9,String(Qc),{'value':Q6(Qc),'writable':!![],'enumerable':!![],'configurable':!![]});}for(let Ql in dU){!D(Q9,Ql)&&d(Q9,Ql,{'value':dU[Ql],'writable':!![],'enumerable':!![],'configurable':!![]});}return Object['preventExtensions'](Q9),!![];},'getOwnPropertyDescriptor':function(Q9,QK){if(QK==='callee'){if(Q1)return undefined;return D(Q9,'callee');}if(QK==='length')return D(Q9,'length');let Qc=Q4(QK);if(Q5(Qc)){if(Qc in Q3)return D(Q9,QK);if(Q7(Qc)){let Qd=D(Q9,String(Qc));return{'value':Q6(Qc),'writable':Qd?Qd['writable']:!![],'enumerable':Qd?Qd['enumerable']:!![],'configurable':Qd?Qd['configurable']:!![]};}return D(Q9,QK);}let Ql=D(Q9,QK);if(Ql)return Ql;return undefined;},'ownKeys':function(Q9){let QK=[],Qc=l9;for(let Qd=0x0;Qd<Qc;Qd++){!(Qd in dm)&&QK['push'](String(Qd));}for(let QQ in dU){QK['indexOf'](QQ)===-0x1&&QK['push'](QQ);}QK['push']('length');!Q1&&QK['push']('callee');let Ql=Reflect['ownKeys'](Q9);for(let Qk=0x0;Qk<Ql['length'];Qk++){QK['indexOf'](Ql[Qk])===-0x1&&QK['push'](Ql[Qk]);}return QK;}});}}cN[cy++]=lc,ce++;break;}case 0x40:{let Q9=cN[--cy],QK=cN[--cy];cN[cy++]=QK%Q9,ce++;break;}case 0x5b:{let Qc=cN[--cy],Ql=cN[--cy];cN[cy++]=Ql instanceof Qc,ce++;break;}case 0xa8:{let Qd=cN[--cy],QQ=cN[--cy];cN[cy++]=QQ/Qd,ce++;break;}case 0x94:{K:{let Qk=cM[ce];while(cp&&cp['length']>0x0){let QR=cp[cp['length']-0x1];if(QR['_$a9t47i']!==undefined||!(Qk>=QR['_$cc27pr']||Qk<=QR['_$1TlS2C']))break;cp['pop']();}if(cp&&cp['length']>0x0){let QT=cp[cp['length']-0x1];if(QT['_$a9t47i']!==undefined&&(Qk>=QT['_$cc27pr']||Qk<=QT['_$1TlS2C'])){cu=null,cq=![],cV=undefined,cH=![],cC=0x0,cE=undefined,cI=!![],cj=Qk,cx=l8,cL=QT['_$1TlS2C'],ct=QT['_$cc27pr'],ce=QT['_$a9t47i'];break K;}}(cq||cI||cH||cu!==null)&&(Qk>=ct||Qk<=cL)&&(cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cu=null),ce=Qk;}break;}case 0x3f:{cN[cy++]=vmJ[lw],ce++;break;}case 0x95:{cN[cy++]=ci[lw],ce++;break;}case 0x7f:{c:{let Qg=KQ(cN[--cy]),Qr=cN[--cy],QJ=vmk_308c3f['_$oCzQEs'],QG=QJ?G(QJ):Kl(Qr),QD=Kd(QG,Qg);if(QD['desc']&&QD['desc']['get']){let QO=vmk_308c3f['_$oCzQEs'];vmk_308c3f['_$oCzQEs']=QD['proto']||QG,vmk_308c3f['_$PuTE2f']=!![];let QB;try{QB=QD['desc']['get']['call'](Qr);}finally{vmk_308c3f['_$PuTE2f']=![],vmk_308c3f['_$oCzQEs']=QO;}cN[cy++]=QB,ce++;break c;}if(QD['desc']&&QD['desc']['set']&&!('value'in QD['desc'])){cN[cy++]=undefined,ce++;break c;}let Qh=QD['proto']?QD['proto'][Qg]:QG[Qg];if(typeof Qh==='function'){let Qb=QD['proto']||QG,Qi=Qh['constructor']&&Qh['constructor']['name'],Qv=Qi==='GeneratorFunction'||Qi==='AsyncFunction'||Qi==='AsyncGeneratorFunction';!Qv&&(!vmk_308c3f['_$JBjidn']&&(vmk_308c3f['_$JBjidn']=new WeakMap()),O['call'](vmk_308c3f['_$JBjidn'],Qh,Qb));}cN[cy++]=Qh,ce++;}break;}case 0x49:{let QW=cN[--cy],QN=QW&&QW['i']?QW['i']:QW;if(QN!=null){if(cu!==null)try{let Qy=QN['return'];typeof Qy==='function'&&Qy['call'](QN);}catch(Qa){}else{let QZ=QN['return'];if(QZ!=null){if(typeof QZ!=='function')throw new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable');let Qw=QZ['call'](QN);K6(Qw);}}}ce++;break;}case 0x7b:{cN[cy++]=cW,ce++;break;}case 0x4d:{cP[lw]=cN[--cy],ce++;break;}case 0x64:{let QM=cP[lw],Qz=QM&&QM['_$P15or3'];if(Qz!==undefined){let QP=QM['_$6NuUYd'];QP>=Qz['length']?ce=cM[ce]:(QM['_$6NuUYd']=QP+0x1,cN[cy++]=Qz[QP],ce++);}else{let Qe=QM['i'],QA=T(QM['n'],Qe,[]);K6(QA),QA['done']?ce=cM[ce]:(cN[cy++]=QA['value'],ce++);}break;}case 0xa2:{let QS=cN[--cy],Qn=typeof QS;if(QS!==null&&(Qn==='object'||Qn==='function')){let QX=J(null);QX[QS]=0x0,QS=Reflect['ownKeys'](QX)[0x0];}else Qn!=='symbol'&&(QS=String(QS));cN[cy++]=QS,ce++;break;}case 0x4b:{let Qs=cN[--cy];if(Qs==null)throw new TypeError(Qs+'\x20is\x20not\x20iterable');let Qp=Qs[Symbol['asyncIterator']];if(typeof Qp==='function')cN[cy++]=Qp['call'](Qs);else{let Qu=Qs[Symbol['iterator']];if(typeof Qu!=='function')throw new TypeError(Qs+'\x20is\x20not\x20iterable');let Qq=Qu['call'](Qs);if(Qq===null||typeof Qq!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');let QV=async function(Qj){if(Qj===null||typeof Qj!=='object')throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');let Qx=await Qj['value'];return{'value':Qx,'done':!!Qj['done']};},QI={'next':function(Qj){let Qx;try{Qx=Qq['next'](Qj);}catch(QH){return Promise['reject'](QH);}return QV(Qx);},'return':function(Qj){if(typeof Qq['return']!=='function')return Promise['resolve']({'value':Qj,'done':!![]});let Qx;try{Qx=Qq['return'](Qj);}catch(QH){return Promise['reject'](QH);}return QV(Qx);},'throw':function(Qj){if(typeof Qq['throw']!=='function')return Promise['reject'](Qj);let Qx;try{Qx=Qq['throw'](Qj);}catch(QH){return Promise['reject'](QH);}return QV(Qx);},[Symbol['asyncIterator']]:function(){return this;}};cN[cy++]=QI;}ce++;break;}case 0x8c:{let Qj=cN[--cy],Qx=cN[--cy];cN[cy++]=Qx|Qj,ce++;break;}case 0x7c:{let QH=cN[--cy];if((typeof QH==='object'||typeof QH==='function')&&QH!==null){const QC=QH[Symbol['toPrimitive']];if(QC!=null){QH=QC['call'](QH,'number');if(QH!==null&&(typeof QH==='object'||typeof QH==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const QE=QH['valueOf']();if(QE===null||typeof QE!=='object'&&typeof QE!=='function')QH=QE;else{const QL=QH['toString']();if(QL!==null&&(typeof QL==='object'||typeof QL==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');QH=QL;}}}cN[cy++]=typeof QH===A?QH-0x1n:+QH-0x1,ce++;break;}case 0x6f:{let Qt=lw,QF=cN[--cy];l8['_$3vCbqT'][Qt]=QF;let Qo=l8['_$qq4u5O'];!Qo&&(Qo=J(null),l8['_$qq4u5O']=Qo);Qo[Qt]=0x1,ce++;break;}case 0x91:{ce=cM[ce];break;}}},lb=function(lZ,lw){switch(lZ){case 0x12f:{cN[--cy],ce++;break;}case 0xb8:{let lM=ci[lw];if((typeof lM==='object'||typeof lM==='function')&&lM!==null){const lz=lM[Symbol['toPrimitive']];if(lz!=null){lM=lz['call'](lM,'number');if(lM!==null&&(typeof lM==='object'||typeof lM==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const lP=lM['valueOf']();if(lP===null||typeof lP!=='object'&&typeof lP!=='function')lM=lP;else{const le=lM['toString']();if(le!==null&&(typeof le==='object'||typeof le==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');lM=le;}}}ci[lw]=typeof lM===A?lM+0x1n:+lM+0x1,ce++;break;}case 0x110:{cN[cy-0x1]=+cN[cy-0x1],ce++;break;}case 0xc8:{let lA=lw&0xffff,lS=lw>>>0x10,ln=l8;for(let lp=0x0;lp<lS;lp++){ln=ln['_$kVba6v'];}let lX=ln['_$3vCbqT'],ls=lX[lA];if(ls===lX){let lu=ln['_$Ij0Mgj'];throw new ReferenceError('Cannot\x20access\x20\x27'+(lu&&lu[lA]||'variable')+'\x27\x20before\x20initialization');}cN[cy++]=ls,ce++;break;}case 0xfb:{cP[lw]=cP[lw]+0x1,ce++;break;}case 0x108:{let lq=cN[--cy],lV=cN[--cy];cN[cy++]=lV>>lq,ce++;break;}case 0x10e:{let lI=cN[--cy];if((typeof lI==='object'||typeof lI==='function')&&lI!==null){const lj=lI[Symbol['toPrimitive']];if(lj!=null){lI=lj['call'](lI,'number');if(lI!==null&&(typeof lI==='object'||typeof lI==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const lx=lI['valueOf']();if(lx===null||typeof lx!=='object'&&typeof lx!=='function')lI=lx;else{const lH=lI['toString']();if(lH!==null&&(typeof lH==='object'||typeof lH==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');lI=lH;}}}cN[cy++]=typeof lI===A?lI+0x1n:+lI+0x1,ce++;break;}case 0x109:{let lC=cN[--cy],lE=cN[--cy],lL=cN[cy-0x1];d(lL,lE,{'set':lC,'enumerable':![],'configurable':!![]}),ce++;break;}case 0xc9:{debugger;ce++;break;}case 0x106:{let lt=cN[--cy],lF=cN[--cy];cN[cy++]=lF==lt,ce++;break;}case 0xb9:{let lo=cN[--cy],lf=KQ(cN[--cy]),lY=cN[--cy],lU=vmk_308c3f['_$oCzQEs'],lm=lU?G(lU):Kl(lY);if(lm===null||lm===undefined)throw new TypeError('Cannot\x20convert\x20'+lm+'\x20to\x20object');let d0=Kd(lm,lf),d1=![];if(d0['desc']){let d2=d0['desc'];if(d2['set']){let d3=vmk_308c3f['_$oCzQEs'];vmk_308c3f['_$oCzQEs']=d0['proto']||lm,vmk_308c3f['_$PuTE2f']=!![];try{d2['set']['call'](lY,lo);}finally{vmk_308c3f['_$PuTE2f']=![],vmk_308c3f['_$oCzQEs']=d3;}}else{if(d2['get']||!('value'in d2)){if(cF)throw new TypeError('Cannot\x20set\x20property\x20\x27'+String(lf)+'\x27\x20of\x20object\x20which\x20has\x20only\x20a\x20getter');}else{if(d2['writable']===![]){if(cF)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(lf)+'\x27\x20of\x20object');}else d1=!![];}}}else d1=!![];if(d1){let d4=Object['getOwnPropertyDescriptor'](lY,lf);if(d4){if('value'in d4){if(d4['writable'])lY[lf]=lo;else{if(cF)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(lf)+'\x27\x20of\x20object');}}else{if(cF)throw new TypeError('Cannot\x20redefine\x20property:\x20'+String(lf));}}else{let d5=Reflect['defineProperty'](lY,lf,{'value':lo,'writable':!![],'enumerable':!![],'configurable':!![]});if(!d5&&cF)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(lf)+'\x27\x20of\x20object');}}cN[cy++]=lo,ce++;break;}case 0x10b:{let d6=lw&0xffff,d7=lw>>>0x10;cN[cy++]=cP[d6]+cZ[d7],ce++;break;}case 0xfd:{let d8=lw&0xffff,d9=lw>>>0x10;cN[cy++]=ci[d8]<=cZ[d9],ce++;break;}case 0x128:{K:{let dK=cN[--cy],dc=cN[--cy];if(typeof dc!=='function')throw new TypeError(dc+'\x20is\x20not\x20a\x20function');let dl=vmk_308c3f['_$JBjidn'],dd=!vmk_308c3f['_$oCzQEs']&&!vmk_308c3f['_$1p9m05']&&!(dl&&l['call'](dl,dc))&&x(dc);if(dd&&dd['_$R3crfR']!==![]){let dg=dd['_$GBxYZ5']||j(dd,typeof dd['_$xPQAao']==='object'?dd['_$xPQAao']['n']!==undefined?0x0?cQ(dd['_$xPQAao']['n']):dd['_$xPQAao']['d']||(dd['_$xPQAao']['d']=cQ(dd['_$xPQAao']['n'])):dd['_$xPQAao']:cd(dd['_$xPQAao']));if(dg){let dr;if(dK===0x0)dr=[];else{if(dK===0x1){let dD=cN[--cy];dr=dD&&typeof dD==='object'&&k['call'](s,dD)?dD['value']:[dD];}else dr=K0(l2,dK);}let dJ=dg===cO?ca:cK(dg[0x20],dg[0x21]),dG=dg[0x6*dJ[0x0]+dJ[0x1]&0x1f];if(dG&&dg===cO&&!dg[0x5*dJ[0x0]+dJ[0x1]&0x1f]&&dd['_$r2vEjJ']===cB){!lQ&&(lQ=[]);lQ[lk++]=ce,lQ[lk++]=lc,lQ[lk++]=lK,lQ[lk++]=cy,lQ[lk++]=ci,lQ[lk++]=l8;for(let dh=0x0;dh<ld;dh++){lQ[lk++]=cP[dh];}ci=dr,lc=null;if(dg[0x0*dJ[0x0]+dJ[0x1]&0x1f]){lK=null;let dO=dg[0x20]||0x0;for(let dB=0x0;dB<dO&&dB<dr['length'];dB++){cP[dB]=dr[dB];}for(let db=dr['length']<dO?dr['length']:dO;db<ld;db++){cP[db]=undefined;}ce=dG;}else{lK=KK(dr);for(let di=0x0;di<ld;di++){cP[di]=undefined;}ce=0x0;}break K;}vmk_308c3f['_$PuTE2f']?vmk_308c3f['_$PuTE2f']=![]:vmk_308c3f['_$oCzQEs']=undefined;cN[cy++]=KB(dg,dd['_$r2vEjJ'],undefined,dr,dc,undefined),ce++;break K;}}let dQ=vmk_308c3f['_$oCzQEs'],dk=vmk_308c3f['_$JBjidn'],dR=dk&&l['call'](dk,dc);dR?(vmk_308c3f['_$PuTE2f']=!![],vmk_308c3f['_$oCzQEs']=dR):vmk_308c3f['_$oCzQEs']=undefined;let dT;try{if(dK===0x0)dT=dc();else{if(dK===0x1){let dv=cN[--cy];dT=dv&&typeof dv==='object'&&k['call'](s,dv)?T(dc,undefined,dv['value']):dc(dv);}else dT=T(dc,undefined,K0(l2,dK));}cN[cy++]=dT;}finally{dR&&(vmk_308c3f['_$PuTE2f']=![]),vmk_308c3f['_$oCzQEs']=dQ;}ce++;}break;}case 0x116:{!cN[--cy]?ce=cM[ce]:(cN[--cy],ce++);break;}case 0x12b:{let dW=cN[--cy],dN=cN[--cy];cN[cy++]=dN+dW,ce++;break;}case 0x11d:{let dy=cN[--cy],da=cN[--cy],dZ={};if(da!==null&&da!==undefined){let dw=Object(da),dM=Reflect['ownKeys'](dw);for(let dz=0x0;dz<dM['length'];dz++){let dP=dM[dz],de=![];for(let dS=0x0;dS<dy['length'];dS++){let dn=dy[dS];if((typeof dn==='symbol'?dn:String(dn))===dP){de=!![];break;}}if(de)continue;let dA=D(dw,dP);dA!==undefined&&dA['enumerable']&&d(dZ,dP,{'value':dw[dP],'writable':!![],'enumerable':!![],'configurable':!![]});}}cN[cy++]=dZ,ce++;break;}case 0x12a:{let dX=cZ[lw];dX in vmk_308c3f?cN[cy++]=typeof vmk_308c3f[dX]:cN[cy++]=typeof vmg[dX];ce++;break;}case 0x11f:{let ds=cN[--cy],dp=cN[cy-0x1],du=cZ[lw],dq=Kc(dp);d(dq,du,{'set':ds,'enumerable':dq===dp,'configurable':!![]}),ce++;break;}case 0x125:{let dV=cN[--cy],dI=cN[--cy],dj=cN[--cy];if(dj===null||dj===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+dj+'\x20(setting\x20'+(typeof dI==='symbol'?'\x27'+dI['toString']()+'\x27':typeof dI==='string'?'\x27'+dI+'\x27':typeof dI==='object'||typeof dI==='function'?'\x27<computed\x20key>\x27':'\x27'+String(dI)+'\x27')+')');if(cF){let dx=typeof dj==='object'||typeof dj==='function'?dj:Object(dj);if(!Reflect['set'](dx,dI,dV,dj))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(dI)+'\x27\x20of\x20object');}else dj[dI]=dV;cN[cy++]=dV,ce++;break;}case 0xb7:{let dH=cN[--cy],dC=dH,dE=0x0&&typeof dH!=='object'?cQ(dH,0x1):undefined,dL,dt,dF,df,dY,dU,dm,Q0;if(dE)dt=dE[0x0]&0x1,dF=dE[0x0]&0x2,df=dE[0x0]&0x4,dY=dE[0x0]&0x8,dm=dE[0x0]&0x10,dU=dE[0x1]||0x0,Q0=dE[0x2]||undefined,dL={'n':dH};else{dL=typeof dH==='object'?dH:cQ(dH);let Q4=dL&&cK(dL[0x20],dL[0x21]);dt=dL&&dL[0xa*Q4[0x0]+Q4[0x1]&0x1f],dF=dL&&dL[0x4*Q4[0x0]+Q4[0x1]&0x1f],df=dL&&dL[0x10*Q4[0x0]+Q4[0x1]&0x1f],dY=dL&&dL[0x8*Q4[0x0]+Q4[0x1]&0x1f],dU=dL&&dL[0x20]||0x0,dm=dL&&dL[0x2*Q4[0x0]+Q4[0x1]&0x1f];let Q5=dL&&dL[0x1*Q4[0x0]+Q4[0x1]&0x1f];Q0=Q5!==undefined?dL[0xe*Q4[0x0]+Q4[0x1]&0x1f][Q5]:undefined;}dH=0x0&&typeof dC!=='object'?{'n':dC}:dL;let Q1=dt?cU:undefined,Q2=l8,Q3;if(df)Q3=KD(cR,dH,Q2,p,dm,vmg,dF);else{if(dF)dt?Q3=KO(ck,dH,Q2,Q1):Q3=KG(ck,dH,Q2,dm,vmg);else{if(dt){Q3=Kh(KN,dH,Q2,Q1);let Q6=vmk_308c3f['_$K5UPIM'];Q6===undefined&&cv&&C['has'](cv)&&(Q6=C['get'](cv)),Q6!==undefined&&C['set'](Q3,Q6);}else Q3=KJ(KN,dH,Q2,dm,vmg,dY);}}m(Q3,'length',{'value':dU,'writable':![],'enumerable':![],'configurable':!![]});Q0!==undefined&&m(Q3,'name',{'value':Q0,'writable':![],'enumerable':![],'configurable':!![]});cN[cy++]=Q3,ce++;break;}case 0x117:{if(lw===-0x2){}else lw===-0x1?cN[--cy]:l8['_$3vCbqT'][lw]=cN[--cy];ce++;break;}case 0x100:{let Q7=lw;l8['_$3vCbqT'][Q7]=cv;let Q8=l8['_$qq4u5O'];!Q8&&(Q8=J(null),l8['_$qq4u5O']=Q8);Q8[Q7]=0x2,ce++;break;}case 0x113:{if(typeof cN[cy-0x1]==='symbol')throw new TypeError('Cannot\x20convert\x20a\x20Symbol\x20value\x20to\x20a\x20string');cN[cy-0x1]=String(cN[cy-0x1]),ce++;break;}case 0x119:{cN[cy-0x1]=cN[cy-0x1]|0x0,ce++;break;}case 0xff:{let Q9=cz[ce];if(!cp)cp=[];cp['push']({['_$b0iXVH']:Q9[0x0]>=0x0?Q9[0x0]:undefined,['_$a9t47i']:Q9[0x1]>=0x0?Q9[0x1]:undefined,['_$cc27pr']:Q9[0x2]>=0x0?Q9[0x2]:undefined,['_$nvKFmL']:cy,['_$1TlS2C']:ce,['_$63Q91f']:l8}),ce++;break;}case 0x115:{cN[cy++]=cU,ce++;break;}case 0xdc:{let QK=cN[--cy],Qc=cN[cy-0x1],Ql=cZ[lw];d(Qc,Ql,{'value':QK,'writable':!![],'enumerable':![],'configurable':!![]});typeof QK==='function'&&(!vmk_308c3f['_$JBjidn']&&(vmk_308c3f['_$JBjidn']=new WeakMap()),O['call'](vmk_308c3f['_$JBjidn'],QK,Qc));ce++;break;}case 0xb6:{if(lw===-0x1)cN[cy++]=Symbol();else{let Qd=cN[--cy];cN[cy++]=Symbol(Qd);}ce++;break;}case 0x12d:{cN[cy++]=cZ[lw],ce++;break;}case 0x114:{let QQ=cN[--cy],Qk=cN[--cy],QR=cN[cy-0x1];d(QR,Qk,{'get':QQ,'enumerable':![],'configurable':!![]}),ce++;break;}case 0x11a:{cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);break;}case 0x111:{let QT=cN[--cy],Qg=cN[--cy],Qr=cZ[lw];d(Qg,Qr,{'value':QT,'writable':!![],'enumerable':!![],'configurable':!![]});typeof QT==='function'&&(!vmk_308c3f['_$JBjidn']&&(vmk_308c3f['_$JBjidn']=new WeakMap()),O['call'](vmk_308c3f['_$JBjidn'],QT,Qg));ce++;break;}case 0x120:{let QJ=E[lw],QG=cN[--cy];if(QJ){for(let QD=0x0;QD<QG;QD++)cN[--cy];for(let Qh=0x0;Qh<QG;Qh++)cN[--cy];cN[cy++]=QJ;}else{let QO=new Array(QG);for(let Qb=QG-0x1;Qb>=0x0;Qb--)QO[Qb]=cN[--cy];let QB=new Array(QG);for(let Qi=QG-0x1;Qi>=0x0;Qi--)QB[Qi]=cN[--cy];d(QB,'raw',{'value':Object['freeze'](QO)}),Object['freeze'](QB),E[lw]=QB,cN[cy++]=QB;}ce++;break;}case 0x130:{!cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);break;}case 0x11e:{let Qv,QW;lw>=0x0?(QW=cN[--cy],Qv=cZ[lw]):(Qv=cN[--cy],QW=cN[--cy]);let QN=delete QW[Qv];if(cF&&!QN)throw new TypeError('Cannot\x20delete\x20property\x20\x27'+String(Qv)+'\x27\x20of\x20object');cN[cy++]=QN,ce++;break;}case 0x10d:{cN[cy++]=cP[lw],ce++;break;}case 0x10c:{let Qy=lw&0xffff,Qa=lw>>>0x10,QZ=cP[Qy],Qw=cZ[Qa];if(QZ===null||QZ===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+QZ+'\x20(reading\x20'+'\x27'+String(Qw)+'\x27'+')');cN[cy++]=QZ[Qw],ce++;break;}case 0x112:{let QM=cN[--cy],Qz={['_$3vCbqT']:new Array(lw),['_$qq4u5O']:null,['_$PID1Ut']:-0x1,['_$kVba6v']:QM};l8=Qz,ce++;break;}case 0xb5:{let QP=cN[cy-0x3],Qe=cN[cy-0x2],QA=cN[cy-0x1];cN[cy-0x3]=QA,cN[cy-0x2]=QP,cN[cy-0x1]=Qe,ce++;break;}case 0xd5:{let QS=cN[cy-0x1];QS['length']++,ce++;break;}case 0xd2:{c:{while(cp&&cp['length']>0x0){let QX=cp[cp['length']-0x1];if(QX['_$a9t47i']!==undefined)break;cp['pop']();}if(cp&&cp['length']>0x0){let Qs=cp[cp['length']-0x1];if(Qs['_$a9t47i']!==undefined){cu=null,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cq=!![],cV=cN[--cy],cL=Qs['_$1TlS2C'],ct=Qs['_$cc27pr'],ce=Qs['_$a9t47i'];break c;}}(cq||cI||cH)&&(cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined);cu=null;let Qn=cN[--cy];if(cf&&Qn===undefined&&!ll)throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return lh=Qn,0x1;}break;}case 0x12c:{let Qp=lw&0xffff,Qu=l8['_$3vCbqT'];Qu[Qp]=Qu;let Qq=lw>>>0x10;Qq&&((l8['_$Ij0Mgj']||(l8['_$Ij0Mgj']={}))[Qp]=cZ[Qq-0x1]);ce++;break;}case 0x10a:{let QV=cN[--cy],QI=cZ[lw];if(QV===null||QV===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+QV+'\x20(reading\x20'+'\x27'+String(QI)+'\x27'+')');cN[cy++]=QV[QI],ce++;break;}case 0x107:{let Qj=cN[--cy],Qx=cN[--cy],QH=cN[--cy];if(typeof Qx!=='function')throw new TypeError(Qx+'\x20is\x20not\x20a\x20function');let QC=vmk_308c3f['_$JBjidn'],QE=QC&&l['call'](QC,Qx);!QE&&QC&&(Qx===g||Qx===r)&&(QE=l['call'](QC,QH));let QL=vmk_308c3f['_$oCzQEs'];QE&&(vmk_308c3f['_$PuTE2f']=!![],vmk_308c3f['_$oCzQEs']=QE);let Qt;try{if(Qj===0x0)Qt=T(Qx,QH,S);else{if(Qj===0x1){let QF=cN[--cy];Qt=QF&&typeof QF==='object'&&k['call'](s,QF)?T(Qx,QH,QF['value']):T(Qx,QH,[QF]);}else Qt=T(Qx,QH,K0(l2,Qj));}cN[cy++]=Qt;}finally{QE&&(vmk_308c3f['_$PuTE2f']=![],vmk_308c3f['_$oCzQEs']=QL);}ce++;break;}case 0x118:{let Qo=lw&0xffff,Qf=lw>>>0x10;cN[cy++]=cP[Qo]-cZ[Qf],ce++;break;}case 0x11c:{let QY=cN[--cy],QU=cN[--cy],Qm=cN[cy-0x1],k0=Kc(Qm);d(k0,QU,{'set':QY,'enumerable':k0===Qm,'configurable':!![]}),ce++;break;}case 0x11b:{let k1=cN[--cy],k2=cN[--cy];cN[cy++]=k2!=k1,ce++;break;}case 0xfc:{let k3=ci[lw];if((typeof k3==='object'||typeof k3==='function')&&k3!==null){const k4=k3[Symbol['toPrimitive']];if(k4!=null){k3=k4['call'](k3,'number');if(k3!==null&&(typeof k3==='object'||typeof k3==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const k5=k3['valueOf']();if(k5===null||typeof k5!=='object'&&typeof k5!=='function')k3=k5;else{const k6=k3['toString']();if(k6!==null&&(typeof k6==='object'||typeof k6==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');k3=k6;}}}ci[lw]=typeof k3===A?k3-0x1n:+k3-0x1,ce++;break;}case 0x126:{cN[cy-0x1]=cN[cy-0x1]>>>0x0,ce++;break;}case 0xb4:{let k7=lw&0xffff,k8=lw>>>0x10;cN[cy++]=cP[k7]*cZ[k8],ce++;break;}case 0xd6:{let k9=cN[--cy],kK=cN[--cy];cN[cy++]=kK===k9,ce++;break;}case 0x129:{l:{let kc=cM[ce];while(cp&&cp['length']>0x0){let kl=cp[cp['length']-0x1];if(kl['_$a9t47i']!==undefined||!(kc>=kl['_$cc27pr']||kc<=kl['_$1TlS2C']))break;cp['pop']();}if(cp&&cp['length']>0x0){let kd=cp[cp['length']-0x1];if(kd['_$a9t47i']!==undefined&&(kc>=kd['_$cc27pr']||kc<=kd['_$1TlS2C'])){cu=null,cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=!![],cC=kc,cE=l8,cL=kd['_$1TlS2C'],ct=kd['_$cc27pr'],ce=kd['_$a9t47i'];break l;}}(cq||cI||cH||cu!==null)&&(kc>=ct||kc<=cL)&&(cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cu=null),ce=kc;}break;}case 0x12e:{let kQ=cN[--cy],kk=cN[--cy],kR=lw,kT=function(kg,kr){let kJ=function(){let kG=u===kJ;u=undefined;if(new.target===undefined&&!kG)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');if(kg){kr&&(vmk_308c3f['_$K5UPIM']=kJ);let kD='_$1p9m05'in vmk_308c3f;!kD&&(vmk_308c3f['_$1p9m05']=new.target);try{let kh=kg['apply'](this,KK(arguments));if(kr&&kh!==undefined&&(kh===null||typeof kh!=='object'&&typeof kh!=='function'))throw new TypeError('Derived\x20constructors\x20may\x20only\x20return\x20object\x20or\x20undefined');return kh;}finally{kr&&delete vmk_308c3f['_$K5UPIM'],!kD&&delete vmk_308c3f['_$1p9m05'];}}};return kJ;}(kk,kR);kQ&&d(kT,'name',{'value':kQ,'configurable':!![]});kk&&d(kT,'length',{'value':kk['length'],'configurable':!![]});if(kk&&!H(kT)){let kg=x(kk);kg&&(kg['_$R3crfR']=![],I(kT,kg));}cN[cy++]=kT,ce++;break;}case 0xfe:{cP[lw]=cP[lw]-0x1,ce++;break;}case 0x127:{let kr=cN[--cy],kJ=cN[--cy],kG=cN[cy-0x1],kD=Kc(kG);d(kD,kJ,{'get':kr,'enumerable':kD===kG,'configurable':!![]}),ce++;break;}}};while(ce<cA){try{while(ce<cA){let lZ=ce<<cs,lw=cw[cn+lZ],lM=cw[cX+lZ];if(lw===P){let lz=l2();return ce++,{['_$qZDqoT']:y,['_$BW1O4j']:lz,['_$ToLHD4']:lR};}if(lw===M){let lP=l2();return ce++,{['_$qZDqoT']:a,['_$BW1O4j']:lP,['_$ToLHD4']:lR};}if(lw===z){let le=l2();return ce++,{['_$qZDqoT']:Z,['_$BW1O4j']:le,['_$ToLHD4']:lR};}switch(li[lw]){case 0x1:{let lA=cN[--cy],lS=cN[--cy];cN[cy++]=lS*lA,ce++;continue;}case 0x2:{cN[cy++]=null,ce++;continue;}case 0x3:{cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);continue;}case 0x4:{ci[lM]=cN[--cy],ce++;continue;}case 0x5:{let ln=cN[--cy],lX=cN[--cy];cN[cy++]=lX>ln,ce++;continue;}case 0x6:{let ls=cN[cy-0x1],lp=cZ[lM];if(ls===null||ls===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+ls+'\x20(reading\x20'+'\x27'+String(lp)+'\x27'+')');cN[cy++]=ls[lp],ce++;continue;}case 0x7:{let lu=lM&0xffff,lq=lM>>>0x10;cN[cy++]=cP[lu]*cZ[lq],ce++;continue;}case 0x8:{let lV=cN[--cy],lI=cN[--cy];cN[cy++]=lI/lV,ce++;continue;}case 0x9:{let lj=cN[--cy],lx=cN[--cy];cN[cy++]=lx%lj,ce++;continue;}case 0xa:{cN[cy++]=ci[lM],ce++;continue;}case 0xb:{let lH=cN[cy-0x1];cN[cy++]=lH,ce++;continue;}case 0xc:{let lC=lM&0xffff,lE=lM>>>0x10;cN[cy++]=cP[lC]<cZ[lE],ce++;continue;}case 0xd:{let lL=cN[--cy];if((typeof lL==='object'||typeof lL==='function')&&lL!==null){const lt=lL[Symbol['toPrimitive']];if(lt!=null){lL=lt['call'](lL,'number');if(lL!==null&&(typeof lL==='object'||typeof lL==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const lF=lL['valueOf']();if(lF===null||typeof lF!=='object'&&typeof lF!=='function')lL=lF;else{const lo=lL['toString']();if(lo!==null&&(typeof lo==='object'||typeof lo==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');lL=lo;}}}cN[cy++]=typeof lL===A?lL:+lL,ce++;continue;}case 0xe:{cN[cy++]=cP[lM],ce++;continue;}case 0xf:{cN[cy++]=cZ[lM],ce++;continue;}case 0x10:{let lf=cN[--cy],lY=cN[--cy];cN[cy++]=lY!==lf,ce++;continue;}case 0x11:{!cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);continue;}case 0x12:{let lU=cN[--cy],lm=cN[--cy];cN[cy++]=lm+lU,ce++;continue;}case 0x13:{let d0=cN[--cy],d1=cN[--cy];cN[cy++]=d1<d0,ce++;continue;}case 0x14:{let d2=cN[--cy];if((typeof d2==='object'||typeof d2==='function')&&d2!==null){const d3=d2[Symbol['toPrimitive']];if(d3!=null){d2=d3['call'](d2,'number');if(d2!==null&&(typeof d2==='object'||typeof d2==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const d4=d2['valueOf']();if(d4===null||typeof d4!=='object'&&typeof d4!=='function')d2=d4;else{const d5=d2['toString']();if(d5!==null&&(typeof d5==='object'||typeof d5==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');d2=d5;}}}cN[cy++]=typeof d2===A?d2+0x1n:+d2+0x1,ce++;continue;}case 0x15:{let d6=cN[--cy];d6!==null&&d6!==undefined?ce=cM[ce]:ce++;continue;}case 0x16:{let d7=cN[--cy],d8=cN[--cy];cN[cy++]=d8<=d7,ce++;continue;}case 0x17:{cN[--cy],ce++;continue;}case 0x18:{let d9=cP[lM];if((typeof d9==='object'||typeof d9==='function')&&d9!==null){const dK=d9[Symbol['toPrimitive']];if(dK!=null){d9=dK['call'](d9,'number');if(d9!==null&&(typeof d9==='object'||typeof d9==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dc=d9['valueOf']();if(dc===null||typeof dc!=='object'&&typeof dc!=='function')d9=dc;else{const dl=d9['toString']();if(dl!==null&&(typeof dl==='object'||typeof dl==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');d9=dl;}}}cP[lM]=typeof d9===A?d9-0x1n:+d9-0x1,ce++;continue;}case 0x19:{let dd=lM&0xffff,dQ=lM>>>0x10;cN[cy++]=cP[dd]-cZ[dQ],ce++;continue;}case 0x1a:{let dk=lM&0xffff,dR=lM>>>0x10;cN[cy++]=ci[dk]-cZ[dR],ce++;continue;}case 0x1b:{let dT=cN[--cy],dg=cN[--cy];if(dg===null||dg===undefined){if(dT===Symbol['iterator'])throw new TypeError((dg===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dg+'\x20(reading\x20'+(typeof dT==='symbol'?'\x27'+dT['toString']()+'\x27':typeof dT==='string'?'\x27'+dT+'\x27':typeof dT==='object'||typeof dT==='function'?'\x27<computed\x20key>\x27':'\x27'+String(dT)+'\x27')+')');}cN[cy++]=dg[dT],ce++;continue;}case 0x1c:{cN[cy-0x1]=cN[cy-0x1]>>>0x0,ce++;continue;}case 0x1d:{cP[lM]=cP[lM]-0x1,ce++;continue;}case 0x1e:{let dr=cN[--cy],dJ=cN[--cy];cN[cy++]=dJ>=dr,ce++;continue;}case 0x1f:{!cN[--cy]?ce=cM[ce]:ce++;continue;}case 0x20:{let dG=cN[--cy],dD=cN[--cy];cN[cy++]=dD!=dG,ce++;continue;}case 0x21:{cP[lM]=cN[--cy],ce++;continue;}case 0x22:{let dh=cN[--cy];if((typeof dh==='object'||typeof dh==='function')&&dh!==null){const dO=dh[Symbol['toPrimitive']];if(dO!=null){dh=dO['call'](dh,'number');if(dh!==null&&(typeof dh==='object'||typeof dh==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dB=dh['valueOf']();if(dB===null||typeof dB!=='object'&&typeof dB!=='function')dh=dB;else{const db=dh['toString']();if(db!==null&&(typeof db==='object'||typeof db==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dh=db;}}}cN[cy++]=typeof dh===A?dh-0x1n:+dh-0x1,ce++;continue;}case 0x23:{cN[cy++]=cZ[lM],ce++;continue;}case 0x24:{let di=ci[lM];if((typeof di==='object'||typeof di==='function')&&di!==null){const dv=di[Symbol['toPrimitive']];if(dv!=null){di=dv['call'](di,'number');if(di!==null&&(typeof di==='object'||typeof di==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dW=di['valueOf']();if(dW===null||typeof dW!=='object'&&typeof dW!=='function')di=dW;else{const dN=di['toString']();if(dN!==null&&(typeof dN==='object'||typeof dN==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');di=dN;}}}ci[lM]=typeof di===A?di-0x1n:+di-0x1,ce++;continue;}case 0x25:{let dy=lM&0xffff,da=lM>>>0x10,dZ=cP[dy],dw=cZ[da];if(dZ===null||dZ===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dZ+'\x20(reading\x20'+'\x27'+String(dw)+'\x27'+')');cN[cy++]=dZ[dw],ce++;continue;}case 0x26:{let dM=lM&0xffff,dz=lM>>>0x10;cN[cy++]=ci[dM]<=cZ[dz],ce++;continue;}case 0x27:{ce=cM[ce];continue;}case 0x28:{cP[lM]=cP[lM]+0x1,ce++;continue;}case 0x29:{let dP=lM&0xffff,de=lM>>>0x10;cN[cy++]=cP[dP]+cZ[de],ce++;continue;}case 0x2a:{if(cf&&!ll){let dn=KT(l8);if(dn!==undefined)cb=dn,ll=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let dA=cb,dS=cZ[lM];if(dA===null||dA===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dA+'\x20(reading\x20'+'\x27'+String(dS)+'\x27'+')');cN[cy++]=dA[dS],ce++;continue;}case 0x2b:{let dX=cP[lM];if((typeof dX==='object'||typeof dX==='function')&&dX!==null){const ds=dX[Symbol['toPrimitive']];if(ds!=null){dX=ds['call'](dX,'number');if(dX!==null&&(typeof dX==='object'||typeof dX==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dp=dX['valueOf']();if(dp===null||typeof dp!=='object'&&typeof dp!=='function')dX=dp;else{const du=dX['toString']();if(du!==null&&(typeof du==='object'||typeof du==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dX=du;}}}cP[lM]=typeof dX===A?dX+0x1n:+dX+0x1,ce++;continue;}case 0x2c:{let dq=cN[--cy],dV=cN[--cy],dI=cZ[lM];if(dV===null||dV===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+dV+'\x20(setting\x20'+'\x27'+String(dI)+'\x27'+')');if(cF){let dj=typeof dV==='object'||typeof dV==='function'?dV:Object(dV);if(!Reflect['set'](dj,dI,dq,dV))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(dI)+'\x27\x20of\x20object');}else dV[dI]=dq;cN[cy++]=dq,ce++;continue;}case 0x2d:{let dx=ci[lM];if((typeof dx==='object'||typeof dx==='function')&&dx!==null){const dH=dx[Symbol['toPrimitive']];if(dH!=null){dx=dH['call'](dx,'number');if(dx!==null&&(typeof dx==='object'||typeof dx==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dC=dx['valueOf']();if(dC===null||typeof dC!=='object'&&typeof dC!=='function')dx=dC;else{const dE=dx['toString']();if(dE!==null&&(typeof dE==='object'||typeof dE==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dx=dE;}}}ci[lM]=typeof dx===A?dx+0x1n:+dx+0x1,ce++;continue;}case 0x2e:{let dL=lM&0xffff,dt=lM>>>0x10,dF=l8;for(let dU=0x0;dU<dt;dU++){dF=dF['_$kVba6v'];}let df=dF['_$3vCbqT'],dY=df[dL];if(dY===df){let dm=dF['_$Ij0Mgj'];throw new ReferenceError('Cannot\x20access\x20\x27'+(dm&&dm[dL]||'variable')+'\x27\x20before\x20initialization');}cN[cy++]=dY,ce++;continue;}case 0x2f:{let Q0=cN[--cy],Q1=cN[--cy];cN[cy++]=Q1==Q0,ce++;continue;}case 0x30:{let Q2=cN[--cy],Q3=cN[--cy],Q4=cN[--cy];if(Q4===null||Q4===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+Q4+'\x20(setting\x20'+(typeof Q3==='symbol'?'\x27'+Q3['toString']()+'\x27':typeof Q3==='string'?'\x27'+Q3+'\x27':typeof Q3==='object'||typeof Q3==='function'?'\x27<computed\x20key>\x27':'\x27'+String(Q3)+'\x27')+')');if(cF){let Q5=typeof Q4==='object'||typeof Q4==='function'?Q4:Object(Q4);if(!Reflect['set'](Q5,Q3,Q2,Q4))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(Q3)+'\x27\x20of\x20object');}else Q4[Q3]=Q2;cN[cy++]=Q2,ce++;continue;}case 0x31:{let Q6=cN[--cy],Q7=cZ[lM];if(Q6===null||Q6===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Q6+'\x20(reading\x20'+'\x27'+String(Q7)+'\x27'+')');cN[cy++]=Q6[Q7],ce++;continue;}case 0x32:{let Q8=cN[--cy],Q9=cN[--cy];cN[cy++]=Q9===Q8,ce++;continue;}case 0x33:{let QK=cN[--cy],Qc=cN[--cy],Ql=(lM^0xf476)>>>0x0,Qd;Ql<0x10?Ql<0x8?Ql<0x4?Ql<0x2?Qd=Ql<0x1?Qc>QK:Qc+QK:Qd=Ql<0x3?Qc<=QK:Qc===QK:Ql<0x6?Qd=Ql<0x5?Qc!=QK:Qc>>>QK:Qd=Ql<0x7?Qc&QK:Qc^QK:Ql<0xc?Ql<0xa?Qd=Ql<0x9?Qc|QK:Qc-QK:Qd=Ql<0xb?Qc**QK:Qc!==QK:Ql<0xe?Qd=Ql<0xd?Qc%QK:Qc>>QK:Qd=Ql<0xf?Qc<<QK:Qc>=QK:Ql<0x14?Ql<0x12?Qd=Ql<0x11?Qc*QK:Qc==QK:Qd=Ql<0x13?Qc<QK:Qc/QK:Ql<0x18?Qd=Ql<0x16?Qc|QK:Qc&QK:Qd=Ql<0x1c?Qc^QK:QK-Qc;cN[cy++]=Qd,ce++;continue;}case 0x34:{cN[--cy]?ce=cM[ce]:ce++;continue;}case 0x35:{cN[cy++]=undefined,ce++;continue;}case 0x36:{cN[cy-0x1]=cN[cy-0x1]|0x0,ce++;continue;}case 0x37:{let QQ=cN[--cy],Qk=cN[--cy];cN[cy++]=Qk-QQ,ce++;continue;}}if(lw<0x3f){if(lO(lw,lM)){if(lk>0x0){for(let QR=ld-0x1;QR>=0x0;QR--){cP[QR]=lQ[--lk];}l8=lQ[--lk],ci=lQ[--lk],cy=lQ[--lk],lK=lQ[--lk],lc=lQ[--lk],ce=lQ[--lk],cN[cy++]=lh,ce++;continue;}return lh;}}else{if(lw<0xb4){if(lB(lw,lM)){if(lk>0x0){for(let QT=ld-0x1;QT>=0x0;QT--){cP[QT]=lQ[--lk];}l8=lQ[--lk],ci=lQ[--lk],cy=lQ[--lk],lK=lQ[--lk],lc=lQ[--lk],ce=lQ[--lk],cN[cy++]=lh,ce++;continue;}return lh;}}else{if(lb(lw,lM)){if(lk>0x0){for(let Qg=ld-0x1;Qg>=0x0;Qg--){cP[Qg]=lQ[--lk];}l8=lQ[--lk],ci=lQ[--lk],cy=lQ[--lk],lK=lQ[--lk],lc=lQ[--lk],ce=lQ[--lk],cN[cy++]=lh,ce++;continue;}return lh;}}}}break;}catch(Qr){n=0x0;if(cp&&cp['length']>0x0){let QJ=cp[cp['length']-0x1];cy=QJ['_$nvKFmL'];QJ['_$63Q91f']!==undefined&&(l8=QJ['_$63Q91f']);if(QJ['_$b0iXVH']!==undefined)cu=null,l1(Qr),ce=QJ['_$b0iXVH'],QJ['_$b0iXVH']=undefined,QJ['_$a9t47i']===undefined&&cp['pop']();else QJ['_$a9t47i']!==undefined?(ce=QJ['_$a9t47i'],QJ['_$yq9CyO']=Qr):(ce=QJ['_$cc27pr'],cp['pop']());continue;}throw Qr;}}if(cf&&!ll){let QG=KT(l8);QG!==undefined&&(cb=QG,ll=!![]);}let lv=cy>0x0?cN[--cy]:ll?cb:undefined;if(cf&&!ll&&(lv===undefined||lv===null||typeof lv!=='object'&&typeof lv!=='function'))throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return lv;}return lR(0x0);}function*Ki(cO,cB,cb,ci,cv,cW){let cN=Kb(cO,cB,cb,ci,cv,cW);while(!![]){if(cN&&typeof cN==='object'&&cN['_$qZDqoT']!==undefined){let cy=cN['_$ToLHD4'],ca;try{ca=yield cN;}catch(cZ){cN=cy(0x2,cZ);continue;}ca&&typeof ca==='object'&&ca['_$qZDqoT']===w?cN=cy(0x3,ca['_$BW1O4j']):cN=cy(0x1,ca);}else return cN;}}let Kv=0x0,KW=function(cO){let cB=cO['next'],cb=cO['throw'],ci=cO['return'];return cO['next']=function(cv){Kv++;try{return cB['call'](cO,cv);}finally{Kv--;}},cO['throw']=function(cv){Kv++;try{return cb['call'](cO,cv);}finally{Kv--;}},cO['return']=function(cv){Kv++;try{return ci['call'](cO,cv);}finally{Kv--;}},cO;},KN=function(cO,cB,cb,ci,cv,cW){Kv++;try{vmk_308c3f['_$PuTE2f']?vmk_308c3f['_$PuTE2f']=![]:vmk_308c3f['_$oCzQEs']=undefined;let cN=typeof cO==='object'?cO['n']!==undefined?0x0?cQ(cO['n']):cO['d']||(cO['d']=cQ(cO['n'])):cO:cd(cO),cy=cN&&cK(cN[0x20],cN[0x21]);return KB(cN,cB,cb,ci,cv,cW);}finally{Kv--;}},Ky=0x9,Ka=0x4,KZ=0x0,Kw=0x3,KM=0x6,Kz=0xb,KP=0x1,Ke=0x7,KA=0x8,KS=0xa,Kn=0x2,KX=0x5,Ks=0x100000,Kp=0x4,Ku=0x40,Kq=0x1000,KV=0x40000,KI=0x400000,Kj=0x80,Kx=0x1,KH=0x200,KC=0x200000,KE=0x800,KL=0x10000,Kt=0x20,KF=0x2,Ko=0x2000,Kf=0x100,KY=0x80000,KU=0x400,Km=0x8000,c0=0x20000,c1=0x4000,c2=0x8;function c3(cO){this['_$orfqbO']=cO,this['_$JC1J9k']=new i(cO['buffer'],cO['byteOffset'],cO['byteLength']),this['_$nWsDy9']=0x0;}c3['prototype']['_$Ie2gZB']=function(){return this['_$orfqbO'][this['_$nWsDy9']++];},c3['prototype']['_$1f5a0X']=function(){let cO=this['_$JC1J9k']['getUint16'](this['_$nWsDy9'],!![]);return this['_$nWsDy9']+=0x2,cO;},c3['prototype']['_$5JR09N']=function(){let cO=this['_$JC1J9k']['getUint32'](this['_$nWsDy9'],!![]);return this['_$nWsDy9']+=0x4,cO;},c3['prototype']['_$wXnSFa']=function(){let cO=this['_$JC1J9k']['getInt32'](this['_$nWsDy9'],!![]);return this['_$nWsDy9']+=0x4,cO;},c3['prototype']['_$8bgswP']=function(){let cO=this['_$JC1J9k']['getFloat64'](this['_$nWsDy9'],!![]);return this['_$nWsDy9']+=0x8,cO;},c3['prototype']['_$uqlqFf']=function(){let cO=0x0,cB=0x0,cb;do{cb=this['_$Ie2gZB'](),cO|=(cb&0x7f)<<cB,cB+=0x7;}while(cb>=0x80);return cO>>>0x1^-(cO&0x1);},c3['prototype']['_$qfQeSq']=function(){let cO=this['_$uqlqFf'](),cB=this['_$orfqbO'],cb=this['_$nWsDy9'],ci=cb+cO;this['_$nWsDy9']=ci;var cv='';while(cb<ci){var cW=cB[cb++];if(cW<0x80)cv+=v(cW);else{if(cW<0xe0)cv+=v((cW&0x1f)<<0x6|cB[cb++]&0x3f);else{if(cW<0xf0)cv+=v((cW&0xf)<<0xc|(cB[cb++]&0x3f)<<0x6|cB[cb++]&0x3f);else{var cN=(cW&0x7)<<0x12|(cB[cb++]&0x3f)<<0xc|(cB[cb++]&0x3f)<<0x6|cB[cb++]&0x3f;cN-=0x10000,cv+=v((cN>>0xa)+0xd800,(cN&0x3ff)+0xdc00);}}}}return cv;};var c4='ermfF0xZ2WSM5GshTcRXtO1QYJg3DE8+By7VikCUlIu6zjNLpoa9nHvdKqP/bw4A',c5=new b(0x80);for(var c6=0x0;c6<c4['length'];c6++){c5[c4['charCodeAt'](c6)]=c6;}function c7(cO){var cB=cO['charCodeAt'](cO['length']-0x1)===0x3d?cO['charCodeAt'](cO['length']-0x2)===0x3d?0x2:0x1:0x0,cb=(cO['length']*0x3>>0x2)-cB,ci=new b(cb),cv=0x0;for(var cW=0x0;cW<cO['length'];cW+=0x4){var cN=c5[cO['charCodeAt'](cW)],cy=c5[cO['charCodeAt'](cW+0x1)],ca=c5[cO['charCodeAt'](cW+0x2)],cZ=c5[cO['charCodeAt'](cW+0x3)];ci[cv++]=cN<<0x2|cy>>0x4,cv<cb&&(ci[cv++]=(cy&0xf)<<0x4|ca>>0x2),cv<cb&&(ci[cv++]=(ca&0x3)<<0x6|cZ);}return ci;}function c8(cO,cB,cb){let ci=cO['_$uqlqFf'](),cv=(cb^cB*0x9e3779b1)>>>0x0||0x1,cW=0x0;var cN='';function cy(){return cv=(cv^cv<<0xd)>>>0x0,cv=(cv^cv>>>0x11)>>>0x0,cv=(cv^cv<<0x5)>>>0x0,cW++,cO['_$Ie2gZB']()^cv&0xff;}while(cW<ci){var ca=cy();if(ca<0x80)cN+=v(ca);else{if(ca<0xe0)cN+=v((ca&0x1f)<<0x6|cy()&0x3f);else{if(ca<0xf0)cN+=v((ca&0xf)<<0xc|(cy()&0x3f)<<0x6|cy()&0x3f);else{var cZ=((ca&0x7)<<0x12|(cy()&0x3f)<<0xc|(cy()&0x3f)<<0x6|cy()&0x3f)-0x10000;cN+=v((cZ>>0xa)+0xd800,(cZ&0x3ff)+0xdc00);}}}}return cN;}function c9(cO,cB,cb){let ci=cO['_$Ie2gZB']();switch(ci){case Ky:return null;case Ka:return undefined;case KZ:return![];case Kw:return!![];case KM:{let cv=cO['_$Ie2gZB']();return cv>0x7f?cv-0x100:cv;}case Kz:{let cW=cO['_$1f5a0X']();return cW>0x7fff?cW-0x10000:cW;}case KP:return cO['_$wXnSFa']();case Ke:return cO['_$8bgswP']();case KA:return cb?c8(cO,cB,cb):cO['_$qfQeSq']();case KS:return BigInt(cO['_$qfQeSq']());case Kn:{let cN=cO['_$qfQeSq'](),cy=cO['_$qfQeSq']();return new RegExp(cN,cy);}case KX:{let ca=cO['_$uqlqFf'](),cZ=new b(ca);for(let cw=0x0;cw<ca;cw++){cZ[cw]=cO['_$Ie2gZB']();}return cc(cZ);}default:return null;}}function cK(cO,cB){var cb=(Math['imul']((cO>>>0x0)+0x1,0xd4a11bec|0x1)^Math['imul']((cB>>>0x0)+0x1,0xd4a11bec>>>0x9|0x1)^0xd4a11bec)>>>0x0;return[(cb|0x1)>>>0x0,Math['imul'](cb,0x79289bb9)+0xc2855369>>>0x0];}function cc(cO){let cB;if(cO&&cO['_$nWsDy9']!==undefined)cB=cO;else{let cX=typeof cO==='string'?c7(cO):cO;cB=new c3(cX);}let cb=cB['_$Ie2gZB'](),ci=(cB['_$5JR09N']()^0x884cf661)>>>0x0,cv=cB['_$uqlqFf'](),cW=cB['_$uqlqFf'](),cN=[],cy=cK(cv,cW);cN[0x20]=cv,cN[0x21]=cW;ci&Kx&&(cN[0x11*cy[0x0]+cy[0x1]&0x1f]=cB['_$5JR09N']());ci&KH&&(cN[0xd*cy[0x0]+cy[0x1]&0x1f]=cB['_$5JR09N']());ci&c1&&(cN[0x15*cy[0x0]+cy[0x1]&0x1f]=cB['_$uqlqFf']());ci&Kj&&(cN[0x7*cy[0x0]+cy[0x1]&0x1f]=cB['_$5JR09N']());ci&KE&&(cN[0x17*cy[0x0]+cy[0x1]&0x1f]=cB['_$5JR09N']());ci&c0&&(cN[0x6*cy[0x0]+cy[0x1]&0x1f]=cB['_$uqlqFf']());ci&KC&&(cN[0x14*cy[0x0]+cy[0x1]&0x1f]=cB['_$uqlqFf']());ci&KI&&(cN[0xb*cy[0x0]+cy[0x1]&0x1f]=cB['_$5JR09N']());ci&Kq&&(cN[0x1*cy[0x0]+cy[0x1]&0x1f]=cB['_$uqlqFf']());if(ci&KV){let cs=cB['_$uqlqFf'](),cp={};for(let cu=0x0;cu<cs;cu++){let cq=cB['_$uqlqFf'](),cV=cB['_$uqlqFf']();cp[cq]=cV;}cN[0xf*cy[0x0]+cy[0x1]&0x1f]=cp;}ci&Ks&&(cN[0xa*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&Kp&&(cN[0x4*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&Ku&&(cN[0x10*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&Ko&&(cN[0x8*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&Kf&&(cN[0x2*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&KY&&(cN[0x0*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&KU&&(cN[0x3*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&Km&&(cN[0x9*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&KF&&(cN[0xc*cy[0x0]+cy[0x1]&0x1f]=0x1);let ca=cB['_$uqlqFf'](),cZ=[];K4(cZ,null);let cw=cN[0x11*cy[0x0]+cy[0x1]&0x1f]||0x0;for(let cI=0x0;cI<ca;cI++){cZ[cI]=c9(cB,cI,cw);}cN[0xe*cy[0x0]+cy[0x1]&0x1f]=cZ;function cM(cj){let cx=cj['_$Ie2gZB']();switch(cx){case Ky:return-0x1;case KM:{let cH=cj['_$Ie2gZB']();return cH>0x7f?cH-0x100:cH;}case Kz:{let cC=cj['_$1f5a0X']();return cC>0x7fff?cC-0x10000:cC;}case KP:return cj['_$wXnSFa']();case Ke:return cj['_$8bgswP']()|0x0;case KA:return cj['_$qfQeSq']()|0x0;default:return-0x1;}}let cz=cB['_$uqlqFf'](),cP=!!(ci&c2),ce=cP?cz*0x3:cz<<0x1;if(cz<0x0||ce<0x0)throw new RangeError('Invalid\x20array\x20length');let cA=null,cS={'__proto__':cA,'length':ce},cn=0x0;if(cP){let cj=cN[0x13*cy[0x0]+cy[0x1]&0x1f]<=0x80;for(let cx=0x0;cx<cz;cx++){cS[cn++]=cB['_$uqlqFf'](),cS[cn++]=cM(cB);let cH=0x0,cC=0x0,cE;do{cE=cB['_$Ie2gZB'](),cH|=(cE&0x7f)<<cC,cC+=0x7;}while(cE>=0x80);cH=cH>>>0x0,cS[cn++]=cj?(cH&0x7f)<<0x14|(cH>>>0x7&0x7f)<<0xa|cH>>>0xe&0x7f:(cH&0xfff)<<0x14|(cH>>>0xc&0x3ff)<<0xa|cH>>>0x16&0x3ff;}}else{let cL=(cv*0x2bfb^cW*0x8703^cz*0x8b1^ca*0x6183)>>>0x0&0x3;switch(cL){case 0x1:for(let ct=0x0;ct<cz;ct++){cS[cn++]=cM(cB);}for(let cF=0x0;cF<cz;cF++){cS[cn++]=cB['_$uqlqFf']();}break;case 0x2:for(let co=0x0;co<cz;co++){cS[cn++]=cM(cB),cS[cn++]=cB['_$uqlqFf']();}break;case 0x3:for(let cf=0x0;cf<cz;cf++){cS[cn++]=cB['_$uqlqFf']();}for(let cY=0x0;cY<cz;cY++){cS[cn++]=cM(cB);}break;default:for(let cU=0x0;cU<cz;cU++){cS[cn++]=cB['_$uqlqFf'](),cS[cn++]=cM(cB);}break;}}cN[0x18*cy[0x0]+cy[0x1]&0x1f]=cS;if(ci&KL){let cm=cB['_$uqlqFf'](),l0={};for(let l1=0x0;l1<cm;l1++){let l2=cB['_$uqlqFf'](),l3=cB['_$uqlqFf']();l0[l2]=l3;}cN[0x16*cy[0x0]+cy[0x1]&0x1f]=l0;}if(ci&Kt){let l4=cB['_$uqlqFf'](),l5={};for(let l6=0x0;l6<l4;l6++){let l7=cB['_$uqlqFf'](),l8=cB['_$uqlqFf']()-0x1,l9=cB['_$uqlqFf']()-0x1,lK=cB['_$uqlqFf']()-0x1;l5[l7]=[l8,l9,lK];}cN[0x5*cy[0x0]+cy[0x1]&0x1f]=l5;}return cN;}let cl=function(cO,cB){let cb={};return function(ci){if(cB!==undefined&&(ci>=cB||ci<0x0))throw 0x0;let cv=ci;if(cb[cv])return cb[cv];let cW=cO[cv];return typeof cW==='string'?cb[cv]=cc(cW):cb[cv]=cW,cb[cv];};},cd=cl(B);B=null;let cQ=cl(W,undefined,0x0);W=null;let ck=async function(cO,cB,cb,ci,cv,cW,cN){Kv++;try{let cy=typeof cO==='object'?cO['n']!==undefined?0x0?cQ(cO['n']):cO['d']||(cO['d']=cQ(cO['n'])):cO:cd(cO),ca=cy&&cK(cy[0x20],cy[0x21]),cZ=Ki(cy,cB,cb,cv,cW,cN),cw=cZ['next']();while(!cw['done']){if(cw['value']['_$qZDqoT']!==y)throw new Error('Unexpected\x20yield\x20in\x20async\x20context');try{let cM;cM=await cw['value']['_$BW1O4j'],vmk_308c3f['_$oCzQEs']=ci,cw=cZ['next'](cM);}catch(cz){vmk_308c3f['_$oCzQEs']=ci,cw=cZ['throw'](cz);}}return cw['value'];}finally{Kv--;}},cR=function(cO,cB,cb,ci,cv,cW){let cN,cy;Kv++;try{cN=typeof cO==='object'?cO['n']!==undefined?0x0?cQ(cO['n']):cO['d']||(cO['d']=cQ(cO['n'])):cO:cd(cO),cy=cN&&cK(cN[0x20],cN[0x21]);}finally{Kv--;}let ca=KW(Ki(cN,cB,cb,cv,cW,undefined)),cZ=cN&&cN[0x10*cy[0x0]+cy[0x1]&0x1f]&&!cN[0x0*cy[0x0]+cy[0x1]&0x1f],cw=null;cZ&&(cw=ca['next']());let cM=![],cz=![],cP=null,ce=undefined,cA=![];function cS(cj,cx){if(cM)return{'value':undefined,'done':!![]};cz=!![],vmk_308c3f['_$oCzQEs']=ci;if(cP){let cC,cE,cL;try{if(cx){if(typeof cP['throw']==='function')cC=cP['throw'](cj);else{typeof cP['return']==='function'&&cP['return']();cP=null;throw new TypeError('The\x20iterator\x20does\x20not\x20provide\x20a\x20\x27throw\x27\x20method.');}}else cC=cP['next'](cj);try{K6(cC);}catch(cF){cP=null;throw cF;}let ct=K7(cC);cE=ct['done'],cL=ct['value'];}catch(co){cP=null;try{let cf=ca['throw'](co);return cn(cf);}catch(cY){cM=!![];throw cY;}}if(!cE)return cC;cP=null,cj=cL,cx=![];}let cH;if(cw!==null)cH=cw,cw=null;else try{cH=cx?ca['throw'](cj):ca['next'](cj);}catch(cU){cM=!![];throw cU;}return cn(cH);}function cn(cj){if(cj['done'])return cM=!![],cA=![],{'value':cj['value'],'done':!![]};let cx=cj['value'];if(cx['_$qZDqoT']===a)return{'value':cx['_$BW1O4j'],'done':![]};if(cx['_$qZDqoT']===Z){let cH=cx['_$BW1O4j'],cC;try{if(cH==null)throw new TypeError(cH+'\x20is\x20not\x20iterable');let cF=cH[Symbol['iterator']];if(typeof cF!=='function')throw new TypeError(cH+'\x20is\x20not\x20iterable');cC=cF['call'](cH),K6(cC);if(typeof cC['next']!=='function')throw new TypeError('Iterator\x20next\x20is\x20not\x20a\x20function');}catch(co){try{let cf=ca['throw'](co);return cn(cf);}catch(cY){cM=!![];throw cY;}}let cE,cL,ct;try{cE=cC['next'](undefined),K6(cE);let cU=K7(cE);cL=cU['done'],ct=cU['value'];}catch(cm){try{let l0=ca['throw'](cm);return cn(l0);}catch(l1){cM=!![];throw l1;}}if(!cL)return cP=cC,cE;return cS(ct,![]);}throw new Error('Unexpected\x20signal\x20in\x20generator');}let cX=cN&&cN[0x4*cy[0x0]+cy[0x1]&0x1f],cs=async function(cj){if(cM)return{'value':cj,'done':!![]};if(!cz)return cM=!![],{'value':cj,'done':!![]};if(cP){let cH=cP,cC;try{cC=K5(cH['iter'],'return');}catch(cE){cP=null,cM=!![];throw cE;}if(cC===undefined){cP=null;try{cj=await Promise['resolve'](cj);}catch(cL){cM=!![];throw cL;}}else{let ct;try{ct=T(cC,cH['iter'],[cj]),!cH['isSync']&&(ct=await ct);}catch(cU){cP=null,cM=!![];throw cU;}if(ct===null||typeof ct!=='object'){cP=null,cM=!![];throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');}let cF,co,cf,cY=![];try{cF=ct['done'],co=ct['value'];}catch(cm){cY=!![],cf=cm;}if(cY){cP=null;let l0;try{vmk_308c3f['_$oCzQEs']=ci,l0=ca['throw'](cf);}catch(l1){cM=!![];throw l1;}while(!l0['done']){let l2=l0['value'];if(l2&&l2['_$qZDqoT']===y){let l3;try{l3=await l2['_$BW1O4j'],vmk_308c3f['_$oCzQEs']=ci,l0=ca['next'](l3);}catch(l4){vmk_308c3f['_$oCzQEs']=ci,l0=ca['throw'](l4);}continue;}if(l2&&l2['_$qZDqoT']===a){let l5;try{l5=await Promise['resolve'](l2['_$BW1O4j']);}catch(l6){cM=!![];throw l6;}return{'value':l5,'done':![]};}break;}return cM=!![],{'value':l0['value'],'done':!![]};}if(!cF){let l7;try{l7=await Promise['resolve'](co);}catch(l8){cP=null,cM=!![];throw l8;}return{'value':l7,'done':![]};}cP=null;try{cj=await Promise['resolve'](co);}catch(l9){cM=!![];throw l9;}}}let cx;try{vmk_308c3f['_$oCzQEs']=ci,cx=ca['next']({['_$qZDqoT']:w,['_$BW1O4j']:cj});}catch(lK){cM=!![];throw lK;}while(!cx['done']){let lc=cx['value'];if(lc['_$qZDqoT']===y)try{let ll=await lc['_$BW1O4j'];vmk_308c3f['_$oCzQEs']=ci,cx=ca['next'](ll);}catch(ld){vmk_308c3f['_$oCzQEs']=ci,cx=ca['throw'](ld);}else{if(lc['_$qZDqoT']===a){let lQ;try{lQ=await Promise['resolve'](lc['_$BW1O4j']);}catch(lk){cM=!![];throw lk;}return{'value':lQ,'done':![]};}else break;}}return cM=!![],{'value':cx['value'],'done':!![]};},cp=function(cj){if(cM)return{'value':cj,'done':!![]};if(!cz)return cM=!![],{'value':cj,'done':!![]};if(cP){let cH,cC=![];try{let cE=cP['return'];typeof cE==='function'&&(cC=!![],cH=cE['call'](cP,cj),K6(cH));}catch(cL){cP=null;let ct;try{ct=ca['throw'](cL);}catch(cF){cM=!![];throw cF;}return cn(ct);}if(cC){let co;try{co=cH['done'];}catch(cY){cP=null;let cU;try{cU=ca['throw'](cY);}catch(cm){cM=!![];throw cm;}return cn(cU);}if(!co)return cH;let cf;try{cf=cH['value'];}catch(l0){cP=null;let l1;try{l1=ca['throw'](l0);}catch(l2){cM=!![];throw l2;}return cn(l1);}cP=null,cj=cf;}}ce=cj,cA=!![];let cx;try{vmk_308c3f['_$oCzQEs']=ci,cx=ca['next']({['_$qZDqoT']:w,['_$BW1O4j']:cj});}catch(l3){cM=!![],cA=![];throw l3;}return cn(cx);};if(cX){async function cj(cL,ct){let cF=cP,co;try{if(ct){let l0;try{l0=K5(cF['iter'],'throw');}catch(l1){cP=null;try{return vmk_308c3f['_$oCzQEs']=ci,cx(ca['throw'](l1));}catch(l2){cM=!![];throw l2;}}if(l0===undefined){let l3;try{l3=K5(cF['iter'],'return');}catch(l4){cP=null;try{return vmk_308c3f['_$oCzQEs']=ci,cx(ca['throw'](l4));}catch(l5){cM=!![];throw l5;}}if(l3!==undefined)try{let l6=T(l3,cF['iter'],[]);!cF['isSync']&&(l6=await l6);if(l6!==null&&typeof l6!=='object')throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');}catch(l7){}cP=null;try{return vmk_308c3f['_$oCzQEs']=ci,cx(ca['throw'](new TypeError('The\x20iterator\x20does\x20not\x20provide\x20a\x20throw\x20method')));}catch(l8){cM=!![];throw l8;}}co=T(l0,cF['iter'],[cL]),!cF['isSync']&&(co=await co);}else co=T(cF['nextMethod'],cF['iter'],[cL]),!cF['isSync']&&(co=await co);}catch(l9){cP=null;try{return vmk_308c3f['_$oCzQEs']=ci,cx(ca['throw'](l9));}catch(lK){cM=!![];throw lK;}}if(co===null||typeof co!=='object'){cP=null;try{return vmk_308c3f['_$oCzQEs']=ci,cx(ca['throw'](new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object')));}catch(lc){cM=!![];throw lc;}}let cf,cY;try{cf=co['done'],cY=co['value'];}catch(ll){cP=null;try{return vmk_308c3f['_$oCzQEs']=ci,cx(ca['throw'](ll));}catch(ld){cM=!![];throw ld;}}if(!cf){let lQ;try{lQ=await cY;}catch(lk){cP=null,cM=!![];throw lk;}return{'value':lQ,'done':![]};}cP=null;let cU;try{cU=await cY;}catch(lR){try{return vmk_308c3f['_$oCzQEs']=ci,cx(ca['throw'](lR));}catch(lT){cM=!![];throw lT;}}let cm;try{vmk_308c3f['_$oCzQEs']=ci,cm=ca['next'](cU);}catch(lg){cM=!![];throw lg;}return cx(cm);}function cI(cL,ct){if(cM)return Promise['resolve']({'value':undefined,'done':!![]});cz=!![],vmk_308c3f['_$oCzQEs']=ci;if(cP)return cj(cL,ct);let cF;if(cw!==null)cF=cw,cw=null;else try{cF=ct?ca['throw'](cL):ca['next'](cL);}catch(co){return cM=!![],Promise['reject'](co);}if(!cF['done']){let cf=cF['value'];if(cf&&cf['_$qZDqoT']===a)return Promise['resolve'](cf['_$BW1O4j'])['then'](function(cY){return{'value':cY,'done':![]};},function(cY){cM=!![];throw cY;});}return cx(cF);}async function cx(cL){while(!cL['done']){let ct=cL['value'];if(ct['_$qZDqoT']===y){let cF;try{cF=await ct['_$BW1O4j'],vmk_308c3f['_$oCzQEs']=ci,cL=ca['next'](cF);}catch(co){vmk_308c3f['_$oCzQEs']=ci,cL=ca['throw'](co);}continue;}if(ct['_$qZDqoT']===a){let cf;try{cf=await ct['_$BW1O4j'];}catch(cY){cM=!![];throw cY;}return{'value':cf,'done':![]};}if(ct['_$qZDqoT']===Z){let cU=ct['_$BW1O4j'],cm;try{cm=K8(cU);}catch(l6){vmk_308c3f['_$oCzQEs']=ci;try{cL=ca['throw'](l6);}catch(l7){cM=!![];throw l7;}continue;}let l0=cm['iter'],l1=cm['nextMethod'],l2=cm['isSync'],l3;try{l3=T(l1,l0,[undefined]),!l2&&(l3=await l3);}catch(l8){vmk_308c3f['_$oCzQEs']=ci;try{cL=ca['throw'](l8);}catch(l9){cM=!![];throw l9;}continue;}if(l3===null||typeof l3!=='object'){vmk_308c3f['_$oCzQEs']=ci;try{cL=ca['throw'](new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object'));}catch(lK){cM=!![];throw lK;}continue;}let l4,l5;try{l4=l3['done'],l5=l3['value'];}catch(lc){vmk_308c3f['_$oCzQEs']=ci;try{cL=ca['throw'](lc);}catch(ll){cM=!![];throw ll;}continue;}if(l4){let ld;try{ld=await Promise['resolve'](l5);}catch(lQ){vmk_308c3f['_$oCzQEs']=ci;try{cL=ca['throw'](lQ);}catch(lk){cM=!![];throw lk;}continue;}vmk_308c3f['_$oCzQEs']=ci,cL=ca['next'](ld);continue;}cP={'iter':l0,'nextMethod':l1,'isSync':l2};if(l2){let lR;try{lR=await Promise['resolve'](l5);}catch(lT){cP=null,cM=!![];throw lT;}return{'value':lR,'done':![]};}return{'value':l5,'done':![]};}throw new Error('Unexpected\x20signal\x20in\x20async\x20generator');}cM=!![];if(cA)return cA=![],{'value':ce,'done':!![]};return{'value':cL['value'],'done':!![]};}let cH=null,cC=0x0;function cV(){}function cq(){cC--,cC===0x0&&(cH=null);}function cu(cL){let ct;if(cC===0x0)try{ct=cL();}catch(cF){ct=Promise['reject'](cF);}else ct=cH['then'](cL,cL);return cC++,cH=ct,ct['then'](cq,cq),ct;}let cE=K3(cW&&cW['prototype'],Y);return cE?J(cE,{'next':K2(function(cL){return cu(function(){return cI(cL,![]);});}),'return':K2(function(cL){return cu(function(){return cs(cL);});}),'throw':K2(function(cL){return cu(function(){if(cM)return Promise['reject'](cL);return cI(cL,!![]);});}),[Symbol['asyncIterator']]:K2(function(){return this;})}):{'next':function(cL){return cu(function(){return cI(cL,![]);});},'return':function(cL){return cu(function(){return cs(cL);});},'throw':function(cL){return cu(function(){if(cM)return Promise['reject'](cL);return cI(cL,!![]);});},[Symbol['asyncIterator']]:function(){return this;}};}else{let cL=K3(cW&&cW['prototype'],o);return cL?J(cL,{'next':K2(function(ct){return cS(ct,![]);}),'return':K2(cp),'throw':K2(function(ct){if(cM)throw ct;return cS(ct,!![]);}),[Symbol['iterator']]:K2(function(){return this;})}):{'next':function(ct){return cS(ct,![]);},'return':cp,'throw':function(ct){if(cM)throw ct;return cS(ct,!![]);},[Symbol['iterator']]:function(){return this;}};}};var cT=function(cO,cB,cb,ci,cv,cW){Kv++;try{let cN=cd(cW),cy=cN&&cK(cN[0x20],cN[0x21]),ca=cO;if(cN&&cN[0x10*cy[0x0]+cy[0x1]&0x1f]){let cZ=vmk_308c3f['_$oCzQEs'];return cR(cN,cB,ca,cZ,ci,cb);}if(cN&&cN[0x4*cy[0x0]+cy[0x1]&0x1f]){let cw=vmk_308c3f['_$oCzQEs'];return ck(cN,cB,ca,cw,ci,cb,cv);}return KN(cN,cB,ca,ci,cb,cv);}finally{Kv--;}};return cT['_$QMlAr6']=function(cO,cB){if(!cO)return;if(0x0||0x0){!H(cO)&&I(cO,{['_$xPQAao']:cB,['_$r2vEjJ']:undefined,['_$GBxYZ5']:undefined,['_$R3crfR']:undefined});return;}var cb;Kv++;try{cb=cd(cB);}finally{Kv--;}if(!cb)return;var ci=cK(cb[0x20],cb[0x21]);if(cb[0x4*ci[0x0]+ci[0x1]&0x1f]||cb[0x10*ci[0x0]+ci[0x1]&0x1f]||cb[0xa*ci[0x0]+ci[0x1]&0x1f])return;!H(cO)&&I(cO,{['_$xPQAao']:cB,['_$r2vEjJ']:undefined,['_$GBxYZ5']:cb,['_$R3crfR']:undefined});},cT;}());try{Object,Object['defineProperty'](vmk_308c3f,'Object',{'get':function(){return Object;},'set':function(K){Object=K;},'configurable':!![]});}catch(vmkO){}vmk_308c3f['getAllWeapons']=getAllWeapons;globalThis['getAllWeapons']=vmk_308c3f['getAllWeapons'];vmk_308c3f['getWeapon']=getWeapon;globalThis['getWeapon']=vmk_308c3f['getWeapon'];vmk_308c3f['_$TWGPn8']={'WEAPONS':!![]};const WEAPONS={'uzi':{'name':'uzi','category':'weapon','physicalDamage':0x6,'spawnChance':0.025,'width':0x14,'height':0x14,'timeLife':0x7530,'description':'a\x20rapid\x20fire\x20gun\x20with\x20a\x20very\x20light\x20damage\x20and\x20small\x20capacity\x20of\x20magazine'},'ak47':{'name':'ak47','category':'weapon','physicalDamage':0xa,'spawnChance':0.025,'width':0x14,'height':0x14,'timeLife':0x7530},'sniper':{'name':'sniper','category':'weapon','physicalDamage':0xe,'spawnChance':0.025,'width':0x14,'height':0x14,'timeLife':0x7530},'shotgun':{'name':'shotgun','category':'weapon','spawnChance':0.025,'physicalDamage':0x10,'width':0x14,'height':0x14,'timeLife':0x7530},'sword1':{'name':'Frostbite\x20Edge','requiredType':'magemaster','image':'image/sword1.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1b,'timeLife':0x493e0,'description':'A\x20cold-blue\x20neon\x20blade\x20that\x20hums\x20with\x20stored\x20energy.'},'sword2':{'name':'Magma\x20Cleaver','requiredType':'magemaster','image':'image/sword2.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1b,'timeLife':0x7530,'description':'A\x20molten\x20blade\x20that\x20glows\x20like\x20a\x20forge\x20fire.'},'sword3':{'name':'Void\x20Reaper','requiredType':'magemaster','image':'image/sword3.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x19,'timeLife':0x7530,'description':'A\x20violet\x20blade\x20forged\x20from\x20dark\x20energy.'},'sword4':{'name':'Solar\x20Paladin','requiredType':'magemaster','image':'image/sword4.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1b,'timeLife':0x7530,'description':'A\x20holy\x20white-and-gold\x20sword\x20blessed\x20by\x20the\x20sun.'},'sword5':{'name':'Toxic\x20Fang','requiredType':'magemaster','image':'image/sword5.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1c,'timeLife':0x7530,'description':'A\x20venom-green\x20blade\x20that\x20drips\x20with\x20acid.'},'sword6':{'name':'Glacier\x20Shard','requiredType':'magemaster','image':'image/sword6.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x19,'timeLife':0x7530,'description':'A\x20sword\x20carved\x20from\x20a\x20single\x20sheet\x20of\x20living\x20ice.'},'sword7':{'name':'Ember\x20Rustblade','requiredType':'magemaster','image':'image/sword7.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1a,'timeLife':0x7530,'description':'A\x20scorched\x20old\x20blade\x20with\x20embers\x20still\x20burning\x20inside.'},'sword8':{'name':'Nightwing\x20Slicer','requiredType':'magemaster','image':'image/sword8.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x19,'timeLife':0x7530,'description':'A\x20winged\x20purple\x20blade\x20that\x20cuts\x20silently\x20in\x20the\x20dark.'},'sword9':{'name':'Crimson\x20Sawfang','requiredType':'magemaster','image':'image/sword9.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1a,'timeLife':0x7530,'description':'A\x20saw-toothed\x20red\x20blade\x20built\x20to\x20rip\x20armor\x20apart.'},'sword10':{'name':'Azure\x20Pulse','requiredType':'magemaster','image':'image/sword10.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1a,'timeLife':0x7530,'description':'A\x20sleek\x20blue\x20blade\x20that\x20pulses\x20with\x20every\x20swing.'},'sword11':{'name':'Bloodthorn','requiredType':'magemaster','image':'image/sword11.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x19,'timeLife':0x7530,'description':'A\x20jagged\x20dark-red\x20sword\x20covered\x20in\x20cruel\x20thorns.'},'sword12':{'name':'Golden\x20Sentinel','requiredType':'magemaster','image':'image/sword12.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x18,'timeLife':0x7530,'description':'A\x20gleaming\x20golden\x20sword\x20made\x20for\x20a\x20royal\x20guard.'},'sword13':{'name':'Deepsea\x20Warden','requiredType':'magemaster','image':'image/sword13.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1a,'timeLife':0x7530,'description':'A\x20dark\x20steel\x20sword\x20lit\x20by\x20cold\x20ocean\x20light.'},'sword14':{'name':'Amethyst\x20Spire','requiredType':'magemaster','image':'image/sword14.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1b,'timeLife':0x7530,'description':'A\x20crystal-spiked\x20blade\x20that\x20sparkles\x20with\x20purple\x20light.'},'sword15':{'name':'Viper\x20Thornblade','requiredType':'magemaster','image':'image/sword15.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1b,'timeLife':0x7530,'description':'A\x20green\x20spiked\x20sword\x20that\x20strikes\x20like\x20a\x20snake.'},'sword16':{'name':'Rose\x20Nova','requiredType':'magemaster','image':'image/sword16.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x18,'timeLife':0x7530,'description':'A\x20bright\x20pink\x20blade\x20charged\x20with\x20star\x20energy.'},'sword17':{'name':'Obsidian\x20Ruin','requiredType':'magemaster','image':'image/sword17.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x17,'timeLife':0x7530,'description':'A\x20heavy\x20black-and-red\x20sword\x20that\x20hits\x20like\x20a\x20falling\x20wall.'},'sword18':{'name':'Stormcrest\x20Lance','requiredType':'magemaster','image':'image/sword18.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x16,'timeLife':0x7530,'description':'A\x20white-and-gold\x20blade\x20crackling\x20with\x20storm\x20light.'},'sword19':{'name':'Lavacore\x20Slayer','requiredType':'magemaster','image':'image/sword19.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x18,'timeLife':0x7530,'description':'A\x20cracked\x20black\x20blade\x20with\x20lava\x20running\x20through\x20it.'},'sword20':{'name':'Twilight\x20Silverfang','requiredType':'magemaster','image':'image/sword20.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x17,'timeLife':0x7530,'description':'A\x20violet-and-silver\x20blade\x20that\x20shines\x20at\x20dusk.'},'sword21':{'name':'Arcane\x20Sovereign\x20Blade','requiredType':'magemaster','image':'image/sword21.png','category':'weapon','magicalAttack':0x28,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x190,'mana':0x14,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.01,'criticalChance':0.01,'pow':0x14,'int':0x14,'dex':0x14,'vit':0x14,'spawnChance':0.025,'width':0x1e,'height':0x17,'timeLife':0x7530,'description':'A\x20radiant\x20blade\x20wrapped\x20in\x20violet\x20runes\x20that\x20amplifies\x20the\x20magic\x20of\x20its\x20wielder.'},'extremegauntlet':{'name':'Extreme\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet15.png','category':'weapon','physicalDamage':0xc8,'physicalDefense':0x1e,'magicalAttack':0xc8,'magicalDefense':0x1e,'health':0x5dc,'mana':0x64,'hpRegen':0.1,'manaRegen':0.1,'criticalDamage':0.3,'criticalChance':0.25,'pow':0x46,'vit':0x46,'dex':0x46,'int':0x46,'spawnChance':0.025,'width':0x1e,'height':0x1c,'timeLife':0x7530,'description':'A\x20blue-and-white\x20glove\x20that\x20channels\x20cold\x20magic.'},'gauntlet1':{'name':'Frostweave\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet1.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1c,'timeLife':0x7530,'description':'A\x20blue-and-white\x20glove\x20that\x20channels\x20cold\x20magic.'},'gauntlet2':{'name':'Hellfire\x20Fist','requiredType':'bullwark','image':'image/gauntlet2.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1d,'timeLife':0x7530,'description':'A\x20black-and-red\x20gauntlet\x20burning\x20with\x20dark\x20flame.'},'gauntlet3':{'name':'Sunforge\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet3.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1e,'timeLife':0x7530,'description':'A\x20golden\x20glove\x20that\x20glows\x20with\x20warm\x20power.'},'gauntlet4':{'name':'Voidtouch\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet4.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1c,'timeLife':0x7530,'description':'A\x20purple\x20gauntlet\x20that\x20bends\x20dark\x20magic\x20around\x20the\x20fist.'},'gauntlet5':{'name':'Tidecaller\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet5.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1e,'timeLife':0x7530,'description':'A\x20steel-and-teal\x20glove\x20that\x20gathers\x20ocean\x20energy.'},'gauntlet6':{'name':'Magma\x20Knuckle','requiredType':'bullwark','image':'image/gauntlet6.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1c,'timeLife':0x7530,'description':'A\x20cracked\x20red\x20gauntlet\x20with\x20molten\x20magic\x20inside.'},'gauntlet7':{'name':'Crystal\x20Wraith\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet7.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1d,'timeLife':0x7530,'description':'A\x20blue\x20glove\x20with\x20sharp\x20crystal\x20fins\x20that\x20amplify\x20spells.'},'gauntlet8':{'name':'Jungle\x20Warden\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet8.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1d,'timeLife':0x7530,'description':'A\x20mossy\x20green\x20gauntlet\x20full\x20of\x20wild\x20magic.'},'gauntlet9':{'name':'Nightbloom\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet9.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1c,'timeLife':0x7530,'description':'A\x20violet\x20gauntlet\x20that\x20grows\x20stronger\x20in\x20the\x20dark.'},'gauntlet10':{'name':'Phoenix\x20Talon\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet10.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1e,'timeLife':0x7530,'description':'A\x20red-and-gold\x20glove\x20with\x20fiery\x20wings.'},'gauntlet11':{'name':'Aurum\x20Ironfist','requiredType':'bullwark','image':'image/gauntlet11.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1c,'timeLife':0x7530,'description':'A\x20black\x20glove\x20trimmed\x20in\x20gold\x20and\x20lit\x20by\x20a\x20bright\x20core.'},'gauntlet12':{'name':'Scarlet\x20Seraph\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet12.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1c,'timeLife':0x7530,'description':'A\x20red-and-white\x20gauntlet\x20with\x20a\x20glowing\x20core.'},'gauntlet13':{'name':'Azure\x20Core\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet13.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1a,'timeLife':0x7530,'description':'A\x20blue\x20steel\x20glove\x20with\x20a\x20bright\x20mana\x20core.'},'gauntlet14':{'name':'Bronze\x20Titan\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet14.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1d,'timeLife':0x7530,'description':'A\x20heavy\x20brown\x20gauntlet\x20powered\x20by\x20an\x20orange\x20core.'},'gauntlet15':{'name':'Moonshard\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet15.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1e,'timeLife':0x7530,'description':'A\x20purple-and-white\x20glove\x20that\x20shines\x20like\x20moonlight.'},'gauntlet16':{'name':'Glacial\x20Claw','requiredType':'bullwark','image':'image/gauntlet16.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1d,'timeLife':0x7530,'description':'A\x20black\x20glove\x20covered\x20in\x20icy\x20cyan\x20crystals.'},'gauntlet17':{'name':'Sapphire\x20Bastion\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet17.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1b,'timeLife':0x7530,'description':'A\x20sturdy\x20blue\x20gauntlet\x20with\x20a\x20steady\x20glowing\x20core.'},'gauntlet18':{'name':'Bloodclaw\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet18.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1d,'timeLife':0x7530,'description':'A\x20dark\x20glove\x20with\x20long\x20red\x20claws.'},'gauntlet19':{'name':'Emerald\x20Pulse\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet19.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1e,'timeLife':0x7530,'description':'A\x20green-and-white\x20glove\x20that\x20pulses\x20with\x20life\x20energy.'},'gauntlet20':{'name':'Dread\x20Spike\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet20.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x1e,'timeLife':0x7530,'description':'A\x20violet\x20gauntlet\x20with\x20long\x20crystal\x20spikes.'},'gauntlet21':{'name':'Titan\x20Bulwark\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet21.png','category':'weapon','physicalDamage':0x28,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x190,'mana':0x14,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.01,'criticalChance':0.01,'pow':0x14,'int':0x14,'dex':0x14,'vit':0x14,'spawnChance':0.025,'width':0x1e,'height':0x1e,'timeLife':0x7530,'description':'A\x20massive\x20reinforced\x20gauntlet\x20that\x20turns\x20every\x20punch\x20into\x20a\x20crushing\x20blow.'},'gun1':{'name':'Skyline\x20Rifle','requiredType':'berserker','image':'image/gun1.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x10,'timeLife':0x7530,'description':'A\x20blue-and-steel\x20rifle\x20with\x20a\x20steady\x20glowing\x20core.'},'gun2':{'name':'Inferno\x20Blaster','requiredType':'berserker','image':'image/gun2.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x10,'timeLife':0x7530,'description':'A\x20red\x20blaster\x20that\x20glows\x20like\x20a\x20furnace.'},'gun3':{'name':'Frost\x20Pulse\x20Cannon','requiredType':'berserker','image':'image/gun3.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0xe,'timeLife':0x7530,'description':'A\x20white-and-blue\x20cannon\x20firing\x20ice-cold\x20energy.'},'gun4':{'name':'Violet\x20Phantom\x20Gun','requiredType':'berserker','image':'image/gun4.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x11,'timeLife':0x7530,'description':'A\x20purple\x20energy\x20gun\x20that\x20hums\x20with\x20dark\x20power.'},'gun5':{'name':'Venom\x20Driver','requiredType':'berserker','image':'image/gun5.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0xf,'timeLife':0x7530,'description':'A\x20green\x20military\x20gun\x20that\x20fires\x20toxic\x20bolts.'},'gun6':{'name':'Golden\x20Hornet','requiredType':'berserker','image':'image/gun6.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0xf,'timeLife':0x7530,'description':'A\x20rugged\x20yellow\x20double-barrel\x20built\x20for\x20heavy\x20fire.'},'gun7':{'name':'Cryo\x20Lancer','requiredType':'berserker','image':'image/gun7.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0xf,'timeLife':0x7530,'description':'A\x20cyan-and-white\x20rifle\x20that\x20freezes\x20the\x20air\x20around\x20it.'},'gun8':{'name':'Crimson\x20Razor\x20Gun','requiredType':'berserker','image':'image/gun8.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0xd,'timeLife':0x7530,'description':'A\x20dark-red\x20gun\x20shaped\x20like\x20a\x20blade\x20of\x20fire.'},'gun9':{'name':'Cobalt\x20Striker','requiredType':'berserker','image':'image/gun9.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0xf,'timeLife':0x7530,'description':'A\x20blue\x20rifle\x20with\x20a\x20powerful\x20glowing\x20barrel.'},'gun10':{'name':'Ember\x20Gatling','requiredType':'berserker','image':'image/gun10.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0xe,'timeLife':0x7530,'description':'An\x20orange\x20rotary\x20gun\x20that\x20spits\x20out\x20a\x20storm\x20of\x20shots.'},'gun11':{'name':'Nebula\x20Cannon','requiredType':'berserker','image':'image/gun11.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x10,'timeLife':0x7530,'description':'A\x20purple\x20cannon\x20charged\x20with\x20deep-space\x20energy.'},'gun12':{'name':'Jungle\x20Ranger','requiredType':'berserker','image':'image/gun12.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x11,'timeLife':0x7530,'description':'A\x20camouflaged\x20green\x20rifle\x20made\x20for\x20long\x20fights.'},'gun13':{'name':'Scarlet\x20Lightning\x20Gun','requiredType':'berserker','image':'image/gun13.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x11,'timeLife':0x7530,'description':'A\x20red-and-white\x20gun\x20that\x20crackles\x20with\x20energy.'},'gun14':{'name':'Midnight\x20Sniper','requiredType':'berserker','image':'image/gun14.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0xe,'timeLife':0x7530,'description':'A\x20slim\x20blue\x20rifle\x20for\x20precise\x20shots.'},'gun15':{'name':'Pink\x20Supernova','requiredType':'berserker','image':'image/gun15.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x10,'timeLife':0x7530,'description':'A\x20bright\x20magenta\x20blaster\x20with\x20a\x20star-bright\x20core.'},'gun16':{'name':'Crystal\x20Tempest\x20Gun','requiredType':'berserker','image':'image/gun16.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x10,'timeLife':0x7530,'description':'A\x20blue\x20crystal-finned\x20gun\x20that\x20shines\x20with\x20frozen\x20light.'},'gun17':{'name':'Aurum\x20Repeater','requiredType':'berserker','image':'image/gun17.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x10,'timeLife':0x7530,'description':'A\x20black-and-gold\x20rifle\x20with\x20a\x20shining\x20golden\x20core.'},'gun18':{'name':'Galactic\x20Gun','requiredType':'berserker','image':'image/gun18.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x10,'timeLife':0x7530,'description':'A\x20spiky\x20purple\x20gun\x20from\x20the\x20edge\x20of\x20the\x20galaxy.'},'gun19':{'name':'Redline\x20Twin\x20Cannon','requiredType':'berserker','image':'image/gun19.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0x10,'timeLife':0x7530,'description':'A\x20heavy\x20red\x20twin-barrel\x20cannon\x20with\x20huge\x20firepower.'},'gun20':{'name':'Starlight\x20Railgun','requiredType':'berserker','image':'image/gun20.png','category':'weapon','spawnChance':0.025,'width':0x1e,'height':0xf,'timeLife':0x7530,'description':'A\x20white-and-blue\x20railgun\x20that\x20fires\x20beams\x20of\x20light.'},'gun21':{'name':'Crimson\x20Fury\x20Cannon','requiredType':'berserker','image':'image/gun21.png','category':'weapon','physicalDamage':0x28,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x190,'mana':0x14,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.01,'criticalChance':0.01,'pow':0x14,'int':0x14,'dex':0x14,'vit':0x14,'spawnChance':0.025,'width':0x1e,'height':0xf,'timeLife':0x7530,'description':'A\x20blood-red\x20cannon\x20built\x20for\x20relentless\x20firepower\x20and\x20reckless\x20fighters.'},'gun22':{'name':'Vanguard\x20Berserker\x20Rifle','requiredType':'berserker','image':'image/gun18.png','category':'weapon','physicalDamage':0x64,'physicalDefense':0x14,'magicalDefense':0x14,'health':0x3e8,'mana':0x32,'hpRegen':0.008,'manaRegen':0.008,'criticalDamage':0.021,'criticalChance':0.016,'pow':0x1e,'int':0x1e,'dex':0x1e,'vit':0x1e,'spawnChance':0.025,'width':0x1e,'height':0x10,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20weapon\x20to\x20start\x20with.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'sword22':{'name':'Vanguard\x20Mage\x20Blade','requiredType':'magemaster','image':'image/sword18.png','category':'weapon','magicalAttack':0x64,'physicalDefense':0x14,'magicalDefense':0x14,'health':0x3e8,'mana':0x32,'hpRegen':0.008,'manaRegen':0.008,'criticalDamage':0.021,'criticalChance':0.016,'pow':0x1e,'int':0x1e,'dex':0x1e,'vit':0x1e,'spawnChance':0.025,'width':0x1e,'height':0x16,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20weapon\x20to\x20start\x20with.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'gauntlet22':{'name':'Vanguard\x20Bullwark\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet18.png','category':'weapon','physicalDamage':0x64,'physicalDefense':0x14,'magicalDefense':0x14,'health':0x3e8,'mana':0x32,'hpRegen':0.008,'manaRegen':0.008,'criticalDamage':0.021,'criticalChance':0.016,'pow':0x1e,'int':0x1e,'dex':0x1e,'vit':0x1e,'spawnChance':0.025,'width':0x1e,'height':0x1d,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20weapon\x20to\x20start\x20with.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'gun23':{'name':'Elite\x20Berserker\x20Rifle','requiredType':'berserker','image':'image/gun19.png','category':'weapon','physicalDamage':0x7d,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x4e2,'mana':62.5,'hpRegen':0.01,'manaRegen':0.01,'criticalDamage':0.02625,'criticalChance':0.02,'pow':37.5,'int':37.5,'dex':37.5,'vit':37.5,'spawnChance':0.025,'width':0x1e,'height':0x10,'timeLife':0x7530,'description':'A\x20stronger\x20weapon:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'sword23':{'name':'Elite\x20Mage\x20Blade','requiredType':'magemaster','image':'image/sword19.png','category':'weapon','magicalAttack':0x7d,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x4e2,'mana':62.5,'hpRegen':0.01,'manaRegen':0.01,'criticalDamage':0.02625,'criticalChance':0.02,'pow':37.5,'int':37.5,'dex':37.5,'vit':37.5,'spawnChance':0.025,'width':0x1e,'height':0x18,'timeLife':0x7530,'description':'A\x20stronger\x20weapon:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'gauntlet23':{'name':'Elite\x20Bullwark\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet19.png','category':'weapon','physicalDamage':0x7d,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x4e2,'mana':62.5,'hpRegen':0.01,'manaRegen':0.01,'criticalDamage':0.02625,'criticalChance':0.02,'pow':37.5,'int':37.5,'dex':37.5,'vit':37.5,'spawnChance':0.025,'width':0x1e,'height':0x1e,'timeLife':0x7530,'description':'A\x20stronger\x20weapon:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'gun24':{'name':'Mythic\x20Berserker\x20Rifle','requiredType':'berserker','image':'image/gun20.png','category':'weapon','physicalDamage':0x96,'physicalDefense':0x1e,'magicalDefense':0x1e,'health':0x5dc,'mana':0x4b,'hpRegen':0.012,'manaRegen':0.012,'criticalDamage':0.0315,'criticalChance':0.024,'pow':0x2d,'int':0x2d,'dex':0x2d,'vit':0x2d,'spawnChance':0.025,'width':0x1e,'height':0xf,'timeLife':0x7530,'description':'A\x20mythic-grade\x20weapon:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'sword24':{'name':'Mythic\x20Mage\x20Blade','requiredType':'magemaster','image':'image/sword20.png','category':'weapon','magicalAttack':0x96,'physicalDefense':0x1e,'magicalDefense':0x1e,'health':0x5dc,'mana':0x4b,'hpRegen':0.012,'manaRegen':0.012,'criticalDamage':0.0315,'criticalChance':0.024,'pow':0x2d,'int':0x2d,'dex':0x2d,'vit':0x2d,'spawnChance':0.025,'width':0x1e,'height':0x17,'timeLife':0x7530,'description':'A\x20mythic-grade\x20weapon:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'gauntlet24':{'name':'Mythic\x20Bullwark\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet20.png','category':'weapon','physicalDamage':0x96,'physicalDefense':0x1e,'magicalDefense':0x1e,'health':0x5dc,'mana':0x4b,'hpRegen':0.012,'manaRegen':0.012,'criticalDamage':0.0315,'criticalChance':0.024,'pow':0x2d,'int':0x2d,'dex':0x2d,'vit':0x2d,'spawnChance':0.025,'width':0x1e,'height':0x1e,'timeLife':0x7530,'description':'A\x20mythic-grade\x20weapon:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'gun25':{'name':'Extreme\x20Berserker\x20Rifle','requiredType':'berserker','image':'image/gun21.png','category':'weapon','physicalDamage':0xaf,'physicalDefense':0x23,'magicalDefense':0x23,'health':0x6d6,'mana':87.5,'hpRegen':0.014,'manaRegen':0.014,'criticalDamage':0.03675,'criticalChance':0.028,'pow':52.5,'int':52.5,'dex':52.5,'vit':52.5,'spawnChance':0.025,'width':0x1e,'height':0xf,'timeLife':0x7530,'description':'The\x20strongest\x20weapon\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'sword25':{'name':'Extreme\x20Mage\x20Blade','requiredType':'magemaster','image':'image/sword21.png','category':'weapon','magicalAttack':0xaf,'physicalDefense':0x23,'magicalDefense':0x23,'health':0x6d6,'mana':87.5,'hpRegen':0.014,'manaRegen':0.014,'criticalDamage':0.03675,'criticalChance':0.028,'pow':52.5,'int':52.5,'dex':52.5,'vit':52.5,'spawnChance':0.025,'width':0x1e,'height':0x17,'timeLife':0x7530,'description':'The\x20strongest\x20weapon\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'gauntlet25':{'name':'Extreme\x20Bullwark\x20Gauntlet','requiredType':'bullwark','image':'image/gauntlet21.png','category':'weapon','physicalDamage':0xaf,'physicalDefense':0x23,'magicalDefense':0x23,'health':0x6d6,'mana':87.5,'hpRegen':0.014,'manaRegen':0.014,'criticalDamage':0.03675,'criticalChance':0.028,'pow':52.5,'int':52.5,'dex':52.5,'vit':52.5,'spawnChance':0.025,'width':0x1e,'height':0x1e,'timeLife':0x7530,'description':'The\x20strongest\x20weapon\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'}};delete vmk_308c3f['_$TWGPn8']['WEAPONS'],vmk_308c3f['WEAPONS']=WEAPONS;globalThis['WEAPONS']=WEAPONS;function getWeapon(K){return vmQ_3a7525(this,{['_$3vCbqT']:[WEAPONS],['_$kVba6v']:undefined,['_$qq4u5O']:[0x1]},typeof getWeapon!=='undefined'?getWeapon:undefined,arguments,new.target,0x0,0xca,0x2b);}function getAllWeapons(){return vmQ_3a7525(this,{['_$3vCbqT']:[WEAPONS],['_$kVba6v']:undefined,['_$qq4u5O']:[0x1]},typeof getAllWeapons!=='undefined'?getAllWeapons:undefined,arguments,new.target,0x1,0xca,0x2b);}typeof module!=='undefined'&&module['exports']&&(module['exports']={'WEAPONS':WEAPONS,'getWeapon':getWeapon,'getAllWeapons':getAllWeapons});if(typeof module!=='undefined')module['exports']={'WEAPONS':WEAPONS};
+// =============================================================================
+// weapon_server.js  —  ONLINE MODE copy of weapon.js
+// =============================================================================
+// Edit the numbers in here to change how the game behaves in ONLINE mode.
+// weapon.js (the public file) only controls OFFLINE mode.
+//
+// This file lives on the SERVER (Render), NOT in the public game website, so
+// players cannot open or edit it. server.js sends these tables to each player
+// when they join an online match; the game then uses them instead of the
+// offline tables until the player leaves.
+// =============================================================================
+
+// category: "weapon" marks a weapon as lootable — it can be put in the
+// storage grid inventory and can be dropped by an enemy bot when it dies
+// (add its name to a bot's spawnItem list in bot.js, e.g. spawnItem:
+// "shield,speedup,powerup,health,ak47"). spawnChance is that weapon's own
+// independent drop-roll chance (0.5 = 50%), same system item.js already
+// uses for spawnItem/spawnChance on regular pickups (see item.js).
+//
+// CONNECTED STATS — physicalDamage above already combines with the
+// character's own physicalDamage at attack-time (see getAttackDamage() in
+// character.js). Any of these other stats are also optional on a weapon
+// entry (or an armor.js entry) — if set, character.js's
+// combineEquipmentStats() adds it straight onto the matching character
+// stat the moment the weapon is equipped, plain addition (e.g. hpRegen:
+// 0.3 on a character already at hpRegen: 0.01 becomes 0.31):
+//   magicalAttack, criticalChance, criticalDamage, mana, movementSpeed,
+//   physicalDefense, magicalDefense, hpRegen, manaRegen,
+//   vit, dex, int, pow (see character.js's applyAttributeBonus() for
+//   what vit/dex/int/pow convert into).
+// None of these are set on the entries below yet — add whichever ones a
+// given weapon should grant.
+// REQUIRED STAT — optional, same field armor entries can carry. If an entry
+// has  requiredStat: "pow=20"  (stat=amount, only pow / int / dex), the player's own
+// stat must be at least that to equip it. Without the field, an item that an enemy
+// DROPS still gets one automatically: the stat comes from its requiredType
+// (berserker = pow, magemaster = int, bullwark = dex) and the amount is the
+// enemy's level x 4 (level 10 = 40 ... level 50 = 200). The ONLINE numbers and the
+// helper functions (parseRequiredStat / rollRequiredStat) are in armor_server.js.
+const WEAPONS = {
+
+  uzi: {
+    name: "uzi",
+    category: "weapon",
+    physicalDamage:6,
+    spawnChance: 0.025,
+    width: 20,
+    height: 20,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "a rapid fire gun with a very light damage and small capacity of magazine",
+  },
+
+
+  ak47: {
+    name: "ak47",
+    category: "weapon",
+    physicalDamage:10,
+    spawnChance: 0.025,
+    width: 20,
+    height: 20,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+  },
+
+
+  sniper: {
+    name: "sniper",
+    category: "weapon",
+    physicalDamage:14,
+    spawnChance: 0.025,
+    width: 20,
+    height: 20,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+  },
+
+
+  shotgun: {
+    name: "shotgun",
+    category: "weapon",
+    spawnChance: 0.025,
+    physicalDamage:16,
+    width: 20,
+    height: 20,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+  },
+
+  sword1: {
+    name: "Frostbite Edge",
+    requiredType: "magemaster",
+    image: "image/sword1.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 27,
+    timeLife: 300000,    // ms — despawns if not looted within 30 sec
+    description: "A cold-blue neon blade that hums with stored energy."
+  },
+
+  sword2: {
+    name: "Magma Cleaver",
+    requiredType: "magemaster",
+    image: "image/sword2.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 27,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A molten blade that glows like a forge fire."
+  },
+
+  sword3: {
+    name: "Void Reaper",
+    requiredType: "magemaster",
+    image: "image/sword3.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 25,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A violet blade forged from dark energy."
+  },
+
+  sword4: {
+    name: "Solar Paladin",
+    requiredType: "magemaster",
+    image: "image/sword4.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 27,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A holy white-and-gold sword blessed by the sun."
+  },
+
+  sword5: {
+    name: "Toxic Fang",
+    requiredType: "magemaster",
+    image: "image/sword5.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 28,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A venom-green blade that drips with acid."
+  },
+
+  sword6: {
+    name: "Glacier Shard",
+    requiredType: "magemaster",
+    image: "image/sword6.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 25,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A sword carved from a single sheet of living ice."
+  },
+
+  sword7: {
+    name: "Ember Rustblade",
+    requiredType: "magemaster",
+    image: "image/sword7.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 26,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A scorched old blade with embers still burning inside."
+  },
+
+  sword8: {
+    name: "Nightwing Slicer",
+    requiredType: "magemaster",
+    image: "image/sword8.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 25,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A winged purple blade that cuts silently in the dark."
+  },
+
+  sword9: {
+    name: "Crimson Sawfang",
+    requiredType: "magemaster",
+    image: "image/sword9.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 26,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A saw-toothed red blade built to rip armor apart."
+  },
+
+  sword10: {
+    name: "Azure Pulse",
+    requiredType: "magemaster",
+    image: "image/sword10.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 26,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A sleek blue blade that pulses with every swing."
+  },
+
+  sword11: {
+    name: "Bloodthorn",
+    requiredType: "magemaster",
+    image: "image/sword11.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 25,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A jagged dark-red sword covered in cruel thorns."
+  },
+
+  sword12: {
+    name: "Golden Sentinel",
+    requiredType: "magemaster",
+    image: "image/sword12.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 24,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A gleaming golden sword made for a royal guard."
+  },
+
+  sword13: {
+    name: "Deepsea Warden",
+    requiredType: "magemaster",
+    image: "image/sword13.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 26,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A dark steel sword lit by cold ocean light."
+  },
+
+  sword14: {
+    name: "Amethyst Spire",
+    requiredType: "magemaster",
+    image: "image/sword14.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 27,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A crystal-spiked blade that sparkles with purple light."
+  },
+
+  sword15: {
+    name: "Viper Thornblade",
+    requiredType: "magemaster",
+    image: "image/sword15.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 27,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A green spiked sword that strikes like a snake."
+  },
+
+  sword16: {
+    name: "Rose Nova",
+    requiredType: "magemaster",
+    image: "image/sword16.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 24,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A bright pink blade charged with star energy."
+  },
+
+  sword17: {
+    name: "Obsidian Ruin",
+    requiredType: "magemaster",
+    image: "image/sword17.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 23,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A heavy black-and-red sword that hits like a falling wall."
+  },
+
+  sword18: {
+    name: "Stormcrest Lance",
+    requiredType: "magemaster",
+    image: "image/sword18.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 22,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A white-and-gold blade crackling with storm light."
+  },
+
+  sword19: {
+    name: "Lavacore Slayer",
+    requiredType: "magemaster",
+    image: "image/sword19.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 24,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A cracked black blade with lava running through it."
+  },
+
+  sword20: {
+    name: "Twilight Silverfang",
+    requiredType: "magemaster",
+    image: "image/sword20.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 23,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A violet-and-silver blade that shines at dusk."
+  },
+
+  sword21: {
+    name: "Arcane Sovereign Blade",
+    requiredType: "magemaster",
+    image: "image/sword21.png",
+    category: "weapon",
+    magicalAttack: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    width: 30,
+    height: 23,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A radiant blade wrapped in violet runes that amplifies the magic of its wielder."
+  },
+
+  extremegauntlet: {
+    name: "Extreme Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet15.png",
+    category: "weapon",
+    physicalDamage:200,
+    physicalDefense:30,
+    magicalAttack:200,
+    magicalDefense:30,
+    health:1500,
+    mana:100,
+    hpRegen:0.1,
+    manaRegen:0.1,
+    criticalDamage:0.3,
+    criticalChance:0.25,
+    pow:70,
+    vit:70,
+    dex:70,
+    int:70,
+    spawnChance: 0.025,
+    width: 30,
+    height: 28,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A blue-and-white glove that channels cold magic."
+  },
+
+  gauntlet1: {
+    name: "Frostweave Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet1.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 28,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A blue-and-white glove that channels cold magic."
+  },
+
+  gauntlet2: {
+    name: "Hellfire Fist",
+    requiredType: "bullwark",
+    image: "image/gauntlet2.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 29,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A black-and-red gauntlet burning with dark flame."
+  },
+
+  gauntlet3: {
+    name: "Sunforge Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet3.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 30,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A golden glove that glows with warm power."
+  },
+
+  gauntlet4: {
+    name: "Voidtouch Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet4.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 28,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A purple gauntlet that bends dark magic around the fist."
+  },
+
+  gauntlet5: {
+    name: "Tidecaller Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet5.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 30,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A steel-and-teal glove that gathers ocean energy."
+  },
+
+  gauntlet6: {
+    name: "Magma Knuckle",
+    requiredType: "bullwark",
+    image: "image/gauntlet6.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 28,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A cracked red gauntlet with molten magic inside."
+  },
+
+  gauntlet7: {
+    name: "Crystal Wraith Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet7.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 29,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A blue glove with sharp crystal fins that amplify spells."
+  },
+
+  gauntlet8: {
+    name: "Jungle Warden Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet8.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 29,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mossy green gauntlet full of wild magic."
+  },
+
+  gauntlet9: {
+    name: "Nightbloom Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet9.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 28,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A violet gauntlet that grows stronger in the dark."
+  },
+
+  gauntlet10: {
+    name: "Phoenix Talon Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet10.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 30,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A red-and-gold glove with fiery wings."
+  },
+
+  gauntlet11: {
+    name: "Aurum Ironfist",
+    requiredType: "bullwark",
+    image: "image/gauntlet11.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 28,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A black glove trimmed in gold and lit by a bright core."
+  },
+
+  gauntlet12: {
+    name: "Scarlet Seraph Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet12.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 28,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A red-and-white gauntlet with a glowing core."
+  },
+
+  gauntlet13: {
+    name: "Azure Core Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet13.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 26,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A blue steel glove with a bright mana core."
+  },
+
+  gauntlet14: {
+    name: "Bronze Titan Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet14.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 29,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A heavy brown gauntlet powered by an orange core."
+  },
+
+  gauntlet15: {
+    name: "Moonshard Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet15.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 30,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A purple-and-white glove that shines like moonlight."
+  },
+
+  gauntlet16: {
+    name: "Glacial Claw",
+    requiredType: "bullwark",
+    image: "image/gauntlet16.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 29,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A black glove covered in icy cyan crystals."
+  },
+
+  gauntlet17: {
+    name: "Sapphire Bastion Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet17.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 27,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A sturdy blue gauntlet with a steady glowing core."
+  },
+
+  gauntlet18: {
+    name: "Bloodclaw Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet18.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 29,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A dark glove with long red claws."
+  },
+
+  gauntlet19: {
+    name: "Emerald Pulse Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet19.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 30,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A green-and-white glove that pulses with life energy."
+  },
+
+  gauntlet20: {
+    name: "Dread Spike Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet20.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 30,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A violet gauntlet with long crystal spikes."
+  },
+
+  gauntlet21: {
+    name: "Titan Bulwark Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet21.png",
+    category: "weapon",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    width: 30,
+    height: 30,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A massive reinforced gauntlet that turns every punch into a crushing blow."
+  },
+
+  gun1: {
+    name: "Skyline Rifle",
+    requiredType: "berserker",
+    image: "image/gun1.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 16,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A blue-and-steel rifle with a steady glowing core."
+  },
+
+  gun2: {
+    name: "Inferno Blaster",
+    requiredType: "berserker",
+    image: "image/gun2.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 16,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A red blaster that glows like a furnace."
+  },
+
+  gun3: {
+    name: "Frost Pulse Cannon",
+    requiredType: "berserker",
+    image: "image/gun3.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 14,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A white-and-blue cannon firing ice-cold energy."
+  },
+
+  gun4: {
+    name: "Violet Phantom Gun",
+    requiredType: "berserker",
+    image: "image/gun4.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 17,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A purple energy gun that hums with dark power."
+  },
+
+  gun5: {
+    name: "Venom Driver",
+    requiredType: "berserker",
+    image: "image/gun5.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 15,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A green military gun that fires toxic bolts."
+  },
+
+  gun6: {
+    name: "Golden Hornet",
+    requiredType: "berserker",
+    image: "image/gun6.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 15,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A rugged yellow double-barrel built for heavy fire."
+  },
+
+  gun7: {
+    name: "Cryo Lancer",
+    requiredType: "berserker",
+    image: "image/gun7.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 15,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A cyan-and-white rifle that freezes the air around it."
+  },
+
+  gun8: {
+    name: "Crimson Razor Gun",
+    requiredType: "berserker",
+    image: "image/gun8.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 13,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A dark-red gun shaped like a blade of fire."
+  },
+
+  gun9: {
+    name: "Cobalt Striker",
+    requiredType: "berserker",
+    image: "image/gun9.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 15,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A blue rifle with a powerful glowing barrel."
+  },
+
+  gun10: {
+    name: "Ember Gatling",
+    requiredType: "berserker",
+    image: "image/gun10.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 14,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "An orange rotary gun that spits out a storm of shots."
+  },
+
+  gun11: {
+    name: "Nebula Cannon",
+    requiredType: "berserker",
+    image: "image/gun11.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 16,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A purple cannon charged with deep-space energy."
+  },
+
+  gun12: {
+    name: "Jungle Ranger",
+    requiredType: "berserker",
+    image: "image/gun12.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 17,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A camouflaged green rifle made for long fights."
+  },
+
+  gun13: {
+    name: "Scarlet Lightning Gun",
+    requiredType: "berserker",
+    image: "image/gun13.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 17,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A red-and-white gun that crackles with energy."
+  },
+
+  gun14: {
+    name: "Midnight Sniper",
+    requiredType: "berserker",
+    image: "image/gun14.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 14,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A slim blue rifle for precise shots."
+  },
+
+  gun15: {
+    name: "Pink Supernova",
+    requiredType: "berserker",
+    image: "image/gun15.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 16,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A bright magenta blaster with a star-bright core."
+  },
+
+  gun16: {
+    name: "Crystal Tempest Gun",
+    requiredType: "berserker",
+    image: "image/gun16.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 16,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A blue crystal-finned gun that shines with frozen light."
+  },
+
+  gun17: {
+    name: "Aurum Repeater",
+    requiredType: "berserker",
+    image: "image/gun17.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 16,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A black-and-gold rifle with a shining golden core."
+  },
+
+  gun18: {
+    name: "Galactic Gun",
+    requiredType: "berserker",
+    image: "image/gun18.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 16,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A spiky purple gun from the edge of the galaxy."
+  },
+
+  gun19: {
+    name: "Redline Twin Cannon",
+    requiredType: "berserker",
+    image: "image/gun19.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 16,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A heavy red twin-barrel cannon with huge firepower."
+  },
+
+  gun20: {
+    name: "Starlight Railgun",
+    requiredType: "berserker",
+    image: "image/gun20.png",
+    category: "weapon",
+    spawnChance: 0.025,
+    width: 30,
+    height: 15,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A white-and-blue railgun that fires beams of light."
+  },
+
+  gun21: {
+    name: "Crimson Fury Cannon",
+    requiredType: "berserker",
+    image: "image/gun21.png",
+    category: "weapon",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    width: 30,
+    height: 15,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A blood-red cannon built for relentless firepower and reckless fighters."
+  },
+
+  // ---- SHOP WEAPON SETS (4 tiers x berserker gun / magemaster sword / bullwark gauntlet, +25% per tier) ----
+
+  gun22: {
+    name: "Vanguard Berserker Rifle",
+    requiredType: "berserker",
+    image: "image/gun18.png",
+    category: "weapon",
+    physicalDamage: 100,
+    physicalDefense: 20,
+    magicalDefense: 20,
+    health: 1000,
+    mana: 50,
+    hpRegen: 0.008,
+    manaRegen: 0.008,
+    criticalDamage: 0.021,
+    criticalChance: 0.016,
+    pow: 30,
+    int: 30,
+    dex: 30,
+    vit: 30,
+    spawnChance: 0.025,
+    width: 30,
+    height: 16,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong weapon to start with. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  sword22: {
+    name: "Vanguard Mage Blade",
+    requiredType: "magemaster",
+    image: "image/sword18.png",
+    category: "weapon",
+    magicalAttack: 100,
+    physicalDefense: 20,
+    magicalDefense: 20,
+    health: 1000,
+    mana: 50,
+    hpRegen: 0.008,
+    manaRegen: 0.008,
+    criticalDamage: 0.021,
+    criticalChance: 0.016,
+    pow: 30,
+    int: 30,
+    dex: 30,
+    vit: 30,
+    spawnChance: 0.025,
+    width: 30,
+    height: 22,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong weapon to start with. Built for mage masters: boosts magical attack and mana."
+  },
+
+  gauntlet22: {
+    name: "Vanguard Bullwark Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet18.png",
+    category: "weapon",
+    physicalDamage: 100,
+    physicalDefense: 20,
+    magicalDefense: 20,
+    health: 1000,
+    mana: 50,
+    hpRegen: 0.008,
+    manaRegen: 0.008,
+    criticalDamage: 0.021,
+    criticalChance: 0.016,
+    pow: 30,
+    int: 30,
+    dex: 30,
+    vit: 30,
+    spawnChance: 0.025,
+    width: 30,
+    height: 29,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong weapon to start with. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  gun23: {
+    name: "Elite Berserker Rifle",
+    requiredType: "berserker",
+    image: "image/gun19.png",
+    category: "weapon",
+    physicalDamage: 125,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 1250,
+    mana: 62.5,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+    criticalDamage: 0.02625,
+    criticalChance: 0.02,
+    pow: 37.5,
+    int: 37.5,
+    dex: 37.5,
+    vit: 37.5,
+    spawnChance: 0.025,
+    width: 30,
+    height: 16,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger weapon: 25% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  sword23: {
+    name: "Elite Mage Blade",
+    requiredType: "magemaster",
+    image: "image/sword19.png",
+    category: "weapon",
+    magicalAttack: 125,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 1250,
+    mana: 62.5,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+    criticalDamage: 0.02625,
+    criticalChance: 0.02,
+    pow: 37.5,
+    int: 37.5,
+    dex: 37.5,
+    vit: 37.5,
+    spawnChance: 0.025,
+    width: 30,
+    height: 24,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger weapon: 25% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  gauntlet23: {
+    name: "Elite Bullwark Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet19.png",
+    category: "weapon",
+    physicalDamage: 125,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 1250,
+    mana: 62.5,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+    criticalDamage: 0.02625,
+    criticalChance: 0.02,
+    pow: 37.5,
+    int: 37.5,
+    dex: 37.5,
+    vit: 37.5,
+    spawnChance: 0.025,
+    width: 30,
+    height: 30,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger weapon: 25% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  gun24: {
+    name: "Mythic Berserker Rifle",
+    requiredType: "berserker",
+    image: "image/gun20.png",
+    category: "weapon",
+    physicalDamage: 150,
+    physicalDefense: 30,
+    magicalDefense: 30,
+    health: 1500,
+    mana: 75,
+    hpRegen: 0.012,
+    manaRegen: 0.012,
+    criticalDamage: 0.0315,
+    criticalChance: 0.024,
+    pow: 45,
+    int: 45,
+    dex: 45,
+    vit: 45,
+    spawnChance: 0.025,
+    width: 30,
+    height: 15,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade weapon: 50% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  sword24: {
+    name: "Mythic Mage Blade",
+    requiredType: "magemaster",
+    image: "image/sword20.png",
+    category: "weapon",
+    magicalAttack: 150,
+    physicalDefense: 30,
+    magicalDefense: 30,
+    health: 1500,
+    mana: 75,
+    hpRegen: 0.012,
+    manaRegen: 0.012,
+    criticalDamage: 0.0315,
+    criticalChance: 0.024,
+    pow: 45,
+    int: 45,
+    dex: 45,
+    vit: 45,
+    spawnChance: 0.025,
+    width: 30,
+    height: 23,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade weapon: 50% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  gauntlet24: {
+    name: "Mythic Bullwark Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet20.png",
+    category: "weapon",
+    physicalDamage: 150,
+    physicalDefense: 30,
+    magicalDefense: 30,
+    health: 1500,
+    mana: 75,
+    hpRegen: 0.012,
+    manaRegen: 0.012,
+    criticalDamage: 0.0315,
+    criticalChance: 0.024,
+    pow: 45,
+    int: 45,
+    dex: 45,
+    vit: 45,
+    spawnChance: 0.025,
+    width: 30,
+    height: 30,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade weapon: 50% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  gun25: {
+    name: "Extreme Berserker Rifle",
+    requiredType: "berserker",
+    image: "image/gun21.png",
+    category: "weapon",
+    physicalDamage: 175,
+    physicalDefense: 35,
+    magicalDefense: 35,
+    health: 1750,
+    mana: 87.5,
+    hpRegen: 0.014,
+    manaRegen: 0.014,
+    criticalDamage: 0.03675,
+    criticalChance: 0.028,
+    pow: 52.5,
+    int: 52.5,
+    dex: 52.5,
+    vit: 52.5,
+    spawnChance: 0.025,
+    width: 30,
+    height: 15,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest weapon of the shop sets: 75% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  sword25: {
+    name: "Extreme Mage Blade",
+    requiredType: "magemaster",
+    image: "image/sword21.png",
+    category: "weapon",
+    magicalAttack: 175,
+    physicalDefense: 35,
+    magicalDefense: 35,
+    health: 1750,
+    mana: 87.5,
+    hpRegen: 0.014,
+    manaRegen: 0.014,
+    criticalDamage: 0.03675,
+    criticalChance: 0.028,
+    pow: 52.5,
+    int: 52.5,
+    dex: 52.5,
+    vit: 52.5,
+    spawnChance: 0.025,
+    width: 30,
+    height: 23,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest weapon of the shop sets: 75% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  gauntlet25: {
+    name: "Extreme Bullwark Gauntlet",
+    requiredType: "bullwark",
+    image: "image/gauntlet21.png",
+    category: "weapon",
+    physicalDamage: 175,
+    physicalDefense: 35,
+    magicalDefense: 35,
+    health: 1750,
+    mana: 87.5,
+    hpRegen: 0.014,
+    manaRegen: 0.014,
+    criticalDamage: 0.03675,
+    criticalChance: 0.028,
+    pow: 52.5,
+    int: 52.5,
+    dex: 52.5,
+    vit: 52.5,
+    spawnChance: 0.025,
+    width: 30,
+    height: 30,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest weapon of the shop sets: 75% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+};
+
+
+
+function getWeapon(name) {
+
+  return WEAPONS[name] || null;
+
+}
+
+
+
+function getAllWeapons() {
+
+  return Object.values(WEAPONS);
+
+}
+
+
+
+if (typeof module !== "undefined" && module.exports) {
+
+  module.exports = {
+    WEAPONS,
+    getWeapon,
+    getAllWeapons
+  };
+
+}
+
+// ---- export for server.js (Node) ----
+if (typeof module !== "undefined") module.exports = { WEAPONS };

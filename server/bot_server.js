@@ -1,1 +1,5966 @@
-let vmg=typeof globalThis!=='undefined'?globalThis:typeof global!=='undefined'?global:typeof window!=='undefined'?window:typeof self!=='undefined'?self:void 0x0,vmk_f71a9e=vmg['vmk_f71a9e']||(vmg['vmk_f71a9e']={});const vmQ_da9b27=(function(){var K=WeakSet['prototype']['has'],c=WeakSet['prototype']['add'],l=Object['getPrototypeOf'],d=WeakMap['prototype']['has'],Q=Reflect['apply'],k=Object['getOwnPropertySymbols'],R=Object['setPrototypeOf'],T=Object['getOwnPropertyDescriptor'],g=Object['defineProperty'],r=Function['prototype']['apply'],J=WeakMap['prototype']['set'],G=Object['create'],D=WeakMap['prototype']['get'],h=Function['prototype']['call'],O=Object['getOwnPropertyNames'];let B=['AceeEaGsXXwN8W9faHxKGIGNDPmKRPicXZs//DZ/XpXDX5ZsXZDXXIUA2XXXkXsXBIs/wXNXKIZ/X0XDXZBCXID4XZ/CX0X/XZjIXIs/TXNW76XXXNA/XZoIXIUI2XXXkXsXKIZsDX2QWI==','AceeEeGNxwA//AIB4Hm+RPQeDXx2DXx9DXmd4Hz+R1v/XIINGnEnUZsXD/xYGPE6GnmhRWQNDPK34HRKD//kanfAaWiYUZI4aPEYR1xhaER+UOzwD/xCGPEqoHfhUnQ//ZINNn4Y5XIoUPKcaE5YMHmKD/xrUHR+aK/hRWIN/PEd4AINFHEY7XIsQsCNDWU+aWANsWKtFHSn7H9bD/+raqz/GbxgRYK34HRKDXU341I/8IF5tvtvtvtc0AsWDXmdaqzhRWQNEPUh4nK6UYE6UnmKXZsN8bxKGqzgGPQNBPzd41R1UHEAan9iGWRd4HzKZ1id4ZIZUbi64qz+an2N8ORK41/gaII4R1/bGPECUQmKRPicXZvN8WhK4HmY7XIoaHE2oWihaOzwXz2//XICUOxhRYK34HRKoWihaOzwZPEdXZwNxWhK4HmY7sxgGPzKGCK34HRKvZIM7WihaOzwoOiCoHfhUnQmDD/wUHEcRWhEa1/YMQK34HRKXZCNokKAMDXbZnSfGPKKGr/jU1GbeD/8aqid7HideD/3an9gGq/h4nQNDWUgabZN8W5KabzKGIIoRWi2RsEc7HR6D/xDFfzpiEKZzivNsbi6UWiP7H9KUXINROKAUZINaPE3UZIvQqzd7H9bDXXNEbzgFWSqU1x8415KDX9dU1/c4H5KDX9G4K3he1+RDXxbXZX/8ZIWFO4IDX+cU1UKaXIMGPRr4oIAe8XcvDAAekC+D//P7HmciWi2RXIjNnUPvnNt4IIjNnUPUFXn5IINaWiPR0NOXZsXXzNXXZX/sAX/XXsFXXsoXXssXZZ/XZXXXZN/sAXXXZN//Xs8/PkIXXX//Zs8XZZ//XUw2XXXXZ4//XsEXZ4WU6XXXXsOXZXXXZG/DXsXXXsXXXsxXZQXXXsWXXX//IsDXXssXZwXXXX//XsBXZcXXXX//XsBXZA/DXUm2XXXXXsXXXs5XZZ/DIXXXZGXXZ4W46XXXXXXXZGXXZ4W46XXXXXXXZGXXXsOXXX/8IsEXXX/XXs0XzXXXZXXXzs/DXsXXXsXXXsoXZIXXXsNXXX//XsEXXX/DXXXXzv/EXsW/PaIXXXXXXsjXZQXXZXXXzQ/DXsXXXssXz4XXXX/EAseXXXXXzG/8XsN/bOIXXXXXzvXXzI/WZXXXZZ//Zs7/PaIXXXXXXsWXZN/sXssXZQ/WAUw2XXXXzX//IUr2XXX/PkIXXX/sZsXXXsOXZI/XXX/XXX/OXssXzYXXXsMXZsXXZXXXZC/sZXXXZIXXXsWXZNXXZXXXZY/EAXXXzXXXZ4W46XXXXXXXzXXXZ4W46XXXXXXXzXXXXsZXXX/8IsEXXsXXXspXZI/XXX/NXsh/PlIXXXXXoX/EXsXXZZ//ZssXoNXXXX//XsrXov/EXsCXZvXXZXXXzT/DXsXXXsFXXs4XZIXXXssXoQ//XsP/PeIXXXXXXsWXZN/DXsbXZC/BXsBXoC/EZsXXZQ/DZsW/PeIXXXW76XXXXsWXZZ//ZUV2XXXXowW76XXXXsxXZw/DXsJXoA/eZsiXo2/DZX/XXsgXFXXXZX/vZsdXX4XXXsXXXsY/b8IXXXXXXXWXXX/XXssXFQXXXXXXXseXZcXXXX/DAsnXXsqXz4/DAsnXz4/OIs/XXs2XZA/8XXXXXsvXZAXXFC/DXsX/PlIXXXXXZAXXFwWjAXTXXXXXFYXXXX//IsDXXsvXXsWXZZ//ZUV2XXXXF2W76XXXXs5XFT//XEXXXXXXz2W7jXXXXsjXZAXXZY/BIUV2XXXXXs5XZT/8XX/XXE/XzXXXZXXXQN/8XXXXZQ/OIUw2XXXXXX/8ZsM/PkIXXXXXXsCXZvXXZX/ZAsZXXsXXXEDXZAXXXsEXXX/8ZXXXoZ/XAX/XXE/XzXXXZXXXQN/8IXXXZQ/OIUw2XXXXXX/8AsM/PkIXXXXXXsCXZvXXZX/zXsZXXsXXXEDXZ2XXXsEXXX/8AXXXoZ/XAX/XXEEXFNXXXXXXzvXXzNXXXXXX0XDxwX/TXWIXwX/TXWIXwX/TXE6HNX/hIBCXbIVwXBXXpX/cXFAXw4D+XBvX4X/TXBWXVZDkXWXX44D+XBIXwA/IXOAX+I/+XBIXcAsTXOAX+I/+XBWXcZDmXBWXcZDmXBIXcAsTXWWXVZDPXsVTXWWXVZD+XB4XoJAX44D+XBCXVXDkXsVTXB4X7ZDhIBCXcZDmXBWXIDIXwA/mXesXw4DXBXDkXOsXcZDhIesXcZDhIesXcZDwXev/0X/QgXDIXNCTXOAX+I/+XBIXcAsTXOAX+I/+XBIXcZDmXBIXcZDmXBWXVZDmXesXVXDmXesXJAs+XBIXwA/mXesXVXDtXFAXpXDPXWCXVXDtXFAX44D+XB4XoJAXaAs+XB4XoJAXaAs+XBIXwA/BJAsPXWCXVXDmXesXw4D+XBIXwA/mXesXVXDtXoXX44D+XBIXwA/hIBIXwA/kXWXXpXDPXWCXVXDtXFAXpXDPXWCXw4D+XesXcZDwXev/0X/TXB4X7ZDhIesXcZDwXesXcZDwXev/0X/TXB4X7ZDgXFsXcZDhINXwXBvXGZDmXBWXIDIXwA/mXesXw4DmXesXw4DmXesXVXDtXFAXpXDPXWCXVXDtXFAXZVXXwA/BJAsIXOAXw4D+XBWXVZDPXsVTXWWXVZD+XBWXVXDAIeAXpXDPXWCXVXDtXFAXaAsPXWCXVXDmXesXw4D+XBWXVZDkXOsXcZDwXev/NX/wXBXX7XDIXWT/NX/TXBWXw4DwXBvX4A/hIBWXVZDkXWIXwA/hIBWXw4DgXoT/eAshIBIXcNDTXOAXwXDx0X/TXBXXrFAXR2/fXoXXwA/PXsVTXOMX44D+XxnPXECTXWyX4X/hIB4XoJAX44D+XNVgXoXX44D+XBWXVXDAIxoIXBXX44DPXsVTXWWXw4DPXWCXVXDtXovXoVWX+I/+XBQ/vZDmXBIXkksXcZDwXev/xI/IXOAX44DhIBCXwA/wXBvX4X/IXBWXVZDPXECTXWIXwA/IXWWXrVWXVXDkXEohIBXX44DBgXDIXNCTXOAX+I/+XBWXcZDmXBWXVXDkXOsXcZDhIBIXwA/mXesXVXDtXFAXpXDIXNCTXOAX+I/+XBWXcZDmXBWXcZDmXBWXcZDmXBIXcAsTXOAXwXDx0X/TXB4X7ZDhIesXcZDhIBIXwA/mXesXw4DwXBvXGZDmXBIXcAsTXOAXwXDx0X/TXB4X7ZDhIesXcZDhIesXcZDhIesXcZDwXev/0X/TXBXXrFAXi/owIWWXPoWXJ2/igX/SXWH/8ZQlXGIBrkG/qxTpwA/kXONXG4/PIBIXVIDVIBnXJ4D2I0wX2AsuIjs/NwEKIH4/U2E+XHc/7AEgIHT/GXEmI14/RIEuXHj/+ZWPI7C/VNW+I7V/wXOqIGj9XpV/uwOlIGDEI8r/LXO'];var b=Uint8Array,i=DataView,v=String['fromCharCode'];let W=['Acee/lGDXXZNEbzgi1/AU1x8415KXZXvXZ8AXID4XZsX+XN/X7XDXZ8v/XDH/X=='],N={'0':0xb8,'1':0x42,'2':0x16f,'3':0xdc,'4':0x188,'5':0x54,'6':0x1e8,'7':0x59,'8':0x125,'9':0x182,'10':0x1a4,'11':0x134,'12':0x5d,'13':0x152,'14':0x64,'15':0x167,'16':0xcb,'17':0x1f6,'18':0x138,'19':0xd4,'20':0xca,'21':0x168,'22':0xa0,'23':0x144,'24':0x1c8,'25':0x123,'26':0x44,'27':0x93,'28':0x15f,'29':0x1a6,'32':0x22,'40':0x1bc,'41':0xa9,'42':0x58,'43':0x39,'44':0x18d,'45':0x23,'46':0x1b0,'47':0x13,'50':0x16a,'51':0x1a9,'52':0xd2,'53':0x17,'54':0x1c3,'55':0x1e7,'56':0x1fc,'57':0x2c,'58':0xcd,'59':0xa2,'60':0x20,'61':0x173,'62':0x38,'63':0x5f,'64':0x1da,'70':0x196,'71':0xd6,'72':0xa1,'73':0x3f,'74':0x104,'75':0x100,'76':0x86,'77':0x57,'79':0x1c0,'81':0x1d8,'83':0x9,'84':0xc3,'90':0x9e,'91':0x140,'93':0x181,'94':0x193,'95':0xd0,'100':0xcf,'104':0x175,'105':0x16b,'106':0x4b,'107':0x1ae,'110':0x16c,'111':0xfa,'112':0x1d4,'120':0x17e,'121':0x1f3,'122':0x43,'123':0x1f4,'124':0xbf,'127':0x92,'128':0xc2,'129':0x116,'130':0x1dc,'131':0x1a7,'132':0x62,'140':0x67,'141':0x4a,'142':0x1db,'143':0x37,'144':0x40,'145':0x1,'146':0x109,'147':0x1d,'148':0x61,'149':0xd7,'160':0x154,'161':0xf1,'162':0x6e,'163':0x1c5,'164':0x1a2,'165':0x11a,'166':0xc5,'167':0x14d,'168':0xfc,'169':0x178,'180':0x183,'181':0x85,'182':0x26,'183':0xd5,'184':0x19b,'185':0x80,'200':0x1cf,'201':0x8,'210':0x14e,'213':0x1e3,'214':0x10,'220':0xc1,'250':0x14a,'251':0x3b,'252':0x6d,'253':0x2d,'254':0x190,'255':0xb1,'256':0x1b5,'262':0x1b6,'263':0x1ca,'264':0x1e,'265':0x1fd,'266':0x14b,'267':0xe2,'268':0xeb,'269':0x18f,'270':0x113,'272':0x4,'273':0x14f,'274':0xea,'275':0x166,'276':0x1a8,'277':0x1b8,'278':0x15b,'279':0x197,'280':0x1b2,'281':0x1e5,'282':0x199,'283':0x158,'284':0x1be,'285':0x17a,'286':0x34,'287':0x1e9,'288':0xed,'293':0x2f,'294':0x148,'295':0x97,'296':0x1aa,'297':0x142,'298':0xac,'299':0x16,'300':0xf6,'301':0xf2,'302':0x1ce,'303':0x49,'304':0xae};const y=0x1,a=0x2,Z=0x3,w=0x4,M=0x82,z=0x35,P=0x4a,A=typeof 0x0n,S=[];let n=0x0;const X=function(){throw new TypeError('\x27caller\x27,\x20\x27callee\x27,\x20and\x20\x27arguments\x27\x20properties\x20may\x20not\x20be\x20accessed\x20on\x20strict\x20mode\x20functions\x20or\x20the\x20arguments\x20objects\x20for\x20calls\x20to\x20them');};Object['preventExtensions'](X);let s=new WeakSet(),p=new WeakSet(),u;function q(cg,cr,cJ){u=cg;try{return Q(cg,cr,cJ);}finally{u=undefined;}}const V=new WeakMap();function I(cg,cr){J['call'](V,cg,cr);}function j(cg,cr){return cg['_$zfHo1V']=cr,cr;}function x(cg){return D['call'](V,cg);}function H(cg){return d['call'](V,cg);}let C=new WeakMap(),E=[],L=Array['prototype'][Symbol['iterator']],t=Symbol['iterator'],F=null,o=null,f=null,Y=null,U=null;try{let cg=function*(){};F=l(cg),o=F&&F['prototype'];}catch(cr){}try{let cJ=async function*(){};f=l(cJ),Y=f&&f['prototype'];}catch(cG){}try{let cD=async function(){};U=l(cD);}catch(ch){}function m(cO,cB,cb){try{g(cO,cB,cb);}catch(ci){}}function K0(cO,cB){let cb=new Array(cB),ci=![];for(let cW=cB-0x1;cW>=0x0;cW--){let cN=cO();cN&&typeof cN==='object'&&K['call'](s,cN)?(ci=!![],cb[cW]=cN):cb[cW]=cN;}if(!ci)return cb;let cv=[];for(let cy=0x0;cy<cB;cy++){let ca=cb[cy];if(ca&&typeof ca==='object'&&K['call'](s,ca)){let cZ=ca['value'];if(Array['isArray'](cZ)){for(let cw=0x0;cw<cZ['length'];cw++)cv['push'](cZ[cw]);}}else cv['push'](ca);}return cv;}function K1(cO){return typeof cO==='object'||typeof cO==='function';}function K2(cO){return{'value':cO,'writable':!![],'configurable':!![]};}function K3(cO,cB){return cO&&K1(cO)?cO:cB;}function K4(cO,cB){try{R(cO,cB);}catch(cb){}}function K5(cO,cB){let cb=cO===null||cO===undefined?undefined:cO[cB];if(cb===null||cb===undefined)return undefined;if(typeof cb!=='function')throw new TypeError('Method\x20is\x20not\x20callable');return cb;}function K6(cO){if(cO===null||typeof cO!=='object'&&typeof cO!=='function')throw new TypeError('Iterator\x20result\x20'+cO+'\x20is\x20not\x20an\x20object');}function K7(cO){let cB=cO['done'];return{'done':cB,'value':cB?cO['value']:undefined};}function K8(cO){let cB=K5(cO,Symbol['asyncIterator']),cb,ci;if(cB!==undefined)cb=Q(cB,cO,[]),ci=![];else{let cW=K5(cO,Symbol['iterator']);if(cW===undefined)throw new TypeError(typeof cO+'\x20is\x20not\x20iterable');cb=Q(cW,cO,[]),ci=!![];}if(cb===null||typeof cb!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');let cv=cb['next'];if(typeof cv!=='function')throw new TypeError('Iterator\x20next\x20is\x20not\x20a\x20function');return{'iter':cb,'nextMethod':cv,'isSync':ci};}function K9(cO){let cB=[];for(let cb in cO){cB['push'](cb);}return cB;}function KK(cO){return Array['prototype']['slice']['call'](cO);}function Kc(cO){return typeof cO==='function'&&cO['prototype']?cO['prototype']:cO;}function Kl(cO){if(typeof cO==='function')return l(cO);let cB=l(cO),cb=cB&&T(cB,'constructor'),ci=cb&&cb['value'],cv=ci&&typeof ci==='function'&&(ci['prototype']===cB||l(ci['prototype'])===l(cB));if(cv)return l(cB);return cB;}function Kd(cO,cB){let cb=cO;while(cb!==null){let ci=T(cb,cB);if(ci)return{'desc':ci,'proto':cb};cb=l(cb);}return{'desc':null,'proto':cO};}function KQ(cO){let cB=typeof cO;if(cO!==null&&(cB==='object'||cB==='function')){let cb=G(null);return cb[cO]=0x0,Reflect['ownKeys'](cb)[0x0];}if(cB!=='symbol')return String(cO);return cO;}function Kk(cO,cB){let cb=cO;while(cb){let ci=cb['_$I4sdew'];if(ci>=0x0){let cv=cb['_$Do1a2l'];if(cv){let cW=cB(cv,ci);if(cW!==undefined)return cW;}}cb=cb['_$AQ2Nrl'];}}function KR(cO,cB){Kk(cO,function(cb,ci){cb[ci]===cb&&(cb[ci]=cB);});}function KT(cO){return Kk(cO,function(cB,cb){let ci=cB[cb];if(ci!==cB&&ci!==undefined)return ci;});}function Kg(cO,cB){var cb=cO[cB],ci=function(){vmk_f71a9e['_$Dpa0kh']=!![];var cv=vmk_f71a9e['_$gJuDTf'];vmk_f71a9e['_$gJuDTf']=cO;try{return Reflect['apply'](cb,this,arguments);}finally{vmk_f71a9e['_$gJuDTf']=cv;}};Object['defineProperties'](ci,{'length':{'value':cb['length'],'configurable':!![]},'name':{'value':cb['name'],'configurable':!![]}}),cO[cB]=ci,(vmk_f71a9e['_$3B4wCg']||(vmk_f71a9e['_$3B4wCg']=new WeakMap()))['set'](ci,cO);}vmk_f71a9e['_$xjkHoA']=Kg;function Kr(cO,cB,cb,ci){if(!cO||cB[0x8*ci[0x0]+ci[0x1]&0x1f]||cB[0x11*ci[0x0]+ci[0x1]&0x1f]||cB[0x10*ci[0x0]+ci[0x1]&0x1f])return;!H(cO)&&I(cO,{['_$hQlpqc']:cB,['_$E8iUhp']:cb,['_$zfHo1V']:cB,['_$3vp170']:undefined});}function KJ(cO,cB,cb,ci,cv,cW){let cN;if(cW){ci?cN={'QtBtoQ'(){'use strict';let cy=new.target!==undefined?new.target:vmk_f71a9e['_$Ds8RtI'];return new.target===undefined&&'_$Ds8RtI'in vmk_f71a9e&&!('_$UwiaZt'in vmk_f71a9e)&&delete vmk_f71a9e['_$Ds8RtI'],cO(cb,cN,this,cy,arguments,cB);}}['QtBtoQ']:cN={'QtBtoQ'(){let cy=new.target!==undefined?new.target:vmk_f71a9e['_$Ds8RtI'];return new.target===undefined&&'_$Ds8RtI'in vmk_f71a9e&&!('_$UwiaZt'in vmk_f71a9e)&&delete vmk_f71a9e['_$Ds8RtI'],cO(cb,cN,this,cy,arguments,cB);}}['QtBtoQ'];try{delete cN['prototype'];}catch(cy){}}else ci?cN=function ca(){'use strict';let cZ=new.target!==undefined?new.target:vmk_f71a9e['_$Ds8RtI'];return new.target===undefined&&'_$Ds8RtI'in vmk_f71a9e&&!('_$UwiaZt'in vmk_f71a9e)&&delete vmk_f71a9e['_$Ds8RtI'],cO(cb,cN,this,cZ,arguments,cB);}:cN=function cZ(){let cw=new.target!==undefined?new.target:vmk_f71a9e['_$Ds8RtI'];return new.target===undefined&&'_$Ds8RtI'in vmk_f71a9e&&!('_$UwiaZt'in vmk_f71a9e)&&delete vmk_f71a9e['_$Ds8RtI'],cO(cb,cN,this,cw,arguments,cB);};return I(cN,{['_$hQlpqc']:cB,['_$E8iUhp']:cb,['_$zfHo1V']:undefined,['_$3vp170']:undefined}),cN;}function KG(cO,cB,cb,ci,cv){let cW;ci?cW={'QtBtoQ'(){'use strict';let cN=new.target!==undefined?new.target:vmk_f71a9e['_$Ds8RtI'];return new.target===undefined&&'_$Ds8RtI'in vmk_f71a9e&&!('_$UwiaZt'in vmk_f71a9e)&&delete vmk_f71a9e['_$Ds8RtI'],cO(cb,cW,this,undefined,cN,arguments,cB);}}['QtBtoQ']:cW={'QtBtoQ'(){let cN=new.target!==undefined?new.target:vmk_f71a9e['_$Ds8RtI'];return new.target===undefined&&'_$Ds8RtI'in vmk_f71a9e&&!('_$UwiaZt'in vmk_f71a9e)&&delete vmk_f71a9e['_$Ds8RtI'],cO(cb,cW,this,undefined,cN,arguments,cB);}}['QtBtoQ'];if(U)K4(cW,U);return cW;}function KD(cO,cB,cb,ci,cv,cW,cN){let cy;cv?cy={'QtBtoQ'(){'use strict';return cO(cb,cy,this,vmk_f71a9e['_$gJuDTf'],arguments,cB);}}['QtBtoQ']:cy={'QtBtoQ'(){return cO(cb,cy,this,vmk_f71a9e['_$gJuDTf'],arguments,cB);}}['QtBtoQ'];c['call'](ci,cy);let ca=cN?f:F,cZ=cN?Y:o;if(ca)K4(cy,ca);try{g(cy,'prototype',{'value':cZ?G(cZ):G({}),'writable':!![],'enumerable':![],'configurable':![]});}catch(cw){}return cy;}function Kh(cO,cB,cb,ci){let cv=vmk_f71a9e['_$gJuDTf'],cW;return cW={'QtBtoQ':(...cN)=>{return cv!==undefined&&(vmk_f71a9e['_$Dpa0kh']=!![],vmk_f71a9e['_$gJuDTf']=cv),cO(cb,cW,ci,undefined,cN,cB);}}['QtBtoQ'],cW;}function KO(cO,cB,cb,ci){let cv;cv={'QtBtoQ':(...cW)=>{return cO(cb,cv,ci,undefined,undefined,cW,cB);}}['QtBtoQ'];if(U)K4(cv,U);return cv;}function KB(cO,cB,cb,ci,cv,cW){let cN=[void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0],cy=0x0,ca=cK(cW[0x20],cW[0x21]),cZ,cw,cM,cz;switch(ca[0x1]&0x3){case 0x0:cw=cW[0xe*ca[0x0]+ca[0x1]&0x1f],cZ=cW[0xf*ca[0x0]+ca[0x1]&0x1f],cM=cW[0x17*ca[0x0]+ca[0x1]&0x1f]||S,cz=cW[0x2*ca[0x0]+ca[0x1]&0x1f]||S;break;case 0x1:cZ=cW[0xf*ca[0x0]+ca[0x1]&0x1f],cM=cW[0x17*ca[0x0]+ca[0x1]&0x1f]||S,cz=cW[0x2*ca[0x0]+ca[0x1]&0x1f]||S,cw=cW[0xe*ca[0x0]+ca[0x1]&0x1f];break;case 0x2:cM=cW[0x17*ca[0x0]+ca[0x1]&0x1f]||S,cz=cW[0x2*ca[0x0]+ca[0x1]&0x1f]||S,cw=cW[0xe*ca[0x0]+ca[0x1]&0x1f],cZ=cW[0xf*ca[0x0]+ca[0x1]&0x1f];break;default:cz=cW[0x2*ca[0x0]+ca[0x1]&0x1f]||S,cw=cW[0xe*ca[0x0]+ca[0x1]&0x1f],cZ=cW[0xf*ca[0x0]+ca[0x1]&0x1f],cM=cW[0x17*ca[0x0]+ca[0x1]&0x1f]||S;break;}let cP=new Array((cW[0x20]||0x0)+(cW[0x21]||0x0)),ce=0x0,cA=cw['length']>>0x1,cS=(cW[0x20]*0x54f5^cW[0x21]*0xb07^cA*0x6f69^cZ['length']*0xf979)>>>0x0&0x3,cn,cX,cs;switch(cS){case 0x1:cn=0x1,cX=0x0,cs=0x1;break;case 0x2:cn=cA,cX=0x0,cs=0x0;break;case 0x3:cn=0x0,cX=0x1,cs=0x1;break;default:cn=0x0,cX=cA,cs=0x0;break;}let cp=null,cu=null,cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cL=-0x1,ct=-0x1,cF=!!cW[0xb*ca[0x0]+ca[0x1]&0x1f],co=!!cW[0x19*ca[0x0]+ca[0x1]&0x1f],cf=!!cW[0x12*ca[0x0]+ca[0x1]&0x1f],cY=!!cW[0x7*ca[0x0]+ca[0x1]&0x1f],cU=cb,cm=!!cW[0x10*ca[0x0]+ca[0x1]&0x1f];!cF&&!cm&&(cb===undefined||cb===null)&&(cb=vmg);let l0=lT=>{cN[cy++]=lT;},l1=()=>cN[--cy],l2=cW[0x4*ca[0x0]+ca[0x1]&0x1f]||0x0,l3={['_$Do1a2l']:l2?new Array(l2)['fill'](void 0x0):S,['_$pORDT7']:null,['_$I4sdew']:-0x1,['_$AQ2Nrl']:cO};if(cv){let lT=cW[0x20]||0x0;for(let lg=0x0,lr=cv['length']<lT?cv['length']:lT;lg<lr;lg++){cP[lg]=cv[lg];}}let l4=cv?cv['length']:0x0,l5=(cF||!co)&&cv?KK(cv):null,l6=null,l7=![],l8=(cW[0x20]||0x0)+(cW[0x21]||0x0),l9=null,lK=0x0;Kr(cB,cW,cO,ca);var lc,ll,ld,lQ,lk;lk=[0x0,0x20,0x0,0x0,0x0,0x0,0x0,0x0,0x1c,0xc,0x30,0x0,0x21,0x0,0x0,0x2e,0xf,0x0,0x10,0x0,0x0,0x2b,0x0,0x0,0x5,0x0,0x24,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x29,0x0,0x0,0x0,0x0,0x26,0x0,0x0,0x0,0x17,0x0,0x0,0x0,0x12,0x0,0x28,0x0,0x0,0x31,0x0,0x0,0x4,0x0,0x1e,0x0,0x0,0x0,0x0,0x0,0x35,0x0,0x0,0x0,0x0,0x0,0x19,0x0,0x0,0x8,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x7,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1f,0x15,0x1d,0x0,0x0,0x0,0x18,0x14,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x37,0x33,0x25,0x0,0x1b,0x0,0x0,0xa,0x2d,0xb,0x0,0x36,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x6,0x0,0x0,0x0,0xe,0x0,0x27,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0xd,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2,0x1,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x3,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x16,0x0,0x0,0x34,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x32,0x0,0x0,0x0,0x0,0x0,0x0,0x13,0x0,0x0,0x0,0x0,0x2a,0x0,0x0,0x0,0x0,0x0,0x0,0x1a,0x0,0x0,0x0,0x0,0x0,0x9,0x22,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x11,0x0,0x0,0x2f,0x2c,0x23,0x0,0x0],ll=function(lJ,lG){switch(lJ){case 0x3b:{let lD=cN[--cy],lh=cN[--cy];if(lh===null||lh===undefined){if(lD===Symbol['iterator'])throw new TypeError((lh===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+lh+'\x20(reading\x20'+(typeof lD==='symbol'?'\x27'+lD['toString']()+'\x27':typeof lD==='string'?'\x27'+lD+'\x27':typeof lD==='object'||typeof lD==='function'?'\x27<computed\x20key>\x27':'\x27'+String(lD)+'\x27')+')');}cN[cy++]=lh[lD],ce++;break;}case 0x13:{let lO=cN[--cy];if(lO==null)throw new TypeError(lO+'\x20is\x20not\x20iterable');let lB=lO[t];if(Array['isArray'](lO)&&lB===L)cN[cy++]={['_$Vyp3HY']:lO,['_$GHjvbJ']:0x0},ce++;else{if(typeof lB!=='function')throw new TypeError(lO+'\x20is\x20not\x20iterable');let lb=Q(lB,lO,[]);K6(lb);let li=lb['next'];cN[cy++]={'i':lb,'n':li},ce++;}break;}case 0x5:{let lv=cZ[lG];lv in vmk_f71a9e?cN[cy++]=typeof vmk_f71a9e[lv]:cN[cy++]=typeof vmg[lv];ce++;break;}case 0x28:{cp['pop'](),ce++;break;}case 0x3a:{if(cf&&!l7){let lW=KT(l3);if(lW!==undefined)cb=lW,l7=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}cN[cy++]=cb,ce++;break;}case 0xd:{if(lG===-0x1)cN[cy++]=Symbol();else{let lN=cN[--cy];cN[cy++]=Symbol(lN);}ce++;break;}case 0x4:{let ly=cN[--cy],la={['_$Do1a2l']:new Array(lG),['_$pORDT7']:null,['_$I4sdew']:-0x1,['_$AQ2Nrl']:ly};l3=la,ce++;break;}case 0x2e:{!cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);break;}case 0x12:{let lZ=cN[--cy],lw=cN[--cy],lM=cZ[lG];if(lw===null||lw===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+lw+'\x20(setting\x20'+'\x27'+String(lM)+'\x27'+')');if(cF){let lz=typeof lw==='object'||typeof lw==='function'?lw:Object(lw);if(!Reflect['set'](lz,lM,lZ,lw))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(lM)+'\x27\x20of\x20object');}else lw[lM]=lZ;cN[cy++]=lZ,ce++;break;}case 0x8:{let lP=cN[cy-0x1],le=cZ[lG];if(lP===null||lP===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+lP+'\x20(reading\x20'+'\x27'+String(le)+'\x27'+')');cN[cy++]=lP[le],ce++;break;}case 0x39:{let lA=cN[--cy],lS=cN[--cy];cN[cy++]=lS^lA,ce++;break;}case 0x0:{cN[cy-0x1]=-cN[cy-0x1],ce++;break;}case 0x19:{let ln=cN[--cy],lX=ln&&ln['i']?ln['i']:ln;try{if(lX!=null){let ls=lX['return'];typeof ls==='function'&&ls['call'](lX);}}catch(lp){}ce++;break;}case 0x10:{let lu=cN[--cy],lq=cN[--cy];cN[cy++]=lq<lu,ce++;break;}case 0x2a:{cN[cy++]=cU,ce++;break;}case 0x18:{let lV=cN[--cy],lI=cN[--cy];cN[cy++]=lI>=lV,ce++;break;}case 0x2c:{let lj=cz[ce];if(!cp)cp=[];cp['push']({['_$p5x6KB']:lj[0x0]>=0x0?lj[0x0]:undefined,['_$XRoxTk']:lj[0x1]>=0x0?lj[0x1]:undefined,['_$V87Bwb']:lj[0x2]>=0x0?lj[0x2]:undefined,['_$1qGCNY']:cy,['_$aZenUZ']:ce,['_$Lxang3']:l3}),ce++;break;}case 0x37:{let lx=cP[lG],lH=lx&&lx['_$Vyp3HY'];if(lH!==undefined){let lC=lx['_$GHjvbJ'];lC>=lH['length']?ce=cM[ce]:(lx['_$GHjvbJ']=lC+0x1,cN[cy++]=lH[lC],ce++);}else{let lE=lx['i'],lL=Q(lx['n'],lE,[]);K6(lL),lL['done']?ce=cM[ce]:(cN[cy++]=lL['value'],ce++);}break;}case 0x16:{let lt=cN[--cy],lF=cN[cy-0x1];if(lt!==null&&lt!==undefined){let lo=Object(lt),lf=Reflect['ownKeys'](lo);for(let lY=0x0;lY<lf['length'];lY++){let lU=lf[lY],lm=T(lo,lU);lm!==undefined&&lm['enumerable']&&g(lF,lU,{'value':lo[lU],'writable':!![],'enumerable':!![],'configurable':!![]});}}ce++;break;}case 0xb:{cN[cy++]=l3,ce++;break;}case 0x2:{cN[cy++]=[],ce++;break;}case 0x1c:{let d0=cN[--cy],d1=d0,d2=0x0&&typeof d0!=='object'?cQ(d0,0x1):undefined,d3,d4,d5,d6,d7,d8,d9,dK;if(d2)d4=d2[0x0]&0x1,d5=d2[0x0]&0x2,d6=d2[0x0]&0x4,d7=d2[0x0]&0x8,d9=d2[0x0]&0x10,d8=d2[0x1]||0x0,dK=d2[0x2]||undefined,d3={'n':d0};else{d3=typeof d0==='object'?d0:cQ(d0);let dQ=d3&&cK(d3[0x20],d3[0x21]);d4=d3&&d3[0x10*dQ[0x0]+dQ[0x1]&0x1f],d5=d3&&d3[0x8*dQ[0x0]+dQ[0x1]&0x1f],d6=d3&&d3[0x11*dQ[0x0]+dQ[0x1]&0x1f],d7=d3&&d3[0x13*dQ[0x0]+dQ[0x1]&0x1f],d8=d3&&d3[0x20]||0x0,d9=d3&&d3[0xb*dQ[0x0]+dQ[0x1]&0x1f];let dk=d3&&d3[0xa*dQ[0x0]+dQ[0x1]&0x1f];dK=dk!==undefined?d3[0xf*dQ[0x0]+dQ[0x1]&0x1f][dk]:undefined;}d0=0x0&&typeof d1!=='object'?{'n':d1}:d3;let dc=d4?cU:undefined,dl=l3,dd;if(d6)dd=KD(cR,d0,dl,p,d9,vmg,d5);else{if(d5)d4?dd=KO(ck,d0,dl,dc):dd=KG(ck,d0,dl,d9,vmg);else{if(d4){dd=Kh(KN,d0,dl,dc);let dR=vmk_f71a9e['_$UwiaZt'];dR===undefined&&cB&&C['has'](cB)&&(dR=C['get'](cB)),dR!==undefined&&C['set'](dd,dR);}else dd=KJ(KN,d0,dl,d9,vmg,d7);}}m(dd,'length',{'value':d8,'writable':![],'enumerable':![],'configurable':!![]});dK!==undefined&&m(dd,'name',{'value':dK,'writable':![],'enumerable':![],'configurable':!![]});cN[cy++]=dd,ce++;break;}case 0x2b:{K:{let dT=cM[ce];if(dT===ct){if(cu!==null){cq=![],cI=![],cH=![];let dg=cu;cu=null;throw dg;}if(cq){while(cp&&cp['length']>0x0){let dJ=cp[cp['length']-0x1];if(dJ['_$XRoxTk']!==undefined)break;cp['pop']();}if(cp&&cp['length']>0x0){let dG=cp[cp['length']-0x1];if(dG['_$XRoxTk']!==undefined){cL=dG['_$aZenUZ'],ct=dG['_$V87Bwb'],ce=dG['_$XRoxTk'];break K;}}let dr=cV;return cq=![],cV=undefined,lc=dr,0x1;}if(cI){while(cp&&cp['length']>0x0){let dh=cp[cp['length']-0x1];if(dh['_$XRoxTk']!==undefined||!(cj>=dh['_$V87Bwb']||cj<=dh['_$aZenUZ']))break;cp['pop']();}if(cp&&cp['length']>0x0){let dO=cp[cp['length']-0x1];if(dO['_$XRoxTk']!==undefined&&(cj>=dO['_$V87Bwb']||cj<=dO['_$aZenUZ'])){cL=dO['_$aZenUZ'],ct=dO['_$V87Bwb'],ce=dO['_$XRoxTk'];break K;}}let dD=cj;cI=![],cj=0x0;cx!==undefined&&(l3=cx,cx=undefined);ce=dD;break K;}if(cH){while(cp&&cp['length']>0x0){let db=cp[cp['length']-0x1];if(db['_$XRoxTk']!==undefined||!(cC>=db['_$V87Bwb']||cC<=db['_$aZenUZ']))break;cp['pop']();}if(cp&&cp['length']>0x0){let di=cp[cp['length']-0x1];if(di['_$XRoxTk']!==undefined&&(cC>=di['_$V87Bwb']||cC<=di['_$aZenUZ'])){cL=di['_$aZenUZ'],ct=di['_$V87Bwb'],ce=di['_$XRoxTk'];break K;}}let dB=cC;cH=![],cC=0x0;cE!==undefined&&(l3=cE,cE=undefined);ce=dB;break K;}}ce++;}break;}case 0x1a:{let dv=cN[--cy],dW=cN[--cy];cN[cy++]=dW===dv,ce++;break;}case 0x29:{ce=cM[ce];break;}case 0x20:{let dN=cN[cy-0x3],dy=cN[cy-0x2],da=cN[cy-0x1];cN[cy-0x3]=da,cN[cy-0x2]=dN,cN[cy-0x1]=dy,ce++;break;}case 0x34:{let dZ=cN[--cy],dw=cN[--cy];cN[cy++]=dw instanceof dZ,ce++;break;}case 0x9:{let dM=cN[--cy],dz=cN[--cy];cN[cy++]=dz*dM,ce++;break;}case 0x36:{cv[lG]=cN[--cy],ce++;break;}case 0x14:{let dP=cN[--cy],de=cN[--cy],dA={};if(de!==null&&de!==undefined){let dS=Object(de),dn=Reflect['ownKeys'](dS);for(let dX=0x0;dX<dn['length'];dX++){let ds=dn[dX],dp=![];for(let dq=0x0;dq<dP['length'];dq++){let dV=dP[dq];if((typeof dV==='symbol'?dV:String(dV))===ds){dp=!![];break;}}if(dp)continue;let du=T(dS,ds);du!==undefined&&du['enumerable']&&g(dA,ds,{'value':dS[ds],'writable':!![],'enumerable':!![],'configurable':!![]});}}cN[cy++]=dA,ce++;break;}case 0x17:{let dI=E[lG],dj=cN[--cy];if(dI){for(let dx=0x0;dx<dj;dx++)cN[--cy];for(let dH=0x0;dH<dj;dH++)cN[--cy];cN[cy++]=dI;}else{let dC=new Array(dj);for(let dL=dj-0x1;dL>=0x0;dL--)dC[dL]=cN[--cy];let dE=new Array(dj);for(let dt=dj-0x1;dt>=0x0;dt--)dE[dt]=cN[--cy];g(dE,'raw',{'value':Object['freeze'](dC)}),Object['freeze'](dE),E[lG]=dE,cN[cy++]=dE;}ce++;break;}case 0x15:{!cN[--cy]?ce=cM[ce]:ce++;break;}case 0x7:{let dF=cN[--cy],df=cN[cy-0x1],dY=cZ[lG],dU=Kc(df);g(dU,dY,{'set':dF,'enumerable':dU===df,'configurable':!![]}),ce++;break;}case 0x32:{cN[--cy]?ce=cM[ce]:ce++;break;}case 0x2f:{c:{let dm=cZ[lG],Q0=cN[--cy];if(typeof Q0!=='function')throw new TypeError(Q0+'\x20is\x20not\x20a\x20function');let Q1=vmk_f71a9e['_$3B4wCg'],Q2=!vmk_f71a9e['_$gJuDTf']&&!vmk_f71a9e['_$Ds8RtI']&&!(Q1&&D['call'](Q1,Q0))&&x(Q0);if(Q2&&Q2['_$3vp170']!==![]){let Q7=Q2['_$zfHo1V']||j(Q2,typeof Q2['_$hQlpqc']==='object'?Q2['_$hQlpqc']['n']!==undefined?0x0?cQ(Q2['_$hQlpqc']['n']):Q2['_$hQlpqc']['d']||(Q2['_$hQlpqc']['d']=cQ(Q2['_$hQlpqc']['n'])):Q2['_$hQlpqc']:cd(Q2['_$hQlpqc']));if(Q7){let Q8;if(dm===0x0)Q8=[];else{if(dm===0x1){let Qc=cN[--cy];Q8=Qc&&typeof Qc==='object'&&K['call'](s,Qc)?Qc['value']:[Qc];}else Q8=K0(l1,dm);}let Q9=Q7===cW?ca:cK(Q7[0x20],Q7[0x21]),QK=Q7[0x15*Q9[0x0]+Q9[0x1]&0x1f];if(QK&&Q7===cW&&!Q7[0x2*Q9[0x0]+Q9[0x1]&0x1f]&&Q2['_$E8iUhp']===cO){!l9&&(l9=[]);l9[lK++]=l3,l9[lK++]=l5,l9[lK++]=l6,l9[lK++]=cy,l9[lK++]=ce,l9[lK++]=cv;for(let Ql=0x0;Ql<l8;Ql++){l9[lK++]=cP[Ql];}cv=Q8,l6=null;if(Q7[0x19*Q9[0x0]+Q9[0x1]&0x1f]){l5=null;let Qd=Q7[0x20]||0x0;for(let QQ=0x0;QQ<Qd&&QQ<Q8['length'];QQ++){cP[QQ]=Q8[QQ];}for(let Qk=Q8['length']<Qd?Q8['length']:Qd;Qk<l8;Qk++){cP[Qk]=undefined;}ce=QK;}else{l5=KK(Q8);for(let QR=0x0;QR<l8;QR++){cP[QR]=undefined;}ce=0x0;}break c;}vmk_f71a9e['_$Dpa0kh']?vmk_f71a9e['_$Dpa0kh']=![]:vmk_f71a9e['_$gJuDTf']=undefined;cN[cy++]=KB(Q2['_$E8iUhp'],Q0,undefined,undefined,Q8,Q7),ce++;break c;}}let Q3=vmk_f71a9e['_$gJuDTf'],Q4=vmk_f71a9e['_$3B4wCg'],Q5=Q4&&D['call'](Q4,Q0);Q5?(vmk_f71a9e['_$Dpa0kh']=!![],vmk_f71a9e['_$gJuDTf']=Q5):vmk_f71a9e['_$gJuDTf']=undefined;let Q6;try{if(dm===0x0)Q6=Q0();else{if(dm===0x1){let QT=cN[--cy];Q6=QT&&typeof QT==='object'&&K['call'](s,QT)?Q(Q0,undefined,QT['value']):Q0(QT);}else Q6=Q(Q0,undefined,K0(l1,dm));}cN[cy++]=Q6;}finally{Q5&&(vmk_f71a9e['_$Dpa0kh']=![]),vmk_f71a9e['_$gJuDTf']=Q3;}ce++;}break;}case 0xc:{let Qg=lG&0xffff,Qr=lG>>>0x10;cN[cy++]=cv[Qg]-cZ[Qr],ce++;break;}case 0x1:{let QJ=cP[lG];if((typeof QJ==='object'||typeof QJ==='function')&&QJ!==null){const QG=QJ[Symbol['toPrimitive']];if(QG!=null){QJ=QG['call'](QJ,'number');if(QJ!==null&&(typeof QJ==='object'||typeof QJ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const QD=QJ['valueOf']();if(QD===null||typeof QD!=='object'&&typeof QD!=='function')QJ=QD;else{const Qh=QJ['toString']();if(Qh!==null&&(typeof Qh==='object'||typeof Qh==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');QJ=Qh;}}}cP[lG]=typeof QJ===A?QJ+0x1n:+QJ+0x1,ce++;break;}case 0x11:{let QO=cN[--cy],QB=cN[cy-0x1],Qb=cZ[lG];g(QB,Qb,{'value':QO,'writable':!![],'enumerable':![],'configurable':!![]});typeof QO==='function'&&(!vmk_f71a9e['_$3B4wCg']&&(vmk_f71a9e['_$3B4wCg']=new WeakMap()),J['call'](vmk_f71a9e['_$3B4wCg'],QO,QB));ce++;break;}case 0xf:{let Qi=cN[--cy],Qv=cN[--cy],QW=cN[--cy];if(QW===null||QW===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+QW+'\x20(setting\x20'+(typeof Qv==='symbol'?'\x27'+Qv['toString']()+'\x27':typeof Qv==='string'?'\x27'+Qv+'\x27':typeof Qv==='object'||typeof Qv==='function'?'\x27<computed\x20key>\x27':'\x27'+String(Qv)+'\x27')+')');if(cF){let QN=typeof QW==='object'||typeof QW==='function'?QW:Object(QW);if(!Reflect['set'](QN,Qv,Qi,QW))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(Qv)+'\x27\x20of\x20object');}else QW[Qv]=Qi;cN[cy++]=Qi,ce++;break;}case 0x6:{let Qy=l3['_$Do1a2l'];Qy[lG]=Qy,l3['_$I4sdew']=lG,ce++;break;}case 0x3e:{let Qa=cN[--cy],QZ=cN[--cy];cN[cy++]=QZ<=Qa,ce++;break;}case 0x38:{let Qw=lG&0xffff,QM=lG>>>0x10;cN[cy++]=cP[Qw]+cZ[QM],ce++;break;}case 0x1d:{ce++;break;}case 0x3d:{l3=l3['_$AQ2Nrl'],ce++;break;}case 0x3:{let Qz=cN[--cy];if(Qz==null)throw new TypeError(Qz+'\x20is\x20not\x20iterable');let QP=Qz[Symbol['asyncIterator']];if(typeof QP==='function')cN[cy++]=QP['call'](Qz);else{let Qe=Qz[Symbol['iterator']];if(typeof Qe!=='function')throw new TypeError(Qz+'\x20is\x20not\x20iterable');let QA=Qe['call'](Qz);if(QA===null||typeof QA!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');let QS=async function(QX){if(QX===null||typeof QX!=='object')throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');let Qs=await QX['value'];return{'value':Qs,'done':!!QX['done']};},Qn={'next':function(QX){let Qs;try{Qs=QA['next'](QX);}catch(Qp){return Promise['reject'](Qp);}return QS(Qs);},'return':function(QX){if(typeof QA['return']!=='function')return Promise['resolve']({'value':QX,'done':!![]});let Qs;try{Qs=QA['return'](QX);}catch(Qp){return Promise['reject'](Qp);}return QS(Qs);},'throw':function(QX){if(typeof QA['throw']!=='function')return Promise['reject'](QX);let Qs;try{Qs=QA['throw'](QX);}catch(Qp){return Promise['reject'](Qp);}return QS(Qs);},[Symbol['asyncIterator']]:function(){return this;}};cN[cy++]=Qn;}ce++;break;}case 0x33:{cN[cy++]=vmJ[lG],ce++;break;}case 0xa:{let QX=lG&0xffff,Qs=lG>>>0x10;cN[cy++]=cP[QX]<cZ[Qs],ce++;break;}case 0x1b:{let Qp=cN[--cy],Qu=cN[--cy],Qq=cN[cy-0x1];g(Qq,Qu,{'value':Qp,'writable':!![],'enumerable':![],'configurable':!![]});typeof Qp==='function'&&(!vmk_f71a9e['_$3B4wCg']&&(vmk_f71a9e['_$3B4wCg']=new WeakMap()),J['call'](vmk_f71a9e['_$3B4wCg'],Qp,Qq));ce++;break;}case 0x3c:{cN[cy-0x1]=!cN[cy-0x1],ce++;break;}}},ld=function(lJ,lG){switch(lJ){case 0x95:{K:{let lD=KQ(cN[--cy]),lh=cN[--cy],lO=vmk_f71a9e['_$gJuDTf'],lB=lO?l(lO):Kl(lh),lb=Kd(lB,lD);if(lb['desc']&&lb['desc']['get']){let lv=vmk_f71a9e['_$gJuDTf'];vmk_f71a9e['_$gJuDTf']=lb['proto']||lB,vmk_f71a9e['_$Dpa0kh']=!![];let lW;try{lW=lb['desc']['get']['call'](lh);}finally{vmk_f71a9e['_$Dpa0kh']=![],vmk_f71a9e['_$gJuDTf']=lv;}cN[cy++]=lW,ce++;break K;}if(lb['desc']&&lb['desc']['set']&&!('value'in lb['desc'])){cN[cy++]=undefined,ce++;break K;}let li=lb['proto']?lb['proto'][lD]:lB[lD];if(typeof li==='function'){let lN=lb['proto']||lB,ly=li['constructor']&&li['constructor']['name'],la=ly==='GeneratorFunction'||ly==='AsyncFunction'||ly==='AsyncGeneratorFunction';!la&&(!vmk_f71a9e['_$3B4wCg']&&(vmk_f71a9e['_$3B4wCg']=new WeakMap()),J['call'](vmk_f71a9e['_$3B4wCg'],li,lN));}cN[cy++]=li,ce++;}break;}case 0x54:{let lZ=lG,lw=cN[--cy];l3['_$Do1a2l'][lZ]=lw,ce++;break;}case 0x5f:{let lM=cN[--cy],lz=lM&&lM['i']?lM['i']:lM;if(lz!=null){if(cu!==null)try{let lP=lz['return'];typeof lP==='function'&&lP['call'](lz);}catch(le){}else{let lA=lz['return'];if(lA!=null){if(typeof lA!=='function')throw new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable');let lS=lA['call'](lz);K6(lS);}}}ce++;break;}case 0x40:{cP[lG]=cN[--cy],ce++;break;}case 0xb4:{let ln=cN[--cy],lX=cN[--cy],ls=cZ[lG];g(lX,ls,{'value':ln,'writable':!![],'enumerable':!![],'configurable':!![]});typeof ln==='function'&&(!vmk_f71a9e['_$3B4wCg']&&(vmk_f71a9e['_$3B4wCg']=new WeakMap()),J['call'](vmk_f71a9e['_$3B4wCg'],ln,lX));ce++;break;}case 0x4f:{let lp=cN[--cy],lu=cN[--cy];cN[cy++]=lu+lp,ce++;break;}case 0xb6:{let lq=cN[--cy];cN[cy++]=K9(lq),ce++;break;}case 0xb5:{cN[cy++]={},ce++;break;}case 0x8d:{let lV=cN[--cy],lI=cN[--cy],lj=cN[--cy];g(lj,lI,{'value':lV,'writable':!![],'enumerable':!![],'configurable':!![]});typeof lV==='function'&&(!vmk_f71a9e['_$3B4wCg']&&(vmk_f71a9e['_$3B4wCg']=new WeakMap()),J['call'](vmk_f71a9e['_$3B4wCg'],lV,lj));ce++;break;}case 0x90:{cN[cy++]=cZ[lG],ce++;break;}case 0x69:{let lx=lG&0xffff,lH=lG>>>0x10;cN[cy++]=cP[lx]*cZ[lH],ce++;break;}case 0x7b:{let lC=vmk_f71a9e['_$UwiaZt'];lC===undefined&&cB&&C['has'](cB)&&(lC=C['get'](cB));if(lC===undefined)throw new ReferenceError('\x27super\x27\x20keyword\x20is\x20only\x20valid\x20inside\x20a\x20derived\x20constructor');cN[cy++]=lC,ce++;break;}case 0x91:{let lE=cN[--cy],lL=cZ[lG];if(vmk_f71a9e['_$fJ59Bj']&&lL in vmk_f71a9e['_$fJ59Bj'])throw new ReferenceError('Cannot\x20access\x20\x27'+lL+'\x27\x20before\x20initialization');let lt=!(lL in vmk_f71a9e)&&!(lL in vmg);vmk_f71a9e[lL]=lE;lL in vmg&&(vmg[lL]=lE);lt&&(vmg[lL]=lE);cN[cy++]=lE,ce++;break;}case 0xa1:{c:{let lF=cN[--cy],lo=cN[--cy];if(typeof lo!=='function')throw new TypeError(lo+'\x20is\x20not\x20a\x20function');let lf=vmk_f71a9e['_$3B4wCg'],lY=!vmk_f71a9e['_$gJuDTf']&&!vmk_f71a9e['_$Ds8RtI']&&!(lf&&D['call'](lf,lo))&&x(lo);if(lY&&lY['_$3vp170']!==![]){let d2=lY['_$zfHo1V']||j(lY,typeof lY['_$hQlpqc']==='object'?lY['_$hQlpqc']['n']!==undefined?0x0?cQ(lY['_$hQlpqc']['n']):lY['_$hQlpqc']['d']||(lY['_$hQlpqc']['d']=cQ(lY['_$hQlpqc']['n'])):lY['_$hQlpqc']:cd(lY['_$hQlpqc']));if(d2){let d3;if(lF===0x0)d3=[];else{if(lF===0x1){let d6=cN[--cy];d3=d6&&typeof d6==='object'&&K['call'](s,d6)?d6['value']:[d6];}else d3=K0(l1,lF);}let d4=d2===cW?ca:cK(d2[0x20],d2[0x21]),d5=d2[0x15*d4[0x0]+d4[0x1]&0x1f];if(d5&&d2===cW&&!d2[0x2*d4[0x0]+d4[0x1]&0x1f]&&lY['_$E8iUhp']===cO){!l9&&(l9=[]);l9[lK++]=l3,l9[lK++]=l5,l9[lK++]=l6,l9[lK++]=cy,l9[lK++]=ce,l9[lK++]=cv;for(let d7=0x0;d7<l8;d7++){l9[lK++]=cP[d7];}cv=d3,l6=null;if(d2[0x19*d4[0x0]+d4[0x1]&0x1f]){l5=null;let d8=d2[0x20]||0x0;for(let d9=0x0;d9<d8&&d9<d3['length'];d9++){cP[d9]=d3[d9];}for(let dK=d3['length']<d8?d3['length']:d8;dK<l8;dK++){cP[dK]=undefined;}ce=d5;}else{l5=KK(d3);for(let dc=0x0;dc<l8;dc++){cP[dc]=undefined;}ce=0x0;}break c;}vmk_f71a9e['_$Dpa0kh']?vmk_f71a9e['_$Dpa0kh']=![]:vmk_f71a9e['_$gJuDTf']=undefined;cN[cy++]=KB(lY['_$E8iUhp'],lo,undefined,undefined,d3,d2),ce++;break c;}}let lU=vmk_f71a9e['_$gJuDTf'],lm=vmk_f71a9e['_$3B4wCg'],d0=lm&&D['call'](lm,lo);d0?(vmk_f71a9e['_$Dpa0kh']=!![],vmk_f71a9e['_$gJuDTf']=d0):vmk_f71a9e['_$gJuDTf']=undefined;let d1;try{if(lF===0x0)d1=lo();else{if(lF===0x1){let dl=cN[--cy];d1=dl&&typeof dl==='object'&&K['call'](s,dl)?Q(lo,undefined,dl['value']):lo(dl);}else d1=Q(lo,undefined,K0(l1,lF));}cN[cy++]=d1;}finally{d0&&(vmk_f71a9e['_$Dpa0kh']=![]),vmk_f71a9e['_$gJuDTf']=lU;}ce++;}break;}case 0x84:{let dd=cN[--cy];cN[cy++]=!!dd['done'],ce++;break;}case 0x8e:{let dQ=cN[--cy],dk=cN[--cy],dR=cN[cy-0x1];g(dR,dk,{'get':dQ,'enumerable':![],'configurable':!![]}),ce++;break;}case 0x5b:{let dT=lG&0xffff,dg=l3['_$Do1a2l'];dg[dT]=dg;let dr=lG>>>0x10;dr&&((l3['_$BORNwr']||(l3['_$BORNwr']={}))[dT]=cZ[dr-0x1]);ce++;break;}case 0xa5:{let dJ=cN[cy-0x1];cN[cy-0x1]=cN[cy-0x2],cN[cy-0x2]=dJ,ce++;break;}case 0x3f:{!cN[--cy]?ce=cM[ce]:(cN[--cy],ce++);break;}case 0x8c:{let dG=cP[lG];if((typeof dG==='object'||typeof dG==='function')&&dG!==null){const dD=dG[Symbol['toPrimitive']];if(dD!=null){dG=dD['call'](dG,'number');if(dG!==null&&(typeof dG==='object'||typeof dG==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dh=dG['valueOf']();if(dh===null||typeof dh!=='object'&&typeof dh!=='function')dG=dh;else{const dO=dG['toString']();if(dO!==null&&(typeof dO==='object'||typeof dO==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dG=dO;}}}cP[lG]=typeof dG===A?dG-0x1n:+dG-0x1,ce++;break;}case 0x92:{let dB=cN[--cy],db=cZ[lG];if(dB===null||dB===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dB+'\x20(reading\x20'+'\x27'+String(db)+'\x27'+')');cN[cy++]=dB[db],ce++;break;}case 0x5e:{let di=cZ[lG],dv=cN[--cy],dW=cN[--cy];if(typeof dv!=='function')throw new TypeError(dv+'\x20is\x20not\x20a\x20function');let dN=vmk_f71a9e['_$3B4wCg'],dy=dN&&D['call'](dN,dv);!dy&&dN&&(dv===h||dv===r)&&(dy=D['call'](dN,dW));let da=vmk_f71a9e['_$gJuDTf'];dy&&(vmk_f71a9e['_$Dpa0kh']=!![],vmk_f71a9e['_$gJuDTf']=dy);let dZ;try{if(di===0x0)dZ=Q(dv,dW,S);else{if(di===0x1){let dw=cN[--cy];dZ=dw&&typeof dw==='object'&&K['call'](s,dw)?Q(dv,dW,dw['value']):Q(dv,dW,[dw]);}else dZ=Q(dv,dW,K0(l1,di));}cN[cy++]=dZ;}finally{dy&&(vmk_f71a9e['_$Dpa0kh']=![],vmk_f71a9e['_$gJuDTf']=da);}ce++;break;}case 0x6a:{let dM=cN[--cy];if((typeof dM==='object'||typeof dM==='function')&&dM!==null){const dz=dM[Symbol['toPrimitive']];if(dz!=null){dM=dz['call'](dM,'number');if(dM!==null&&(typeof dM==='object'||typeof dM==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dP=dM['valueOf']();if(dP===null||typeof dP!=='object'&&typeof dP!=='function')dM=dP;else{const de=dM['toString']();if(de!==null&&(typeof de==='object'||typeof de==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dM=de;}}}cN[cy++]=typeof dM===A?dM-0x1n:+dM-0x1,ce++;break;}case 0x4d:{let dA=cN[--cy],dS=K0(l1,dA),dn=cN[--cy];if(typeof dn!=='function')throw new TypeError(dn+'\x20is\x20not\x20a\x20constructor');if(K['call'](p,dn))throw new TypeError(dn['name']+'\x20is\x20not\x20a\x20constructor');let dX=vmk_f71a9e['_$gJuDTf'];vmk_f71a9e['_$gJuDTf']=undefined;let ds;try{ds=Reflect['construct'](dn,dS);}finally{vmk_f71a9e['_$gJuDTf']=dX;}cN[cy++]=ds,ce++;break;}case 0x8f:{let dp=cN[--cy],du;if(dp===null||dp===undefined)throw new TypeError(dp+'\x20is\x20not\x20iterable');let dq=dp[t];if(Array['isArray'](dp)&&dq===L){let dI=dp['length'];du=new Array(dI);for(let dj=0x0;dj<dI;dj++){du[dj]=dp[dj];}}else{if(dq===null||dq===undefined||typeof dq!=='function')throw new TypeError(dp+'\x20is\x20not\x20iterable');let dx=Q(dq,dp,[]);if(dx===null||typeof dx!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');du=[];while(!![]){let dH=dx['next']();K6(dH);if(dH['done'])break;du['push'](dH['value']);}}let dV={'value':du};c['call'](s,dV),cN[cy++]=dV,ce++;break;}case 0x81:{let dC=cN[--cy],dE=cN[--cy];cN[cy++]=dE==dC,ce++;break;}case 0xa3:{let dL=cN[--cy],dt=cN[--cy],dF=cN[cy-0x1],df=Kc(dF);g(df,dt,{'set':dL,'enumerable':df===dF,'configurable':!![]}),ce++;break;}case 0x49:{let dY=cN[--cy],dU=cN[--cy];cN[cy++]=dU>>dY,ce++;break;}case 0x80:{cN[cy++]=cZ[lG],ce++;break;}case 0x94:{let dm=cN[--cy];cN[cy++]=import(dm),ce++;break;}case 0x46:{let Q0=cN[--cy],Q1=cN[--cy],Q2=(lG^0xe061)>>>0x0,Q3;Q2<0x10?Q2<0x8?Q2<0x4?Q2<0x2?Q3=Q2<0x1?Q1>>Q0:Q1>=Q0:Q3=Q2<0x3?Q1>>>Q0:Q1/Q0:Q2<0x6?Q3=Q2<0x5?Q1==Q0:Q1&Q0:Q3=Q2<0x7?Q1<=Q0:Q1*Q0:Q2<0xc?Q2<0xa?Q3=Q2<0x9?Q1<Q0:Q1+Q0:Q3=Q2<0xb?Q1%Q0:Q1-Q0:Q2<0xe?Q3=Q2<0xd?Q1!=Q0:Q1^Q0:Q3=Q2<0xf?Q1|Q0:Q1===Q0:Q2<0x14?Q2<0x12?Q3=Q2<0x11?Q1>Q0:Q1!==Q0:Q3=Q2<0x13?Q1<<Q0:Q1**Q0:Q2<0x18?Q3=Q2<0x16?Q1|Q0:Q1&Q0:Q3=Q2<0x1c?Q1^Q0:Q0-Q1;cN[cy++]=Q3,ce++;break;}case 0x6f:{let Q4=lG&0xffff,Q5=lG>>>0x10,Q6=l3;for(let Q9=0x0;Q9<Q5;Q9++){Q6=Q6['_$AQ2Nrl'];}let Q7=Q6['_$Do1a2l'],Q8=Q7[Q4];if(Q8===Q7){let QK=Q6['_$BORNwr'];throw new ReferenceError('Cannot\x20access\x20\x27'+(QK&&QK[Q4]||'variable')+'\x27\x20before\x20initialization');}cN[cy++]=Q8,ce++;break;}case 0xa4:{let Qc=cN[--cy],Ql=KQ(cN[--cy]),Qd=cN[--cy],QQ=vmk_f71a9e['_$gJuDTf'],Qk=QQ?l(QQ):Kl(Qd);if(Qk===null||Qk===undefined)throw new TypeError('Cannot\x20convert\x20'+Qk+'\x20to\x20object');let QR=Kd(Qk,Ql),QT=![];if(QR['desc']){let Qg=QR['desc'];if(Qg['set']){let Qr=vmk_f71a9e['_$gJuDTf'];vmk_f71a9e['_$gJuDTf']=QR['proto']||Qk,vmk_f71a9e['_$Dpa0kh']=!![];try{Qg['set']['call'](Qd,Qc);}finally{vmk_f71a9e['_$Dpa0kh']=![],vmk_f71a9e['_$gJuDTf']=Qr;}}else{if(Qg['get']||!('value'in Qg)){if(cF)throw new TypeError('Cannot\x20set\x20property\x20\x27'+String(Ql)+'\x27\x20of\x20object\x20which\x20has\x20only\x20a\x20getter');}else{if(Qg['writable']===![]){if(cF)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(Ql)+'\x27\x20of\x20object');}else QT=!![];}}}else QT=!![];if(QT){let QJ=Object['getOwnPropertyDescriptor'](Qd,Ql);if(QJ){if('value'in QJ){if(QJ['writable'])Qd[Ql]=Qc;else{if(cF)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(Ql)+'\x27\x20of\x20object');}}else{if(cF)throw new TypeError('Cannot\x20redefine\x20property:\x20'+String(Ql));}}else{let QG=Reflect['defineProperty'](Qd,Ql,{'value':Qc,'writable':!![],'enumerable':!![],'configurable':!![]});if(!QG&&cF)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(Ql)+'\x27\x20of\x20object');}}cN[cy++]=Qc,ce++;break;}case 0x47:{let QD=cN[--cy],Qh=cN[cy-0x1];Qh['push'](QD),ce++;break;}case 0x5a:{let QO=cN[--cy];cN[cy++]=QO['next'](),ce++;break;}case 0x68:{let QB=lG&0xffff,Qb=lG>>>0x10;cN[cy++]=cv[QB]<=cZ[Qb],ce++;break;}case 0x6e:{let Qi=cv[lG];if((typeof Qi==='object'||typeof Qi==='function')&&Qi!==null){const Qv=Qi[Symbol['toPrimitive']];if(Qv!=null){Qi=Qv['call'](Qi,'number');if(Qi!==null&&(typeof Qi==='object'||typeof Qi==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const QW=Qi['valueOf']();if(QW===null||typeof QW!=='object'&&typeof QW!=='function')Qi=QW;else{const QN=Qi['toString']();if(QN!==null&&(typeof QN==='object'||typeof QN==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Qi=QN;}}}cv[lG]=typeof Qi===A?Qi-0x1n:+Qi-0x1,ce++;break;}case 0x5d:{cN[cy++]=null,ce++;break;}case 0xa8:{let Qy=cN[--cy],Qa=cN[--cy];cN[cy++]=Qa|Qy,ce++;break;}case 0xb8:{cN[cy++]=cv[lG],ce++;break;}case 0x79:{let QZ=cN[--cy];if((typeof QZ==='object'||typeof QZ==='function')&&QZ!==null){const Qw=QZ[Symbol['toPrimitive']];if(Qw!=null){QZ=Qw['call'](QZ,'number');if(QZ!==null&&(typeof QZ==='object'||typeof QZ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const QM=QZ['valueOf']();if(QM===null||typeof QM!=='object'&&typeof QM!=='function')QZ=QM;else{const Qz=QZ['toString']();if(Qz!==null&&(typeof Qz==='object'||typeof Qz==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');QZ=Qz;}}}cN[cy++]=typeof QZ===A?QZ:+QZ,ce++;break;}case 0x7c:{cP[lG]=cP[lG]-0x1,ce++;break;}case 0x53:{let QP=cN[--cy],Qe=cN[--cy],QA=cN[cy-0x1];g(QA['prototype'],Qe,{'value':QP,'writable':!![],'enumerable':![],'configurable':!![]});typeof QP==='function'&&(!vmk_f71a9e['_$3B4wCg']&&(vmk_f71a9e['_$3B4wCg']=new WeakMap()),J['call'](vmk_f71a9e['_$3B4wCg'],QP,QA['prototype']));ce++;break;}case 0xa0:{if(typeof cN[cy-0x1]==='symbol')throw new TypeError('Cannot\x20convert\x20a\x20Symbol\x20value\x20to\x20a\x20string');cN[cy-0x1]=String(cN[cy-0x1]),ce++;break;}case 0x7a:{cN[cy++]=undefined,ce++;break;}case 0x51:{if(cp&&cp['length']>0x0){let QS=cp[cp['length']-0x1];QS['_$XRoxTk']===ce&&(QS['_$ySjvJn']!==undefined&&(cu=QS['_$ySjvJn'],cL=QS['_$aZenUZ'],ct=QS['_$V87Bwb']),QS['_$Lxang3']!==undefined&&(l3=QS['_$Lxang3']),cp['pop']());}ce++;break;}case 0x48:{let Qn=cN[--cy],QX=cN[--cy];cN[cy++]=QX>>>Qn,ce++;break;}case 0xb7:{let Qs=cN[--cy];Qs!==null&&Qs!==undefined?ce=cM[ce]:ce++;break;}case 0x78:{cN[--cy],ce++;break;}case 0x4c:{let Qp=cN[cy-0x1];cN[cy++]=Qp,ce++;break;}case 0x6b:{let Qu=cN[--cy],Qq=cN[cy-0x1];(Qu===null||K1(Qu))&&R(Qq,Qu);ce++;break;}case 0x83:{cN[cy++]=cP[lG],ce++;break;}case 0x70:{let QV=cN[--cy],QI=cN[cy-0x1],Qj=cZ[lG];g(QI['prototype'],Qj,{'value':QV,'writable':!![],'enumerable':![],'configurable':!![]});typeof QV==='function'&&(!vmk_f71a9e['_$3B4wCg']&&(vmk_f71a9e['_$3B4wCg']=new WeakMap()),J['call'](vmk_f71a9e['_$3B4wCg'],QV,QI['prototype']));ce++;break;}case 0x64:{let Qx=cN[--cy],QH=cZ[lG];if(cF&&!(QH in vmg)&&!(QH in vmk_f71a9e))throw new ReferenceError(QH+'\x20is\x20not\x20defined');vmk_f71a9e[QH]=Qx,vmg[QH]=Qx,cN[cy++]=Qx,ce++;break;}case 0xa9:{let QC=cN[--cy],QE=cN[--cy];cN[cy++]=QE!=QC,ce++;break;}case 0x7f:{let QL=cv[lG];if((typeof QL==='object'||typeof QL==='function')&&QL!==null){const Qt=QL[Symbol['toPrimitive']];if(Qt!=null){QL=Qt['call'](QL,'number');if(QL!==null&&(typeof QL==='object'||typeof QL==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const QF=QL['valueOf']();if(QF===null||typeof QF!=='object'&&typeof QF!=='function')QL=QF;else{const Qo=QL['toString']();if(Qo!==null&&(typeof Qo==='object'||typeof Qo==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');QL=Qo;}}}cv[lG]=typeof QL===A?QL+0x1n:+QL+0x1,ce++;break;}case 0xa7:{l:{let Qf=cN[--cy],QY=K0(l1,Qf),QU=cN[--cy];if(lG===0x1){cN[cy++]=QY,ce++;break l;}if(vmk_f71a9e['_$Rs7M06']){ce++;break l;}let Qm=vmk_f71a9e['_$8ibiyW'];if(Qm){let k2=Qm['outer'],k3=k2?l(k2):Qm['parent'];if(typeof k3!=='function')throw new TypeError('Super\x20constructor\x20'+String(k3)+'\x20of\x20'+(k2&&k2['name']||'anonymous')+'\x20is\x20not\x20a\x20constructor');let k4=Qm['newTarget'],k5=Reflect['construct'](k3,QY,k4);cb&&cb!==k5&&O(cb)['forEach'](function(k6){!(k6 in k5)&&(k5[k6]=cb[k6]);});cb=k5,l7=!![],KR(l3,cb),ce++;break l;}if(typeof QU!=='function')throw new TypeError('Super\x20expression\x20must\x20be\x20a\x20constructor');let k0;C['has'](cB)?k0=KT(l3):k0=l7?cb:undefined;let k1=ci!==undefined?ci:vmk_f71a9e['_$Ds8RtI'];vmk_f71a9e['_$Ds8RtI']=ci;try{let k6;H(QU)?k6=q(QU,cb,QY):k6=k1!==undefined?Reflect['construct'](QU,QY,k1):Reflect['construct'](QU,QY),k6!==undefined&&k6!==cb&&K1(k6)&&(cb&&Object['assign'](k6,cb),cb=k6,ci&&ci['prototype']&&l(cb)!==ci['prototype']&&R(cb,ci['prototype'])),l7=!![],KR(l3,cb);}finally{delete vmk_f71a9e['_$Ds8RtI'];}if(k0!==undefined)throw new ReferenceError('Super\x20constructor\x20may\x20only\x20be\x20called\x20once');ce++;}break;}case 0x93:{cN[--cy],cN[cy++]=undefined,ce++;break;}case 0x4b:{let k7=cN[--cy],k8=cN[--cy],k9=cN[cy-0x1],kK=Kc(k9);g(kK,k8,{'get':k7,'enumerable':kK===k9,'configurable':!![]}),ce++;break;}case 0xa6:{let kc=cN[--cy],kl=kc&&kc['_$Vyp3HY'];if(kl!==undefined){let kd=kc['_$GHjvbJ'],kQ;kd>=kl['length']?kQ={'value':undefined,'done':!![]}:(kc['_$GHjvbJ']=kd+0x1,kQ={'value':kl[kd],'done':![]}),cN[cy++]=kQ,ce++;}else{let kk=kc&&kc['i']?kc['i']:kc,kR=kc&&kc['n']?kc['n']:kk&&kk['next'];if(typeof kR!=='function')throw new TypeError('iterator.next\x20is\x20not\x20a\x20function');let kT=Q(kR,kk,[]);K6(kT),cN[cy++]=kT,ce++;}break;}case 0xa2:{let kg=cN[cy-0x3],kr=cN[cy-0x2],kJ=cN[cy-0x1];cN[cy-0x3]=kr,cN[cy-0x2]=kJ,cN[cy-0x1]=kg,ce++;break;}}},lQ=function(lJ,lG){switch(lJ){case 0x129:{let lO=cN[--cy],lB=cN[--cy];cN[cy++]=lB/lO,ce++;break;}case 0x130:{let lb=cN[--cy],li=cN[cy-0x1];if(Array['isArray'](lb)&&lb[t]===L){let lv=li['length'],lW=lb['length'];for(let lN=0x0;lN<lW;lN++){li[lv+lN]=lb[lN];}}else for(let ly of lb){li['push'](ly);}ce++;break;}case 0xd5:{cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);break;}case 0xc8:{debugger;ce++;break;}case 0x106:{let la=cN[--cy],lZ=cN[--cy];cN[cy++]=lZ>la,ce++;break;}case 0xfa:{cN[cy-0x1]=cN[cy-0x1]|0x0,ce++;break;}case 0x10d:{cP[lG]=cP[lG]+0x1,ce++;break;}case 0x10e:{let lw=cN[--cy],lM=cN[cy-0x1],lz=cZ[lG];g(lM,lz,{'get':lw,'enumerable':![],'configurable':!![]}),ce++;break;}case 0xff:{cN[cy-0x1]=+cN[cy-0x1],ce++;break;}case 0x12f:{let lP=cN[cy-0x1];lP['length']++,ce++;break;}case 0x11f:{if(cf&&!l7){let lS=KT(l3);if(lS!==undefined)cb=lS,l7=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let le=cb,lA=cZ[lG];if(le===null||le===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+le+'\x20(reading\x20'+'\x27'+String(lA)+'\x27'+')');cN[cy++]=le[lA],ce++;break;}case 0x119:{let ln=cN[--cy],lX=cN[--cy];cN[cy++]=lX!==ln,ce++;break;}case 0x118:{K:{let ls=cM[ce];while(cp&&cp['length']>0x0){let lp=cp[cp['length']-0x1];if(lp['_$XRoxTk']!==undefined||!(ls>=lp['_$V87Bwb']||ls<=lp['_$aZenUZ']))break;cp['pop']();}if(cp&&cp['length']>0x0){let lu=cp[cp['length']-0x1];if(lu['_$XRoxTk']!==undefined&&(ls>=lu['_$V87Bwb']||ls<=lu['_$aZenUZ'])){cu=null,cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=!![],cC=ls,cE=l3,cL=lu['_$aZenUZ'],ct=lu['_$V87Bwb'],ce=lu['_$XRoxTk'];break K;}}(cq||cI||cH||cu!==null)&&(ls>=ct||ls<=cL)&&(cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cu=null),ce=ls;}break;}case 0xfd:{cN[cy-0x1]=cN[cy-0x1]>>>0x0,ce++;break;}case 0xfb:{cN[cy++]=ci,ce++;break;}case 0x11e:{let lq=cZ[lG],lV;if(vmk_f71a9e['_$fJ59Bj']&&lq in vmk_f71a9e['_$fJ59Bj'])throw new ReferenceError('Cannot\x20access\x20\x27'+lq+'\x27\x20before\x20initialization');if(lq in vmk_f71a9e)lV=vmk_f71a9e[lq];else{if(lq in vmg)lV=vmg[lq];else throw new ReferenceError(lq+'\x20is\x20not\x20defined');}cN[cy++]=lV,ce++;break;}case 0x11c:{if(l6===null){if(cF||!co){let lI=l5||cv,lj=lI?lI['length']:0x0;l6=G(Object['prototype']);for(let lx=0x0;lx<lj;lx++){l6[lx]=lI[lx];}g(l6,'length',{'value':lj,'writable':!![],'enumerable':![],'configurable':!![]}),g(l6,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),l6=new Proxy(l6,{'has':function(lH,lC){if(lC===Symbol['toStringTag'])return![];return lC in lH;},'get':function(lH,lC,lE){if(lC===Symbol['toStringTag'])return'Arguments';return Reflect['get'](lH,lC,lE);}}),cF?g(l6,'callee',{'get':X,'set':X,'enumerable':![],'configurable':![]}):g(l6,'callee',{'value':cB,'writable':!![],'enumerable':![],'configurable':!![]});}else{let lH=l4,lC={},lE={},lL=cB,lt=![],lF=!![],lo={},lf=function(d1){if(typeof d1!=='string')return NaN;let d2=+d1;return d2>=0x0&&d2%0x1===0x0&&String(d2)===d1?d2:NaN;},lY=function(d1){return!isNaN(d1)&&d1>=0x0;},lU=function(d1){if(d1 in lE)return undefined;if(d1 in lC)return lC[d1];return d1<l4?cv[d1]:undefined;},lm=function(d1){if(d1 in lE)return![];if(d1 in lC)return!![];return d1<l4?d1 in cv:![];},d0={};g(d0,'length',{'value':lH,'writable':!![],'enumerable':![],'configurable':!![]}),g(d0,'callee',{'value':cB,'writable':!![],'enumerable':![],'configurable':!![]}),g(d0,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),l6=new Proxy(d0,{'get':function(d1,d2,d3){if(d2==='length')return lH;if(d2==='callee')return lt?undefined:lL;if(d2===Symbol['toStringTag'])return'Arguments';let d4=lf(d2);if(lY(d4)){if(d4 in lo)return Reflect['get'](d1,d2,d3);return lU(d4);}return Reflect['get'](d1,d2,d3);},'set':function(d1,d2,d3){if(d2==='length'){if(!lF)return![];return lH=d3,d1['length']=d3,!![];}if(d2==='callee')return lL=d3,lt=![],d1['callee']=d3,!![];let d4=lf(d2);if(lY(d4)){if(d4 in lo)return Reflect['set'](d1,d2,d3);let d5=T(d1,String(d4));if(d5&&!d5['writable'])return![];if(d4 in lE)delete lE[d4],lC[d4]=d3;else d4<l4?cv[d4]=d3:lC[d4]=d3;return!![];}return d1[d2]=d3,!![];},'has':function(d1,d2){if(d2==='length')return!![];if(d2==='callee')return!lt;if(d2===Symbol['toStringTag'])return![];let d3=lf(d2);if(lY(d3)){if(String(d3)in d1)return!![];return lm(d3);}return d2 in d1;},'defineProperty':function(d1,d2,d3){if(d2==='length')return'value'in d3&&(lH=d3['value']),'writable'in d3&&(lF=d3['writable']),g(d1,d2,d3),!![];if(d2==='callee')return'value'in d3&&(lL=d3['value']),lt=![],g(d1,d2,d3),!![];let d4=lf(d2);if(lY(d4)){let d5='get'in d3||'set'in d3,d6=T(d1,String(d4)),d7=d4 in lo?d6?d6['value']:undefined:lU(d4),d8=d6?d6['writable']!==![]:!![],d9=d6?d6['enumerable']!==![]:!![],dK=d6?d6['configurable']!==![]:!![],dc;if(d5)dc=d3,lo[d4]=0x1,d4 in lC&&delete lC[d4],d4 in lE&&delete lE[d4];else{let dl='value'in d3?d3['value']:d7,dd='writable'in d3?d3['writable']:d8,dQ='enumerable'in d3?d3['enumerable']:d9,dk='configurable'in d3?d3['configurable']:dK;dc={'value':dl,'writable':dd,'enumerable':dQ,'configurable':dk},'value'in d3&&(!(d4 in lo)&&(d4<l4&&!(d4 in lE)?cv[d4]=d3['value']:(lC[d4]=d3['value'],d4 in lE&&delete lE[d4]))),'writable'in d3&&d3['writable']===![]&&(lo[d4]=0x1,d4 in lC&&delete lC[d4],d4 in lE&&delete lE[d4]);}return g(d1,String(d4),dc),!![];}return g(d1,d2,d3),!![];},'deleteProperty':function(d1,d2){if(d2==='callee')return lt=!![],delete d1['callee'],!![];let d3=lf(d2);if(lY(d3)){let d5=T(d1,String(d3));if(d5&&d5['configurable']===![])return![];return d3 in lo&&delete lo[d3],d3<l4?lE[d3]=0x1:delete lC[d3],delete d1[d2],!![];}let d4=T(d1,d2);if(d4&&d4['configurable']===![])return![];return delete d1[d2],!![];},'preventExtensions':function(d1){let d2=l4;for(let d3=0x0;d3<d2;d3++){!(d3 in lE)&&!T(d1,String(d3))&&g(d1,String(d3),{'value':lU(d3),'writable':!![],'enumerable':!![],'configurable':!![]});}for(let d4 in lC){!T(d1,d4)&&g(d1,d4,{'value':lC[d4],'writable':!![],'enumerable':!![],'configurable':!![]});}return Object['preventExtensions'](d1),!![];},'getOwnPropertyDescriptor':function(d1,d2){if(d2==='callee'){if(lt)return undefined;return T(d1,'callee');}if(d2==='length')return T(d1,'length');let d3=lf(d2);if(lY(d3)){if(d3 in lo)return T(d1,d2);if(lm(d3)){let d5=T(d1,String(d3));return{'value':lU(d3),'writable':d5?d5['writable']:!![],'enumerable':d5?d5['enumerable']:!![],'configurable':d5?d5['configurable']:!![]};}return T(d1,d2);}let d4=T(d1,d2);if(d4)return d4;return undefined;},'ownKeys':function(d1){let d2=[],d3=l4;for(let d5=0x0;d5<d3;d5++){!(d5 in lE)&&d2['push'](String(d5));}for(let d6 in lC){d2['indexOf'](d6)===-0x1&&d2['push'](d6);}d2['push']('length');!lt&&d2['push']('callee');let d4=Reflect['ownKeys'](d1);for(let d7=0x0;d7<d4['length'];d7++){d2['indexOf'](d4[d7])===-0x1&&d2['push'](d4[d7]);}return d2;}});}}cN[cy++]=l6,ce++;break;}case 0x113:{let d1=cZ[lG],d2=!![];d1 in vmg&&(d2=delete vmg[d1]);d2&&d1 in vmk_f71a9e&&(d2=delete vmk_f71a9e[d1]);cN[cy++]=d2,ce++;break;}case 0x126:{let d3=cN[--cy],d4=cN[--cy],d5=cN[--cy];if(typeof d4!=='function')throw new TypeError(d4+'\x20is\x20not\x20a\x20function');let d6=vmk_f71a9e['_$3B4wCg'],d7=d6&&D['call'](d6,d4);!d7&&d6&&(d4===h||d4===r)&&(d7=D['call'](d6,d5));let d8=vmk_f71a9e['_$gJuDTf'];d7&&(vmk_f71a9e['_$Dpa0kh']=!![],vmk_f71a9e['_$gJuDTf']=d7);let d9;try{if(d3===0x0)d9=Q(d4,d5,S);else{if(d3===0x1){let dK=cN[--cy];d9=dK&&typeof dK==='object'&&K['call'](s,dK)?Q(d4,d5,dK['value']):Q(d4,d5,[dK]);}else d9=Q(d4,d5,K0(l1,d3));}cN[cy++]=d9;}finally{d7&&(vmk_f71a9e['_$Dpa0kh']=![],vmk_f71a9e['_$gJuDTf']=d8);}ce++;break;}case 0x12a:{cN[cy-0x1]=typeof cN[cy-0x1],ce++;break;}case 0x12c:{let dc=cN[--cy],dl=cN[--cy];cN[cy++]=dl-dc,ce++;break;}case 0xd6:{let dd=cN[--cy],dQ=cN[--cy];cN[cy++]=dQ**dd,ce++;break;}case 0x107:{let dk=cN[cy-0x1];if(dk==null){var lD=cZ[lG];if(lD===null)throw new TypeError('Cannot\x20destructure\x20\x27'+dk+'\x27\x20as\x20it\x20is\x20'+dk+'.');throw new TypeError('Cannot\x20destructure\x20property\x20\x27'+lD+'\x27\x20of\x20\x27'+dk+'\x27\x20as\x20it\x20is\x20'+dk+'.');}ce++;break;}case 0xdc:{let dR=cN[--cy],dT=cN[cy-0x1],dg=cZ[lG];g(dT,dg,{'set':dR,'enumerable':![],'configurable':!![]}),ce++;break;}case 0x12e:{let dr=cN[--cy];if((typeof dr==='object'||typeof dr==='function')&&dr!==null){const dJ=dr[Symbol['toPrimitive']];if(dJ!=null){dr=dJ['call'](dr,'number');if(dr!==null&&(typeof dr==='object'||typeof dr==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dG=dr['valueOf']();if(dG===null||typeof dG!=='object'&&typeof dG!=='function')dr=dG;else{const dD=dr['toString']();if(dD!==null&&(typeof dD==='object'||typeof dD==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dr=dD;}}}cN[cy++]=typeof dr===A?dr+0x1n:+dr+0x1,ce++;break;}case 0x127:{let dh=cN[--cy],dO=cN[--cy];cN[cy++]=dO in dh,ce++;break;}case 0xfe:{let dB=lG;l3['_$Do1a2l'][dB]=cB;let db=l3['_$pORDT7'];!db&&(db=G(null),l3['_$pORDT7']=db);db[dB]=0x2,ce++;break;}case 0x117:{let di=cN[--cy],dv=cN[--cy];cN[cy++]=dv&di,ce++;break;}case 0x12d:{let dW=cN[--cy],dN=cN[--cy];cN[cy++]=dN%dW,ce++;break;}case 0x11a:{if(lG===-0x2){}else lG===-0x1?cN[--cy]:l3['_$Do1a2l'][lG]=cN[--cy];ce++;break;}case 0x10c:{c:{let dy=lG&0xffff,da=lG>>>0x10,dZ=cN[--cy],dw=l3;for(let de=0x0;de<da;de++){dw=dw['_$AQ2Nrl'];}let dM=dw['_$Do1a2l'];if(dM[dy]===dM){let dA=dw['_$BORNwr'];throw new ReferenceError('Cannot\x20access\x20\x27'+(dA&&dA[dy]||'variable')+'\x27\x20before\x20initialization');}let dz=dw['_$pORDT7'],dP=dz&&dz[dy];if(dP){if(dP===0x2&&!cF){ce++;break c;}throw new TypeError('Assignment\x20to\x20constant\x20variable.');}dM[dy]=dZ,ce++;break c;}break;}case 0x10b:{l:{while(cp&&cp['length']>0x0){let dn=cp[cp['length']-0x1];if(dn['_$XRoxTk']!==undefined)break;cp['pop']();}if(cp&&cp['length']>0x0){let dX=cp[cp['length']-0x1];if(dX['_$XRoxTk']!==undefined){cu=null,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cq=!![],cV=cN[--cy],cL=dX['_$aZenUZ'],ct=dX['_$V87Bwb'],ce=dX['_$XRoxTk'];break l;}}(cq||cI||cH)&&(cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined);cu=null;let dS=cN[--cy];if(cf&&dS===undefined&&!l7)throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return lc=dS,0x1;}break;}case 0x115:{let ds=cN[--cy];cN[cy++]=Symbol['keyFor'](ds),ce++;break;}case 0x111:{d:{let dp=cN[--cy],du=cN[cy-0x1];if(dp===null){R(du['prototype'],null),R(du,Function['prototype']),du['_$xSs2Iw']=null,ce++;break d;}if(typeof dp!=='function')throw new TypeError('Class\x20extends\x20value\x20'+String(dp)+'\x20is\x20not\x20a\x20constructor\x20or\x20null');let dq=![],dV=H(dp);if(!dV){let dI=T(dp,'prototype');dq=!!dI&&dI['writable']===![];}if(dq){let dj=du,dx=vmk_f71a9e,dH='_$Ds8RtI',dC='_$UwiaZt',dE='_$8ibiyW';function lh(...dL){if(new.target===undefined)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');let dt=G(dp['prototype']);dx[dE]={'parent':dp,'newTarget':new.target||lh,'outer':lh},dx[dC]=new.target||lh;let dF=dH in dx;!dF&&(dx[dH]=new.target);try{let df=q(dj,dt,dL);df!==undefined&&df!==null&&K1(df)&&(dt=df);}finally{delete dx[dE],delete dx[dC],!dF&&delete dx[dH];}return dt;}lh['prototype']=G(dp['prototype']),lh['prototype']['constructor']=lh,R(lh,dp),O(dj)['forEach'](function(dL){dL!=='prototype'&&dL!=='name'&&m(lh,dL,T(dj,dL));});dj['prototype']&&(O(dj['prototype'])['forEach'](function(dL){dL!=='constructor'&&m(lh['prototype'],dL,T(dj['prototype'],dL));}),k(dj['prototype'])['forEach'](function(dL){m(lh['prototype'],dL,T(dj['prototype'],dL));}));cN[--cy],cN[cy++]=lh,lh['_$xSs2Iw']=dp,ce++;break d;}R(du['prototype'],dp['prototype']),R(du,dp),du['_$xSs2Iw']=dp,ce++;}break;}case 0x120:{let dL=lG&0xffff,dt=lG>>>0x10,dF=cP[dL],df=cZ[dt];if(dF===null||dF===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dF+'\x20(reading\x20'+'\x27'+String(df)+'\x27'+')');cN[cy++]=dF[df],ce++;break;}case 0x12b:{let dY=lG,dU=cN[--cy];l3['_$Do1a2l'][dY]=dU;let dm=l3['_$pORDT7'];!dm&&(dm=G(null),l3['_$pORDT7']=dm);dm[dY]=0x1,ce++;break;}case 0x108:{let Q0=cZ[lG];cN[cy++]=Symbol['for'](Q0),ce++;break;}case 0xfc:{let Q1=cN[--cy],Q2=typeof Q1;if(Q1!==null&&(Q2==='object'||Q2==='function')){let Q3=G(null);Q3[Q1]=0x0,Q1=Reflect['ownKeys'](Q3)[0x0];}else Q2!=='symbol'&&(Q1=String(Q1));cN[cy++]=Q1,ce++;break;}case 0x10a:{let Q4=lG&0xffff,Q5=lG>>>0x10,Q6=cZ[Q4],Q7=cZ[Q5];cN[cy++]=new RegExp(Q6,Q7),ce++;break;}case 0x114:{let Q8=cN[--cy],Q9=Q8&&Q8['i']?Q8['i']:Q8;if(cu!==null)try{Q9&&typeof Q9['return']==='function'?cN[cy++]=Promise['resolve'](Q9['return']())['catch'](function(){return undefined;}):cN[cy++]=Promise['resolve']();}catch(QK){cN[cy++]=Promise['resolve']();}else{let Qc=Q9!=null?Q9['return']:undefined;if(Qc==null)cN[cy++]=Promise['resolve']();else typeof Qc!=='function'?cN[cy++]=Promise['reject'](new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable')):cN[cy++]=Promise['resolve'](Qc['call'](Q9));}ce++;break;}case 0x110:{cN[cy++]=vmr[lG],ce++;break;}case 0x11d:{throw cN[--cy];break;}case 0xb9:{let Ql=cN[--cy],Qd=cN[cy-0x1],QQ=cZ[lG],Qk=Kc(Qd);g(Qk,QQ,{'get':Ql,'enumerable':Qk===Qd,'configurable':!![]}),ce++;break;}case 0x112:{let QR=lG&0xffff,QT=lG>>>0x10;cN[cy++]=cP[QR]-cZ[QT],ce++;break;}case 0x125:{let Qg,Qr;lG>=0x0?(Qr=cN[--cy],Qg=cZ[lG]):(Qg=cN[--cy],Qr=cN[--cy]);let QJ=delete Qr[Qg];if(cF&&!QJ)throw new TypeError('Cannot\x20delete\x20property\x20\x27'+String(Qg)+'\x27\x20of\x20object');cN[cy++]=QJ,ce++;break;}case 0x100:{let QG=cN[--cy],QD=cN[--cy],Qh=lG,QO=function(QB,Qb){let Qi=function(){let Qv=u===Qi;u=undefined;if(new.target===undefined&&!Qv)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');if(QB){Qb&&(vmk_f71a9e['_$UwiaZt']=Qi);let QW='_$Ds8RtI'in vmk_f71a9e;!QW&&(vmk_f71a9e['_$Ds8RtI']=new.target);try{let QN=QB['apply'](this,KK(arguments));if(Qb&&QN!==undefined&&(QN===null||typeof QN!=='object'&&typeof QN!=='function'))throw new TypeError('Derived\x20constructors\x20may\x20only\x20return\x20object\x20or\x20undefined');return QN;}finally{Qb&&delete vmk_f71a9e['_$UwiaZt'],!QW&&delete vmk_f71a9e['_$Ds8RtI'];}}};return Qi;}(QD,Qh);QG&&g(QO,'name',{'value':QG,'configurable':!![]});QD&&g(QO,'length',{'value':QD['length'],'configurable':!![]});if(QD&&!H(QO)){let QB=x(QD);QB&&(QB['_$3vp170']=![],I(QO,QB));}cN[cy++]=QO,ce++;break;}case 0x116:{cN[cy-0x1]=~cN[cy-0x1],ce++;break;}case 0xc9:{Q:{let Qb=cM[ce];while(cp&&cp['length']>0x0){let Qi=cp[cp['length']-0x1];if(Qi['_$XRoxTk']!==undefined||!(Qb>=Qi['_$V87Bwb']||Qb<=Qi['_$aZenUZ']))break;cp['pop']();}if(cp&&cp['length']>0x0){let Qv=cp[cp['length']-0x1];if(Qv['_$XRoxTk']!==undefined&&(Qb>=Qv['_$V87Bwb']||Qb<=Qv['_$aZenUZ'])){cu=null,cq=![],cV=undefined,cH=![],cC=0x0,cE=undefined,cI=!![],cj=Qb,cx=l3,cL=Qv['_$aZenUZ'],ct=Qv['_$V87Bwb'],ce=Qv['_$XRoxTk'];break Q;}}(cq||cI||cH||cu!==null)&&(Qb>=ct||Qb<=cL)&&(cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cu=null),ce=Qb;}break;}case 0x128:{let QW=cN[--cy],QN=cN[--cy],Qy=cN[cy-0x1];g(Qy,QN,{'set':QW,'enumerable':![],'configurable':!![]}),ce++;break;}case 0x11b:{let Qa=cN[--cy],QZ=cN[--cy];cN[cy++]=Qa==null||typeof Qa!=='object'&&typeof Qa!=='function'?!![]:QZ in Qa,ce++;break;}case 0x109:{let Qw=cN[--cy],QM=cN[--cy];cN[cy++]=QM<<Qw,ce++;break;}}};while(ce<cA){try{while(ce<cA){let lJ=ce<<cs,lG=cw[cn+lJ],lD=cw[cX+lJ];switch(lk[lG]){case 0x1:{cN[cy++]=cv[lD],ce++;continue;}case 0x2:{let lh=cN[--cy];lh!==null&&lh!==undefined?ce=cM[ce]:ce++;continue;}case 0x3:{cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);continue;}case 0x4:{let lO=cN[--cy],lB=cN[--cy];cN[cy++]=lB<=lO,ce++;continue;}case 0x5:{let lb=cN[--cy],li=cN[--cy];cN[cy++]=li>=lb,ce++;continue;}case 0x6:{let lv=cP[lD];if((typeof lv==='object'||typeof lv==='function')&&lv!==null){const lW=lv[Symbol['toPrimitive']];if(lW!=null){lv=lW['call'](lv,'number');if(lv!==null&&(typeof lv==='object'||typeof lv==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const lN=lv['valueOf']();if(lN===null||typeof lN!=='object'&&typeof lN!=='function')lv=lN;else{const ly=lv['toString']();if(ly!==null&&(typeof ly==='object'||typeof ly==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');lv=ly;}}}cP[lD]=typeof lv===A?lv-0x1n:+lv-0x1,ce++;continue;}case 0x7:{cN[cy++]=null,ce++;continue;}case 0x8:{let la=cN[--cy],lZ=cN[--cy];cN[cy++]=lZ+la,ce++;continue;}case 0x9:{if(cf&&!l7){let lz=KT(l3);if(lz!==undefined)cb=lz,l7=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let lw=cb,lM=cZ[lD];if(lw===null||lw===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+lw+'\x20(reading\x20'+'\x27'+String(lM)+'\x27'+')');cN[cy++]=lw[lM],ce++;continue;}case 0xa:{let lP=cv[lD];if((typeof lP==='object'||typeof lP==='function')&&lP!==null){const le=lP[Symbol['toPrimitive']];if(le!=null){lP=le['call'](lP,'number');if(lP!==null&&(typeof lP==='object'||typeof lP==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const lA=lP['valueOf']();if(lA===null||typeof lA!=='object'&&typeof lA!=='function')lP=lA;else{const lS=lP['toString']();if(lS!==null&&(typeof lS==='object'||typeof lS==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');lP=lS;}}}cv[lD]=typeof lP===A?lP+0x1n:+lP+0x1,ce++;continue;}case 0xb:{let ln=cN[--cy],lX=cN[--cy];cN[cy++]=lX==ln,ce++;continue;}case 0xc:{let ls=cN[--cy],lp=cN[--cy];cN[cy++]=lp*ls,ce++;continue;}case 0xd:{let lu=cN[--cy],lq=cN[--cy];cN[cy++]=lq!=lu,ce++;continue;}case 0xe:{cN[cy++]=cZ[lD],ce++;continue;}case 0xf:{let lV=cN[--cy],lI=cN[--cy];cN[cy++]=lI<lV,ce++;continue;}case 0x10:{let lj=cN[--cy],lx=cN[--cy],lH=cZ[lD];if(lx===null||lx===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+lx+'\x20(setting\x20'+'\x27'+String(lH)+'\x27'+')');if(cF){let lC=typeof lx==='object'||typeof lx==='function'?lx:Object(lx);if(!Reflect['set'](lC,lH,lj,lx))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(lH)+'\x27\x20of\x20object');}else lx[lH]=lj;cN[cy++]=lj,ce++;continue;}case 0x11:{let lE=cN[--cy],lL=cN[--cy];cN[cy++]=lL/lE,ce++;continue;}case 0x12:{cv[lD]=cN[--cy],ce++;continue;}case 0x13:{cP[lD]=cP[lD]+0x1,ce++;continue;}case 0x14:{let lt=lD&0xffff,lF=lD>>>0x10,lo=l3;for(let lU=0x0;lU<lF;lU++){lo=lo['_$AQ2Nrl'];}let lf=lo['_$Do1a2l'],lY=lf[lt];if(lY===lf){let lm=lo['_$BORNwr'];throw new ReferenceError('Cannot\x20access\x20\x27'+(lm&&lm[lt]||'variable')+'\x27\x20before\x20initialization');}cN[cy++]=lY,ce++;continue;}case 0x15:{let d0=lD&0xffff,d1=lD>>>0x10;cN[cy++]=cP[d0]*cZ[d1],ce++;continue;}case 0x16:{cN[cy-0x1]=cN[cy-0x1]|0x0,ce++;continue;}case 0x17:{cN[--cy]?ce=cM[ce]:ce++;continue;}case 0x18:{let d2=cv[lD];if((typeof d2==='object'||typeof d2==='function')&&d2!==null){const d3=d2[Symbol['toPrimitive']];if(d3!=null){d2=d3['call'](d2,'number');if(d2!==null&&(typeof d2==='object'||typeof d2==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const d4=d2['valueOf']();if(d4===null||typeof d4!=='object'&&typeof d4!=='function')d2=d4;else{const d5=d2['toString']();if(d5!==null&&(typeof d5==='object'||typeof d5==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');d2=d5;}}}cv[lD]=typeof d2===A?d2-0x1n:+d2-0x1,ce++;continue;}case 0x19:{let d6=cN[cy-0x1];cN[cy++]=d6,ce++;continue;}case 0x1a:{let d7=cN[--cy],d8=cN[--cy];cN[cy++]=d8!==d7,ce++;continue;}case 0x1b:{cP[lD]=cP[lD]-0x1,ce++;continue;}case 0x1c:{let d9=cN[cy-0x1],dK=cZ[lD];if(d9===null||d9===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+d9+'\x20(reading\x20'+'\x27'+String(dK)+'\x27'+')');cN[cy++]=d9[dK],ce++;continue;}case 0x1d:{let dc=cN[--cy];if((typeof dc==='object'||typeof dc==='function')&&dc!==null){const dl=dc[Symbol['toPrimitive']];if(dl!=null){dc=dl['call'](dc,'number');if(dc!==null&&(typeof dc==='object'||typeof dc==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dd=dc['valueOf']();if(dd===null||typeof dd!=='object'&&typeof dd!=='function')dc=dd;else{const dQ=dc['toString']();if(dQ!==null&&(typeof dQ==='object'||typeof dQ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dc=dQ;}}}cN[cy++]=typeof dc===A?dc-0x1n:+dc-0x1,ce++;continue;}case 0x1e:{cP[lD]=cN[--cy],ce++;continue;}case 0x1f:{let dk=lD&0xffff,dR=lD>>>0x10;cN[cy++]=cv[dk]<=cZ[dR],ce++;continue;}case 0x20:{let dT=cP[lD];if((typeof dT==='object'||typeof dT==='function')&&dT!==null){const dg=dT[Symbol['toPrimitive']];if(dg!=null){dT=dg['call'](dT,'number');if(dT!==null&&(typeof dT==='object'||typeof dT==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dr=dT['valueOf']();if(dr===null||typeof dr!=='object'&&typeof dr!=='function')dT=dr;else{const dJ=dT['toString']();if(dJ!==null&&(typeof dJ==='object'||typeof dJ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dT=dJ;}}}cP[lD]=typeof dT===A?dT+0x1n:+dT+0x1,ce++;continue;}case 0x21:{let dG=lD&0xffff,dD=lD>>>0x10;cN[cy++]=cv[dG]-cZ[dD],ce++;continue;}case 0x22:{let dh=lD&0xffff,dO=lD>>>0x10,dB=cP[dh],db=cZ[dO];if(dB===null||dB===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dB+'\x20(reading\x20'+'\x27'+String(db)+'\x27'+')');cN[cy++]=dB[db],ce++;continue;}case 0x23:{let di=cN[--cy];if((typeof di==='object'||typeof di==='function')&&di!==null){const dv=di[Symbol['toPrimitive']];if(dv!=null){di=dv['call'](di,'number');if(di!==null&&(typeof di==='object'||typeof di==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dW=di['valueOf']();if(dW===null||typeof dW!=='object'&&typeof dW!=='function')di=dW;else{const dN=di['toString']();if(dN!==null&&(typeof dN==='object'||typeof dN==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');di=dN;}}}cN[cy++]=typeof di===A?di+0x1n:+di+0x1,ce++;continue;}case 0x24:{let dy=cN[--cy],da=cN[--cy];cN[cy++]=da===dy,ce++;continue;}case 0x25:{cN[cy++]=undefined,ce++;continue;}case 0x26:{!cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);continue;}case 0x27:{let dZ=cN[--cy],dw=cZ[lD];if(dZ===null||dZ===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dZ+'\x20(reading\x20'+'\x27'+String(dw)+'\x27'+')');cN[cy++]=dZ[dw],ce++;continue;}case 0x28:{let dM=lD&0xffff,dz=lD>>>0x10;cN[cy++]=cP[dM]+cZ[dz],ce++;continue;}case 0x29:{ce=cM[ce];continue;}case 0x2a:{let dP=lD&0xffff,de=lD>>>0x10;cN[cy++]=cP[dP]-cZ[de],ce++;continue;}case 0x2b:{!cN[--cy]?ce=cM[ce]:ce++;continue;}case 0x2c:{let dA=cN[--cy],dS=cN[--cy];cN[cy++]=dS%dA,ce++;continue;}case 0x2d:{cN[cy++]=cZ[lD],ce++;continue;}case 0x2e:{let dn=cN[--cy],dX=cN[--cy],ds=cN[--cy];if(ds===null||ds===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+ds+'\x20(setting\x20'+(typeof dX==='symbol'?'\x27'+dX['toString']()+'\x27':typeof dX==='string'?'\x27'+dX+'\x27':typeof dX==='object'||typeof dX==='function'?'\x27<computed\x20key>\x27':'\x27'+String(dX)+'\x27')+')');if(cF){let dp=typeof ds==='object'||typeof ds==='function'?ds:Object(ds);if(!Reflect['set'](dp,dX,dn,ds))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(dX)+'\x27\x20of\x20object');}else ds[dX]=dn;cN[cy++]=dn,ce++;continue;}case 0x2f:{let du=cN[--cy],dq=cN[--cy];cN[cy++]=dq-du,ce++;continue;}case 0x30:{let dV=lD&0xffff,dI=lD>>>0x10;cN[cy++]=cP[dV]<cZ[dI],ce++;continue;}case 0x31:{let dj=cN[--cy],dx=cN[--cy];if(dx===null||dx===undefined){if(dj===Symbol['iterator'])throw new TypeError((dx===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dx+'\x20(reading\x20'+(typeof dj==='symbol'?'\x27'+dj['toString']()+'\x27':typeof dj==='string'?'\x27'+dj+'\x27':typeof dj==='object'||typeof dj==='function'?'\x27<computed\x20key>\x27':'\x27'+String(dj)+'\x27')+')');}cN[cy++]=dx[dj],ce++;continue;}case 0x32:{let dH=cN[--cy],dC=cN[--cy];cN[cy++]=dC>dH,ce++;continue;}case 0x33:{let dE=cN[--cy];if((typeof dE==='object'||typeof dE==='function')&&dE!==null){const dL=dE[Symbol['toPrimitive']];if(dL!=null){dE=dL['call'](dE,'number');if(dE!==null&&(typeof dE==='object'||typeof dE==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dt=dE['valueOf']();if(dt===null||typeof dt!=='object'&&typeof dt!=='function')dE=dt;else{const dF=dE['toString']();if(dF!==null&&(typeof dF==='object'||typeof dF==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dE=dF;}}}cN[cy++]=typeof dE===A?dE:+dE,ce++;continue;}case 0x34:{cN[cy-0x1]=cN[cy-0x1]>>>0x0,ce++;continue;}case 0x35:{let df=cN[--cy],dY=cN[--cy],dU=(lD^0xe061)>>>0x0,dm;dU<0x10?dU<0x8?dU<0x4?dU<0x2?dm=dU<0x1?dY>>df:dY>=df:dm=dU<0x3?dY>>>df:dY/df:dU<0x6?dm=dU<0x5?dY==df:dY&df:dm=dU<0x7?dY<=df:dY*df:dU<0xc?dU<0xa?dm=dU<0x9?dY<df:dY+df:dm=dU<0xb?dY%df:dY-df:dU<0xe?dm=dU<0xd?dY!=df:dY^df:dm=dU<0xf?dY|df:dY===df:dU<0x14?dU<0x12?dm=dU<0x11?dY>df:dY!==df:dm=dU<0x13?dY<<df:dY**df:dU<0x18?dm=dU<0x16?dY|df:dY&df:dm=dU<0x1c?dY^df:df-dY;cN[cy++]=dm,ce++;continue;}case 0x36:{cN[cy++]=cP[lD],ce++;continue;}case 0x37:{cN[--cy],ce++;continue;}}if(lG<0x3f){if(ll(lG,lD)){if(lK>0x0){for(let Q0=l8-0x1;Q0>=0x0;Q0--){cP[Q0]=l9[--lK];}cv=l9[--lK],ce=l9[--lK],cy=l9[--lK],l6=l9[--lK],l5=l9[--lK],l3=l9[--lK],cN[cy++]=lc,ce++;continue;}return lc;}}else{if(lG<0xb9){if(ld(lG,lD)){if(lK>0x0){for(let Q1=l8-0x1;Q1>=0x0;Q1--){cP[Q1]=l9[--lK];}cv=l9[--lK],ce=l9[--lK],cy=l9[--lK],l6=l9[--lK],l5=l9[--lK],l3=l9[--lK],cN[cy++]=lc,ce++;continue;}return lc;}}else{if(lQ(lG,lD)){if(lK>0x0){for(let Q2=l8-0x1;Q2>=0x0;Q2--){cP[Q2]=l9[--lK];}cv=l9[--lK],ce=l9[--lK],cy=l9[--lK],l6=l9[--lK],l5=l9[--lK],l3=l9[--lK],cN[cy++]=lc,ce++;continue;}return lc;}}}}break;}catch(Q3){n=0x0;if(cp&&cp['length']>0x0){let Q4=cp[cp['length']-0x1];cy=Q4['_$1qGCNY'];Q4['_$Lxang3']!==undefined&&(l3=Q4['_$Lxang3']);if(Q4['_$p5x6KB']!==undefined)cu=null,l0(Q3),ce=Q4['_$p5x6KB'],Q4['_$p5x6KB']=undefined,Q4['_$XRoxTk']===undefined&&cp['pop']();else Q4['_$XRoxTk']!==undefined?(ce=Q4['_$XRoxTk'],Q4['_$ySjvJn']=Q3):(ce=Q4['_$V87Bwb'],cp['pop']());continue;}throw Q3;}}if(cf&&!l7){let Q5=KT(l3);Q5!==undefined&&(cb=Q5,l7=!![]);}let lR=cy>0x0?cN[--cy]:l7?cb:undefined;if(cf&&!l7&&(lR===undefined||lR===null||typeof lR!=='object'&&typeof lR!=='function'))throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return lR;}function Kb(cO,cB,cb,ci,cv,cW){let cN=[void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0],cy=0x0,ca=cK(cW[0x20],cW[0x21]),cZ,cw,cM,cz;switch(ca[0x1]&0x3){case 0x0:cw=cW[0xe*ca[0x0]+ca[0x1]&0x1f],cZ=cW[0xf*ca[0x0]+ca[0x1]&0x1f],cM=cW[0x17*ca[0x0]+ca[0x1]&0x1f]||S,cz=cW[0x2*ca[0x0]+ca[0x1]&0x1f]||S;break;case 0x1:cZ=cW[0xf*ca[0x0]+ca[0x1]&0x1f],cM=cW[0x17*ca[0x0]+ca[0x1]&0x1f]||S,cz=cW[0x2*ca[0x0]+ca[0x1]&0x1f]||S,cw=cW[0xe*ca[0x0]+ca[0x1]&0x1f];break;case 0x2:cM=cW[0x17*ca[0x0]+ca[0x1]&0x1f]||S,cz=cW[0x2*ca[0x0]+ca[0x1]&0x1f]||S,cw=cW[0xe*ca[0x0]+ca[0x1]&0x1f],cZ=cW[0xf*ca[0x0]+ca[0x1]&0x1f];break;default:cz=cW[0x2*ca[0x0]+ca[0x1]&0x1f]||S,cw=cW[0xe*ca[0x0]+ca[0x1]&0x1f],cZ=cW[0xf*ca[0x0]+ca[0x1]&0x1f],cM=cW[0x17*ca[0x0]+ca[0x1]&0x1f]||S;break;}let cP=new Array((cW[0x20]||0x0)+(cW[0x21]||0x0)),ce=0x0,cA=cw['length']>>0x1,cS=(cW[0x20]*0x54f5^cW[0x21]*0xb07^cA*0x6f69^cZ['length']*0xf979)>>>0x0&0x3,cn,cX,cs;switch(cS){case 0x1:cn=0x1,cX=0x0,cs=0x1;break;case 0x2:cn=cA,cX=0x0,cs=0x0;break;case 0x3:cn=0x0,cX=0x1,cs=0x1;break;default:cn=0x0,cX=cA,cs=0x0;break;}let cp=null,cu=null,cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cL=-0x1,ct=-0x1,cF=!!cW[0xb*ca[0x0]+ca[0x1]&0x1f],co=!!cW[0x19*ca[0x0]+ca[0x1]&0x1f],cf=!!cW[0x12*ca[0x0]+ca[0x1]&0x1f],cY=!!cW[0x7*ca[0x0]+ca[0x1]&0x1f],cU=cb,cm=!!cW[0x10*ca[0x0]+ca[0x1]&0x1f];!cF&&!cm&&(cb===undefined||cb===null)&&(cb=vmg);let l0=cW[0xd*ca[0x0]+ca[0x1]&0x1f],l1,l2,l3,l4,l5,l6;if(l0!==undefined){let lT=lg=>typeof lg==='number'&&(lg|0x0)===lg&&!Object['is'](lg,-0x0)?lg^l0|0x0:lg;l1=lg=>{cN[cy++]=lT(lg);},l2=()=>lT(cN[--cy]),l3=()=>lT(cN[cy-0x1]),l4=lg=>{cN[cy-0x1]=lT(lg);},l5=lg=>lT(cN[cy-lg]),l6=(lg,lr)=>{cN[cy-lg]=lT(lr);};}else l1=lg=>{cN[cy++]=lg;},l2=()=>cN[--cy],l3=()=>cN[cy-0x1],l4=lg=>{cN[cy-0x1]=lg;},l5=lg=>cN[cy-lg],l6=(lg,lr)=>{cN[cy-lg]=lr;};let l7=cW[0x4*ca[0x0]+ca[0x1]&0x1f]||0x0,l8={['_$Do1a2l']:l7?new Array(l7)['fill'](void 0x0):S,['_$pORDT7']:null,['_$I4sdew']:-0x1,['_$AQ2Nrl']:cO};if(cv){let lg=cW[0x20]||0x0;for(let lr=0x0,lJ=cv['length']<lg?cv['length']:lg;lr<lJ;lr++){cP[lr]=cv[lr];}}let l9=cv?cv['length']:0x0,lK=(cF||!co)&&cv?KK(cv):null,lc=null,ll=![],ld=(cW[0x20]||0x0)+(cW[0x21]||0x0),lQ=null,lk=0x0;Kr(cB,cW,cO,ca);function lR(lG,lD){if(lG===0x1)l1(lD);else{if(lG===0x2){if(cp&&cp['length']>0x0){let lW=cp[cp['length']-0x1];cy=lW['_$1qGCNY'];lW['_$Lxang3']!==undefined&&(l8=lW['_$Lxang3']);if(lW['_$p5x6KB']!==undefined)l1(lD),ce=lW['_$p5x6KB'],lW['_$p5x6KB']=undefined,lW['_$XRoxTk']===undefined&&cp['pop']();else lW['_$XRoxTk']!==undefined?(ce=lW['_$XRoxTk'],lW['_$ySjvJn']=lD):(ce=lW['_$V87Bwb'],cp['pop']());}else throw lD;}else{if(lG===0x3){let lN=lD;while(cp&&cp['length']>0x0){let ly=cp[cp['length']-0x1];if(ly['_$XRoxTk']!==undefined)break;cp['pop']();}if(cp&&cp['length']>0x0){let la=cp[cp['length']-0x1];if(la['_$XRoxTk']!==undefined)cu=null,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cq=!![],cV=lN,cL=la['_$aZenUZ'],ct=la['_$V87Bwb'],ce=la['_$XRoxTk'];else return lN;}else return lN;}}}var lh,lO,lB,lb,li;li=[0x0,0x20,0x0,0x0,0x0,0x0,0x0,0x0,0x1c,0xc,0x30,0x0,0x21,0x0,0x0,0x2e,0xf,0x0,0x10,0x0,0x0,0x2b,0x0,0x0,0x5,0x0,0x24,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x29,0x0,0x0,0x0,0x0,0x26,0x0,0x0,0x0,0x17,0x0,0x0,0x0,0x12,0x0,0x28,0x0,0x0,0x31,0x0,0x0,0x4,0x0,0x1e,0x0,0x0,0x0,0x0,0x0,0x35,0x0,0x0,0x0,0x0,0x0,0x19,0x0,0x0,0x8,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x7,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1f,0x15,0x1d,0x0,0x0,0x0,0x18,0x14,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x37,0x33,0x25,0x0,0x1b,0x0,0x0,0xa,0x2d,0xb,0x0,0x36,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x6,0x0,0x0,0x0,0xe,0x0,0x27,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0xd,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2,0x1,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x3,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x16,0x0,0x0,0x34,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x32,0x0,0x0,0x0,0x0,0x0,0x0,0x13,0x0,0x0,0x0,0x0,0x2a,0x0,0x0,0x0,0x0,0x0,0x0,0x1a,0x0,0x0,0x0,0x0,0x0,0x9,0x22,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x11,0x0,0x0,0x2f,0x2c,0x23,0x0,0x0],lO=function(lZ,lw){switch(lZ){case 0x3b:{let lM=cN[--cy],lz=cN[--cy];if(lz===null||lz===undefined){if(lM===Symbol['iterator'])throw new TypeError((lz===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+lz+'\x20(reading\x20'+(typeof lM==='symbol'?'\x27'+lM['toString']()+'\x27':typeof lM==='string'?'\x27'+lM+'\x27':typeof lM==='object'||typeof lM==='function'?'\x27<computed\x20key>\x27':'\x27'+String(lM)+'\x27')+')');}cN[cy++]=lz[lM],ce++;break;}case 0x13:{let lP=cN[--cy];if(lP==null)throw new TypeError(lP+'\x20is\x20not\x20iterable');let le=lP[t];if(Array['isArray'](lP)&&le===L)cN[cy++]={['_$Vyp3HY']:lP,['_$GHjvbJ']:0x0},ce++;else{if(typeof le!=='function')throw new TypeError(lP+'\x20is\x20not\x20iterable');let lA=Q(le,lP,[]);K6(lA);let lS=lA['next'];cN[cy++]={'i':lA,'n':lS},ce++;}break;}case 0x5:{let ln=cZ[lw];ln in vmk_f71a9e?cN[cy++]=typeof vmk_f71a9e[ln]:cN[cy++]=typeof vmg[ln];ce++;break;}case 0x28:{cp['pop'](),ce++;break;}case 0x3a:{if(cf&&!ll){let lX=KT(l8);if(lX!==undefined)cb=lX,ll=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}cN[cy++]=cb,ce++;break;}case 0xd:{if(lw===-0x1)cN[cy++]=Symbol();else{let ls=cN[--cy];cN[cy++]=Symbol(ls);}ce++;break;}case 0x4:{let lp=cN[--cy],lu={['_$Do1a2l']:new Array(lw),['_$pORDT7']:null,['_$I4sdew']:-0x1,['_$AQ2Nrl']:lp};l8=lu,ce++;break;}case 0x2e:{!cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);break;}case 0x12:{let lq=cN[--cy],lV=cN[--cy],lI=cZ[lw];if(lV===null||lV===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+lV+'\x20(setting\x20'+'\x27'+String(lI)+'\x27'+')');if(cF){let lj=typeof lV==='object'||typeof lV==='function'?lV:Object(lV);if(!Reflect['set'](lj,lI,lq,lV))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(lI)+'\x27\x20of\x20object');}else lV[lI]=lq;cN[cy++]=lq,ce++;break;}case 0x8:{let lx=cN[cy-0x1],lH=cZ[lw];if(lx===null||lx===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+lx+'\x20(reading\x20'+'\x27'+String(lH)+'\x27'+')');cN[cy++]=lx[lH],ce++;break;}case 0x39:{let lC=cN[--cy],lE=cN[--cy];cN[cy++]=lE^lC,ce++;break;}case 0x0:{cN[cy-0x1]=-cN[cy-0x1],ce++;break;}case 0x19:{let lL=cN[--cy],lt=lL&&lL['i']?lL['i']:lL;try{if(lt!=null){let lF=lt['return'];typeof lF==='function'&&lF['call'](lt);}}catch(lo){}ce++;break;}case 0x10:{let lf=cN[--cy],lY=cN[--cy];cN[cy++]=lY<lf,ce++;break;}case 0x2a:{cN[cy++]=cU,ce++;break;}case 0x18:{let lU=cN[--cy],lm=cN[--cy];cN[cy++]=lm>=lU,ce++;break;}case 0x2c:{let d0=cz[ce];if(!cp)cp=[];cp['push']({['_$p5x6KB']:d0[0x0]>=0x0?d0[0x0]:undefined,['_$XRoxTk']:d0[0x1]>=0x0?d0[0x1]:undefined,['_$V87Bwb']:d0[0x2]>=0x0?d0[0x2]:undefined,['_$1qGCNY']:cy,['_$aZenUZ']:ce,['_$Lxang3']:l8}),ce++;break;}case 0x37:{let d1=cP[lw],d2=d1&&d1['_$Vyp3HY'];if(d2!==undefined){let d3=d1['_$GHjvbJ'];d3>=d2['length']?ce=cM[ce]:(d1['_$GHjvbJ']=d3+0x1,cN[cy++]=d2[d3],ce++);}else{let d4=d1['i'],d5=Q(d1['n'],d4,[]);K6(d5),d5['done']?ce=cM[ce]:(cN[cy++]=d5['value'],ce++);}break;}case 0x16:{let d6=cN[--cy],d7=cN[cy-0x1];if(d6!==null&&d6!==undefined){let d8=Object(d6),d9=Reflect['ownKeys'](d8);for(let dK=0x0;dK<d9['length'];dK++){let dc=d9[dK],dl=T(d8,dc);dl!==undefined&&dl['enumerable']&&g(d7,dc,{'value':d8[dc],'writable':!![],'enumerable':!![],'configurable':!![]});}}ce++;break;}case 0xb:{cN[cy++]=l8,ce++;break;}case 0x2:{cN[cy++]=[],ce++;break;}case 0x1c:{let dd=cN[--cy],dQ=dd,dk=0x0&&typeof dd!=='object'?cQ(dd,0x1):undefined,dR,dT,dg,dr,dJ,dG,dD,dh;if(dk)dT=dk[0x0]&0x1,dg=dk[0x0]&0x2,dr=dk[0x0]&0x4,dJ=dk[0x0]&0x8,dD=dk[0x0]&0x10,dG=dk[0x1]||0x0,dh=dk[0x2]||undefined,dR={'n':dd};else{dR=typeof dd==='object'?dd:cQ(dd);let di=dR&&cK(dR[0x20],dR[0x21]);dT=dR&&dR[0x10*di[0x0]+di[0x1]&0x1f],dg=dR&&dR[0x8*di[0x0]+di[0x1]&0x1f],dr=dR&&dR[0x11*di[0x0]+di[0x1]&0x1f],dJ=dR&&dR[0x13*di[0x0]+di[0x1]&0x1f],dG=dR&&dR[0x20]||0x0,dD=dR&&dR[0xb*di[0x0]+di[0x1]&0x1f];let dv=dR&&dR[0xa*di[0x0]+di[0x1]&0x1f];dh=dv!==undefined?dR[0xf*di[0x0]+di[0x1]&0x1f][dv]:undefined;}dd=0x0&&typeof dQ!=='object'?{'n':dQ}:dR;let dO=dT?cU:undefined,dB=l8,db;if(dr)db=KD(cR,dd,dB,p,dD,vmg,dg);else{if(dg)dT?db=KO(ck,dd,dB,dO):db=KG(ck,dd,dB,dD,vmg);else{if(dT){db=Kh(KN,dd,dB,dO);let dW=vmk_f71a9e['_$UwiaZt'];dW===undefined&&cB&&C['has'](cB)&&(dW=C['get'](cB)),dW!==undefined&&C['set'](db,dW);}else db=KJ(KN,dd,dB,dD,vmg,dJ);}}m(db,'length',{'value':dG,'writable':![],'enumerable':![],'configurable':!![]});dh!==undefined&&m(db,'name',{'value':dh,'writable':![],'enumerable':![],'configurable':!![]});cN[cy++]=db,ce++;break;}case 0x2b:{K:{let dN=cM[ce];if(dN===ct){if(cu!==null){cq=![],cI=![],cH=![];let dy=cu;cu=null;throw dy;}if(cq){while(cp&&cp['length']>0x0){let dZ=cp[cp['length']-0x1];if(dZ['_$XRoxTk']!==undefined)break;cp['pop']();}if(cp&&cp['length']>0x0){let dw=cp[cp['length']-0x1];if(dw['_$XRoxTk']!==undefined){cL=dw['_$aZenUZ'],ct=dw['_$V87Bwb'],ce=dw['_$XRoxTk'];break K;}}let da=cV;return cq=![],cV=undefined,lh=da,0x1;}if(cI){while(cp&&cp['length']>0x0){let dz=cp[cp['length']-0x1];if(dz['_$XRoxTk']!==undefined||!(cj>=dz['_$V87Bwb']||cj<=dz['_$aZenUZ']))break;cp['pop']();}if(cp&&cp['length']>0x0){let dP=cp[cp['length']-0x1];if(dP['_$XRoxTk']!==undefined&&(cj>=dP['_$V87Bwb']||cj<=dP['_$aZenUZ'])){cL=dP['_$aZenUZ'],ct=dP['_$V87Bwb'],ce=dP['_$XRoxTk'];break K;}}let dM=cj;cI=![],cj=0x0;cx!==undefined&&(l8=cx,cx=undefined);ce=dM;break K;}if(cH){while(cp&&cp['length']>0x0){let dA=cp[cp['length']-0x1];if(dA['_$XRoxTk']!==undefined||!(cC>=dA['_$V87Bwb']||cC<=dA['_$aZenUZ']))break;cp['pop']();}if(cp&&cp['length']>0x0){let dS=cp[cp['length']-0x1];if(dS['_$XRoxTk']!==undefined&&(cC>=dS['_$V87Bwb']||cC<=dS['_$aZenUZ'])){cL=dS['_$aZenUZ'],ct=dS['_$V87Bwb'],ce=dS['_$XRoxTk'];break K;}}let de=cC;cH=![],cC=0x0;cE!==undefined&&(l8=cE,cE=undefined);ce=de;break K;}}ce++;}break;}case 0x1a:{let dn=cN[--cy],dX=cN[--cy];cN[cy++]=dX===dn,ce++;break;}case 0x29:{ce=cM[ce];break;}case 0x20:{let ds=cN[cy-0x3],dp=cN[cy-0x2],du=cN[cy-0x1];cN[cy-0x3]=du,cN[cy-0x2]=ds,cN[cy-0x1]=dp,ce++;break;}case 0x34:{let dq=cN[--cy],dV=cN[--cy];cN[cy++]=dV instanceof dq,ce++;break;}case 0x9:{let dI=cN[--cy],dj=cN[--cy];cN[cy++]=dj*dI,ce++;break;}case 0x36:{cv[lw]=cN[--cy],ce++;break;}case 0x14:{let dx=cN[--cy],dH=cN[--cy],dC={};if(dH!==null&&dH!==undefined){let dE=Object(dH),dL=Reflect['ownKeys'](dE);for(let dt=0x0;dt<dL['length'];dt++){let dF=dL[dt],df=![];for(let dU=0x0;dU<dx['length'];dU++){let dm=dx[dU];if((typeof dm==='symbol'?dm:String(dm))===dF){df=!![];break;}}if(df)continue;let dY=T(dE,dF);dY!==undefined&&dY['enumerable']&&g(dC,dF,{'value':dE[dF],'writable':!![],'enumerable':!![],'configurable':!![]});}}cN[cy++]=dC,ce++;break;}case 0x17:{let Q0=E[lw],Q1=cN[--cy];if(Q0){for(let Q2=0x0;Q2<Q1;Q2++)cN[--cy];for(let Q3=0x0;Q3<Q1;Q3++)cN[--cy];cN[cy++]=Q0;}else{let Q4=new Array(Q1);for(let Q6=Q1-0x1;Q6>=0x0;Q6--)Q4[Q6]=cN[--cy];let Q5=new Array(Q1);for(let Q7=Q1-0x1;Q7>=0x0;Q7--)Q5[Q7]=cN[--cy];g(Q5,'raw',{'value':Object['freeze'](Q4)}),Object['freeze'](Q5),E[lw]=Q5,cN[cy++]=Q5;}ce++;break;}case 0x15:{!cN[--cy]?ce=cM[ce]:ce++;break;}case 0x7:{let Q8=cN[--cy],Q9=cN[cy-0x1],QK=cZ[lw],Qc=Kc(Q9);g(Qc,QK,{'set':Q8,'enumerable':Qc===Q9,'configurable':!![]}),ce++;break;}case 0x32:{cN[--cy]?ce=cM[ce]:ce++;break;}case 0x2f:{c:{let Ql=cZ[lw],Qd=cN[--cy];if(typeof Qd!=='function')throw new TypeError(Qd+'\x20is\x20not\x20a\x20function');let QQ=vmk_f71a9e['_$3B4wCg'],Qk=!vmk_f71a9e['_$gJuDTf']&&!vmk_f71a9e['_$Ds8RtI']&&!(QQ&&D['call'](QQ,Qd))&&x(Qd);if(Qk&&Qk['_$3vp170']!==![]){let QJ=Qk['_$zfHo1V']||j(Qk,typeof Qk['_$hQlpqc']==='object'?Qk['_$hQlpqc']['n']!==undefined?0x0?cQ(Qk['_$hQlpqc']['n']):Qk['_$hQlpqc']['d']||(Qk['_$hQlpqc']['d']=cQ(Qk['_$hQlpqc']['n'])):Qk['_$hQlpqc']:cd(Qk['_$hQlpqc']));if(QJ){let QG;if(Ql===0x0)QG=[];else{if(Ql===0x1){let QO=cN[--cy];QG=QO&&typeof QO==='object'&&K['call'](s,QO)?QO['value']:[QO];}else QG=K0(l2,Ql);}let QD=QJ===cW?ca:cK(QJ[0x20],QJ[0x21]),Qh=QJ[0x15*QD[0x0]+QD[0x1]&0x1f];if(Qh&&QJ===cW&&!QJ[0x2*QD[0x0]+QD[0x1]&0x1f]&&Qk['_$E8iUhp']===cO){!lQ&&(lQ=[]);lQ[lk++]=l8,lQ[lk++]=lK,lQ[lk++]=lc,lQ[lk++]=cy,lQ[lk++]=ce,lQ[lk++]=cv;for(let QB=0x0;QB<ld;QB++){lQ[lk++]=cP[QB];}cv=QG,lc=null;if(QJ[0x19*QD[0x0]+QD[0x1]&0x1f]){lK=null;let Qb=QJ[0x20]||0x0;for(let Qi=0x0;Qi<Qb&&Qi<QG['length'];Qi++){cP[Qi]=QG[Qi];}for(let Qv=QG['length']<Qb?QG['length']:Qb;Qv<ld;Qv++){cP[Qv]=undefined;}ce=Qh;}else{lK=KK(QG);for(let QW=0x0;QW<ld;QW++){cP[QW]=undefined;}ce=0x0;}break c;}vmk_f71a9e['_$Dpa0kh']?vmk_f71a9e['_$Dpa0kh']=![]:vmk_f71a9e['_$gJuDTf']=undefined;cN[cy++]=KB(Qk['_$E8iUhp'],Qd,undefined,undefined,QG,QJ),ce++;break c;}}let QR=vmk_f71a9e['_$gJuDTf'],QT=vmk_f71a9e['_$3B4wCg'],Qg=QT&&D['call'](QT,Qd);Qg?(vmk_f71a9e['_$Dpa0kh']=!![],vmk_f71a9e['_$gJuDTf']=Qg):vmk_f71a9e['_$gJuDTf']=undefined;let Qr;try{if(Ql===0x0)Qr=Qd();else{if(Ql===0x1){let QN=cN[--cy];Qr=QN&&typeof QN==='object'&&K['call'](s,QN)?Q(Qd,undefined,QN['value']):Qd(QN);}else Qr=Q(Qd,undefined,K0(l2,Ql));}cN[cy++]=Qr;}finally{Qg&&(vmk_f71a9e['_$Dpa0kh']=![]),vmk_f71a9e['_$gJuDTf']=QR;}ce++;}break;}case 0xc:{let Qy=lw&0xffff,Qa=lw>>>0x10;cN[cy++]=cv[Qy]-cZ[Qa],ce++;break;}case 0x1:{let QZ=cP[lw];if((typeof QZ==='object'||typeof QZ==='function')&&QZ!==null){const Qw=QZ[Symbol['toPrimitive']];if(Qw!=null){QZ=Qw['call'](QZ,'number');if(QZ!==null&&(typeof QZ==='object'||typeof QZ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const QM=QZ['valueOf']();if(QM===null||typeof QM!=='object'&&typeof QM!=='function')QZ=QM;else{const Qz=QZ['toString']();if(Qz!==null&&(typeof Qz==='object'||typeof Qz==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');QZ=Qz;}}}cP[lw]=typeof QZ===A?QZ+0x1n:+QZ+0x1,ce++;break;}case 0x11:{let QP=cN[--cy],Qe=cN[cy-0x1],QA=cZ[lw];g(Qe,QA,{'value':QP,'writable':!![],'enumerable':![],'configurable':!![]});typeof QP==='function'&&(!vmk_f71a9e['_$3B4wCg']&&(vmk_f71a9e['_$3B4wCg']=new WeakMap()),J['call'](vmk_f71a9e['_$3B4wCg'],QP,Qe));ce++;break;}case 0xf:{let QS=cN[--cy],Qn=cN[--cy],QX=cN[--cy];if(QX===null||QX===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+QX+'\x20(setting\x20'+(typeof Qn==='symbol'?'\x27'+Qn['toString']()+'\x27':typeof Qn==='string'?'\x27'+Qn+'\x27':typeof Qn==='object'||typeof Qn==='function'?'\x27<computed\x20key>\x27':'\x27'+String(Qn)+'\x27')+')');if(cF){let Qs=typeof QX==='object'||typeof QX==='function'?QX:Object(QX);if(!Reflect['set'](Qs,Qn,QS,QX))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(Qn)+'\x27\x20of\x20object');}else QX[Qn]=QS;cN[cy++]=QS,ce++;break;}case 0x6:{let Qp=l8['_$Do1a2l'];Qp[lw]=Qp,l8['_$I4sdew']=lw,ce++;break;}case 0x3e:{let Qu=cN[--cy],Qq=cN[--cy];cN[cy++]=Qq<=Qu,ce++;break;}case 0x38:{let QV=lw&0xffff,QI=lw>>>0x10;cN[cy++]=cP[QV]+cZ[QI],ce++;break;}case 0x1d:{ce++;break;}case 0x3d:{l8=l8['_$AQ2Nrl'],ce++;break;}case 0x3:{let Qj=cN[--cy];if(Qj==null)throw new TypeError(Qj+'\x20is\x20not\x20iterable');let Qx=Qj[Symbol['asyncIterator']];if(typeof Qx==='function')cN[cy++]=Qx['call'](Qj);else{let QH=Qj[Symbol['iterator']];if(typeof QH!=='function')throw new TypeError(Qj+'\x20is\x20not\x20iterable');let QC=QH['call'](Qj);if(QC===null||typeof QC!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');let QE=async function(Qt){if(Qt===null||typeof Qt!=='object')throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');let QF=await Qt['value'];return{'value':QF,'done':!!Qt['done']};},QL={'next':function(Qt){let QF;try{QF=QC['next'](Qt);}catch(Qo){return Promise['reject'](Qo);}return QE(QF);},'return':function(Qt){if(typeof QC['return']!=='function')return Promise['resolve']({'value':Qt,'done':!![]});let QF;try{QF=QC['return'](Qt);}catch(Qo){return Promise['reject'](Qo);}return QE(QF);},'throw':function(Qt){if(typeof QC['throw']!=='function')return Promise['reject'](Qt);let QF;try{QF=QC['throw'](Qt);}catch(Qo){return Promise['reject'](Qo);}return QE(QF);},[Symbol['asyncIterator']]:function(){return this;}};cN[cy++]=QL;}ce++;break;}case 0x33:{cN[cy++]=vmJ[lw],ce++;break;}case 0xa:{let Qt=lw&0xffff,QF=lw>>>0x10;cN[cy++]=cP[Qt]<cZ[QF],ce++;break;}case 0x1b:{let Qo=cN[--cy],Qf=cN[--cy],QY=cN[cy-0x1];g(QY,Qf,{'value':Qo,'writable':!![],'enumerable':![],'configurable':!![]});typeof Qo==='function'&&(!vmk_f71a9e['_$3B4wCg']&&(vmk_f71a9e['_$3B4wCg']=new WeakMap()),J['call'](vmk_f71a9e['_$3B4wCg'],Qo,QY));ce++;break;}case 0x3c:{cN[cy-0x1]=!cN[cy-0x1],ce++;break;}}},lB=function(lZ,lw){switch(lZ){case 0x95:{K:{let lM=KQ(cN[--cy]),lz=cN[--cy],lP=vmk_f71a9e['_$gJuDTf'],le=lP?l(lP):Kl(lz),lA=Kd(le,lM);if(lA['desc']&&lA['desc']['get']){let ln=vmk_f71a9e['_$gJuDTf'];vmk_f71a9e['_$gJuDTf']=lA['proto']||le,vmk_f71a9e['_$Dpa0kh']=!![];let lX;try{lX=lA['desc']['get']['call'](lz);}finally{vmk_f71a9e['_$Dpa0kh']=![],vmk_f71a9e['_$gJuDTf']=ln;}cN[cy++]=lX,ce++;break K;}if(lA['desc']&&lA['desc']['set']&&!('value'in lA['desc'])){cN[cy++]=undefined,ce++;break K;}let lS=lA['proto']?lA['proto'][lM]:le[lM];if(typeof lS==='function'){let ls=lA['proto']||le,lp=lS['constructor']&&lS['constructor']['name'],lu=lp==='GeneratorFunction'||lp==='AsyncFunction'||lp==='AsyncGeneratorFunction';!lu&&(!vmk_f71a9e['_$3B4wCg']&&(vmk_f71a9e['_$3B4wCg']=new WeakMap()),J['call'](vmk_f71a9e['_$3B4wCg'],lS,ls));}cN[cy++]=lS,ce++;}break;}case 0x54:{let lq=lw,lV=cN[--cy];l8['_$Do1a2l'][lq]=lV,ce++;break;}case 0x5f:{let lI=cN[--cy],lj=lI&&lI['i']?lI['i']:lI;if(lj!=null){if(cu!==null)try{let lx=lj['return'];typeof lx==='function'&&lx['call'](lj);}catch(lH){}else{let lC=lj['return'];if(lC!=null){if(typeof lC!=='function')throw new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable');let lE=lC['call'](lj);K6(lE);}}}ce++;break;}case 0x40:{cP[lw]=cN[--cy],ce++;break;}case 0xb4:{let lL=cN[--cy],lt=cN[--cy],lF=cZ[lw];g(lt,lF,{'value':lL,'writable':!![],'enumerable':!![],'configurable':!![]});typeof lL==='function'&&(!vmk_f71a9e['_$3B4wCg']&&(vmk_f71a9e['_$3B4wCg']=new WeakMap()),J['call'](vmk_f71a9e['_$3B4wCg'],lL,lt));ce++;break;}case 0x4f:{let lo=cN[--cy],lf=cN[--cy];cN[cy++]=lf+lo,ce++;break;}case 0xb6:{let lY=cN[--cy];cN[cy++]=K9(lY),ce++;break;}case 0xb5:{cN[cy++]={},ce++;break;}case 0x8d:{let lU=cN[--cy],lm=cN[--cy],d0=cN[--cy];g(d0,lm,{'value':lU,'writable':!![],'enumerable':!![],'configurable':!![]});typeof lU==='function'&&(!vmk_f71a9e['_$3B4wCg']&&(vmk_f71a9e['_$3B4wCg']=new WeakMap()),J['call'](vmk_f71a9e['_$3B4wCg'],lU,d0));ce++;break;}case 0x90:{cN[cy++]=cZ[lw],ce++;break;}case 0x69:{let d1=lw&0xffff,d2=lw>>>0x10;cN[cy++]=cP[d1]*cZ[d2],ce++;break;}case 0x7b:{let d3=vmk_f71a9e['_$UwiaZt'];d3===undefined&&cB&&C['has'](cB)&&(d3=C['get'](cB));if(d3===undefined)throw new ReferenceError('\x27super\x27\x20keyword\x20is\x20only\x20valid\x20inside\x20a\x20derived\x20constructor');cN[cy++]=d3,ce++;break;}case 0x91:{let d4=cN[--cy],d5=cZ[lw];if(vmk_f71a9e['_$fJ59Bj']&&d5 in vmk_f71a9e['_$fJ59Bj'])throw new ReferenceError('Cannot\x20access\x20\x27'+d5+'\x27\x20before\x20initialization');let d6=!(d5 in vmk_f71a9e)&&!(d5 in vmg);vmk_f71a9e[d5]=d4;d5 in vmg&&(vmg[d5]=d4);d6&&(vmg[d5]=d4);cN[cy++]=d4,ce++;break;}case 0xa1:{c:{let d7=cN[--cy],d8=cN[--cy];if(typeof d8!=='function')throw new TypeError(d8+'\x20is\x20not\x20a\x20function');let d9=vmk_f71a9e['_$3B4wCg'],dK=!vmk_f71a9e['_$gJuDTf']&&!vmk_f71a9e['_$Ds8RtI']&&!(d9&&D['call'](d9,d8))&&x(d8);if(dK&&dK['_$3vp170']!==![]){let dk=dK['_$zfHo1V']||j(dK,typeof dK['_$hQlpqc']==='object'?dK['_$hQlpqc']['n']!==undefined?0x0?cQ(dK['_$hQlpqc']['n']):dK['_$hQlpqc']['d']||(dK['_$hQlpqc']['d']=cQ(dK['_$hQlpqc']['n'])):dK['_$hQlpqc']:cd(dK['_$hQlpqc']));if(dk){let dR;if(d7===0x0)dR=[];else{if(d7===0x1){let dr=cN[--cy];dR=dr&&typeof dr==='object'&&K['call'](s,dr)?dr['value']:[dr];}else dR=K0(l2,d7);}let dT=dk===cW?ca:cK(dk[0x20],dk[0x21]),dg=dk[0x15*dT[0x0]+dT[0x1]&0x1f];if(dg&&dk===cW&&!dk[0x2*dT[0x0]+dT[0x1]&0x1f]&&dK['_$E8iUhp']===cO){!lQ&&(lQ=[]);lQ[lk++]=l8,lQ[lk++]=lK,lQ[lk++]=lc,lQ[lk++]=cy,lQ[lk++]=ce,lQ[lk++]=cv;for(let dJ=0x0;dJ<ld;dJ++){lQ[lk++]=cP[dJ];}cv=dR,lc=null;if(dk[0x19*dT[0x0]+dT[0x1]&0x1f]){lK=null;let dG=dk[0x20]||0x0;for(let dD=0x0;dD<dG&&dD<dR['length'];dD++){cP[dD]=dR[dD];}for(let dh=dR['length']<dG?dR['length']:dG;dh<ld;dh++){cP[dh]=undefined;}ce=dg;}else{lK=KK(dR);for(let dO=0x0;dO<ld;dO++){cP[dO]=undefined;}ce=0x0;}break c;}vmk_f71a9e['_$Dpa0kh']?vmk_f71a9e['_$Dpa0kh']=![]:vmk_f71a9e['_$gJuDTf']=undefined;cN[cy++]=KB(dK['_$E8iUhp'],d8,undefined,undefined,dR,dk),ce++;break c;}}let dc=vmk_f71a9e['_$gJuDTf'],dl=vmk_f71a9e['_$3B4wCg'],dd=dl&&D['call'](dl,d8);dd?(vmk_f71a9e['_$Dpa0kh']=!![],vmk_f71a9e['_$gJuDTf']=dd):vmk_f71a9e['_$gJuDTf']=undefined;let dQ;try{if(d7===0x0)dQ=d8();else{if(d7===0x1){let dB=cN[--cy];dQ=dB&&typeof dB==='object'&&K['call'](s,dB)?Q(d8,undefined,dB['value']):d8(dB);}else dQ=Q(d8,undefined,K0(l2,d7));}cN[cy++]=dQ;}finally{dd&&(vmk_f71a9e['_$Dpa0kh']=![]),vmk_f71a9e['_$gJuDTf']=dc;}ce++;}break;}case 0x84:{let db=cN[--cy];cN[cy++]=!!db['done'],ce++;break;}case 0x8e:{let di=cN[--cy],dv=cN[--cy],dW=cN[cy-0x1];g(dW,dv,{'get':di,'enumerable':![],'configurable':!![]}),ce++;break;}case 0x5b:{let dN=lw&0xffff,dy=l8['_$Do1a2l'];dy[dN]=dy;let da=lw>>>0x10;da&&((l8['_$BORNwr']||(l8['_$BORNwr']={}))[dN]=cZ[da-0x1]);ce++;break;}case 0xa5:{let dZ=cN[cy-0x1];cN[cy-0x1]=cN[cy-0x2],cN[cy-0x2]=dZ,ce++;break;}case 0x3f:{!cN[--cy]?ce=cM[ce]:(cN[--cy],ce++);break;}case 0x8c:{let dw=cP[lw];if((typeof dw==='object'||typeof dw==='function')&&dw!==null){const dM=dw[Symbol['toPrimitive']];if(dM!=null){dw=dM['call'](dw,'number');if(dw!==null&&(typeof dw==='object'||typeof dw==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dz=dw['valueOf']();if(dz===null||typeof dz!=='object'&&typeof dz!=='function')dw=dz;else{const dP=dw['toString']();if(dP!==null&&(typeof dP==='object'||typeof dP==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dw=dP;}}}cP[lw]=typeof dw===A?dw-0x1n:+dw-0x1,ce++;break;}case 0x92:{let de=cN[--cy],dA=cZ[lw];if(de===null||de===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+de+'\x20(reading\x20'+'\x27'+String(dA)+'\x27'+')');cN[cy++]=de[dA],ce++;break;}case 0x5e:{let dS=cZ[lw],dn=cN[--cy],dX=cN[--cy];if(typeof dn!=='function')throw new TypeError(dn+'\x20is\x20not\x20a\x20function');let ds=vmk_f71a9e['_$3B4wCg'],dp=ds&&D['call'](ds,dn);!dp&&ds&&(dn===h||dn===r)&&(dp=D['call'](ds,dX));let du=vmk_f71a9e['_$gJuDTf'];dp&&(vmk_f71a9e['_$Dpa0kh']=!![],vmk_f71a9e['_$gJuDTf']=dp);let dq;try{if(dS===0x0)dq=Q(dn,dX,S);else{if(dS===0x1){let dV=cN[--cy];dq=dV&&typeof dV==='object'&&K['call'](s,dV)?Q(dn,dX,dV['value']):Q(dn,dX,[dV]);}else dq=Q(dn,dX,K0(l2,dS));}cN[cy++]=dq;}finally{dp&&(vmk_f71a9e['_$Dpa0kh']=![],vmk_f71a9e['_$gJuDTf']=du);}ce++;break;}case 0x6a:{let dI=cN[--cy];if((typeof dI==='object'||typeof dI==='function')&&dI!==null){const dj=dI[Symbol['toPrimitive']];if(dj!=null){dI=dj['call'](dI,'number');if(dI!==null&&(typeof dI==='object'||typeof dI==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dx=dI['valueOf']();if(dx===null||typeof dx!=='object'&&typeof dx!=='function')dI=dx;else{const dH=dI['toString']();if(dH!==null&&(typeof dH==='object'||typeof dH==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dI=dH;}}}cN[cy++]=typeof dI===A?dI-0x1n:+dI-0x1,ce++;break;}case 0x4d:{let dC=cN[--cy],dE=K0(l2,dC),dL=cN[--cy];if(typeof dL!=='function')throw new TypeError(dL+'\x20is\x20not\x20a\x20constructor');if(K['call'](p,dL))throw new TypeError(dL['name']+'\x20is\x20not\x20a\x20constructor');let dt=vmk_f71a9e['_$gJuDTf'];vmk_f71a9e['_$gJuDTf']=undefined;let dF;try{dF=Reflect['construct'](dL,dE);}finally{vmk_f71a9e['_$gJuDTf']=dt;}cN[cy++]=dF,ce++;break;}case 0x8f:{let df=cN[--cy],dY;if(df===null||df===undefined)throw new TypeError(df+'\x20is\x20not\x20iterable');let dU=df[t];if(Array['isArray'](df)&&dU===L){let Q0=df['length'];dY=new Array(Q0);for(let Q1=0x0;Q1<Q0;Q1++){dY[Q1]=df[Q1];}}else{if(dU===null||dU===undefined||typeof dU!=='function')throw new TypeError(df+'\x20is\x20not\x20iterable');let Q2=Q(dU,df,[]);if(Q2===null||typeof Q2!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');dY=[];while(!![]){let Q3=Q2['next']();K6(Q3);if(Q3['done'])break;dY['push'](Q3['value']);}}let dm={'value':dY};c['call'](s,dm),cN[cy++]=dm,ce++;break;}case 0x81:{let Q4=cN[--cy],Q5=cN[--cy];cN[cy++]=Q5==Q4,ce++;break;}case 0xa3:{let Q6=cN[--cy],Q7=cN[--cy],Q8=cN[cy-0x1],Q9=Kc(Q8);g(Q9,Q7,{'set':Q6,'enumerable':Q9===Q8,'configurable':!![]}),ce++;break;}case 0x49:{let QK=cN[--cy],Qc=cN[--cy];cN[cy++]=Qc>>QK,ce++;break;}case 0x80:{cN[cy++]=cZ[lw],ce++;break;}case 0x94:{let Ql=cN[--cy];cN[cy++]=import(Ql),ce++;break;}case 0x46:{let Qd=cN[--cy],QQ=cN[--cy],Qk=(lw^0xe061)>>>0x0,QR;Qk<0x10?Qk<0x8?Qk<0x4?Qk<0x2?QR=Qk<0x1?QQ>>Qd:QQ>=Qd:QR=Qk<0x3?QQ>>>Qd:QQ/Qd:Qk<0x6?QR=Qk<0x5?QQ==Qd:QQ&Qd:QR=Qk<0x7?QQ<=Qd:QQ*Qd:Qk<0xc?Qk<0xa?QR=Qk<0x9?QQ<Qd:QQ+Qd:QR=Qk<0xb?QQ%Qd:QQ-Qd:Qk<0xe?QR=Qk<0xd?QQ!=Qd:QQ^Qd:QR=Qk<0xf?QQ|Qd:QQ===Qd:Qk<0x14?Qk<0x12?QR=Qk<0x11?QQ>Qd:QQ!==Qd:QR=Qk<0x13?QQ<<Qd:QQ**Qd:Qk<0x18?QR=Qk<0x16?QQ|Qd:QQ&Qd:QR=Qk<0x1c?QQ^Qd:Qd-QQ;cN[cy++]=QR,ce++;break;}case 0x6f:{let QT=lw&0xffff,Qg=lw>>>0x10,Qr=l8;for(let QD=0x0;QD<Qg;QD++){Qr=Qr['_$AQ2Nrl'];}let QJ=Qr['_$Do1a2l'],QG=QJ[QT];if(QG===QJ){let Qh=Qr['_$BORNwr'];throw new ReferenceError('Cannot\x20access\x20\x27'+(Qh&&Qh[QT]||'variable')+'\x27\x20before\x20initialization');}cN[cy++]=QG,ce++;break;}case 0xa4:{let QO=cN[--cy],QB=KQ(cN[--cy]),Qb=cN[--cy],Qi=vmk_f71a9e['_$gJuDTf'],Qv=Qi?l(Qi):Kl(Qb);if(Qv===null||Qv===undefined)throw new TypeError('Cannot\x20convert\x20'+Qv+'\x20to\x20object');let QW=Kd(Qv,QB),QN=![];if(QW['desc']){let Qy=QW['desc'];if(Qy['set']){let Qa=vmk_f71a9e['_$gJuDTf'];vmk_f71a9e['_$gJuDTf']=QW['proto']||Qv,vmk_f71a9e['_$Dpa0kh']=!![];try{Qy['set']['call'](Qb,QO);}finally{vmk_f71a9e['_$Dpa0kh']=![],vmk_f71a9e['_$gJuDTf']=Qa;}}else{if(Qy['get']||!('value'in Qy)){if(cF)throw new TypeError('Cannot\x20set\x20property\x20\x27'+String(QB)+'\x27\x20of\x20object\x20which\x20has\x20only\x20a\x20getter');}else{if(Qy['writable']===![]){if(cF)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(QB)+'\x27\x20of\x20object');}else QN=!![];}}}else QN=!![];if(QN){let QZ=Object['getOwnPropertyDescriptor'](Qb,QB);if(QZ){if('value'in QZ){if(QZ['writable'])Qb[QB]=QO;else{if(cF)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(QB)+'\x27\x20of\x20object');}}else{if(cF)throw new TypeError('Cannot\x20redefine\x20property:\x20'+String(QB));}}else{let Qw=Reflect['defineProperty'](Qb,QB,{'value':QO,'writable':!![],'enumerable':!![],'configurable':!![]});if(!Qw&&cF)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(QB)+'\x27\x20of\x20object');}}cN[cy++]=QO,ce++;break;}case 0x47:{let QM=cN[--cy],Qz=cN[cy-0x1];Qz['push'](QM),ce++;break;}case 0x5a:{let QP=cN[--cy];cN[cy++]=QP['next'](),ce++;break;}case 0x68:{let Qe=lw&0xffff,QA=lw>>>0x10;cN[cy++]=cv[Qe]<=cZ[QA],ce++;break;}case 0x6e:{let QS=cv[lw];if((typeof QS==='object'||typeof QS==='function')&&QS!==null){const Qn=QS[Symbol['toPrimitive']];if(Qn!=null){QS=Qn['call'](QS,'number');if(QS!==null&&(typeof QS==='object'||typeof QS==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const QX=QS['valueOf']();if(QX===null||typeof QX!=='object'&&typeof QX!=='function')QS=QX;else{const Qs=QS['toString']();if(Qs!==null&&(typeof Qs==='object'||typeof Qs==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');QS=Qs;}}}cv[lw]=typeof QS===A?QS-0x1n:+QS-0x1,ce++;break;}case 0x5d:{cN[cy++]=null,ce++;break;}case 0xa8:{let Qp=cN[--cy],Qu=cN[--cy];cN[cy++]=Qu|Qp,ce++;break;}case 0xb8:{cN[cy++]=cv[lw],ce++;break;}case 0x79:{let Qq=cN[--cy];if((typeof Qq==='object'||typeof Qq==='function')&&Qq!==null){const QV=Qq[Symbol['toPrimitive']];if(QV!=null){Qq=QV['call'](Qq,'number');if(Qq!==null&&(typeof Qq==='object'||typeof Qq==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const QI=Qq['valueOf']();if(QI===null||typeof QI!=='object'&&typeof QI!=='function')Qq=QI;else{const Qj=Qq['toString']();if(Qj!==null&&(typeof Qj==='object'||typeof Qj==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Qq=Qj;}}}cN[cy++]=typeof Qq===A?Qq:+Qq,ce++;break;}case 0x7c:{cP[lw]=cP[lw]-0x1,ce++;break;}case 0x53:{let Qx=cN[--cy],QH=cN[--cy],QC=cN[cy-0x1];g(QC['prototype'],QH,{'value':Qx,'writable':!![],'enumerable':![],'configurable':!![]});typeof Qx==='function'&&(!vmk_f71a9e['_$3B4wCg']&&(vmk_f71a9e['_$3B4wCg']=new WeakMap()),J['call'](vmk_f71a9e['_$3B4wCg'],Qx,QC['prototype']));ce++;break;}case 0xa0:{if(typeof cN[cy-0x1]==='symbol')throw new TypeError('Cannot\x20convert\x20a\x20Symbol\x20value\x20to\x20a\x20string');cN[cy-0x1]=String(cN[cy-0x1]),ce++;break;}case 0x7a:{cN[cy++]=undefined,ce++;break;}case 0x51:{if(cp&&cp['length']>0x0){let QE=cp[cp['length']-0x1];QE['_$XRoxTk']===ce&&(QE['_$ySjvJn']!==undefined&&(cu=QE['_$ySjvJn'],cL=QE['_$aZenUZ'],ct=QE['_$V87Bwb']),QE['_$Lxang3']!==undefined&&(l8=QE['_$Lxang3']),cp['pop']());}ce++;break;}case 0x48:{let QL=cN[--cy],Qt=cN[--cy];cN[cy++]=Qt>>>QL,ce++;break;}case 0xb7:{let QF=cN[--cy];QF!==null&&QF!==undefined?ce=cM[ce]:ce++;break;}case 0x78:{cN[--cy],ce++;break;}case 0x4c:{let Qo=cN[cy-0x1];cN[cy++]=Qo,ce++;break;}case 0x6b:{let Qf=cN[--cy],QY=cN[cy-0x1];(Qf===null||K1(Qf))&&R(QY,Qf);ce++;break;}case 0x83:{cN[cy++]=cP[lw],ce++;break;}case 0x70:{let QU=cN[--cy],Qm=cN[cy-0x1],k0=cZ[lw];g(Qm['prototype'],k0,{'value':QU,'writable':!![],'enumerable':![],'configurable':!![]});typeof QU==='function'&&(!vmk_f71a9e['_$3B4wCg']&&(vmk_f71a9e['_$3B4wCg']=new WeakMap()),J['call'](vmk_f71a9e['_$3B4wCg'],QU,Qm['prototype']));ce++;break;}case 0x64:{let k1=cN[--cy],k2=cZ[lw];if(cF&&!(k2 in vmg)&&!(k2 in vmk_f71a9e))throw new ReferenceError(k2+'\x20is\x20not\x20defined');vmk_f71a9e[k2]=k1,vmg[k2]=k1,cN[cy++]=k1,ce++;break;}case 0xa9:{let k3=cN[--cy],k4=cN[--cy];cN[cy++]=k4!=k3,ce++;break;}case 0x7f:{let k5=cv[lw];if((typeof k5==='object'||typeof k5==='function')&&k5!==null){const k6=k5[Symbol['toPrimitive']];if(k6!=null){k5=k6['call'](k5,'number');if(k5!==null&&(typeof k5==='object'||typeof k5==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const k7=k5['valueOf']();if(k7===null||typeof k7!=='object'&&typeof k7!=='function')k5=k7;else{const k8=k5['toString']();if(k8!==null&&(typeof k8==='object'||typeof k8==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');k5=k8;}}}cv[lw]=typeof k5===A?k5+0x1n:+k5+0x1,ce++;break;}case 0xa7:{l:{let k9=cN[--cy],kK=K0(l2,k9),kc=cN[--cy];if(lw===0x1){cN[cy++]=kK,ce++;break l;}if(vmk_f71a9e['_$Rs7M06']){ce++;break l;}let kl=vmk_f71a9e['_$8ibiyW'];if(kl){let kk=kl['outer'],kR=kk?l(kk):kl['parent'];if(typeof kR!=='function')throw new TypeError('Super\x20constructor\x20'+String(kR)+'\x20of\x20'+(kk&&kk['name']||'anonymous')+'\x20is\x20not\x20a\x20constructor');let kT=kl['newTarget'],kg=Reflect['construct'](kR,kK,kT);cb&&cb!==kg&&O(cb)['forEach'](function(kr){!(kr in kg)&&(kg[kr]=cb[kr]);});cb=kg,ll=!![],KR(l8,cb),ce++;break l;}if(typeof kc!=='function')throw new TypeError('Super\x20expression\x20must\x20be\x20a\x20constructor');let kd;C['has'](cB)?kd=KT(l8):kd=ll?cb:undefined;let kQ=ci!==undefined?ci:vmk_f71a9e['_$Ds8RtI'];vmk_f71a9e['_$Ds8RtI']=ci;try{let kr;H(kc)?kr=q(kc,cb,kK):kr=kQ!==undefined?Reflect['construct'](kc,kK,kQ):Reflect['construct'](kc,kK),kr!==undefined&&kr!==cb&&K1(kr)&&(cb&&Object['assign'](kr,cb),cb=kr,ci&&ci['prototype']&&l(cb)!==ci['prototype']&&R(cb,ci['prototype'])),ll=!![],KR(l8,cb);}finally{delete vmk_f71a9e['_$Ds8RtI'];}if(kd!==undefined)throw new ReferenceError('Super\x20constructor\x20may\x20only\x20be\x20called\x20once');ce++;}break;}case 0x93:{cN[--cy],cN[cy++]=undefined,ce++;break;}case 0x4b:{let kJ=cN[--cy],kG=cN[--cy],kD=cN[cy-0x1],kh=Kc(kD);g(kh,kG,{'get':kJ,'enumerable':kh===kD,'configurable':!![]}),ce++;break;}case 0xa6:{let kO=cN[--cy],kB=kO&&kO['_$Vyp3HY'];if(kB!==undefined){let kb=kO['_$GHjvbJ'],ki;kb>=kB['length']?ki={'value':undefined,'done':!![]}:(kO['_$GHjvbJ']=kb+0x1,ki={'value':kB[kb],'done':![]}),cN[cy++]=ki,ce++;}else{let kv=kO&&kO['i']?kO['i']:kO,kW=kO&&kO['n']?kO['n']:kv&&kv['next'];if(typeof kW!=='function')throw new TypeError('iterator.next\x20is\x20not\x20a\x20function');let kN=Q(kW,kv,[]);K6(kN),cN[cy++]=kN,ce++;}break;}case 0xa2:{let ky=cN[cy-0x3],ka=cN[cy-0x2],kZ=cN[cy-0x1];cN[cy-0x3]=ka,cN[cy-0x2]=kZ,cN[cy-0x1]=ky,ce++;break;}}},lb=function(lZ,lw){switch(lZ){case 0x129:{let lP=cN[--cy],le=cN[--cy];cN[cy++]=le/lP,ce++;break;}case 0x130:{let lA=cN[--cy],lS=cN[cy-0x1];if(Array['isArray'](lA)&&lA[t]===L){let ln=lS['length'],lX=lA['length'];for(let ls=0x0;ls<lX;ls++){lS[ln+ls]=lA[ls];}}else for(let lp of lA){lS['push'](lp);}ce++;break;}case 0xd5:{cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);break;}case 0xc8:{debugger;ce++;break;}case 0x106:{let lu=cN[--cy],lq=cN[--cy];cN[cy++]=lq>lu,ce++;break;}case 0xfa:{cN[cy-0x1]=cN[cy-0x1]|0x0,ce++;break;}case 0x10d:{cP[lw]=cP[lw]+0x1,ce++;break;}case 0x10e:{let lV=cN[--cy],lI=cN[cy-0x1],lj=cZ[lw];g(lI,lj,{'get':lV,'enumerable':![],'configurable':!![]}),ce++;break;}case 0xff:{cN[cy-0x1]=+cN[cy-0x1],ce++;break;}case 0x12f:{let lx=cN[cy-0x1];lx['length']++,ce++;break;}case 0x11f:{if(cf&&!ll){let lE=KT(l8);if(lE!==undefined)cb=lE,ll=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let lH=cb,lC=cZ[lw];if(lH===null||lH===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+lH+'\x20(reading\x20'+'\x27'+String(lC)+'\x27'+')');cN[cy++]=lH[lC],ce++;break;}case 0x119:{let lL=cN[--cy],lt=cN[--cy];cN[cy++]=lt!==lL,ce++;break;}case 0x118:{K:{let lF=cM[ce];while(cp&&cp['length']>0x0){let lo=cp[cp['length']-0x1];if(lo['_$XRoxTk']!==undefined||!(lF>=lo['_$V87Bwb']||lF<=lo['_$aZenUZ']))break;cp['pop']();}if(cp&&cp['length']>0x0){let lf=cp[cp['length']-0x1];if(lf['_$XRoxTk']!==undefined&&(lF>=lf['_$V87Bwb']||lF<=lf['_$aZenUZ'])){cu=null,cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=!![],cC=lF,cE=l8,cL=lf['_$aZenUZ'],ct=lf['_$V87Bwb'],ce=lf['_$XRoxTk'];break K;}}(cq||cI||cH||cu!==null)&&(lF>=ct||lF<=cL)&&(cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cu=null),ce=lF;}break;}case 0xfd:{cN[cy-0x1]=cN[cy-0x1]>>>0x0,ce++;break;}case 0xfb:{cN[cy++]=ci,ce++;break;}case 0x11e:{let lY=cZ[lw],lU;if(vmk_f71a9e['_$fJ59Bj']&&lY in vmk_f71a9e['_$fJ59Bj'])throw new ReferenceError('Cannot\x20access\x20\x27'+lY+'\x27\x20before\x20initialization');if(lY in vmk_f71a9e)lU=vmk_f71a9e[lY];else{if(lY in vmg)lU=vmg[lY];else throw new ReferenceError(lY+'\x20is\x20not\x20defined');}cN[cy++]=lU,ce++;break;}case 0x11c:{if(lc===null){if(cF||!co){let lm=lK||cv,d0=lm?lm['length']:0x0;lc=G(Object['prototype']);for(let d1=0x0;d1<d0;d1++){lc[d1]=lm[d1];}g(lc,'length',{'value':d0,'writable':!![],'enumerable':![],'configurable':!![]}),g(lc,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),lc=new Proxy(lc,{'has':function(d2,d3){if(d3===Symbol['toStringTag'])return![];return d3 in d2;},'get':function(d2,d3,d4){if(d3===Symbol['toStringTag'])return'Arguments';return Reflect['get'](d2,d3,d4);}}),cF?g(lc,'callee',{'get':X,'set':X,'enumerable':![],'configurable':![]}):g(lc,'callee',{'value':cB,'writable':!![],'enumerable':![],'configurable':!![]});}else{let d2=l9,d3={},d4={},d5=cB,d6=![],d7=!![],d8={},d9=function(dQ){if(typeof dQ!=='string')return NaN;let dk=+dQ;return dk>=0x0&&dk%0x1===0x0&&String(dk)===dQ?dk:NaN;},dK=function(dQ){return!isNaN(dQ)&&dQ>=0x0;},dc=function(dQ){if(dQ in d4)return undefined;if(dQ in d3)return d3[dQ];return dQ<l9?cv[dQ]:undefined;},dl=function(dQ){if(dQ in d4)return![];if(dQ in d3)return!![];return dQ<l9?dQ in cv:![];},dd={};g(dd,'length',{'value':d2,'writable':!![],'enumerable':![],'configurable':!![]}),g(dd,'callee',{'value':cB,'writable':!![],'enumerable':![],'configurable':!![]}),g(dd,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),lc=new Proxy(dd,{'get':function(dQ,dk,dR){if(dk==='length')return d2;if(dk==='callee')return d6?undefined:d5;if(dk===Symbol['toStringTag'])return'Arguments';let dT=d9(dk);if(dK(dT)){if(dT in d8)return Reflect['get'](dQ,dk,dR);return dc(dT);}return Reflect['get'](dQ,dk,dR);},'set':function(dQ,dk,dR){if(dk==='length'){if(!d7)return![];return d2=dR,dQ['length']=dR,!![];}if(dk==='callee')return d5=dR,d6=![],dQ['callee']=dR,!![];let dT=d9(dk);if(dK(dT)){if(dT in d8)return Reflect['set'](dQ,dk,dR);let dg=T(dQ,String(dT));if(dg&&!dg['writable'])return![];if(dT in d4)delete d4[dT],d3[dT]=dR;else dT<l9?cv[dT]=dR:d3[dT]=dR;return!![];}return dQ[dk]=dR,!![];},'has':function(dQ,dk){if(dk==='length')return!![];if(dk==='callee')return!d6;if(dk===Symbol['toStringTag'])return![];let dR=d9(dk);if(dK(dR)){if(String(dR)in dQ)return!![];return dl(dR);}return dk in dQ;},'defineProperty':function(dQ,dk,dR){if(dk==='length')return'value'in dR&&(d2=dR['value']),'writable'in dR&&(d7=dR['writable']),g(dQ,dk,dR),!![];if(dk==='callee')return'value'in dR&&(d5=dR['value']),d6=![],g(dQ,dk,dR),!![];let dT=d9(dk);if(dK(dT)){let dg='get'in dR||'set'in dR,dr=T(dQ,String(dT)),dJ=dT in d8?dr?dr['value']:undefined:dc(dT),dG=dr?dr['writable']!==![]:!![],dD=dr?dr['enumerable']!==![]:!![],dh=dr?dr['configurable']!==![]:!![],dO;if(dg)dO=dR,d8[dT]=0x1,dT in d3&&delete d3[dT],dT in d4&&delete d4[dT];else{let dB='value'in dR?dR['value']:dJ,db='writable'in dR?dR['writable']:dG,di='enumerable'in dR?dR['enumerable']:dD,dv='configurable'in dR?dR['configurable']:dh;dO={'value':dB,'writable':db,'enumerable':di,'configurable':dv},'value'in dR&&(!(dT in d8)&&(dT<l9&&!(dT in d4)?cv[dT]=dR['value']:(d3[dT]=dR['value'],dT in d4&&delete d4[dT]))),'writable'in dR&&dR['writable']===![]&&(d8[dT]=0x1,dT in d3&&delete d3[dT],dT in d4&&delete d4[dT]);}return g(dQ,String(dT),dO),!![];}return g(dQ,dk,dR),!![];},'deleteProperty':function(dQ,dk){if(dk==='callee')return d6=!![],delete dQ['callee'],!![];let dR=d9(dk);if(dK(dR)){let dg=T(dQ,String(dR));if(dg&&dg['configurable']===![])return![];return dR in d8&&delete d8[dR],dR<l9?d4[dR]=0x1:delete d3[dR],delete dQ[dk],!![];}let dT=T(dQ,dk);if(dT&&dT['configurable']===![])return![];return delete dQ[dk],!![];},'preventExtensions':function(dQ){let dk=l9;for(let dR=0x0;dR<dk;dR++){!(dR in d4)&&!T(dQ,String(dR))&&g(dQ,String(dR),{'value':dc(dR),'writable':!![],'enumerable':!![],'configurable':!![]});}for(let dT in d3){!T(dQ,dT)&&g(dQ,dT,{'value':d3[dT],'writable':!![],'enumerable':!![],'configurable':!![]});}return Object['preventExtensions'](dQ),!![];},'getOwnPropertyDescriptor':function(dQ,dk){if(dk==='callee'){if(d6)return undefined;return T(dQ,'callee');}if(dk==='length')return T(dQ,'length');let dR=d9(dk);if(dK(dR)){if(dR in d8)return T(dQ,dk);if(dl(dR)){let dg=T(dQ,String(dR));return{'value':dc(dR),'writable':dg?dg['writable']:!![],'enumerable':dg?dg['enumerable']:!![],'configurable':dg?dg['configurable']:!![]};}return T(dQ,dk);}let dT=T(dQ,dk);if(dT)return dT;return undefined;},'ownKeys':function(dQ){let dk=[],dR=l9;for(let dg=0x0;dg<dR;dg++){!(dg in d4)&&dk['push'](String(dg));}for(let dr in d3){dk['indexOf'](dr)===-0x1&&dk['push'](dr);}dk['push']('length');!d6&&dk['push']('callee');let dT=Reflect['ownKeys'](dQ);for(let dJ=0x0;dJ<dT['length'];dJ++){dk['indexOf'](dT[dJ])===-0x1&&dk['push'](dT[dJ]);}return dk;}});}}cN[cy++]=lc,ce++;break;}case 0x113:{let dQ=cZ[lw],dk=!![];dQ in vmg&&(dk=delete vmg[dQ]);dk&&dQ in vmk_f71a9e&&(dk=delete vmk_f71a9e[dQ]);cN[cy++]=dk,ce++;break;}case 0x126:{let dR=cN[--cy],dT=cN[--cy],dg=cN[--cy];if(typeof dT!=='function')throw new TypeError(dT+'\x20is\x20not\x20a\x20function');let dr=vmk_f71a9e['_$3B4wCg'],dJ=dr&&D['call'](dr,dT);!dJ&&dr&&(dT===h||dT===r)&&(dJ=D['call'](dr,dg));let dG=vmk_f71a9e['_$gJuDTf'];dJ&&(vmk_f71a9e['_$Dpa0kh']=!![],vmk_f71a9e['_$gJuDTf']=dJ);let dD;try{if(dR===0x0)dD=Q(dT,dg,S);else{if(dR===0x1){let dh=cN[--cy];dD=dh&&typeof dh==='object'&&K['call'](s,dh)?Q(dT,dg,dh['value']):Q(dT,dg,[dh]);}else dD=Q(dT,dg,K0(l2,dR));}cN[cy++]=dD;}finally{dJ&&(vmk_f71a9e['_$Dpa0kh']=![],vmk_f71a9e['_$gJuDTf']=dG);}ce++;break;}case 0x12a:{cN[cy-0x1]=typeof cN[cy-0x1],ce++;break;}case 0x12c:{let dO=cN[--cy],dB=cN[--cy];cN[cy++]=dB-dO,ce++;break;}case 0xd6:{let db=cN[--cy],di=cN[--cy];cN[cy++]=di**db,ce++;break;}case 0x107:{let dv=cN[cy-0x1];if(dv==null){var lM=cZ[lw];if(lM===null)throw new TypeError('Cannot\x20destructure\x20\x27'+dv+'\x27\x20as\x20it\x20is\x20'+dv+'.');throw new TypeError('Cannot\x20destructure\x20property\x20\x27'+lM+'\x27\x20of\x20\x27'+dv+'\x27\x20as\x20it\x20is\x20'+dv+'.');}ce++;break;}case 0xdc:{let dW=cN[--cy],dN=cN[cy-0x1],dy=cZ[lw];g(dN,dy,{'set':dW,'enumerable':![],'configurable':!![]}),ce++;break;}case 0x12e:{let da=cN[--cy];if((typeof da==='object'||typeof da==='function')&&da!==null){const dZ=da[Symbol['toPrimitive']];if(dZ!=null){da=dZ['call'](da,'number');if(da!==null&&(typeof da==='object'||typeof da==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dw=da['valueOf']();if(dw===null||typeof dw!=='object'&&typeof dw!=='function')da=dw;else{const dM=da['toString']();if(dM!==null&&(typeof dM==='object'||typeof dM==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');da=dM;}}}cN[cy++]=typeof da===A?da+0x1n:+da+0x1,ce++;break;}case 0x127:{let dz=cN[--cy],dP=cN[--cy];cN[cy++]=dP in dz,ce++;break;}case 0xfe:{let de=lw;l8['_$Do1a2l'][de]=cB;let dA=l8['_$pORDT7'];!dA&&(dA=G(null),l8['_$pORDT7']=dA);dA[de]=0x2,ce++;break;}case 0x117:{let dS=cN[--cy],dn=cN[--cy];cN[cy++]=dn&dS,ce++;break;}case 0x12d:{let dX=cN[--cy],ds=cN[--cy];cN[cy++]=ds%dX,ce++;break;}case 0x11a:{if(lw===-0x2){}else lw===-0x1?cN[--cy]:l8['_$Do1a2l'][lw]=cN[--cy];ce++;break;}case 0x10c:{c:{let dp=lw&0xffff,du=lw>>>0x10,dq=cN[--cy],dV=l8;for(let dH=0x0;dH<du;dH++){dV=dV['_$AQ2Nrl'];}let dI=dV['_$Do1a2l'];if(dI[dp]===dI){let dC=dV['_$BORNwr'];throw new ReferenceError('Cannot\x20access\x20\x27'+(dC&&dC[dp]||'variable')+'\x27\x20before\x20initialization');}let dj=dV['_$pORDT7'],dx=dj&&dj[dp];if(dx){if(dx===0x2&&!cF){ce++;break c;}throw new TypeError('Assignment\x20to\x20constant\x20variable.');}dI[dp]=dq,ce++;break c;}break;}case 0x10b:{l:{while(cp&&cp['length']>0x0){let dL=cp[cp['length']-0x1];if(dL['_$XRoxTk']!==undefined)break;cp['pop']();}if(cp&&cp['length']>0x0){let dt=cp[cp['length']-0x1];if(dt['_$XRoxTk']!==undefined){cu=null,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cq=!![],cV=cN[--cy],cL=dt['_$aZenUZ'],ct=dt['_$V87Bwb'],ce=dt['_$XRoxTk'];break l;}}(cq||cI||cH)&&(cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined);cu=null;let dE=cN[--cy];if(cf&&dE===undefined&&!ll)throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return lh=dE,0x1;}break;}case 0x115:{let dF=cN[--cy];cN[cy++]=Symbol['keyFor'](dF),ce++;break;}case 0x111:{d:{let df=cN[--cy],dY=cN[cy-0x1];if(df===null){R(dY['prototype'],null),R(dY,Function['prototype']),dY['_$xSs2Iw']=null,ce++;break d;}if(typeof df!=='function')throw new TypeError('Class\x20extends\x20value\x20'+String(df)+'\x20is\x20not\x20a\x20constructor\x20or\x20null');let dU=![],dm=H(df);if(!dm){let Q0=T(df,'prototype');dU=!!Q0&&Q0['writable']===![];}if(dU){let Q1=dY,Q2=vmk_f71a9e,Q3='_$Ds8RtI',Q4='_$UwiaZt',Q5='_$8ibiyW';function lz(...Q6){if(new.target===undefined)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');let Q7=G(df['prototype']);Q2[Q5]={'parent':df,'newTarget':new.target||lz,'outer':lz},Q2[Q4]=new.target||lz;let Q8=Q3 in Q2;!Q8&&(Q2[Q3]=new.target);try{let Q9=q(Q1,Q7,Q6);Q9!==undefined&&Q9!==null&&K1(Q9)&&(Q7=Q9);}finally{delete Q2[Q5],delete Q2[Q4],!Q8&&delete Q2[Q3];}return Q7;}lz['prototype']=G(df['prototype']),lz['prototype']['constructor']=lz,R(lz,df),O(Q1)['forEach'](function(Q6){Q6!=='prototype'&&Q6!=='name'&&m(lz,Q6,T(Q1,Q6));});Q1['prototype']&&(O(Q1['prototype'])['forEach'](function(Q6){Q6!=='constructor'&&m(lz['prototype'],Q6,T(Q1['prototype'],Q6));}),k(Q1['prototype'])['forEach'](function(Q6){m(lz['prototype'],Q6,T(Q1['prototype'],Q6));}));cN[--cy],cN[cy++]=lz,lz['_$xSs2Iw']=df,ce++;break d;}R(dY['prototype'],df['prototype']),R(dY,df),dY['_$xSs2Iw']=df,ce++;}break;}case 0x120:{let Q6=lw&0xffff,Q7=lw>>>0x10,Q8=cP[Q6],Q9=cZ[Q7];if(Q8===null||Q8===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Q8+'\x20(reading\x20'+'\x27'+String(Q9)+'\x27'+')');cN[cy++]=Q8[Q9],ce++;break;}case 0x12b:{let QK=lw,Qc=cN[--cy];l8['_$Do1a2l'][QK]=Qc;let Ql=l8['_$pORDT7'];!Ql&&(Ql=G(null),l8['_$pORDT7']=Ql);Ql[QK]=0x1,ce++;break;}case 0x108:{let Qd=cZ[lw];cN[cy++]=Symbol['for'](Qd),ce++;break;}case 0xfc:{let QQ=cN[--cy],Qk=typeof QQ;if(QQ!==null&&(Qk==='object'||Qk==='function')){let QR=G(null);QR[QQ]=0x0,QQ=Reflect['ownKeys'](QR)[0x0];}else Qk!=='symbol'&&(QQ=String(QQ));cN[cy++]=QQ,ce++;break;}case 0x10a:{let QT=lw&0xffff,Qg=lw>>>0x10,Qr=cZ[QT],QJ=cZ[Qg];cN[cy++]=new RegExp(Qr,QJ),ce++;break;}case 0x114:{let QG=cN[--cy],QD=QG&&QG['i']?QG['i']:QG;if(cu!==null)try{QD&&typeof QD['return']==='function'?cN[cy++]=Promise['resolve'](QD['return']())['catch'](function(){return undefined;}):cN[cy++]=Promise['resolve']();}catch(Qh){cN[cy++]=Promise['resolve']();}else{let QO=QD!=null?QD['return']:undefined;if(QO==null)cN[cy++]=Promise['resolve']();else typeof QO!=='function'?cN[cy++]=Promise['reject'](new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable')):cN[cy++]=Promise['resolve'](QO['call'](QD));}ce++;break;}case 0x110:{cN[cy++]=vmr[lw],ce++;break;}case 0x11d:{throw cN[--cy];break;}case 0xb9:{let QB=cN[--cy],Qb=cN[cy-0x1],Qi=cZ[lw],Qv=Kc(Qb);g(Qv,Qi,{'get':QB,'enumerable':Qv===Qb,'configurable':!![]}),ce++;break;}case 0x112:{let QW=lw&0xffff,QN=lw>>>0x10;cN[cy++]=cP[QW]-cZ[QN],ce++;break;}case 0x125:{let Qy,Qa;lw>=0x0?(Qa=cN[--cy],Qy=cZ[lw]):(Qy=cN[--cy],Qa=cN[--cy]);let QZ=delete Qa[Qy];if(cF&&!QZ)throw new TypeError('Cannot\x20delete\x20property\x20\x27'+String(Qy)+'\x27\x20of\x20object');cN[cy++]=QZ,ce++;break;}case 0x100:{let Qw=cN[--cy],QM=cN[--cy],Qz=lw,QP=function(Qe,QA){let QS=function(){let Qn=u===QS;u=undefined;if(new.target===undefined&&!Qn)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');if(Qe){QA&&(vmk_f71a9e['_$UwiaZt']=QS);let QX='_$Ds8RtI'in vmk_f71a9e;!QX&&(vmk_f71a9e['_$Ds8RtI']=new.target);try{let Qs=Qe['apply'](this,KK(arguments));if(QA&&Qs!==undefined&&(Qs===null||typeof Qs!=='object'&&typeof Qs!=='function'))throw new TypeError('Derived\x20constructors\x20may\x20only\x20return\x20object\x20or\x20undefined');return Qs;}finally{QA&&delete vmk_f71a9e['_$UwiaZt'],!QX&&delete vmk_f71a9e['_$Ds8RtI'];}}};return QS;}(QM,Qz);Qw&&g(QP,'name',{'value':Qw,'configurable':!![]});QM&&g(QP,'length',{'value':QM['length'],'configurable':!![]});if(QM&&!H(QP)){let Qe=x(QM);Qe&&(Qe['_$3vp170']=![],I(QP,Qe));}cN[cy++]=QP,ce++;break;}case 0x116:{cN[cy-0x1]=~cN[cy-0x1],ce++;break;}case 0xc9:{Q:{let QA=cM[ce];while(cp&&cp['length']>0x0){let QS=cp[cp['length']-0x1];if(QS['_$XRoxTk']!==undefined||!(QA>=QS['_$V87Bwb']||QA<=QS['_$aZenUZ']))break;cp['pop']();}if(cp&&cp['length']>0x0){let Qn=cp[cp['length']-0x1];if(Qn['_$XRoxTk']!==undefined&&(QA>=Qn['_$V87Bwb']||QA<=Qn['_$aZenUZ'])){cu=null,cq=![],cV=undefined,cH=![],cC=0x0,cE=undefined,cI=!![],cj=QA,cx=l8,cL=Qn['_$aZenUZ'],ct=Qn['_$V87Bwb'],ce=Qn['_$XRoxTk'];break Q;}}(cq||cI||cH||cu!==null)&&(QA>=ct||QA<=cL)&&(cq=![],cV=undefined,cI=![],cj=0x0,cx=undefined,cH=![],cC=0x0,cE=undefined,cu=null),ce=QA;}break;}case 0x128:{let QX=cN[--cy],Qs=cN[--cy],Qp=cN[cy-0x1];g(Qp,Qs,{'set':QX,'enumerable':![],'configurable':!![]}),ce++;break;}case 0x11b:{let Qu=cN[--cy],Qq=cN[--cy];cN[cy++]=Qu==null||typeof Qu!=='object'&&typeof Qu!=='function'?!![]:Qq in Qu,ce++;break;}case 0x109:{let QV=cN[--cy],QI=cN[--cy];cN[cy++]=QI<<QV,ce++;break;}}};while(ce<cA){try{while(ce<cA){let lZ=ce<<cs,lw=cw[cn+lZ],lM=cw[cX+lZ];if(lw===P){let lz=l2();return ce++,{['_$E6zmB9']:y,['_$SsSPwH']:lz,['_$ptH4Gq']:lR};}if(lw===M){let lP=l2();return ce++,{['_$E6zmB9']:a,['_$SsSPwH']:lP,['_$ptH4Gq']:lR};}if(lw===z){let le=l2();return ce++,{['_$E6zmB9']:Z,['_$SsSPwH']:le,['_$ptH4Gq']:lR};}switch(li[lw]){case 0x1:{cN[cy++]=cv[lM],ce++;continue;}case 0x2:{let lA=cN[--cy];lA!==null&&lA!==undefined?ce=cM[ce]:ce++;continue;}case 0x3:{cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);continue;}case 0x4:{let lS=cN[--cy],ln=cN[--cy];cN[cy++]=ln<=lS,ce++;continue;}case 0x5:{let lX=cN[--cy],ls=cN[--cy];cN[cy++]=ls>=lX,ce++;continue;}case 0x6:{let lp=cP[lM];if((typeof lp==='object'||typeof lp==='function')&&lp!==null){const lu=lp[Symbol['toPrimitive']];if(lu!=null){lp=lu['call'](lp,'number');if(lp!==null&&(typeof lp==='object'||typeof lp==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const lq=lp['valueOf']();if(lq===null||typeof lq!=='object'&&typeof lq!=='function')lp=lq;else{const lV=lp['toString']();if(lV!==null&&(typeof lV==='object'||typeof lV==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');lp=lV;}}}cP[lM]=typeof lp===A?lp-0x1n:+lp-0x1,ce++;continue;}case 0x7:{cN[cy++]=null,ce++;continue;}case 0x8:{let lI=cN[--cy],lj=cN[--cy];cN[cy++]=lj+lI,ce++;continue;}case 0x9:{if(cf&&!ll){let lC=KT(l8);if(lC!==undefined)cb=lC,ll=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let lx=cb,lH=cZ[lM];if(lx===null||lx===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+lx+'\x20(reading\x20'+'\x27'+String(lH)+'\x27'+')');cN[cy++]=lx[lH],ce++;continue;}case 0xa:{let lE=cv[lM];if((typeof lE==='object'||typeof lE==='function')&&lE!==null){const lL=lE[Symbol['toPrimitive']];if(lL!=null){lE=lL['call'](lE,'number');if(lE!==null&&(typeof lE==='object'||typeof lE==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const lt=lE['valueOf']();if(lt===null||typeof lt!=='object'&&typeof lt!=='function')lE=lt;else{const lF=lE['toString']();if(lF!==null&&(typeof lF==='object'||typeof lF==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');lE=lF;}}}cv[lM]=typeof lE===A?lE+0x1n:+lE+0x1,ce++;continue;}case 0xb:{let lo=cN[--cy],lf=cN[--cy];cN[cy++]=lf==lo,ce++;continue;}case 0xc:{let lY=cN[--cy],lU=cN[--cy];cN[cy++]=lU*lY,ce++;continue;}case 0xd:{let lm=cN[--cy],d0=cN[--cy];cN[cy++]=d0!=lm,ce++;continue;}case 0xe:{cN[cy++]=cZ[lM],ce++;continue;}case 0xf:{let d1=cN[--cy],d2=cN[--cy];cN[cy++]=d2<d1,ce++;continue;}case 0x10:{let d3=cN[--cy],d4=cN[--cy],d5=cZ[lM];if(d4===null||d4===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+d4+'\x20(setting\x20'+'\x27'+String(d5)+'\x27'+')');if(cF){let d6=typeof d4==='object'||typeof d4==='function'?d4:Object(d4);if(!Reflect['set'](d6,d5,d3,d4))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(d5)+'\x27\x20of\x20object');}else d4[d5]=d3;cN[cy++]=d3,ce++;continue;}case 0x11:{let d7=cN[--cy],d8=cN[--cy];cN[cy++]=d8/d7,ce++;continue;}case 0x12:{cv[lM]=cN[--cy],ce++;continue;}case 0x13:{cP[lM]=cP[lM]+0x1,ce++;continue;}case 0x14:{let d9=lM&0xffff,dK=lM>>>0x10,dc=l8;for(let dQ=0x0;dQ<dK;dQ++){dc=dc['_$AQ2Nrl'];}let dl=dc['_$Do1a2l'],dd=dl[d9];if(dd===dl){let dk=dc['_$BORNwr'];throw new ReferenceError('Cannot\x20access\x20\x27'+(dk&&dk[d9]||'variable')+'\x27\x20before\x20initialization');}cN[cy++]=dd,ce++;continue;}case 0x15:{let dR=lM&0xffff,dT=lM>>>0x10;cN[cy++]=cP[dR]*cZ[dT],ce++;continue;}case 0x16:{cN[cy-0x1]=cN[cy-0x1]|0x0,ce++;continue;}case 0x17:{cN[--cy]?ce=cM[ce]:ce++;continue;}case 0x18:{let dg=cv[lM];if((typeof dg==='object'||typeof dg==='function')&&dg!==null){const dr=dg[Symbol['toPrimitive']];if(dr!=null){dg=dr['call'](dg,'number');if(dg!==null&&(typeof dg==='object'||typeof dg==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dJ=dg['valueOf']();if(dJ===null||typeof dJ!=='object'&&typeof dJ!=='function')dg=dJ;else{const dG=dg['toString']();if(dG!==null&&(typeof dG==='object'||typeof dG==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dg=dG;}}}cv[lM]=typeof dg===A?dg-0x1n:+dg-0x1,ce++;continue;}case 0x19:{let dD=cN[cy-0x1];cN[cy++]=dD,ce++;continue;}case 0x1a:{let dh=cN[--cy],dO=cN[--cy];cN[cy++]=dO!==dh,ce++;continue;}case 0x1b:{cP[lM]=cP[lM]-0x1,ce++;continue;}case 0x1c:{let dB=cN[cy-0x1],db=cZ[lM];if(dB===null||dB===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dB+'\x20(reading\x20'+'\x27'+String(db)+'\x27'+')');cN[cy++]=dB[db],ce++;continue;}case 0x1d:{let di=cN[--cy];if((typeof di==='object'||typeof di==='function')&&di!==null){const dv=di[Symbol['toPrimitive']];if(dv!=null){di=dv['call'](di,'number');if(di!==null&&(typeof di==='object'||typeof di==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dW=di['valueOf']();if(dW===null||typeof dW!=='object'&&typeof dW!=='function')di=dW;else{const dN=di['toString']();if(dN!==null&&(typeof dN==='object'||typeof dN==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');di=dN;}}}cN[cy++]=typeof di===A?di-0x1n:+di-0x1,ce++;continue;}case 0x1e:{cP[lM]=cN[--cy],ce++;continue;}case 0x1f:{let dy=lM&0xffff,da=lM>>>0x10;cN[cy++]=cv[dy]<=cZ[da],ce++;continue;}case 0x20:{let dZ=cP[lM];if((typeof dZ==='object'||typeof dZ==='function')&&dZ!==null){const dw=dZ[Symbol['toPrimitive']];if(dw!=null){dZ=dw['call'](dZ,'number');if(dZ!==null&&(typeof dZ==='object'||typeof dZ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const dM=dZ['valueOf']();if(dM===null||typeof dM!=='object'&&typeof dM!=='function')dZ=dM;else{const dz=dZ['toString']();if(dz!==null&&(typeof dz==='object'||typeof dz==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');dZ=dz;}}}cP[lM]=typeof dZ===A?dZ+0x1n:+dZ+0x1,ce++;continue;}case 0x21:{let dP=lM&0xffff,de=lM>>>0x10;cN[cy++]=cv[dP]-cZ[de],ce++;continue;}case 0x22:{let dA=lM&0xffff,dS=lM>>>0x10,dn=cP[dA],dX=cZ[dS];if(dn===null||dn===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dn+'\x20(reading\x20'+'\x27'+String(dX)+'\x27'+')');cN[cy++]=dn[dX],ce++;continue;}case 0x23:{let ds=cN[--cy];if((typeof ds==='object'||typeof ds==='function')&&ds!==null){const dp=ds[Symbol['toPrimitive']];if(dp!=null){ds=dp['call'](ds,'number');if(ds!==null&&(typeof ds==='object'||typeof ds==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const du=ds['valueOf']();if(du===null||typeof du!=='object'&&typeof du!=='function')ds=du;else{const dq=ds['toString']();if(dq!==null&&(typeof dq==='object'||typeof dq==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');ds=dq;}}}cN[cy++]=typeof ds===A?ds+0x1n:+ds+0x1,ce++;continue;}case 0x24:{let dV=cN[--cy],dI=cN[--cy];cN[cy++]=dI===dV,ce++;continue;}case 0x25:{cN[cy++]=undefined,ce++;continue;}case 0x26:{!cN[cy-0x1]?ce=cM[ce]:(cN[--cy],ce++);continue;}case 0x27:{let dj=cN[--cy],dx=cZ[lM];if(dj===null||dj===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+dj+'\x20(reading\x20'+'\x27'+String(dx)+'\x27'+')');cN[cy++]=dj[dx],ce++;continue;}case 0x28:{let dH=lM&0xffff,dC=lM>>>0x10;cN[cy++]=cP[dH]+cZ[dC],ce++;continue;}case 0x29:{ce=cM[ce];continue;}case 0x2a:{let dE=lM&0xffff,dL=lM>>>0x10;cN[cy++]=cP[dE]-cZ[dL],ce++;continue;}case 0x2b:{!cN[--cy]?ce=cM[ce]:ce++;continue;}case 0x2c:{let dt=cN[--cy],dF=cN[--cy];cN[cy++]=dF%dt,ce++;continue;}case 0x2d:{cN[cy++]=cZ[lM],ce++;continue;}case 0x2e:{let df=cN[--cy],dY=cN[--cy],dU=cN[--cy];if(dU===null||dU===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+dU+'\x20(setting\x20'+(typeof dY==='symbol'?'\x27'+dY['toString']()+'\x27':typeof dY==='string'?'\x27'+dY+'\x27':typeof dY==='object'||typeof dY==='function'?'\x27<computed\x20key>\x27':'\x27'+String(dY)+'\x27')+')');if(cF){let dm=typeof dU==='object'||typeof dU==='function'?dU:Object(dU);if(!Reflect['set'](dm,dY,df,dU))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(dY)+'\x27\x20of\x20object');}else dU[dY]=df;cN[cy++]=df,ce++;continue;}case 0x2f:{let Q0=cN[--cy],Q1=cN[--cy];cN[cy++]=Q1-Q0,ce++;continue;}case 0x30:{let Q2=lM&0xffff,Q3=lM>>>0x10;cN[cy++]=cP[Q2]<cZ[Q3],ce++;continue;}case 0x31:{let Q4=cN[--cy],Q5=cN[--cy];if(Q5===null||Q5===undefined){if(Q4===Symbol['iterator'])throw new TypeError((Q5===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Q5+'\x20(reading\x20'+(typeof Q4==='symbol'?'\x27'+Q4['toString']()+'\x27':typeof Q4==='string'?'\x27'+Q4+'\x27':typeof Q4==='object'||typeof Q4==='function'?'\x27<computed\x20key>\x27':'\x27'+String(Q4)+'\x27')+')');}cN[cy++]=Q5[Q4],ce++;continue;}case 0x32:{let Q6=cN[--cy],Q7=cN[--cy];cN[cy++]=Q7>Q6,ce++;continue;}case 0x33:{let Q8=cN[--cy];if((typeof Q8==='object'||typeof Q8==='function')&&Q8!==null){const Q9=Q8[Symbol['toPrimitive']];if(Q9!=null){Q8=Q9['call'](Q8,'number');if(Q8!==null&&(typeof Q8==='object'||typeof Q8==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const QK=Q8['valueOf']();if(QK===null||typeof QK!=='object'&&typeof QK!=='function')Q8=QK;else{const Qc=Q8['toString']();if(Qc!==null&&(typeof Qc==='object'||typeof Qc==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Q8=Qc;}}}cN[cy++]=typeof Q8===A?Q8:+Q8,ce++;continue;}case 0x34:{cN[cy-0x1]=cN[cy-0x1]>>>0x0,ce++;continue;}case 0x35:{let Ql=cN[--cy],Qd=cN[--cy],QQ=(lM^0xe061)>>>0x0,Qk;QQ<0x10?QQ<0x8?QQ<0x4?QQ<0x2?Qk=QQ<0x1?Qd>>Ql:Qd>=Ql:Qk=QQ<0x3?Qd>>>Ql:Qd/Ql:QQ<0x6?Qk=QQ<0x5?Qd==Ql:Qd&Ql:Qk=QQ<0x7?Qd<=Ql:Qd*Ql:QQ<0xc?QQ<0xa?Qk=QQ<0x9?Qd<Ql:Qd+Ql:Qk=QQ<0xb?Qd%Ql:Qd-Ql:QQ<0xe?Qk=QQ<0xd?Qd!=Ql:Qd^Ql:Qk=QQ<0xf?Qd|Ql:Qd===Ql:QQ<0x14?QQ<0x12?Qk=QQ<0x11?Qd>Ql:Qd!==Ql:Qk=QQ<0x13?Qd<<Ql:Qd**Ql:QQ<0x18?Qk=QQ<0x16?Qd|Ql:Qd&Ql:Qk=QQ<0x1c?Qd^Ql:Ql-Qd;cN[cy++]=Qk,ce++;continue;}case 0x36:{cN[cy++]=cP[lM],ce++;continue;}case 0x37:{cN[--cy],ce++;continue;}}if(lw<0x3f){if(lO(lw,lM)){if(lk>0x0){for(let QR=ld-0x1;QR>=0x0;QR--){cP[QR]=lQ[--lk];}cv=lQ[--lk],ce=lQ[--lk],cy=lQ[--lk],lc=lQ[--lk],lK=lQ[--lk],l8=lQ[--lk],cN[cy++]=lh,ce++;continue;}return lh;}}else{if(lw<0xb9){if(lB(lw,lM)){if(lk>0x0){for(let QT=ld-0x1;QT>=0x0;QT--){cP[QT]=lQ[--lk];}cv=lQ[--lk],ce=lQ[--lk],cy=lQ[--lk],lc=lQ[--lk],lK=lQ[--lk],l8=lQ[--lk],cN[cy++]=lh,ce++;continue;}return lh;}}else{if(lb(lw,lM)){if(lk>0x0){for(let Qg=ld-0x1;Qg>=0x0;Qg--){cP[Qg]=lQ[--lk];}cv=lQ[--lk],ce=lQ[--lk],cy=lQ[--lk],lc=lQ[--lk],lK=lQ[--lk],l8=lQ[--lk],cN[cy++]=lh,ce++;continue;}return lh;}}}}break;}catch(Qr){n=0x0;if(cp&&cp['length']>0x0){let QJ=cp[cp['length']-0x1];cy=QJ['_$1qGCNY'];QJ['_$Lxang3']!==undefined&&(l8=QJ['_$Lxang3']);if(QJ['_$p5x6KB']!==undefined)cu=null,l1(Qr),ce=QJ['_$p5x6KB'],QJ['_$p5x6KB']=undefined,QJ['_$XRoxTk']===undefined&&cp['pop']();else QJ['_$XRoxTk']!==undefined?(ce=QJ['_$XRoxTk'],QJ['_$ySjvJn']=Qr):(ce=QJ['_$V87Bwb'],cp['pop']());continue;}throw Qr;}}if(cf&&!ll){let QG=KT(l8);QG!==undefined&&(cb=QG,ll=!![]);}let lv=cy>0x0?cN[--cy]:ll?cb:undefined;if(cf&&!ll&&(lv===undefined||lv===null||typeof lv!=='object'&&typeof lv!=='function'))throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return lv;}return lR(0x0);}function*Ki(cO,cB,cb,ci,cv,cW){let cN=Kb(cO,cB,cb,ci,cv,cW);while(!![]){if(cN&&typeof cN==='object'&&cN['_$E6zmB9']!==undefined){let cy=cN['_$ptH4Gq'],ca;try{ca=yield cN;}catch(cZ){cN=cy(0x2,cZ);continue;}ca&&typeof ca==='object'&&ca['_$E6zmB9']===w?cN=cy(0x3,ca['_$SsSPwH']):cN=cy(0x1,ca);}else return cN;}}let Kv=0x0,KW=function(cO){let cB=cO['next'],cb=cO['throw'],ci=cO['return'];return cO['next']=function(cv){Kv++;try{return cB['call'](cO,cv);}finally{Kv--;}},cO['throw']=function(cv){Kv++;try{return cb['call'](cO,cv);}finally{Kv--;}},cO['return']=function(cv){Kv++;try{return ci['call'](cO,cv);}finally{Kv--;}},cO;},KN=function(cO,cB,cb,ci,cv,cW){Kv++;try{vmk_f71a9e['_$Dpa0kh']?vmk_f71a9e['_$Dpa0kh']=![]:vmk_f71a9e['_$gJuDTf']=undefined;let cN=typeof cW==='object'?cW['n']!==undefined?0x0?cQ(cW['n']):cW['d']||(cW['d']=cQ(cW['n'])):cW:cd(cW),cy=cN&&cK(cN[0x20],cN[0x21]);return KB(cO,cB,cb,ci,cv,cN);}finally{Kv--;}},Ky=0x0,Ka=0x5,KZ=0x7,Kw=0xb,KM=0x1,Kz=0x9,KP=0x6,Ke=0x4,KA=0x8,KS=0xa,Kn=0x3,KX=0x2,Ks=0x100000,Kp=0x40,Ku=0x200000,Kq=0x400000,KV=0x8,KI=0x1000,Kj=0x40000,Kx=0x20,KH=0x1,KC=0x80000,KE=0x4,KL=0x20000,Kt=0x10000,KF=0x400,Ko=0x8000,Kf=0x200,KY=0x100,KU=0x2,Km=0x4000,c0=0x800,c1=0x2000,c2=0x80;function c3(cO){this['_$O1JkZD']=cO,this['_$vfo0nG']=new i(cO['buffer'],cO['byteOffset'],cO['byteLength']),this['_$PY3KAv']=0x0;}c3['prototype']['_$1cT5nY']=function(){return this['_$O1JkZD'][this['_$PY3KAv']++];},c3['prototype']['_$5ayuBR']=function(){let cO=this['_$vfo0nG']['getUint16'](this['_$PY3KAv'],!![]);return this['_$PY3KAv']+=0x2,cO;},c3['prototype']['_$7quZg8']=function(){let cO=this['_$vfo0nG']['getUint32'](this['_$PY3KAv'],!![]);return this['_$PY3KAv']+=0x4,cO;},c3['prototype']['_$OuWude']=function(){let cO=this['_$vfo0nG']['getInt32'](this['_$PY3KAv'],!![]);return this['_$PY3KAv']+=0x4,cO;},c3['prototype']['_$7hPx2y']=function(){let cO=this['_$vfo0nG']['getFloat64'](this['_$PY3KAv'],!![]);return this['_$PY3KAv']+=0x8,cO;},c3['prototype']['_$Q2BNm7']=function(){let cO=0x0,cB=0x0,cb;do{cb=this['_$1cT5nY'](),cO|=(cb&0x7f)<<cB,cB+=0x7;}while(cb>=0x80);return cO>>>0x1^-(cO&0x1);},c3['prototype']['_$dOukoy']=function(){let cO=this['_$Q2BNm7'](),cB=this['_$O1JkZD'],cb=this['_$PY3KAv'],ci=cb+cO;this['_$PY3KAv']=ci;var cv='';while(cb<ci){var cW=cB[cb++];if(cW<0x80)cv+=v(cW);else{if(cW<0xe0)cv+=v((cW&0x1f)<<0x6|cB[cb++]&0x3f);else{if(cW<0xf0)cv+=v((cW&0xf)<<0xc|(cB[cb++]&0x3f)<<0x6|cB[cb++]&0x3f);else{var cN=(cW&0x7)<<0x12|(cB[cb++]&0x3f)<<0xc|(cB[cb++]&0x3f)<<0x6|cB[cb++]&0x3f;cN-=0x10000,cv+=v((cN>>0xa)+0xd800,(cN&0x3ff)+0xdc00);}}}}return cv;};var c4='X/D8sEWONxBev5j0ZzoFQiH14U7aGRMpIhrkCKPbw+VJc36gAmdtYfnq29ylTSuL',c5=new b(0x80);for(var c6=0x0;c6<c4['length'];c6++){c5[c4['charCodeAt'](c6)]=c6;}function c7(cO){var cB=cO['charCodeAt'](cO['length']-0x1)===0x3d?cO['charCodeAt'](cO['length']-0x2)===0x3d?0x2:0x1:0x0,cb=(cO['length']*0x3>>0x2)-cB,ci=new b(cb),cv=0x0;for(var cW=0x0;cW<cO['length'];cW+=0x4){var cN=c5[cO['charCodeAt'](cW)],cy=c5[cO['charCodeAt'](cW+0x1)],ca=c5[cO['charCodeAt'](cW+0x2)],cZ=c5[cO['charCodeAt'](cW+0x3)];ci[cv++]=cN<<0x2|cy>>0x4,cv<cb&&(ci[cv++]=(cy&0xf)<<0x4|ca>>0x2),cv<cb&&(ci[cv++]=(ca&0x3)<<0x6|cZ);}return ci;}function c8(cO,cB,cb){let ci=cO['_$Q2BNm7'](),cv=(cb^cB*0x9e3779b1)>>>0x0||0x1,cW=0x0;var cN='';function cy(){return cv=(cv^cv<<0xd)>>>0x0,cv=(cv^cv>>>0x11)>>>0x0,cv=(cv^cv<<0x5)>>>0x0,cW++,cO['_$1cT5nY']()^cv&0xff;}while(cW<ci){var ca=cy();if(ca<0x80)cN+=v(ca);else{if(ca<0xe0)cN+=v((ca&0x1f)<<0x6|cy()&0x3f);else{if(ca<0xf0)cN+=v((ca&0xf)<<0xc|(cy()&0x3f)<<0x6|cy()&0x3f);else{var cZ=((ca&0x7)<<0x12|(cy()&0x3f)<<0xc|(cy()&0x3f)<<0x6|cy()&0x3f)-0x10000;cN+=v((cZ>>0xa)+0xd800,(cZ&0x3ff)+0xdc00);}}}}return cN;}function c9(cO,cB,cb){let ci=cO['_$1cT5nY']();switch(ci){case Ky:return null;case Ka:return undefined;case KZ:return![];case Kw:return!![];case KM:{let cv=cO['_$1cT5nY']();return cv>0x7f?cv-0x100:cv;}case Kz:{let cW=cO['_$5ayuBR']();return cW>0x7fff?cW-0x10000:cW;}case KP:return cO['_$OuWude']();case Ke:return cO['_$7hPx2y']();case KA:return cb?c8(cO,cB,cb):cO['_$dOukoy']();case KS:return BigInt(cO['_$dOukoy']());case Kn:{let cN=cO['_$dOukoy'](),cy=cO['_$dOukoy']();return new RegExp(cN,cy);}case KX:{let ca=cO['_$Q2BNm7'](),cZ=new b(ca);for(let cw=0x0;cw<ca;cw++){cZ[cw]=cO['_$1cT5nY']();}return cc(cZ);}default:return null;}}function cK(cO,cB){var cb=(Math['imul']((cO>>>0x0)+0x1,0x75a19add|0x1)^Math['imul']((cB>>>0x0)+0x1,0x75a19add>>>0x9|0x1)^0x75a19add)>>>0x0;return[(cb|0x1)>>>0x0,Math['imul'](cb,0x21049d99)+0xb900b0bb>>>0x0];}function cc(cO){let cB;if(cO&&cO['_$PY3KAv']!==undefined)cB=cO;else{let cX=typeof cO==='string'?c7(cO):cO;cB=new c3(cX);}let cb=cB['_$1cT5nY'](),ci=(cB['_$7quZg8']()^0xb717cac2)>>>0x0,cv=cB['_$Q2BNm7'](),cW=cB['_$Q2BNm7'](),cN=[],cy=cK(cv,cW);cN[0x20]=cv,cN[0x21]=cW;ci&KE&&(cN[0xd*cy[0x0]+cy[0x1]&0x1f]=cB['_$7quZg8']());if(ci&KV){let cs=cB['_$Q2BNm7'](),cp={};for(let cu=0x0;cu<cs;cu++){let cq=cB['_$Q2BNm7'](),cV=cB['_$Q2BNm7']();cp[cq]=cV;}cN[0x5*cy[0x0]+cy[0x1]&0x1f]=cp;}ci&KI&&(cN[0x16*cy[0x0]+cy[0x1]&0x1f]=cB['_$7quZg8']());ci&KC&&(cN[0x18*cy[0x0]+cy[0x1]&0x1f]=cB['_$Q2BNm7']());ci&c1&&(cN[0x4*cy[0x0]+cy[0x1]&0x1f]=cB['_$Q2BNm7']());ci&KH&&(cN[0x1*cy[0x0]+cy[0x1]&0x1f]=cB['_$7quZg8']());ci&Kq&&(cN[0xa*cy[0x0]+cy[0x1]&0x1f]=cB['_$Q2BNm7']());ci&Kx&&(cN[0x6*cy[0x0]+cy[0x1]&0x1f]=cB['_$7quZg8']());ci&Kj&&(cN[0x3*cy[0x0]+cy[0x1]&0x1f]=cB['_$7quZg8']());ci&c0&&(cN[0x15*cy[0x0]+cy[0x1]&0x1f]=cB['_$Q2BNm7']());ci&Ks&&(cN[0x10*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&Kp&&(cN[0x8*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&Ku&&(cN[0x11*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&Ko&&(cN[0x13*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&Kf&&(cN[0xb*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&KY&&(cN[0x19*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&KU&&(cN[0x12*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&Km&&(cN[0x7*cy[0x0]+cy[0x1]&0x1f]=0x1);ci&KF&&(cN[0x9*cy[0x0]+cy[0x1]&0x1f]=0x1);let ca=cB['_$Q2BNm7'](),cZ=[];K4(cZ,null);let cw=cN[0x6*cy[0x0]+cy[0x1]&0x1f]||0x0;for(let cI=0x0;cI<ca;cI++){cZ[cI]=c9(cB,cI,cw);}cN[0xf*cy[0x0]+cy[0x1]&0x1f]=cZ;function cM(cj){let cx=cj['_$1cT5nY']();switch(cx){case Ky:return-0x1;case KM:{let cH=cj['_$1cT5nY']();return cH>0x7f?cH-0x100:cH;}case Kz:{let cC=cj['_$5ayuBR']();return cC>0x7fff?cC-0x10000:cC;}case KP:return cj['_$OuWude']();case Ke:return cj['_$7hPx2y']()|0x0;case KA:return cj['_$dOukoy']()|0x0;default:return-0x1;}}let cz=cB['_$Q2BNm7'](),cP=!!(ci&c2),ce=cP?cz*0x3:cz<<0x1;if(cz<0x0||ce<0x0)throw new RangeError('Invalid\x20array\x20length');let cA=null,cS={'__proto__':cA,'length':ce},cn=0x0;if(cP){let cj=cN[0x0*cy[0x0]+cy[0x1]&0x1f]<=0x80;for(let cx=0x0;cx<cz;cx++){cS[cn++]=cB['_$Q2BNm7'](),cS[cn++]=cM(cB);let cH=0x0,cC=0x0,cE;do{cE=cB['_$1cT5nY'](),cH|=(cE&0x7f)<<cC,cC+=0x7;}while(cE>=0x80);cH=cH>>>0x0,cS[cn++]=cj?(cH&0x7f)<<0x14|(cH>>>0x7&0x7f)<<0xa|cH>>>0xe&0x7f:(cH&0xfff)<<0x14|(cH>>>0xc&0x3ff)<<0xa|cH>>>0x16&0x3ff;}}else{let cL=(cv*0x54f5^cW*0xb07^cz*0x6f69^ca*0xf979)>>>0x0&0x3;switch(cL){case 0x1:for(let ct=0x0;ct<cz;ct++){cS[cn++]=cM(cB),cS[cn++]=cB['_$Q2BNm7']();}break;case 0x2:for(let cF=0x0;cF<cz;cF++){cS[cn++]=cM(cB);}for(let co=0x0;co<cz;co++){cS[cn++]=cB['_$Q2BNm7']();}break;case 0x3:for(let cf=0x0;cf<cz;cf++){cS[cn++]=cB['_$Q2BNm7'](),cS[cn++]=cM(cB);}break;default:for(let cY=0x0;cY<cz;cY++){cS[cn++]=cB['_$Q2BNm7']();}for(let cU=0x0;cU<cz;cU++){cS[cn++]=cM(cB);}break;}}cN[0xe*cy[0x0]+cy[0x1]&0x1f]=cS;if(ci&KL){let cm=cB['_$Q2BNm7'](),l0={};for(let l1=0x0;l1<cm;l1++){let l2=cB['_$Q2BNm7'](),l3=cB['_$Q2BNm7']();l0[l2]=l3;}cN[0x17*cy[0x0]+cy[0x1]&0x1f]=l0;}if(ci&Kt){let l4=cB['_$Q2BNm7'](),l5={};for(let l6=0x0;l6<l4;l6++){let l7=cB['_$Q2BNm7'](),l8=cB['_$Q2BNm7']()-0x1,l9=cB['_$Q2BNm7']()-0x1,lK=cB['_$Q2BNm7']()-0x1;l5[l7]=[l8,l9,lK];}cN[0x2*cy[0x0]+cy[0x1]&0x1f]=l5;}return cN;}let cl=function(cO,cB){let cb={};return function(ci){if(cB!==undefined&&(!(ci<cB)||ci<0x0))throw 0x0;let cv=ci;if(cb[cv])return cb[cv];let cW=cO[cv];return typeof cW==='string'?cb[cv]=cc(cW):cb[cv]=cW,cb[cv];};},cd=cl(B);B=null;let cQ=cl(W,undefined,0x0);W=null;let ck=async function(cO,cB,cb,ci,cv,cW,cN){Kv++;try{let cy=typeof cN==='object'?cN['n']!==undefined?0x0?cQ(cN['n']):cN['d']||(cN['d']=cQ(cN['n'])):cN:cd(cN),ca=cy&&cK(cy[0x20],cy[0x21]),cZ=Ki(cO,cB,cb,cv,cW,cy),cw=cZ['next']();while(!cw['done']){if(cw['value']['_$E6zmB9']!==y)throw new Error('Unexpected\x20yield\x20in\x20async\x20context');try{let cM;cM=await cw['value']['_$SsSPwH'],vmk_f71a9e['_$gJuDTf']=ci,cw=cZ['next'](cM);}catch(cz){vmk_f71a9e['_$gJuDTf']=ci,cw=cZ['throw'](cz);}}return cw['value'];}finally{Kv--;}},cR=function(cO,cB,cb,ci,cv,cW){let cN,cy;Kv++;try{cN=typeof cW==='object'?cW['n']!==undefined?0x0?cQ(cW['n']):cW['d']||(cW['d']=cQ(cW['n'])):cW:cd(cW),cy=cN&&cK(cN[0x20],cN[0x21]);}finally{Kv--;}let ca=KW(Ki(cO,cB,cb,undefined,cv,cN)),cZ=cN&&cN[0x11*cy[0x0]+cy[0x1]&0x1f]&&!cN[0x19*cy[0x0]+cy[0x1]&0x1f],cw=null;cZ&&(cw=ca['next']());let cM=![],cz=![],cP=null,ce=undefined,cA=![];function cS(cj,cx){if(cM)return{'value':undefined,'done':!![]};cz=!![],vmk_f71a9e['_$gJuDTf']=ci;if(cP){let cC,cE,cL;try{if(cx){if(typeof cP['throw']==='function')cC=cP['throw'](cj);else{typeof cP['return']==='function'&&cP['return']();cP=null;throw new TypeError('The\x20iterator\x20does\x20not\x20provide\x20a\x20\x27throw\x27\x20method.');}}else cC=cP['next'](cj);try{K6(cC);}catch(cF){cP=null;throw cF;}let ct=K7(cC);cE=ct['done'],cL=ct['value'];}catch(co){cP=null;try{let cf=ca['throw'](co);return cn(cf);}catch(cY){cM=!![];throw cY;}}if(!cE)return cC;cP=null,cj=cL,cx=![];}let cH;if(cw!==null)cH=cw,cw=null;else try{cH=cx?ca['throw'](cj):ca['next'](cj);}catch(cU){cM=!![];throw cU;}return cn(cH);}function cn(cj){if(cj['done'])return cM=!![],cA=![],{'value':cj['value'],'done':!![]};let cx=cj['value'];if(cx['_$E6zmB9']===a)return{'value':cx['_$SsSPwH'],'done':![]};if(cx['_$E6zmB9']===Z){let cH=cx['_$SsSPwH'],cC;try{if(cH==null)throw new TypeError(cH+'\x20is\x20not\x20iterable');let cF=cH[Symbol['iterator']];if(typeof cF!=='function')throw new TypeError(cH+'\x20is\x20not\x20iterable');cC=cF['call'](cH),K6(cC);if(typeof cC['next']!=='function')throw new TypeError('Iterator\x20next\x20is\x20not\x20a\x20function');}catch(co){try{let cf=ca['throw'](co);return cn(cf);}catch(cY){cM=!![];throw cY;}}let cE,cL,ct;try{cE=cC['next'](undefined),K6(cE);let cU=K7(cE);cL=cU['done'],ct=cU['value'];}catch(cm){try{let l0=ca['throw'](cm);return cn(l0);}catch(l1){cM=!![];throw l1;}}if(!cL)return cP=cC,cE;return cS(ct,![]);}throw new Error('Unexpected\x20signal\x20in\x20generator');}let cX=cN&&cN[0x8*cy[0x0]+cy[0x1]&0x1f],cs=async function(cj){if(cM)return{'value':cj,'done':!![]};if(!cz)return cM=!![],{'value':cj,'done':!![]};if(cP){let cH=cP,cC;try{cC=K5(cH['iter'],'return');}catch(cE){cP=null,cM=!![];throw cE;}if(cC===undefined){cP=null;try{cj=await Promise['resolve'](cj);}catch(cL){cM=!![];throw cL;}}else{let ct;try{ct=Q(cC,cH['iter'],[cj]),!cH['isSync']&&(ct=await ct);}catch(cU){cP=null,cM=!![];throw cU;}if(ct===null||typeof ct!=='object'){cP=null,cM=!![];throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');}let cF,co,cf,cY=![];try{cF=ct['done'],co=ct['value'];}catch(cm){cY=!![],cf=cm;}if(cY){cP=null;let l0;try{vmk_f71a9e['_$gJuDTf']=ci,l0=ca['throw'](cf);}catch(l1){cM=!![];throw l1;}while(!l0['done']){let l2=l0['value'];if(l2&&l2['_$E6zmB9']===y){let l3;try{l3=await l2['_$SsSPwH'],vmk_f71a9e['_$gJuDTf']=ci,l0=ca['next'](l3);}catch(l4){vmk_f71a9e['_$gJuDTf']=ci,l0=ca['throw'](l4);}continue;}if(l2&&l2['_$E6zmB9']===a){let l5;try{l5=await Promise['resolve'](l2['_$SsSPwH']);}catch(l6){cM=!![];throw l6;}return{'value':l5,'done':![]};}break;}return cM=!![],{'value':l0['value'],'done':!![]};}if(!cF){let l7;try{l7=await Promise['resolve'](co);}catch(l8){cP=null,cM=!![];throw l8;}return{'value':l7,'done':![]};}cP=null;try{cj=await Promise['resolve'](co);}catch(l9){cM=!![];throw l9;}}}let cx;try{vmk_f71a9e['_$gJuDTf']=ci,cx=ca['next']({['_$E6zmB9']:w,['_$SsSPwH']:cj});}catch(lK){cM=!![];throw lK;}while(!cx['done']){let lc=cx['value'];if(lc['_$E6zmB9']===y)try{let ll=await lc['_$SsSPwH'];vmk_f71a9e['_$gJuDTf']=ci,cx=ca['next'](ll);}catch(ld){vmk_f71a9e['_$gJuDTf']=ci,cx=ca['throw'](ld);}else{if(lc['_$E6zmB9']===a){let lQ;try{lQ=await Promise['resolve'](lc['_$SsSPwH']);}catch(lk){cM=!![];throw lk;}return{'value':lQ,'done':![]};}else break;}}return cM=!![],{'value':cx['value'],'done':!![]};},cp=function(cj){if(cM)return{'value':cj,'done':!![]};if(!cz)return cM=!![],{'value':cj,'done':!![]};if(cP){let cH,cC=![];try{let cE=cP['return'];typeof cE==='function'&&(cC=!![],cH=cE['call'](cP,cj),K6(cH));}catch(cL){cP=null;let ct;try{ct=ca['throw'](cL);}catch(cF){cM=!![];throw cF;}return cn(ct);}if(cC){let co;try{co=cH['done'];}catch(cY){cP=null;let cU;try{cU=ca['throw'](cY);}catch(cm){cM=!![];throw cm;}return cn(cU);}if(!co)return cH;let cf;try{cf=cH['value'];}catch(l0){cP=null;let l1;try{l1=ca['throw'](l0);}catch(l2){cM=!![];throw l2;}return cn(l1);}cP=null,cj=cf;}}ce=cj,cA=!![];let cx;try{vmk_f71a9e['_$gJuDTf']=ci,cx=ca['next']({['_$E6zmB9']:w,['_$SsSPwH']:cj});}catch(l3){cM=!![],cA=![];throw l3;}return cn(cx);};if(cX){async function cj(cL,ct){let cF=cP,co;try{if(ct){let l0;try{l0=K5(cF['iter'],'throw');}catch(l1){cP=null;try{return vmk_f71a9e['_$gJuDTf']=ci,cx(ca['throw'](l1));}catch(l2){cM=!![];throw l2;}}if(l0===undefined){let l3;try{l3=K5(cF['iter'],'return');}catch(l4){cP=null;try{return vmk_f71a9e['_$gJuDTf']=ci,cx(ca['throw'](l4));}catch(l5){cM=!![];throw l5;}}if(l3!==undefined)try{let l6=Q(l3,cF['iter'],[]);!cF['isSync']&&(l6=await l6);if(l6!==null&&typeof l6!=='object')throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');}catch(l7){}cP=null;try{return vmk_f71a9e['_$gJuDTf']=ci,cx(ca['throw'](new TypeError('The\x20iterator\x20does\x20not\x20provide\x20a\x20throw\x20method')));}catch(l8){cM=!![];throw l8;}}co=Q(l0,cF['iter'],[cL]),!cF['isSync']&&(co=await co);}else co=Q(cF['nextMethod'],cF['iter'],[cL]),!cF['isSync']&&(co=await co);}catch(l9){cP=null;try{return vmk_f71a9e['_$gJuDTf']=ci,cx(ca['throw'](l9));}catch(lK){cM=!![];throw lK;}}if(co===null||typeof co!=='object'){cP=null;try{return vmk_f71a9e['_$gJuDTf']=ci,cx(ca['throw'](new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object')));}catch(lc){cM=!![];throw lc;}}let cf,cY;try{cf=co['done'],cY=co['value'];}catch(ll){cP=null;try{return vmk_f71a9e['_$gJuDTf']=ci,cx(ca['throw'](ll));}catch(ld){cM=!![];throw ld;}}if(!cf){let lQ;try{lQ=await cY;}catch(lk){cP=null,cM=!![];throw lk;}return{'value':lQ,'done':![]};}cP=null;let cU;try{cU=await cY;}catch(lR){try{return vmk_f71a9e['_$gJuDTf']=ci,cx(ca['throw'](lR));}catch(lT){cM=!![];throw lT;}}let cm;try{vmk_f71a9e['_$gJuDTf']=ci,cm=ca['next'](cU);}catch(lg){cM=!![];throw lg;}return cx(cm);}function cI(cL,ct){if(cM)return Promise['resolve']({'value':undefined,'done':!![]});cz=!![],vmk_f71a9e['_$gJuDTf']=ci;if(cP)return cj(cL,ct);let cF;if(cw!==null)cF=cw,cw=null;else try{cF=ct?ca['throw'](cL):ca['next'](cL);}catch(co){return cM=!![],Promise['reject'](co);}if(!cF['done']){let cf=cF['value'];if(cf&&cf['_$E6zmB9']===a)return Promise['resolve'](cf['_$SsSPwH'])['then'](function(cY){return{'value':cY,'done':![]};},function(cY){cM=!![];throw cY;});}return cx(cF);}async function cx(cL){while(!cL['done']){let ct=cL['value'];if(ct['_$E6zmB9']===y){let cF;try{cF=await ct['_$SsSPwH'],vmk_f71a9e['_$gJuDTf']=ci,cL=ca['next'](cF);}catch(co){vmk_f71a9e['_$gJuDTf']=ci,cL=ca['throw'](co);}continue;}if(ct['_$E6zmB9']===a){let cf;try{cf=await ct['_$SsSPwH'];}catch(cY){cM=!![];throw cY;}return{'value':cf,'done':![]};}if(ct['_$E6zmB9']===Z){let cU=ct['_$SsSPwH'],cm;try{cm=K8(cU);}catch(l6){vmk_f71a9e['_$gJuDTf']=ci;try{cL=ca['throw'](l6);}catch(l7){cM=!![];throw l7;}continue;}let l0=cm['iter'],l1=cm['nextMethod'],l2=cm['isSync'],l3;try{l3=Q(l1,l0,[undefined]),!l2&&(l3=await l3);}catch(l8){vmk_f71a9e['_$gJuDTf']=ci;try{cL=ca['throw'](l8);}catch(l9){cM=!![];throw l9;}continue;}if(l3===null||typeof l3!=='object'){vmk_f71a9e['_$gJuDTf']=ci;try{cL=ca['throw'](new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object'));}catch(lK){cM=!![];throw lK;}continue;}let l4,l5;try{l4=l3['done'],l5=l3['value'];}catch(lc){vmk_f71a9e['_$gJuDTf']=ci;try{cL=ca['throw'](lc);}catch(ll){cM=!![];throw ll;}continue;}if(l4){let ld;try{ld=await Promise['resolve'](l5);}catch(lQ){vmk_f71a9e['_$gJuDTf']=ci;try{cL=ca['throw'](lQ);}catch(lk){cM=!![];throw lk;}continue;}vmk_f71a9e['_$gJuDTf']=ci,cL=ca['next'](ld);continue;}cP={'iter':l0,'nextMethod':l1,'isSync':l2};if(l2){let lR;try{lR=await Promise['resolve'](l5);}catch(lT){cP=null,cM=!![];throw lT;}return{'value':lR,'done':![]};}return{'value':l5,'done':![]};}throw new Error('Unexpected\x20signal\x20in\x20async\x20generator');}cM=!![];if(cA)return cA=![],{'value':ce,'done':!![]};return{'value':cL['value'],'done':!![]};}let cH=null,cC=0x0;function cV(){}function cq(){cC--,cC===0x0&&(cH=null);}function cu(cL){let ct;if(cC===0x0)try{ct=cL();}catch(cF){ct=Promise['reject'](cF);}else ct=cH['then'](cL,cL);return cC++,cH=ct,ct['then'](cq,cq),ct;}let cE=K3(cB&&cB['prototype'],Y);return cE?G(cE,{'next':K2(function(cL){return cu(function(){return cI(cL,![]);});}),'return':K2(function(cL){return cu(function(){return cs(cL);});}),'throw':K2(function(cL){return cu(function(){if(cM)return Promise['reject'](cL);return cI(cL,!![]);});}),[Symbol['asyncIterator']]:K2(function(){return this;})}):{'next':function(cL){return cu(function(){return cI(cL,![]);});},'return':function(cL){return cu(function(){return cs(cL);});},'throw':function(cL){return cu(function(){if(cM)return Promise['reject'](cL);return cI(cL,!![]);});},[Symbol['asyncIterator']]:function(){return this;}};}else{let cL=K3(cB&&cB['prototype'],o);return cL?G(cL,{'next':K2(function(ct){return cS(ct,![]);}),'return':K2(cp),'throw':K2(function(ct){if(cM)throw ct;return cS(ct,!![]);}),[Symbol['iterator']]:K2(function(){return this;})}):{'next':function(ct){return cS(ct,![]);},'return':cp,'throw':function(ct){if(cM)throw ct;return cS(ct,!![]);},[Symbol['iterator']]:function(){return this;}};}};var cT=function(cO,cB,cb,ci,cv,cW){Kv++;try{let cN=cd(cB),cy=cN&&cK(cN[0x20],cN[0x21]),ca=cv;if(cN&&cN[0x11*cy[0x0]+cy[0x1]&0x1f]){let cZ=vmk_f71a9e['_$gJuDTf'];return cR(cb,cO,ca,cZ,cW,cN);}if(cN&&cN[0x8*cy[0x0]+cy[0x1]&0x1f]){let cw=vmk_f71a9e['_$gJuDTf'];return ck(cb,cO,ca,cw,ci,cW,cN);}return KN(cb,cO,ca,ci,cW,cN);}finally{Kv--;}};return cT['_$9TkOFO']=function(cO,cB){if(!cO)return;if(0x0||0x0){!H(cO)&&I(cO,{['_$hQlpqc']:cB,['_$E8iUhp']:undefined,['_$zfHo1V']:undefined,['_$3vp170']:undefined});return;}var cb;Kv++;try{cb=cd(cB);}finally{Kv--;}if(!cb)return;var ci=cK(cb[0x20],cb[0x21]);if(cb[0x8*ci[0x0]+ci[0x1]&0x1f]||cb[0x11*ci[0x0]+ci[0x1]&0x1f]||cb[0x10*ci[0x0]+ci[0x1]&0x1f])return;!H(cO)&&I(cO,{['_$hQlpqc']:cB,['_$E8iUhp']:undefined,['_$zfHo1V']:cb,['_$3vp170']:undefined});},cT;}());vmQ_da9b27['_$9TkOFO'](shouldBotLevelAggro,0x0),delete vmQ_da9b27['_$9TkOFO'];try{Math,Object['defineProperty'](vmk_f71a9e,'Math',{'get':function(){return Math;},'set':function(K){Math=K;},'configurable':!![]});}catch(vmkw){}try{botArrowImage,Object['defineProperty'](vmk_f71a9e,'botArrowImage',{'get':function(){return botArrowImage;},'set':function(K){botArrowImage=K;},'configurable':!![]});}catch(vmkM){}try{drawWeaponUpgradeAura,Object['defineProperty'](vmk_f71a9e,'drawWeaponUpgradeAura',{'get':function(){return drawWeaponUpgradeAura;},'set':function(K){drawWeaponUpgradeAura=K;},'configurable':!![]});}catch(vmkz){}try{drawImageHealthBar,Object['defineProperty'](vmk_f71a9e,'drawImageHealthBar',{'get':function(){return drawImageHealthBar;},'set':function(K){drawImageHealthBar=K;},'configurable':!![]});}catch(vmkP){}try{healthBorderImage1,Object['defineProperty'](vmk_f71a9e,'healthBorderImage1',{'get':function(){return healthBorderImage1;},'set':function(K){healthBorderImage1=K;},'configurable':!![]});}catch(vmke){}try{healthHudImage1,Object['defineProperty'](vmk_f71a9e,'healthHudImage1',{'get':function(){return healthHudImage1;},'set':function(K){healthHudImage1=K;},'configurable':!![]});}catch(vmkA){}try{healthEmptyImage,Object['defineProperty'](vmk_f71a9e,'healthEmptyImage',{'get':function(){return healthEmptyImage;},'set':function(K){healthEmptyImage=K;},'configurable':!![]});}catch(vmkS){}try{String,Object['defineProperty'](vmk_f71a9e,'String',{'get':function(){return String;},'set':function(K){String=K;},'configurable':!![]});}catch(vmkn){}vmk_f71a9e['drawBots']=drawBots;globalThis['drawBots']=vmk_f71a9e['drawBots'];vmk_f71a9e['shouldBotLevelAggro']=shouldBotLevelAggro;globalThis['shouldBotLevelAggro']=vmk_f71a9e['shouldBotLevelAggro'];vmk_f71a9e['_$fJ59Bj']={'BOT_TYPES':!![]};const BOT_TYPES={'rusher':{'name':'rusher','health':0x64,'physicalDefense':'armor1','movementSpeed':0x6e,'weaponName':'uzi','image':'image/police.png','radius':0xb,'viewRange':0x104,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x5dc,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword1,gun1,gauntlet1,armor1,armor15,armor29,accessory01,accessory13,accessory25,ring01,ring14,ring27','spawnGoldOrbChance':0.8,'goldOrbAmount':0x1e,'unitExplode':'unitexplode','level':0x1,'increaseSpawnGet':0x0,'expGet':0x1e,'attackSpeed':0x1,'physicalDamage':0xb,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'guard':{'name':'guard','health':0xa0,'physicalDefense':'armor3','movementSpeed':0x46,'weaponName':'shotgun','image':'image/swat.png','radius':0xf,'viewRange':0xb4,'viewAngle':0x6e,'patrolInterval':0xdac,'patrolRadius':0x32,'lookDuration':0x898,'respawn':0xa,'active':![],'spawnItem':'shield,speedup,powerup,health,sword2,gun2,gauntlet2,armor2,armor16,armor30,accessory02,accessory14,accessory26,ring02,ring15,ring28','spawnGoldOrbChance':0.75,'goldOrbAmount':0x64,'unitExplode':'unitexplode','level':0x1,'increaseSpawnGet':0x0,'expGet':0x1e,'attackSpeed':0x1,'physicalDamage':0xb,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'assaulter':{'name':'assaulter','health':0x78,'physicalDefense':'armor2','movementSpeed':0x64,'weaponName':'ak47','image':'image/soldier.png','radius':0xd,'viewRange':0x140,'viewAngle':0x8c,'patrolInterval':0xdac,'patrolRadius':0x46,'lookDuration':0x898,'respawn':0xa,'active':![],'spawnItem':'sword3,gun3,gauntlet3,armor3,armor17,armor31,accessory03,accessory15,accessory27,ring03,ring16,ring29','spawnGoldOrbChance':0.75,'goldOrbAmount':0x4b,'unitExplode':'unitexplode','level':0x1,'increaseSpawnGet':0x0,'expGet':0x1e,'attackSpeed':0x1,'physicalDamage':0xb,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01},'shooter':{'name':'shooter','health':0x78,'physicalDefense':0x0,'movementSpeed':0x32,'weaponName':'sniper','image':'image/redbot.png','radius':0xb,'viewRange':0x1f4,'viewAngle':0x28,'patrolInterval':0xfa0,'patrolRadius':0x1e,'lookDuration':0x9c4,'respawn':0xa,'active':![],'spawnItem':'shield,speedup,powerup,health,sword4,gun4,gauntlet4,armor4,armor18,armor32,accessory04,accessory16,accessory28,ring04,ring17,ring30','spawnGoldOrbChance':0.75,'goldOrbAmount':0x32,'unitExplode':'unitexplode','level':0x1,'increaseSpawnGet':0x0,'expGet':0x1e,'attackSpeed':0x1,'physicalDamage':0xb,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01},'bot01':{'name':'Patrol\x20Officer','description':'A\x20police-type\x20patrol\x20bot\x20with\x20a\x20blue\x20armored\x20shell\x20and\x20a\x20star\x20badge\x20on\x20its\x20chest.\x20It\x20keeps\x20watch\x20over\x20its\x20area\x20and\x20moves\x20in\x20fast\x20on\x20anything\x20suspicious.','health':0xc8,'physicalDefense':'armor1','movementSpeed':0x5a,'weaponName':'uzi','image':'image/police.png','radius':0xb,'viewRange':0xdc,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'sword5,gun5,gauntlet5,armor5,armor19,armor33,accessory05,accessory17,accessory29,ring05,ring18,ring31','spawnGoldOrbChance':0.65,'goldOrbAmount':0x4,'unitExplode':'unitexplode','level':0x1,'increaseSpawnGet':0x0,'expGet':0x8,'attackSpeed':0x1,'physicalDamage':0x8,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot01elite':{'name':'Elite\x20Officer','description':'A\x20police-type\x20patrol\x20bot\x20with\x20a\x20blue\x20armored\x20shell\x20and\x20a\x20star\x20badge\x20on\x20its\x20chest.\x20It\x20keeps\x20watch\x20over\x20its\x20area\x20and\x20moves\x20in\x20fast\x20on\x20anything\x20suspicious.','health':0x190,'physicalDefense':'armor1','movementSpeed':0x5a,'weaponName':'uzi','image':'image/police.png','radius':0xd,'viewRange':0xdc,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword6,gun6,gauntlet6,armor6,armor20,armor34,accessory06,accessory18,accessory30,ring06,ring19,ring32','spawnGoldOrbChance':0.65,'goldOrbAmount':0x7,'unitExplode':'unitexplode','level':0x1,'increaseSpawnGet':0x0,'expGet':0xb,'attackSpeed':0x1,'physicalDamage':0xe,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot02':{'name':'Shadow\x20Ninja','description':'A\x20stealth-type\x20ninja\x20bot\x20in\x20black\x20armor\x20with\x20glowing\x20red\x20eyes\x20and\x20a\x20masked\x20face.\x20It\x20moves\x20quietly\x20and\x20strikes\x20quickly\x20before\x20slipping\x20away.','health':0xfa,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'shotgun','image':'image/bot_02.png','radius':0xb,'viewRange':0xdc,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword7,gun7,gauntlet7,armor7,armor21,armor35,accessory07,accessory19,accessory31,ring07,ring20,ring33','spawnGoldOrbChance':0.7,'goldOrbAmount':0x6,'unitExplode':'unitexplode','level':0x1,'increaseSpawnGet':0x0,'expGet':0xc,'attackSpeed':0x1,'physicalDamage':0x9,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot03':{'name':'Violet\x20Warlord','description':'A\x20war-machine\x20bot\x20with\x20purple\x20and\x20silver\x20armor\x20and\x20a\x20menacing\x20faction\x20emblem\x20on\x20its\x20chest.\x20It\x20leads\x20from\x20the\x20front\x20and\x20hits\x20hard\x20with\x20cold,\x20mechanical\x20precision.','health':0xfa,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_03.png','radius':0xb,'viewRange':0xdc,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword8,gun8,gauntlet8,armor8,armor22,armor36,accessory08,accessory20,accessory32,ring08,ring21,ring34','spawnGoldOrbChance':0.75,'goldOrbAmount':0x8,'unitExplode':'unitexplode','level':0x2,'increaseSpawnGet':0x0,'expGet':0x10,'attackSpeed':0x1,'physicalDamage':0x9,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot03elite':{'name':'Elite\x20Warlord','description':'A\x20war-machine\x20bot\x20with\x20purple\x20and\x20silver\x20armor\x20and\x20a\x20menacing\x20faction\x20emblem\x20on\x20its\x20chest.\x20It\x20leads\x20from\x20the\x20front\x20and\x20hits\x20hard\x20with\x20cold,\x20mechanical\x20precision.','health':0x1f4,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_03.png','radius':0xd,'viewRange':0xdc,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword9,gun9,gauntlet9,armor9,armor23,armor37,accessory09,accessory21,accessory33,ring09,ring22,ring35','spawnGoldOrbChance':0.75,'goldOrbAmount':0xe,'unitExplode':'unitexplode','level':0x2,'increaseSpawnGet':0x0,'expGet':0x13,'attackSpeed':0x1,'physicalDamage':0xf,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot04':{'name':'SWAT\x20Trooper','description':'A\x20tactical\x20assault\x20bot\x20in\x20black\x20armor\x20marked\x20SWAT,\x20with\x20flashing\x20blue\x20lights.\x20It\x20pushes\x20into\x20enemy\x20positions\x20and\x20fights\x20with\x20strict\x20discipline.','health':0x12c,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'uzi','image':'image/bot_04.png','radius':0xb,'viewRange':0xdc,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword10,gun10,gauntlet10,armor10,armor24,armor38,accessory10,accessory22,accessory34,ring10,ring23,ring36','spawnGoldOrbChance':0.7,'goldOrbAmount':0xa,'unitExplode':'unitexplode','level':0x3,'increaseSpawnGet':0x0,'expGet':0x12,'attackSpeed':0x1,'physicalDamage':0xb,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot04elite':{'name':'Elite\x20Trooper','description':'A\x20tactical\x20assault\x20bot\x20in\x20black\x20armor\x20marked\x20SWAT,\x20with\x20flashing\x20blue\x20lights.\x20It\x20pushes\x20into\x20enemy\x20positions\x20and\x20fights\x20with\x20strict\x20discipline.','health':0x258,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'uzi','image':'image/bot_04.png','radius':0xb,'viewRange':0xdc,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword11,gun11,gauntlet11,armor11,armor25,armor39,accessory11,accessory23,accessory35,ring11,ring24,ring37','spawnGoldOrbChance':0.7,'goldOrbAmount':0x10,'unitExplode':'unitexplode','level':0x3,'increaseSpawnGet':0x0,'expGet':0x16,'attackSpeed':0x1,'physicalDamage':0x10,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot05':{'name':'Fire\x20Marshal','description':'A\x20rescue-type\x20bot\x20in\x20red\x20and\x20yellow\x20armor\x20with\x20a\x20firefighter\x20emblem.\x20It\x20charges\x20into\x20danger\x20without\x20fear\x20and\x20shrugs\x20off\x20heavy\x20damage.','health':0x15e,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'uzi','magicAttack':0x8,'image':'image/bot_05.png','radius':0xb,'viewRange':0x104,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword12,gun12,gauntlet12,armor12,armor26,armor40,accessory12,accessory24,accessory36,ring12,ring25,ring38','spawnGoldOrbChance':0.65,'goldOrbAmount':0xd,'unitExplode':'unitexplode','level':0x4,'increaseSpawnGet':0x0,'expGet':0x14,'attackSpeed':0x1,'physicalDamage':0xd,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot05elite':{'name':'Elite\x20Marshal','description':'A\x20rescue-type\x20bot\x20in\x20red\x20and\x20yellow\x20armor\x20with\x20a\x20firefighter\x20emblem.\x20It\x20charges\x20into\x20danger\x20without\x20fear\x20and\x20shrugs\x20off\x20heavy\x20damage.','health':0x2ee,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'uzi','magicAttack':0x8,'image':'image/bot_05.png','radius':0xd,'viewRange':0x104,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword13,gun13,gauntlet13,armor13,armor27,armor41,accessory01,accessory13,accessory25,ring13,ring26,ring39','spawnGoldOrbChance':0.65,'goldOrbAmount':0x13,'unitExplode':'unitexplode','level':0x4,'increaseSpawnGet':0x0,'expGet':0x19,'attackSpeed':0x1,'physicalDamage':0x12,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot06':{'name':'Cosmic\x20Voyager','description':'A\x20space-type\x20bot\x20with\x20a\x20deep\x20blue\x20shell\x20and\x20a\x20glowing\x20planet\x20emblem.\x20It\x20drifts\x20across\x20the\x20map\x20like\x20a\x20wandering\x20star\x20and\x20attacks\x20with\x20strange\x20bursts\x20of\x20energy.','health':0x1c7,'physicalDefense':'armor1','movementSpeed':0x5a,'weaponName':'shotgun','image':'image/bot_06.png','radius':0xb,'viewRange':0x104,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword14,gun14,gauntlet14,armor14,armor28,armor42,accessory02,accessory14,accessory26,ring01,ring14,ring40','spawnGoldOrbChance':0.7,'goldOrbAmount':0xf,'unitExplode':'unitexplode','level':0x4,'increaseSpawnGet':0x0,'expGet':0x17,'attackSpeed':0x1,'physicalDamage':0x11,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot07':{'name':'Camo\x20Commando','description':'A\x20military-type\x20bot\x20in\x20green\x20camouflage\x20plating\x20with\x20a\x20white\x20star.\x20It\x20holds\x20its\x20ground\x20like\x20a\x20veteran\x20soldier\x20and\x20follows\x20its\x20targets\x20with\x20discipline.','health':0x1f4,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_07.png','radius':0xb,'viewRange':0x104,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword15,gun15,gauntlet15,armor1,armor15,armor43,accessory03,accessory15,accessory27,ring02,ring15,ring27','spawnGoldOrbChance':0.75,'goldOrbAmount':0x12,'unitExplode':'unitexplode','level':0x5,'increaseSpawnGet':0x0,'expGet':0x19,'attackSpeed':0x1,'physicalDamage':0x17,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot07elite':{'name':'Elite\x20Commando','description':'A\x20military-type\x20bot\x20in\x20green\x20camouflage\x20plating\x20with\x20a\x20white\x20star.\x20It\x20holds\x20its\x20ground\x20like\x20a\x20veteran\x20soldier\x20and\x20follows\x20its\x20targets\x20with\x20discipline.','health':0x3e8,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_07.png','radius':0xd,'viewRange':0x104,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword16,gun16,gauntlet16,armor2,armor16,armor29,accessory04,accessory16,accessory28,ring03,ring16,ring28','spawnGoldOrbChance':0.75,'goldOrbAmount':0x19,'unitExplode':'unitexplode','level':0x5,'increaseSpawnGet':0x0,'expGet':0x1e,'attackSpeed':0x1,'physicalDamage':0x1d,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot08':{'name':'Red\x20Dragon','description':'A\x20dragon-type\x20bot\x20in\x20fiery\x20red\x20armor\x20with\x20a\x20golden\x20dragon\x20emblem.\x20It\x20is\x20proud\x20and\x20aggressive,\x20and\x20it\x20attacks\x20with\x20fierce,\x20burning\x20force.','health':0x258,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'sniper','image':'image/bot_08.png','radius':0xb,'viewRange':0x104,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword17,gun17,gauntlet17,armor3,armor17,armor30,accessory05,accessory17,accessory29,ring04,ring17,ring29','spawnGoldOrbChance':0.6,'goldOrbAmount':0x14,'unitExplode':'unitexplode','level':0x5,'increaseSpawnGet':0x0,'expGet':0x1c,'attackSpeed':0x1,'physicalDamage':0x1c,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot09':{'name':'Frost\x20Guard','description':'An\x20ice-type\x20bot\x20with\x20pale\x20blue\x20and\x20silver\x20armor\x20and\x20a\x20snowflake\x20core.\x20It\x20stays\x20cool\x20and\x20calm,\x20guarding\x20its\x20area\x20and\x20chilling\x20anything\x20that\x20gets\x20close.','health':0x320,'physicalDefense':'armor1','movementSpeed':0x5a,'weaponName':'uzi','magicAttack':0xa,'image':'image/bot_09.png','radius':0xb,'viewRange':0x12c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword18,gun18,gauntlet18,armor4,armor18,armor31,accessory06,accessory18,accessory30,ring05,ring18,ring30','spawnGoldOrbChance':0.65,'goldOrbAmount':0x19,'unitExplode':'unitexplode','level':0x6,'increaseSpawnGet':0x0,'expGet':0x20,'attackSpeed':0x1,'physicalDamage':0x25,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot09elite':{'name':'Elite\x20Frost','description':'An\x20ice-type\x20bot\x20with\x20pale\x20blue\x20and\x20silver\x20armor\x20and\x20a\x20snowflake\x20core.\x20It\x20stays\x20cool\x20and\x20calm,\x20guarding\x20its\x20area\x20and\x20chilling\x20anything\x20that\x20gets\x20close.','health':0x640,'physicalDefense':'armor1','movementSpeed':0x5a,'weaponName':'uzi','magicAttack':0xa,'image':'image/bot_09.png','radius':0xd,'viewRange':0x12c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword19,gun19,gauntlet19,armor5,armor19,armor32,accessory07,accessory19,accessory31,ring06,ring19,ring31','spawnGoldOrbChance':0.65,'goldOrbAmount':0x20,'unitExplode':'unitexplode','level':0x6,'increaseSpawnGet':0x0,'expGet':0x25,'attackSpeed':0x1,'physicalDamage':0x2d,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot10':{'name':'Horned\x20Demon','description':'A\x20demon-type\x20bot\x20in\x20black\x20armor\x20with\x20glowing\x20red\x20veins,\x20curved\x20horns\x20and\x20burning\x20eyes.\x20It\x20is\x20ruthless\x20and\x20hits\x20with\x20brutal\x20force.','health':0x44c,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'shotgun','image':'image/bot_10.png','radius':0xb,'viewRange':0x12c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword20,gun20,gauntlet20,armor6,armor20,armor33,accessory08,accessory20,accessory32,ring07,ring20,ring32','spawnGoldOrbChance':0.7,'goldOrbAmount':0x1e,'unitExplode':'unitexplode','level':0x7,'increaseSpawnGet':0x0,'expGet':0x26,'attackSpeed':0x1,'physicalDamage':0x2b,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot10elite':{'name':'Elite\x20Demon','description':'A\x20demon-type\x20bot\x20in\x20black\x20armor\x20with\x20glowing\x20red\x20veins,\x20curved\x20horns\x20and\x20burning\x20eyes.\x20It\x20is\x20ruthless\x20and\x20hits\x20with\x20brutal\x20force.','health':0x898,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'shotgun','image':'image/bot_10.png','radius':0xd,'viewRange':0x12c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword1,gun1,gauntlet1,armor7,armor21,armor34,accessory09,accessory21,accessory33,ring08,ring21,ring33','spawnGoldOrbChance':0.7,'goldOrbAmount':0x26,'unitExplode':'unitexplode','level':0x7,'increaseSpawnGet':0x0,'expGet':0x2e,'attackSpeed':0x1,'physicalDamage':0x31,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot11':{'name':'Alien\x20Invader','description':'An\x20alien-type\x20bot\x20with\x20a\x20glowing\x20green\x20shell\x20and\x20an\x20alien\x20face\x20emblem.\x20It\x20wanders\x20strangely\x20and\x20attacks\x20without\x20warning.','health':0x60e,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_11.png','radius':0xb,'viewRange':0x12c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword2,gun2,gauntlet2,armor8,armor22,armor35,accessory10,accessory22,accessory34,ring09,ring22,ring34','spawnGoldOrbChance':0.75,'goldOrbAmount':0x25,'unitExplode':'unitexplode','level':0x8,'increaseSpawnGet':0x0,'expGet':0x2a,'attackSpeed':0x1,'physicalDamage':0x30,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot11elite':{'name':'Elite\x20Invader','description':'An\x20alien-type\x20bot\x20with\x20a\x20glowing\x20green\x20shell\x20and\x20an\x20alien\x20face\x20emblem.\x20It\x20wanders\x20strangely\x20and\x20attacks\x20without\x20warning.','health':0xc1c,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_11.png','radius':0xd,'viewRange':0x12c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword3,gun3,gauntlet3,armor9,armor23,armor36,accessory11,accessory23,accessory35,ring10,ring23,ring35','spawnGoldOrbChance':0.75,'goldOrbAmount':0x2f,'unitExplode':'unitexplode','level':0x8,'increaseSpawnGet':0x0,'expGet':0x32,'attackSpeed':0x1,'physicalDamage':0x3a,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot12':{'name':'Road\x20Racer','description':'A\x20speed-type\x20bot\x20in\x20red\x20and\x20white\x20armor\x20with\x20a\x20checkered\x20flag\x20emblem.\x20It\x20is\x20built\x20for\x20fast\x20movement\x20and\x20rushes\x20at\x20enemies\x20before\x20they\x20can\x20react.','health':0x708,'physicalDefense':'armor1','movementSpeed':0x5a,'weaponName':'sniper','image':'image/bot_12.png','radius':0xb,'viewRange':0x12c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword4,gun4,gauntlet4,armor10,armor24,armor37,accessory12,accessory24,accessory36,ring11,ring24,ring36','spawnGoldOrbChance':0.6,'goldOrbAmount':0x2d,'unitExplode':'unitexplode','level':0x9,'increaseSpawnGet':0x0,'expGet':0x2e,'attackSpeed':0x1,'physicalDamage':0x35,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot12elite':{'name':'Elite\x20Racer','description':'A\x20speed-type\x20bot\x20in\x20red\x20and\x20white\x20armor\x20with\x20a\x20checkered\x20flag\x20emblem.\x20It\x20is\x20built\x20for\x20fast\x20movement\x20and\x20rushes\x20at\x20enemies\x20before\x20they\x20can\x20react.','health':0xe10,'physicalDefense':'armor1','movementSpeed':0x5a,'weaponName':'sniper','image':'image/bot_12.png','radius':0xd,'viewRange':0x12c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword5,gun5,gauntlet5,armor11,armor25,armor38,accessory01,accessory13,accessory25,ring12,ring25,ring37','spawnGoldOrbChance':0.6,'goldOrbAmount':0x34,'unitExplode':'unitexplode','level':0x9,'increaseSpawnGet':0x0,'expGet':0x34,'attackSpeed':0x1,'physicalDamage':0x3b,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot13':{'name':'Hooded\x20Assassin','description':'A\x20stealth-type\x20assassin\x20bot\x20in\x20dark\x20purple\x20armor\x20with\x20a\x20hooded\x20face.\x20It\x20hides\x20in\x20the\x20shadows\x20and\x20ambushes\x20its\x20targets.','health':0x898,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'uzi','image':'image/bot_13.png','radius':0xb,'viewRange':0x154,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword6,gun6,gauntlet6,armor12,armor26,armor39,accessory02,accessory14,accessory26,ring13,ring26,ring38','spawnGoldOrbChance':0.65,'goldOrbAmount':0x32,'unitExplode':'unitexplode','level':0x9,'increaseSpawnGet':0x0,'expGet':0x32,'attackSpeed':0x1,'physicalDamage':0x3c,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot13elite':{'name':'Elite\x20Assassin','description':'A\x20stealth-type\x20assassin\x20bot\x20in\x20dark\x20purple\x20armor\x20with\x20a\x20hooded\x20face.\x20It\x20hides\x20in\x20the\x20shadows\x20and\x20ambushes\x20its\x20targets.','health':0x1130,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'uzi','image':'image/bot_13.png','radius':0xd,'viewRange':0x154,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword7,gun7,gauntlet7,armor13,armor27,armor40,accessory03,accessory15,accessory27,ring01,ring14,ring39','spawnGoldOrbChance':0.65,'goldOrbAmount':0x3c,'unitExplode':'unitexplode','level':0x9,'increaseSpawnGet':0x0,'expGet':0x3a,'attackSpeed':0x1,'physicalDamage':0x46,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot14':{'name':'Justice\x20Guardian','description':'A\x20hero-type\x20bot\x20in\x20red\x20and\x20blue\x20armor\x20with\x20a\x20heroic\x20faction\x20emblem.\x20It\x20defends\x20its\x20area\x20bravely\x20and\x20never\x20backs\x20down\x20from\x20a\x20fight.','health':0xa2d,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'shotgun','image':'image/bot_14.png','radius':0xb,'viewRange':0x154,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword8,gun8,gauntlet8,armor14,armor28,armor41,accessory04,accessory16,accessory28,ring02,ring15,ring40','spawnGoldOrbChance':0.7,'goldOrbAmount':0x39,'unitExplode':'unitexplode','level':0xa,'increaseSpawnGet':0x0,'expGet':0x41,'attackSpeed':0x1,'physicalDamage':0x43,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot14elite':{'name':'Elite\x20Guardian','description':'A\x20hero-type\x20bot\x20in\x20red\x20and\x20blue\x20armor\x20with\x20a\x20heroic\x20faction\x20emblem.\x20It\x20defends\x20its\x20area\x20bravely\x20and\x20never\x20backs\x20down\x20from\x20a\x20fight.','health':0x1072,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'shotgun','image':'image/bot_14.png','radius':0xd,'viewRange':0x154,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword9,gun9,gauntlet9,armor1,armor15,armor42,accessory05,accessory17,accessory29,ring03,ring16,ring27','spawnGoldOrbChance':0.7,'goldOrbAmount':0x43,'unitExplode':'unitexplode','level':0xa,'increaseSpawnGet':0x0,'expGet':0x4b,'attackSpeed':0x1,'physicalDamage':0x4b,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot15':{'name':'Royal\x20Guard','description':'An\x20elite\x20guard\x20bot\x20in\x20gold\x20and\x20black\x20armor\x20with\x20a\x20crown\x20emblem.\x20It\x20protects\x20its\x20territory\x20with\x20pride\x20and\x20heavy,\x20disciplined\x20strikes.','health':0xbb8,'physicalDefense':'armor1','movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_15.png','radius':0xb,'viewRange':0x154,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword10,gun10,gauntlet10,armor2,armor16,armor43,accessory06,accessory18,accessory30,ring04,ring17,ring28','spawnGoldOrbChance':0.75,'goldOrbAmount':0x46,'unitExplode':'unitexplode','level':0xa,'increaseSpawnGet':0x0,'expGet':0x4b,'attackSpeed':0x1,'physicalDamage':0x4e,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot16':{'name':'Cyber\x20Core','description':'A\x20cyber-type\x20bot\x20with\x20neon\x20purple\x20and\x20cyan\x20lights\x20and\x20a\x20glowing\x20power\x20symbol.\x20It\x20moves\x20like\x20a\x20machine\x20that\x20never\x20shuts\x20down\x20and\x20attacks\x20with\x20electric\x20energy.','health':0xdac,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'sniper','image':'image/bot_16.png','radius':0xb,'viewRange':0x154,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword11,gun11,gauntlet11,armor3,armor17,armor29,accessory07,accessory19,accessory31,ring05,ring18,ring29','spawnGoldOrbChance':0.6,'goldOrbAmount':0x50,'unitExplode':'unitexplode','level':0xb,'increaseSpawnGet':0x0,'expGet':0x55,'attackSpeed':0x1,'physicalDamage':0x5f,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot16elite':{'name':'Elite\x20Cyber\x20Core','description':'A\x20cyber-type\x20bot\x20with\x20neon\x20purple\x20and\x20cyan\x20lights\x20and\x20a\x20glowing\x20power\x20symbol.\x20It\x20moves\x20like\x20a\x20machine\x20that\x20never\x20shuts\x20down\x20and\x20attacks\x20with\x20electric\x20energy.','health':0x1b58,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'sniper','image':'image/bot_16.png','radius':0xd,'viewRange':0x154,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword12,gun12,gauntlet12,armor4,armor18,armor30,accessory08,accessory20,accessory32,ring06,ring19,ring30','spawnGoldOrbChance':0.6,'goldOrbAmount':0x5a,'unitExplode':'unitexplode','level':0xb,'increaseSpawnGet':0x0,'expGet':0x5a,'attackSpeed':0x1,'physicalDamage':0x69,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot17':{'name':'Skull\x20Raider','description':'A\x20death-type\x20bot\x20in\x20black\x20and\x20red\x20armor\x20with\x20a\x20white\x20skull\x20on\x20its\x20chest.\x20It\x20raids\x20the\x20area\x20without\x20mercy\x20and\x20finishes\x20off\x20anything\x20it\x20catches.','health':0x1068,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'uzi','magicAttack':0x14,'image':'image/bot_17.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword13,gun13,gauntlet13,armor5,armor19,armor31,accessory09,accessory21,accessory33,ring07,ring20,ring31','spawnGoldOrbChance':0.65,'goldOrbAmount':0x6e,'unitExplode':'unitexplode','level':0xb,'increaseSpawnGet':0x0,'expGet':0x69,'attackSpeed':0x1,'physicalDamage':0x78,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot18':{'name':'Steel\x20Wolf','description':'A\x20wolf-type\x20bot\x20in\x20blue\x20and\x20silver\x20armor\x20with\x20a\x20snarling\x20wolf\x20emblem.\x20It\x20hunts\x20its\x20territory\x20with\x20sharp\x20senses\x20and\x20strikes\x20fast.','health':0x12c0,'physicalDefense':'armor1','movementSpeed':0x5a,'weaponName':'shotgun','image':'image/bot_18.png','radius':0xc,'viewRange':0x17c,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword14,gun14,gauntlet14,armor6,armor20,armor32,accessory10,accessory22,accessory34,ring08,ring21,ring32','spawnGoldOrbChance':0.7,'goldOrbAmount':0x7d,'unitExplode':'unitexplode','level':0xb,'increaseSpawnGet':0x0,'expGet':0x82,'attackSpeed':0x1,'physicalDamage':0x8c,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot18elite':{'name':'Elite\x20Wolf','description':'A\x20wolf-type\x20bot\x20in\x20blue\x20and\x20silver\x20armor\x20with\x20a\x20snarling\x20wolf\x20emblem.\x20It\x20hunts\x20its\x20territory\x20with\x20sharp\x20senses\x20and\x20strikes\x20fast.','health':0x2580,'physicalDefense':'armor1','movementSpeed':0x5a,'weaponName':'shotgun','image':'image/bot_18.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword15,gun15,gauntlet15,armor7,armor21,armor33,accessory11,accessory23,accessory35,ring09,ring22,ring33','spawnGoldOrbChance':0.7,'goldOrbAmount':0x8c,'unitExplode':'unitexplode','level':0xc,'increaseSpawnGet':0x0,'expGet':0x8c,'attackSpeed':0x1,'physicalDamage':0x96,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot19':{'name':'Hazmat\x20Bot','description':'A\x20toxic-type\x20bot\x20in\x20yellow\x20and\x20black\x20armor\x20with\x20a\x20biohazard\x20emblem.\x20It\x20spreads\x20poison\x20around\x20it\x20and\x20wears\x20its\x20enemies\x20down.','health':0x157c,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_19.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword16,gun16,gauntlet16,armor8,armor22,armor34,accessory12,accessory24,accessory36,ring10,ring23,ring34','spawnGoldOrbChance':0.75,'goldOrbAmount':0x91,'unitExplode':'unitexplode','level':0xc,'increaseSpawnGet':0x0,'expGet':0x91,'attackSpeed':0x1,'physicalDamage':0xa0,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot20':{'name':'Oni\x20Samurai','description':'A\x20samurai-type\x20bot\x20in\x20purple\x20and\x20gold\x20armor\x20with\x20a\x20horned\x20oni\x20mask.\x20It\x20fights\x20with\x20fierce\x20honor\x20and\x20strikes\x20with\x20heavy,\x20powerful\x20blows.','health':0x1964,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'sniper','image':'image/bot_20.png','radius':0xb,'magicAttack':0x14,'viewRange':0x17c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword17,gun17,gauntlet17,armor9,armor23,armor35,accessory01,accessory13,accessory25,ring11,ring24,ring35','spawnGoldOrbChance':0.6,'goldOrbAmount':0xaa,'unitExplode':'unitexplode','level':0xd,'increaseSpawnGet':0x0,'expGet':0xa0,'attackSpeed':0x1,'physicalDamage':0xb4,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot20elite':{'name':'Elite\x20Samurai','description':'A\x20samurai-type\x20bot\x20in\x20purple\x20and\x20gold\x20armor\x20with\x20a\x20horned\x20oni\x20mask.\x20It\x20fights\x20with\x20fierce\x20honor\x20and\x20strikes\x20with\x20heavy,\x20powerful\x20blows.','health':0x32c8,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'sniper','image':'image/bot_20.png','radius':0xd,'magicAttack':0x14,'viewRange':0x17c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword18,gun18,gauntlet18,armor10,armor24,armor36,accessory02,accessory14,accessory26,ring12,ring25,ring36','spawnGoldOrbChance':0.6,'goldOrbAmount':0xbe,'unitExplode':'unitexplode','level':0xd,'increaseSpawnGet':0x0,'expGet':0xaa,'attackSpeed':0x1,'physicalDamage':0xbe,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot19elite':{'name':'Elite\x20Hazmat\x20Bot','description':'A\x20hazmat-suit\x20bot\x20built\x20tougher\x20than\x20the\x20rest\x20of\x20its\x20pack.\x20It\x20hits\x20harder\x20and\x20takes\x20far\x20more\x20punishment.','health':0x2af8,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_19.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword19,gun19,gauntlet19,armor11,armor25,armor37,accessory03,accessory15,accessory27,ring13,ring26,ring37','spawnGoldOrbChance':0.75,'goldOrbAmount':0xa0,'unitExplode':'unitexplode','level':0xc,'increaseSpawnGet':0x0,'expGet':0x9b,'attackSpeed':0x1,'physicalDamage':0xaa,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot21':{'name':'Cyber\x20Falcon','description':'A\x20cyan\x20armored\x20sphere\x20with\x20a\x20glowing\x20winged-falcon\x20emblem.\x20It\x20swoops\x20in\x20fast\x20and\x20strikes\x20with\x20precise\x20bursts.','health':0x1d4c,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'uzi','image':'image/bot_21.png','radius':0xb,'viewRange':0x154,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword20,gun20,gauntlet20,armor12,armor26,armor38,accessory04,accessory16,accessory28,ring01,ring14,ring38','spawnGoldOrbChance':0.65,'goldOrbAmount':0xcd,'unitExplode':'unitexplode','level':0xe,'increaseSpawnGet':0x0,'expGet':0xb4,'attackSpeed':0x1,'physicalDamage':0xc8,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot22':{'name':'Bone\x20Reaper','description':'A\x20soot-black\x20sphere\x20with\x20orange\x20glowing\x20plates\x20and\x20a\x20white\x20skull\x20emblem.\x20It\x20reaps\x20anything\x20that\x20wanders\x20into\x20its\x20patrol.','health':0x2328,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'shotgun','image':'image/bot_22.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword1,gun1,gauntlet1,armor13,armor27,armor39,accessory05,accessory17,accessory29,ring02,ring15,ring39','spawnGoldOrbChance':0.7,'goldOrbAmount':0xe6,'unitExplode':'unitexplode','level':0xf,'increaseSpawnGet':0x0,'expGet':0xd2,'attackSpeed':0x1,'physicalDamage':0xe6,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot23':{'name':'Blizzard\x20Sentinel','description':'A\x20frost-white\x20sphere\x20with\x20a\x20blue\x20snowflake\x20core.\x20It\x20guards\x20its\x20ground\x20coldly\x20and\x20never\x20tires.','health':0x2cec,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_23.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword2,gun2,gauntlet2,armor14,armor28,armor40,accessory06,accessory18,accessory30,ring03,ring16,ring40','spawnGoldOrbChance':0.75,'goldOrbAmount':0x118,'unitExplode':'unitexplode','level':0x10,'increaseSpawnGet':0x0,'expGet':0xfa,'attackSpeed':0x1,'physicalDamage':0x104,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot24':{'name':'Nuclear\x20Warden','description':'A\x20green-lit\x20sphere\x20marked\x20with\x20a\x20radiation\x20symbol.\x20It\x20poisons\x20the\x20air\x20around\x20it\x20and\x20hits\x20with\x20irradiated\x20rounds.','health':0x32c8,'physicalDefense':'armor4','movementSpeed':0x5a,'weaponName':'sniper','image':'image/bot_24.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword3,gun3,gauntlet3,armor1,armor15,armor41,accessory07,accessory19,accessory31,ring04,ring17,ring27','spawnGoldOrbChance':0.6,'goldOrbAmount':0x12c,'unitExplode':'unitexplode','level':0x11,'increaseSpawnGet':0x0,'expGet':0x113,'attackSpeed':0x1,'physicalDamage':0x116,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot25':{'name':'Void\x20Raven','description':'A\x20dark\x20purple\x20sphere\x20with\x20a\x20winged\x20raven\x20crest.\x20It\x20hunts\x20from\x20the\x20shadows\x20and\x20strikes\x20from\x20odd\x20angles.','health':0x3778,'physicalDefense':'armor4','movementSpeed':0x5a,'weaponName':'uzi','image':'image/bot_25.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword4,gun4,gauntlet4,armor2,armor16,armor42,accessory08,accessory20,accessory32,ring05,ring18,ring28','spawnGoldOrbChance':0.7,'goldOrbAmount':0x145,'unitExplode':'unitexplode','level':0x12,'increaseSpawnGet':0x0,'expGet':0x122,'attackSpeed':0x1,'physicalDamage':0x127,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot26':{'name':'Inferno\x20Core','description':'A\x20red-hot\x20armored\x20sphere\x20with\x20a\x20blazing\x20flame\x20emblem.\x20It\x20burns\x20with\x20rage\x20and\x20hits\x20with\x20scorching\x20force.','health':0x3c8c,'physicalDefense':'armor4','movementSpeed':0x5a,'weaponName':'shotgun','image':'image/bot_26.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword5,gun5,gauntlet5,armor3,armor17,armor43,accessory09,accessory21,accessory33,ring06,ring19,ring29','spawnGoldOrbChance':0.65,'goldOrbAmount':0x15e,'unitExplode':'unitexplode','level':0x13,'increaseSpawnGet':0x0,'expGet':0x136,'attackSpeed':0x1,'physicalDamage':0x140,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot27':{'name':'Storm\x20Surge','description':'A\x20blue\x20sphere\x20crackling\x20with\x20a\x20lightning-bolt\x20emblem.\x20It\x20moves\x20in\x20quick\x20bursts\x20and\x20shocks\x20everything\x20nearby.','health':0x445c,'physicalDefense':'armor4','movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_27.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword6,gun6,gauntlet6,armor4,armor18,armor29,accessory10,accessory22,accessory34,ring07,ring20,ring30','spawnGoldOrbChance':0.7,'goldOrbAmount':0x172,'unitExplode':'unitexplode','level':0x14,'increaseSpawnGet':0x0,'expGet':0x14a,'attackSpeed':0x1,'physicalDamage':0x154,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot28':{'name':'Golden\x20Monarch','description':'A\x20gold-plated\x20royal\x20sphere\x20with\x20a\x20crown\x20emblem.\x20It\x20commands\x20its\x20area\x20and\x20takes\x20heavy\x20hits\x20to\x20bring\x20down.','health':0x4650,'physicalDefense':'armor5','movementSpeed':0x5a,'weaponName':'sniper','image':'image/bot_28.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword7,gun7,gauntlet7,armor5,armor19,armor30,accessory11,accessory23,accessory35,ring08,ring21,ring31','spawnGoldOrbChance':0.75,'goldOrbAmount':0x17c,'unitExplode':'unitexplode','level':0x15,'increaseSpawnGet':0x0,'expGet':0x154,'attackSpeed':0x1,'physicalDamage':0x168,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot29':{'name':'Crimson\x20Fiend','description':'A\x20blood-red\x20sphere\x20with\x20a\x20horned\x20demon\x20face.\x20It\x20is\x20relentless\x20and\x20brutal\x20in\x20close\x20fights.','health':0x4a9c,'physicalDefense':'armor5','movementSpeed':0x5a,'weaponName':'uzi','image':'image/bot_29.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword8,gun8,gauntlet8,armor6,armor20,armor31,accessory12,accessory24,accessory36,ring09,ring22,ring32','spawnGoldOrbChance':0.6,'goldOrbAmount':0x191,'unitExplode':'unitexplode','level':0x16,'increaseSpawnGet':0x0,'expGet':0x167,'attackSpeed':0x1,'physicalDamage':0x17a,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot30':{'name':'Sniper\x20Prime','description':'A\x20white\x20and\x20blue\x20sphere\x20with\x20a\x20targeting\x20crosshair.\x20It\x20spots\x20threats\x20from\x20far\x20away\x20and\x20rarely\x20misses.','health':0x4ee8,'physicalDefense':'armor5','movementSpeed':0x5b,'weaponName':'shotgun','image':'image/bot_30.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword9,gun9,gauntlet9,armor7,armor21,armor32,accessory01,accessory13,accessory25,ring10,ring23,ring33','spawnGoldOrbChance':0.7,'goldOrbAmount':0x1a7,'unitExplode':'unitexplode','level':0x17,'increaseSpawnGet':0x0,'expGet':0x17a,'attackSpeed':0x1,'physicalDamage':0x18d,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot31':{'name':'Toxic\x20Plague','description':'A\x20green\x20sphere\x20with\x20a\x20biohazard\x20emblem.\x20It\x20spreads\x20decay\x20wherever\x20it\x20patrols.','health':0x5398,'physicalDefense':'armor5','movementSpeed':0x5b,'weaponName':'ak47','image':'image/bot_31.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword10,gun10,gauntlet10,armor8,armor22,armor33,accessory02,accessory14,accessory26,ring11,ring24,ring34','spawnGoldOrbChance':0.65,'goldOrbAmount':0x1bd,'unitExplode':'unitexplode','level':0x18,'increaseSpawnGet':0x0,'expGet':0x18e,'attackSpeed':0x1,'physicalDamage':0x1a0,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot32':{'name':'Vortex\x20Spiral','description':'A\x20purple\x20sphere\x20with\x20a\x20swirling\x20vortex\x20core.\x20It\x20pulls\x20enemies\x20in\x20and\x20wears\x20them\x20down.','health':0x5848,'physicalDefense':'armor6','movementSpeed':0x5c,'weaponName':'sniper','image':'image/bot_32.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword11,gun11,gauntlet11,armor9,armor23,armor34,accessory03,accessory15,accessory27,ring12,ring25,ring35','spawnGoldOrbChance':0.7,'goldOrbAmount':0x1d4,'unitExplode':'unitexplode','level':0x19,'increaseSpawnGet':0x0,'expGet':0x1a3,'attackSpeed':0x1,'physicalDamage':0x1b3,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot33':{'name':'Crimson\x20Eagle','description':'A\x20red\x20and\x20white\x20sphere\x20with\x20an\x20eagle\x20emblem.\x20It\x20dives\x20on\x20targets\x20with\x20disciplined\x20aggression.','health':0x5d2a,'physicalDefense':'armor6','movementSpeed':0x5c,'weaponName':'uzi','image':'image/bot_33.png','radius':0xb,'viewRange':0x186,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword12,gun12,gauntlet12,armor10,armor24,armor35,accessory04,accessory16,accessory28,ring13,ring26,ring36','spawnGoldOrbChance':0.75,'goldOrbAmount':0x1ed,'unitExplode':'unitexplode','level':0x1a,'increaseSpawnGet':0x0,'expGet':0x1b9,'attackSpeed':0x1,'physicalDamage':0x1c8,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot34':{'name':'Hex\x20Guardian','description':'A\x20cyan\x20sphere\x20with\x20a\x20hexagon\x20shield\x20emblem.\x20It\x20holds\x20its\x20ground\x20behind\x20layered\x20armor.','health':0x623e,'physicalDefense':'armor6','movementSpeed':0x5d,'weaponName':'shotgun','image':'image/bot_34.png','radius':0xb,'viewRange':0x186,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword13,gun13,gauntlet13,armor11,armor25,armor36,accessory05,accessory17,accessory29,ring01,ring14,ring37','spawnGoldOrbChance':0.6,'goldOrbAmount':0x206,'unitExplode':'unitexplode','level':0x1b,'increaseSpawnGet':0x0,'expGet':0x1cf,'attackSpeed':0x1,'physicalDamage':0x1dd,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot35':{'name':'Ember\x20Fox','description':'An\x20orange\x20sphere\x20with\x20a\x20fox\x20emblem.\x20It\x20is\x20cunning,\x20quick\x20to\x20react\x20and\x20hard\x20to\x20pin\x20down.','health':0x6784,'physicalDefense':'armor6','movementSpeed':0x5d,'weaponName':'ak47','image':'image/bot_35.png','radius':0xb,'viewRange':0x186,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword14,gun14,gauntlet14,armor12,armor26,armor37,accessory06,accessory18,accessory30,ring02,ring15,ring38','spawnGoldOrbChance':0.7,'goldOrbAmount':0x21f,'unitExplode':'unitexplode','level':0x1c,'increaseSpawnGet':0x0,'expGet':0x1e6,'attackSpeed':0x1,'physicalDamage':0x1f2,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot36':{'name':'Tidal\x20Wave','description':'A\x20deep-blue\x20sphere\x20with\x20a\x20wave\x20emblem.\x20It\x20crashes\x20into\x20enemies\x20in\x20heavy\x20waves\x20of\x20fire.','health':0x6cfc,'physicalDefense':'armor7','movementSpeed':0x5e,'weaponName':'sniper','image':'image/bot_36.png','radius':0xb,'viewRange':0x186,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword15,gun15,gauntlet15,armor13,armor27,armor38,accessory07,accessory19,accessory31,ring03,ring16,ring39','spawnGoldOrbChance':0.65,'goldOrbAmount':0x23a,'unitExplode':'unitexplode','level':0x1d,'increaseSpawnGet':0x0,'expGet':0x1fe,'attackSpeed':0x1,'physicalDamage':0x208,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot37':{'name':'Hell\x20Trident','description':'A\x20red\x20and\x20black\x20sphere\x20with\x20a\x20trident\x20emblem.\x20It\x20pierces\x20armor\x20with\x20savage\x20thrusts.','health':0x72a6,'physicalDefense':'armor7','movementSpeed':0x5e,'weaponName':'uzi','image':'image/bot_37.png','radius':0xb,'viewRange':0x186,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword16,gun16,gauntlet16,armor14,armor28,armor39,accessory08,accessory20,accessory32,ring04,ring17,ring40','spawnGoldOrbChance':0.7,'goldOrbAmount':0x255,'unitExplode':'unitexplode','level':0x1e,'increaseSpawnGet':0x0,'expGet':0x216,'attackSpeed':0x1,'physicalDamage':0x21e,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot38':{'name':'Forest\x20Spirit','description':'A\x20green\x20sphere\x20with\x20a\x20leaf\x20emblem.\x20It\x20looks\x20calm\x20but\x20recovers\x20and\x20fights\x20with\x20ancient\x20strength.','health':0x7882,'physicalDefense':'armor7','movementSpeed':0x5f,'weaponName':'shotgun','image':'image/bot_38.png','radius':0xb,'viewRange':0x190,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword17,gun17,gauntlet17,armor1,armor15,armor40,accessory09,accessory21,accessory33,ring05,ring18,ring27','spawnGoldOrbChance':0.75,'goldOrbAmount':0x272,'unitExplode':'unitexplode','level':0x1f,'increaseSpawnGet':0x0,'expGet':0x230,'attackSpeed':0x1,'physicalDamage':0x235,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot39':{'name':'Alien\x20Overlord','description':'A\x20purple\x20sphere\x20with\x20an\x20alien\x20skull\x20emblem.\x20It\x20commands\x20its\x20patrol\x20with\x20strange,\x20deadly\x20power.','health':0x7e90,'physicalDefense':'armor7','movementSpeed':0x5f,'weaponName':'ak47','image':'image/bot_39.png','radius':0xb,'viewRange':0x190,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword18,gun18,gauntlet18,armor2,armor16,armor41,accessory10,accessory22,accessory34,ring06,ring19,ring28','spawnGoldOrbChance':0.6,'goldOrbAmount':0x28f,'unitExplode':'unitexplode','level':0x20,'increaseSpawnGet':0x0,'expGet':0x24a,'attackSpeed':0x1,'physicalDamage':0x24c,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot40':{'name':'Solar\x20Nova','description':'A\x20white\x20and\x20gold\x20sphere\x20with\x20a\x20radiant\x20star\x20emblem.\x20It\x20shines\x20with\x20explosive\x20power.','health':0x849e,'physicalDefense':'armor8','movementSpeed':0x60,'weaponName':'sniper','image':'image/bot_40.png','radius':0xb,'viewRange':0x190,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword19,gun19,gauntlet19,armor3,armor17,armor42,accessory11,accessory23,accessory35,ring07,ring20,ring29','spawnGoldOrbChance':0.7,'goldOrbAmount':0x2ac,'unitExplode':'unitexplode','level':0x21,'increaseSpawnGet':0x0,'expGet':0x264,'attackSpeed':0x1,'physicalDamage':0x264,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot41':{'name':'Cyber\x20Falcon\x20Mk\x20II','description':'A\x20cyan\x20armored\x20sphere\x20with\x20a\x20glowing\x20winged-falcon\x20emblem.\x20It\x20swoops\x20in\x20fast\x20and\x20strikes\x20with\x20precise\x20bursts.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x8ade,'physicalDefense':'armor8','movementSpeed':0x60,'weaponName':'uzi','image':'image/bot_21.png','radius':0xb,'viewRange':0x190,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword20,gun20,gauntlet20,armor4,armor18,armor43,accessory12,accessory24,accessory36,ring08,ring21,ring30','spawnGoldOrbChance':0.65,'goldOrbAmount':0x2cb,'unitExplode':'unitexplode','level':0x22,'increaseSpawnGet':0x0,'expGet':0x280,'attackSpeed':0x1,'physicalDamage':0x27d,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot42':{'name':'Bone\x20Reaper\x20Mk\x20II','description':'A\x20soot-black\x20sphere\x20with\x20orange\x20glowing\x20plates\x20and\x20a\x20white\x20skull\x20emblem.\x20It\x20reaps\x20anything\x20that\x20wanders\x20into\x20its\x20patrol.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x9150,'physicalDefense':'armor8','movementSpeed':0x61,'weaponName':'shotgun','image':'image/bot_22.png','radius':0xb,'viewRange':0x190,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword1,gun1,gauntlet1,armor5,armor19,armor29,accessory01,accessory13,accessory25,ring09,ring22,ring31','spawnGoldOrbChance':0.7,'goldOrbAmount':0x2ea,'unitExplode':'unitexplode','level':0x23,'increaseSpawnGet':0x0,'expGet':0x29c,'attackSpeed':0x1,'physicalDamage':0x295,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot43':{'name':'Blizzard\x20Sentinel\x20Mk\x20II','description':'A\x20frost-white\x20sphere\x20with\x20a\x20blue\x20snowflake\x20core.\x20It\x20guards\x20its\x20ground\x20coldly\x20and\x20never\x20tires.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x97f4,'physicalDefense':'armor8','movementSpeed':0x61,'weaponName':'ak47','image':'image/bot_23.png','radius':0xb,'viewRange':0x19a,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword2,gun2,gauntlet2,armor6,armor20,armor30,accessory02,accessory14,accessory26,ring10,ring23,ring32','spawnGoldOrbChance':0.75,'goldOrbAmount':0x30a,'unitExplode':'unitexplode','level':0x24,'increaseSpawnGet':0x0,'expGet':0x2b8,'attackSpeed':0x1,'physicalDamage':0x2ae,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot44':{'name':'Nuclear\x20Warden\x20Mk\x20II','description':'A\x20green-lit\x20sphere\x20marked\x20with\x20a\x20radiation\x20symbol.\x20It\x20poisons\x20the\x20air\x20around\x20it\x20and\x20hits\x20with\x20irradiated\x20rounds.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x9eca,'physicalDefense':'armor9','movementSpeed':0x62,'weaponName':'sniper','image':'image/bot_24.png','radius':0xb,'viewRange':0x19a,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword3,gun3,gauntlet3,armor7,armor21,armor31,accessory03,accessory15,accessory27,ring11,ring24,ring33','spawnGoldOrbChance':0.6,'goldOrbAmount':0x32b,'unitExplode':'unitexplode','level':0x25,'increaseSpawnGet':0x0,'expGet':0x2d6,'attackSpeed':0x1,'physicalDamage':0x2c8,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot45':{'name':'Void\x20Raven\x20Mk\x20II','description':'A\x20dark\x20purple\x20sphere\x20with\x20a\x20winged\x20raven\x20crest.\x20It\x20hunts\x20from\x20the\x20shadows\x20and\x20strikes\x20from\x20odd\x20angles.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xa5a0,'physicalDefense':'armor9','movementSpeed':0x62,'weaponName':'uzi','image':'image/bot_25.png','radius':0xb,'viewRange':0x19a,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword4,gun4,gauntlet4,armor8,armor22,armor32,accessory04,accessory16,accessory28,ring12,ring25,ring34','spawnGoldOrbChance':0.7,'goldOrbAmount':0x34c,'unitExplode':'unitexplode','level':0x26,'increaseSpawnGet':0x0,'expGet':0x2f4,'attackSpeed':0x1,'physicalDamage':0x2e2,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot46':{'name':'Inferno\x20Core\x20Mk\x20II','description':'A\x20red-hot\x20armored\x20sphere\x20with\x20a\x20blazing\x20flame\x20emblem.\x20It\x20burns\x20with\x20rage\x20and\x20hits\x20with\x20scorching\x20force.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xaca8,'physicalDefense':'armor9','movementSpeed':0x63,'weaponName':'shotgun','image':'image/bot_26.png','radius':0xb,'viewRange':0x19a,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword5,gun5,gauntlet5,armor9,armor23,armor33,accessory05,accessory17,accessory29,ring13,ring26,ring35','spawnGoldOrbChance':0.65,'goldOrbAmount':0x36f,'unitExplode':'unitexplode','level':0x27,'increaseSpawnGet':0x0,'expGet':0x312,'attackSpeed':0x1,'physicalDamage':0x2fc,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot47':{'name':'Storm\x20Surge\x20Mk\x20II','description':'A\x20blue\x20sphere\x20crackling\x20with\x20a\x20lightning-bolt\x20emblem.\x20It\x20moves\x20in\x20quick\x20bursts\x20and\x20shocks\x20everything\x20nearby.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xb3e2,'physicalDefense':'armor9','movementSpeed':0x63,'weaponName':'ak47','image':'image/bot_27.png','radius':0xb,'viewRange':0x19a,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword6,gun6,gauntlet6,armor10,armor24,armor34,accessory06,accessory18,accessory30,ring01,ring14,ring36','spawnGoldOrbChance':0.7,'goldOrbAmount':0x391,'unitExplode':'unitexplode','level':0x28,'increaseSpawnGet':0x0,'expGet':0x331,'attackSpeed':0x1,'physicalDamage':0x316,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot48':{'name':'Golden\x20Monarch\x20Mk\x20II','description':'A\x20gold-plated\x20royal\x20sphere\x20with\x20a\x20crown\x20emblem.\x20It\x20commands\x20its\x20area\x20and\x20takes\x20heavy\x20hits\x20to\x20bring\x20down.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xbb1c,'physicalDefense':'armor10','movementSpeed':0x64,'weaponName':'sniper','image':'image/bot_28.png','radius':0xb,'viewRange':0x1a4,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword7,gun7,gauntlet7,armor11,armor25,armor35,accessory07,accessory19,accessory31,ring02,ring15,ring37','spawnGoldOrbChance':0.75,'goldOrbAmount':0x3b5,'unitExplode':'unitexplode','level':0x29,'increaseSpawnGet':0x0,'expGet':0x351,'attackSpeed':0x1,'physicalDamage':0x331,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot49':{'name':'Crimson\x20Fiend\x20Mk\x20II','description':'A\x20blood-red\x20sphere\x20with\x20a\x20horned\x20demon\x20face.\x20It\x20is\x20relentless\x20and\x20brutal\x20in\x20close\x20fights.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xc288,'physicalDefense':'armor10','movementSpeed':0x64,'weaponName':'uzi','image':'image/bot_29.png','radius':0xb,'viewRange':0x1a4,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword8,gun8,gauntlet8,armor12,armor26,armor36,accessory08,accessory20,accessory32,ring03,ring16,ring38','spawnGoldOrbChance':0.6,'goldOrbAmount':0x3d8,'unitExplode':'unitexplode','level':0x2a,'increaseSpawnGet':0x0,'expGet':0x371,'attackSpeed':0x1,'physicalDamage':0x34b,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot50':{'name':'Sniper\x20Prime\x20Mk\x20II','description':'A\x20white\x20and\x20blue\x20sphere\x20with\x20a\x20targeting\x20crosshair.\x20It\x20spots\x20threats\x20from\x20far\x20away\x20and\x20rarely\x20misses.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xc9f4,'physicalDefense':'armor10','movementSpeed':0x65,'weaponName':'shotgun','image':'image/bot_30.png','radius':0xb,'viewRange':0x1a4,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword9,gun9,gauntlet9,armor13,armor27,armor37,accessory09,accessory21,accessory33,ring04,ring17,ring39','spawnGoldOrbChance':0.7,'goldOrbAmount':0x3fd,'unitExplode':'unitexplode','level':0x2b,'increaseSpawnGet':0x0,'expGet':0x391,'attackSpeed':0x1,'physicalDamage':0x366,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot51':{'name':'Toxic\x20Plague\x20Mk\x20II','description':'A\x20green\x20sphere\x20with\x20a\x20biohazard\x20emblem.\x20It\x20spreads\x20decay\x20wherever\x20it\x20patrols.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xd160,'physicalDefense':'armor10','movementSpeed':0x65,'weaponName':'ak47','image':'image/bot_31.png','radius':0xb,'viewRange':0x1a4,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword10,gun10,gauntlet10,armor14,armor28,armor38,accessory10,accessory22,accessory34,ring05,ring18,ring40','spawnGoldOrbChance':0.65,'goldOrbAmount':0x421,'unitExplode':'unitexplode','level':0x2c,'increaseSpawnGet':0x0,'expGet':0x3b2,'attackSpeed':0x1,'physicalDamage':0x381,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot52':{'name':'Vortex\x20Spiral\x20Mk\x20II','description':'A\x20purple\x20sphere\x20with\x20a\x20swirling\x20vortex\x20core.\x20It\x20pulls\x20enemies\x20in\x20and\x20wears\x20them\x20down.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xd8fe,'physicalDefense':'armor11','movementSpeed':0x66,'weaponName':'sniper','image':'image/bot_32.png','radius':0xb,'viewRange':0x1a4,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword11,gun11,gauntlet11,armor1,armor15,armor39,accessory11,accessory23,accessory35,ring06,ring19,ring27','spawnGoldOrbChance':0.7,'goldOrbAmount':0x447,'unitExplode':'unitexplode','level':0x2d,'increaseSpawnGet':0x0,'expGet':0x3d3,'attackSpeed':0x1,'physicalDamage':0x39c,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot53':{'name':'Crimson\x20Eagle\x20Mk\x20II','description':'A\x20red\x20and\x20white\x20sphere\x20with\x20an\x20eagle\x20emblem.\x20It\x20dives\x20on\x20targets\x20with\x20disciplined\x20aggression.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xe09c,'physicalDefense':'armor11','movementSpeed':0x66,'weaponName':'uzi','image':'image/bot_33.png','radius':0xb,'viewRange':0x1ae,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword12,gun12,gauntlet12,armor2,armor16,armor40,accessory12,accessory24,accessory36,ring07,ring20,ring28','spawnGoldOrbChance':0.75,'goldOrbAmount':0x46c,'unitExplode':'unitexplode','level':0x2e,'increaseSpawnGet':0x0,'expGet':0x3f5,'attackSpeed':0x1,'physicalDamage':0x3b7,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot54':{'name':'Hex\x20Guardian\x20Mk\x20II','description':'A\x20cyan\x20sphere\x20with\x20a\x20hexagon\x20shield\x20emblem.\x20It\x20holds\x20its\x20ground\x20behind\x20layered\x20armor.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xe83a,'physicalDefense':'armor11','movementSpeed':0x67,'weaponName':'shotgun','image':'image/bot_34.png','radius':0xb,'viewRange':0x1ae,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword13,gun13,gauntlet13,armor3,armor17,armor41,accessory01,accessory13,accessory25,ring08,ring21,ring29','spawnGoldOrbChance':0.6,'goldOrbAmount':0x492,'unitExplode':'unitexplode','level':0x2f,'increaseSpawnGet':0x0,'expGet':0x417,'attackSpeed':0x1,'physicalDamage':0x3d2,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot55':{'name':'Ember\x20Fox\x20Mk\x20II','description':'An\x20orange\x20sphere\x20with\x20a\x20fox\x20emblem.\x20It\x20is\x20cunning,\x20quick\x20to\x20react\x20and\x20hard\x20to\x20pin\x20down.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xf00a,'physicalDefense':'armor11','movementSpeed':0x67,'weaponName':'ak47','image':'image/bot_35.png','radius':0xb,'viewRange':0x1ae,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword14,gun14,gauntlet14,armor4,armor18,armor42,accessory02,accessory14,accessory26,ring09,ring22,ring30','spawnGoldOrbChance':0.7,'goldOrbAmount':0x4b8,'unitExplode':'unitexplode','level':0x30,'increaseSpawnGet':0x0,'expGet':0x439,'attackSpeed':0x1,'physicalDamage':0x3ed,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot56':{'name':'Tidal\x20Wave\x20Mk\x20II','description':'A\x20deep-blue\x20sphere\x20with\x20a\x20wave\x20emblem.\x20It\x20crashes\x20into\x20enemies\x20in\x20heavy\x20waves\x20of\x20fire.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xf7a8,'physicalDefense':'armor12','movementSpeed':0x68,'weaponName':'sniper','image':'image/bot_36.png','radius':0xb,'viewRange':0x1ae,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword15,gun15,gauntlet15,armor5,armor19,armor43,accessory03,accessory15,accessory27,ring10,ring23,ring31','spawnGoldOrbChance':0.65,'goldOrbAmount':0x4df,'unitExplode':'unitexplode','level':0x31,'increaseSpawnGet':0x0,'expGet':0x45b,'attackSpeed':0x1,'physicalDamage':0x408,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot57':{'name':'Hell\x20Trident\x20Mk\x20II','description':'A\x20red\x20and\x20black\x20sphere\x20with\x20a\x20trident\x20emblem.\x20It\x20pierces\x20armor\x20with\x20savage\x20thrusts.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xff78,'physicalDefense':'armor12','movementSpeed':0x68,'weaponName':'uzi','image':'image/bot_37.png','radius':0xb,'viewRange':0x1ae,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'specialstone,sword16,gun16,gauntlet16,armor6,armor20,armor29,accessory04,accessory16,accessory28,ring11,ring24,ring32','spawnGoldOrbChance':0.7,'goldOrbAmount':0x505,'unitExplode':'unitexplode','level':0x32,'increaseSpawnGet':0x0,'expGet':0x47e,'attackSpeed':0x1,'physicalDamage':0x423,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot58':{'name':'Forest\x20Spirit\x20Mk\x20II','description':'A\x20green\x20sphere\x20with\x20a\x20leaf\x20emblem.\x20It\x20looks\x20calm\x20but\x20recovers\x20and\x20fights\x20with\x20ancient\x20strength.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x10716,'physicalDefense':'armor12','movementSpeed':0x69,'weaponName':'shotgun','image':'image/bot_38.png','radius':0xb,'viewRange':0x1b8,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'sword17,gun17,gauntlet17,armor7,armor21,armor30,accessory05,accessory17,accessory29,ring12,ring25,ring33','spawnGoldOrbChance':0.75,'goldOrbAmount':0x52c,'unitExplode':'unitexplode','level':0x33,'increaseSpawnGet':0x0,'expGet':0x4a0,'attackSpeed':0x1,'physicalDamage':0x43d,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot21elite':{'name':'Elite\x20Cyber\x20Falcon','description':'A\x20cyan\x20armored\x20sphere\x20with\x20a\x20glowing\x20winged-falcon\x20emblem.\x20It\x20swoops\x20in\x20fast\x20and\x20strikes\x20with\x20precise\x20bursts.','health':0x3a98,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'uzi','image':'image/bot_21.png','radius':0xd,'viewRange':0x154,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword18,gun18,gauntlet18,armor8,armor22,armor31,accessory06,accessory18,accessory30,ring13,ring26,ring34','spawnGoldOrbChance':0.65,'goldOrbAmount':0xe6,'unitExplode':'unitexplode','level':0xe,'increaseSpawnGet':0x0,'expGet':0xc2,'attackSpeed':0x1,'physicalDamage':0xd8,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot22elite':{'name':'Elite\x20Bone\x20Reaper','description':'A\x20soot-black\x20sphere\x20with\x20orange\x20glowing\x20plates\x20and\x20a\x20white\x20skull\x20emblem.\x20It\x20reaps\x20anything\x20that\x20wanders\x20into\x20its\x20patrol.','health':0x4650,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'shotgun','image':'image/bot_22.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword19,gun19,gauntlet19,armor9,armor23,armor32,accessory07,accessory19,accessory31,ring01,ring14,ring35','spawnGoldOrbChance':0.7,'goldOrbAmount':0x102,'unitExplode':'unitexplode','level':0xf,'increaseSpawnGet':0x0,'expGet':0xe3,'attackSpeed':0x1,'physicalDamage':0xf8,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot23elite':{'name':'Elite\x20Blizzard\x20Sentinel','description':'A\x20frost-white\x20sphere\x20with\x20a\x20blue\x20snowflake\x20core.\x20It\x20guards\x20its\x20ground\x20coldly\x20and\x20never\x20tires.','health':0x59d8,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_23.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword20,gun20,gauntlet20,armor10,armor24,armor33,accessory08,accessory20,accessory32,ring02,ring15,ring36','spawnGoldOrbChance':0.75,'goldOrbAmount':0x13a,'unitExplode':'unitexplode','level':0x10,'increaseSpawnGet':0x0,'expGet':0x10e,'attackSpeed':0x1,'physicalDamage':0x119,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot24elite':{'name':'Elite\x20Nuclear\x20Warden','description':'A\x20green-lit\x20sphere\x20marked\x20with\x20a\x20radiation\x20symbol.\x20It\x20poisons\x20the\x20air\x20around\x20it\x20and\x20hits\x20with\x20irradiated\x20rounds.','health':0x6590,'physicalDefense':'armor4','movementSpeed':0x5a,'weaponName':'sniper','image':'image/bot_24.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword1,gun1,gauntlet1,armor11,armor25,armor34,accessory09,accessory21,accessory33,ring03,ring16,ring37','spawnGoldOrbChance':0.6,'goldOrbAmount':0x150,'unitExplode':'unitexplode','level':0x11,'increaseSpawnGet':0x0,'expGet':0x129,'attackSpeed':0x1,'physicalDamage':0x12c,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot25elite':{'name':'Elite\x20Void\x20Raven','description':'A\x20dark\x20purple\x20sphere\x20with\x20a\x20winged\x20raven\x20crest.\x20It\x20hunts\x20from\x20the\x20shadows\x20and\x20strikes\x20from\x20odd\x20angles.','health':0x6ef0,'physicalDefense':'armor4','movementSpeed':0x5a,'weaponName':'uzi','image':'image/bot_25.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword2,gun2,gauntlet2,armor12,armor26,armor35,accessory10,accessory22,accessory34,ring04,ring17,ring38','spawnGoldOrbChance':0.7,'goldOrbAmount':0x16c,'unitExplode':'unitexplode','level':0x12,'increaseSpawnGet':0x0,'expGet':0x139,'attackSpeed':0x1,'physicalDamage':0x13f,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot26elite':{'name':'Elite\x20Inferno\x20Core','description':'A\x20red-hot\x20armored\x20sphere\x20with\x20a\x20blazing\x20flame\x20emblem.\x20It\x20burns\x20with\x20rage\x20and\x20hits\x20with\x20scorching\x20force.','health':0x7918,'physicalDefense':'armor4','movementSpeed':0x5a,'weaponName':'shotgun','image':'image/bot_26.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword3,gun3,gauntlet3,armor13,armor27,armor36,accessory11,accessory23,accessory35,ring05,ring18,ring39','spawnGoldOrbChance':0.65,'goldOrbAmount':0x188,'unitExplode':'unitexplode','level':0x13,'increaseSpawnGet':0x0,'expGet':0x14f,'attackSpeed':0x1,'physicalDamage':0x15a,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot27elite':{'name':'Elite\x20Storm\x20Surge','description':'A\x20blue\x20sphere\x20crackling\x20with\x20a\x20lightning-bolt\x20emblem.\x20It\x20moves\x20in\x20quick\x20bursts\x20and\x20shocks\x20everything\x20nearby.','health':0x88b8,'physicalDefense':'armor4','movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_27.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword4,gun4,gauntlet4,armor14,armor28,armor37,accessory12,accessory24,accessory36,ring06,ring19,ring40','spawnGoldOrbChance':0.7,'goldOrbAmount':0x19e,'unitExplode':'unitexplode','level':0x14,'increaseSpawnGet':0x0,'expGet':0x164,'attackSpeed':0x1,'physicalDamage':0x16f,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot28elite':{'name':'Elite\x20Golden\x20Monarch','description':'A\x20gold-plated\x20royal\x20sphere\x20with\x20a\x20crown\x20emblem.\x20It\x20commands\x20its\x20area\x20and\x20takes\x20heavy\x20hits\x20to\x20bring\x20down.','health':0x8ca0,'physicalDefense':'armor5','movementSpeed':0x5a,'weaponName':'sniper','image':'image/bot_28.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword5,gun5,gauntlet5,armor1,armor15,armor38,accessory01,accessory13,accessory25,ring07,ring20,ring27','spawnGoldOrbChance':0.75,'goldOrbAmount':0x1aa,'unitExplode':'unitexplode','level':0x15,'increaseSpawnGet':0x0,'expGet':0x16f,'attackSpeed':0x1,'physicalDamage':0x185,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot29elite':{'name':'Elite\x20Crimson\x20Fiend','description':'A\x20blood-red\x20sphere\x20with\x20a\x20horned\x20demon\x20face.\x20It\x20is\x20relentless\x20and\x20brutal\x20in\x20close\x20fights.','health':0x9538,'physicalDefense':'armor5','movementSpeed':0x5a,'weaponName':'uzi','image':'image/bot_29.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword6,gun6,gauntlet6,armor2,armor16,armor39,accessory02,accessory14,accessory26,ring08,ring21,ring28','spawnGoldOrbChance':0.6,'goldOrbAmount':0x1c1,'unitExplode':'unitexplode','level':0x16,'increaseSpawnGet':0x0,'expGet':0x184,'attackSpeed':0x1,'physicalDamage':0x198,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot30elite':{'name':'Elite\x20Sniper\x20Prime','description':'A\x20white\x20and\x20blue\x20sphere\x20with\x20a\x20targeting\x20crosshair.\x20It\x20spots\x20threats\x20from\x20far\x20away\x20and\x20rarely\x20misses.','health':0x9dd0,'physicalDefense':'armor5','movementSpeed':0x5b,'weaponName':'shotgun','image':'image/bot_30.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword7,gun7,gauntlet7,armor3,armor17,armor40,accessory03,accessory15,accessory27,ring09,ring22,ring29','spawnGoldOrbChance':0.7,'goldOrbAmount':0x1da,'unitExplode':'unitexplode','level':0x17,'increaseSpawnGet':0x0,'expGet':0x198,'attackSpeed':0x1,'physicalDamage':0x1ad,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot31elite':{'name':'Elite\x20Toxic\x20Plague','description':'A\x20green\x20sphere\x20with\x20a\x20biohazard\x20emblem.\x20It\x20spreads\x20decay\x20wherever\x20it\x20patrols.','health':0xa730,'physicalDefense':'armor5','movementSpeed':0x5b,'weaponName':'ak47','image':'image/bot_31.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword8,gun8,gauntlet8,armor4,armor18,armor41,accessory04,accessory16,accessory28,ring10,ring23,ring30','spawnGoldOrbChance':0.65,'goldOrbAmount':0x1f2,'unitExplode':'unitexplode','level':0x18,'increaseSpawnGet':0x0,'expGet':0x1ae,'attackSpeed':0x1,'physicalDamage':0x1c1,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot32elite':{'name':'Elite\x20Vortex\x20Spiral','description':'A\x20purple\x20sphere\x20with\x20a\x20swirling\x20vortex\x20core.\x20It\x20pulls\x20enemies\x20in\x20and\x20wears\x20them\x20down.','health':0xb090,'physicalDefense':'armor6','movementSpeed':0x5c,'weaponName':'sniper','image':'image/bot_32.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword9,gun9,gauntlet9,armor5,armor19,armor42,accessory05,accessory17,accessory29,ring11,ring24,ring31','spawnGoldOrbChance':0.7,'goldOrbAmount':0x20c,'unitExplode':'unitexplode','level':0x19,'increaseSpawnGet':0x0,'expGet':0x1c5,'attackSpeed':0x1,'physicalDamage':0x1d6,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot33elite':{'name':'Elite\x20Crimson\x20Eagle','description':'A\x20red\x20and\x20white\x20sphere\x20with\x20an\x20eagle\x20emblem.\x20It\x20dives\x20on\x20targets\x20with\x20disciplined\x20aggression.','health':0xba54,'physicalDefense':'armor6','movementSpeed':0x5c,'weaponName':'uzi','image':'image/bot_33.png','radius':0xd,'viewRange':0x186,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword10,gun10,gauntlet10,armor6,armor20,armor43,accessory06,accessory18,accessory30,ring12,ring25,ring32','spawnGoldOrbChance':0.75,'goldOrbAmount':0x228,'unitExplode':'unitexplode','level':0x1a,'increaseSpawnGet':0x0,'expGet':0x1dc,'attackSpeed':0x1,'physicalDamage':0x1ec,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot34elite':{'name':'Elite\x20Hex\x20Guardian','description':'A\x20cyan\x20sphere\x20with\x20a\x20hexagon\x20shield\x20emblem.\x20It\x20holds\x20its\x20ground\x20behind\x20layered\x20armor.','health':0xc47c,'physicalDefense':'armor6','movementSpeed':0x5d,'weaponName':'shotgun','image':'image/bot_34.png','radius':0xd,'viewRange':0x186,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword11,gun11,gauntlet11,armor7,armor21,armor29,accessory07,accessory19,accessory31,ring13,ring26,ring33','spawnGoldOrbChance':0.6,'goldOrbAmount':0x244,'unitExplode':'unitexplode','level':0x1b,'increaseSpawnGet':0x0,'expGet':0x1f4,'attackSpeed':0x1,'physicalDamage':0x203,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot35elite':{'name':'Elite\x20Ember\x20Fox','description':'An\x20orange\x20sphere\x20with\x20a\x20fox\x20emblem.\x20It\x20is\x20cunning,\x20quick\x20to\x20react\x20and\x20hard\x20to\x20pin\x20down.','health':0xcf08,'physicalDefense':'armor6','movementSpeed':0x5d,'weaponName':'ak47','image':'image/bot_35.png','radius':0xd,'viewRange':0x186,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword12,gun12,gauntlet12,armor8,armor22,armor30,accessory08,accessory20,accessory32,ring01,ring14,ring34','spawnGoldOrbChance':0.7,'goldOrbAmount':0x260,'unitExplode':'unitexplode','level':0x1c,'increaseSpawnGet':0x0,'expGet':0x20d,'attackSpeed':0x1,'physicalDamage':0x21a,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot36elite':{'name':'Elite\x20Tidal\x20Wave','description':'A\x20deep-blue\x20sphere\x20with\x20a\x20wave\x20emblem.\x20It\x20crashes\x20into\x20enemies\x20in\x20heavy\x20waves\x20of\x20fire.','health':0xd9f8,'physicalDefense':'armor7','movementSpeed':0x5e,'weaponName':'sniper','image':'image/bot_36.png','radius':0xd,'viewRange':0x186,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword13,gun13,gauntlet13,armor9,armor23,armor31,accessory09,accessory21,accessory33,ring02,ring15,ring35','spawnGoldOrbChance':0.65,'goldOrbAmount':0x27e,'unitExplode':'unitexplode','level':0x1d,'increaseSpawnGet':0x0,'expGet':0x227,'attackSpeed':0x1,'physicalDamage':0x232,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot37elite':{'name':'Elite\x20Hell\x20Trident','description':'A\x20red\x20and\x20black\x20sphere\x20with\x20a\x20trident\x20emblem.\x20It\x20pierces\x20armor\x20with\x20savage\x20thrusts.','health':0xe54c,'physicalDefense':'armor7','movementSpeed':0x5e,'weaponName':'uzi','image':'image/bot_37.png','radius':0xd,'viewRange':0x186,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword14,gun14,gauntlet14,armor10,armor24,armor32,accessory10,accessory22,accessory34,ring03,ring16,ring36','spawnGoldOrbChance':0.7,'goldOrbAmount':0x29d,'unitExplode':'unitexplode','level':0x1e,'increaseSpawnGet':0x0,'expGet':0x241,'attackSpeed':0x1,'physicalDamage':0x249,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot38elite':{'name':'Elite\x20Forest\x20Spirit','description':'A\x20green\x20sphere\x20with\x20a\x20leaf\x20emblem.\x20It\x20looks\x20calm\x20but\x20recovers\x20and\x20fights\x20with\x20ancient\x20strength.','health':0xf104,'physicalDefense':'armor7','movementSpeed':0x5f,'weaponName':'shotgun','image':'image/bot_38.png','radius':0xd,'viewRange':0x190,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword15,gun15,gauntlet15,armor11,armor25,armor33,accessory11,accessory23,accessory35,ring04,ring17,ring37','spawnGoldOrbChance':0.75,'goldOrbAmount':0x2bd,'unitExplode':'unitexplode','level':0x1f,'increaseSpawnGet':0x0,'expGet':0x25d,'attackSpeed':0x1,'physicalDamage':0x262,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot39elite':{'name':'Elite\x20Alien\x20Overlord','description':'A\x20purple\x20sphere\x20with\x20an\x20alien\x20skull\x20emblem.\x20It\x20commands\x20its\x20patrol\x20with\x20strange,\x20deadly\x20power.','health':0xfd20,'physicalDefense':'armor7','movementSpeed':0x5f,'weaponName':'ak47','image':'image/bot_39.png','radius':0xd,'viewRange':0x190,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword16,gun16,gauntlet16,armor12,armor26,armor34,accessory12,accessory24,accessory36,ring05,ring18,ring38','spawnGoldOrbChance':0.6,'goldOrbAmount':0x2de,'unitExplode':'unitexplode','level':0x20,'increaseSpawnGet':0x0,'expGet':0x279,'attackSpeed':0x1,'physicalDamage':0x27b,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot40elite':{'name':'Elite\x20Solar\x20Nova','description':'A\x20white\x20and\x20gold\x20sphere\x20with\x20a\x20radiant\x20star\x20emblem.\x20It\x20shines\x20with\x20explosive\x20power.','health':0x1093c,'physicalDefense':'armor8','movementSpeed':0x60,'weaponName':'sniper','image':'image/bot_40.png','radius':0xd,'viewRange':0x190,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword17,gun17,gauntlet17,armor13,armor27,armor35,accessory01,accessory13,accessory25,ring06,ring19,ring39','spawnGoldOrbChance':0.7,'goldOrbAmount':0x2fe,'unitExplode':'unitexplode','level':0x21,'increaseSpawnGet':0x0,'expGet':0x295,'attackSpeed':0x1,'physicalDamage':0x295,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot41elite':{'name':'Elite\x20Cyber\x20Falcon\x20Mk\x20II','description':'A\x20cyan\x20armored\x20sphere\x20with\x20a\x20glowing\x20winged-falcon\x20emblem.\x20It\x20swoops\x20in\x20fast\x20and\x20strikes\x20with\x20precise\x20bursts.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x115bc,'physicalDefense':'armor8','movementSpeed':0x60,'weaponName':'uzi','image':'image/bot_21.png','radius':0xd,'viewRange':0x190,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword18,gun18,gauntlet18,armor14,armor28,armor36,accessory02,accessory14,accessory26,ring07,ring20,ring40','spawnGoldOrbChance':0.65,'goldOrbAmount':0x321,'unitExplode':'unitexplode','level':0x22,'increaseSpawnGet':0x0,'expGet':0x2b3,'attackSpeed':0x1,'physicalDamage':0x2b0,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot42elite':{'name':'Elite\x20Bone\x20Reaper\x20Mk\x20II','description':'A\x20soot-black\x20sphere\x20with\x20orange\x20glowing\x20plates\x20and\x20a\x20white\x20skull\x20emblem.\x20It\x20reaps\x20anything\x20that\x20wanders\x20into\x20its\x20patrol.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x122a0,'physicalDefense':'armor8','movementSpeed':0x61,'weaponName':'shotgun','image':'image/bot_22.png','radius':0xd,'viewRange':0x190,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword19,gun19,gauntlet19,armor1,armor15,armor37,accessory03,accessory15,accessory27,ring08,ring21,ring27','spawnGoldOrbChance':0.7,'goldOrbAmount':0x344,'unitExplode':'unitexplode','level':0x23,'increaseSpawnGet':0x0,'expGet':0x2d1,'attackSpeed':0x1,'physicalDamage':0x2ca,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot43elite':{'name':'Elite\x20Blizzard\x20Sentinel\x20Mk\x20II','description':'A\x20frost-white\x20sphere\x20with\x20a\x20blue\x20snowflake\x20core.\x20It\x20guards\x20its\x20ground\x20coldly\x20and\x20never\x20tires.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x12fe8,'physicalDefense':'armor8','movementSpeed':0x61,'weaponName':'ak47','image':'image/bot_23.png','radius':0xd,'viewRange':0x19a,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword20,gun20,gauntlet20,armor2,armor16,armor38,accessory04,accessory16,accessory28,ring09,ring22,ring28','spawnGoldOrbChance':0.75,'goldOrbAmount':0x367,'unitExplode':'unitexplode','level':0x24,'increaseSpawnGet':0x0,'expGet':0x2f0,'attackSpeed':0x1,'physicalDamage':0x2e5,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot44elite':{'name':'Elite\x20Nuclear\x20Warden\x20Mk\x20II','description':'A\x20green-lit\x20sphere\x20marked\x20with\x20a\x20radiation\x20symbol.\x20It\x20poisons\x20the\x20air\x20around\x20it\x20and\x20hits\x20with\x20irradiated\x20rounds.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x13d94,'physicalDefense':'armor9','movementSpeed':0x62,'weaponName':'sniper','image':'image/bot_24.png','radius':0xd,'viewRange':0x19a,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword1,gun1,gauntlet1,armor3,armor17,armor39,accessory05,accessory17,accessory29,ring10,ring23,ring29','spawnGoldOrbChance':0.6,'goldOrbAmount':0x38c,'unitExplode':'unitexplode','level':0x25,'increaseSpawnGet':0x0,'expGet':0x310,'attackSpeed':0x1,'physicalDamage':0x301,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot45elite':{'name':'Elite\x20Void\x20Raven\x20Mk\x20II','description':'A\x20dark\x20purple\x20sphere\x20with\x20a\x20winged\x20raven\x20crest.\x20It\x20hunts\x20from\x20the\x20shadows\x20and\x20strikes\x20from\x20odd\x20angles.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x14b40,'physicalDefense':'armor9','movementSpeed':0x62,'weaponName':'uzi','image':'image/bot_25.png','radius':0xd,'viewRange':0x19a,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword2,gun2,gauntlet2,armor4,armor18,armor40,accessory06,accessory18,accessory30,ring11,ring24,ring30','spawnGoldOrbChance':0.7,'goldOrbAmount':0x3b1,'unitExplode':'unitexplode','level':0x26,'increaseSpawnGet':0x0,'expGet':0x330,'attackSpeed':0x1,'physicalDamage':0x31d,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot46elite':{'name':'Elite\x20Inferno\x20Core\x20Mk\x20II','description':'A\x20red-hot\x20armored\x20sphere\x20with\x20a\x20blazing\x20flame\x20emblem.\x20It\x20burns\x20with\x20rage\x20and\x20hits\x20with\x20scorching\x20force.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x15950,'physicalDefense':'armor9','movementSpeed':0x63,'weaponName':'shotgun','image':'image/bot_26.png','radius':0xd,'viewRange':0x19a,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword3,gun3,gauntlet3,armor5,armor19,armor41,accessory07,accessory19,accessory31,ring12,ring25,ring31','spawnGoldOrbChance':0.65,'goldOrbAmount':0x3d8,'unitExplode':'unitexplode','level':0x27,'increaseSpawnGet':0x0,'expGet':0x351,'attackSpeed':0x1,'physicalDamage':0x339,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot47elite':{'name':'Elite\x20Storm\x20Surge\x20Mk\x20II','description':'A\x20blue\x20sphere\x20crackling\x20with\x20a\x20lightning-bolt\x20emblem.\x20It\x20moves\x20in\x20quick\x20bursts\x20and\x20shocks\x20everything\x20nearby.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x167c4,'physicalDefense':'armor9','movementSpeed':0x63,'weaponName':'ak47','image':'image/bot_27.png','radius':0xd,'viewRange':0x19a,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword4,gun4,gauntlet4,armor6,armor20,armor42,accessory08,accessory20,accessory32,ring13,ring26,ring32','spawnGoldOrbChance':0.7,'goldOrbAmount':0x3ff,'unitExplode':'unitexplode','level':0x28,'increaseSpawnGet':0x0,'expGet':0x372,'attackSpeed':0x1,'physicalDamage':0x355,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot48elite':{'name':'Elite\x20Golden\x20Monarch\x20Mk\x20II','description':'A\x20gold-plated\x20royal\x20sphere\x20with\x20a\x20crown\x20emblem.\x20It\x20commands\x20its\x20area\x20and\x20takes\x20heavy\x20hits\x20to\x20bring\x20down.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x17638,'physicalDefense':'armor10','movementSpeed':0x64,'weaponName':'sniper','image':'image/bot_28.png','radius':0xd,'viewRange':0x1a4,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword5,gun5,gauntlet5,armor7,armor21,armor43,accessory09,accessory21,accessory33,ring01,ring14,ring33','spawnGoldOrbChance':0.75,'goldOrbAmount':0x427,'unitExplode':'unitexplode','level':0x29,'increaseSpawnGet':0x0,'expGet':0x395,'attackSpeed':0x1,'physicalDamage':0x372,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot49elite':{'name':'Elite\x20Crimson\x20Fiend\x20Mk\x20II','description':'A\x20blood-red\x20sphere\x20with\x20a\x20horned\x20demon\x20face.\x20It\x20is\x20relentless\x20and\x20brutal\x20in\x20close\x20fights.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x18510,'physicalDefense':'armor10','movementSpeed':0x64,'weaponName':'uzi','image':'image/bot_29.png','radius':0xd,'viewRange':0x1a4,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword6,gun6,gauntlet6,armor8,armor22,armor29,accessory10,accessory22,accessory34,ring02,ring15,ring34','spawnGoldOrbChance':0.6,'goldOrbAmount':0x44e,'unitExplode':'unitexplode','level':0x2a,'increaseSpawnGet':0x0,'expGet':0x3b7,'attackSpeed':0x1,'physicalDamage':0x38e,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot50elite':{'name':'Elite\x20Sniper\x20Prime\x20Mk\x20II','description':'A\x20white\x20and\x20blue\x20sphere\x20with\x20a\x20targeting\x20crosshair.\x20It\x20spots\x20threats\x20from\x20far\x20away\x20and\x20rarely\x20misses.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x193e8,'physicalDefense':'armor10','movementSpeed':0x65,'weaponName':'shotgun','image':'image/bot_30.png','radius':0xd,'viewRange':0x1a4,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword7,gun7,gauntlet7,armor9,armor23,armor30,accessory11,accessory23,accessory35,ring03,ring16,ring35','spawnGoldOrbChance':0.7,'goldOrbAmount':0x478,'unitExplode':'unitexplode','level':0x2b,'increaseSpawnGet':0x0,'expGet':0x3da,'attackSpeed':0x1,'physicalDamage':0x3ac,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot51elite':{'name':'Elite\x20Toxic\x20Plague\x20Mk\x20II','description':'A\x20green\x20sphere\x20with\x20a\x20biohazard\x20emblem.\x20It\x20spreads\x20decay\x20wherever\x20it\x20patrols.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x1a2c0,'physicalDefense':'armor10','movementSpeed':0x65,'weaponName':'ak47','image':'image/bot_31.png','radius':0xd,'viewRange':0x1a4,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword8,gun8,gauntlet8,armor10,armor24,armor31,accessory12,accessory24,accessory36,ring04,ring17,ring36','spawnGoldOrbChance':0.65,'goldOrbAmount':0x4a0,'unitExplode':'unitexplode','level':0x2c,'increaseSpawnGet':0x0,'expGet':0x3fe,'attackSpeed':0x1,'physicalDamage':0x3c9,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot52elite':{'name':'Elite\x20Vortex\x20Spiral\x20Mk\x20II','description':'A\x20purple\x20sphere\x20with\x20a\x20swirling\x20vortex\x20core.\x20It\x20pulls\x20enemies\x20in\x20and\x20wears\x20them\x20down.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x1b1fc,'physicalDefense':'armor11','movementSpeed':0x66,'weaponName':'sniper','image':'image/bot_32.png','radius':0xd,'viewRange':0x1a4,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword9,gun9,gauntlet9,armor11,armor25,armor32,accessory01,accessory13,accessory25,ring05,ring18,ring37','spawnGoldOrbChance':0.7,'goldOrbAmount':0x4ca,'unitExplode':'unitexplode','level':0x2d,'increaseSpawnGet':0x0,'expGet':0x421,'attackSpeed':0x1,'physicalDamage':0x3e6,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot53elite':{'name':'Elite\x20Crimson\x20Eagle\x20Mk\x20II','description':'A\x20red\x20and\x20white\x20sphere\x20with\x20an\x20eagle\x20emblem.\x20It\x20dives\x20on\x20targets\x20with\x20disciplined\x20aggression.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x1c138,'physicalDefense':'armor11','movementSpeed':0x66,'weaponName':'uzi','image':'image/bot_33.png','radius':0xd,'viewRange':0x1ae,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword10,gun10,gauntlet10,armor12,armor26,armor33,accessory02,accessory14,accessory26,ring06,ring19,ring38','spawnGoldOrbChance':0.75,'goldOrbAmount':0x4f4,'unitExplode':'unitexplode','level':0x2e,'increaseSpawnGet':0x0,'expGet':0x446,'attackSpeed':0x1,'physicalDamage':0x403,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot54elite':{'name':'Elite\x20Hex\x20Guardian\x20Mk\x20II','description':'A\x20cyan\x20sphere\x20with\x20a\x20hexagon\x20shield\x20emblem.\x20It\x20holds\x20its\x20ground\x20behind\x20layered\x20armor.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x1d074,'physicalDefense':'armor11','movementSpeed':0x67,'weaponName':'shotgun','image':'image/bot_34.png','radius':0xd,'viewRange':0x1ae,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword11,gun11,gauntlet11,armor13,armor27,armor34,accessory03,accessory15,accessory27,ring07,ring20,ring39','spawnGoldOrbChance':0.6,'goldOrbAmount':0x51e,'unitExplode':'unitexplode','level':0x2f,'increaseSpawnGet':0x0,'expGet':0x46b,'attackSpeed':0x1,'physicalDamage':0x420,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot55elite':{'name':'Elite\x20Ember\x20Fox\x20Mk\x20II','description':'An\x20orange\x20sphere\x20with\x20a\x20fox\x20emblem.\x20It\x20is\x20cunning,\x20quick\x20to\x20react\x20and\x20hard\x20to\x20pin\x20down.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x1e014,'physicalDefense':'armor11','movementSpeed':0x67,'weaponName':'ak47','image':'image/bot_35.png','radius':0xd,'viewRange':0x1ae,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword12,gun12,gauntlet12,armor14,armor28,armor35,accessory04,accessory16,accessory28,ring08,ring21,ring40','spawnGoldOrbChance':0.7,'goldOrbAmount':0x549,'unitExplode':'unitexplode','level':0x30,'increaseSpawnGet':0x0,'expGet':0x48f,'attackSpeed':0x1,'physicalDamage':0x43d,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot56elite':{'name':'Elite\x20Tidal\x20Wave\x20Mk\x20II','description':'A\x20deep-blue\x20sphere\x20with\x20a\x20wave\x20emblem.\x20It\x20crashes\x20into\x20enemies\x20in\x20heavy\x20waves\x20of\x20fire.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x1ef50,'physicalDefense':'armor12','movementSpeed':0x68,'weaponName':'sniper','image':'image/bot_36.png','radius':0xd,'viewRange':0x1ae,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword13,gun13,gauntlet13,armor1,armor15,armor36,accessory05,accessory17,accessory29,ring09,ring22,ring27','spawnGoldOrbChance':0.65,'goldOrbAmount':0x575,'unitExplode':'unitexplode','level':0x31,'increaseSpawnGet':0x0,'expGet':0x4b4,'attackSpeed':0x1,'physicalDamage':0x45b,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot57elite':{'name':'Elite\x20Hell\x20Trident\x20Mk\x20II','description':'A\x20red\x20and\x20black\x20sphere\x20with\x20a\x20trident\x20emblem.\x20It\x20pierces\x20armor\x20with\x20savage\x20thrusts.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x1fef0,'physicalDefense':'armor12','movementSpeed':0x68,'weaponName':'uzi','image':'image/bot_37.png','radius':0xd,'viewRange':0x1ae,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'specialstone,sword14,gun14,gauntlet14,armor2,armor16,armor37,accessory06,accessory18,accessory30,ring10,ring23,ring28','spawnGoldOrbChance':0.7,'goldOrbAmount':0x59f,'unitExplode':'unitexplode','level':0x32,'increaseSpawnGet':0x0,'expGet':0x4da,'attackSpeed':0x1,'physicalDamage':0x478,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'boss1':{'name':'Inferno\x20Warlord','description':'A\x20powerful\x20fire-type\x20boss\x20bot\x20covered\x20in\x20heavy\x20armor\x20and\x20blazing\x20energy.\x20It\x20attacks\x20enemies\x20with\x20explosive\x20fire\x20strikes\x20and\x20becomes\x20more\x20dangerous\x20when\x20enraged.','health':0xc350,'physicalDefense':0x64,'magicalDefense':0x64,'movementSpeed':0x3c,'weaponName':'uzi','image':'image/boss1.png','radius':0x12,'viewRange':0x12c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x14,'active':![],'spawnItem':'gun1,sword1,gauntlet1,armor1,armor15,armor29,accessory01,accessory13,accessory25,ring01,ring14,ring27,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x96,'unitExplode':'unitexplode','level':0x19,'increaseSpawnGet':0.4,'increaseSpawnChance':0.4,'expGet':0x12c,'attackSpeed':0x1,'physicalDamage':0x15e,'attack':'melee','criticalChance':0.1,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'slash1,holynova'},'boss2':{'name':'Tempest\x20Sentinel','description':'A\x20storm-type\x20boss\x20bot\x20with\x20silver\x20plating\x20and\x20a\x20swirling\x20blue\x20energy\x20core.\x20It\x20lashes\x20out\x20with\x20crackling\x20bursts\x20of\x20lightning\x20and\x20keeps\x20enemies\x20off\x20balance.','health':0xcf8a,'physicalDefense':0x71,'magicalDefense':0x71,'movementSpeed':0x3e,'weaponName':'shotgun','image':'image/boss2.png','radius':0x12,'viewRange':0x135,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x7d0,'respawn':0x14,'active':![],'spawnItem':'gun2,sword2,gauntlet2,armor2,armor16,armor30,accessory02,accessory14,accessory26,ring02,ring15,ring28,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0xbe,'unitExplode':'unitexplode','level':0x19,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x13f,'attackSpeed':0x1,'magicalAttack':0x16e,'attack':'melee','criticalChance':0.105,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'fireexplosion,fireball'},'boss3':{'name':'Shadow\x20Drake','description':'A\x20dark\x20dragon-type\x20boss\x20bot\x20wrapped\x20in\x20black\x20armor\x20and\x20glowing\x20violet\x20energy.\x20It\x20strikes\x20from\x20the\x20shadows\x20with\x20sharp,\x20piercing\x20attacks.','health':0xdbba,'physicalDefense':0x7d,'magicalDefense':0x7d,'movementSpeed':0x3a,'weaponName':'ak47','image':'image/boss3.png','radius':0x12,'viewRange':0x13e,'viewAngle':0x55,'patrolInterval':0xbb8,'patrolRadius':0x32,'lookDuration':0x898,'respawn':0x14,'active':![],'spawnItem':'gun3,sword3,gauntlet3,armor3,armor17,armor31,accessory02,accessory14,accessory26,ring03,ring16,ring29,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0xe6,'unitExplode':'unitexplode','level':0x24,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x152,'attackSpeed':0x1,'physicalDamage':0x17d,'attack':'melee','criticalChance':0.11,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'firevortex,shockring'},'boss4':{'name':'Golden\x20Tyrant','description':'A\x20heavy\x20dragon-type\x20boss\x20bot\x20studded\x20with\x20golden\x20spikes\x20over\x20black\x20plating.\x20It\x20charges\x20straight\x20into\x20enemies\x20and\x20crushes\x20anything\x20that\x20gets\x20too\x20close.','health':0xe7f4,'physicalDefense':0x8a,'magicalDefense':0x8a,'movementSpeed':0x46,'weaponName':'sniper','image':'image/boss4.png','radius':0x12,'viewRange':0x147,'viewAngle':0x5f,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x960,'respawn':0x14,'active':![],'spawnItem':'gun5,sword5,gauntlet5,armor3,armor17,armor32,accessory03,accessory15,accessory27,ring03,ring16,ring29,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x10e,'unitExplode':'unitexplode','level':0x24,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x164,'attackSpeed':0x1,'magicalAttack':0x18d,'attack':'melee','criticalChance':0.115,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'iceburst,barrage'},'boss5':{'name':'Frostbite\x20Colossus','description':'An\x20ice-type\x20boss\x20bot\x20armored\x20in\x20silver\x20plates\x20and\x20jagged\x20blue\x20crystals.\x20It\x20freezes\x20the\x20battlefield\x20with\x20icy\x20blasts\x20and\x20slows\x20down\x20anyone\x20who\x20stays\x20near\x20it.','health':0xf424,'physicalDefense':0x96,'magicalDefense':0x96,'movementSpeed':0x4b,'weaponName':'uzi','image':'image/boss5.png','radius':0x12,'viewRange':0x150,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x14,'active':![],'spawnItem':'gun6,sword6,gauntlet6,armor4,armor18,armor33,accessory04,accessory16,accessory28,ring04,ring17,ring30,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x136,'unitExplode':'unitexplode','level':0x24,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x177,'attackSpeed':0x1,'physicalDamage':0x19d,'attack':'melee','criticalChance':0.12,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'bloodburst,poisonburst'},'boss6':{'name':'Plague\x20Reaper','description':'A\x20poison-type\x20boss\x20bot\x20with\x20a\x20biohazard\x20core\x20and\x20razor-sharp\x20green\x20claws.\x20It\x20spreads\x20toxic\x20energy\x20across\x20the\x20area\x20and\x20wears\x20enemies\x20down\x20over\x20time.','health':0x1005e,'physicalDefense':0xa3,'magicalDefense':0xa3,'movementSpeed':0x48,'weaponName':'shotgun','image':'image/boss6.png','radius':0x12,'viewRange':0x159,'viewAngle':0x78,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x7d0,'respawn':0x14,'active':![],'spawnItem':'gun7,sword7,gauntlet7,armor5,armor19,armor33,accessory04,accessory16,accessory28,ring05,ring18,ring31,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x15e,'unitExplode':'unitexplode','level':0x1b,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x18a,'attackSpeed':0x1,'magicalAttack':0x1ac,'attack':'melee','criticalChance':0.125,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'voidhole,cannonblast'},'boss7':{'name':'Doom\x20Skull','description':'A\x20heavy\x20artillery-type\x20boss\x20bot\x20with\x20a\x20glowing\x20skull\x20core\x20and\x20cannon\x20pods\x20on\x20its\x20armor.\x20It\x20bombards\x20enemies\x20with\x20explosive\x20blasts\x20from\x20a\x20distance.','health':0x10c8e,'physicalDefense':0xaf,'magicalDefense':0xaf,'movementSpeed':0x40,'weaponName':'ak47','image':'image/boss7.png','radius':0x12,'viewRange':0x162,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x898,'respawn':0x14,'active':![],'spawnItem':'gun8,sword8,gauntlet8,armor6,armor20,armor34,accessory05,accessory17,accessory29,ring06,ring19,ring32,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x186,'unitExplode':'unitexplode','level':0x1e,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x19d,'attackSpeed':0x1,'physicalDamage':0x1bc,'attack':'melee','criticalChance':0.13,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'holynova,flamespiral'},'boss8':{'name':'Void\x20Seer','description':'A\x20void-type\x20boss\x20bot\x20with\x20a\x20glowing\x20violet\x20eye\x20and\x20jagged\x20spiked\x20armor.\x20It\x20watches\x20from\x20afar\x20and\x20strikes\x20with\x20warped\x20dark\x20energy.','health':0x118c8,'physicalDefense':0xbc,'magicalDefense':0xbc,'movementSpeed':0x50,'weaponName':'sniper','image':'image/boss8.png','radius':0x12,'viewRange':0x16b,'viewAngle':0x69,'patrolInterval':0xbb8,'patrolRadius':0x6e,'lookDuration':0x960,'respawn':0x14,'active':![],'spawnItem':'gun9,sword9,gauntlet9,armor7,armor21,armor35,accessory06,accessory18,accessory30,ring06,ring19,ring33,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x1ae,'unitExplode':'unitexplode','level':0x21,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x1af,'attackSpeed':0x1,'magicalAttack':0x1cb,'attack':'melee','criticalChance':0.135,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'fireball,deadlystrike'},'boss9':{'name':'Crown\x20Commander','description':'A\x20royal\x20elite\x20boss\x20bot\x20in\x20blue\x20and\x20gold\x20armor\x20marked\x20with\x20a\x20golden\x20crown.\x20It\x20commands\x20the\x20battlefield\x20with\x20disciplined,\x20powerful\x20strikes.','health':0x124f8,'physicalDefense':0xc8,'magicalDefense':0xc8,'movementSpeed':0x55,'weaponName':'uzi','image':'image/boss9.png','radius':0x12,'viewRange':0x174,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x78,'lookDuration':0x708,'respawn':0x14,'active':![],'spawnItem':'gun11,sword11,gauntlet11,armor8,armor22,armor36,accessory07,accessory19,accessory31,ring07,ring20,ring34,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x1d6,'unitExplode':'unitexplode','level':0x1c,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x1c2,'attackSpeed':0x1,'physicalDamage':0x1db,'attack':'melee','criticalChance':0.14,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'shockring,voidvortex'},'boss10':{'name':'Crimson\x20Demon','description':'A\x20demon-type\x20boss\x20bot\x20with\x20black\x20armor,\x20glowing\x20red\x20veins\x20and\x20curved\x20horns.\x20It\x20hunts\x20relentlessly\x20and\x20hits\x20with\x20brutal\x20force.','health':0x13132,'physicalDefense':0xd5,'magicalDefense':0xd5,'movementSpeed':0x3c,'weaponName':'shotgun','image':'image/boss10.png','radius':0x12,'viewRange':0x17d,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x28,'lookDuration':0x7d0,'respawn':0x14,'active':![],'spawnItem':'gun12,sword12,gauntlet12,armor8,armor22,armor37,accessory07,accessory19,accessory31,ring08,ring21,ring34,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x1fe,'unitExplode':'unitexplode','level':0x1c,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x1d5,'attackSpeed':0x1,'magicalAttack':0x1eb,'attack':'melee','criticalChance':0.145,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'barrage,fireexplosion'},'boss11':{'name':'Bloodsight\x20Hunter','description':'A\x20hunter-type\x20boss\x20bot\x20with\x20a\x20red\x20targeting\x20eye\x20and\x20spiked\x20black\x20armor.\x20It\x20locks\x20onto\x20its\x20prey\x20and\x20never\x20lets\x20it\x20escape.','health':0x13d62,'physicalDefense':0xe1,'magicalDefense':0xe1,'movementSpeed':0x42,'weaponName':'ak47','image':'image/boss11.png','radius':0x12,'viewRange':0x186,'viewAngle':0x55,'patrolInterval':0xbb8,'patrolRadius':0x37,'lookDuration':0x898,'respawn':0x14,'active':![],'spawnItem':'gun13,sword13,gauntlet13,armor9,armor23,armor38,accessory08,accessory20,accessory32,ring09,ring22,ring35,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x226,'unitExplode':'unitexplode','level':0x22,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x1e8,'attackSpeed':0x1,'physicalDamage':0x1fa,'attack':'melee','criticalChance':0.15,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'poisonburst,icespear'},'boss12':{'name':'Azure\x20Dragon','description':'A\x20dragon-type\x20boss\x20bot\x20in\x20silver\x20armor\x20with\x20a\x20glowing\x20blue\x20dragon\x20emblem.\x20It\x20fiercely\x20guards\x20its\x20territory\x20and\x20unleashes\x20bursts\x20of\x20blue\x20energy.','health':0x1499c,'physicalDefense':0xee,'magicalDefense':0xee,'movementSpeed':0x4e,'weaponName':'sniper','image':'image/boss12.png','radius':0x12,'viewRange':0x18f,'viewAngle':0x5f,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x960,'respawn':0x14,'active':![],'spawnItem':'gun14,sword14,gauntlet14,armor10,armor24,armor39,accessory09,accessory21,accessory33,ring09,ring22,ring36,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x24e,'unitExplode':'unitexplode','level':0x23,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x1fa,'attackSpeed':0x1,'magicalAttack':0x20a,'attack':'melee','criticalChance':0.155,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'cannonblast,iceburst'},'boss13':{'name':'Violet\x20Wyrm','description':'A\x20dark\x20dragon-type\x20boss\x20bot\x20with\x20large\x20purple\x20horns\x20and\x20glowing\x20violet\x20plating.\x20Its\x20towering\x20frame\x20overwhelms\x20enemies\x20with\x20heavy,\x20slashing\x20attacks.','health':0x155cc,'physicalDefense':0xfa,'magicalDefense':0xfa,'movementSpeed':0x52,'weaponName':'uzi','image':'image/boss13.png','radius':0x12,'viewRange':0x198,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x14,'active':![],'spawnItem':'gun15,sword15,gauntlet15,armor11,armor25,armor40,accessory09,accessory21,accessory33,ring10,ring23,ring37,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x276,'unitExplode':'unitexplode','level':0x20,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x20d,'attackSpeed':0x1,'physicalDamage':0x21a,'attack':'melee','criticalChance':0.16,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'flamespiral,lightningbolt'},'boss14':{'name':'Magma\x20Dragon','description':'A\x20molten\x20dragon-type\x20boss\x20bot\x20built\x20from\x20black\x20armor\x20plates\x20glowing\x20with\x20orange\x20heat.\x20It\x20burns\x20everything\x20around\x20it\x20and\x20gets\x20tougher\x20the\x20longer\x20the\x20fight\x20lasts.','health':0x16206,'physicalDefense':0x107,'magicalDefense':0x107,'movementSpeed':0x4a,'weaponName':'shotgun','image':'image/boss14.png','radius':0x12,'viewRange':0x1a1,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x7d0,'respawn':0x14,'active':![],'spawnItem':'gun16,sword16,gauntlet16,armor12,armor26,armor40,accessory10,accessory22,accessory34,ring11,ring24,ring38,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x29e,'unitExplode':'unitexplode','level':0x21,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x220,'attackSpeed':0x1,'magicalAttack':0x229,'attack':'melee','criticalChance':0.165,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'deadlystrike,voidhole'},'boss15':{'name':'Glacier\x20Warden','description':'An\x20ice-type\x20boss\x20bot\x20with\x20a\x20snowflake\x20core\x20and\x20sharp\x20crystal\x20spikes.\x20It\x20guards\x20its\x20area\x20coldly\x20and\x20punishes\x20anyone\x20who\x20steps\x20in.','health':0x16e36,'physicalDefense':0x113,'magicalDefense':0x113,'movementSpeed':0x58,'weaponName':'ak47','image':'image/boss15.png','radius':0x12,'viewRange':0x1aa,'viewAngle':0x73,'patrolInterval':0xbb8,'patrolRadius':0x6e,'lookDuration':0x898,'respawn':0x14,'active':![],'spawnItem':'gun18,sword18,gauntlet18,armor12,armor26,armor41,accessory11,accessory23,accessory35,ring12,ring25,ring38,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x2c6,'unitExplode':'unitexplode','level':0x1e,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x233,'attackSpeed':0x1,'physicalDamage':0x239,'attack':'melee','criticalChance':0.17,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'voidvortex,slash1'},'boss16':{'name':'Toxic\x20Behemoth','description':'A\x20huge\x20poison-type\x20boss\x20bot\x20with\x20heavy\x20green\x20plating\x20and\x20curved\x20claws\x20around\x20a\x20biohazard\x20core.\x20It\x20is\x20slow\x20but\x20extremely\x20tough,\x20and\x20it\x20poisons\x20the\x20ground\x20it\x20walks\x20on.','health':0x17a70,'physicalDefense':0x120,'magicalDefense':0x120,'movementSpeed':0x5a,'weaponName':'sniper','image':'image/boss16.png','radius':0x12,'viewRange':0x1b3,'viewAngle':0x69,'patrolInterval':0xbb8,'patrolRadius':0x78,'lookDuration':0x960,'respawn':0x14,'active':![],'spawnItem':'gun19,sword19,gauntlet19,armor13,armor27,armor42,accessory11,accessory23,accessory35,ring12,ring25,ring39,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x2ee,'unitExplode':'unitexplode','level':0x1e,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x245,'attackSpeed':0x1,'magicalAttack':0x248,'attack':'melee','criticalChance':0.175,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'fireexplosion,fireball'},'boss17':{'name':'Deathbringer','description':'The\x20most\x20feared\x20boss\x20bot,\x20a\x20heavy\x20artillery\x20machine\x20with\x20a\x20white\x20skull\x20core\x20and\x20cannon\x20barrels\x20on\x20its\x20armor.\x20It\x20shows\x20no\x20mercy\x20and\x20wipes\x20out\x20anything\x20in\x20its\x20range.','health':0x186a0,'physicalDefense':0x12c,'magicalDefense':0x12c,'movementSpeed':0x44,'weaponName':'uzi','image':'image/boss17.png','radius':0x12,'viewRange':0x1bc,'viewAngle':0x78,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x14,'active':![],'spawnItem':'gun20,sword20,gauntlet20,armor14,armor28,armor43,accessory12,accessory24,accessory36,ring13,ring26,ring40,specialstone,iceorb,electricorb,fireorb','spawnGoldOrbChance':0x1,'goldOrbAmount':0x316,'unitExplode':'unitexplode','level':0x1e,'increaseSpawnGet':0x0,'increaseSpawnChance':0.4,'expGet':0x258,'attackSpeed':0x1,'physicalDamage':0x258,'attack':'melee','criticalChance':0.18,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.1,'botSkill':'icespear,firevortex'}};delete vmk_f71a9e['_$fJ59Bj']['BOT_TYPES'],vmk_f71a9e['BOT_TYPES']=BOT_TYPES;globalThis['BOT_TYPES']=BOT_TYPES;function shouldBotLevelAggro(K,c){return vmQ_da9b27(typeof shouldBotLevelAggro!=='undefined'?shouldBotLevelAggro:undefined,0x0,undefined,new.target,this,arguments,0x78);}function drawBots(K,c,l,d){return vmQ_da9b27(typeof drawBots!=='undefined'?drawBots:undefined,0x1,{['_$Do1a2l']:[BOT_TYPES],['_$AQ2Nrl']:undefined,['_$pORDT7']:[0x1]},new.target,this,arguments,0x78);}if(typeof module!=='undefined')module['exports']={'BOT_TYPES':BOT_TYPES};
+// =============================================================================
+// bot_server.js  —  ONLINE MODE copy of bot.js's BOT_TYPES table
+// =============================================================================
+// Edit the numbers in here to change enemy stats in ONLINE mode.
+// bot.js (the public file) only controls OFFLINE mode — AND only decides
+// what a bot LOOKS like / how it patrols/spawns for someone who happens to
+// be simulating it. The actual numbers (health, damage, speed, view range,
+// respawn time, drops, ...) always come from THIS file once online: server.js
+// sends it to every player when they join (same as weapon_server.js,
+// armor_server.js, character_server.js, ...), and online.js swaps it into
+// the page's BOT_TYPES table before any enemy is spawned or simulated.
+//
+// This file lives on the SERVER (Render), NOT in the public game website, so
+// players cannot open or edit it. Editing the public bot.js's BOT_TYPES only
+// changes OFFLINE enemies now — it can no longer buff/nerf enemies online,
+// even for whoever ends up hosting a room's fight (see server.js's comment
+// on the bot-host model for what a hacked HOST can still affect, and what
+// this file closes off).
+//
+// Every entry can carry a display `name` and a `description` (flavor text).
+// Keep this in sync with bot.js's BOT_TYPES by hand (add a new bot type in
+// both places) — bot.js's AI code (movement/vision/attack state machine)
+// still runs from the public file, since it has to execute in the host's
+// own browser; only the STATS TABLE is duplicated here and enforced.
+// =============================================================================
+
+const BOT_TYPES = {
+
+  // RUSHER — aggressive, moderate FOV, closes distance fast
+  rusher: {
+    name: "rusher",
+    health: 100,
+    physicalDefense: "armor1",
+    movementSpeed: 110,
+    weaponName: "uzi",
+    image: "image/police.png",
+    radius: 11,
+    viewRange: 260,
+    viewAngle: 80,
+    patrolInterval: 3000,
+    patrolRadius: 100,
+    lookDuration: 1500,
+    respawn: 10,
+    active: false,
+    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor1,armor15,armor29,accessory01,accessory13,accessory25,ring01,ring14,ring27",
+    spawnGoldOrbChance: 0.8, // 80% chance to drop a gold orb on death
+    goldOrbAmount: 30,       // gold given when this bot's orb is picked up
+    unitExplode: "unitexplode",
+    level: 1,
+    increaseSpawnGet: 0,
+    expGet: 30,
+    attackSpeed: 1,
+    physicalDamage: 11,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+    // BOT SKILL — see the full explanation on the guard entry below, and
+    // on bot.js's BOT_TYPES.rusher. Keep in sync by hand.
+    botSkill: ""
+  },
+
+  // GUARD — slow, heavily armored, holds ground, wide FOV (hard to flank
+  // from the side, but doesn't chase far and fires a short-range shotgun)
+  guard: {
+    name: "guard",
+    health: 160,
+    physicalDefense: "armor3",
+    movementSpeed: 70,
+    weaponName: "shotgun",
+    image: "image/swat.png",
+    radius: 15,
+    viewRange: 180,
+    viewAngle: 110,
+    patrolInterval: 3500,
+    patrolRadius: 50,
+    lookDuration: 2200,
+    respawn: 10,
+    active: false,
+    spawnItem: "shield,speedup,powerup,health,sword2,gun2,gauntlet2,armor2,armor16,armor30,accessory02,accessory14,accessory26,ring02,ring15,ring28",
+    spawnGoldOrbChance: 0.75, // 75% chance to drop a gold orb on death
+    goldOrbAmount: 100,       // gold given when this bot's orb is picked up
+    unitExplode: "unitexplode",
+    level: 1,
+    increaseSpawnGet: 0,
+    expGet: 30,
+    attackSpeed: 1,
+    physicalDamage: 11,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    // BOT SKILL — mirrors bot.js's BOT_TYPES.guard comment/field exactly.
+    // bot.js's AI (tryBotUseSkill(), running in the room host's own
+    // browser) reads this list from whichever BOT_TYPES table is
+    // currently active — online.js swaps THIS server-enforced copy in
+    // for the duration of the match, so a player can't remove/edit
+    // guard's skills locally to make it easier. Keep in sync with
+    // bot.js by hand, same as every other field in this file.
+    botSkill: ""
+  },
+
+  assaulter: {
+    name: "assaulter",
+    health: 120,
+    physicalDefense: "armor2",
+    movementSpeed: 100,
+    weaponName: "ak47",
+    image: "image/soldier.png",
+    radius: 13,
+    viewRange: 320,
+    viewAngle: 140,
+    patrolInterval: 3500,
+    patrolRadius: 70,
+    lookDuration: 2200,
+    respawn: 10,
+    active: false,
+    spawnItem: "sword3,gun3,gauntlet3,armor3,armor17,armor31,accessory03,accessory15,accessory27,ring03,ring16,ring29",
+    spawnGoldOrbChance: 0.75, // 75% chance to drop a gold orb on death
+    goldOrbAmount: 75,        // gold given when this bot's orb is picked up
+    unitExplode: "unitexplode",
+    level: 1,
+    increaseSpawnGet: 0,
+    expGet: 30,
+    attackSpeed: 1,
+    physicalDamage: 11,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01
+  },
+
+  // SNIPER — barely moves, long range, but a narrow FOV makes it easy to
+  // flank: sneak up outside its cone and it won't react until it's hit
+  shooter: {
+    name: "shooter",
+    health: 120,
+    physicalDefense: 0,
+    movementSpeed: 50,
+    weaponName: "sniper",
+    image: "image/redbot.png",
+    radius: 11,
+    viewRange: 500,
+    viewAngle: 40,
+    patrolInterval: 4000,
+    patrolRadius: 30,
+    lookDuration: 2500,
+    respawn: 10,
+    active: false,
+    spawnItem: "shield,speedup,powerup,health,sword4,gun4,gauntlet4,armor4,armor18,armor32,accessory04,accessory16,accessory28,ring04,ring17,ring30",
+    spawnGoldOrbChance: 0.75, // 75% chance to drop a gold orb on death
+    goldOrbAmount: 50,        // gold given when this bot's orb is picked up
+    unitExplode: "unitexplode",
+    level: 1,
+    increaseSpawnGet: 0,
+    expGet: 30,
+    attackSpeed: 1,
+    physicalDamage: 11,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01
+  },
+
+  // ---------------------------------------------------------------------
+  // bot01–bot20 — 20 extra enemy types using your own bot_01.png..bot_20.png
+  // artwork. Stats step up gradually every 4 bots (5 difficulty tiers) so
+  // higher-numbered bots hit harder/tankier/see farther. Tweak freely.
+  // ---------------------------------------------------------------------
+  bot01: {
+    name: "Patrol Officer",
+    description: "A police-type patrol bot with a blue armored shell and a star badge on its chest. It keeps watch over its area and moves in fast on anything suspicious.",
+    health: 200,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    image: "image/police.png",
+    radius: 11,
+    viewRange: 220,
+    viewAngle: 80,
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "sword5,gun5,gauntlet5,armor5,armor19,armor33,accessory05,accessory17,accessory29,ring05,ring18,ring31",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 4,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 1,
+    increaseSpawnGet: 0,
+    expGet: 8,
+
+    attackSpeed: 1,
+    physicalDamage: 8,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+  bot01elite: {
+    name: "Elite Officer",
+    description: "A police-type patrol bot with a blue armored shell and a star badge on its chest. It keeps watch over its area and moves in fast on anything suspicious.",
+    health: 400,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    image: "image/police.png",
+    radius: 13,
+    viewRange: 220,
+    viewAngle: 80,
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor6,armor20,armor34,accessory06,accessory18,accessory30,ring06,ring19,ring32",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 7,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 1,
+    increaseSpawnGet: 0,
+    expGet: 11,
+
+    attackSpeed: 1,
+    physicalDamage: 14,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot02: {
+    name: "Shadow Ninja",
+    description: "A stealth-type ninja bot in black armor with glowing red eyes and a masked face. It moves quietly and strikes quickly before slipping away.",
+
+    health: 250,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_02.png",
+    radius: 11,
+
+    viewRange: 220,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor7,armor21,armor35,accessory07,accessory19,accessory31,ring07,ring20,ring33",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 6,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 1,
+    increaseSpawnGet: 0,
+    expGet: 12,
+
+    attackSpeed: 1,
+    physicalDamage: 9,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot03: {
+    name: "Violet Warlord",
+    description: "A war-machine bot with purple and silver armor and a menacing faction emblem on its chest. It leads from the front and hits hard with cold, mechanical precision.",
+
+    health: 250,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_03.png",
+    radius: 11,
+
+    viewRange: 220,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor8,armor22,armor36,accessory08,accessory20,accessory32,ring08,ring21,ring34",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 8,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 2,
+    increaseSpawnGet: 0,
+    expGet: 16,
+
+    attackSpeed: 1,
+    physicalDamage: 9,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+  bot03elite: {
+    name: "Elite Warlord",
+    description: "A war-machine bot with purple and silver armor and a menacing faction emblem on its chest. It leads from the front and hits hard with cold, mechanical precision.",
+
+    health: 500,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_03.png",
+    radius: 13,
+
+    viewRange: 220,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor9,armor23,armor37,accessory09,accessory21,accessory33,ring09,ring22,ring35",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 14,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 2,
+    increaseSpawnGet: 0,
+    expGet: 19,
+
+    attackSpeed: 1,
+    physicalDamage: 15,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot04: {
+    name: "SWAT Trooper",
+    description: "A tactical assault bot in black armor marked SWAT, with flashing blue lights. It pushes into enemy positions and fights with strict discipline.",
+
+    health: 300,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_04.png",
+    radius: 11,
+
+    viewRange: 220,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor10,armor24,armor38,accessory10,accessory22,accessory34,ring10,ring23,ring36",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 10,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 3,
+    increaseSpawnGet: 0,
+    expGet: 18,
+
+    attackSpeed: 1,
+    physicalDamage: 11,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot04elite: {
+    name: "Elite Trooper",
+    description: "A tactical assault bot in black armor marked SWAT, with flashing blue lights. It pushes into enemy positions and fights with strict discipline.",
+
+    health: 600,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_04.png",
+    radius: 11,
+
+    viewRange: 220,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor11,armor25,armor39,accessory11,accessory23,accessory35,ring11,ring24,ring37",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 16,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 3,
+    increaseSpawnGet: 0,
+    expGet: 22,
+
+    attackSpeed: 1,
+    physicalDamage: 16,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot05: {
+    name: "Fire Marshal",
+    description: "A rescue-type bot in red and yellow armor with a firefighter emblem. It charges into danger without fear and shrugs off heavy damage.",
+
+    health: 350,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:8,
+    image: "image/bot_05.png",
+    radius: 11,
+
+    viewRange: 260,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword12,gun12,gauntlet12,armor12,armor26,armor40,accessory12,accessory24,accessory36,ring12,ring25,ring38",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 13,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 4,
+    increaseSpawnGet: 0,
+    expGet: 20,
+
+    attackSpeed: 1,
+    physicalDamage: 13,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+ 
+   bot05elite: {
+    name: "Elite Marshal",
+    description: "A rescue-type bot in red and yellow armor with a firefighter emblem. It charges into danger without fear and shrugs off heavy damage.",
+
+    health: 750,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:8,
+    image: "image/bot_05.png",
+    radius: 13,
+
+    viewRange: 260,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword13,gun13,gauntlet13,armor13,armor27,armor41,accessory01,accessory13,accessory25,ring13,ring26,ring39",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 19,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 4,
+    increaseSpawnGet: 0,
+    expGet: 25,
+
+    attackSpeed: 1,
+    physicalDamage: 18,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot06: {
+    name: "Cosmic Voyager",
+    description: "A space-type bot with a deep blue shell and a glowing planet emblem. It drifts across the map like a wandering star and attacks with strange bursts of energy.",
+
+    health: 455,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_06.png",
+    radius: 11,
+
+    viewRange: 260,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword14,gun14,gauntlet14,armor14,armor28,armor42,accessory02,accessory14,accessory26,ring01,ring14,ring40",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 15,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 4,
+    increaseSpawnGet: 0,
+    expGet: 23,
+
+    attackSpeed: 1,
+    physicalDamage: 17,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot07: {
+    name: "Camo Commando",
+    description: "A military-type bot in green camouflage plating with a white star. It holds its ground like a veteran soldier and follows its targets with discipline.",
+
+    health: 500,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_07.png",
+    radius: 11,
+
+    viewRange: 260,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword15,gun15,gauntlet15,armor1,armor15,armor43,accessory03,accessory15,accessory27,ring02,ring15,ring27",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 18,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 5,
+    increaseSpawnGet: 0,
+    expGet: 25,
+
+    attackSpeed: 1,
+    physicalDamage: 23,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot07elite: {
+    name: "Elite Commando",
+    description: "A military-type bot in green camouflage plating with a white star. It holds its ground like a veteran soldier and follows its targets with discipline.",
+
+    health: 1000,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_07.png",
+    radius: 13,
+
+    viewRange: 260,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor2,armor16,armor29,accessory04,accessory16,accessory28,ring03,ring16,ring28",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 25,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 5,
+    increaseSpawnGet: 0,
+    expGet: 30,
+
+    attackSpeed: 1,
+    physicalDamage: 29,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot08: {
+    name: "Red Dragon",
+    description: "A dragon-type bot in fiery red armor with a golden dragon emblem. It is proud and aggressive, and it attacks with fierce, burning force.",
+
+    health: 600,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_08.png",
+    radius: 11,
+
+    viewRange: 260,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword17,gun17,gauntlet17,armor3,armor17,armor30,accessory05,accessory17,accessory29,ring04,ring17,ring29",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 20,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 5,
+    increaseSpawnGet: 0,
+    expGet: 28,
+
+    attackSpeed: 1,
+    physicalDamage: 28,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot09: {
+    name: "Frost Guard",
+    description: "An ice-type bot with pale blue and silver armor and a snowflake core. It stays cool and calm, guarding its area and chilling anything that gets close.",
+
+    health: 800,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:10,
+    image: "image/bot_09.png",
+    radius: 11,
+
+    viewRange: 300,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor4,armor18,armor31,accessory06,accessory18,accessory30,ring05,ring18,ring30",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 25,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 6,
+    increaseSpawnGet: 0,
+    expGet: 32,
+
+    attackSpeed: 1,
+    physicalDamage: 37,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot09elite: {
+    name: "Elite Frost",
+    description: "An ice-type bot with pale blue and silver armor and a snowflake core. It stays cool and calm, guarding its area and chilling anything that gets close.",
+
+    health: 1600,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:10,
+    image: "image/bot_09.png",
+    radius: 13,
+
+    viewRange: 300,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor5,armor19,armor32,accessory07,accessory19,accessory31,ring06,ring19,ring31",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 32,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 6,
+    increaseSpawnGet: 0,
+    expGet: 37,
+
+    attackSpeed: 1,
+    physicalDamage: 45,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot10: {
+    name: "Horned Demon",
+    description: "A demon-type bot in black armor with glowing red veins, curved horns and burning eyes. It is ruthless and hits with brutal force.",
+
+    health: 1100,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_10.png",
+    radius: 11,
+
+    viewRange: 300,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor6,armor20,armor33,accessory08,accessory20,accessory32,ring07,ring20,ring32",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 30,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 7,
+    increaseSpawnGet: 0,
+    expGet: 38,
+
+    attackSpeed: 1,
+    physicalDamage: 43,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot10elite: {
+    name: "Elite Demon",
+    description: "A demon-type bot in black armor with glowing red veins, curved horns and burning eyes. It is ruthless and hits with brutal force.",
+
+    health: 2200,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_10.png",
+    radius: 13,
+
+    viewRange: 300,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor7,armor21,armor34,accessory09,accessory21,accessory33,ring08,ring21,ring33",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 38,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 7,
+    increaseSpawnGet: 0,
+    expGet: 46,
+
+    attackSpeed: 1,
+    physicalDamage: 49,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot11: {
+    name: "Alien Invader",
+    description: "An alien-type bot with a glowing green shell and an alien face emblem. It wanders strangely and attacks without warning.",
+
+    health: 1550,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_11.png",
+    radius: 11,
+
+    viewRange: 300,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor8,armor22,armor35,accessory10,accessory22,accessory34,ring09,ring22,ring34",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 37,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 8,
+    increaseSpawnGet: 0,
+    expGet: 42,
+
+    attackSpeed: 1,
+    physicalDamage: 48,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot11elite: {
+    name: "Elite Invader",
+    description: "An alien-type bot with a glowing green shell and an alien face emblem. It wanders strangely and attacks without warning.",
+
+    health: 3100,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_11.png",
+    radius: 13,
+
+    viewRange: 300,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor9,armor23,armor36,accessory11,accessory23,accessory35,ring10,ring23,ring35",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 47,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 8,
+    increaseSpawnGet: 0,
+    expGet: 50,
+
+    attackSpeed: 1,
+    physicalDamage: 58,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot12: {
+    name: "Road Racer",
+    description: "A speed-type bot in red and white armor with a checkered flag emblem. It is built for fast movement and rushes at enemies before they can react.",
+
+    health: 1800,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_12.png",
+    radius: 11,
+
+    viewRange: 300,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor10,armor24,armor37,accessory12,accessory24,accessory36,ring11,ring24,ring36",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 45,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 9,
+    increaseSpawnGet: 0,
+    expGet: 46,
+
+    attackSpeed: 1,
+    physicalDamage: 53,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot12elite: {
+    name: "Elite Racer",
+    description: "A speed-type bot in red and white armor with a checkered flag emblem. It is built for fast movement and rushes at enemies before they can react.",
+
+    health: 3600,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_12.png",
+    radius: 13,
+
+    viewRange: 300,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor11,armor25,armor38,accessory01,accessory13,accessory25,ring12,ring25,ring37",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 52,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 9,
+    increaseSpawnGet: 0,
+    expGet: 52,
+
+    attackSpeed: 1,
+    physicalDamage: 59,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot13: {
+    name: "Hooded Assassin",
+    description: "A stealth-type assassin bot in dark purple armor with a hooded face. It hides in the shadows and ambushes its targets.",
+
+    health: 2200,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_13.png",
+    radius: 11,
+
+    viewRange: 340,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor12,armor26,armor39,accessory02,accessory14,accessory26,ring13,ring26,ring38",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 50,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 9,
+    increaseSpawnGet: 0,
+    expGet: 50,
+
+    attackSpeed: 1,
+    physicalDamage: 60,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot13elite: {
+    name: "Elite Assassin",
+    description: "A stealth-type assassin bot in dark purple armor with a hooded face. It hides in the shadows and ambushes its targets.",
+
+    health: 4400,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_13.png",
+    radius: 13,
+
+    viewRange: 340,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor13,armor27,armor40,accessory03,accessory15,accessory27,ring01,ring14,ring39",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 60,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 9,
+    increaseSpawnGet: 0,
+    expGet: 58,
+
+    attackSpeed: 1,
+    physicalDamage: 70,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot14: {
+    name: "Justice Guardian",
+    description: "A hero-type bot in red and blue armor with a heroic faction emblem. It defends its area bravely and never backs down from a fight.",
+
+    health: 2605,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_14.png",
+    radius: 11,
+
+    viewRange: 340,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor14,armor28,armor41,accessory04,accessory16,accessory28,ring02,ring15,ring40",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 57,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 10,
+    increaseSpawnGet: 0,
+    expGet: 65,
+
+    attackSpeed: 1,
+    physicalDamage: 67,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot14elite: {
+    name: "Elite Guardian",
+    description: "A hero-type bot in red and blue armor with a heroic faction emblem. It defends its area bravely and never backs down from a fight.",
+
+    health: 4210,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_14.png",
+    radius: 13,
+
+    viewRange: 340,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor1,armor15,armor42,accessory05,accessory17,accessory29,ring03,ring16,ring27",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 67,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 10,
+    increaseSpawnGet: 0,
+    expGet: 75,
+
+    attackSpeed: 1,
+    physicalDamage: 75,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot15: {
+    name: "Royal Guard",
+    description: "An elite guard bot in gold and black armor with a crown emblem. It protects its territory with pride and heavy, disciplined strikes.",
+
+    health: 3000,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_15.png",
+    radius: 11,
+
+    viewRange: 340,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor2,armor16,armor43,accessory06,accessory18,accessory30,ring04,ring17,ring28",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 70,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 10,
+    increaseSpawnGet: 0,
+    expGet: 75,
+
+    attackSpeed: 1,
+    physicalDamage: 78,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot16: {
+    name: "Cyber Core",
+    description: "A cyber-type bot with neon purple and cyan lights and a glowing power symbol. It moves like a machine that never shuts down and attacks with electric energy.",
+
+    health: 3500,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_16.png",
+    radius: 11,
+
+    viewRange: 340,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor3,armor17,armor29,accessory07,accessory19,accessory31,ring05,ring18,ring29",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 80,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 11,
+    increaseSpawnGet: 0,
+    expGet: 85,
+
+    attackSpeed: 1,
+    physicalDamage: 95,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot16elite: {
+    name: "Elite Cyber Core",
+    description: "A cyber-type bot with neon purple and cyan lights and a glowing power symbol. It moves like a machine that never shuts down and attacks with electric energy.",
+
+    health: 7000,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_16.png",
+    radius: 13,
+
+    viewRange: 340,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword12,gun12,gauntlet12,armor4,armor18,armor30,accessory08,accessory20,accessory32,ring06,ring19,ring30",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 90,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 11,
+    increaseSpawnGet: 0,
+    expGet: 90,
+
+    attackSpeed: 1,
+    physicalDamage: 105,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot17: {
+    name: "Skull Raider",
+    description: "A death-type bot in black and red armor with a white skull on its chest. It raids the area without mercy and finishes off anything it catches.",
+
+    health: 4200,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:20,
+    image: "image/bot_17.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword13,gun13,gauntlet13,armor5,armor19,armor31,accessory09,accessory21,accessory33,ring07,ring20,ring31",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 110,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 11,
+    increaseSpawnGet: 0,
+    expGet: 105,
+
+    attackSpeed: 1,
+    physicalDamage: 120,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot18: {
+    name: "Steel Wolf",
+    description: "A wolf-type bot in blue and silver armor with a snarling wolf emblem. It hunts its territory with sharp senses and strikes fast.",
+
+    health: 4800,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_18.png",
+    radius: 12,
+
+    viewRange: 380,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword14,gun14,gauntlet14,armor6,armor20,armor32,accessory10,accessory22,accessory34,ring08,ring21,ring32",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 125,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 11,
+    increaseSpawnGet: 0,
+    expGet: 130,
+
+    attackSpeed: 1,
+    physicalDamage: 140,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot18elite: {
+    name: "Elite Wolf",
+    description: "A wolf-type bot in blue and silver armor with a snarling wolf emblem. It hunts its territory with sharp senses and strikes fast.",
+
+    health: 9600,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_18.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword15,gun15,gauntlet15,armor7,armor21,armor33,accessory11,accessory23,accessory35,ring09,ring22,ring33",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 140,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 12,
+    increaseSpawnGet: 0,
+    expGet: 140,
+
+    attackSpeed: 1,
+    physicalDamage: 150,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot19: {
+    name: "Hazmat Bot",
+    description: "A toxic-type bot in yellow and black armor with a biohazard emblem. It spreads poison around it and wears its enemies down.",
+
+    health: 5500,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_19.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor8,armor22,armor34,accessory12,accessory24,accessory36,ring10,ring23,ring34",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 145,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 12,
+    increaseSpawnGet: 0,
+    expGet: 145,
+
+    attackSpeed: 1,
+    physicalDamage: 160,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot20: {
+    name: "Oni Samurai",
+    description: "A samurai-type bot in purple and gold armor with a horned oni mask. It fights with fierce honor and strikes with heavy, powerful blows.",
+
+    health: 6500,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_20.png",
+    radius: 11,
+    magicAttack:20,
+    viewRange: 380,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword17,gun17,gauntlet17,armor9,armor23,armor35,accessory01,accessory13,accessory25,ring11,ring24,ring35",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 170,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 13,
+    increaseSpawnGet: 0,
+    expGet: 160,
+
+    attackSpeed: 1,
+    physicalDamage: 180,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot20elite: {
+    name: "Elite Samurai",
+    description: "A samurai-type bot in purple and gold armor with a horned oni mask. It fights with fierce honor and strikes with heavy, powerful blows.",
+
+    health: 13000,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_20.png",
+    radius: 13,
+    magicAttack:20,
+    viewRange: 380,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor10,armor24,armor36,accessory02,accessory14,accessory26,ring12,ring25,ring36",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 190,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 13,
+    increaseSpawnGet: 0,
+    expGet: 170,
+
+    attackSpeed: 1,
+    physicalDamage: 190,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  // ---------------------------------------------------------------------
+  // bot19elite — missing elite for the LEVEL12 map (one elite per map).
+  // ---------------------------------------------------------------------
+  bot19elite: {
+    name: "Elite Hazmat Bot",
+    description: "A hazmat-suit bot built tougher than the rest of its pack. It hits harder and takes far more punishment.",
+
+    health: 11000,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_19.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor11,armor25,armor37,accessory03,accessory15,accessory27,ring13,ring26,ring37",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 160,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 12,
+    increaseSpawnGet: 0,
+    expGet: 155,
+
+    attackSpeed: 1,
+    physicalDamage: 170,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  // =====================================================================
+  // bot21–bot40 — 20 NEW enemy types using bot_21.png..bot_40.png (one
+  // type per level, LEVEL 14 .. LEVEL 33).
+  // bot41–bot58 — 18 "Mk II" versions that REUSE bot_21..bot_38.png art
+  // for LEVEL 34 .. LEVEL 51 (same trick as before: reuse a picture, give
+  // it new name + much stronger numbers).
+  //
+  // STAT CURVE (health / physicalDamage / expGet / goldOrbAmount):
+  //   L14-L21 = your own numbers from the old table, kept as-is.
+  //   L22-L51 = grows every level, but the % growth shrinks from
+  //             ~6% down to ~3% so it never explodes.
+  //   NOTE: `health` here is the LEVEL-1 baseline; the game multiplies it by
+  //   1.03 per level (HEALTH_GROWTH_RATE) when the bot spawns.
+  //   Every type has an "elite" twin (health x2, a bit more dmg/exp/gold,
+  //   respawn 60, active) — each map spawns exactly ONE elite of its own level.
+  // =====================================================================
+  bot21: {
+    name: "Cyber Falcon",
+    description: "A cyan armored sphere with a glowing winged-falcon emblem. It swoops in fast and strikes with precise bursts.",
+
+    health: 7500,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_21.png",
+    radius: 11,
+
+    viewRange: 340,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor12,armor26,armor38,accessory04,accessory16,accessory28,ring01,ring14,ring38",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 205,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 14,
+    increaseSpawnGet: 0,
+    expGet: 180,
+
+    attackSpeed: 1,
+    physicalDamage: 200,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot22: {
+    name: "Bone Reaper",
+    description: "A soot-black sphere with orange glowing plates and a white skull emblem. It reaps anything that wanders into its patrol.",
+
+    health: 9000,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_22.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor13,armor27,armor39,accessory05,accessory17,accessory29,ring02,ring15,ring39",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 230,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 15,
+    increaseSpawnGet: 0,
+    expGet: 210,
+
+    attackSpeed: 1,
+    physicalDamage: 230,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot23: {
+    name: "Blizzard Sentinel",
+    description: "A frost-white sphere with a blue snowflake core. It guards its ground coldly and never tires.",
+
+    health: 11500,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_23.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor14,armor28,armor40,accessory06,accessory18,accessory30,ring03,ring16,ring40",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 280,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 16,
+    increaseSpawnGet: 0,
+    expGet: 250,
+
+    attackSpeed: 1,
+    physicalDamage: 260,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot24: {
+    name: "Nuclear Warden",
+    description: "A green-lit sphere marked with a radiation symbol. It poisons the air around it and hits with irradiated rounds.",
+
+    health: 13000,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_24.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor1,armor15,armor41,accessory07,accessory19,accessory31,ring04,ring17,ring27",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 300,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 17,
+    increaseSpawnGet: 0,
+    expGet: 275,
+
+    attackSpeed: 1,
+    physicalDamage: 278,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot25: {
+    name: "Void Raven",
+    description: "A dark purple sphere with a winged raven crest. It hunts from the shadows and strikes from odd angles.",
+
+    health: 14200,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_25.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor2,armor16,armor42,accessory08,accessory20,accessory32,ring05,ring18,ring28",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 325,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 18,
+    increaseSpawnGet: 0,
+    expGet: 290,
+
+    attackSpeed: 1,
+    physicalDamage: 295,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot26: {
+    name: "Inferno Core",
+    description: "A red-hot armored sphere with a blazing flame emblem. It burns with rage and hits with scorching force.",
+
+    health: 15500,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_26.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor3,armor17,armor43,accessory09,accessory21,accessory33,ring06,ring19,ring29",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 350,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 19,
+    increaseSpawnGet: 0,
+    expGet: 310,
+
+    attackSpeed: 1,
+    physicalDamage: 320,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot27: {
+    name: "Storm Surge",
+    description: "A blue sphere crackling with a lightning-bolt emblem. It moves in quick bursts and shocks everything nearby.",
+
+    health: 17500,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_27.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor4,armor18,armor29,accessory10,accessory22,accessory34,ring07,ring20,ring30",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 370,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 20,
+    increaseSpawnGet: 0,
+    expGet: 330,
+
+    attackSpeed: 1,
+    physicalDamage: 340,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot28: {
+    name: "Golden Monarch",
+    description: "A gold-plated royal sphere with a crown emblem. It commands its area and takes heavy hits to bring down.",
+
+    health: 18000,
+    physicalDefense: "armor5",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_28.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor5,armor19,armor30,accessory11,accessory23,accessory35,ring08,ring21,ring31",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 380,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 21,
+    increaseSpawnGet: 0,
+    expGet: 340,
+
+    attackSpeed: 1,
+    physicalDamage: 360,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot29: {
+    name: "Crimson Fiend",
+    description: "A blood-red sphere with a horned demon face. It is relentless and brutal in close fights.",
+
+    health: 19100,
+    physicalDefense: "armor5",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_29.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor6,armor20,armor31,accessory12,accessory24,accessory36,ring09,ring22,ring32",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 401,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 22,
+    increaseSpawnGet: 0,
+    expGet: 359,
+
+    attackSpeed: 1,
+    physicalDamage: 378,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot30: {
+    name: "Sniper Prime",
+    description: "A white and blue sphere with a targeting crosshair. It spots threats from far away and rarely misses.",
+
+    health: 20200,
+    physicalDefense: "armor5",
+    movementSpeed: 91,
+    weaponName: "shotgun",
+
+    image: "image/bot_30.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor7,armor21,armor32,accessory01,accessory13,accessory25,ring10,ring23,ring33",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 423,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 23,
+    increaseSpawnGet: 0,
+    expGet: 378,
+
+    attackSpeed: 1,
+    physicalDamage: 397,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot31: {
+    name: "Toxic Plague",
+    description: "A green sphere with a biohazard emblem. It spreads decay wherever it patrols.",
+
+    health: 21400,
+    physicalDefense: "armor5",
+    movementSpeed: 91,
+    weaponName: "ak47",
+
+    image: "image/bot_31.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor8,armor22,armor33,accessory02,accessory14,accessory26,ring11,ring24,ring34",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 445,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 24,
+    increaseSpawnGet: 0,
+    expGet: 398,
+
+    attackSpeed: 1,
+    physicalDamage: 416,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot32: {
+    name: "Vortex Spiral",
+    description: "A purple sphere with a swirling vortex core. It pulls enemies in and wears them down.",
+
+    health: 22600,
+    physicalDefense: "armor6",
+    movementSpeed: 92,
+    weaponName: "sniper",
+
+    image: "image/bot_32.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor9,armor23,armor34,accessory03,accessory15,accessory27,ring12,ring25,ring35",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 468,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 25,
+    increaseSpawnGet: 0,
+    expGet: 419,
+
+    attackSpeed: 1,
+    physicalDamage: 435,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot33: {
+    name: "Crimson Eagle",
+    description: "A red and white sphere with an eagle emblem. It dives on targets with disciplined aggression.",
+
+    health: 23850,
+    physicalDefense: "armor6",
+    movementSpeed: 92,
+    weaponName: "uzi",
+
+    image: "image/bot_33.png",
+    radius: 11,
+
+    viewRange: 390,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword12,gun12,gauntlet12,armor10,armor24,armor35,accessory04,accessory16,accessory28,ring13,ring26,ring36",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 493,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 26,
+    increaseSpawnGet: 0,
+    expGet: 441,
+
+    attackSpeed: 1,
+    physicalDamage: 456,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot34: {
+    name: "Hex Guardian",
+    description: "A cyan sphere with a hexagon shield emblem. It holds its ground behind layered armor.",
+
+    health: 25150,
+    physicalDefense: "armor6",
+    movementSpeed: 93,
+    weaponName: "shotgun",
+
+    image: "image/bot_34.png",
+    radius: 11,
+
+    viewRange: 390,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword13,gun13,gauntlet13,armor11,armor25,armor36,accessory05,accessory17,accessory29,ring01,ring14,ring37",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 518,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 27,
+    increaseSpawnGet: 0,
+    expGet: 463,
+
+    attackSpeed: 1,
+    physicalDamage: 477,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot35: {
+    name: "Ember Fox",
+    description: "An orange sphere with a fox emblem. It is cunning, quick to react and hard to pin down.",
+
+    health: 26500,
+    physicalDefense: "armor6",
+    movementSpeed: 93,
+    weaponName: "ak47",
+
+    image: "image/bot_35.png",
+    radius: 11,
+
+    viewRange: 390,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword14,gun14,gauntlet14,armor12,armor26,armor37,accessory06,accessory18,accessory30,ring02,ring15,ring38",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 543,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 28,
+    increaseSpawnGet: 0,
+    expGet: 486,
+
+    attackSpeed: 1,
+    physicalDamage: 498,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot36: {
+    name: "Tidal Wave",
+    description: "A deep-blue sphere with a wave emblem. It crashes into enemies in heavy waves of fire.",
+
+    health: 27900,
+    physicalDefense: "armor7",
+    movementSpeed: 94,
+    weaponName: "sniper",
+
+    image: "image/bot_36.png",
+    radius: 11,
+
+    viewRange: 390,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword15,gun15,gauntlet15,armor13,armor27,armor38,accessory07,accessory19,accessory31,ring03,ring16,ring39",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 570,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 29,
+    increaseSpawnGet: 0,
+    expGet: 510,
+
+    attackSpeed: 1,
+    physicalDamage: 520,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot37: {
+    name: "Hell Trident",
+    description: "A red and black sphere with a trident emblem. It pierces armor with savage thrusts.",
+
+    health: 29350,
+    physicalDefense: "armor7",
+    movementSpeed: 94,
+    weaponName: "uzi",
+
+    image: "image/bot_37.png",
+    radius: 11,
+
+    viewRange: 390,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor14,armor28,armor39,accessory08,accessory20,accessory32,ring04,ring17,ring40",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 597,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 30,
+    increaseSpawnGet: 0,
+    expGet: 534,
+
+    attackSpeed: 1,
+    physicalDamage: 542,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot38: {
+    name: "Forest Spirit",
+    description: "A green sphere with a leaf emblem. It looks calm but recovers and fights with ancient strength.",
+
+    health: 30850,
+    physicalDefense: "armor7",
+    movementSpeed: 95,
+    weaponName: "shotgun",
+
+    image: "image/bot_38.png",
+    radius: 11,
+
+    viewRange: 400,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword17,gun17,gauntlet17,armor1,armor15,armor40,accessory09,accessory21,accessory33,ring05,ring18,ring27",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 626,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 31,
+    increaseSpawnGet: 0,
+    expGet: 560,
+
+    attackSpeed: 1,
+    physicalDamage: 565,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot39: {
+    name: "Alien Overlord",
+    description: "A purple sphere with an alien skull emblem. It commands its patrol with strange, deadly power.",
+
+    health: 32400,
+    physicalDefense: "armor7",
+    movementSpeed: 95,
+    weaponName: "ak47",
+
+    image: "image/bot_39.png",
+    radius: 11,
+
+    viewRange: 400,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor2,armor16,armor41,accessory10,accessory22,accessory34,ring06,ring19,ring28",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 655,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 32,
+    increaseSpawnGet: 0,
+    expGet: 586,
+
+    attackSpeed: 1,
+    physicalDamage: 588,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot40: {
+    name: "Solar Nova",
+    description: "A white and gold sphere with a radiant star emblem. It shines with explosive power.",
+
+    health: 33950,
+    physicalDefense: "armor8",
+    movementSpeed: 96,
+    weaponName: "sniper",
+
+    image: "image/bot_40.png",
+    radius: 11,
+
+    viewRange: 400,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor3,armor17,armor42,accessory11,accessory23,accessory35,ring07,ring20,ring29",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 684,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 33,
+    increaseSpawnGet: 0,
+    expGet: 612,
+
+    attackSpeed: 1,
+    physicalDamage: 612,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot41: {
+    name: "Cyber Falcon Mk II",
+    description: "A cyan armored sphere with a glowing winged-falcon emblem. It swoops in fast and strikes with precise bursts. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 35550,
+    physicalDefense: "armor8",
+    movementSpeed: 96,
+    weaponName: "uzi",
+
+    image: "image/bot_21.png",
+    radius: 11,
+
+    viewRange: 400,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor4,armor18,armor43,accessory12,accessory24,accessory36,ring08,ring21,ring30",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 715,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 34,
+    increaseSpawnGet: 0,
+    expGet: 640,
+
+    attackSpeed: 1,
+    physicalDamage: 637,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot42: {
+    name: "Bone Reaper Mk II",
+    description: "A soot-black sphere with orange glowing plates and a white skull emblem. It reaps anything that wanders into its patrol. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 37200,
+    physicalDefense: "armor8",
+    movementSpeed: 97,
+    weaponName: "shotgun",
+
+    image: "image/bot_22.png",
+    radius: 11,
+
+    viewRange: 400,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor5,armor19,armor29,accessory01,accessory13,accessory25,ring09,ring22,ring31",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 746,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 35,
+    increaseSpawnGet: 0,
+    expGet: 668,
+
+    attackSpeed: 1,
+    physicalDamage: 661,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot43: {
+    name: "Blizzard Sentinel Mk II",
+    description: "A frost-white sphere with a blue snowflake core. It guards its ground coldly and never tires. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 38900,
+    physicalDefense: "armor8",
+    movementSpeed: 97,
+    weaponName: "ak47",
+
+    image: "image/bot_23.png",
+    radius: 11,
+
+    viewRange: 410,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor6,armor20,armor30,accessory02,accessory14,accessory26,ring10,ring23,ring32",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 778,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 36,
+    increaseSpawnGet: 0,
+    expGet: 696,
+
+    attackSpeed: 1,
+    physicalDamage: 686,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot44: {
+    name: "Nuclear Warden Mk II",
+    description: "A green-lit sphere marked with a radiation symbol. It poisons the air around it and hits with irradiated rounds. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 40650,
+    physicalDefense: "armor9",
+    movementSpeed: 98,
+    weaponName: "sniper",
+
+    image: "image/bot_24.png",
+    radius: 11,
+
+    viewRange: 410,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor7,armor21,armor31,accessory03,accessory15,accessory27,ring11,ring24,ring33",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 811,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 37,
+    increaseSpawnGet: 0,
+    expGet: 726,
+
+    attackSpeed: 1,
+    physicalDamage: 712,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot45: {
+    name: "Void Raven Mk II",
+    description: "A dark purple sphere with a winged raven crest. It hunts from the shadows and strikes from odd angles. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 42400,
+    physicalDefense: "armor9",
+    movementSpeed: 98,
+    weaponName: "uzi",
+
+    image: "image/bot_25.png",
+    radius: 11,
+
+    viewRange: 410,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor8,armor22,armor32,accessory04,accessory16,accessory28,ring12,ring25,ring34",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 844,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 38,
+    increaseSpawnGet: 0,
+    expGet: 756,
+
+    attackSpeed: 1,
+    physicalDamage: 738,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot46: {
+    name: "Inferno Core Mk II",
+    description: "A red-hot armored sphere with a blazing flame emblem. It burns with rage and hits with scorching force. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 44200,
+    physicalDefense: "armor9",
+    movementSpeed: 99,
+    weaponName: "shotgun",
+
+    image: "image/bot_26.png",
+    radius: 11,
+
+    viewRange: 410,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor9,armor23,armor33,accessory05,accessory17,accessory29,ring13,ring26,ring35",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 879,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 39,
+    increaseSpawnGet: 0,
+    expGet: 786,
+
+    attackSpeed: 1,
+    physicalDamage: 764,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot47: {
+    name: "Storm Surge Mk II",
+    description: "A blue sphere crackling with a lightning-bolt emblem. It moves in quick bursts and shocks everything nearby. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 46050,
+    physicalDefense: "armor9",
+    movementSpeed: 99,
+    weaponName: "ak47",
+
+    image: "image/bot_27.png",
+    radius: 11,
+
+    viewRange: 410,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor10,armor24,armor34,accessory06,accessory18,accessory30,ring01,ring14,ring36",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 913,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 40,
+    increaseSpawnGet: 0,
+    expGet: 817,
+
+    attackSpeed: 1,
+    physicalDamage: 790,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot48: {
+    name: "Golden Monarch Mk II",
+    description: "A gold-plated royal sphere with a crown emblem. It commands its area and takes heavy hits to bring down. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 47900,
+    physicalDefense: "armor10",
+    movementSpeed: 100,
+    weaponName: "sniper",
+
+    image: "image/bot_28.png",
+    radius: 11,
+
+    viewRange: 420,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor11,armor25,armor35,accessory07,accessory19,accessory31,ring02,ring15,ring37",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 949,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 41,
+    increaseSpawnGet: 0,
+    expGet: 849,
+
+    attackSpeed: 1,
+    physicalDamage: 817,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot49: {
+    name: "Crimson Fiend Mk II",
+    description: "A blood-red sphere with a horned demon face. It is relentless and brutal in close fights. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 49800,
+    physicalDefense: "armor10",
+    movementSpeed: 100,
+    weaponName: "uzi",
+
+    image: "image/bot_29.png",
+    radius: 11,
+
+    viewRange: 420,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor12,armor26,armor36,accessory08,accessory20,accessory32,ring03,ring16,ring38",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 984,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 42,
+    increaseSpawnGet: 0,
+    expGet: 881,
+
+    attackSpeed: 1,
+    physicalDamage: 843,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot50: {
+    name: "Sniper Prime Mk II",
+    description: "A white and blue sphere with a targeting crosshair. It spots threats from far away and rarely misses. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 51700,
+    physicalDefense: "armor10",
+    movementSpeed: 101,
+    weaponName: "shotgun",
+
+    image: "image/bot_30.png",
+    radius: 11,
+
+    viewRange: 420,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor13,armor27,armor37,accessory09,accessory21,accessory33,ring04,ring17,ring39",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1021,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 43,
+    increaseSpawnGet: 0,
+    expGet: 913,
+
+    attackSpeed: 1,
+    physicalDamage: 870,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot51: {
+    name: "Toxic Plague Mk II",
+    description: "A green sphere with a biohazard emblem. It spreads decay wherever it patrols. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 53600,
+    physicalDefense: "armor10",
+    movementSpeed: 101,
+    weaponName: "ak47",
+
+    image: "image/bot_31.png",
+    radius: 11,
+
+    viewRange: 420,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor14,armor28,armor38,accessory10,accessory22,accessory34,ring05,ring18,ring40",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 1057,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 44,
+    increaseSpawnGet: 0,
+    expGet: 946,
+
+    attackSpeed: 1,
+    physicalDamage: 897,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot52: {
+    name: "Vortex Spiral Mk II",
+    description: "A purple sphere with a swirling vortex core. It pulls enemies in and wears them down. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 55550,
+    physicalDefense: "armor11",
+    movementSpeed: 102,
+    weaponName: "sniper",
+
+    image: "image/bot_32.png",
+    radius: 11,
+
+    viewRange: 420,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor1,armor15,armor39,accessory11,accessory23,accessory35,ring06,ring19,ring27",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1095,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 45,
+    increaseSpawnGet: 0,
+    expGet: 979,
+
+    attackSpeed: 1,
+    physicalDamage: 924,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot53: {
+    name: "Crimson Eagle Mk II",
+    description: "A red and white sphere with an eagle emblem. It dives on targets with disciplined aggression. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 57500,
+    physicalDefense: "armor11",
+    movementSpeed: 102,
+    weaponName: "uzi",
+
+    image: "image/bot_33.png",
+    radius: 11,
+
+    viewRange: 430,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword12,gun12,gauntlet12,armor2,armor16,armor40,accessory12,accessory24,accessory36,ring07,ring20,ring28",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 1132,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 46,
+    increaseSpawnGet: 0,
+    expGet: 1013,
+
+    attackSpeed: 1,
+    physicalDamage: 951,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot54: {
+    name: "Hex Guardian Mk II",
+    description: "A cyan sphere with a hexagon shield emblem. It holds its ground behind layered armor. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 59450,
+    physicalDefense: "armor11",
+    movementSpeed: 103,
+    weaponName: "shotgun",
+
+    image: "image/bot_34.png",
+    radius: 11,
+
+    viewRange: 430,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword13,gun13,gauntlet13,armor3,armor17,armor41,accessory01,accessory13,accessory25,ring08,ring21,ring29",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 1170,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 47,
+    increaseSpawnGet: 0,
+    expGet: 1047,
+
+    attackSpeed: 1,
+    physicalDamage: 978,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot55: {
+    name: "Ember Fox Mk II",
+    description: "An orange sphere with a fox emblem. It is cunning, quick to react and hard to pin down. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 61450,
+    physicalDefense: "armor11",
+    movementSpeed: 103,
+    weaponName: "ak47",
+
+    image: "image/bot_35.png",
+    radius: 11,
+
+    viewRange: 430,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword14,gun14,gauntlet14,armor4,armor18,armor42,accessory02,accessory14,accessory26,ring09,ring22,ring30",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1208,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 48,
+    increaseSpawnGet: 0,
+    expGet: 1081,
+
+    attackSpeed: 1,
+    physicalDamage: 1005,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot56: {
+    name: "Tidal Wave Mk II",
+    description: "A deep-blue sphere with a wave emblem. It crashes into enemies in heavy waves of fire. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 63400,
+    physicalDefense: "armor12",
+    movementSpeed: 104,
+    weaponName: "sniper",
+
+    image: "image/bot_36.png",
+    radius: 11,
+
+    viewRange: 430,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword15,gun15,gauntlet15,armor5,armor19,armor43,accessory03,accessory15,accessory27,ring10,ring23,ring31",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 1247,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 49,
+    increaseSpawnGet: 0,
+    expGet: 1115,
+
+    attackSpeed: 1,
+    physicalDamage: 1032,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot57: {
+    name: "Hell Trident Mk II",
+    description: "A red and black sphere with a trident emblem. It pierces armor with savage thrusts. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 65400,
+    physicalDefense: "armor12",
+    movementSpeed: 104,
+    weaponName: "uzi",
+
+    image: "image/bot_37.png",
+    radius: 11,
+
+    viewRange: 430,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor6,armor20,armor29,accessory04,accessory16,accessory28,ring11,ring24,ring32",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1285,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 50,
+    increaseSpawnGet: 0,
+    expGet: 1150,
+
+    attackSpeed: 1,
+    physicalDamage: 1059,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot58: {
+    name: "Forest Spirit Mk II",
+    description: "A green sphere with a leaf emblem. It looks calm but recovers and fights with ancient strength. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 67350,
+    physicalDefense: "armor12",
+    movementSpeed: 105,
+    weaponName: "shotgun",
+
+    image: "image/bot_38.png",
+    radius: 11,
+
+    viewRange: 440,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "sword17,gun17,gauntlet17,armor7,armor21,armor30,accessory05,accessory17,accessory29,ring12,ring25,ring33",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 1324,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 51,
+    increaseSpawnGet: 0,
+    expGet: 1184,
+
+    attackSpeed: 1,
+    physicalDamage: 1085,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot21elite: {
+    name: "Elite Cyber Falcon",
+    description: "A cyan armored sphere with a glowing winged-falcon emblem. It swoops in fast and strikes with precise bursts.",
+
+    health: 15000,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_21.png",
+    radius: 13,
+
+    viewRange: 340,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor8,armor22,armor31,accessory06,accessory18,accessory30,ring13,ring26,ring34",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 230,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 14,
+    increaseSpawnGet: 0,
+    expGet: 194,
+
+    attackSpeed: 1,
+    physicalDamage: 216,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot22elite: {
+    name: "Elite Bone Reaper",
+    description: "A soot-black sphere with orange glowing plates and a white skull emblem. It reaps anything that wanders into its patrol.",
+
+    health: 18000,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_22.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor9,armor23,armor32,accessory07,accessory19,accessory31,ring01,ring14,ring35",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 258,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 15,
+    increaseSpawnGet: 0,
+    expGet: 227,
+
+    attackSpeed: 1,
+    physicalDamage: 248,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot23elite: {
+    name: "Elite Blizzard Sentinel",
+    description: "A frost-white sphere with a blue snowflake core. It guards its ground coldly and never tires.",
+
+    health: 23000,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_23.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor10,armor24,armor33,accessory08,accessory20,accessory32,ring02,ring15,ring36",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 314,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 16,
+    increaseSpawnGet: 0,
+    expGet: 270,
+
+    attackSpeed: 1,
+    physicalDamage: 281,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot24elite: {
+    name: "Elite Nuclear Warden",
+    description: "A green-lit sphere marked with a radiation symbol. It poisons the air around it and hits with irradiated rounds.",
+
+    health: 26000,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_24.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor11,armor25,armor34,accessory09,accessory21,accessory33,ring03,ring16,ring37",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 336,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 17,
+    increaseSpawnGet: 0,
+    expGet: 297,
+
+    attackSpeed: 1,
+    physicalDamage: 300,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot25elite: {
+    name: "Elite Void Raven",
+    description: "A dark purple sphere with a winged raven crest. It hunts from the shadows and strikes from odd angles.",
+
+    health: 28400,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_25.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor12,armor26,armor35,accessory10,accessory22,accessory34,ring04,ring17,ring38",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 364,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 18,
+    increaseSpawnGet: 0,
+    expGet: 313,
+
+    attackSpeed: 1,
+    physicalDamage: 319,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot26elite: {
+    name: "Elite Inferno Core",
+    description: "A red-hot armored sphere with a blazing flame emblem. It burns with rage and hits with scorching force.",
+
+    health: 31000,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_26.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor13,armor27,armor36,accessory11,accessory23,accessory35,ring05,ring18,ring39",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 392,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 19,
+    increaseSpawnGet: 0,
+    expGet: 335,
+
+    attackSpeed: 1,
+    physicalDamage: 346,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot27elite: {
+    name: "Elite Storm Surge",
+    description: "A blue sphere crackling with a lightning-bolt emblem. It moves in quick bursts and shocks everything nearby.",
+
+    health: 35000,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_27.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor14,armor28,armor37,accessory12,accessory24,accessory36,ring06,ring19,ring40",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 414,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 20,
+    increaseSpawnGet: 0,
+    expGet: 356,
+
+    attackSpeed: 1,
+    physicalDamage: 367,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot28elite: {
+    name: "Elite Golden Monarch",
+    description: "A gold-plated royal sphere with a crown emblem. It commands its area and takes heavy hits to bring down.",
+
+    health: 36000,
+    physicalDefense: "armor5",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_28.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor1,armor15,armor38,accessory01,accessory13,accessory25,ring07,ring20,ring27",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 426,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 21,
+    increaseSpawnGet: 0,
+    expGet: 367,
+
+    attackSpeed: 1,
+    physicalDamage: 389,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot29elite: {
+    name: "Elite Crimson Fiend",
+    description: "A blood-red sphere with a horned demon face. It is relentless and brutal in close fights.",
+
+    health: 38200,
+    physicalDefense: "armor5",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_29.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor2,armor16,armor39,accessory02,accessory14,accessory26,ring08,ring21,ring28",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 449,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 22,
+    increaseSpawnGet: 0,
+    expGet: 388,
+
+    attackSpeed: 1,
+    physicalDamage: 408,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot30elite: {
+    name: "Elite Sniper Prime",
+    description: "A white and blue sphere with a targeting crosshair. It spots threats from far away and rarely misses.",
+
+    health: 40400,
+    physicalDefense: "armor5",
+    movementSpeed: 91,
+    weaponName: "shotgun",
+
+    image: "image/bot_30.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor3,armor17,armor40,accessory03,accessory15,accessory27,ring09,ring22,ring29",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 474,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 23,
+    increaseSpawnGet: 0,
+    expGet: 408,
+
+    attackSpeed: 1,
+    physicalDamage: 429,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot31elite: {
+    name: "Elite Toxic Plague",
+    description: "A green sphere with a biohazard emblem. It spreads decay wherever it patrols.",
+
+    health: 42800,
+    physicalDefense: "armor5",
+    movementSpeed: 91,
+    weaponName: "ak47",
+
+    image: "image/bot_31.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor4,armor18,armor41,accessory04,accessory16,accessory28,ring10,ring23,ring30",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 498,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 24,
+    increaseSpawnGet: 0,
+    expGet: 430,
+
+    attackSpeed: 1,
+    physicalDamage: 449,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot32elite: {
+    name: "Elite Vortex Spiral",
+    description: "A purple sphere with a swirling vortex core. It pulls enemies in and wears them down.",
+
+    health: 45200,
+    physicalDefense: "armor6",
+    movementSpeed: 92,
+    weaponName: "sniper",
+
+    image: "image/bot_32.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor5,armor19,armor42,accessory05,accessory17,accessory29,ring11,ring24,ring31",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 524,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 25,
+    increaseSpawnGet: 0,
+    expGet: 453,
+
+    attackSpeed: 1,
+    physicalDamage: 470,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot33elite: {
+    name: "Elite Crimson Eagle",
+    description: "A red and white sphere with an eagle emblem. It dives on targets with disciplined aggression.",
+
+    health: 47700,
+    physicalDefense: "armor6",
+    movementSpeed: 92,
+    weaponName: "uzi",
+
+    image: "image/bot_33.png",
+    radius: 13,
+
+    viewRange: 390,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor6,armor20,armor43,accessory06,accessory18,accessory30,ring12,ring25,ring32",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 552,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 26,
+    increaseSpawnGet: 0,
+    expGet: 476,
+
+    attackSpeed: 1,
+    physicalDamage: 492,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot34elite: {
+    name: "Elite Hex Guardian",
+    description: "A cyan sphere with a hexagon shield emblem. It holds its ground behind layered armor.",
+
+    health: 50300,
+    physicalDefense: "armor6",
+    movementSpeed: 93,
+    weaponName: "shotgun",
+
+    image: "image/bot_34.png",
+    radius: 13,
+
+    viewRange: 390,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor7,armor21,armor29,accessory07,accessory19,accessory31,ring13,ring26,ring33",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 580,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 27,
+    increaseSpawnGet: 0,
+    expGet: 500,
+
+    attackSpeed: 1,
+    physicalDamage: 515,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot35elite: {
+    name: "Elite Ember Fox",
+    description: "An orange sphere with a fox emblem. It is cunning, quick to react and hard to pin down.",
+
+    health: 53000,
+    physicalDefense: "armor6",
+    movementSpeed: 93,
+    weaponName: "ak47",
+
+    image: "image/bot_35.png",
+    radius: 13,
+
+    viewRange: 390,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword12,gun12,gauntlet12,armor8,armor22,armor30,accessory08,accessory20,accessory32,ring01,ring14,ring34",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 608,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 28,
+    increaseSpawnGet: 0,
+    expGet: 525,
+
+    attackSpeed: 1,
+    physicalDamage: 538,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot36elite: {
+    name: "Elite Tidal Wave",
+    description: "A deep-blue sphere with a wave emblem. It crashes into enemies in heavy waves of fire.",
+
+    health: 55800,
+    physicalDefense: "armor7",
+    movementSpeed: 94,
+    weaponName: "sniper",
+
+    image: "image/bot_36.png",
+    radius: 13,
+
+    viewRange: 390,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword13,gun13,gauntlet13,armor9,armor23,armor31,accessory09,accessory21,accessory33,ring02,ring15,ring35",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 638,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 29,
+    increaseSpawnGet: 0,
+    expGet: 551,
+
+    attackSpeed: 1,
+    physicalDamage: 562,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot37elite: {
+    name: "Elite Hell Trident",
+    description: "A red and black sphere with a trident emblem. It pierces armor with savage thrusts.",
+
+    health: 58700,
+    physicalDefense: "armor7",
+    movementSpeed: 94,
+    weaponName: "uzi",
+
+    image: "image/bot_37.png",
+    radius: 13,
+
+    viewRange: 390,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword14,gun14,gauntlet14,armor10,armor24,armor32,accessory10,accessory22,accessory34,ring03,ring16,ring36",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 669,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 30,
+    increaseSpawnGet: 0,
+    expGet: 577,
+
+    attackSpeed: 1,
+    physicalDamage: 585,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot38elite: {
+    name: "Elite Forest Spirit",
+    description: "A green sphere with a leaf emblem. It looks calm but recovers and fights with ancient strength.",
+
+    health: 61700,
+    physicalDefense: "armor7",
+    movementSpeed: 95,
+    weaponName: "shotgun",
+
+    image: "image/bot_38.png",
+    radius: 13,
+
+    viewRange: 400,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword15,gun15,gauntlet15,armor11,armor25,armor33,accessory11,accessory23,accessory35,ring04,ring17,ring37",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 701,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 31,
+    increaseSpawnGet: 0,
+    expGet: 605,
+
+    attackSpeed: 1,
+    physicalDamage: 610,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot39elite: {
+    name: "Elite Alien Overlord",
+    description: "A purple sphere with an alien skull emblem. It commands its patrol with strange, deadly power.",
+
+    health: 64800,
+    physicalDefense: "armor7",
+    movementSpeed: 95,
+    weaponName: "ak47",
+
+    image: "image/bot_39.png",
+    radius: 13,
+
+    viewRange: 400,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor12,armor26,armor34,accessory12,accessory24,accessory36,ring05,ring18,ring38",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 734,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 32,
+    increaseSpawnGet: 0,
+    expGet: 633,
+
+    attackSpeed: 1,
+    physicalDamage: 635,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot40elite: {
+    name: "Elite Solar Nova",
+    description: "A white and gold sphere with a radiant star emblem. It shines with explosive power.",
+
+    health: 67900,
+    physicalDefense: "armor8",
+    movementSpeed: 96,
+    weaponName: "sniper",
+
+    image: "image/bot_40.png",
+    radius: 13,
+
+    viewRange: 400,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword17,gun17,gauntlet17,armor13,armor27,armor35,accessory01,accessory13,accessory25,ring06,ring19,ring39",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 766,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 33,
+    increaseSpawnGet: 0,
+    expGet: 661,
+
+    attackSpeed: 1,
+    physicalDamage: 661,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot41elite: {
+    name: "Elite Cyber Falcon Mk II",
+    description: "A cyan armored sphere with a glowing winged-falcon emblem. It swoops in fast and strikes with precise bursts. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 71100,
+    physicalDefense: "armor8",
+    movementSpeed: 96,
+    weaponName: "uzi",
+
+    image: "image/bot_21.png",
+    radius: 13,
+
+    viewRange: 400,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor14,armor28,armor36,accessory02,accessory14,accessory26,ring07,ring20,ring40",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 801,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 34,
+    increaseSpawnGet: 0,
+    expGet: 691,
+
+    attackSpeed: 1,
+    physicalDamage: 688,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot42elite: {
+    name: "Elite Bone Reaper Mk II",
+    description: "A soot-black sphere with orange glowing plates and a white skull emblem. It reaps anything that wanders into its patrol. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 74400,
+    physicalDefense: "armor8",
+    movementSpeed: 97,
+    weaponName: "shotgun",
+
+    image: "image/bot_22.png",
+    radius: 13,
+
+    viewRange: 400,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor1,armor15,armor37,accessory03,accessory15,accessory27,ring08,ring21,ring27",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 836,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 35,
+    increaseSpawnGet: 0,
+    expGet: 721,
+
+    attackSpeed: 1,
+    physicalDamage: 714,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot43elite: {
+    name: "Elite Blizzard Sentinel Mk II",
+    description: "A frost-white sphere with a blue snowflake core. It guards its ground coldly and never tires. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 77800,
+    physicalDefense: "armor8",
+    movementSpeed: 97,
+    weaponName: "ak47",
+
+    image: "image/bot_23.png",
+    radius: 13,
+
+    viewRange: 410,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor2,armor16,armor38,accessory04,accessory16,accessory28,ring09,ring22,ring28",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 871,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 36,
+    increaseSpawnGet: 0,
+    expGet: 752,
+
+    attackSpeed: 1,
+    physicalDamage: 741,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot44elite: {
+    name: "Elite Nuclear Warden Mk II",
+    description: "A green-lit sphere marked with a radiation symbol. It poisons the air around it and hits with irradiated rounds. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 81300,
+    physicalDefense: "armor9",
+    movementSpeed: 98,
+    weaponName: "sniper",
+
+    image: "image/bot_24.png",
+    radius: 13,
+
+    viewRange: 410,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor3,armor17,armor39,accessory05,accessory17,accessory29,ring10,ring23,ring29",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 908,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 37,
+    increaseSpawnGet: 0,
+    expGet: 784,
+
+    attackSpeed: 1,
+    physicalDamage: 769,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot45elite: {
+    name: "Elite Void Raven Mk II",
+    description: "A dark purple sphere with a winged raven crest. It hunts from the shadows and strikes from odd angles. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 84800,
+    physicalDefense: "armor9",
+    movementSpeed: 98,
+    weaponName: "uzi",
+
+    image: "image/bot_25.png",
+    radius: 13,
+
+    viewRange: 410,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor4,armor18,armor40,accessory06,accessory18,accessory30,ring11,ring24,ring30",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 945,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 38,
+    increaseSpawnGet: 0,
+    expGet: 816,
+
+    attackSpeed: 1,
+    physicalDamage: 797,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot46elite: {
+    name: "Elite Inferno Core Mk II",
+    description: "A red-hot armored sphere with a blazing flame emblem. It burns with rage and hits with scorching force. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 88400,
+    physicalDefense: "armor9",
+    movementSpeed: 99,
+    weaponName: "shotgun",
+
+    image: "image/bot_26.png",
+    radius: 13,
+
+    viewRange: 410,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor5,armor19,armor41,accessory07,accessory19,accessory31,ring12,ring25,ring31",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 984,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 39,
+    increaseSpawnGet: 0,
+    expGet: 849,
+
+    attackSpeed: 1,
+    physicalDamage: 825,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot47elite: {
+    name: "Elite Storm Surge Mk II",
+    description: "A blue sphere crackling with a lightning-bolt emblem. It moves in quick bursts and shocks everything nearby. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 92100,
+    physicalDefense: "armor9",
+    movementSpeed: 99,
+    weaponName: "ak47",
+
+    image: "image/bot_27.png",
+    radius: 13,
+
+    viewRange: 410,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor6,armor20,armor42,accessory08,accessory20,accessory32,ring13,ring26,ring32",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1023,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 40,
+    increaseSpawnGet: 0,
+    expGet: 882,
+
+    attackSpeed: 1,
+    physicalDamage: 853,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot48elite: {
+    name: "Elite Golden Monarch Mk II",
+    description: "A gold-plated royal sphere with a crown emblem. It commands its area and takes heavy hits to bring down. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 95800,
+    physicalDefense: "armor10",
+    movementSpeed: 100,
+    weaponName: "sniper",
+
+    image: "image/bot_28.png",
+    radius: 13,
+
+    viewRange: 420,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor7,armor21,armor43,accessory09,accessory21,accessory33,ring01,ring14,ring33",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 1063,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 41,
+    increaseSpawnGet: 0,
+    expGet: 917,
+
+    attackSpeed: 1,
+    physicalDamage: 882,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot49elite: {
+    name: "Elite Crimson Fiend Mk II",
+    description: "A blood-red sphere with a horned demon face. It is relentless and brutal in close fights. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 99600,
+    physicalDefense: "armor10",
+    movementSpeed: 100,
+    weaponName: "uzi",
+
+    image: "image/bot_29.png",
+    radius: 13,
+
+    viewRange: 420,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor8,armor22,armor29,accessory10,accessory22,accessory34,ring02,ring15,ring34",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 1102,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 42,
+    increaseSpawnGet: 0,
+    expGet: 951,
+
+    attackSpeed: 1,
+    physicalDamage: 910,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot50elite: {
+    name: "Elite Sniper Prime Mk II",
+    description: "A white and blue sphere with a targeting crosshair. It spots threats from far away and rarely misses. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 103400,
+    physicalDefense: "armor10",
+    movementSpeed: 101,
+    weaponName: "shotgun",
+
+    image: "image/bot_30.png",
+    radius: 13,
+
+    viewRange: 420,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor9,armor23,armor30,accessory11,accessory23,accessory35,ring03,ring16,ring35",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1144,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 43,
+    increaseSpawnGet: 0,
+    expGet: 986,
+
+    attackSpeed: 1,
+    physicalDamage: 940,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot51elite: {
+    name: "Elite Toxic Plague Mk II",
+    description: "A green sphere with a biohazard emblem. It spreads decay wherever it patrols. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 107200,
+    physicalDefense: "armor10",
+    movementSpeed: 101,
+    weaponName: "ak47",
+
+    image: "image/bot_31.png",
+    radius: 13,
+
+    viewRange: 420,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor10,armor24,armor31,accessory12,accessory24,accessory36,ring04,ring17,ring36",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 1184,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 44,
+    increaseSpawnGet: 0,
+    expGet: 1022,
+
+    attackSpeed: 1,
+    physicalDamage: 969,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot52elite: {
+    name: "Elite Vortex Spiral Mk II",
+    description: "A purple sphere with a swirling vortex core. It pulls enemies in and wears them down. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 111100,
+    physicalDefense: "armor11",
+    movementSpeed: 102,
+    weaponName: "sniper",
+
+    image: "image/bot_32.png",
+    radius: 13,
+
+    viewRange: 420,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor11,armor25,armor32,accessory01,accessory13,accessory25,ring05,ring18,ring37",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1226,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 45,
+    increaseSpawnGet: 0,
+    expGet: 1057,
+
+    attackSpeed: 1,
+    physicalDamage: 998,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot53elite: {
+    name: "Elite Crimson Eagle Mk II",
+    description: "A red and white sphere with an eagle emblem. It dives on targets with disciplined aggression. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 115000,
+    physicalDefense: "armor11",
+    movementSpeed: 102,
+    weaponName: "uzi",
+
+    image: "image/bot_33.png",
+    radius: 13,
+
+    viewRange: 430,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor12,armor26,armor33,accessory02,accessory14,accessory26,ring06,ring19,ring38",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 1268,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 46,
+    increaseSpawnGet: 0,
+    expGet: 1094,
+
+    attackSpeed: 1,
+    physicalDamage: 1027,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot54elite: {
+    name: "Elite Hex Guardian Mk II",
+    description: "A cyan sphere with a hexagon shield emblem. It holds its ground behind layered armor. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 118900,
+    physicalDefense: "armor11",
+    movementSpeed: 103,
+    weaponName: "shotgun",
+
+    image: "image/bot_34.png",
+    radius: 13,
+
+    viewRange: 430,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor13,armor27,armor34,accessory03,accessory15,accessory27,ring07,ring20,ring39",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 1310,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 47,
+    increaseSpawnGet: 0,
+    expGet: 1131,
+
+    attackSpeed: 1,
+    physicalDamage: 1056,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot55elite: {
+    name: "Elite Ember Fox Mk II",
+    description: "An orange sphere with a fox emblem. It is cunning, quick to react and hard to pin down. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 122900,
+    physicalDefense: "armor11",
+    movementSpeed: 103,
+    weaponName: "ak47",
+
+    image: "image/bot_35.png",
+    radius: 13,
+
+    viewRange: 430,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword12,gun12,gauntlet12,armor14,armor28,armor35,accessory04,accessory16,accessory28,ring08,ring21,ring40",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1353,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 48,
+    increaseSpawnGet: 0,
+    expGet: 1167,
+
+    attackSpeed: 1,
+    physicalDamage: 1085,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot56elite: {
+    name: "Elite Tidal Wave Mk II",
+    description: "A deep-blue sphere with a wave emblem. It crashes into enemies in heavy waves of fire. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 126800,
+    physicalDefense: "armor12",
+    movementSpeed: 104,
+    weaponName: "sniper",
+
+    image: "image/bot_36.png",
+    radius: 13,
+
+    viewRange: 430,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword13,gun13,gauntlet13,armor1,armor15,armor36,accessory05,accessory17,accessory29,ring09,ring22,ring27",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 1397,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 49,
+    increaseSpawnGet: 0,
+    expGet: 1204,
+
+    attackSpeed: 1,
+    physicalDamage: 1115,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot57elite: {
+    name: "Elite Hell Trident Mk II",
+    description: "A red and black sphere with a trident emblem. It pierces armor with savage thrusts. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 130800,
+    physicalDefense: "armor12",
+    movementSpeed: 104,
+    weaponName: "uzi",
+
+    image: "image/bot_37.png",
+    radius: 13,
+
+    viewRange: 430,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "specialstone,sword14,gun14,gauntlet14,armor2,armor16,armor37,accessory06,accessory18,accessory30,ring10,ring23,ring28",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1439,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 50,
+    increaseSpawnGet: 0,
+    expGet: 1242,
+
+    attackSpeed: 1,
+    physicalDamage: 1144,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  // ---------------------------------------------------------------------
+  // boss1–boss17 — 17 BOSS enemies using boss1.png..boss17.png. Bigger
+  // (radius), much tankier and harder hitting than bot01–bot20, slower to
+  // move, and they respawn much later (respawn = seconds). Stats step up
+  // gradually from boss1 (weakest) to boss17 (strongest); each has its own
+  // display name + description. Tweak freely.
+  // ---------------------------------------------------------------------
+  boss1: {
+    name: "Inferno Warlord",
+    description: "A powerful fire-type boss bot covered in heavy armor and blazing energy. It attacks enemies with explosive fire strikes and becomes more dangerous when enraged.",
+
+    health: 50000,
+    physicalDefense: "armor3",
+    movementSpeed: 60,
+    weaponName: "uzi",
+
+    image: "image/boss1.png",
+    radius: 16,
+
+    viewRange: 300,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 150,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 50,
+    increaseSpawnGet: 0.4,
+    expGet: 150,
+
+    attackSpeed: 1,
+    physicalDamage: 440,
+    attack: "melee",
+    criticalChance: 0.1,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss2: {
+    name: "Tempest Sentinel",
+    description: "A storm-type boss bot with silver plating and a swirling blue energy core. It lashes out with crackling bursts of lightning and keeps enemies off balance.",
+
+    health: 70000,
+    physicalDefense: "armor3",
+    movementSpeed: 62,
+    weaponName: "shotgun",
+    image: "image/boss2.png",
+    radius: 16,
+
+    viewRange: 309,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 2000,
+
+    respawn: 65,
+    active: false,
+
+    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 190,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 6,
+    increaseSpawnGet: 0,
+    expGet: 185,
+
+    attackSpeed: 1,
+    physicalDamage: 22,
+    attack: "melee",
+    criticalChance: 0.105,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss3: {
+    name: "Shadow Drake",
+    description: "A dark dragon-type boss bot wrapped in black armor and glowing violet energy. It strikes from the shadows with sharp, piercing attacks.",
+
+    health: 390,
+    physicalDefense: "armor4",
+    movementSpeed: 58,
+    weaponName: "ak47",
+
+    image: "image/boss3.png",
+    radius: 16,
+
+    viewRange: 318,
+    viewAngle: 85,
+
+    patrolInterval: 3000,
+    patrolRadius: 50,
+
+    lookDuration: 2200,
+
+    respawn: 70,
+    active: false,
+
+    spawnItem: "specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 230,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 6,
+    increaseSpawnGet: 0,
+    expGet: 220,
+
+    attackSpeed: 1,
+    physicalDamage: 23,
+    attack: "melee",
+    criticalChance: 0.11,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss4: {
+    name: "Golden Tyrant",
+    description: "A heavy dragon-type boss bot studded with golden spikes over black plating. It charges straight into enemies and crushes anything that gets too close.",
+
+    health: 435,
+    physicalDefense: "armor4",
+    movementSpeed: 70,
+    weaponName: "sniper",
+
+    image: "image/boss4.png",
+    radius: 16,
+
+    viewRange: 327,
+    viewAngle: 95,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 2400,
+
+    respawn: 75,
+    active: false,
+
+    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 270,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 7,
+    increaseSpawnGet: 0,
+    expGet: 255,
+
+    attackSpeed: 1,
+    physicalDamage: 24,
+    attack: "melee",
+    criticalChance: 0.115,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss5: {
+    name: "Frostbite Colossus",
+    description: "An ice-type boss bot armored in silver plates and jagged blue crystals. It freezes the battlefield with icy blasts and slows down anyone who stays near it.",
+
+    health: 480,
+    physicalDefense: "armor5",
+    movementSpeed: 75,
+    weaponName: "uzi",
+
+    image: "image/boss5.png",
+    radius: 16,
+
+    viewRange: 336,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 80,
+    active: false,
+
+    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 310,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 7,
+    increaseSpawnGet: 0,
+    expGet: 290,
+
+    attackSpeed: 1,
+    physicalDamage: 26,
+    attack: "melee",
+    criticalChance: 0.12,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss6: {
+    name: "Plague Reaper",
+    description: "A poison-type boss bot with a biohazard core and razor-sharp green claws. It spreads toxic energy across the area and wears enemies down over time.",
+
+    health: 525,
+    physicalDefense: "armor5",
+    movementSpeed: 72,
+    weaponName: "shotgun",
+
+    image: "image/boss6.png",
+    radius: 16,
+
+    viewRange: 345,
+    viewAngle: 120,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 2000,
+
+    respawn: 85,
+    active: false,
+
+    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 350,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 7,
+    increaseSpawnGet: 0,
+    expGet: 325,
+
+    attackSpeed: 1,
+    physicalDamage: 28,
+    attack: "melee",
+    criticalChance: 0.125,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss7: {
+    name: "Doom Skull",
+    description: "A heavy artillery-type boss bot with a glowing skull core and cannon pods on its armor. It bombards enemies with explosive blasts from a distance.",
+
+    health: 570,
+    physicalDefense: "armor6",
+    movementSpeed: 64,
+    weaponName: "ak47",
+
+    image: "image/boss7.png",
+    radius: 16,
+
+    viewRange: 354,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 2200,
+
+    respawn: 90,
+    active: false,
+
+    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 390,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 8,
+    increaseSpawnGet: 0,
+    expGet: 360,
+
+    attackSpeed: 1,
+    physicalDamage: 29,
+    attack: "melee",
+    criticalChance: 0.13,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss8: {
+    name: "Void Seer",
+    description: "A void-type boss bot with a glowing violet eye and jagged spiked armor. It watches from afar and strikes with warped dark energy.",
+
+    health: 615,
+    physicalDefense: "armor6",
+    movementSpeed: 80,
+    weaponName: "sniper",
+
+    image: "image/boss8.png",
+    radius: 16,
+
+    viewRange: 363,
+    viewAngle: 105,
+
+    patrolInterval: 3000,
+    patrolRadius: 110,
+
+    lookDuration: 2400,
+
+    respawn: 95,
+    active: false,
+
+    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 430,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 8,
+    increaseSpawnGet: 0,
+    expGet: 395,
+
+    attackSpeed: 1,
+    physicalDamage: 30,
+    attack: "melee",
+    criticalChance: 0.135,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss9: {
+    name: "Crown Commander",
+    description: "A royal elite boss bot in blue and gold armor marked with a golden crown. It commands the battlefield with disciplined, powerful strikes.",
+
+    health: 660,
+    physicalDefense: "armor7",
+    movementSpeed: 85,
+    weaponName: "uzi",
+
+    image: "image/boss9.png",
+    radius: 16,
+
+    viewRange: 372,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 120,
+
+    lookDuration: 1800,
+
+    respawn: 100,
+    active: false,
+
+    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 470,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 8,
+    increaseSpawnGet: 0,
+    expGet: 430,
+
+    attackSpeed: 1,
+    physicalDamage: 32,
+    attack: "melee",
+    criticalChance: 0.14,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss10: {
+    name: "Crimson Demon",
+    description: "A demon-type boss bot with black armor, glowing red veins and curved horns. It hunts relentlessly and hits with brutal force.",
+
+    health: 705,
+    physicalDefense: "armor7",
+    movementSpeed: 60,
+    weaponName: "shotgun",
+
+    image: "image/boss10.png",
+    radius: 16,
+
+    viewRange: 381,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 40,
+
+    lookDuration: 2000,
+
+    respawn: 105,
+    active: false,
+
+    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 510,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 9,
+    increaseSpawnGet: 0,
+    expGet: 465,
+
+    attackSpeed: 1,
+    physicalDamage: 34,
+    attack: "melee",
+    criticalChance: 0.145,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss11: {
+    name: "Bloodsight Hunter",
+    description: "A hunter-type boss bot with a red targeting eye and spiked black armor. It locks onto its prey and never lets it escape.",
+
+    health: 750,
+    physicalDefense: "armor7",
+    movementSpeed: 66,
+    weaponName: "ak47",
+
+    image: "image/boss11.png",
+    radius: 16,
+
+    viewRange: 390,
+    viewAngle: 85,
+
+    patrolInterval: 3000,
+    patrolRadius: 55,
+
+    lookDuration: 2200,
+
+    respawn: 110,
+    active: false,
+
+    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 550,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 9,
+    increaseSpawnGet: 0,
+    expGet: 500,
+
+    attackSpeed: 1,
+    physicalDamage: 35,
+    attack: "melee",
+    criticalChance: 0.15,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss12: {
+    name: "Azure Dragon",
+    description: "A dragon-type boss bot in silver armor with a glowing blue dragon emblem. It fiercely guards its territory and unleashes bursts of blue energy.",
+
+    health: 795,
+    physicalDefense: "armor8",
+    movementSpeed: 78,
+    weaponName: "sniper",
+
+    image: "image/boss12.png",
+    radius: 16,
+
+    viewRange: 399,
+    viewAngle: 95,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 2400,
+
+    respawn: 115,
+    active: false,
+
+    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 590,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 9,
+    increaseSpawnGet: 0,
+    expGet: 535,
+
+    attackSpeed: 1,
+    physicalDamage: 36,
+    attack: "melee",
+    criticalChance: 0.155,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss13: {
+    name: "Violet Wyrm",
+    description: "A dark dragon-type boss bot with large purple horns and glowing violet plating. Its towering frame overwhelms enemies with heavy, slashing attacks.",
+
+    health: 840,
+    physicalDefense: "armor8",
+    movementSpeed: 82,
+    weaponName: "uzi",
+
+    image: "image/boss13.png",
+    radius: 16,
+
+    viewRange: 408,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 120,
+    active: false,
+
+    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 630,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 10,
+    increaseSpawnGet: 0,
+    expGet: 570,
+
+    attackSpeed: 1,
+    physicalDamage: 38,
+    attack: "melee",
+    criticalChance: 0.16,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss14: {
+    name: "Magma Dragon",
+    description: "A molten dragon-type boss bot built from black armor plates glowing with orange heat. It burns everything around it and gets tougher the longer the fight lasts.",
+
+    health: 885,
+    physicalDefense: "armor9",
+    movementSpeed: 74,
+    weaponName: "shotgun",
+
+    image: "image/boss14.png",
+    radius: 16,
+
+    viewRange: 417,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 2000,
+
+    respawn: 125,
+    active: false,
+
+    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 670,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 10,
+    increaseSpawnGet: 0,
+    expGet: 605,
+
+    attackSpeed: 1,
+    physicalDamage: 40,
+    attack: "melee",
+    criticalChance: 0.165,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss15: {
+    name: "Glacier Warden",
+    description: "An ice-type boss bot with a snowflake core and sharp crystal spikes. It guards its area coldly and punishes anyone who steps in.",
+
+    health: 930,
+    physicalDefense: "armor9",
+    movementSpeed: 88,
+    weaponName: "ak47",
+
+    image: "image/boss15.png",
+    radius: 16,
+
+    viewRange: 426,
+    viewAngle: 115,
+
+    patrolInterval: 3000,
+    patrolRadius: 110,
+
+    lookDuration: 2200,
+
+    respawn: 130,
+    active: false,
+
+    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 710,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 10,
+    increaseSpawnGet: 0,
+    expGet: 640,
+
+    attackSpeed: 1,
+    physicalDamage: 41,
+    attack: "melee",
+    criticalChance: 0.17,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss16: {
+    name: "Toxic Behemoth",
+    description: "A huge poison-type boss bot with heavy green plating and curved claws around a biohazard core. It is slow but extremely tough, and it poisons the ground it walks on.",
+
+    health: 975,
+    physicalDefense: "armor10",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/boss16.png",
+    radius: 16,
+
+    viewRange: 435,
+    viewAngle: 105,
+
+    patrolInterval: 3000,
+    patrolRadius: 120,
+
+    lookDuration: 2400,
+
+    respawn: 135,
+    active: false,
+
+    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 750,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 11,
+    increaseSpawnGet: 0,
+    expGet: 675,
+
+    attackSpeed: 1,
+    physicalDamage: 42,
+    attack: "melee",
+    criticalChance: 0.175,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  boss17: {
+    name: "Deathbringer",
+    description: "The most feared boss bot, a heavy artillery machine with a white skull core and cannon barrels on its armor. It shows no mercy and wipes out anything in its range.",
+
+    health: 1020,
+    physicalDefense: "armor10",
+    movementSpeed: 68,
+    weaponName: "uzi",
+
+    image: "image/boss17.png",
+    radius: 16,
+
+    viewRange: 444,
+    viewAngle: 120,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 140,
+    active: false,
+
+    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor5,armor19,armor39,accessory11,accessory23,accessory35,ring01,ring14,ring31",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 790,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 11,
+    increaseSpawnGet: 0,
+    expGet: 710,
+
+    attackSpeed: 1,
+    physicalDamage: 44,
+    attack: "melee",
+    criticalChance: 0.18,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "slash1,barrage,cannonblast,deadlystrike"
+  },
+
+  // Add more bot classes the same way — and mirror the same entry in the
+  // public bot.js's BOT_TYPES (that copy only matters for OFFLINE mode now,
+  // but keeping the two in sync avoids confusion later).
+
+};
+
+// =============================================================================
+// ONLINE DRAWING — drawBots() (enemy sprite, health bar, NAME and LEVEL)
+// =============================================================================
+// Functions in a *_server.js file replace the game's own function of the same
+// name while you are ONLINE (online.js's netInstallServerCode() — the same way
+// character_server.js's functions work), and the original comes back when you
+// leave. So this is the real online look of an enemy: change the name/level
+// layout here and it only affects online mode. bot.js has its own copy for
+// OFFLINE. The name shown is each bot type's `name` field above.
+// (server.js only loads this file in Node to read BOT_TYPES — it never calls
+// drawBots, so the browser-only names used inside are fine.)
+// =============================================================================
+
+// =============================================================================
+// LEVEL AGGRO (ONLINE) — should a passive (active:false) bot attack a player of
+// targetLevel on sight? True when the bot is 4 or more levels higher than the
+// player (enemy level 10 vs player level 6 -> attacks). bot.js's AI calls this
+// from updateSingleBot(); while playing online the game swaps THIS copy in for
+// bot.js's own (offline) one, so the gap is enforced from the server file and
+// can't be changed by editing the public bot.js. Change the 4 here to tune it.
+// =============================================================================
+function shouldBotLevelAggro(bot, targetLevel) {
+  if (typeof targetLevel !== "number") return false;
+  return (bot.level || 1) - targetLevel >= 4;
+}
+
+function drawBots(ctx, bots, worldOffsetX, worldOffsetY) {
+
+  for (const bot of bots) {
+    if (!bot.alive) continue;
+
+    const screenX = worldOffsetX + bot.x;
+    const screenY = worldOffsetY + bot.y;
+    const imgSize = bot.radius * 2;
+
+    ctx.save();
+    ctx.translate(screenX, screenY);
+
+    if (bot.image && bot.image.complete && bot.image.naturalWidth > 0) {
+      ctx.drawImage(bot.image, -imgSize / 2, -imgSize / 2, imgSize, imgSize);
+    } else {
+      ctx.fillStyle = "#f44";
+      ctx.beginPath();
+      ctx.arc(0, 0, bot.radius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Movement direction arrow — image/arrow.png, rotated to bot.facingAngle
+    // and shown only while the bot is actually moving (bot.isMoving, set in
+    // updateBot()'s chase/search/patrol cases above). Sits just outside the
+    // bot's own circle, pointing the way it's walking.
+    if (bot.isMoving && botArrowImage.complete && botArrowImage.naturalWidth > 0) {
+      const arrowSize = Math.max(14, bot.radius * 0.9);
+      const arrowDist = bot.radius + 6 + arrowSize / 2;
+
+      ctx.save();
+      ctx.rotate(bot.facingAngle);
+      ctx.translate(arrowDist, 0);
+      // arrow.png is drawn pointing right (angle 0) by default; rotate an
+      // extra 90deg here only if the source art actually points up instead.
+      ctx.drawImage(botArrowImage, -arrowSize / 2, -arrowSize / 2, arrowSize, arrowSize);
+      ctx.restore();
+    }
+
+    // WEAPON UPGRADE AURA — colored glow tiered by bot.weapon.upgradeLevel
+    if (typeof drawWeaponUpgradeAura === "function") {
+      drawWeaponUpgradeAura(ctx, bot.radius, bot.weapon && bot.weapon.upgradeLevel);
+    }
+
+    ctx.restore();
+
+    // Health bar — enemy palette (healthborder1.png / healthhud1.png,
+    // shared healthempty.png backdrop). drawImageHealthBar is defined in
+    // effect.js (loads before bot.js — see index.html script order).
+    const hpPercent = Math.max(0, bot.health / bot.maxHealth);
+    const barWidth = 30;
+    const barHeight = 4;
+
+    drawImageHealthBar(
+      ctx,
+      screenX - barWidth / 2, screenY - bot.radius - 10, barWidth, barHeight,
+      hpPercent,
+      healthBorderImage1, healthHudImage1, healthEmptyImage
+    );
+
+    // NAME + LEVEL — stacked above the health bar, top to bottom:
+    //     Lv 1
+    //     Patrol Officer
+    //     [health bar]
+    // The name is the bot type's `name` field (BOT_TYPES here offline,
+    // bot_server.js online — BOT_TYPES is swapped for the server's table
+    // while playing online, and guests' puppet bots keep the same `type`,
+    // so this works for everyone). A plain lowercase name (old types like
+    // "rusher") is shown Title Cased.
+    ctx.font = "9px 'Courier New', Courier, monospace";
+    ctx.textAlign = "center";
+    const botDef = (typeof BOT_TYPES !== "undefined" && BOT_TYPES[bot.type]) || null;
+    let nameLabel = (botDef && botDef.name) ? String(botDef.name) : "";
+    if (nameLabel && nameLabel === nameLabel.toLowerCase()) {
+      nameLabel = nameLabel.replace(/\b[a-z]/g, (c) => c.toUpperCase());
+    }
+    const nameLabelY = screenY - bot.radius - 13;
+    const levelLabel = "Lv " + (bot.level || 1);
+    // With a name: name sits right above the bar, Lv stacked above it.
+    // Without one: the old single Lv line.
+    const levelLabelY = nameLabel ? nameLabelY - 10 : nameLabelY;
+    // Cheap "shadow" — draw the text once in dark, 1px offset, then the
+    // real color on top. Same readable pop as shadowBlur, no blur cost.
+    if (nameLabel) {
+      ctx.fillStyle = "rgba(0,0,0,0.9)";
+      ctx.fillText(nameLabel, screenX + 1, nameLabelY + 1);
+      ctx.fillStyle = "#ff3b3b";   // enemy bots can always be attacked -> red name
+      ctx.fillText(nameLabel, screenX, nameLabelY);
+    }
+    ctx.fillStyle = "rgba(0,0,0,0.9)";
+    ctx.fillText(levelLabel, screenX + 1, levelLabelY + 1);
+    ctx.fillStyle = "#ffe066";
+    ctx.fillText(levelLabel, screenX, levelLabelY);
+    ctx.textAlign = "left";
+  }
+}
+
+// ---- export for server.js (Node) ----
+if (typeof module !== "undefined") module.exports = { BOT_TYPES };
