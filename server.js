@@ -73,7 +73,6 @@ const GAME_DATA = Object.assign(
   require("./server/upgrade_server.js"),
   require("./server/shop_server.js"),
   require("./server/item_server.js"),
-  require("./server/level_server.js"),
   require("./server/bot_server.js"),
   require("./server/game_server.js"),
   require("./server/online_server.js")
