@@ -73,6 +73,7 @@ const GAME_DATA = Object.assign(
   require("./server/upgrade_server.js"),
   require("./server/shop_server.js"),
   require("./server/item_server.js"),
+  require("./server/level_server.js"),
   require("./server/bot_server.js"),
   require("./server/game_server.js"),
   require("./server/online_server.js")
@@ -2483,6 +2484,13 @@ wss.on("connection", (ws) => {
         if (clanOf(me)) { send(ws, { type: "clanError", reason: "You're already in a clan" }); break; }
         const name = String(msg.name || "").replace(/[\r\n\t]+/g, " ").slice(0, 20).trim();
         if (!name) break;
+        // Clan names must be unique (ignoring upper/lower case and extra spaces).
+        const wantedKey = name.toLowerCase().replace(/\s+/g, " ");
+        let nameTaken = false;
+        for (const c of clans.values()) {
+          if (String(c.name || "").trim().toLowerCase().replace(/\s+/g, " ") === wantedKey) { nameTaken = true; break; }
+        }
+        if (nameTaken) { send(ws, { type: "clanError", code: "CLAN_NAME_TAKEN", reason: "This clan name already exists. Try another name." }); break; }
         const clan = { id: crypto.randomBytes(6).toString("hex"), name, leaderUid: me.uid, message: "", members: [{ uid: me.uid, name: me.name }] };
         clans.set(clan.id, clan);
         clanOfUid.set(me.uid, clan.id);
