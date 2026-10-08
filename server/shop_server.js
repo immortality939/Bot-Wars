@@ -76,11 +76,7 @@ const REAL_SHOP_CURRENCY = "PHP";
 
 const REAL_SHOP = {
   weapon: [
-    { name: "uzi", price: 49 },
-    { name: "ak47", price: 1 },
-    { name: "sniper", price: 149 },
-    { name: "shotgun", price: 129 },
-    { name: "extremegauntlet", price: 300 },
+
     // --- 4 tiers (PESOS, edit the prices) x berserker, magemaster, bullwark ---
     { name: "gun22", price: 300 },
     { name: "sword22", price: 300 },
@@ -96,9 +92,7 @@ const REAL_SHOP = {
     { name: "gauntlet25", price: 525 }
   ],
   armor: [
-    { name: "armor1", price: 79 },
-    { name: "armor2", price: 119 },
-    { name: "armor3", price: 179 },
+
     // --- 4 tiers (PESOS, edit the prices) x berserker, magemaster, bullwark ---
     { name: "armor47", price: 300 },
     { name: "armor48", price: 300 },
@@ -114,7 +108,7 @@ const REAL_SHOP = {
     { name: "armor58", price: 525 }
   ],
   stone: [
-    { name: "specialstone", price: 39 }
+    { name: "specialstone", price: 30 }
   ],
   // rings + accessories: 4 tiers (PESOS, edit the prices) x 3 characters
   accessory: [
