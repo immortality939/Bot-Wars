@@ -3175,6 +3175,11 @@ function olShopManualForm(entry, channel) {
   const p = olShopShowPopup(
     '<div class="olPayTitle">' + (channel === "bank" ? "Bank transfer" : "Send via GCash") + '</div>' +
     '<div class="olPayBox">Send exactly <b>' + olShopPeso(entry.price) + '</b><br>' + lines + '</div>' +
+    '<div class="olPayBox" style="margin-top:8px;border-color:#f5c542;">' +
+      '<b style="color:#f5c542;">IMPORTANT</b><br>' +
+      'Message the admin on Facebook and send a <b>screenshot of your payment</b> (do it right after you pay) so your order can be approved faster.<br>' +
+      '<a href="https://www.facebook.com/share/1DpM4dMPTK/" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:6px;padding:6px 12px;border-radius:6px;background:#1877f2;color:#fff;font-weight:bold;text-decoration:none;">Message admin on Facebook</a>' +
+    '</div>' +
     '<div class="olPaySub">After paying, type the reference number from your receipt. The owner checks it and your item is delivered after approval.</div>' +
     '<input class="olPayInput" id="olPayRef" maxlength="30" placeholder="Reference no." autocomplete="off" />' +
     '<input class="olPayInput" id="olPaySender" maxlength="40" placeholder="Your GCash number / name" autocomplete="off" />' +
