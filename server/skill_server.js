@@ -47,7 +47,7 @@ const SKILLS = {
     hitNum: 1,
     hitInterval: 0.0,
     hitEffect: "fireexplosion",
-    requiredLevel: 1,
+    requiredLevel: 6,
     description: "🔥 Fire Explosion — Unleashes a powerful burst of flames that erupts on impact, dealing massive fire damage to enemies caught in the blast.",
   },
 
@@ -67,7 +67,7 @@ const SKILLS = {
     manaCost: 20,
     hitEffect: "energybeam",
     skillSound: "",
-    requiredLevel: 1,
+    requiredLevel: 3,
     description: "⚡ Energy Beam — Fires a powerful concentrated beam of energy that pierces through enemies, dealing massive damage to everything in its path."
   },
 
@@ -83,7 +83,7 @@ const SKILLS = {
     hitNum: 1,
     hitInterval: 0.0,
     hitEffect: "firevortex",
-    requiredLevel: 1,
+    requiredLevel: 5,
     description: "🔥 Fire Vortex — Summons a raging vortex of fire that pulls enemies inward, deals continuous burn damage, then erupts in a powerful fiery explosion.",
   },
 
@@ -99,7 +99,7 @@ const SKILLS = {
     hitNum: 1,
     hitInterval: 0.0,
     hitEffect: "bloodburst",
-    requiredLevel: 1,
+    requiredLevel: 8,
     description: "🩸 BLOOD BURST Unleashes a violent burst of blood energy that explodes outward, dealing heavy damage to nearby enemies. The crimson blast grows stronger as it tears through enemies caught within its range.",
   },
 
@@ -115,7 +115,7 @@ const SKILLS = {
     hitNum: 1,
     hitInterval: 0.0,
     hitEffect: "holynova",
-    requiredLevel: 1,
+    requiredLevel: 6,
     description: "✨ HOLY NOVA Releases a powerful burst of holy energy that radiates outward, dealing heavy damage to nearby enemies. The divine explosion illuminates the battlefield and overwhelms enemies caught within its range.",
   },
 
@@ -135,7 +135,7 @@ const SKILLS = {
     manaCost: 20,
     hitEffect: "voidslash",
     skillSound: "",
-    requiredLevel: 1,
+    requiredLevel: 4,
     description: "⚔️ VOID SLASH Unleashes a devastating slash infused with dark void energy, cutting through enemies in its path and dealing heavy damage. The attack tears through space, leaving a trail of unstable void energy."
   },
 
@@ -151,7 +151,7 @@ const SKILLS = {
     hitNum: 1,
     hitInterval: 0.0,
     hitEffect: "shockring",
-    requiredLevel: 1,
+    requiredLevel: 3,
     description: "⚡ SHOCK RING Releases a powerful ring of electricity that expands outward, striking nearby enemies and dealing heavy damage. Enemies caught in the shockwave are stunned by the intense electric burst..",
   },
 
@@ -167,7 +167,7 @@ const SKILLS = {
     hitNum: 1,
     hitInterval: 0.0,
     hitEffect: "poisonburst",
-    requiredLevel: 1,
+    requiredLevel: 7,
     description: "❄️ ICE BURST Releases a powerful explosion of freezing energy, dealing heavy damage to nearby enemies. The icy blast spreads outward, slowing and freezing enemies caught within its range.",
   },
 
@@ -183,7 +183,7 @@ const SKILLS = {
     hitNum: 1,
     hitInterval: 0.0,
     hitEffect: "iceburst",
-    requiredLevel: 1,
+    requiredLevel: 4,
     description: "☠️ POISON BURST Releases a toxic explosion that spreads poisonous energy around the target, dealing heavy damage to nearby enemies. The lingering poison continues to damage enemies caught within the blast.",
   },
 
@@ -199,7 +199,7 @@ const SKILLS = {
     hitNum: 1,
     hitInterval: 0.0,
     hitEffect: "flamespiral",
-    requiredLevel: 1,
+    requiredLevel: 7,
     description: "🔥 FLAME SPIRAL Summons a swirling spiral of blazing flames that tears through enemies, dealing continuous damage as it spins forward. The intense heat burns everything caught in its path.",
   },
 
@@ -215,7 +215,7 @@ const SKILLS = {
     hitNum: 1,
     hitInterval: 0.0,
     hitEffect: "voidhole",
-    requiredLevel: 1,
+    requiredLevel: 3,
     description: "🕳️ VOID HOLECreates a dark void that tears open space, pulling nearby enemies toward its center and dealing devastating damage. Enemies caught inside are trapped by the powerful gravitational force.",
   },
 
@@ -231,7 +231,7 @@ const SKILLS = {
     hitNum: 1,
     hitInterval: 0.0,
     hitEffect: "voidvortex",
-    requiredLevel: 1,
+    requiredLevel: 8,
     description: "🌀 VOID VORTEXCreates a dark vortex that tears through space, pulling nearby enemies toward its center and dealing continuous damage. The void energy grows stronger as enemies are trapped within its pull.",
   },
 
@@ -251,7 +251,7 @@ const SKILLS = {
     manaCost: 20,
     hitEffect: "icespear",
     skillSound: "",
-    requiredLevel: 1,
+    requiredLevel: 5,
     description: "❄️ ICE SPEAR Fires a sharp spear of ice toward the target, piercing through enemies and dealing heavy damage. The freezing impact slows enemies caught in its path."
   },
 
@@ -271,7 +271,7 @@ const SKILLS = {
     manaCost: 20,
     hitEffect: "lightningbolt",
     skillSound: "",
-    requiredLevel: 1,
+    requiredLevel: 6,
     description: "⚡ LIGHTNING BOLT Summons a powerful bolt of lightning that strikes the target from above, dealing massive damage instantly. The electric impact shocks nearby enemies with a burst of energy."
   },
 
@@ -291,7 +291,7 @@ const SKILLS = {
     manaCost: 20,
     hitEffect: "fireball",
     skillSound: "",
-    requiredLevel: 1,
+    requiredLevel: 5,
     description: "🔥 FIREBALL Launches a blazing ball of fire toward the target, dealing heavy damage on impact. The fireball explodes on contact, scorching nearby enemies with intense flames."
   },
 
@@ -377,7 +377,7 @@ const SKILLS = {
 
     // Player must be at least this character level (character.js's
     // level/exp system) before the skill can be activated/used.
-    requiredLevel: 1
+    requiredLevel: 7
   },
 
   cannonblast: {
@@ -415,7 +415,7 @@ const SKILLS = {
     // RANGE — how far forward the blast rectangle extends from the
     // player, in the direction of the ground tap (see
     // runBlastSkillEffect() in game.js).
-    range: 200,
+    range: 100,
 
     // WIDTH — how wide the blast rectangle is (perpendicular to its
     // facing direction). Any bot inside this range x width rectangle
@@ -439,10 +439,12 @@ const SKILLS = {
 
     // AIM UI — same generic maxRange/radius ring art weapon.js/barrage use
     // (see game.js draw()'s aim UI).
-    
+    imagerange: "image/maxrange.png",
+    imageradius: "image/radius.png",
+
     // Player must be at least this character level (character.js's
     // level/exp system) before the skill can be activated/used.
-    requiredLevel: 1
+    requiredLevel: 9
   },
 
   // DEADLYSTRIKE — a "blast"-type ground skill that fires `shotTimes`
@@ -474,7 +476,7 @@ const SKILLS = {
 
 
     // RANGE
-    range: 200,
+    range: 300,
 
     // WIDTH
     width: 80,
@@ -506,7 +508,7 @@ const SKILLS = {
     imageradius: "image/radius.png",
 
     // Player must be at least this character level
-    requiredLevel: 1
+    requiredLevel: 8
   },
 
   // HEAL — this is character.js's `skill2` slot (game.js's second skill
@@ -534,17 +536,17 @@ const SKILLS = {
 
     // DESCRIPTION — shown under the stats in the Inventory screen's item
     // stats popup when this skill's icon is tapped.
-    description: "Instantly heals the player and nearby teammates, plus a brief speed boost.",
+    description: "Instantly heals 30% of your max health, plus a brief speed boost. In online mode, party members nearby are healed too.",
 
-    // Amount restored to the player and to each nearby teammate.
-    healAmount: 50,
+    // HEAL AMOUNT — a PERCENT of the healed player's MAX health, not a flat
+    // number: 0.3 = heals 30% of max health (self, and each party member in
+    // `range`). Values above 1 are treated as the old flat amount (offline).
+    healAmount: 0.3,
 
-    // TEAMMATE HEAL RADIUS — teammates within this distance of the
-    // player also get healed when the skill is used (self is always
-    // healed regardless of distance). Mostly matters online, where
-    // otherPlayers (game.js) are real teammates instead of empty in
-    // offline solo play.
-    radius: 100,
+    // RANGE (world px) — ONLINE: party members within this distance of the
+    // caster are healed too (same as powerboost / defenseboost `range`).
+    // The caster is always healed.
+    range: 200,
 
     // Cooldown (ms) before the skill can be used again.
     cooldown: 5000,
@@ -564,7 +566,7 @@ const SKILLS = {
 
     // Player must be at least this character level before the skill
     // can be activated/used.
-    requiredLevel: 5,
+    requiredLevel: 1,
 
     // SPEED BOOST — temporary movement-speed bump applied on activation
     // (added on top of the player's current movementSpeed), reverted
@@ -635,7 +637,7 @@ const SKILLS = {
 
     // Player must be at least this character level (character.js's
     // level/exp system) before the skill can be activated/used.
-    requiredLevel: 1
+    requiredLevel: 4
   },
 
   // POWERBOOST — party buff. "instant" activation like heal1 (tap the button,

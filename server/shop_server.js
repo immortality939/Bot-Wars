@@ -38,22 +38,74 @@ const SHOP_WEAPONS = [
   { name: "uzi", price: 300 },
   { name: "ak47", price: 500 },
   { name: "sniper", price: 850 },
-  { name: "shotgun", price: 650 }
+  { name: "shotgun", price: 650 },
+  // --- shop sets: 4 tiers (price 300 / 375 / 450 / 525) x berserker, magemaster, bullwark ---
+  { name: "gun22", price: 300 },
+  { name: "sword22", price: 300 },
+  { name: "gauntlet22", price: 300 },
+  { name: "gun23", price: 375 },
+  { name: "sword23", price: 375 },
+  { name: "gauntlet23", price: 375 },
+  { name: "gun24", price: 450 },
+  { name: "sword24", price: 450 },
+  { name: "gauntlet24", price: 450 },
+  { name: "gun25", price: 525 },
+  { name: "sword25", price: 525 },
+  { name: "gauntlet25", price: 525 }
 ];
 
 const SHOP_ARMORS = [
   { name: "armor1", price: 400 },
   { name: "armor2", price: 600 },
-  { name: "armor3", price: 900 }
+  { name: "armor3", price: 900 },
+  // --- shop sets: 4 tiers (price 300 / 375 / 450 / 525) x berserker, magemaster, bullwark ---
+  { name: "armor47", price: 300 },
+  { name: "armor48", price: 300 },
+  { name: "armor49", price: 300 },
+  { name: "armor50", price: 375 },
+  { name: "armor51", price: 375 },
+  { name: "armor52", price: 375 },
+  { name: "armor53", price: 450 },
+  { name: "armor54", price: 450 },
+  { name: "armor55", price: 450 },
+  { name: "armor56", price: 525 },
+  { name: "armor57", price: 525 },
+  { name: "armor58", price: 525 }
 ];
 
 const SHOP_STONES = [
-  { name: "specialstone", price: 200 }
+  { name: "specialstone", price: 30 }
 ];
 
-// No accessory item type exists yet (see item.js) — add entries here,
-// same { name, price } shape as above, once one does.
-const SHOP_ACCESSORIES = [];
+// ACCESSORY tab = rings + accessories (both live in armor_server.js).
+const SHOP_ACCESSORIES = [
+  // --- rings: 4 tiers (price 300 / 375 / 450 / 525) x berserker, magemaster, bullwark ---
+  { name: "ring44", price: 300 },
+  { name: "ring45", price: 300 },
+  { name: "ring46", price: 300 },
+  { name: "ring47", price: 375 },
+  { name: "ring48", price: 375 },
+  { name: "ring49", price: 375 },
+  { name: "ring50", price: 450 },
+  { name: "ring51", price: 450 },
+  { name: "ring52", price: 450 },
+  { name: "ring53", price: 525 },
+  { name: "ring54", price: 525 },
+  { name: "ring55", price: 525 },
+  // --- accessories: same 4 tiers x 3 characters ---
+  { name: "accessory40", price: 300 },
+  { name: "accessory41", price: 300 },
+  { name: "accessory42", price: 300 },
+  { name: "accessory43", price: 375 },
+  { name: "accessory44", price: 375 },
+  { name: "accessory45", price: 375 },
+  { name: "accessory46", price: 450 },
+  { name: "accessory47", price: 450 },
+  { name: "accessory48", price: 450 },
+  { name: "accessory49", price: 525 },
+  { name: "accessory50", price: 525 },
+  { name: "accessory51", price: 525 }
+];
 
 // =============================================================================
 // REAL-MONEY SHOP  (the SHOP button at the top-right in ONLINE mode)

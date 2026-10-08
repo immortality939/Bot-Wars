@@ -164,7 +164,7 @@ const CHARACTERS = {
     // placeholder in gameplay). ensureDefaultSkillsLoaded() in
     // index.html only fills as many equip slots as playerSkill lists,
     // so a single name here is enough; no trailing comma needed.
-    playerSkill: "energybeam,voidslash,icespear,powerboost,lightningbolt",
+    playerSkill: "energybeam,voidslash,icespear,powerboost,lightningbolt,poisonburst,bloodburst",
 
     description: "Fast and rapid fire but low health and armor."
   },
@@ -197,7 +197,7 @@ const CHARACTERS = {
     dex: 5,
     int: 5,
     pow: 5,
-    playerSkill: "voidhole,iceburst,fireball,fireexplosion,barrage,deadlystrike,cannonblast",
+    playerSkill: "heal1,voidhole,iceburst,fireball,fireexplosion,barrage,deadlystrike,cannonblast",
     description: "Balanced all-rounder with steady health, armor, and speed."
   },
 
