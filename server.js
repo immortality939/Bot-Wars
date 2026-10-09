@@ -247,6 +247,11 @@ const server = http.createServer((req, res) => {
     });
     return;
   }
+  // AdMob rewarded-ad server-side verification (see "ADMOB REWARD" further down).
+  if (path === "/api/admob/ssv" && req.method === "GET") {
+    admobSsv(req, res);
+    return;
+  }
   if (path === "/online.js") {
     let code;
     try { code = fs.readFileSync(ONLINE_CLIENT_FILE, "utf8"); }
@@ -989,6 +994,64 @@ function shopPointsBuy(user, body) {
   shopMarkPaid(order);   // paid -> the game claims it right away (same delivery as real-money orders)
   console.log("[points] " + user.id.slice(0, 8) + " bought " + item.name + " for " + item.price + " pts (left " + rec.points + ")");
   return [200, { ok: true, points: rec.points, orderId: order.id }];
+}
+
+// ---------------------------------------------------------------------------
+// ADMOB REWARD — every finished rewarded ad gives AD_REWARD_POINTS points.
+// AdMob calls  GET /api/admob/ssv?...&signature=...&key_id=...  after the player finishes
+// the ad (set this URL in AdMob > your rewarded ad unit > Server-side verification).
+// We check Google's signature, so only a real finished ad can give points; each
+// transaction_id is accepted once. user_id = the player's account id (the app passes it in).
+// Env var ADMOB_REWARD_UNIT (optional) = your rewarded ad unit id number; if set, other units are refused.
+// ---------------------------------------------------------------------------
+const AD_REWARD_POINTS = 5;
+const ADMOB_KEYS_URL = "https://www.gstatic.com/admob/reward/verifier-keys.json";
+let admobKeys = null, admobKeysAt = 0;
+const admobSeen = new Map();   // transaction_id -> time (kept 2 days)
+
+async function admobGetKey(keyId) {
+  if (!admobKeys || Date.now() - admobKeysAt > 86400000 || !admobKeys[keyId]) {
+    const r = await fetch(ADMOB_KEYS_URL);
+    if (!r.ok) throw new Error("keys " + r.status);
+    const j = await r.json();
+    admobKeys = {};
+    for (const k of (j.keys || [])) admobKeys[String(k.keyId)] = k.pem;
+    admobKeysAt = Date.now();
+  }
+  return admobKeys[String(keyId)] || null;
+}
+
+async function admobSsv(req, res) {
+  const done = (code, text) => { res.writeHead(code, { "Content-Type": "text/plain" }); res.end(text || ""); };
+  try {
+    const qs = String(req.url || "").split("?")[1] || "";
+    const sigAt = qs.indexOf("&signature=");
+    if (sigAt < 0) return done(400, "no signature");
+    const message = qs.slice(0, sigAt);
+    const params = new URLSearchParams(qs);
+    const signature = params.get("signature") || "";
+    const keyId = params.get("key_id") || "";
+    const pem = await admobGetKey(keyId);
+    if (!pem) return done(400, "unknown key");
+    const sig = Buffer.from(signature.replace(/-/g, "+").replace(/_/g, "/"), "base64");
+    const ok = crypto.createVerify("SHA256").update(message).verify(pem, sig);
+    if (!ok) return done(403, "bad signature");
+    const unit = process.env.ADMOB_REWARD_UNIT || "";
+    if (unit && String(params.get("ad_unit") || "") !== unit) return done(403, "wrong ad unit");
+    const uid = params.get("user_id") || "";
+    const tid = params.get("transaction_id") || "";
+    if (!uid || !tid) return done(400, "missing user/transaction");
+    if (admobSeen.has(tid)) return done(200, "duplicate");
+    const now = Date.now();
+    for (const [k, t] of admobSeen) if (now - t > 172800000) admobSeen.delete(k);
+    admobSeen.set(tid, now);
+    const left = pointsAdd(uid, AD_REWARD_POINTS);
+    console.log("[admob] " + uid.slice(0, 8) + " +" + AD_REWARD_POINTS + " pts (now " + left + ")");
+    done(200, "ok");
+  } catch (e) {
+    console.error("[admob] ssv failed:", e && e.message || e);
+    done(500, "error");
+  }
 }
 
 async function apiShop(user, urlPath, body) {
