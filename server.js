@@ -1054,9 +1054,27 @@ async function admobSsv(req, res) {
   }
 }
 
+// TEMPORARY TEST SWITCH: while AdMob has not approved the app yet, real ads cannot call the
+// SSV address, so online points never arrive. With the Render environment variable
+// AD_TEST_MODE=1 the game may claim AD_REWARD_POINTS after a finished ad (max one claim per
+// account every 25 seconds). Remove the variable (or set it to 0) before the real launch:
+// then this route answers 403 and only AdMob's signed SSV message can give points.
+const adTestLast = new Map();   // account id -> time of last claim
+function shopAdTest(user) {
+  if (process.env.AD_TEST_MODE !== "1") return [403, { error: "NOT_ENABLED" }];
+  const now = Date.now();
+  const last = adTestLast.get(user.id) || 0;
+  if (now - last < 25000) return [429, { error: "TOO_FAST" }];
+  adTestLast.set(user.id, now);
+  const left = pointsAdd(user.id, AD_REWARD_POINTS, user.email);
+  console.log("[admob-test] " + user.id.slice(0, 8) + " +" + AD_REWARD_POINTS + " pts (now " + left + ")");
+  return [200, { ok: true, points: left }];
+}
+
 async function apiShop(user, urlPath, body) {
   const act = urlPath.slice("/api/shop/".length);
   if (act === "points") return shopPointsBalance(user);
+  if (act === "adtest") return shopAdTest(user);
   if (act === "buypoints") return shopPointsBuy(user, body);
   if (act === "paymongo") return shopStartPaymongo(user, body);
   if (act === "manual") return shopSubmitManual(user, body);
