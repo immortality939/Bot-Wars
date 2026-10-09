@@ -13,7 +13,14 @@
 
 const ONLINE_RULES = {
   // ---- servers / channels (the lobby draws its rows from these) ----
-  SERVER_COUNT: 20,           // SERVER 1 .. SERVER 5
+  // SERVER GROUPS: the lobby first shows these names; opening one shows Server 1..SERVER_COUNT,
+  // and every server has the CHANNELS below. Every group has its own separate servers/players.
+  // (Add/remove names here and redeploy; keep the order, it decides each group's id.)
+  GROUPS: [
+    "Nexus Server", "Titan Server", "Omega Server", "Shadow Server", "Eclipse Server",
+    "Vortex Server", "Apex Server", "Phantom Server", "Nova Server", "Genesis Server"
+  ],
+  SERVER_COUNT: 50,           // servers INSIDE each group: SERVER 1 .. SERVER 50
   SERVER_MAX_PLAYERS: 1000,   // per server (both channels together)
   CHANNELS: [
     { id: 0, pvp: true,  desc: "PvP - players can damage each other" },
