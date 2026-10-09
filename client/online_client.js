@@ -6524,7 +6524,8 @@ const ONLINE_ALWAYS_SHOW_CREATE = false;
 
 let onlineCharacterName = null;   // the character this account created
 let onlinePlayerName = null;      // the name typed for that character (shown in-game, replaces "Player N")
-let olServer = 0;                 // server / channel picked in the lobby screens
+let olServer = 0;                 // server picked in the lobby = INTERNAL id (group * serverCount + number)
+let olGroup = 0;                  // server GROUP picked first (0-based: Nexus, Titan, ...)
 let olChannel = 0;
 let olServerData = null;          // last answer of the server's /servers list
 let olPollTimer = null;
@@ -6617,7 +6618,7 @@ async function onlineAfterLogin() {
   olSyncCharacterStats();
   await olSyncCharacterImages();   // the server's character list must be known before the name is checked below
   if (olValidCharacter(onlineCharacterName) && !ONLINE_ALWAYS_SHOW_CREATE) {
-    olShowServers();
+    olShowGroups();
   } else {
     openCharacterSelectFromHub("online-create");
   }
@@ -6642,7 +6643,7 @@ window.onlineCharacterCreated = function (name, playerName) {
     }
   }).catch(() => {});
   saveOnlinePlayerData();
-  olShowServers();
+  olShowGroups();
 };
 
 // ---- CREATE CHARACTER name popup -------------------------------------------
@@ -6831,11 +6832,14 @@ function olBuildScreens() {
   if (olScreens) return olScreens;
   olEnsureStyles();
 
-  // ---- SERVERS ----
-  const server = olMakeScreen("onlineServerScreen", "Servers", () => {
+  // ---- SERVER GROUPS (Nexus Server, Titan Server, ...) ----
+  const group = olMakeScreen("onlineGroupScreen", "Select Server", () => {
     olHide(); olStopPolling();
     startMenu.style.display = "flex";
   });
+
+  // ---- SERVERS (1..N inside the picked group) ----
+  const server = olMakeScreen("onlineServerScreen", "Servers", () => { olHide(); olShowGroups(); });
   // (the Server / Channel rows are built by olEnsureRows() once the server's /servers answer arrives)
 
   // ---- CHANNELS ----
@@ -6851,7 +6855,7 @@ function olBuildScreens() {
     if (olValidCharacter(onlineCharacterName)) olStartGame();
   });
 
-  olScreens = { server, channel, char: ch };
+  olScreens = { group, server, channel, char: ch };
   return olScreens;
 }
 
@@ -6866,15 +6870,29 @@ function olHide() {
 function olEnsureRows() {
   if (!olScreens || !olServerData) return;
   const n = Number(olServerData.serverCount) || 0;
+  const groups = Array.isArray(olServerData.groups) && olServerData.groups.length ? olServerData.groups : ["Server"];
+  const groupList = olScreens.group.querySelector(".olList");
+  if (groupList.querySelectorAll("[data-group]").length !== groups.length) {
+    groupList.innerHTML = "";
+    groups.forEach((gname, g) => {
+      const row = olRow(gname);
+      row.dataset.group = g;
+      row.addEventListener("click", () => { olGroup = g; olShowServers(); });
+      groupList.appendChild(row);
+    });
+  }
   const serverList = olScreens.server.querySelector(".olList");
-  if (serverList.querySelectorAll("[data-server]").length !== n) {
+  // rebuild when the count changed OR a different group was opened (ids differ per group)
+  if (serverList.querySelectorAll("[data-server]").length !== n || serverList.dataset.group !== String(olGroup)) {
     serverList.innerHTML = "";
+    serverList.dataset.group = String(olGroup);
     for (let i = 1; i <= n; i++) {
+      const gid = olGroup * n + i;   // internal id the server uses
       const row = olRow("Server " + i);
-      row.dataset.server = i;
+      row.dataset.server = gid;
       row.addEventListener("click", () => {
-        const info = olServerInfo(i);
-        olConfirm("Server " + i, info.text + " players", "Start", () => { olServer = i; olShowChannels(); });
+        const info = olServerInfo(gid);
+        olConfirm(olGroupName() + " - Server " + i, info.text + " players", "Start", () => { olServer = gid; olShowChannels(); });
       });
       serverList.appendChild(row);
     }
@@ -6887,11 +6905,21 @@ function olEnsureRows() {
       const row = olRow("Channel " + def.id, def.desc);
       row.dataset.channel = def.id;
       row.addEventListener("click", () => {
-        olConfirm("Server " + olServer + " - Channel " + def.id, def.desc, "Start", () => { olChannel = def.id; olShowCharacter(); });
+        olConfirm(olServerLabel() + " - Channel " + def.id, def.desc, "Start", () => { olChannel = def.id; olShowCharacter(); });
       });
       chList.appendChild(row);
     }
   }
+}
+
+function olGroupName() {
+  const g = olServerData && Array.isArray(olServerData.groups) ? olServerData.groups[olGroup] : null;
+  return g || "Server";
+}
+// "Nexus Server - Server 7" for the internal id olServer
+function olServerLabel() {
+  const n = olServerData ? Number(olServerData.serverCount) || 1 : 1;
+  return olGroupName() + " - Server " + (((olServer - 1) % n) + 1);
 }
 
 function olServerInfo(id) {
@@ -6903,6 +6931,13 @@ function olServerInfo(id) {
 function olRenderCounts() {
   if (!olScreens) return;
   olEnsureRows();
+  const sn = olServerData ? Number(olServerData.serverCount) || 0 : 0;
+  for (const row of olScreens.group.querySelectorAll("[data-group]")) {
+    const g = Number(row.dataset.group);
+    let sum = 0;
+    for (let i = 1; i <= sn; i++) { const inf = olServerInfo(g * sn + i); if (inf.players) sum += inf.players; }
+    row.querySelector(".olCount").textContent = sum + " online";
+  }
   for (const row of olScreens.server.querySelectorAll("[data-server]")) {
     const info = olServerInfo(Number(row.dataset.server));
     const c = row.querySelector(".olCount");
@@ -6919,7 +6954,7 @@ function olRenderCounts() {
 async function olRefreshCounts() {
   if (olFetching) return;
   olFetching = true;
-  const note = olScreens && olScreens.server.querySelector(".olNote");
+  const note = olScreens && olScreens.group.querySelector(".olNote");
   try {
     const ctl = new AbortController();
     const timer = setTimeout(() => ctl.abort(), 60000);   // free hosts can take ~1 min to wake up
@@ -6947,9 +6982,18 @@ function olStopPolling() {
 }
 
 // ---- screens ---------------------------------------------------------------
+function olShowGroups() {
+  const sc = olBuildScreens();
+  olHide();
+  sc.group.style.display = "flex";
+  olRenderCounts();
+  olStartPolling();
+}
+
 function olShowServers() {
   const sc = olBuildScreens();
   olHide();
+  sc.server.querySelector(".hubTitle").textContent = olGroupName();
   sc.server.style.display = "flex";
   olRenderCounts();
   olStartPolling();
@@ -6958,7 +7002,7 @@ function olShowServers() {
 function olShowChannels() {
   const sc = olBuildScreens();
   olHide();
-  sc.channel.querySelector(".hubTitle").textContent = "Server " + olServer + " - Channels";
+  sc.channel.querySelector(".hubTitle").textContent = olServerLabel() + " - Channels";
   sc.channel.style.display = "flex";
   olRenderCounts();
   olStartPolling();   // keeps the per-channel counts fresh
@@ -6990,7 +7034,7 @@ function olShowCharacter() {
     list.appendChild(card);
     const hint = document.createElement("div");
     hint.className = "olHint";
-    hint.textContent = "Server " + olServer + " - Channel " + olChannel;
+    hint.textContent = olServerLabel() + " - Channel " + olChannel;
     list.appendChild(hint);
   }
   // DELETE (bottom-left) / START GAME (bottom-right) only make sense with a character.
