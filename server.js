@@ -203,7 +203,11 @@ console.log("Server code sent to clients: " + SERVER_JS_FILES.join(", "));
 
 const PORT = process.env.PORT || 8080;
 // Server count / player cap / channels / party size now live in server/online_server.js.
-const SERVER_COUNT = ONLINE_RULES.SERVER_COUNT;
+const SERVER_COUNT = ONLINE_RULES.SERVER_COUNT;                       // servers inside ONE group
+const GROUPS = Array.isArray(ONLINE_RULES.GROUPS) && ONLINE_RULES.GROUPS.length ? ONLINE_RULES.GROUPS : ["Server"];
+// Internal server id = (group index * SERVER_COUNT) + server number, so every group's servers are
+// completely separate rooms (players, chat, clan war) without touching the rest of the code.
+const TOTAL_SERVERS = GROUPS.length * SERVER_COUNT;
 const SERVER_MAX_PLAYERS = ONLINE_RULES.SERVER_MAX_PLAYERS;
 const CHANNEL_PVP = ONLINE_RULES.CHANNELS.find((c) => c.pvp).id;     // players can damage each other
 const CHANNEL_SAFE = ONLINE_RULES.CHANNELS.find((c) => !c.pvp).id;   // no player-vs-player damage
@@ -1789,20 +1793,23 @@ function countPlayers(test) {
 const serverPlayerCount = (serverId) => countPlayers((p) => p.server === serverId);
 
 function serverList() {
-  const list = [];
-  for (let s = 1; s <= SERVER_COUNT; s++) {
-    list.push({
-      id: s,
-      players: serverPlayerCount(s),
-      max: SERVER_MAX_PLAYERS,
-      channels: [
-        countPlayers((p) => p.server === s && p.channel === CHANNEL_PVP),
-        countPlayers((p) => p.server === s && p.channel === CHANNEL_SAFE)
-      ]
-    });
+  // one pass over the players (there can be GROUPS x SERVER_COUNT servers)
+  const total = new Array(TOTAL_SERVERS + 1).fill(0);
+  const ch = new Array(TOTAL_SERVERS + 1).fill(null).map(() => [0, 0]);
+  for (const p of players.values()) {
+    if (p.server >= 1 && p.server <= TOTAL_SERVERS) {
+      total[p.server]++;
+      if (p.channel === CHANNEL_PVP) ch[p.server][0]++;
+      else if (p.channel === CHANNEL_SAFE) ch[p.server][1]++;
+    }
   }
-  // serverCount + channels: the lobby builds its rows from these (they are no longer hardcoded in online.js)
-  return { max: SERVER_MAX_PLAYERS, serverCount: SERVER_COUNT, channels: ONLINE_RULES.CHANNELS, servers: list };
+  const list = [];
+  for (let s = 1; s <= TOTAL_SERVERS; s++) {
+    list.push({ id: s, players: total[s], max: SERVER_MAX_PLAYERS, channels: ch[s] });
+  }
+  // groups + serverCount + channels: the lobby builds its rows from these (not hardcoded in online.js).
+  // Group g (0-based) owns ids g*serverCount+1 .. g*serverCount+serverCount.
+  return { max: SERVER_MAX_PLAYERS, serverCount: SERVER_COUNT, groups: GROUPS, channels: ONLINE_RULES.CHANNELS, servers: list };
 }
 
 const num = (v, fallback = 0) => (typeof v === "number" && isFinite(v) ? v : fallback);
@@ -1870,7 +1877,7 @@ wss.on("connection", (ws) => {
 
       const serverId = Math.trunc(num(msg.server, 0));
       const channel = Math.trunc(num(msg.channel, -1));
-      if (serverId < 1 || serverId > SERVER_COUNT || (channel !== CHANNEL_PVP && channel !== CHANNEL_SAFE)) {
+      if (serverId < 1 || serverId > TOTAL_SERVERS || (channel !== CHANNEL_PVP && channel !== CHANNEL_SAFE)) {
         send(ws, { type: "joinError", reason: "That server or channel does not exist" });
         ws.close();
         return;
