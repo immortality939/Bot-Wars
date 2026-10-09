@@ -1162,7 +1162,7 @@ function netSend(obj) {
 // HIDDEN CDM BUTTON (online) — the offline hub's CDM item spawner
 // (#cdmScreen in index.html), reachable in an online match from the OPTIONS
 // popup, but only after a secret code is typed into WORLD chat:
-//     @#$_&cmd   (or @#$_&cdm) -> shows a CDM button inside the OPTIONS popup
+//     @#$_&cmd <secret>   (or @#$_&cdm <secret>) -> shows a CDM button inside the OPTIONS popup
 //     @#$_&      -> hides it again
 // The codes are hard-coded right here (change them below). They are handled
 // entirely on this device and are NOT sent to the server / other players.
@@ -1171,9 +1171,14 @@ function netSend(obj) {
 // can see the codes), and the server's save_guard.js still limits how many
 // items an account may gain.
 // ---------------------------------------------------------------------------
-const OL_CMD_SHOW_CODE = "@#$_&cmd";
-const OL_CMD_SHOW_CODE_ALT = "@#$_&cdm";   // same thing, for when the button's name (CDM) gets typed
+// SECURITY: the real secret is NOT in this file. The admin types   @#$_&cmd <secret>   in
+// WORLD chat (the secret = the server's CMD_GIVE_CODE env var). It is kept only in memory
+// (olCmdSecret), sent with CDM requests, and the server also requires the account name to
+// be listed in CMD_GIVE_ADMINS. A wrong secret / non-admin account just gets "Not allowed".
+const OL_CMD_SHOW_PREFIX = "@#$_&cmd ";
+const OL_CMD_SHOW_PREFIX_ALT = "@#$_&cdm ";   // same thing, for when the button's name (CDM) gets typed
 const OL_CMD_HIDE_CODE = "@#$_&";
+let olCmdSecret = "";
 // MAP CREATOR button (CREATE MAP in the online HUD) works the same way: hidden
 // when the match starts; typed into WORLD chat:
 //     @#$_&-mapcreator  -> shows it      @#$_&-  -> hides it again
@@ -1279,11 +1284,16 @@ let olCmdCatalog = null;   // { weapon:{key:def}, armor:{key:def}, upgrade:{key:
 
 function olCmdRequestCatalog() {
   if (!olCmdUnlocked || !netIsOnline()) return;
-  netSend({ type: "cmdCatalog", code: OL_CMD_SHOW_CODE });
+  netSend({ type: "cmdCatalog", code: olCmdSecret });
 }
 
 function olCmdOnCatalog(msg) {
-  if (!msg || !msg.ok || !msg.catalog) { olCmdCatalog = null; return; }
+  if (!msg || !msg.ok || !msg.catalog) {
+    // Server refused (wrong secret or not an admin account): switch the tool off again.
+    olCmdCatalog = null;
+    if (olCmdUnlocked) { olCmdUnlocked = false; olCmdSecret = ""; olCmdRefreshButton(); netToast("Not allowed"); }
+    return;
+  }
   const cat = msg.catalog;
   for (const group of ["weapon", "armor", "upgrade"]) {
     const tbl = cat[group] || (cat[group] = {});
@@ -1475,7 +1485,7 @@ function olCmdConfirmSend() {
     return;
   }
   netSend({
-    type: "cmdGive", code: OL_CMD_SHOW_CODE, targetName: name,
+    type: "cmdGive", code: olCmdSecret, targetName: name,
     item: { type: item.type, name: item.name, data: item.data, qty: item.qty }
   });
   olCmdCloseSendPopup();
@@ -1520,6 +1530,7 @@ function olCmdOnResult(msg) {
 // close the CDM screen if it was open.
 function olCmdReset() {
   olCmdUnlocked = false;
+  olCmdSecret = "";
   olCmdCatalog = null;
   olCmdPendingSend = null;
   olCmdSentSlot = null;
@@ -1544,11 +1555,13 @@ function olCmdHandleChatCode() {
     netToast(window.__olMapCreatorUnlocked ? "Map Creator on" : "Map Creator off");
     return true;
   }
-  const isShow = (raw === OL_CMD_SHOW_CODE || raw === OL_CMD_SHOW_CODE_ALT);
+  const showPrefix = raw.startsWith(OL_CMD_SHOW_PREFIX) ? OL_CMD_SHOW_PREFIX : (raw.startsWith(OL_CMD_SHOW_PREFIX_ALT) ? OL_CMD_SHOW_PREFIX_ALT : "");
+  const isShow = !!showPrefix && raw.length > showPrefix.length;
   if (!isShow && raw !== OL_CMD_HIDE_CODE) return false;
   // WORLD tab only (the PRIVATE tab treats "@..." as a whisper).
   if (typeof chatActiveTab === "string" && chatActiveTab !== "world") return false;
   olCmdUnlocked = isShow;
+  olCmdSecret = isShow ? raw.slice(showPrefix.length).trim() : "";
   if (isShow) olCmdRequestCatalog(); else olCmdCatalog = null;
   input.value = "";
   olCmdRefreshButton();
