@@ -832,7 +832,7 @@ function netApplyServerData(data) {
   netUsingServerData = true;
   // Real-money shop prices + payment details (shop_server.js) — only used by the SHOP button.
   olShopData = (data.REAL_SHOP && typeof data.REAL_SHOP === "object")
-    ? { REAL_SHOP: data.REAL_SHOP, PAYMENT_INFO: data.PAYMENT_INFO || {} } : null;
+    ? { REAL_SHOP: data.REAL_SHOP, PAYMENT_INFO: data.PAYMENT_INFO || {}, POINTS_SHOP: (data.POINTS_SHOP && typeof data.POINTS_SHOP === "object") ? data.POINTS_SHOP : {} } : null;
   netInstallServerCode(data.CODE);   // the server files' FUNCTIONS too (numbers + formulas)
   netRefreshRemoteCharacters();      // players already in the room were built from the OFFLINE tables — redo them
 }
@@ -2891,8 +2891,22 @@ function olShopItemType(type, data) {
 }
 
 function olShopCatalog(cat) {
-  const list = (olShopData && olShopData.REAL_SHOP && olShopData.REAL_SHOP[cat]) || [];
   const arr = new Array(OL_SHOP_PAGE_SIZE * OL_SHOP_PAGE_COUNT).fill(null);
+  if (cat === "points") {
+    // POINTS tab: weapons, then armor, then rings/accessories (shop_server.js POINTS_SHOP), priced in points
+    const ps = (olShopData && olShopData.POINTS_SHOP) || {};
+    let i = 0;
+    for (const t of ["weapon", "armor", "accessory"]) {
+      for (const e of (Array.isArray(ps[t]) ? ps[t] : [])) {
+        if (i >= arr.length) break;
+        const data = e && olShopLookup(t, e.name);
+        if (!data) continue;
+        arr[i++] = { type: olShopItemType(t, data), shopType: t, name: e.name, data, price: Number(e.price), isPoints: true };
+      }
+    }
+    return arr;
+  }
+  const list = (olShopData && olShopData.REAL_SHOP && olShopData.REAL_SHOP[cat]) || [];
   list.forEach((e, i) => {
     if (i >= arr.length || !e) return;
     const data = olShopLookup(cat, e.name);
@@ -2900,6 +2914,24 @@ function olShopCatalog(cat) {
     arr[i] = { type: olShopItemType(cat, data), shopType: cat, name: e.name, data, price: Number(e.price) };
   });
   return arr;
+}
+
+// POINTS (earned from ads, kept on the server): balance shown on the shop screen
+let olShopPoints = null;
+function olShopPts(n) { return (Number(n) || 0).toLocaleString() + " pts"; }
+function olShopPriceText(entry) { return entry && entry.isPoints ? olShopPts(entry.price) : olShopPeso(entry.price); }
+function olShopUpdateBar() {
+  const el = document.getElementById("olShopBarText");
+  if (!el) return;
+  el.textContent = olShopCategory === "points"
+    ? "POINTS: " + (olShopPoints === null ? "..." : olShopPoints.toLocaleString())
+    : "REAL MONEY (\u20B1 PHP)";
+}
+async function olShopLoadPoints() {
+  try {
+    const r = await olApiPost("/api/shop/points", {});
+    if (r.status === 200 && typeof r.json.points === "number") { olShopPoints = r.json.points; olShopUpdateBar(); }
+  } catch (e) {}
 }
 
 function olShopLabel(entry) {
@@ -2947,10 +2979,10 @@ function olShopInstallUi() {
   screen.style.cssText = "position:fixed;inset:0;background:url('image/playerprofile.png') center center / cover no-repeat rgba(0,0,0,0.55);display:none;flex-direction:column;z-index:9800;overflow:hidden;";
   screen.innerHTML =
     '<div class="invTitle">Shop</div>' +
-    '<div class="invGoldBar"><span class="invGoldAmountText" style="color:#ffe08a;">REAL MONEY (\u20B1 PHP)</span></div>' +
+    '<div class="invGoldBar"><span id="olShopBarText" class="invGoldAmountText" style="color:#ffe08a;">REAL MONEY (\u20B1 PHP)</span></div>' +
     '<div class="shopBody">' +
       '<div class="shopCatColumn">' +
-        ["weapon", "armor", "stone", "accessory"].map((c) =>
+        ["weapon", "armor", "stone", "accessory", "points"].map((c) =>
           '<button class="hubBtn shopCatBtn olShopCatBtn" data-shop-cat="' + c + '"><span class="hubBtnRing"><span class="hubBtnDot"></span></span>' +
           c.charAt(0).toUpperCase() + c.slice(1) + '</button>').join("") +
         '<button class="hubBtn olShopOrdersBtn" id="olShopOrdersBtn"><span class="hubBtnRing"><span class="hubBtnDot"></span></span>Orders</button>' +
@@ -3005,7 +3037,7 @@ function olShopPaint() {
       slot.appendChild(img);
       const price = document.createElement("span");
       price.className = "shopSlotPrice";
-      price.textContent = olShopPeso(entry.price);
+      price.textContent = olShopPriceText(entry);
       slot.appendChild(price);
       slot.classList.add("filled");
       slot.dataset.type = entry.type;
@@ -3032,6 +3064,8 @@ function olShopSelectCategory(cat) {
   olShopCategory = cat;
   olShopPage = 0;
   document.querySelectorAll(".olShopCatBtn").forEach((b) => b.classList.toggle("active", b.dataset.shopCat === cat));
+  olShopUpdateBar();
+  if (cat === "points") olShopLoadPoints();
   olShopPaint();
 }
 
@@ -3127,13 +3161,44 @@ function olShopOpenItem(entry) {
   const p = olShopShowPopup(
     '<div class="charStatsName">' + olShopEsc(olShopLabel(entry)) + '</div>' +
     '<img class="shopItemImg" src="' + olShopEsc(entry.data.image || ("image/" + entry.name + ".png")) + '" />' +
-    '<div class="olPaySub">Price: <b style="color:#fff;font-size:15px;">' + olShopPeso(entry.price) + '</b></div>' +
+    '<div class="olPaySub">Price: <b style="color:#fff;font-size:15px;">' + olShopPriceText(entry) + '</b></div>' +
     '<div style="margin-top:8px;">' + olShopStatRows(entry) + '</div>' +
     '<div class="olPaySub">' + olShopEsc((entry.data && entry.data.description) || "") + '</div>' +
     '<button class="olPayBtn green" id="olBuyBtn">Buy</button>' +
     '<button class="olPayBtn gray" id="olCancelBtn">Cancel</button>');
-  p.querySelector("#olBuyBtn").addEventListener("click", () => olShopChooseMethod(entry));
+  p.querySelector("#olBuyBtn").addEventListener("click", () => (entry.isPoints ? olShopConfirmPoints(entry) : olShopChooseMethod(entry)));
   p.querySelector("#olCancelBtn").addEventListener("click", olShopClosePopup);
+}
+
+// ---- POINTS item: confirm, then the server takes the points and delivers the item ----
+function olShopConfirmPoints(entry) {
+  const have = olShopPoints === null ? "..." : olShopPts(olShopPoints);
+  const p = olShopShowPopup(
+    '<div class="olPayTitle">Buy with points</div>' +
+    '<div class="olPaySub">' + olShopEsc(olShopLabel(entry)) + '</div>' +
+    '<div class="olPayBox">Cost: <b>' + olShopPts(entry.price) + '</b><br>You have: <b>' + have + '</b></div>' +
+    '<div class="olPayErr" id="olPayErr"></div>' +
+    '<button class="olPayBtn green" id="olPtsYes">Confirm</button>' +
+    '<button class="olPayBtn gray" id="olPtsBack">Back</button>');
+  p.querySelector("#olPtsBack").addEventListener("click", () => olShopOpenItem(entry));
+  p.querySelector("#olPtsYes").addEventListener("click", async () => {
+    const btn = p.querySelector("#olPtsYes");
+    const err = p.querySelector("#olPayErr");
+    btn.disabled = true; err.textContent = "Buying...";
+    try {
+      const r = await olApiPost("/api/shop/buypoints", { type: entry.shopType, name: entry.name });
+      if (r.status === 200 && r.json.ok) {
+        olShopPoints = r.json.points; olShopUpdateBar();
+        olShopClosePopup();
+        olShopToast("Bought " + olShopLabel(entry) + " \u2014 it is being delivered.");
+        olShopClaim();
+        return;
+      }
+      if (r.json && typeof r.json.points === "number") { olShopPoints = r.json.points; olShopUpdateBar(); }
+      err.textContent = olShopErrText(r);
+      btn.disabled = false;
+    } catch (e) { err.textContent = "No connection. Please try again."; btn.disabled = false; }
+  });
 }
 
 // ---- step 2: how to pay ----
@@ -3157,6 +3222,7 @@ function olShopChooseMethod(entry) {
 }
 
 const OL_SHOP_ERRORS = {
+  NOT_ENOUGH_POINTS: "You do not have enough points. Watch ads to earn more.",
   AUTO_PAYMENT_OFF: "Automatic payment is not available yet. Please use the manual GCash option.",
   PAYMENT_PROVIDER_ERROR: "The payment service did not respond. Please try again.",
   TOO_MANY_OPEN_ORDERS: "You have too many unfinished orders. Finish or wait for them first.",
@@ -3243,7 +3309,7 @@ async function olShopShowOrders() {
     if (r.status !== 200) { p.querySelector(".olPaySub").textContent = olShopErrText(r); return; }
     const names = { awaiting_payment: "waiting for payment", review: "waiting for owner approval", paid: "paid \u2014 delivering", claimed: "paid \u2014 delivering", delivered: "delivered", rejected: "rejected", failed: "not completed", pending: "not completed" };
     const rows = (r.json.orders || []).map((o) =>
-      '<div class="olPayBox" style="text-align:left;">' + olShopEsc(o.name) + ' \u2014 <b>' + olShopPeso(o.price) + '</b><br>' + olShopEsc(names[o.status] || o.status) + '</div>').join("");
+      '<div class="olPayBox" style="text-align:left;">' + olShopEsc(o.name) + ' \u2014 <b>' + (o.method === "points" ? olShopPts(o.price) : olShopPeso(o.price)) + '</b><br>' + olShopEsc(names[o.status] || o.status) + '</div>').join("");
     p.querySelector(".olPaySub").outerHTML = rows || '<div class="olPaySub">No orders yet.</div>';
     olShopClaim();
   } catch (e) { p.querySelector(".olPaySub").textContent = "No connection."; }
@@ -4196,6 +4262,11 @@ function netHandle(msg) {
     case "shopPaid":
       // The server has a paid shop order for this account: collect it now.
       olShopClaim();
+      break;
+
+    case "pointsUpdate":
+      // The server changed my points balance (ad reward / owner gift).
+      if (typeof msg.points === "number") { olShopPoints = msg.points; olShopUpdateBar(); }
       break;
 
     case "playerAdd":
