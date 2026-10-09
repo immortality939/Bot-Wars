@@ -1808,12 +1808,25 @@ function serverList() {
 const num = (v, fallback = 0) => (typeof v === "number" && isFinite(v) ? v : fallback);
 
 // CDM SEND (hidden dev tool, see online_client.js "HIDDEN CDM BUTTON"): lets the CDM
-// screen hand an item straight to another online player's inventory. Keep the code in
-// sync with OL_CMD_SHOW_CODE in client/online_client.js. Optionally restrict it to
-// certain player names with the env var CMD_GIVE_ADMINS="name1,name2" (recommended:
-// the code alone is only as secret as the public client file).
-const CMD_GIVE_CODE = "@#$_&cmd";
+// screen hand an item straight to another online player's inventory.
+// SECURITY: this is FAIL-CLOSED. The tool only works when BOTH env vars are set on the
+// host (Render > Environment) and are never stored in any file that ships in the APK:
+//   CMD_GIVE_ADMINS = "yourname,othername"   (account names allowed to use it)
+//   CMD_GIVE_CODE   = "a-long-random-secret" (typed by the admin in WORLD chat, see client)
+// If either is missing, every cmdCatalog / cmdGive request is refused.
+const CMD_GIVE_CODE = String(process.env.CMD_GIVE_CODE || "");
 const CMD_GIVE_ADMINS = String(process.env.CMD_GIVE_ADMINS || "").split(",").map((n) => n.trim().toLowerCase()).filter(Boolean);
+function cmdSecretOk(given) {
+  if (!CMD_GIVE_CODE || typeof given !== "string") return false;
+  const a = Buffer.from(given), b = Buffer.from(CMD_GIVE_CODE);
+  return a.length === b.length && crypto.timingSafeEqual(a, b);
+}
+function cmdAllowed(me, code) {
+  if (!me || !me.name || !CMD_GIVE_ADMINS.length || !CMD_GIVE_CODE) return false;
+  if (!CMD_GIVE_ADMINS.includes(String(me.name).toLowerCase())) return false;
+  return cmdSecretOk(code);
+}
+if (!CMD_GIVE_CODE || !CMD_GIVE_ADMINS.length) console.log("[cmd] CDM give tool is DISABLED (set CMD_GIVE_ADMINS and CMD_GIVE_CODE to enable).");
 const CMD_GIVE_TYPES = ["weapon", "armor", "ring", "accessory", "stone", "orb"];
 
 function send(ws, obj) {
@@ -2811,13 +2824,11 @@ wss.on("connection", (ws) => {
         break;
 
       // CDM CATALOG — the item list the CDM screen searches (server/cmd_server.js). Sent
-      // only on request and only with the code (+ CMD_GIVE_ADMINS if set), so normal players
+      // only on request and only for an admin account with the secret code, so normal players
       // never download it.
       case "cmdCatalog": {
         if (!me.name) break;
-        const denied = msg.code !== CMD_GIVE_CODE ||
-          (CMD_GIVE_ADMINS.length && !CMD_GIVE_ADMINS.includes(String(me.name).toLowerCase()));
-        if (denied) { send(ws, { type: "cmdCatalog", ok: false }); break; }
+        if (!cmdAllowed(me, msg.code)) { send(ws, { type: "cmdCatalog", ok: false }); break; }
         const nowCat = Date.now();
         if (me.cmdCatalogAt && nowCat - me.cmdCatalogAt < 1500) break;
         me.cmdCatalogAt = nowCat;
@@ -2836,8 +2847,7 @@ wss.on("connection", (ws) => {
       case "cmdGive": {
         const fail = (reason) => send(ws, { type: "cmdGiveResult", ok: false, reason });
         if (!me.name) break;
-        if (msg.code !== CMD_GIVE_CODE) { fail("Not allowed"); break; }
-        if (CMD_GIVE_ADMINS.length && !CMD_GIVE_ADMINS.includes(String(me.name).toLowerCase())) { fail("Not allowed"); break; }
+        if (!cmdAllowed(me, msg.code)) { fail("Not allowed"); break; }
         const nowGive = Date.now();
         if (me.cmdGivePending && nowGive - me.cmdGivePending.at < 10000) { fail("Wait for the last item to arrive"); break; }
         const wantName = String(msg.targetName || "").replace(/[\r\n\t]+/g, " ").trim().toLowerCase();
