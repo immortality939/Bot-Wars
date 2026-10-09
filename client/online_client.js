@@ -2985,6 +2985,7 @@ function olShopInstallUi() {
         ["weapon", "armor", "stone", "accessory", "points"].map((c) =>
           '<button class="hubBtn shopCatBtn olShopCatBtn" data-shop-cat="' + c + '"><span class="hubBtnRing"><span class="hubBtnDot"></span></span>' +
           c.charAt(0).toUpperCase() + c.slice(1) + '</button>').join("") +
+        '<button class="hubBtn" id="olShopEarnBtn" style="display:none;"><span class="hubBtnRing"><span class="hubBtnDot"></span></span>Earn Points</button>' +
         '<button class="hubBtn olShopOrdersBtn" id="olShopOrdersBtn"><span class="hubBtnRing"><span class="hubBtnDot"></span></span>Orders</button>' +
       '</div>' +
       '<div class="shopGridColumn">' +
@@ -3022,6 +3023,28 @@ function olShopInstallUi() {
   screen.querySelector("#olShopNext").addEventListener("click", () => olShopGoPage(1));
   screen.querySelector("#olShopBack").addEventListener("click", olShopClose);
   screen.querySelector("#olShopOrdersBtn").addEventListener("click", olShopShowOrders);
+  screen.querySelector("#olShopEarnBtn").addEventListener("click", olShopEarnPoints);
+}
+
+// EARN POINTS (online): play a rewarded ad. The points are NOT given by this file - AdMob tells
+// the SERVER the ad was finished (server-side verification, server.js /api/admob/ssv) and the
+// server adds 5 points and sends "pointsUpdate", so nobody can fake it from the browser.
+async function olShopEarnPoints() {
+  if (typeof MWAds === "undefined") { olShopToast("Ads only work in the Metal War app."); return; }
+  let uid = "";
+  try {
+    const s = await window.supabaseClient.auth.getSession();
+    uid = (s && s.data && s.data.session && s.data.session.user && s.data.session.user.id) || "";
+  } catch (e) {}
+  if (!uid) { olShopToast("Please log in again."); return; }
+  MWAds.show(uid, (status) => {
+    if (status === "rewarded") {
+      olShopToast("Ad finished! Adding 5 points...");
+      // the server pushes the new balance by itself; ask again in case the push was missed
+      setTimeout(olShopLoadPoints, 4000);
+      setTimeout(olShopLoadPoints, 10000);
+    } else olShopToast(MWAds.message(status));
+  });
 }
 
 function olShopPaint() {
@@ -3066,6 +3089,8 @@ function olShopSelectCategory(cat) {
   document.querySelectorAll(".olShopCatBtn").forEach((b) => b.classList.toggle("active", b.dataset.shopCat === cat));
   olShopUpdateBar();
   if (cat === "points") olShopLoadPoints();
+  const earn = document.getElementById("olShopEarnBtn");
+  if (earn) earn.style.display = cat === "points" ? "" : "none";
   olShopPaint();
 }
 
