@@ -758,8 +758,12 @@ async function loadShopOrders() {
   for (let attempt = 1; attempt <= 6; attempt++) {
     try {
       const rows = await sbRest("GET", "shop_orders?select=id,uid,data&order=updated_at.desc&limit=5000");
-      for (const r of rows) if (r && r.data && r.data.id && !shopOrders.has(r.data.id)) shopOrders.set(r.data.id, r.data);
-      console.log("[shop] loaded " + shopOrders.size + " order(s).");
+      for (const r of rows) {
+        if (!r || !r.data || !r.data.id) continue;
+        if (String(r.data.id).startsWith("points:")) { if (!pointsBank.has(r.data.uid)) pointsBank.set(r.data.uid, r.data); continue; }   // a points balance, not an order
+        if (!shopOrders.has(r.data.id)) shopOrders.set(r.data.id, r.data);
+      }
+      console.log("[shop] loaded " + shopOrders.size + " order(s), " + pointsBank.size + " points balance(s).");
       return;
     } catch (e) {
       console.error("[shop] load failed (attempt " + attempt + "): " + (e && e.message || e) + (attempt === 1 ? "  — did you create the shop_orders table?" : ""));
@@ -928,8 +932,69 @@ function shopAck(user, body) {
   return [200, { ok: true }];
 }
 
+// ---------------------------------------------------------------------------
+// POINTS SHOP — items sold for POINTS (see server/shop_server.js POINTS_SHOP)
+// ---------------------------------------------------------------------------
+// Points are earned by watching ads (AdMob step, next): pointsAdd(uid, 5) is the ONE
+// function that gives points. The balance lives on the SERVER (never in the player's
+// save), kept in the same Supabase table as the shop orders as a row with the id
+// "points:<account id>" (no new table needed). A purchase takes the points off and
+// creates an already-paid order, so delivery uses the exact same claim/ack path as
+// the real-money shop (server-side check, save guard is told to expect the item).
+// ---------------------------------------------------------------------------
+const POINTS_SHOP = GAME_DATA.POINTS_SHOP || {};
+const pointsBank = new Map();   // account id -> { id: "points:<uid>", uid, email, points }
+
+function pointsRecord(uid, email) {
+  let r = pointsBank.get(uid);
+  if (!r) { r = { id: "points:" + uid, uid, email: email || "", points: 0 }; pointsBank.set(uid, r); }
+  if (email && r.email !== email) { r.email = email; pointsSaveRec(r); }
+  return r;
+}
+function pointsSaveRec(r) {
+  if (!CLAN_DB_ON) return;
+  const row = { id: r.id, uid: r.uid, data: r, updated_at: new Date().toISOString() };
+  shopDbQueue = shopDbQueue
+    .then(() => sbRest("POST", "shop_orders?on_conflict=id", row, "resolution=merge-duplicates,return=minimal"))
+    .catch((e) => console.error("[points] could not save balance " + r.uid + ": " + (e && e.message || e)));
+}
+// Gives (or with a negative number takes) points. Used by the ad reward and the admin page.
+function pointsAdd(uid, n, email) {
+  const r = pointsRecord(uid, email);
+  r.points = Math.max(0, Math.min(1000000000, Math.round(r.points + (Number(n) || 0))));
+  pointsSaveRec(r);
+  const p = onlineByUid.get(uid);
+  if (p && p.ws) send(p.ws, { type: "pointsUpdate", points: r.points });
+  return r.points;
+}
+function pointsFind(type, name) {
+  if (SHOP_TYPES.indexOf(type) < 0) return null;
+  const list = POINTS_SHOP[type];
+  if (!Array.isArray(list)) return null;
+  const e = list.find((x) => x && x.name === name && Number(x.price) > 0);
+  return e ? { type, name: e.name, price: Math.round(Number(e.price)) } : null;
+}
+function shopPointsBalance(user) {
+  return [200, { ok: true, points: pointsRecord(user.id, user.email).points }];
+}
+function shopPointsBuy(user, body) {
+  const item = pointsFind(String(body.type || ""), String(body.name || ""));
+  if (!item) return [400, { error: "BAD_ITEM" }];
+  const rec = pointsRecord(user.id, user.email);
+  if (rec.points < item.price) return [402, { error: "NOT_ENOUGH_POINTS", points: rec.points }];
+  // (no await between the check and the deduction, so two quick taps can never spend the same points twice)
+  rec.points -= item.price;
+  pointsSaveRec(rec);
+  const order = shopNewOrder(user, item, "points");
+  shopMarkPaid(order);   // paid -> the game claims it right away (same delivery as real-money orders)
+  console.log("[points] " + user.id.slice(0, 8) + " bought " + item.name + " for " + item.price + " pts (left " + rec.points + ")");
+  return [200, { ok: true, points: rec.points, orderId: order.id }];
+}
+
 async function apiShop(user, urlPath, body) {
   const act = urlPath.slice("/api/shop/".length);
+  if (act === "points") return shopPointsBalance(user);
+  if (act === "buypoints") return shopPointsBuy(user, body);
   if (act === "paymongo") return shopStartPaymongo(user, body);
   if (act === "manual") return shopSubmitManual(user, body);
   if (act === "orders") return shopListOrders(user);
@@ -969,6 +1034,9 @@ const ADMIN_PAGE = `<!doctype html><html><head><meta charset="utf-8"><meta name=
 button{padding:8px 14px;border-radius:6px;border:0;margin:6px 6px 0 0;font-weight:700}.ok{background:#3c6}.no{background:#d55;color:#fff}
 .s{color:#9bd;font-size:12px}</style></head><body><h1>Shop orders</h1>
 <div class="s">Open your GCash / bank app, find the reference number below, then Approve. Approve only money you actually received.</div>
+<div class="o"><b>Give points</b><br><span class="s">Player must have opened the Points shop once (use a negative number to take points back).</span><br>
+<input id="pe" placeholder="account email" style="width:60%;padding:7px"> <input id="pa" type="number" placeholder="points" style="width:25%;padding:7px"><br>
+<button class="ok" onclick="gp()">Give points</button> <span id="pr" class="s"></span></div>
 <div id="l">Loading...</div>
 <script>
 let key=sessionStorage.getItem("k")||prompt("Admin key")||"";sessionStorage.setItem("k",key);
@@ -977,10 +1045,11 @@ if(r.status==401){sessionStorage.removeItem("k");document.getElementById("l").te
 if(!r.ok){document.getElementById("l").textContent="Error "+r.status;throw 0}return r.json()}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 async function load(){const d=await api("/api/admin/orders");const l=document.getElementById("l");
-l.innerHTML=d.orders.map(o=>'<div class="o"><b>'+esc(o.name)+'</b> ('+esc(o.type)+') &mdash; <b>P'+o.price+'</b><br>'+
+l.innerHTML=d.orders.map(o=>'<div class="o"><b>'+esc(o.name)+'</b> ('+esc(o.type)+') &mdash; <b>'+(o.method=="points"?o.price+' pts':'P'+o.price)+'</b><br>'+
 '<span class="s">status: '+esc(o.status)+' | '+esc(o.method)+(o.channel?'/'+esc(o.channel):'')+' | '+new Date(o.createdAt).toLocaleString()+'<br>account: '+esc(o.email)+
 (o.ref?'<br>reference: <b>'+esc(o.ref)+'</b> | sender: '+esc(o.sender):'')+'</span>'+
 (o.status=="review"?'<br><button class="ok" onclick="dec(\\''+o.id+'\\',true)">Approve</button><button class="no" onclick="dec(\\''+o.id+'\\',false)">Reject</button>':'')+'</div>').join("")||"No orders yet."}
+async function gp(){const r=document.getElementById("pr");try{const d=await api("/api/admin/addpoints",{email:document.getElementById("pe").value,amount:Number(document.getElementById("pa").value)});r.textContent="Done. New balance: "+d.points}catch(e){r.textContent="Failed (account not found? it must open the Points shop once)"}}
 async function dec(id,a){if(!confirm(a?"Money received? Approve and deliver the item?":"Reject this order?"))return;await api("/api/admin/decide",{id:id,approve:a});load()}
 load();
 </script></body></html>`;
@@ -1016,6 +1085,17 @@ async function handleShopOwner(req, res, urlPath) {
   if (urlPath === "/api/admin/orders") {
     const list = [...shopOrders.values()].sort((a, b) => (a.status === "review" ? 0 : 1) - (b.status === "review" ? 0 : 1) || b.createdAt - a.createdAt).slice(0, 100);
     apiReply(res, 200, { ok: true, orders: list.map((o) => Object.assign(shopPublicOrder(o), { email: o.email, channel: o.channel, ref: o.ref, sender: o.sender })) });
+    return;
+  }
+  if (urlPath === "/api/admin/addpoints") {
+    // Give (or take, negative number) points to an account. The account must have opened the Points shop once.
+    const email = String(body.email || "").trim().toLowerCase();
+    const amount = Math.trunc(Number(body.amount));
+    if (!email || !isFinite(amount) || amount === 0 || Math.abs(amount) > 100000) { apiReply(res, 400, { error: "BAD_REQUEST" }); return; }
+    let rec = null;
+    for (const r of pointsBank.values()) if (String(r.email || "").toLowerCase() === email) { rec = r; break; }
+    if (!rec) { apiReply(res, 404, { error: "ACCOUNT_NOT_FOUND" }); return; }
+    apiReply(res, 200, { ok: true, points: pointsAdd(rec.uid, amount) });
     return;
   }
   if (urlPath === "/api/admin/decide") {
