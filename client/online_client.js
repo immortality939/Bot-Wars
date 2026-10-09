@@ -3040,6 +3040,11 @@ async function olShopEarnPoints() {
   MWAds.show(uid, (status) => {
     if (status === "rewarded") {
       olShopToast("Ad finished! Adding 5 points...");
+      // Test mode only: the server accepts this when AD_TEST_MODE=1 is set on Render; otherwise it
+      // answers 403 and the points come from AdMob's signed message instead.
+      olApiPost("/api/shop/adtest", {}).then((r) => {
+        if (r && r.status === 200 && r.json && typeof r.json.points === "number") { olShopPoints = r.json.points; olShopUpdateBar(); }
+      }).catch(() => {});
       // the server pushes the new balance by itself; ask again in case the push was missed
       setTimeout(olShopLoadPoints, 4000);
       setTimeout(olShopLoadPoints, 10000);
