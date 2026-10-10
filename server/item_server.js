@@ -99,9 +99,8 @@ const ITEM_TYPES = {
     image: "image/powerup.png",
     radius: 10,
 
-    healthMultiplier: 0.0, // max health & current health both x2
+    healthMultiplier: 1.0, // max health & current health both x2
     damageMultiplier: 2, // current weapon's damage x2
-    speedBonus: 30,      // powerup ALSO adds this to movementSpeed (same as speedup)
     duration: 60000,     // ms (10 sec)
     spawnChance: 0.1,   // 40%
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
