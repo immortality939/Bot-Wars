@@ -86,8 +86,8 @@ const ITEM_TYPES = {
     radius: 10,
 
     speedBonus: 30,      // flat add to movementSpeed (e.g. 100 -> 130)
-    duration: 20000,     // ms (20 sec)
-    spawnChance: 0.6,   // 60%
+    duration: 60000,     // ms (20 sec)
+    spawnChance: 0.1,   // 60%
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
 
     // Small icon drawn above the player's health bar while this is active
@@ -99,10 +99,10 @@ const ITEM_TYPES = {
     image: "image/powerup.png",
     radius: 10,
 
-    healthMultiplier: 2, // max health & current health both x2
+    healthMultiplier: 0.0, // max health & current health both x2
     damageMultiplier: 2, // current weapon's damage x2
-    duration: 20000,     // ms (10 sec)
-    spawnChance: 0.4,   // 40%
+    duration: 60000,     // ms (10 sec)
+    spawnChance: 0.1,   // 40%
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
 
     icon: "image/powerup.png"
@@ -883,6 +883,71 @@ function applyItemEffect(player, typeName) {
       break;
     }
   }
+
+  // play the pickup's music (speedup -> speedupMB.mp3, powerup -> powerupMB.mp3)
+  if (typeName === "speedup" || typeName === "powerup") syncEffectMusic(player, typeName);
+}
+
+
+
+// ---------------------------------------------------------------------------
+// POWER-UP / SPEED-UP MUSIC — picking up speedup plays music/speedupMB.mp3,
+// picking up powerup plays music/powerupMB.mp3. While one of them is running
+// the map's background music (levelMusic, game.js) is paused; when the
+// effect's duration ends the pickup music stops and the map music carries on.
+// The state lives on window so the offline and the online (server) copy of
+// this code share it.
+// ---------------------------------------------------------------------------
+const EFFECT_MUSIC_FILES = { speedup: "music/speedupMB.mp3", powerup: "music/powerupMB.mp3" };
+const EFFECT_MUSIC_VOLUME = 0.5;   // same as the map music
+
+function effectMusicState() {
+  if (!window.__effectMusic) window.__effectMusic = { audio: null, key: null, last: null };
+  return window.__effectMusic;
+}
+
+// Call every frame / after a pickup. Starts, switches or stops the pickup music
+// to match which timed effects are currently active on the player.
+function syncEffectMusic(player, justPickedUp) {
+  const st = effectMusicState();
+  if (justPickedUp && EFFECT_MUSIC_FILES[justPickedUp]) st.last = justPickedUp;
+
+  const fx = (player && player.activeEffects) || {};
+  let want = null;
+  if (st.last && fx[st.last]) want = st.last;                       // newest pickup wins
+  else if (fx.speedup) want = "speedup";
+  else if (fx.powerup) want = "powerup";
+
+  if (want !== st.key) {
+    if (st.audio) { try { st.audio.pause(); st.audio.currentTime = 0; } catch (e) {} }
+    st.audio = null;
+    const hadMusic = !!st.key;
+    st.key = want;
+    if (want) {
+      try {
+        const a = new Audio(EFFECT_MUSIC_FILES[want]);
+        a.loop = true;
+        a.volume = EFFECT_MUSIC_VOLUME;
+        a.play().catch(() => {});
+        st.audio = a;
+      } catch (e) {}
+    } else if (hadMusic) {
+      // effect finished: bring the map's background music back
+      try { if (typeof levelMusic !== "undefined" && levelMusic && levelMusic.paused) levelMusic.play().catch(() => {}); } catch (e) {}
+    }
+  }
+
+  // while pickup music is playing, keep the map music paused (also after a portal starts a new map track)
+  if (want) {
+    try { if (typeof levelMusic !== "undefined" && levelMusic && !levelMusic.paused) levelMusic.pause(); } catch (e) {}
+  }
+}
+
+// Stops the pickup music without restoring anything (leaving the match).
+function stopEffectMusic() {
+  const st = effectMusicState();
+  if (st.audio) { try { st.audio.pause(); st.audio.currentTime = 0; } catch (e) {} }
+  st.audio = null; st.key = null; st.last = null;
 }
 
 
@@ -917,6 +982,9 @@ function updateActiveEffects(player) {
 
     delete player.activeEffects.powerup;
   }
+
+  // effect ran out -> stop its music and resume the map music
+  syncEffectMusic(player);
 }
 
 

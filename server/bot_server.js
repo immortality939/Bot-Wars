@@ -42,7 +42,7 @@ const BOT_TYPES = {
     lookDuration: 1500,
     respawn: 10,
     active: false,
-    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor1,armor15,armor29,accessory01,accessory13,accessory25,ring01,ring14,ring27",
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor1,armor15,armor29,accessory01,accessory13,accessory25,ring01,ring14,ring27",
     spawnGoldOrbChance: 0.8, // 80% chance to drop a gold orb on death
     goldOrbAmount: 30,       // gold given when this bot's orb is picked up
     unitExplode: "unitexplode",
@@ -120,7 +120,7 @@ const BOT_TYPES = {
     lookDuration: 2200,
     respawn: 10,
     active: false,
-    spawnItem: "sword3,gun3,gauntlet3,armor3,armor17,armor31,accessory03,accessory15,accessory27,ring03,ring16,ring29",
+    spawnItem: "speedup,powerup,sword3,gun3,gauntlet3,armor3,armor17,armor31,accessory03,accessory15,accessory27,ring03,ring16,ring29",
     spawnGoldOrbChance: 0.75, // 75% chance to drop a gold orb on death
     goldOrbAmount: 75,        // gold given when this bot's orb is picked up
     unitExplode: "unitexplode",
@@ -195,7 +195,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "sword5,gun5,gauntlet5,armor5,armor19,armor33,accessory05,accessory17,accessory29,ring05,ring18,ring31",
+    spawnItem: "speedup,powerup,sword5,gun5,gauntlet5,armor5,armor19,armor33,accessory05,accessory17,accessory29,ring05,ring18,ring31",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 4,       // gold given when this bot's orb is picked up
 
@@ -236,7 +236,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor6,armor20,armor34,accessory06,accessory18,accessory30,ring06,ring19,ring32",
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor6,armor20,armor34,accessory06,accessory18,accessory30,ring06,ring19,ring32",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 7,       // gold given when this bot's orb is picked up
 
@@ -281,7 +281,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor7,armor21,armor35,accessory07,accessory19,accessory31,ring07,ring20,ring33",
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor7,armor21,armor35,accessory07,accessory19,accessory31,ring07,ring20,ring33",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 6,       // gold given when this bot's orb is picked up
 
@@ -326,7 +326,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor8,armor22,armor36,accessory08,accessory20,accessory32,ring08,ring21,ring34",
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor8,armor22,armor36,accessory08,accessory20,accessory32,ring08,ring21,ring34",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 8,       // gold given when this bot's orb is picked up
 
@@ -371,7 +371,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor9,armor23,armor37,accessory09,accessory21,accessory33,ring09,ring22,ring35",
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor9,armor23,armor37,accessory09,accessory21,accessory33,ring09,ring22,ring35",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 14,       // gold given when this bot's orb is picked up
 
@@ -416,7 +416,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor10,armor24,armor38,accessory10,accessory22,accessory34,ring10,ring23,ring36",
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor10,armor24,armor38,accessory10,accessory22,accessory34,ring10,ring23,ring36",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 10,       // gold given when this bot's orb is picked up
 
@@ -461,7 +461,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor11,armor25,armor39,accessory11,accessory23,accessory35,ring11,ring24,ring37",
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor11,armor25,armor39,accessory11,accessory23,accessory35,ring11,ring24,ring37",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 16,       // gold given when this bot's orb is picked up
 
@@ -506,7 +506,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword12,gun12,gauntlet12,armor12,armor26,armor40,accessory12,accessory24,accessory36,ring12,ring25,ring38",
+    spawnItem: "speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor12,armor26,armor40,accessory12,accessory24,accessory36,ring12,ring25,ring38",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 13,       // gold given when this bot's orb is picked up
 
@@ -551,7 +551,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword13,gun13,gauntlet13,armor13,armor27,armor41,accessory01,accessory13,accessory25,ring13,ring26,ring39",
+    spawnItem: "speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor13,armor27,armor41,accessory01,accessory13,accessory25,ring13,ring26,ring39",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 19,       // gold given when this bot's orb is picked up
 
@@ -596,7 +596,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword14,gun14,gauntlet14,armor14,armor28,armor42,accessory02,accessory14,accessory26,ring01,ring14,ring40",
+    spawnItem: "speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor14,armor28,armor42,accessory02,accessory14,accessory26,ring01,ring14,ring40",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 15,       // gold given when this bot's orb is picked up
 
@@ -641,7 +641,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword15,gun15,gauntlet15,armor1,armor15,armor43,accessory03,accessory15,accessory27,ring02,ring15,ring27",
+    spawnItem: "speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor1,armor15,armor43,accessory03,accessory15,accessory27,ring02,ring15,ring27",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 18,       // gold given when this bot's orb is picked up
 
@@ -686,7 +686,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor2,armor16,armor29,accessory04,accessory16,accessory28,ring03,ring16,ring28",
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor2,armor16,armor29,accessory04,accessory16,accessory28,ring03,ring16,ring28",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 25,       // gold given when this bot's orb is picked up
 
@@ -731,7 +731,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword17,gun17,gauntlet17,armor3,armor17,armor30,accessory05,accessory17,accessory29,ring04,ring17,ring29",
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor3,armor17,armor30,accessory05,accessory17,accessory29,ring04,ring17,ring29",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 20,       // gold given when this bot's orb is picked up
 
@@ -776,7 +776,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor4,armor18,armor31,accessory06,accessory18,accessory30,ring05,ring18,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor4,armor18,armor31,accessory06,accessory18,accessory30,ring05,ring18,ring30",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 25,       // gold given when this bot's orb is picked up
 
@@ -821,7 +821,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor5,armor19,armor32,accessory07,accessory19,accessory31,ring06,ring19,ring31",
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor5,armor19,armor32,accessory07,accessory19,accessory31,ring06,ring19,ring31",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 32,       // gold given when this bot's orb is picked up
 
@@ -866,7 +866,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor6,armor20,armor33,accessory08,accessory20,accessory32,ring07,ring20,ring32",
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor6,armor20,armor33,accessory08,accessory20,accessory32,ring07,ring20,ring32",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 30,       // gold given when this bot's orb is picked up
 
@@ -911,7 +911,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor7,armor21,armor34,accessory09,accessory21,accessory33,ring08,ring21,ring33",
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor7,armor21,armor34,accessory09,accessory21,accessory33,ring08,ring21,ring33",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 38,       // gold given when this bot's orb is picked up
 
@@ -956,7 +956,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor8,armor22,armor35,accessory10,accessory22,accessory34,ring09,ring22,ring34",
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor8,armor22,armor35,accessory10,accessory22,accessory34,ring09,ring22,ring34",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 37,       // gold given when this bot's orb is picked up
 
@@ -1001,7 +1001,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor9,armor23,armor36,accessory11,accessory23,accessory35,ring10,ring23,ring35",
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor9,armor23,armor36,accessory11,accessory23,accessory35,ring10,ring23,ring35",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 47,       // gold given when this bot's orb is picked up
 
@@ -1046,7 +1046,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor10,armor24,armor37,accessory12,accessory24,accessory36,ring11,ring24,ring36",
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor10,armor24,armor37,accessory12,accessory24,accessory36,ring11,ring24,ring36",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 45,       // gold given when this bot's orb is picked up
 
@@ -1091,7 +1091,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor11,armor25,armor38,accessory01,accessory13,accessory25,ring12,ring25,ring37",
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor11,armor25,armor38,accessory01,accessory13,accessory25,ring12,ring25,ring37",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 52,       // gold given when this bot's orb is picked up
 
@@ -1136,7 +1136,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor12,armor26,armor39,accessory02,accessory14,accessory26,ring13,ring26,ring38",
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor12,armor26,armor39,accessory02,accessory14,accessory26,ring13,ring26,ring38",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 50,       // gold given when this bot's orb is picked up
 
@@ -1181,7 +1181,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor13,armor27,armor40,accessory03,accessory15,accessory27,ring01,ring14,ring39",
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor13,armor27,armor40,accessory03,accessory15,accessory27,ring01,ring14,ring39",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 60,       // gold given when this bot's orb is picked up
 
@@ -1226,7 +1226,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor14,armor28,armor41,accessory04,accessory16,accessory28,ring02,ring15,ring40",
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor14,armor28,armor41,accessory04,accessory16,accessory28,ring02,ring15,ring40",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 57,       // gold given when this bot's orb is picked up
 
@@ -1271,7 +1271,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor1,armor15,armor42,accessory05,accessory17,accessory29,ring03,ring16,ring27",
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor1,armor15,armor42,accessory05,accessory17,accessory29,ring03,ring16,ring27",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 67,       // gold given when this bot's orb is picked up
 
@@ -1316,7 +1316,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor2,armor16,armor43,accessory06,accessory18,accessory30,ring04,ring17,ring28",
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor2,armor16,armor43,accessory06,accessory18,accessory30,ring04,ring17,ring28",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 70,       // gold given when this bot's orb is picked up
 
@@ -1361,7 +1361,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor3,armor17,armor29,accessory07,accessory19,accessory31,ring05,ring18,ring29",
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor3,armor17,armor29,accessory07,accessory19,accessory31,ring05,ring18,ring29",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 80,       // gold given when this bot's orb is picked up
 
@@ -1406,7 +1406,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword12,gun12,gauntlet12,armor4,armor18,armor30,accessory08,accessory20,accessory32,ring06,ring19,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor4,armor18,armor30,accessory08,accessory20,accessory32,ring06,ring19,ring30",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 90,       // gold given when this bot's orb is picked up
 
@@ -1451,7 +1451,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword13,gun13,gauntlet13,armor5,armor19,armor31,accessory09,accessory21,accessory33,ring07,ring20,ring31",
+    spawnItem: "speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor5,armor19,armor31,accessory09,accessory21,accessory33,ring07,ring20,ring31",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 110,       // gold given when this bot's orb is picked up
 
@@ -1496,7 +1496,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword14,gun14,gauntlet14,armor6,armor20,armor32,accessory10,accessory22,accessory34,ring08,ring21,ring32",
+    spawnItem: "speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor6,armor20,armor32,accessory10,accessory22,accessory34,ring08,ring21,ring32",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 125,       // gold given when this bot's orb is picked up
 
@@ -1541,7 +1541,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword15,gun15,gauntlet15,armor7,armor21,armor33,accessory11,accessory23,accessory35,ring09,ring22,ring33",
+    spawnItem: "speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor7,armor21,armor33,accessory11,accessory23,accessory35,ring09,ring22,ring33",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 140,       // gold given when this bot's orb is picked up
 
@@ -1586,7 +1586,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor8,armor22,armor34,accessory12,accessory24,accessory36,ring10,ring23,ring34",
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor8,armor22,armor34,accessory12,accessory24,accessory36,ring10,ring23,ring34",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 145,       // gold given when this bot's orb is picked up
 
@@ -1631,7 +1631,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword17,gun17,gauntlet17,armor9,armor23,armor35,accessory01,accessory13,accessory25,ring11,ring24,ring35",
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor9,armor23,armor35,accessory01,accessory13,accessory25,ring11,ring24,ring35",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 170,       // gold given when this bot's orb is picked up
 
@@ -1676,7 +1676,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor10,armor24,armor36,accessory02,accessory14,accessory26,ring12,ring25,ring36",
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor10,armor24,armor36,accessory02,accessory14,accessory26,ring12,ring25,ring36",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 190,       // gold given when this bot's orb is picked up
 
@@ -1724,7 +1724,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor11,armor25,armor37,accessory03,accessory15,accessory27,ring13,ring26,ring37",
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor11,armor25,armor37,accessory03,accessory15,accessory27,ring13,ring26,ring37",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 160,       // gold given when this bot's orb is picked up
 
@@ -1785,7 +1785,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor12,armor26,armor38,accessory04,accessory16,accessory28,ring01,ring14,ring38",
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor12,armor26,armor38,accessory04,accessory16,accessory28,ring01,ring14,ring38",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 205,       // gold given when this bot's orb is picked up
 
@@ -1829,7 +1829,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor13,armor27,armor39,accessory05,accessory17,accessory29,ring02,ring15,ring39",
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor13,armor27,armor39,accessory05,accessory17,accessory29,ring02,ring15,ring39",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 230,       // gold given when this bot's orb is picked up
 
@@ -1873,7 +1873,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor14,armor28,armor40,accessory06,accessory18,accessory30,ring03,ring16,ring40",
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor14,armor28,armor40,accessory06,accessory18,accessory30,ring03,ring16,ring40",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 280,       // gold given when this bot's orb is picked up
 
@@ -1917,7 +1917,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor1,armor15,armor41,accessory07,accessory19,accessory31,ring04,ring17,ring27",
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor1,armor15,armor41,accessory07,accessory19,accessory31,ring04,ring17,ring27",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 300,       // gold given when this bot's orb is picked up
 
@@ -1961,7 +1961,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor2,armor16,armor42,accessory08,accessory20,accessory32,ring05,ring18,ring28",
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor2,armor16,armor42,accessory08,accessory20,accessory32,ring05,ring18,ring28",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 325,       // gold given when this bot's orb is picked up
 
@@ -2005,7 +2005,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor3,armor17,armor43,accessory09,accessory21,accessory33,ring06,ring19,ring29",
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor3,armor17,armor43,accessory09,accessory21,accessory33,ring06,ring19,ring29",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 350,       // gold given when this bot's orb is picked up
 
@@ -2049,7 +2049,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor4,armor18,armor29,accessory10,accessory22,accessory34,ring07,ring20,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor4,armor18,armor29,accessory10,accessory22,accessory34,ring07,ring20,ring30",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 370,       // gold given when this bot's orb is picked up
 
@@ -2093,7 +2093,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor5,armor19,armor30,accessory11,accessory23,accessory35,ring08,ring21,ring31",
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor5,armor19,armor30,accessory11,accessory23,accessory35,ring08,ring21,ring31",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 380,       // gold given when this bot's orb is picked up
 
@@ -2137,7 +2137,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor6,armor20,armor31,accessory12,accessory24,accessory36,ring09,ring22,ring32",
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor6,armor20,armor31,accessory12,accessory24,accessory36,ring09,ring22,ring32",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 401,       // gold given when this bot's orb is picked up
 
@@ -2181,7 +2181,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor7,armor21,armor32,accessory01,accessory13,accessory25,ring10,ring23,ring33",
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor7,armor21,armor32,accessory01,accessory13,accessory25,ring10,ring23,ring33",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 423,       // gold given when this bot's orb is picked up
 
@@ -2225,7 +2225,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor8,armor22,armor33,accessory02,accessory14,accessory26,ring11,ring24,ring34",
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor8,armor22,armor33,accessory02,accessory14,accessory26,ring11,ring24,ring34",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 445,       // gold given when this bot's orb is picked up
 
@@ -2269,7 +2269,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor9,armor23,armor34,accessory03,accessory15,accessory27,ring12,ring25,ring35",
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor9,armor23,armor34,accessory03,accessory15,accessory27,ring12,ring25,ring35",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 468,       // gold given when this bot's orb is picked up
 
@@ -2313,7 +2313,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword12,gun12,gauntlet12,armor10,armor24,armor35,accessory04,accessory16,accessory28,ring13,ring26,ring36",
+    spawnItem: "speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor10,armor24,armor35,accessory04,accessory16,accessory28,ring13,ring26,ring36",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 493,       // gold given when this bot's orb is picked up
 
@@ -2357,7 +2357,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword13,gun13,gauntlet13,armor11,armor25,armor36,accessory05,accessory17,accessory29,ring01,ring14,ring37",
+    spawnItem: "speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor11,armor25,armor36,accessory05,accessory17,accessory29,ring01,ring14,ring37",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 518,       // gold given when this bot's orb is picked up
 
@@ -2401,7 +2401,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword14,gun14,gauntlet14,armor12,armor26,armor37,accessory06,accessory18,accessory30,ring02,ring15,ring38",
+    spawnItem: "speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor12,armor26,armor37,accessory06,accessory18,accessory30,ring02,ring15,ring38",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 543,       // gold given when this bot's orb is picked up
 
@@ -2445,7 +2445,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword15,gun15,gauntlet15,armor13,armor27,armor38,accessory07,accessory19,accessory31,ring03,ring16,ring39",
+    spawnItem: "speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor13,armor27,armor38,accessory07,accessory19,accessory31,ring03,ring16,ring39",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 570,       // gold given when this bot's orb is picked up
 
@@ -2489,7 +2489,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor14,armor28,armor39,accessory08,accessory20,accessory32,ring04,ring17,ring40",
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor14,armor28,armor39,accessory08,accessory20,accessory32,ring04,ring17,ring40",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 597,       // gold given when this bot's orb is picked up
 
@@ -2533,7 +2533,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword17,gun17,gauntlet17,armor1,armor15,armor40,accessory09,accessory21,accessory33,ring05,ring18,ring27",
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor1,armor15,armor40,accessory09,accessory21,accessory33,ring05,ring18,ring27",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 626,       // gold given when this bot's orb is picked up
 
@@ -2577,7 +2577,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor2,armor16,armor41,accessory10,accessory22,accessory34,ring06,ring19,ring28",
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor2,armor16,armor41,accessory10,accessory22,accessory34,ring06,ring19,ring28",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 655,       // gold given when this bot's orb is picked up
 
@@ -2621,7 +2621,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor3,armor17,armor42,accessory11,accessory23,accessory35,ring07,ring20,ring29",
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor3,armor17,armor42,accessory11,accessory23,accessory35,ring07,ring20,ring29",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 684,       // gold given when this bot's orb is picked up
 
@@ -2665,7 +2665,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor4,armor18,armor43,accessory12,accessory24,accessory36,ring08,ring21,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor4,armor18,armor43,accessory12,accessory24,accessory36,ring08,ring21,ring30",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 715,       // gold given when this bot's orb is picked up
 
@@ -2709,7 +2709,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor5,armor19,armor29,accessory01,accessory13,accessory25,ring09,ring22,ring31",
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor5,armor19,armor29,accessory01,accessory13,accessory25,ring09,ring22,ring31",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 746,       // gold given when this bot's orb is picked up
 
@@ -2753,7 +2753,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor6,armor20,armor30,accessory02,accessory14,accessory26,ring10,ring23,ring32",
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor6,armor20,armor30,accessory02,accessory14,accessory26,ring10,ring23,ring32",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 778,       // gold given when this bot's orb is picked up
 
@@ -2797,7 +2797,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor7,armor21,armor31,accessory03,accessory15,accessory27,ring11,ring24,ring33",
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor7,armor21,armor31,accessory03,accessory15,accessory27,ring11,ring24,ring33",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 811,       // gold given when this bot's orb is picked up
 
@@ -2841,7 +2841,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor8,armor22,armor32,accessory04,accessory16,accessory28,ring12,ring25,ring34",
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor8,armor22,armor32,accessory04,accessory16,accessory28,ring12,ring25,ring34",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 844,       // gold given when this bot's orb is picked up
 
@@ -2885,7 +2885,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor9,armor23,armor33,accessory05,accessory17,accessory29,ring13,ring26,ring35",
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor9,armor23,armor33,accessory05,accessory17,accessory29,ring13,ring26,ring35",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 879,       // gold given when this bot's orb is picked up
 
@@ -2929,7 +2929,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor10,armor24,armor34,accessory06,accessory18,accessory30,ring01,ring14,ring36",
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor10,armor24,armor34,accessory06,accessory18,accessory30,ring01,ring14,ring36",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 913,       // gold given when this bot's orb is picked up
 
@@ -2973,7 +2973,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor11,armor25,armor35,accessory07,accessory19,accessory31,ring02,ring15,ring37",
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor11,armor25,armor35,accessory07,accessory19,accessory31,ring02,ring15,ring37",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 949,       // gold given when this bot's orb is picked up
 
@@ -3017,7 +3017,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor12,armor26,armor36,accessory08,accessory20,accessory32,ring03,ring16,ring38",
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor12,armor26,armor36,accessory08,accessory20,accessory32,ring03,ring16,ring38",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 984,       // gold given when this bot's orb is picked up
 
@@ -3061,7 +3061,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor13,armor27,armor37,accessory09,accessory21,accessory33,ring04,ring17,ring39",
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor13,armor27,armor37,accessory09,accessory21,accessory33,ring04,ring17,ring39",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 1021,       // gold given when this bot's orb is picked up
 
@@ -3105,7 +3105,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor14,armor28,armor38,accessory10,accessory22,accessory34,ring05,ring18,ring40",
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor14,armor28,armor38,accessory10,accessory22,accessory34,ring05,ring18,ring40",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 1057,       // gold given when this bot's orb is picked up
 
@@ -3149,7 +3149,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor1,armor15,armor39,accessory11,accessory23,accessory35,ring06,ring19,ring27",
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor1,armor15,armor39,accessory11,accessory23,accessory35,ring06,ring19,ring27",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 1095,       // gold given when this bot's orb is picked up
 
@@ -3193,7 +3193,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword12,gun12,gauntlet12,armor2,armor16,armor40,accessory12,accessory24,accessory36,ring07,ring20,ring28",
+    spawnItem: "speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor2,armor16,armor40,accessory12,accessory24,accessory36,ring07,ring20,ring28",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 1132,       // gold given when this bot's orb is picked up
 
@@ -3237,7 +3237,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword13,gun13,gauntlet13,armor3,armor17,armor41,accessory01,accessory13,accessory25,ring08,ring21,ring29",
+    spawnItem: "speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor3,armor17,armor41,accessory01,accessory13,accessory25,ring08,ring21,ring29",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 1170,       // gold given when this bot's orb is picked up
 
@@ -3281,7 +3281,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword14,gun14,gauntlet14,armor4,armor18,armor42,accessory02,accessory14,accessory26,ring09,ring22,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor4,armor18,armor42,accessory02,accessory14,accessory26,ring09,ring22,ring30",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 1208,       // gold given when this bot's orb is picked up
 
@@ -3325,7 +3325,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword15,gun15,gauntlet15,armor5,armor19,armor43,accessory03,accessory15,accessory27,ring10,ring23,ring31",
+    spawnItem: "speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor5,armor19,armor43,accessory03,accessory15,accessory27,ring10,ring23,ring31",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 1247,       // gold given when this bot's orb is picked up
 
@@ -3369,7 +3369,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor6,armor20,armor29,accessory04,accessory16,accessory28,ring11,ring24,ring32",
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor6,armor20,armor29,accessory04,accessory16,accessory28,ring11,ring24,ring32",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 1285,       // gold given when this bot's orb is picked up
 
@@ -3413,7 +3413,7 @@ const BOT_TYPES = {
     respawn: 10,
     active: false,
 
-    spawnItem: "sword17,gun17,gauntlet17,armor7,armor21,armor30,accessory05,accessory17,accessory29,ring12,ring25,ring33",
+    spawnItem: "speedup,powerup,sword17,gun17,gauntlet17,armor7,armor21,armor30,accessory05,accessory17,accessory29,ring12,ring25,ring33",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 1324,       // gold given when this bot's orb is picked up
 
@@ -3457,7 +3457,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor8,armor22,armor31,accessory06,accessory18,accessory30,ring13,ring26,ring34",
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor8,armor22,armor31,accessory06,accessory18,accessory30,ring13,ring26,ring34",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 230,       // gold given when this bot's orb is picked up
 
@@ -3501,7 +3501,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor9,armor23,armor32,accessory07,accessory19,accessory31,ring01,ring14,ring35",
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor9,armor23,armor32,accessory07,accessory19,accessory31,ring01,ring14,ring35",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 258,       // gold given when this bot's orb is picked up
 
@@ -3545,7 +3545,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor10,armor24,armor33,accessory08,accessory20,accessory32,ring02,ring15,ring36",
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor10,armor24,armor33,accessory08,accessory20,accessory32,ring02,ring15,ring36",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 314,       // gold given when this bot's orb is picked up
 
@@ -3589,7 +3589,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor11,armor25,armor34,accessory09,accessory21,accessory33,ring03,ring16,ring37",
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor11,armor25,armor34,accessory09,accessory21,accessory33,ring03,ring16,ring37",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 336,       // gold given when this bot's orb is picked up
 
@@ -3633,7 +3633,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor12,armor26,armor35,accessory10,accessory22,accessory34,ring04,ring17,ring38",
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor12,armor26,armor35,accessory10,accessory22,accessory34,ring04,ring17,ring38",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 364,       // gold given when this bot's orb is picked up
 
@@ -3677,7 +3677,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor13,armor27,armor36,accessory11,accessory23,accessory35,ring05,ring18,ring39",
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor13,armor27,armor36,accessory11,accessory23,accessory35,ring05,ring18,ring39",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 392,       // gold given when this bot's orb is picked up
 
@@ -3721,7 +3721,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor14,armor28,armor37,accessory12,accessory24,accessory36,ring06,ring19,ring40",
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor14,armor28,armor37,accessory12,accessory24,accessory36,ring06,ring19,ring40",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 414,       // gold given when this bot's orb is picked up
 
@@ -3765,7 +3765,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor1,armor15,armor38,accessory01,accessory13,accessory25,ring07,ring20,ring27",
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor1,armor15,armor38,accessory01,accessory13,accessory25,ring07,ring20,ring27",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 426,       // gold given when this bot's orb is picked up
 
@@ -3809,7 +3809,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor2,armor16,armor39,accessory02,accessory14,accessory26,ring08,ring21,ring28",
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor2,armor16,armor39,accessory02,accessory14,accessory26,ring08,ring21,ring28",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 449,       // gold given when this bot's orb is picked up
 
@@ -3853,7 +3853,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor3,armor17,armor40,accessory03,accessory15,accessory27,ring09,ring22,ring29",
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor3,armor17,armor40,accessory03,accessory15,accessory27,ring09,ring22,ring29",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 474,       // gold given when this bot's orb is picked up
 
@@ -3897,7 +3897,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor4,armor18,armor41,accessory04,accessory16,accessory28,ring10,ring23,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor4,armor18,armor41,accessory04,accessory16,accessory28,ring10,ring23,ring30",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 498,       // gold given when this bot's orb is picked up
 
@@ -3941,7 +3941,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor5,armor19,armor42,accessory05,accessory17,accessory29,ring11,ring24,ring31",
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor5,armor19,armor42,accessory05,accessory17,accessory29,ring11,ring24,ring31",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 524,       // gold given when this bot's orb is picked up
 
@@ -3985,7 +3985,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor6,armor20,armor43,accessory06,accessory18,accessory30,ring12,ring25,ring32",
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor6,armor20,armor43,accessory06,accessory18,accessory30,ring12,ring25,ring32",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 552,       // gold given when this bot's orb is picked up
 
@@ -4029,7 +4029,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor7,armor21,armor29,accessory07,accessory19,accessory31,ring13,ring26,ring33",
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor7,armor21,armor29,accessory07,accessory19,accessory31,ring13,ring26,ring33",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 580,       // gold given when this bot's orb is picked up
 
@@ -4073,7 +4073,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword12,gun12,gauntlet12,armor8,armor22,armor30,accessory08,accessory20,accessory32,ring01,ring14,ring34",
+    spawnItem: "speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor8,armor22,armor30,accessory08,accessory20,accessory32,ring01,ring14,ring34",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 608,       // gold given when this bot's orb is picked up
 
@@ -4117,7 +4117,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword13,gun13,gauntlet13,armor9,armor23,armor31,accessory09,accessory21,accessory33,ring02,ring15,ring35",
+    spawnItem: "speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor9,armor23,armor31,accessory09,accessory21,accessory33,ring02,ring15,ring35",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 638,       // gold given when this bot's orb is picked up
 
@@ -4161,7 +4161,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword14,gun14,gauntlet14,armor10,armor24,armor32,accessory10,accessory22,accessory34,ring03,ring16,ring36",
+    spawnItem: "speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor10,armor24,armor32,accessory10,accessory22,accessory34,ring03,ring16,ring36",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 669,       // gold given when this bot's orb is picked up
 
@@ -4205,7 +4205,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword15,gun15,gauntlet15,armor11,armor25,armor33,accessory11,accessory23,accessory35,ring04,ring17,ring37",
+    spawnItem: "speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor11,armor25,armor33,accessory11,accessory23,accessory35,ring04,ring17,ring37",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 701,       // gold given when this bot's orb is picked up
 
@@ -4249,7 +4249,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor12,armor26,armor34,accessory12,accessory24,accessory36,ring05,ring18,ring38",
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor12,armor26,armor34,accessory12,accessory24,accessory36,ring05,ring18,ring38",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 734,       // gold given when this bot's orb is picked up
 
@@ -4293,7 +4293,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword17,gun17,gauntlet17,armor13,armor27,armor35,accessory01,accessory13,accessory25,ring06,ring19,ring39",
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor13,armor27,armor35,accessory01,accessory13,accessory25,ring06,ring19,ring39",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 766,       // gold given when this bot's orb is picked up
 
@@ -4337,7 +4337,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor14,armor28,armor36,accessory02,accessory14,accessory26,ring07,ring20,ring40",
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor14,armor28,armor36,accessory02,accessory14,accessory26,ring07,ring20,ring40",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 801,       // gold given when this bot's orb is picked up
 
@@ -4381,7 +4381,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor1,armor15,armor37,accessory03,accessory15,accessory27,ring08,ring21,ring27",
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor1,armor15,armor37,accessory03,accessory15,accessory27,ring08,ring21,ring27",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 836,       // gold given when this bot's orb is picked up
 
@@ -4425,7 +4425,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor2,armor16,armor38,accessory04,accessory16,accessory28,ring09,ring22,ring28",
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor2,armor16,armor38,accessory04,accessory16,accessory28,ring09,ring22,ring28",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 871,       // gold given when this bot's orb is picked up
 
@@ -4469,7 +4469,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor3,armor17,armor39,accessory05,accessory17,accessory29,ring10,ring23,ring29",
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor3,armor17,armor39,accessory05,accessory17,accessory29,ring10,ring23,ring29",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 908,       // gold given when this bot's orb is picked up
 
@@ -4513,7 +4513,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor4,armor18,armor40,accessory06,accessory18,accessory30,ring11,ring24,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor4,armor18,armor40,accessory06,accessory18,accessory30,ring11,ring24,ring30",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 945,       // gold given when this bot's orb is picked up
 
@@ -4557,7 +4557,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor5,armor19,armor41,accessory07,accessory19,accessory31,ring12,ring25,ring31",
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor5,armor19,armor41,accessory07,accessory19,accessory31,ring12,ring25,ring31",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 984,       // gold given when this bot's orb is picked up
 
@@ -4601,7 +4601,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor6,armor20,armor42,accessory08,accessory20,accessory32,ring13,ring26,ring32",
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor6,armor20,armor42,accessory08,accessory20,accessory32,ring13,ring26,ring32",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 1023,       // gold given when this bot's orb is picked up
 
@@ -4645,7 +4645,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor7,armor21,armor43,accessory09,accessory21,accessory33,ring01,ring14,ring33",
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor7,armor21,armor43,accessory09,accessory21,accessory33,ring01,ring14,ring33",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 1063,       // gold given when this bot's orb is picked up
 
@@ -4689,7 +4689,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor8,armor22,armor29,accessory10,accessory22,accessory34,ring02,ring15,ring34",
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor8,armor22,armor29,accessory10,accessory22,accessory34,ring02,ring15,ring34",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 1102,       // gold given when this bot's orb is picked up
 
@@ -4733,7 +4733,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor9,armor23,armor30,accessory11,accessory23,accessory35,ring03,ring16,ring35",
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor9,armor23,armor30,accessory11,accessory23,accessory35,ring03,ring16,ring35",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 1144,       // gold given when this bot's orb is picked up
 
@@ -4777,7 +4777,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor10,armor24,armor31,accessory12,accessory24,accessory36,ring04,ring17,ring36",
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor10,armor24,armor31,accessory12,accessory24,accessory36,ring04,ring17,ring36",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 1184,       // gold given when this bot's orb is picked up
 
@@ -4821,7 +4821,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor11,armor25,armor32,accessory01,accessory13,accessory25,ring05,ring18,ring37",
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor11,armor25,armor32,accessory01,accessory13,accessory25,ring05,ring18,ring37",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 1226,       // gold given when this bot's orb is picked up
 
@@ -4865,7 +4865,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor12,armor26,armor33,accessory02,accessory14,accessory26,ring06,ring19,ring38",
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor12,armor26,armor33,accessory02,accessory14,accessory26,ring06,ring19,ring38",
     spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
     goldOrbAmount: 1268,       // gold given when this bot's orb is picked up
 
@@ -4909,7 +4909,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor13,armor27,armor34,accessory03,accessory15,accessory27,ring07,ring20,ring39",
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor13,armor27,armor34,accessory03,accessory15,accessory27,ring07,ring20,ring39",
     spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
     goldOrbAmount: 1310,       // gold given when this bot's orb is picked up
 
@@ -4953,7 +4953,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword12,gun12,gauntlet12,armor14,armor28,armor35,accessory04,accessory16,accessory28,ring08,ring21,ring40",
+    spawnItem: "speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor14,armor28,armor35,accessory04,accessory16,accessory28,ring08,ring21,ring40",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 1353,       // gold given when this bot's orb is picked up
 
@@ -4997,7 +4997,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword13,gun13,gauntlet13,armor1,armor15,armor36,accessory05,accessory17,accessory29,ring09,ring22,ring27",
+    spawnItem: "speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor1,armor15,armor36,accessory05,accessory17,accessory29,ring09,ring22,ring27",
     spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
     goldOrbAmount: 1397,       // gold given when this bot's orb is picked up
 
@@ -5041,7 +5041,7 @@ const BOT_TYPES = {
     respawn: 60,
     active: true,
 
-    spawnItem: "specialstone,sword14,gun14,gauntlet14,armor2,armor16,armor37,accessory06,accessory18,accessory30,ring10,ring23,ring28",
+    spawnItem: "speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor2,armor16,armor37,accessory06,accessory18,accessory30,ring10,ring23,ring28",
     spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
     goldOrbAmount: 1439,       // gold given when this bot's orb is picked up
 
@@ -5093,7 +5093,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29",
+    spawnItem: "speedup,powerup,sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 150,       // gold given when this bot's orb is picked up
 
@@ -5137,7 +5137,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 190,       // gold given when this bot's orb is picked up
 
@@ -5182,7 +5182,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31",
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 230,       // gold given when this bot's orb is picked up
 
@@ -5227,7 +5227,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32",
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 270,       // gold given when this bot's orb is picked up
 
@@ -5272,7 +5272,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33",
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 310,       // gold given when this bot's orb is picked up
 
@@ -5317,7 +5317,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34",
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 350,       // gold given when this bot's orb is picked up
 
@@ -5362,7 +5362,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35",
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 390,       // gold given when this bot's orb is picked up
 
@@ -5407,7 +5407,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36",
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 430,       // gold given when this bot's orb is picked up
 
@@ -5452,7 +5452,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37",
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 470,       // gold given when this bot's orb is picked up
 
@@ -5497,7 +5497,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38",
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 510,       // gold given when this bot's orb is picked up
 
@@ -5542,7 +5542,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39",
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 550,       // gold given when this bot's orb is picked up
 
@@ -5587,7 +5587,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40",
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 590,       // gold given when this bot's orb is picked up
 
@@ -5632,7 +5632,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27",
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 630,       // gold given when this bot's orb is picked up
 
@@ -5677,7 +5677,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28",
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 670,       // gold given when this bot's orb is picked up
 
@@ -5722,7 +5722,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29",
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 710,       // gold given when this bot's orb is picked up
 
@@ -5767,7 +5767,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 750,       // gold given when this bot's orb is picked up
 
@@ -5812,7 +5812,7 @@ const BOT_TYPES = {
     respawn: 30,
     active: false,
 
-    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor5,armor19,armor39,accessory11,accessory23,accessory35,ring01,ring14,ring31",
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor5,armor19,armor39,accessory11,accessory23,accessory35,ring01,ring14,ring31",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 790,       // gold given when this bot's orb is picked up
 
@@ -5866,7 +5866,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29",
+    spawnItem: "speedup,powerup,sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 150,       // gold given when this bot's orb is picked up
 
@@ -5910,7 +5910,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 190,       // gold given when this bot's orb is picked up
 
@@ -5955,7 +5955,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31",
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 230,       // gold given when this bot's orb is picked up
 
@@ -6000,7 +6000,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32",
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 270,       // gold given when this bot's orb is picked up
 
@@ -6045,7 +6045,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33",
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 310,       // gold given when this bot's orb is picked up
 
@@ -6090,7 +6090,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34",
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 350,       // gold given when this bot's orb is picked up
 
@@ -6135,7 +6135,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35",
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 390,       // gold given when this bot's orb is picked up
 
@@ -6180,7 +6180,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36",
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 430,       // gold given when this bot's orb is picked up
 
@@ -6225,7 +6225,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37",
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 470,       // gold given when this bot's orb is picked up
 
@@ -6270,7 +6270,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38",
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 510,       // gold given when this bot's orb is picked up
 
@@ -6315,7 +6315,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39",
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 550,       // gold given when this bot's orb is picked up
 
@@ -6360,7 +6360,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40",
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 590,       // gold given when this bot's orb is picked up
 
@@ -6405,7 +6405,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27",
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 630,       // gold given when this bot's orb is picked up
 
@@ -6450,7 +6450,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28",
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 670,       // gold given when this bot's orb is picked up
 
@@ -6495,7 +6495,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29",
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 710,       // gold given when this bot's orb is picked up
 
@@ -6540,7 +6540,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 750,       // gold given when this bot's orb is picked up
 
@@ -6585,7 +6585,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor5,armor19,armor39,accessory11,accessory23,accessory35,ring01,ring14,ring31",
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor5,armor19,armor39,accessory11,accessory23,accessory35,ring01,ring14,ring31",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 790,       // gold given when this bot's orb is picked up
 
@@ -6630,7 +6630,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29",
+    spawnItem: "speedup,powerup,sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 150,       // gold given when this bot's orb is picked up
 
@@ -6674,7 +6674,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 190,       // gold given when this bot's orb is picked up
 
@@ -6719,7 +6719,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31",
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 230,       // gold given when this bot's orb is picked up
 
@@ -6764,7 +6764,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32",
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 270,       // gold given when this bot's orb is picked up
 
@@ -6809,7 +6809,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33",
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 310,       // gold given when this bot's orb is picked up
 
@@ -6854,7 +6854,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34",
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 350,       // gold given when this bot's orb is picked up
 
@@ -6899,7 +6899,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35",
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 390,       // gold given when this bot's orb is picked up
 
@@ -6944,7 +6944,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36",
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 430,       // gold given when this bot's orb is picked up
 
@@ -6989,7 +6989,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37",
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 470,       // gold given when this bot's orb is picked up
 
@@ -7034,7 +7034,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38",
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 510,       // gold given when this bot's orb is picked up
 
@@ -7079,7 +7079,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39",
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 550,       // gold given when this bot's orb is picked up
 
@@ -7124,7 +7124,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40",
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 590,       // gold given when this bot's orb is picked up
 
@@ -7169,7 +7169,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27",
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 630,       // gold given when this bot's orb is picked up
 
@@ -7214,7 +7214,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28",
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 670,       // gold given when this bot's orb is picked up
 
@@ -7259,7 +7259,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29",
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 710,       // gold given when this bot's orb is picked up
 
@@ -7304,7 +7304,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 750,       // gold given when this bot's orb is picked up
 
@@ -7349,7 +7349,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword11,gun11,gauntlet11,armor5,armor19,armor39,accessory11,accessory23,accessory35,ring01,ring14,ring31",
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor5,armor19,armor39,accessory11,accessory23,accessory35,ring01,ring14,ring31",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 790,       // gold given when this bot's orb is picked up
 
@@ -7394,7 +7394,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29",
+    spawnItem: "speedup,powerup,sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 150,       // gold given when this bot's orb is picked up
 
@@ -7438,7 +7438,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 190,       // gold given when this bot's orb is picked up
 
@@ -7483,7 +7483,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31",
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 230,       // gold given when this bot's orb is picked up
 
@@ -7528,7 +7528,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32",
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 270,       // gold given when this bot's orb is picked up
 
@@ -7573,7 +7573,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33",
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 310,       // gold given when this bot's orb is picked up
 
@@ -7618,7 +7618,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34",
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 350,       // gold given when this bot's orb is picked up
 
@@ -7663,7 +7663,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35",
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 390,       // gold given when this bot's orb is picked up
 
@@ -7708,7 +7708,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36",
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 430,       // gold given when this bot's orb is picked up
 
@@ -7753,7 +7753,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37",
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 470,       // gold given when this bot's orb is picked up
 
@@ -7798,7 +7798,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38",
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 510,       // gold given when this bot's orb is picked up
 
@@ -7843,7 +7843,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39",
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 550,       // gold given when this bot's orb is picked up
 
@@ -7888,7 +7888,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40",
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 590,       // gold given when this bot's orb is picked up
 
@@ -7933,7 +7933,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27",
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 630,       // gold given when this bot's orb is picked up
 
@@ -7978,7 +7978,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28",
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 670,       // gold given when this bot's orb is picked up
 
@@ -8023,7 +8023,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29",
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 710,       // gold given when this bot's orb is picked up
 
@@ -8068,7 +8068,7 @@ const BOT_TYPES = {
     respawn: 3600,
     active: false,
 
-    spawnItem: "specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30",
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30",
     spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
     goldOrbAmount: 750,       // gold given when this bot's orb is picked up
 
