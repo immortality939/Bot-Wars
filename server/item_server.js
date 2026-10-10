@@ -885,7 +885,60 @@ function applyItemEffect(player, typeName) {
   }
 
   // play the pickup's music (speedup -> speedupMB.mp3, powerup -> powerupMB.mp3)
-  if (typeName === "speedup" || typeName === "powerup") syncEffectMusic(player, typeName);
+  if (typeName === "speedup" || typeName === "powerup") { syncEffectMusic(player, typeName); showEffectBanner(typeName); }
+}
+
+
+
+// ---------------------------------------------------------------------------
+// PICKUP BANNER — "SPEED UP!" / "POWER UP!" pops in big at the top middle of
+// the screen when the item is picked up: it pumps (scales up and down) and
+// shakes for a moment, then fades out. Pure CSS animation on a DOM element.
+// Change texts / colors / EFFECT_BANNER_MS here.
+// ---------------------------------------------------------------------------
+const EFFECT_BANNER_MS = 1800;   // how long the banner stays on screen
+const EFFECT_BANNER_STYLES = {
+  speedup: { text: "SPEED UP!", color: "#4de3ff", glow: "#0077ff" },
+  powerup: { text: "POWER UP!", color: "#ffd84d", glow: "#ff3b00" }
+};
+
+function showEffectBanner(typeName) {
+  const def = EFFECT_BANNER_STYLES[typeName];
+  if (!def || typeof document === "undefined") return;
+  try {
+    if (!document.getElementById("effectBannerStyle")) {
+      const st = document.createElement("style");
+      st.id = "effectBannerStyle";
+      st.textContent =
+        "@keyframes effBannerLife{0%{opacity:0;transform:translate(-50%,0) scale(.2)}" +
+        "12%{opacity:1;transform:translate(-50%,0) scale(1.45)}" +
+        "22%{transform:translate(-50%,0) scale(.92)}" +
+        "34%{transform:translate(-50%,0) scale(1.25)}" +
+        "46%{transform:translate(-50%,0) scale(1)}" +
+        "78%{opacity:1;transform:translate(-50%,0) scale(1.06)}" +
+        "100%{opacity:0;transform:translate(-50%,-30px) scale(1.15)}}" +
+        "@keyframes effBannerShake{0%,100%{rotate:0deg;translate:0 0}" +
+        "10%{rotate:-4deg;translate:-6px 2px}20%{rotate:4deg;translate:6px -2px}" +
+        "30%{rotate:-3deg;translate:-5px -2px}40%{rotate:3deg;translate:5px 2px}" +
+        "50%{rotate:-2deg;translate:-3px 1px}60%{rotate:2deg;translate:3px -1px}" +
+        "70%{rotate:0deg;translate:0 0}}";
+      document.head.appendChild(st);
+    }
+    const old = document.getElementById("effectBanner");
+    if (old) old.remove();   // a new pickup replaces the old banner
+    const el = document.createElement("div");
+    el.id = "effectBanner";
+    el.textContent = def.text;
+    el.style.cssText =
+      "position:fixed;left:50%;top:22%;z-index:9990;pointer-events:none;white-space:nowrap;" +
+      "font:900 clamp(34px,9vw,72px) 'Arial Black',Impact,sans-serif;letter-spacing:3px;font-style:italic;" +
+      "color:" + def.color + ";-webkit-text-stroke:3px #101018;paint-order:stroke fill;" +
+      "text-shadow:0 0 14px " + def.glow + ",0 0 30px " + def.glow + ",0 5px 0 #101018;" +
+      "animation:effBannerLife " + EFFECT_BANNER_MS + "ms ease-out forwards," +
+      "effBannerShake 600ms linear 150ms 2;";
+    document.body.appendChild(el);
+    setTimeout(() => { if (el.parentNode) el.remove(); }, EFFECT_BANNER_MS + 100);
+  } catch (e) {}
 }
 
 
