@@ -523,7 +523,11 @@ function netApplyDrops(list) {
       // player who joined/rejoined a minute later saw a fresh 30 seconds on
       // an item everyone else had already watched vanish. This makes every
       // client agree on when the item actually despawns.
-      if (typeof s.at === "number") {
+      // Prefer the server-computed age (immune to a wrong phone clock); fall back to
+      // the old wall-clock maths only if an older server doesn't send `age`.
+      if (typeof s.age === "number") {
+        d.spawnTime = performance.now() - Math.max(0, s.age);
+      } else if (typeof s.at === "number") {
         d.spawnTime = performance.now() - (Date.now() - s.at);
       }
       // Already expired by the time it arrived (e.g. a slow join) — skip it
@@ -3697,9 +3701,9 @@ function olBossApplyMove(msg) {
 // Hard-coded here (keep in sync with CLAN_WAR in server.js):
 const OL_CW = {
   KEY: "CWmap",
-  DAYS: [2, 4, 6, 0],    // Tuesday, Thursday, Saturday, Sunday
-  START_HOUR: 22,        // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
-  END_HOUR: 22.75,        // 9 PM  (21)
+  DAYS: [3, 4, 6, 0],    // Tuesday, Thursday, Saturday, Sunday
+  START_HOUR: 20,        // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
+  END_HOUR: 21,        // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,    // Philippine time
   // The AUTHENTICATE / CLAIM REWARD pad lying on the map floor (top middle of the map).
   // x, y = its CENTER in map pixels, size = its width/height. Keep in sync with CLAN_WAR.PAD in server.js.
@@ -3729,11 +3733,8 @@ const OL_CW = {
     #cwActionBtn:active { transform:translateX(-50%) scale(0.94); }
     #cwRewardBox { position:fixed; left:50%; bottom:calc(22% + 58px); transform:translateX(-50%); z-index:9000; display:none; box-sizing:border-box;
       padding:10px 12px 12px; border:1px solid rgba(255,200,90,0.85); border-radius:6px; background:rgba(20,14,4,0.94); color:#ffe9b0;
-      font-family:'Courier New',Courier,monospace; text-align:center; max-width:94vw;
-      /* tall reward list: keep the box on screen and let the player swipe up/down inside it */
-      max-height:calc(78vh - 70px - env(safe-area-inset-top, 0px)); max-height:calc(78dvh - 70px - env(safe-area-inset-top, 0px));
-      overflow-y:auto; overflow-x:hidden; overscroll-behavior:contain; -webkit-overflow-scrolling:touch; touch-action:pan-y; }
-    #cwRewardTitle { font-weight:900; font-size:12px; letter-spacing:2px; margin-bottom:6px; position:sticky; top:-10px; z-index:2; padding:4px 0; background:rgba(20,14,4,0.97); }
+      font-family:'Courier New',Courier,monospace; text-align:center; max-width:94vw; }
+    #cwRewardTitle { font-weight:900; font-size:12px; letter-spacing:2px; margin-bottom:6px; }
     #cwRewardGrid { display:grid; grid-template-columns:repeat(4, 46px); grid-template-rows:repeat(4, 46px); gap:4px; justify-content:center; }
     .cwSlot { box-sizing:border-box; width:46px; height:46px; border:1px solid rgba(255,255,255,0.28); border-radius:4px; background:rgba(0,0,0,0.5);
       display:flex; align-items:center; justify-content:center; position:relative; touch-action:manipulation; }
@@ -3743,7 +3744,7 @@ const OL_CW = {
     .cwSlot.sel { border-color:#5dff7a; box-shadow:0 0 8px #5dff7a; }
     #cwRewardShare { margin-top:6px; font-size:10px; font-weight:900; color:#ffd86b; }
     #cwRewardHint { margin-top:6px; font-size:10px; opacity:0.85; }
-    #cwRewardClose { position:sticky; top:0; float:right; z-index:3; margin:-4px -4px 0 0; padding:2px 6px; cursor:pointer; font-weight:900; font-size:14px; color:#ffd86b; }
+    #cwRewardClose { position:absolute; top:2px; right:6px; cursor:pointer; font-weight:900; font-size:14px; color:#ffd86b; }
     @keyframes cwBannerMove { from { transform:translateX(0); } to { transform:translateX(-100%); } }
   `;
   document.head.appendChild(st);
