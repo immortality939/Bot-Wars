@@ -116,9 +116,9 @@ const BOSS_EVENT = {
 //          { kind:"weapon"|"armor"|"ring"|"accessory"|"stone"|"orb", type:"<item name>" } -> 1 each
 const CLAN_WAR = {
   KEY: "CWmap",
-  DAYS: [2, 4, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
-  START_HOUR: 22,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
-  END_HOUR: 22.75,         // 9 PM  (21)
+  DAYS: [3, 4, 6, 0],     // 2=Tuesday, 4=Thursday, 6=Saturday, 0=Sunday
+  START_HOUR: 20,         // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
+  END_HOUR: 21,         // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,     // Philippines
   // The AUTHENTICATE / CLAIM REWARD pad on the map floor (x, y = center, size = width/height).
   // Keep in sync with OL_CW.PAD in online_client.js.
@@ -1329,20 +1329,6 @@ function removeFromClan(p) {
   broadcastClanUpdate(clan);
 }
 
-// Leader kicked a member (online OR offline): they lose the clan at once, the
-// roster is saved to the database, and everyone left gets the new member list.
-function kickFromClan(clan, uid) {
-  clan.members = clan.members.filter((m) => m.uid !== uid);
-  clanOfUid.delete(uid);
-  const o = onlineByUid.get(uid);
-  if (o) {
-    o.clanId = null;
-    send(o.ws, { type: "clanUpdate", clanId: null, members: [] });
-  }
-  clanDb(() => sbRest("DELETE", "clan_members?uid=eq." + q(uid)));
-  broadcastClanUpdate(clan);
-}
-
 // Leader pressed DISBAND (after CONFIRM): the whole clan is removed and
 // every member — leader included, online or not — loses it. Offline members
 // find no clan the next time they log in.
@@ -1624,9 +1610,12 @@ function pruneDrops(room) {
 }
 function dropList(room) {
   pruneDrops(room);
+  // `age` = how old the drop is by the SERVER's clock (ms). Clients use it instead of
+  // comparing `at` with their own phone clock, which can be seconds off.
+  const nowMs = Date.now();
   return [...room.drops.values()].map((d) => d.k === "inv"
-    ? { id: d.id, k: "inv", invType: d.invType, name: d.name, data: d.data, qty: d.qty, x: d.x, y: d.y, at: d.at }
-    : { id: d.id, t: d.t, x: d.x, y: d.y, at: d.at, stats: d.stats });
+    ? { id: d.id, k: "inv", invType: d.invType, name: d.name, data: d.data, qty: d.qty, x: d.x, y: d.y, at: d.at, age: Math.max(0, nowMs - d.at) }
+    : { id: d.id, t: d.t, x: d.x, y: d.y, at: d.at, age: Math.max(0, nowMs - d.at), stats: d.stats });
 }
 function clearDropsIfEmpty() { /* intentionally keeps loot in empty rooms */ }
 
@@ -2141,7 +2130,7 @@ wss.on("connection", (ws) => {
           added.push(drop);
         }
         while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
-        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y, amt, at, stats }) => ({ id, t, x, y, amt, at, stats })) }, -1);
+        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y, amt, at, stats }) => ({ id, t, x, y, amt, at, age: 0, stats })) }, -1);
         break;
       }
 
@@ -2172,7 +2161,7 @@ wss.on("connection", (ws) => {
         while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
         broadcast(me.room, {
           type: "invDropAdd",
-          drop: { id: drop.id, k: "inv", invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty, x: drop.x, y: drop.y, at: drop.at }
+          drop: { id: drop.id, k: "inv", invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty, x: drop.x, y: drop.y, at: drop.at, age: 0 }
         }, -1);
         break;
       }
@@ -2748,23 +2737,6 @@ wss.on("connection", (ws) => {
         if (!clanOf(me)) { send(ws, { type: "clanUpdate", clanId: null, members: [] }); break; }
         removeFromClan(me);
         break;
-
-      // KICK — leader only. targetId is the id the roster showed for that member
-      // (their live player id, or "u:<uid>" while they're offline).
-      case "clanKick": {
-        const c = clanOf(me);
-        if (!c) { send(ws, { type: "clanUpdate", clanId: null, members: [] }); break; }
-        if (c.leaderUid !== me.uid) { send(ws, { type: "clanError", reason: "Only the leader can kick members" }); break; }
-        const tid = String(msg.targetId);
-        const target = c.members.find((m) => {
-          const o = onlineByUid.get(m.uid);
-          return String(o ? o.id : "u:" + m.uid) === tid;
-        });
-        if (!target) break;                                   // already gone
-        if (target.uid === me.uid) { send(ws, { type: "clanError", reason: "You can't kick yourself" }); break; }
-        kickFromClan(c, target.uid);
-        break;
-      }
 
       // DISBAND — leader only; removes the clan and all its members.
       case "clanDisband": {
