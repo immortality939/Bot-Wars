@@ -3729,8 +3729,11 @@ const OL_CW = {
     #cwActionBtn:active { transform:translateX(-50%) scale(0.94); }
     #cwRewardBox { position:fixed; left:50%; bottom:calc(22% + 58px); transform:translateX(-50%); z-index:9000; display:none; box-sizing:border-box;
       padding:10px 12px 12px; border:1px solid rgba(255,200,90,0.85); border-radius:6px; background:rgba(20,14,4,0.94); color:#ffe9b0;
-      font-family:'Courier New',Courier,monospace; text-align:center; max-width:94vw; }
-    #cwRewardTitle { font-weight:900; font-size:12px; letter-spacing:2px; margin-bottom:6px; }
+      font-family:'Courier New',Courier,monospace; text-align:center; max-width:94vw;
+      /* tall reward list: keep the box on screen and let the player swipe up/down inside it */
+      max-height:calc(78vh - 70px - env(safe-area-inset-top, 0px)); max-height:calc(78dvh - 70px - env(safe-area-inset-top, 0px));
+      overflow-y:auto; overflow-x:hidden; overscroll-behavior:contain; -webkit-overflow-scrolling:touch; touch-action:pan-y; }
+    #cwRewardTitle { font-weight:900; font-size:12px; letter-spacing:2px; margin-bottom:6px; position:sticky; top:-10px; z-index:2; padding:4px 0; background:rgba(20,14,4,0.97); }
     #cwRewardGrid { display:grid; grid-template-columns:repeat(4, 46px); grid-template-rows:repeat(4, 46px); gap:4px; justify-content:center; }
     .cwSlot { box-sizing:border-box; width:46px; height:46px; border:1px solid rgba(255,255,255,0.28); border-radius:4px; background:rgba(0,0,0,0.5);
       display:flex; align-items:center; justify-content:center; position:relative; touch-action:manipulation; }
@@ -3740,7 +3743,7 @@ const OL_CW = {
     .cwSlot.sel { border-color:#5dff7a; box-shadow:0 0 8px #5dff7a; }
     #cwRewardShare { margin-top:6px; font-size:10px; font-weight:900; color:#ffd86b; }
     #cwRewardHint { margin-top:6px; font-size:10px; opacity:0.85; }
-    #cwRewardClose { position:absolute; top:2px; right:6px; cursor:pointer; font-weight:900; font-size:14px; color:#ffd86b; }
+    #cwRewardClose { position:sticky; top:0; float:right; z-index:3; margin:-4px -4px 0 0; padding:2px 6px; cursor:pointer; font-weight:900; font-size:14px; color:#ffd86b; }
     @keyframes cwBannerMove { from { transform:translateX(0); } to { transform:translateX(-100%); } }
   `;
   document.head.appendChild(st);
