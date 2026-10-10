@@ -99,8 +99,9 @@ const ITEM_TYPES = {
     image: "image/powerup.png",
     radius: 10,
 
-    healthMultiplier: 1.0, // max health & current health both x2
+    healthMultiplier: 0.0, // max health & current health both x2
     damageMultiplier: 2, // current weapon's damage x2
+    speedBonus: 30,      // powerup ALSO adds this to movementSpeed (same as speedup)
     duration: 60000,     // ms (10 sec)
     spawnChance: 0.1,   // 40%
     timeLife: 30000,    // ms — despawns if not looted within 30 sec
@@ -839,7 +840,10 @@ function applyItemEffect(player, typeName) {
     }
 
     case "speedup": {
-      // Remember the un-buffed speed the FIRST time speedup kicks in, so
+      // speedup replaces a running powerup (powerup's speed is part of it).
+      if (player.activeEffects.powerup) endTimedItemEffect(player, "powerup");
+
+      // Remember the un-buffed speed the FIRST time the buff kicks in, so
       // picking up a second one mid-buff refreshes the timer instead of
       // stacking on top of an already-boosted speed.
       if (!player.activeEffects.speedup) {
@@ -855,14 +859,23 @@ function applyItemEffect(player, typeName) {
     }
 
     case "powerup": {
+      // powerup replaces a running speedup (it gives the speed bonus itself).
+      if (player.activeEffects.speedup) endTimedItemEffect(player, "speedup");
+
       if (!player.activeEffects.powerup) {
+        player.baseMovementSpeed = player.movementSpeed;
         player.baseMaxHealth = player.health;
         // player.weapon can be null (no weapon equipped yet) -- only
         // remember/buff weapon damage when there actually is a weapon.
         player.baseWeaponDamage = player.weapon ? player.weapon.physicalDamage : undefined;
 
-        player.health = player.baseMaxHealth * def.healthMultiplier;
-        player.currentHealth = player.currentHealth * def.healthMultiplier;
+        player.movementSpeed = player.baseMovementSpeed + (def.speedBonus || 0);
+
+        // health is only touched when a real multiplier is set (0 or 1 = leave health alone)
+        if (def.healthMultiplier > 0 && def.healthMultiplier !== 1) {
+          player.health = player.baseMaxHealth * def.healthMultiplier;
+          player.currentHealth = player.currentHealth * def.healthMultiplier;
+        }
 
         // IMPORTANT: player.weapon is the SAME object reference stored in
         // WEAPONS in weapon.js (character.js's attachWeaponToCharacter()
@@ -1006,6 +1019,35 @@ function stopEffectMusic() {
 
 
 // ---------------------------------------------------------------------------
+// SPEEDUP / POWERUP are mutually exclusive: only ONE of them is ever active.
+//   speedup -> movement speed + speedBonus
+//   powerup -> weapon damage x damageMultiplier AND movement speed + speedBonus
+// Picking one up while the other is running REPLACES it (the old one ends at
+// once, its stats are put back, and its HUD icon goes away).
+// ---------------------------------------------------------------------------
+function endTimedItemEffect(player, key) {
+  if (!player.activeEffects || !player.activeEffects[key]) return;
+
+  // both effects change movement speed: put the un-buffed speed back
+  if (typeof player.baseMovementSpeed === "number") player.movementSpeed = player.baseMovementSpeed;
+
+  if (key === "powerup") {
+    if (typeof player.baseMaxHealth === "number") {
+      player.health = player.baseMaxHealth;
+      // Clamp rather than rescale: damage taken while buffed stays taken.
+      player.currentHealth = Math.min(player.currentHealth, player.health);
+    }
+    if (player.weapon && typeof player.baseWeaponDamage === "number") {
+      player.weapon = Object.assign({}, player.weapon, {
+        physicalDamage: player.baseWeaponDamage
+      });
+    }
+  }
+
+  delete player.activeEffects[key];
+}
+
+// ---------------------------------------------------------------------------
 // TICK ACTIVE (TIMED) EFFECTS — call every frame. Reverts stats back to
 // normal once an effect's duration runs out.
 // ---------------------------------------------------------------------------
@@ -1016,24 +1058,11 @@ function updateActiveEffects(player) {
   const now = performance.now();
 
   if (player.activeEffects.speedup && now >= player.activeEffects.speedup.endTime) {
-    player.movementSpeed = player.baseMovementSpeed;
-    delete player.activeEffects.speedup;
+    endTimedItemEffect(player, "speedup");
   }
 
   if (player.activeEffects.powerup && now >= player.activeEffects.powerup.endTime) {
-    player.health = player.baseMaxHealth;
-    // Clamp rather than rescale: if the player took damage while the
-    // buff was active, they keep that absolute damage instead of it
-    // being "healed back" proportionally when max health halves again.
-    player.currentHealth = Math.min(player.currentHealth, player.health);
-
-    if (player.weapon && typeof player.baseWeaponDamage === "number") {
-      player.weapon = Object.assign({}, player.weapon, {
-        physicalDamage: player.baseWeaponDamage
-      });
-    }
-
-    delete player.activeEffects.powerup;
+    endTimedItemEffect(player, "powerup");
   }
 
   // effect ran out -> stop its music and resume the map music
@@ -1187,6 +1216,9 @@ const ACTIVE_ICON_SIZE = 14;
 const ACTIVE_ICON_GAP = 3;
 
 function drawActiveEffectIcons(ctx, player, screenX, screenAboveY) {
+
+  // speedup / powerup icons now show in the buff HUD (top-left, like poweraura), not above the player.
+  return;
 
   if (!player.activeEffects) return;
 
