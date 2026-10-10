@@ -99,7 +99,7 @@ const ITEM_TYPES = {
     image: "image/powerup.png",
     radius: 10,
 
-    healthMultiplier: 1.0, // max health & current health both x2
+    healthMultiplier: 0.0, // max health & current health both x2
     damageMultiplier: 2, // current weapon's damage x2
     speedBonus: 30,      // powerup ALSO adds this to movementSpeed (same as speedup)
     duration: 60000,     // ms (10 sec)
@@ -865,9 +865,6 @@ function applyItemEffect(player, typeName) {
       if (!player.activeEffects.powerup) {
         player.baseMovementSpeed = player.movementSpeed;
         player.baseMaxHealth = player.health;
-        // player.weapon can be null (no weapon equipped yet) -- only
-        // remember/buff weapon damage when there actually is a weapon.
-        player.baseWeaponDamage = player.weapon ? player.weapon.physicalDamage : undefined;
 
         player.movementSpeed = player.baseMovementSpeed + (def.speedBonus || 0);
 
@@ -876,22 +873,15 @@ function applyItemEffect(player, typeName) {
           player.health = player.baseMaxHealth * def.healthMultiplier;
           player.currentHealth = player.currentHealth * def.healthMultiplier;
         }
-
-        // IMPORTANT: player.weapon is the SAME object reference stored in
-        // WEAPONS in weapon.js (character.js's attachWeaponToCharacter()
-        // doesn't clone it). Mutating .physicalDamage directly would
-        // permanently buff that weapon for everyone. Give the player
-        // their own shallow copy instead, so only their weapon is affected.
-        if (player.weapon && typeof player.baseWeaponDamage === "number") {
-          player.weapon = Object.assign({}, player.weapon, {
-            physicalDamage: player.baseWeaponDamage * def.damageMultiplier
-          });
-        }
       }
 
+      // DAMAGE: the x2 is applied to the TOTAL damage of every shot / skill (weapon + the
+      // character's own damage + crit) through getPowerBoostMultiplier() in skill.js /
+      // skill_server.js, which reads damageMultiplier from here.
       player.activeEffects.powerup = {
         endTime: performance.now() + def.duration,
-        icon: def.icon
+        icon: def.icon,
+        damageMultiplier: def.damageMultiplier || 1
       };
       break;
     }
@@ -1036,11 +1026,6 @@ function endTimedItemEffect(player, key) {
       player.health = player.baseMaxHealth;
       // Clamp rather than rescale: damage taken while buffed stays taken.
       player.currentHealth = Math.min(player.currentHealth, player.health);
-    }
-    if (player.weapon && typeof player.baseWeaponDamage === "number") {
-      player.weapon = Object.assign({}, player.weapon, {
-        physicalDamage: player.baseWeaponDamage
-      });
     }
   }
 
