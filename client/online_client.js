@@ -3697,9 +3697,9 @@ function olBossApplyMove(msg) {
 // Hard-coded here (keep in sync with CLAN_WAR in server.js):
 const OL_CW = {
   KEY: "CWmap",
-  DAYS: [3, 4, 6, 0],    // Tuesday, Thursday, Saturday, Sunday
+  DAYS: [2, 4, 6, 0],    // Tuesday, Thursday, Saturday, Sunday
   START_HOUR: 22,        // 8 PM  (20)   — hours can have decimals: 13.5 = 1:30 PM
-  END_HOUR: 2.5,        // 9 PM  (21)
+  END_HOUR: 22.75,        // 9 PM  (21)
   TZ_OFFSET_HOURS: 8,    // Philippine time
   // The AUTHENTICATE / CLAIM REWARD pad lying on the map floor (top middle of the map).
   // x, y = its CENTER in map pixels, size = its width/height. Keep in sync with CLAN_WAR.PAD in server.js.
