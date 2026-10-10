@@ -1329,6 +1329,20 @@ function removeFromClan(p) {
   broadcastClanUpdate(clan);
 }
 
+// Leader kicked a member (online OR offline): they lose the clan at once, the
+// roster is saved to the database, and everyone left gets the new member list.
+function kickFromClan(clan, uid) {
+  clan.members = clan.members.filter((m) => m.uid !== uid);
+  clanOfUid.delete(uid);
+  const o = onlineByUid.get(uid);
+  if (o) {
+    o.clanId = null;
+    send(o.ws, { type: "clanUpdate", clanId: null, members: [] });
+  }
+  clanDb(() => sbRest("DELETE", "clan_members?uid=eq." + q(uid)));
+  broadcastClanUpdate(clan);
+}
+
 // Leader pressed DISBAND (after CONFIRM): the whole clan is removed and
 // every member — leader included, online or not — loses it. Offline members
 // find no clan the next time they log in.
@@ -2734,6 +2748,23 @@ wss.on("connection", (ws) => {
         if (!clanOf(me)) { send(ws, { type: "clanUpdate", clanId: null, members: [] }); break; }
         removeFromClan(me);
         break;
+
+      // KICK — leader only. targetId is the id the roster showed for that member
+      // (their live player id, or "u:<uid>" while they're offline).
+      case "clanKick": {
+        const c = clanOf(me);
+        if (!c) { send(ws, { type: "clanUpdate", clanId: null, members: [] }); break; }
+        if (c.leaderUid !== me.uid) { send(ws, { type: "clanError", reason: "Only the leader can kick members" }); break; }
+        const tid = String(msg.targetId);
+        const target = c.members.find((m) => {
+          const o = onlineByUid.get(m.uid);
+          return String(o ? o.id : "u:" + m.uid) === tid;
+        });
+        if (!target) break;                                   // already gone
+        if (target.uid === me.uid) { send(ws, { type: "clanError", reason: "You can't kick yourself" }); break; }
+        kickFromClan(c, target.uid);
+        break;
+      }
 
       // DISBAND — leader only; removes the clan and all its members.
       case "clanDisband": {
