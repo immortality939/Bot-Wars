@@ -523,12 +523,11 @@ function netApplyDrops(list) {
       // player who joined/rejoined a minute later saw a fresh 30 seconds on
       // an item everyone else had already watched vanish. This makes every
       // client agree on when the item actually despawns.
-      // Prefer the server-computed age (immune to a wrong phone clock); fall back to
-      // the old wall-clock maths only if an older server doesn't send `age`.
+      // Prefer the server-measured age (immune to a wrong phone clock); fall back to "at".
       if (typeof s.age === "number") {
         d.spawnTime = performance.now() - Math.max(0, s.age);
       } else if (typeof s.at === "number") {
-        d.spawnTime = performance.now() - (Date.now() - s.at);
+        d.spawnTime = performance.now() - Math.max(0, Date.now() - s.at);
       }
       // Already expired by the time it arrived (e.g. a slow join) — skip it
       // outright instead of letting it flash on screen for one frame before
