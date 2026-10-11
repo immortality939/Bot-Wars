@@ -1,1 +1,3696 @@
-let vmx=typeof globalThis!=='undefined'?globalThis:typeof window!=='undefined'?window:typeof global!=='undefined'?global:typeof self!=='undefined'?self:void 0x0,vmU_676943=vmx['vmU_676943']||(vmx['vmU_676943']={});const vmO_9abb44=(function(){var J=Object['getOwnPropertyDescriptor'],T=Object['create'],h=WeakSet['prototype']['add'],N=WeakMap['prototype']['set'],O=Object['getOwnPropertyNames'],U=WeakSet['prototype']['has'],c=Function['prototype']['call'],f=Object['getPrototypeOf'],x=Object['setPrototypeOf'],E=WeakMap['prototype']['get'],K=WeakMap['prototype']['has'],Y=Reflect['apply'],v=Object['getOwnPropertySymbols'],I=Function['prototype']['apply'],M=Object['defineProperty'];let w=['HohUJoMCl4EOnLsSTQ+giyt0N3s/nQSYif2HnRaOCfcSvOuqnLnjk7HSeXUvk02ii0qrXWgFk76Lk0Q1x2EzXORokTmU5a+CNRMnnShYAY6Iv8G0R87JhR+gT/GH+fG0nRdOlOr4NfGpva+gT85Fh3uYnQSohX2JnQ68+36chXgO5257MGG5MLGZXcuMRGtBM2GgtGgO7/uY+XtOAy5MjXn2nQsUAft2jZrfnQSJvO7YnQSu+XtqnQU0AyGzha+g+3cIv3sY2Qd7aaqkCQqknRZ7aaMCnRaknRZCM5maaaq7aaq7aQMlnRaknRRCnRaOaaqknRi7aRMZnRRknRR7nEqknRQ7aEMaCQMnCQM5nR+7naMkCQMOnRi7aRq7aQqknRaknR9CM5maaaq7laq7lRMaCQq7nEMnnRgknRM7nRq7nRq7CaMlnRaknRZknRL7nEManRMknRi7nEMnCQMCCQMgCQMxaQaaaRa7ZaqknRi7aRMlnRZkCQqknRgkntZ7aRqknRi7aRMWCQ5R/EaaCQqknRd7aE5V/EaaCQqkCQqknRZ7ZQq7ZEq77aMCCQq7nEMnntMkLQWEaXkMnnDMnkdZyaV4n5dnLa7f0a50LQOaaQlRaIQnQadarQOEneaZYaebaNdZJa50JaeRaH+nQadaYaeba+aCqQtiyaV4ngECYae3aiECYa5EQak4n70LaUdnLa7f0a50yaVaaQCVaAaZ9aTRaIQnYae3aNdZJa50JakaaQlRaIQnQak4n7JinkdZLQWgaH+nJaeRa/CaaFdZXuEZQadabaZa9aVEnuaCwaO4ngECmaOaa4niJakaaQlgaoaZ9aTRaIQnYaeVaiQCQadQXgECYaedaIaniURZWoRnQaegaS0aaHEZQadaJakEneaZYaebatEjZQRkOf+bhOVEa3DEa+Qn9aWkajRnsQW0aBdnwaZ=','HohUJoMOlC+Od/nSi/u2MfG6v320h3tTvO7YnRZOCWuY+XROapYOlO7HAyGzva+fMLGtGM2VtMtBMctnG7rVGM67ME+3iytSvZhIi2tsiOMOl7uYif2zhE+anShYAY6Iv8G0R87JhRManQSu+XtqnQhH+XQOnfcUAQ+NA37bt3s2AX2ghXh2Aa+khf6IAydOlZscA352iQMCnSUEhX57AfGHjM62vfG99aWQaRdnaaZaqQR7nUdnnRegaQMOYad7aXa7aNdZnRKgaQMliQogaQMlaaMChQMl0adCVUmaagECnRganRTdaQ5k/EaaWQoQaRdaaaZaaaMOyaR7nDdZnRjVaRMaQadkdaUiCf+7CgECnRBRaQMniaMnQadkaaM5Yad7CIQnnRl3aRF4naMZJad7nKanC/dk2aRkWQoinaMeQadkaaMgYad7aAaZCoaZCHEZnRzaaQqanRyQaRdaaaZaaaMx9aRk9aRkyaR7CbaCCQa7lrEZntC4naMdLQZ7aiECnRpRaQMniaMn9aRk9aRkYad7aBQnnROaaQqQC2EkYad7aAaZCoaZCHaCntWbaRMC9aRk9aRkYad7ZBQnnRk4naM7Jad7nO+7amQCaLFBaalgaQM7baZCaaanaaa7Z9QCaLfBaaldaQ5k/EaaWQqdZCdzuZURSQOgaR==','HohUJoMCaadO7L7VTMrVXcthMZGTZxanLQW3a+aCd70MnnbCaaanaaMaCQqkCQqkaQQx','HohUPoMaaaQOlZr4NfGpva+gvf79v3GJnShnMLcKM2rM3Gn7MEMnZQMaCQMnaQaaaRakCQMlnRZkyaVaaQlQaAaZ9aTRaIQnWQ==','HohUJoMCaQ+O7L7VTMrVXcthMZGTnSnp+Xt2h8r0jR+k+X5HAyd4baOVav+nqQTgaqaCi2JgaQnf0a50JakLaURZWQdaaaZanRaknRZ7aRqkCQMnnRZ7aQ5R/EaaCQMnCQqknQE+Onbida==','HohUJoMCaQ+O7L7VTMrVXcthMZGTnSnp+Xt2h8r0jR+dif2zh0eQahdncQO4ngECQa50XgECaOAda/egaFRC2aRjaQaaaRa7aaq7aRMnCQqknRZ7aRMCa2CBaaaknRZkCQqOlnQ+WSEQ','HohUJoMCaQ+O7L7VTMrVXcthMZGTnSnp+Xt2h8r0jR+V+3uphXuJAy5sdzanLQW3aNdZJakaa/5iJadah9QCi9ECUakMnnbCaaanaaMaCQMnnRZkCQq7aRMnnRdCM5maaaq7aRqkCQ+gOnQjWCa=','HohUPoMaaaEOlZr4NfGpva+gvf79v3GJnShnMLcKM2rM3Gn7MEMnnQ6fN36YhXd7aCd7auEZCqaCnRZaaQaaaRlQaRFEnaFEnaMlYad7aBQnCqaCnRRanRXRaQUwCoaZCoaZnRKRaQMnwaZkWQ==','HohUPoMaaaEOlZr4NfGpva+gvf79v3GJnShnMLcKM2rM3Gn7MEMnnQ6fN36YhXd7aVd7auEZCqaCnRZaaQaaaRlQaRFEnaFEnaMlYad7aBQnCqaCnRRanRXRaQUwCoaZCoaZnRKRaQMnwaZkWQ==','HohqJoMCnQRinS5BgWQYg8ZcgldOZ2mEjl52gT+cha+gA/GH+fG0nStSifcIi2hSAWG2nRaOlOS2+36YNa+OhOGfnQs4A8sci8GJnSn/hXtnifcIiQMnnphnMLcKM2rlTYsxtMuMtMtBMctnG7rOVMGgt7gOlfhIiLGS+8Q7aQ+jiOSsi82p+36Zh3h2A/u2oaWqaQMaNaMCeQdaaaZaeQdnaadaLQZ7a5anCf+7a9QCa2CBaan0CoRnCqaCCUdnnRainRxaaQoRaQMZWaM7Qadk2aRkWaMOQadkHaZkWaMWWQoQaRdnaadaqQR7asdnnRlgaQMlYad7CXa7atd7axannRlEaRU0CoRnCqaCCHaCnRRinRxaaQoRaQMZWaM7Qadk2aRkWaMOQadkHaZkWaMWWQFYaRqVnRWQaRdaaadaQadkaaMeYad7lWbk9aRk9aRkYad7CBQnnR7iCoRnCqaCCzannRaanR8aaQqQC2EkYad7nnE7abaCCzannRaanR3aaQqQC2EkYad7nnE7n+aCCzannRainRNaaQoQaRMnWaMWWQoVaQMaQQdkWQqdZCsaXqanSQORah+n','HohUJoMZan+O5f5Si8GRNW2JN3uSAZt2hfGzi8MOlOscA352iQ+jiOSsi82p+36Zh3h2A/u2nRaOOf5Si8Gu+XSdh379vOQOlOS2+36YNa+N+yG0ifGzvZS2+36YNa+dT37YNa+OA32znRdOOfG6v32EiOGLRX5HAyeOahdnnRlEaRFaaQqQC2EkLQZ7aBanC/dkQQdkWQFVaRMaaaMaLaZkhQMn0adCTUmaaWdkLQZ7a5dnnRaanRkaaQqQC2EkYad7a1ElnRniCUdnnRaanRVRaRUfnRWdaQ5x/EaaiQFVaRMaLQZ7aaa7n+aCC4akXaoRaQMl1ag7n7EkLQZ7a5dnnRaanRCVaRMnaaMCQadkdaUiCHaCnRKdaQ5k/Eaa1ag7a2EkLQZ7a5dnnRaanRVVaRMnaaM7QadkdaUiCHaCnRKdaQ5k/Eaa1ag7nGEkLQZ7aaa7nUanCf+7aiQCa2CBaan0CUdnnRlinaMWQadkaaMdLQZ7aaa7nAaZCoaZCUdnnRaanRNVaRMnaaM7QadkdaUiCHaCnRKdaQ5k/Eaa9aRk9aRkYad7CBQnnRemaEMOXaFVaRMaLQZ7aBElnRUiCqdCCSbk7a+xlSRjg4QzK7nOT764vWFkaAqnUQO9aR==','HohUJoMCanRO5f5Si8GRNW2JN3uSAZt2hfGzi8MOlOscA352iQ+jiOSsi82p+36Zh3h2A/u2nSU4+Xu2T37bVOGSAWtqnQ6qh379vOQOOfuci/52A/tdh379vOQOCZcSvOQOnfcUAQMCnSU2iXGUiWn2hZ70A3r0AUdnnRlEaRU0CqdCCSbkLQZ7aaa7a5anCf+7aiQCa2CBaan0CUdnnRCVaRMaaaMa1ag7a2EkLQZ7aaa7asanCf+7aiQCa2CBaan0CUdnnRCVaRMaaaMl1ag7n7EkLQZ7aaa7nhanCf+7aiQCa2CBaan0CUdnnRlinaMOQadkaaMWLQZ7aaa7nAaZCoaZCUdnnRaanRVEnaFEnaoRaQMdwaZ7aIElnRGiCUdnnRCMnaomaEM5XaFCaQqjCQQZCSRQkf5a+Q==','HohUJoMCaQbOOfG6v32EiOGLRX5HAyd5nQU4AOrpNEManQSu+XtqnQ60+3sLA8Y7hZNVaRMamaZkQadkdaUiCUdnnRaanRlEaRU0CHaCnRZjCUdnnRaanRaanRkaaQqQC2EkYad7aDdZnRWgaQMnYad7amQCaL8Baan0CHaCnRZjCHEZnRVaaQqanRXRaQMlwaZ7auaCnRAdaQ55/EaaJad7aiQCa2xBaaajCQQOZna3W4R9gQ==','HohUJoMZZ4qOlOr4NfGpva+iMYGgT7rRML2ltGruVMbOlZr4NfGpva+dN8GsiE+NMYGgT7rTGZ7MXYcn3aMnnRaOlO62AfvYNa+jiOSsi82p+36Zh3h2A/u2nQsLh3h2A/u2nQUSifcIiQ+gA/GH+fG0nSnUiYhUAf2YhR+dT37YNa+OA32znRdOC/5Iv3sLnS6TtM6gXcnVVMu7XYcn3a+OiOryn4nTtM6gXcnVVMu7XYuGM2h7nQhH+XpNaQMaLQZkmaZkQadkdaUinRCVaRFRaRMahQ5x/Eaa0adkiQdCaaZabaZkWQMCyaRkQad7aEaCaEanaxanCoaZCoaZnRXRaQMnwaZ7aFdZnRARaQMlqQR7nHaCnR34naM7Jad7a9ECnRiaa2xBaaldaQU0nRegaQM7JadkcQZ7nFdZnRCVaRMOJadkcQZ7nDdZnRAgaQMdhQ5R/Eaa0adkiQMaLQZ7CRa7CkdZnRCVaRMdaaM5qQR7ahdnnRUfa2CBaaldaQU0nRpgaQFRaRMehQ5R/Eaa0adkiQMdJadkUad7CiECCFRCnR/gaQFRaRMehQ5R/Eaa0adkiQM5JadkUad7CgECCqaCnRj4naUinRBgaQFRaRMehQ5x/Eaa0adkQadkdaUinRJinaMkqQR7nmECnRogaQM7Yad7aXakmaZkQadkdaUinRBgaQMOYadCThmaagQCC/dkfaR7amECnRyinaFaaQMxaaM7Yadk9aRk9aR7nmECaQgaaRlQaRMOJadkcQZCR5maagQCCoaZCoaZnR1RaQMCwaZCVUmaagQCCqaCnRx4naUinRXgaQoMaRFaaQFNaQM7qQRkXaFLaQMlJad7nHaCaL8BaaldaQU0aQdaaRlQaRqjnRyinaFaaQMRaadnaaZabaZ7lvEZCqaCntdanRKgaQMCJad7nEaCR5maagQCCoaZCoaZaQaaaRlQaRFEnaFEnaMKYad7aIQnaLfBaaldaQFEnaFEnaM7Yad7aBQnnRV4naMuyaRkQad77aaCaQanaxanCoaZCoaZnRyinaFaaQMxaadnaaZabaZk9aRk9aR7ngECCoaZCoaZnR1RaQMCwaZk9aRk9aR7lraCnRebaRqjda+VZSQDmQ7VLa7fj/n8vWSb4QOCa+QnSQOkahqnoaOzaAQnzaOmaAqnsaWEaTebaBbn','HohUJoMCn4a7aa+dvW2EhR+dN82zha+gv8GSiOrznQUSifcIiQ+dif2zhE+V+3uphXuJAy5sn45p+36pt8GSi2u2AO6Rif2phR+dhO7Y+RMCnQUJvOrzhR+OAy54n4s/hXtGiOv0+3t2VXt2AGu2AO6Rif2phR+Rh/Gz+ytUA8bOCOsSA3M7a+EnLQWEaXeRaSDVaRCaa4niLQZaqQTgafAdaqaCd7JgafAdaqaCd7JgafAdaqaCd7JgafAda/eQaNdZLQZaJaegaHaCinPgafAdaqaCd7JgafAda/eRa3Ada/einkdZLQZaJaeRa/CLaHaCWHaCWQMaCQq7aaq7aaMnCQqknRa7aQMnnRZ7aE5R/EaaCQqknRZ7na5R/EaaCQqknRZ7nR5R/EaaCQqknRZ7nQ5R/EaaCQdaaaZanRd7aaMdnRZ7aQM5nRdknRZ7CQ5R/EaaCQqknRZ7CE5R/EaaCQMgnRYCM5maaaq7laMlnRa7lQMlnRm7aRq7aaq7aaqMnaqROCd9epQDtZt++OUF4a70SaOCa++n'];var i=Uint8Array,n=DataView,P=String['fromCharCode'];let D=['HohoPoMCaaROZOuSvOG/Ay5snQS0N3s/CUdnaOAdaSb7aaManRZCM5maaaq=','HohoPoMCaaROZOuSvOG/Ay5snS5S+8u2iyuIi/LkLQZah9QCWQManRa7aR5R/EaaCQ==','HohoJoMCaa+OZ2mEjlRJ+TMEgQ+gA/GH+fG0nS5BgWQ0hTZ8u3RQDad7aOQ7axanaQaaaQCVaRMacQZkLaZkhQMn0adCM5maaWdkbaZCaRaCa5dnnRlQaRdaaadaLQZ7au+nCHRZC2EkaSaQ'],m={'0':0x179,'1':0x9c,'2':0x1e0,'3':0x86,'4':0x170,'5':0x18,'6':0x16e,'7':0xfd,'8':0x141,'9':0x1c7,'10':0x16d,'11':0x1e4,'12':0x115,'13':0x1fa,'14':0x26,'15':0x1ee,'16':0xef,'17':0x11e,'18':0x45,'19':0x89,'20':0x4,'21':0x109,'22':0x13b,'23':0x16b,'24':0x1b4,'25':0xee,'26':0x66,'27':0x15e,'28':0x12e,'29':0xc4,'32':0x198,'40':0x19a,'41':0x134,'42':0x12,'43':0x117,'44':0x32,'45':0x79,'46':0x1e9,'47':0x12c,'50':0x1c9,'51':0x1d8,'52':0x163,'53':0x1a,'54':0x6f,'55':0x92,'56':0xc7,'57':0x33,'58':0x10,'59':0xc6,'60':0x1d2,'61':0x1b0,'62':0xd,'63':0xb4,'64':0x17c,'70':0x31,'71':0x58,'72':0x1ea,'73':0xfa,'74':0x173,'75':0x52,'76':0xd6,'77':0x47,'79':0x2d,'81':0x60,'83':0x90,'84':0x1a2,'90':0xb5,'91':0x1b1,'93':0x18a,'94':0xeb,'95':0x24,'100':0x10c,'104':0x127,'105':0x1f0,'106':0x8,'107':0x100,'110':0x177,'111':0x195,'112':0x99,'120':0x12b,'121':0x1cf,'122':0x13d,'123':0x2b,'124':0x14d,'127':0xcd,'128':0x147,'129':0x1e2,'130':0x180,'131':0x72,'132':0x7f,'140':0x1c0,'141':0x10f,'142':0xa7,'143':0x131,'144':0x1d3,'145':0x143,'146':0x61,'147':0x14c,'148':0x158,'149':0x7e,'160':0x1ad,'161':0x193,'162':0x1d1,'163':0x1f1,'164':0x1b5,'165':0xca,'166':0x1c1,'167':0x1f8,'168':0x136,'169':0xc0,'180':0x15,'181':0xec,'182':0x5c,'183':0x9,'184':0x18c,'185':0x164,'200':0x5e,'201':0xaf,'210':0xa,'213':0x74,'214':0x1aa,'220':0x129,'250':0x57,'251':0x13a,'252':0xb7,'253':0x14a,'254':0x19f,'255':0x1f9,'256':0x7d,'262':0x94,'263':0x14,'264':0x1b7,'265':0x185,'266':0x112,'267':0x6d,'268':0xce,'269':0x9a,'270':0x1fb,'272':0x18b,'273':0x199,'274':0x28,'275':0x102,'276':0x2f,'277':0x2,'278':0x7b,'279':0x16,'280':0x3f,'281':0x186,'282':0x8f,'283':0x51,'284':0x56,'285':0x1b9,'286':0x192,'287':0x1cd,'288':0x69,'293':0x122,'294':0x1d5,'295':0xc2,'296':0x15a,'297':0x18d,'298':0x1bf,'299':0x20,'300':0x4f,'301':0x1b6,'302':0x17f,'303':0x1be,'304':0x23};const d=0x1,q=0x2,C=0x3,W=0x4,L=0x12b,S=0x1,y=0x8e,u=typeof 0x0n,j=[];let l=0x0;const R=function(){throw new TypeError('\x27caller\x27,\x20\x27callee\x27,\x20and\x20\x27arguments\x27\x20properties\x20may\x20not\x20be\x20accessed\x20on\x20strict\x20mode\x20functions\x20or\x20the\x20arguments\x20objects\x20for\x20calls\x20to\x20them');};Object['preventExtensions'](R);let o=new WeakSet(),g=new WeakSet(),G;function Z(Tx,TE,TK){G=Tx;try{return Y(Tx,TE,TK);}finally{G=undefined;}}const r=new WeakMap();function F(Tx,TE){N['call'](r,Tx,TE);}function t(Tx,TE){return Tx['_$Dfd67N']=TE,TE;}function k(Tx){return E['call'](r,Tx);}function a(Tx){return K['call'](r,Tx);}let Q=new WeakMap(),H=[],X=Array['prototype'][Symbol['iterator']],b=Symbol['iterator'],z=null,B=null,s=null,p=null,V=null;try{let Tx=function*(){};z=f(Tx),B=z&&z['prototype'];}catch(TE){}try{let TK=async function*(){};s=f(TK),p=s&&s['prototype'];}catch(TY){}try{let Tv=async function(){};V=f(Tv);}catch(TI){}function A(TM,Tw,Ti){try{M(TM,Tw,Ti);}catch(Tn){}}function J0(TM,Tw){let Ti=new Array(Tw),Tn=![];for(let TD=Tw-0x1;TD>=0x0;TD--){let Tm=TM();Tm&&typeof Tm==='object'&&U['call'](o,Tm)?(Tn=!![],Ti[TD]=Tm):Ti[TD]=Tm;}if(!Tn)return Ti;let TP=[];for(let Td=0x0;Td<Tw;Td++){let Tq=Ti[Td];if(Tq&&typeof Tq==='object'&&U['call'](o,Tq)){let TC=Tq['value'];if(Array['isArray'](TC)){for(let TW=0x0;TW<TC['length'];TW++)TP['push'](TC[TW]);}}else TP['push'](Tq);}return TP;}function J1(TM){return typeof TM==='object'||typeof TM==='function';}function J2(TM){return{'value':TM,'writable':!![],'configurable':!![]};}function J3(TM,Tw){return TM&&J1(TM)?TM:Tw;}function J4(TM,Tw){try{x(TM,Tw);}catch(Ti){}}function J5(TM,Tw){let Ti=TM===null||TM===undefined?undefined:TM[Tw];if(Ti===null||Ti===undefined)return undefined;if(typeof Ti!=='function')throw new TypeError('Method\x20is\x20not\x20callable');return Ti;}function J6(TM){if(TM===null||typeof TM!=='object'&&typeof TM!=='function')throw new TypeError('Iterator\x20result\x20'+TM+'\x20is\x20not\x20an\x20object');}function J7(TM){let Tw=TM['done'];return{'done':Tw,'value':Tw?TM['value']:undefined};}function J8(TM){let Tw=J5(TM,Symbol['asyncIterator']),Ti,Tn;if(Tw!==undefined)Ti=Y(Tw,TM,[]),Tn=![];else{let TD=J5(TM,Symbol['iterator']);if(TD===undefined)throw new TypeError(typeof TM+'\x20is\x20not\x20iterable');Ti=Y(TD,TM,[]),Tn=!![];}if(Ti===null||typeof Ti!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');let TP=Ti['next'];if(typeof TP!=='function')throw new TypeError('Iterator\x20next\x20is\x20not\x20a\x20function');return{'iter':Ti,'nextMethod':TP,'isSync':Tn};}function J9(TM){let Tw=[];for(let Ti in TM){Tw['push'](Ti);}return Tw;}function JJ(TM){return Array['prototype']['slice']['call'](TM);}function JT(TM){return typeof TM==='function'&&TM['prototype']?TM['prototype']:TM;}function Jh(TM){if(typeof TM==='function')return f(TM);let Tw=f(TM),Ti=Tw&&J(Tw,'constructor'),Tn=Ti&&Ti['value'],TP=Tn&&typeof Tn==='function'&&(Tn['prototype']===Tw||f(Tn['prototype'])===f(Tw));if(TP)return f(Tw);return Tw;}function JN(TM,Tw){let Ti=TM;while(Ti!==null){let Tn=J(Ti,Tw);if(Tn)return{'desc':Tn,'proto':Ti};Ti=f(Ti);}return{'desc':null,'proto':TM};}function JO(TM){let Tw=typeof TM;if(TM!==null&&(Tw==='object'||Tw==='function')){let Ti=T(null);return Ti[TM]=0x0,Reflect['ownKeys'](Ti)[0x0];}if(Tw!=='symbol')return String(TM);return TM;}function JU(TM,Tw){let Ti=TM;while(Ti){let Tn=Ti['_$BHRkoQ'];if(Tn>=0x0){let TP=Ti['_$i74iiQ'];if(TP){let TD=Tw(TP,Tn);if(TD!==undefined)return TD;}}Ti=Ti['_$qprkR5'];}}function Jc(TM,Tw){JU(TM,function(Ti,Tn){Ti[Tn]===Ti&&(Ti[Tn]=Tw);});}function Jf(TM){return JU(TM,function(Tw,Ti){let Tn=Tw[Ti];if(Tn!==Tw&&Tn!==undefined)return Tn;});}function Jx(TM,Tw){var Ti=TM[Tw],Tn=function(){vmU_676943['_$PNywNM']=!![];var TP=vmU_676943['_$kFSWSr'];vmU_676943['_$kFSWSr']=TM;try{return Reflect['apply'](Ti,this,arguments);}finally{vmU_676943['_$kFSWSr']=TP;}};Object['defineProperties'](Tn,{'length':{'value':Ti['length'],'configurable':!![]},'name':{'value':Ti['name'],'configurable':!![]}}),TM[Tw]=Tn,(vmU_676943['_$JwBwAz']||(vmU_676943['_$JwBwAz']=new WeakMap()))['set'](Tn,TM);}vmU_676943['_$D2LuP6']=Jx;function JE(TM,Tw,Ti,Tn){if(!TM||Tw[0x2*Tn[0x0]+Tn[0x1]&0x1f]||Tw[0xd*Tn[0x0]+Tn[0x1]&0x1f]||Tw[0xb*Tn[0x0]+Tn[0x1]&0x1f])return;!a(TM)&&F(TM,{['_$8Z6ZUQ']:Tw,['_$TfMnEY']:Ti,['_$Dfd67N']:Tw,['_$mmzF6F']:undefined});}function JK(TM,Tw,Ti,Tn,TP,TD){let Tm;if(TD){Tn?Tm={'WzPcyE'(){'use strict';let Td=new.target!==undefined?new.target:vmU_676943['_$hIuypo'];return new.target===undefined&&'_$hIuypo'in vmU_676943&&!('_$EaCyKG'in vmU_676943)&&delete vmU_676943['_$hIuypo'],TM(Tw,arguments,Tm,Ti,Td,this);}}['WzPcyE']:Tm={'WzPcyE'(){let Td=new.target!==undefined?new.target:vmU_676943['_$hIuypo'];return new.target===undefined&&'_$hIuypo'in vmU_676943&&!('_$EaCyKG'in vmU_676943)&&delete vmU_676943['_$hIuypo'],TM(Tw,arguments,Tm,Ti,Td,this);}}['WzPcyE'];try{delete Tm['prototype'];}catch(Td){}}else Tn?Tm=function Tq(){'use strict';let TC=new.target!==undefined?new.target:vmU_676943['_$hIuypo'];return new.target===undefined&&'_$hIuypo'in vmU_676943&&!('_$EaCyKG'in vmU_676943)&&delete vmU_676943['_$hIuypo'],TM(Tw,arguments,Tm,Ti,TC,this);}:Tm=function TC(){let TW=new.target!==undefined?new.target:vmU_676943['_$hIuypo'];return new.target===undefined&&'_$hIuypo'in vmU_676943&&!('_$EaCyKG'in vmU_676943)&&delete vmU_676943['_$hIuypo'],TM(Tw,arguments,Tm,Ti,TW,this);};return F(Tm,{['_$8Z6ZUQ']:Tw,['_$TfMnEY']:Ti,['_$Dfd67N']:undefined,['_$mmzF6F']:undefined}),Tm;}function JY(TM,Tw,Ti,Tn,TP){let TD;Tn?TD={'WzPcyE'(){'use strict';let Tm=new.target!==undefined?new.target:vmU_676943['_$hIuypo'];return new.target===undefined&&'_$hIuypo'in vmU_676943&&!('_$EaCyKG'in vmU_676943)&&delete vmU_676943['_$hIuypo'],TM(Tw,arguments,TD,Ti,Tm,this,undefined);}}['WzPcyE']:TD={'WzPcyE'(){let Tm=new.target!==undefined?new.target:vmU_676943['_$hIuypo'];return new.target===undefined&&'_$hIuypo'in vmU_676943&&!('_$EaCyKG'in vmU_676943)&&delete vmU_676943['_$hIuypo'],TM(Tw,arguments,TD,Ti,Tm,this,undefined);}}['WzPcyE'];if(V)J4(TD,V);return TD;}function Jv(TM,Tw,Ti,Tn,TP,TD,Tm){let Td;TP?Td={'WzPcyE'(){'use strict';return TM(Tw,arguments,Td,Ti,this,vmU_676943['_$kFSWSr']);}}['WzPcyE']:Td={'WzPcyE'(){return TM(Tw,arguments,Td,Ti,this,vmU_676943['_$kFSWSr']);}}['WzPcyE'];h['call'](Tn,Td);let Tq=Tm?s:z,TC=Tm?p:B;if(Tq)J4(Td,Tq);try{M(Td,'prototype',{'value':TC?T(TC):T({}),'writable':!![],'enumerable':![],'configurable':![]});}catch(TW){}return Td;}function JI(TM,Tw,Ti,Tn){let TP=vmU_676943['_$kFSWSr'],TD;return TD={'WzPcyE':(...Tm)=>{return TP!==undefined&&(vmU_676943['_$PNywNM']=!![],vmU_676943['_$kFSWSr']=TP),TM(Tw,Tm,TD,Ti,undefined,Tn);}}['WzPcyE'],TD;}function JM(TM,Tw,Ti,Tn){let TP;TP={'WzPcyE':(...TD)=>{return TM(Tw,TD,TP,Ti,undefined,Tn,undefined);}}['WzPcyE'];if(V)J4(TP,V);return TP;}function Jw(TM,Tw,Ti,Tn,TP,TD){let Tm=[void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0],Td=0x0,Tq=TJ(TM[0x20],TM[0x21]),TC,TW,TL,TS;switch(Tq[0x1]&0x3){case 0x0:TW=TM[0x0*Tq[0x0]+Tq[0x1]&0x1f],TC=TM[0x8*Tq[0x0]+Tq[0x1]&0x1f],TL=TM[0x19*Tq[0x0]+Tq[0x1]&0x1f]||j,TS=TM[0x13*Tq[0x0]+Tq[0x1]&0x1f]||j;break;case 0x1:TC=TM[0x8*Tq[0x0]+Tq[0x1]&0x1f],TL=TM[0x19*Tq[0x0]+Tq[0x1]&0x1f]||j,TS=TM[0x13*Tq[0x0]+Tq[0x1]&0x1f]||j,TW=TM[0x0*Tq[0x0]+Tq[0x1]&0x1f];break;case 0x2:TL=TM[0x19*Tq[0x0]+Tq[0x1]&0x1f]||j,TS=TM[0x13*Tq[0x0]+Tq[0x1]&0x1f]||j,TW=TM[0x0*Tq[0x0]+Tq[0x1]&0x1f],TC=TM[0x8*Tq[0x0]+Tq[0x1]&0x1f];break;default:TS=TM[0x13*Tq[0x0]+Tq[0x1]&0x1f]||j,TW=TM[0x0*Tq[0x0]+Tq[0x1]&0x1f],TC=TM[0x8*Tq[0x0]+Tq[0x1]&0x1f],TL=TM[0x19*Tq[0x0]+Tq[0x1]&0x1f]||j;break;}let Ty=new Array((TM[0x20]||0x0)+(TM[0x21]||0x0)),Tu=0x0,Tj=TW['length']>>0x1,Tl=(TM[0x20]*0x500f^TM[0x21]*0x1ced^Tj*0x97b3^TC['length']*0xadfd)>>>0x0&0x3,TR,Te,To;switch(Tl){case 0x1:TR=0x1,Te=0x0,To=0x1;break;case 0x2:TR=0x0,Te=Tj,To=0x0;break;case 0x3:TR=Tj,Te=0x0,To=0x0;break;default:TR=0x0,Te=0x1,To=0x1;break;}let Tg=null,TG=null,TZ=![],Tr=undefined,TF=![],Tt=0x0,Tk=undefined,Ta=![],TQ=0x0,TH=undefined,TX=-0x1,Tb=-0x1,Tz=!!TM[0x4*Tq[0x0]+Tq[0x1]&0x1f],TB=!!TM[0xc*Tq[0x0]+Tq[0x1]&0x1f],Ts=!!TM[0x6*Tq[0x0]+Tq[0x1]&0x1f],Tp=!!TM[0x5*Tq[0x0]+Tq[0x1]&0x1f],TV=TD,TA=!!TM[0xb*Tq[0x0]+Tq[0x1]&0x1f];!Tz&&!TA&&(TD===undefined||TD===null)&&(TD=vmx);let h0=hf=>{Tm[Td++]=hf;},h1=()=>Tm[--Td],h2=TM[0x3*Tq[0x0]+Tq[0x1]&0x1f]||0x0,h3={['_$i74iiQ']:h2?new Array(h2)['fill'](void 0x0):j,['_$6RhBvz']:null,['_$BHRkoQ']:-0x1,['_$qprkR5']:Tn};if(Tw){let hf=TM[0x20]||0x0;for(let hx=0x0,hE=Tw['length']<hf?Tw['length']:hf;hx<hE;hx++){Ty[hx]=Tw[hx];}}let h4=Tw?Tw['length']:0x0,h5=(Tz||!TB)&&Tw?JJ(Tw):null,h6=null,h7=![],h8=(TM[0x20]||0x0)+(TM[0x21]||0x0),h9=null,hJ=0x0;JE(Ti,TM,Tn,Tq);var hT,hh,hN,hO,hU;hU=[0xe,0x0,0x1e,0x0,0x0,0x0,0x0,0x0,0x29,0x0,0x22,0x33,0x7,0x0,0x0,0x0,0x17,0x0,0x0,0x0,0x0,0x32,0x0,0x0,0x0,0x0,0x34,0x0,0x0,0x0,0x0,0x0,0x20,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2e,0x0,0x0,0xd,0x0,0x0,0x0,0x0,0xb,0x0,0x0,0x2c,0x0,0x0,0x1a,0x0,0x25,0x0,0x0,0x2f,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x23,0x0,0x0,0x0,0x0,0x0,0x24,0x0,0x0,0x0,0x21,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x9,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x8,0x15,0x0,0x0,0x0,0x3,0x12,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2d,0xa,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x6,0x0,0x0,0x27,0x0,0x31,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x28,0x0,0xf,0x1d,0x2a,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x36,0x0,0x0,0x11,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x14,0x0,0x0,0x0,0x0,0x0,0x0,0x2b,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x10,0x35,0x0,0x0,0x1c,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x5,0x16,0x0,0x0,0xc,0x0,0x0,0x0,0x4,0x0,0x0,0x30,0x0,0x0,0x0,0x1b,0x0,0x37,0x0,0x0,0x0,0x1f,0x0,0x0,0x0,0x0,0x19,0x0,0x0,0x0,0x0,0x26,0x13,0x0,0x0,0x18,0x2,0x0,0x0,0x1,0x0,0x0,0x0],hh=function(hK,hY){switch(hK){case 0x16:{let hv=Tm[--Td],hI=Tm[--Td];Tm[Td++]=hI<<hv,Tu++;break;}case 0x2a:{let hM=hY;h3['_$i74iiQ'][hM]=Ti;let hw=h3['_$6RhBvz'];!hw&&(hw=T(null),h3['_$6RhBvz']=hw);hw[hM]=0x2,Tu++;break;}case 0xb:{let hi=Tm[--Td];if((typeof hi==='object'||typeof hi==='function')&&hi!==null){const hn=hi[Symbol['toPrimitive']];if(hn!=null){hi=hn['call'](hi,'number');if(hi!==null&&(typeof hi==='object'||typeof hi==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hP=hi['valueOf']();if(hP===null||typeof hP!=='object'&&typeof hP!=='function')hi=hP;else{const hD=hi['toString']();if(hD!==null&&(typeof hD==='object'||typeof hD==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hi=hD;}}}Tm[Td++]=typeof hi===u?hi-0x1n:+hi-0x1,Tu++;break;}case 0x20:{let hm=Tm[Td-0x1],hd=TC[hY];if(hm===null||hm===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+hm+'\x20(reading\x20'+'\x27'+String(hd)+'\x27'+')');Tm[Td++]=hm[hd],Tu++;break;}case 0x12:{let hq=Tm[--Td],hC=typeof hq;if(hq!==null&&(hC==='object'||hC==='function')){let hW=T(null);hW[hq]=0x0,hq=Reflect['ownKeys'](hW)[0x0];}else hC!=='symbol'&&(hq=String(hq));Tm[Td++]=hq,Tu++;break;}case 0x11:{let hL=Tm[--Td],hS=Tm[Td-0x1],hy=TC[hY];M(hS,hy,{'value':hL,'writable':!![],'enumerable':![],'configurable':!![]});typeof hL==='function'&&(!vmU_676943['_$JwBwAz']&&(vmU_676943['_$JwBwAz']=new WeakMap()),N['call'](vmU_676943['_$JwBwAz'],hL,hS));Tu++;break;}case 0xe:{let hu=Tm[--Td],hj=Tm[--Td],hl=TC[hY];M(hj,hl,{'value':hu,'writable':!![],'enumerable':!![],'configurable':!![]});typeof hu==='function'&&(!vmU_676943['_$JwBwAz']&&(vmU_676943['_$JwBwAz']=new WeakMap()),N['call'](vmU_676943['_$JwBwAz'],hu,hj));Tu++;break;}case 0x35:{J:{let hR=hY&0xffff,he=hY>>>0x10,ho=Tm[--Td],hg=h3;for(let hF=0x0;hF<he;hF++){hg=hg['_$qprkR5'];}let hG=hg['_$i74iiQ'];if(hG[hR]===hG){let ht=hg['_$fV4Gqs'];throw new ReferenceError('Cannot\x20access\x20\x27'+(ht&&ht[hR]||'variable')+'\x27\x20before\x20initialization');}let hZ=hg['_$6RhBvz'],hr=hZ&&hZ[hR];if(hr){if(hr===0x2&&!Tz){Tu++;break J;}throw new TypeError('Assignment\x20to\x20constant\x20variable.');}hG[hR]=ho,Tu++;break J;}break;}case 0x4:{let hk=Tm[--Td];if(hk==null)throw new TypeError(hk+'\x20is\x20not\x20iterable');let ha=hk[Symbol['asyncIterator']];if(typeof ha==='function')Tm[Td++]=ha['call'](hk);else{let hQ=hk[Symbol['iterator']];if(typeof hQ!=='function')throw new TypeError(hk+'\x20is\x20not\x20iterable');let hH=hQ['call'](hk);if(hH===null||typeof hH!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');let hX=async function(hz){if(hz===null||typeof hz!=='object')throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');let hB=await hz['value'];return{'value':hB,'done':!!hz['done']};},hb={'next':function(hz){let hB;try{hB=hH['next'](hz);}catch(hs){return Promise['reject'](hs);}return hX(hB);},'return':function(hz){if(typeof hH['return']!=='function')return Promise['resolve']({'value':hz,'done':!![]});let hB;try{hB=hH['return'](hz);}catch(hs){return Promise['reject'](hs);}return hX(hB);},'throw':function(hz){if(typeof hH['throw']!=='function')return Promise['reject'](hz);let hB;try{hB=hH['throw'](hz);}catch(hs){return Promise['reject'](hs);}return hX(hB);},[Symbol['asyncIterator']]:function(){return this;}};Tm[Td++]=hb;}Tu++;break;}case 0x3d:{let hz=Tm[--Td],hB=Tm[--Td];Tm[Td++]=hB>>hz,Tu++;break;}case 0x14:{Tm[Td++]=TV,Tu++;break;}case 0x18:{T:{let hs=TC[hY],hp=Tm[--Td];if(typeof hp!=='function')throw new TypeError(hp+'\x20is\x20not\x20a\x20function');let hV=vmU_676943['_$JwBwAz'],hA=!vmU_676943['_$kFSWSr']&&!vmU_676943['_$hIuypo']&&!(hV&&E['call'](hV,hp))&&k(hp);if(hA&&hA['_$mmzF6F']!==![]){let N4=hA['_$Dfd67N']||t(hA,typeof hA['_$8Z6ZUQ']==='object'?hA['_$8Z6ZUQ']['n']!==undefined?0x0?TO(hA['_$8Z6ZUQ']['n']):hA['_$8Z6ZUQ']['d']||(hA['_$8Z6ZUQ']['d']=TO(hA['_$8Z6ZUQ']['n'])):hA['_$8Z6ZUQ']:TN(hA['_$8Z6ZUQ']));if(N4){let N5;if(hs===0x0)N5=[];else{if(hs===0x1){let N8=Tm[--Td];N5=N8&&typeof N8==='object'&&U['call'](o,N8)?N8['value']:[N8];}else N5=J0(h1,hs);}let N6=N4===TM?Tq:TJ(N4[0x20],N4[0x21]),N7=N4[0x9*N6[0x0]+N6[0x1]&0x1f];if(N7&&N4===TM&&!N4[0x13*N6[0x0]+N6[0x1]&0x1f]&&hA['_$TfMnEY']===Tn){!h9&&(h9=[]);h9[hJ++]=h3,h9[hJ++]=Tu,h9[hJ++]=h5,h9[hJ++]=Td,h9[hJ++]=Tw,h9[hJ++]=h6;for(let N9=0x0;N9<h8;N9++){h9[hJ++]=Ty[N9];}Tw=N5,h6=null;if(N4[0xc*N6[0x0]+N6[0x1]&0x1f]){h5=null;let NJ=N4[0x20]||0x0;for(let NT=0x0;NT<NJ&&NT<N5['length'];NT++){Ty[NT]=N5[NT];}for(let Nh=N5['length']<NJ?N5['length']:NJ;Nh<h8;Nh++){Ty[Nh]=undefined;}Tu=N7;}else{h5=JJ(N5);for(let NN=0x0;NN<h8;NN++){Ty[NN]=undefined;}Tu=0x0;}break T;}vmU_676943['_$PNywNM']?vmU_676943['_$PNywNM']=![]:vmU_676943['_$kFSWSr']=undefined;Tm[Td++]=Jw(N4,N5,hp,hA['_$TfMnEY'],undefined,undefined),Tu++;break T;}}let N0=vmU_676943['_$kFSWSr'],N1=vmU_676943['_$JwBwAz'],N2=N1&&E['call'](N1,hp);N2?(vmU_676943['_$PNywNM']=!![],vmU_676943['_$kFSWSr']=N2):vmU_676943['_$kFSWSr']=undefined;let N3;try{if(hs===0x0)N3=hp();else{if(hs===0x1){let NO=Tm[--Td];N3=NO&&typeof NO==='object'&&U['call'](o,NO)?Y(hp,undefined,NO['value']):hp(NO);}else N3=Y(hp,undefined,J0(h1,hs));}Tm[Td++]=N3;}finally{N2&&(vmU_676943['_$PNywNM']=![]),vmU_676943['_$kFSWSr']=N0;}Tu++;}break;}case 0x28:{Tg['pop'](),Tu++;break;}case 0x17:{let NU=hY&0xffff,Nc=h3['_$i74iiQ'];Nc[NU]=Nc;let Nf=hY>>>0x10;Nf&&((h3['_$fV4Gqs']||(h3['_$fV4Gqs']={}))[NU]=TC[Nf-0x1]);Tu++;break;}case 0x7:{let Nx=Tm[--Td];Tm[Td++]=J9(Nx),Tu++;break;}case 0xf:{h:{while(Tg&&Tg['length']>0x0){let NK=Tg[Tg['length']-0x1];if(NK['_$bXBwlD']!==undefined)break;Tg['pop']();}if(Tg&&Tg['length']>0x0){let NY=Tg[Tg['length']-0x1];if(NY['_$bXBwlD']!==undefined){TG=null,TF=![],Tt=0x0,Tk=undefined,Ta=![],TQ=0x0,TH=undefined,TZ=!![],Tr=Tm[--Td],TX=NY['_$lntBsH'],Tb=NY['_$COqIrN'],Tu=NY['_$bXBwlD'];break h;}}(TZ||TF||Ta)&&(TZ=![],Tr=undefined,TF=![],Tt=0x0,Tk=undefined,Ta=![],TQ=0x0,TH=undefined);TG=null;let NE=Tm[--Td];if(Ts&&NE===undefined&&!h7)throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return hT=NE,0x1;}break;}case 0xd:{let Nv=Tm[--Td],NI=Tm[--Td];Tm[Td++]=NI^Nv,Tu++;break;}case 0x39:{!Tm[--Td]?Tu=TL[Tu]:Tu++;break;}case 0x15:{let NM=Tm[--Td],Nw=Tm[--Td];Tm[Td++]=Nw%NM,Tu++;break;}case 0x3a:{let Ni=Tm[--Td],Nn=Ni&&Ni['i']?Ni['i']:Ni;try{if(Nn!=null){let NP=Nn['return'];typeof NP==='function'&&NP['call'](Nn);}}catch(ND){}Tu++;break;}case 0xa:{let Nm=Tm[--Td],Nd=Tm[--Td];Tm[Td++]=Nd>Nm,Tu++;break;}case 0x2c:{let Nq=vmU_676943['_$EaCyKG'];Nq===undefined&&Ti&&Q['has'](Ti)&&(Nq=Q['get'](Ti));if(Nq===undefined)throw new ReferenceError('\x27super\x27\x20keyword\x20is\x20only\x20valid\x20inside\x20a\x20derived\x20constructor');Tm[Td++]=Nq,Tu++;break;}case 0x37:{let NC=Tm[--Td],NW=Tm[Td-0x1],NL=TC[hY];M(NW['prototype'],NL,{'value':NC,'writable':!![],'enumerable':![],'configurable':!![]});typeof NC==='function'&&(!vmU_676943['_$JwBwAz']&&(vmU_676943['_$JwBwAz']=new WeakMap()),N['call'](vmU_676943['_$JwBwAz'],NC,NW['prototype']));Tu++;break;}case 0x6:{let NS=Tm[--Td],Ny=Tm[--Td];Tm[Td++]=Ny&NS,Tu++;break;}case 0x9:{let Nu=hY,Nj=Tm[--Td];h3['_$i74iiQ'][Nu]=Nj;let Nl=h3['_$6RhBvz'];!Nl&&(Nl=T(null),h3['_$6RhBvz']=Nl);Nl[Nu]=0x1,Tu++;break;}case 0x1c:{let NR=TC[hY];Tm[Td++]=Symbol['for'](NR),Tu++;break;}case 0x46:{let Ne=Tm[Td-0x1];Ne['length']++,Tu++;break;}case 0x1b:{let No=Tm[--Td],Ng=Tm[--Td],NG=Tm[Td-0x1];M(NG['prototype'],Ng,{'value':No,'writable':!![],'enumerable':![],'configurable':!![]});typeof No==='function'&&(!vmU_676943['_$JwBwAz']&&(vmU_676943['_$JwBwAz']=new WeakMap()),N['call'](vmU_676943['_$JwBwAz'],No,NG['prototype']));Tu++;break;}case 0x34:{let NZ=Tm[--Td],Nr={['_$i74iiQ']:new Array(hY),['_$6RhBvz']:null,['_$BHRkoQ']:-0x1,['_$qprkR5']:NZ};h3=Nr,Tu++;break;}case 0x2d:{N:{let NF=TL[Tu];if(NF===Tb){if(TG!==null){TZ=![],TF=![],Ta=![];let Nt=TG;TG=null;throw Nt;}if(TZ){while(Tg&&Tg['length']>0x0){let Na=Tg[Tg['length']-0x1];if(Na['_$bXBwlD']!==undefined)break;Tg['pop']();}if(Tg&&Tg['length']>0x0){let NQ=Tg[Tg['length']-0x1];if(NQ['_$bXBwlD']!==undefined){TX=NQ['_$lntBsH'],Tb=NQ['_$COqIrN'],Tu=NQ['_$bXBwlD'];break N;}}let Nk=Tr;return TZ=![],Tr=undefined,hT=Nk,0x1;}if(TF){while(Tg&&Tg['length']>0x0){let NX=Tg[Tg['length']-0x1];if(NX['_$bXBwlD']!==undefined||!(Tt>=NX['_$COqIrN']||Tt<=NX['_$lntBsH']))break;Tg['pop']();}if(Tg&&Tg['length']>0x0){let Nb=Tg[Tg['length']-0x1];if(Nb['_$bXBwlD']!==undefined&&(Tt>=Nb['_$COqIrN']||Tt<=Nb['_$lntBsH'])){TX=Nb['_$lntBsH'],Tb=Nb['_$COqIrN'],Tu=Nb['_$bXBwlD'];break N;}}let NH=Tt;TF=![],Tt=0x0;Tk!==undefined&&(h3=Tk,Tk=undefined);Tu=NH;break N;}if(Ta){while(Tg&&Tg['length']>0x0){let NB=Tg[Tg['length']-0x1];if(NB['_$bXBwlD']!==undefined||!(TQ>=NB['_$COqIrN']||TQ<=NB['_$lntBsH']))break;Tg['pop']();}if(Tg&&Tg['length']>0x0){let Ns=Tg[Tg['length']-0x1];if(Ns['_$bXBwlD']!==undefined&&(TQ>=Ns['_$COqIrN']||TQ<=Ns['_$lntBsH'])){TX=Ns['_$lntBsH'],Tb=Ns['_$COqIrN'],Tu=Ns['_$bXBwlD'];break N;}}let Nz=TQ;Ta=![],TQ=0x0;TH!==undefined&&(h3=TH,TH=undefined);Tu=Nz;break N;}}Tu++;}break;}case 0x2e:{Tm[--Td],Tu++;break;}case 0x38:{O:{let Np=Tm[--Td],NV=Tm[--Td];if(typeof NV!=='function')throw new TypeError(NV+'\x20is\x20not\x20a\x20function');let NA=vmU_676943['_$JwBwAz'],O0=!vmU_676943['_$kFSWSr']&&!vmU_676943['_$hIuypo']&&!(NA&&E['call'](NA,NV))&&k(NV);if(O0&&O0['_$mmzF6F']!==![]){let O5=O0['_$Dfd67N']||t(O0,typeof O0['_$8Z6ZUQ']==='object'?O0['_$8Z6ZUQ']['n']!==undefined?0x0?TO(O0['_$8Z6ZUQ']['n']):O0['_$8Z6ZUQ']['d']||(O0['_$8Z6ZUQ']['d']=TO(O0['_$8Z6ZUQ']['n'])):O0['_$8Z6ZUQ']:TN(O0['_$8Z6ZUQ']));if(O5){let O6;if(Np===0x0)O6=[];else{if(Np===0x1){let O9=Tm[--Td];O6=O9&&typeof O9==='object'&&U['call'](o,O9)?O9['value']:[O9];}else O6=J0(h1,Np);}let O7=O5===TM?Tq:TJ(O5[0x20],O5[0x21]),O8=O5[0x9*O7[0x0]+O7[0x1]&0x1f];if(O8&&O5===TM&&!O5[0x13*O7[0x0]+O7[0x1]&0x1f]&&O0['_$TfMnEY']===Tn){!h9&&(h9=[]);h9[hJ++]=h3,h9[hJ++]=Tu,h9[hJ++]=h5,h9[hJ++]=Td,h9[hJ++]=Tw,h9[hJ++]=h6;for(let OJ=0x0;OJ<h8;OJ++){h9[hJ++]=Ty[OJ];}Tw=O6,h6=null;if(O5[0xc*O7[0x0]+O7[0x1]&0x1f]){h5=null;let OT=O5[0x20]||0x0;for(let Oh=0x0;Oh<OT&&Oh<O6['length'];Oh++){Ty[Oh]=O6[Oh];}for(let ON=O6['length']<OT?O6['length']:OT;ON<h8;ON++){Ty[ON]=undefined;}Tu=O8;}else{h5=JJ(O6);for(let OO=0x0;OO<h8;OO++){Ty[OO]=undefined;}Tu=0x0;}break O;}vmU_676943['_$PNywNM']?vmU_676943['_$PNywNM']=![]:vmU_676943['_$kFSWSr']=undefined;Tm[Td++]=Jw(O5,O6,NV,O0['_$TfMnEY'],undefined,undefined),Tu++;break O;}}let O1=vmU_676943['_$kFSWSr'],O2=vmU_676943['_$JwBwAz'],O3=O2&&E['call'](O2,NV);O3?(vmU_676943['_$PNywNM']=!![],vmU_676943['_$kFSWSr']=O3):vmU_676943['_$kFSWSr']=undefined;let O4;try{if(Np===0x0)O4=NV();else{if(Np===0x1){let OU=Tm[--Td];O4=OU&&typeof OU==='object'&&U['call'](o,OU)?Y(NV,undefined,OU['value']):NV(OU);}else O4=Y(NV,undefined,J0(h1,Np));}Tm[Td++]=O4;}finally{O3&&(vmU_676943['_$PNywNM']=![]),vmU_676943['_$kFSWSr']=O1;}Tu++;}break;}case 0x1a:{let Oc=Tm[--Td];Oc!==null&&Oc!==undefined?Tu=TL[Tu]:Tu++;break;}case 0x2b:{let Of=hY&0xffff,Ox=hY>>>0x10;Tm[Td++]=Tw[Of]<=TC[Ox],Tu++;break;}case 0x8:{Tm[Td-0x1]?Tu=TL[Tu]:(Tm[--Td],Tu++);break;}case 0x3:{!Tm[--Td]?Tu=TL[Tu]:(Tm[--Td],Tu++);break;}case 0x40:{let OE=Tm[--Td],OK=Tm[--Td];Tm[Td++]=OK**OE,Tu++;break;}case 0x19:{if(h6===null){if(Tz||!TB){let OY=h5||Tw,Ov=OY?OY['length']:0x0;h6=T(Object['prototype']);for(let OI=0x0;OI<Ov;OI++){h6[OI]=OY[OI];}M(h6,'length',{'value':Ov,'writable':!![],'enumerable':![],'configurable':!![]}),M(h6,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),h6=new Proxy(h6,{'has':function(OM,Ow){if(Ow===Symbol['toStringTag'])return![];return Ow in OM;},'get':function(OM,Ow,Oi){if(Ow===Symbol['toStringTag'])return'Arguments';return Reflect['get'](OM,Ow,Oi);}}),Tz?M(h6,'callee',{'get':R,'set':R,'enumerable':![],'configurable':![]}):M(h6,'callee',{'value':Ti,'writable':!![],'enumerable':![],'configurable':!![]});}else{let OM=h4,Ow={},Oi={},On=Ti,OP=![],OD=!![],Om={},Od=function(OS){if(typeof OS!=='string')return NaN;let Oy=+OS;return Oy>=0x0&&Oy%0x1===0x0&&String(Oy)===OS?Oy:NaN;},Oq=function(OS){return!isNaN(OS)&&OS>=0x0;},OC=function(OS){if(OS in Oi)return undefined;if(OS in Ow)return Ow[OS];return OS<h4?Tw[OS]:undefined;},OW=function(OS){if(OS in Oi)return![];if(OS in Ow)return!![];return OS<h4?OS in Tw:![];},OL={};M(OL,'length',{'value':OM,'writable':!![],'enumerable':![],'configurable':!![]}),M(OL,'callee',{'value':Ti,'writable':!![],'enumerable':![],'configurable':!![]}),M(OL,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),h6=new Proxy(OL,{'get':function(OS,Oy,Ou){if(Oy==='length')return OM;if(Oy==='callee')return OP?undefined:On;if(Oy===Symbol['toStringTag'])return'Arguments';let Oj=Od(Oy);if(Oq(Oj)){if(Oj in Om)return Reflect['get'](OS,Oy,Ou);return OC(Oj);}return Reflect['get'](OS,Oy,Ou);},'set':function(OS,Oy,Ou){if(Oy==='length'){if(!OD)return![];return OM=Ou,OS['length']=Ou,!![];}if(Oy==='callee')return On=Ou,OP=![],OS['callee']=Ou,!![];let Oj=Od(Oy);if(Oq(Oj)){if(Oj in Om)return Reflect['set'](OS,Oy,Ou);let Ol=J(OS,String(Oj));if(Ol&&!Ol['writable'])return![];if(Oj in Oi)delete Oi[Oj],Ow[Oj]=Ou;else Oj<h4?Tw[Oj]=Ou:Ow[Oj]=Ou;return!![];}return OS[Oy]=Ou,!![];},'has':function(OS,Oy){if(Oy==='length')return!![];if(Oy==='callee')return!OP;if(Oy===Symbol['toStringTag'])return![];let Ou=Od(Oy);if(Oq(Ou)){if(String(Ou)in OS)return!![];return OW(Ou);}return Oy in OS;},'defineProperty':function(OS,Oy,Ou){if(Oy==='length')return'value'in Ou&&(OM=Ou['value']),'writable'in Ou&&(OD=Ou['writable']),M(OS,Oy,Ou),!![];if(Oy==='callee')return'value'in Ou&&(On=Ou['value']),OP=![],M(OS,Oy,Ou),!![];let Oj=Od(Oy);if(Oq(Oj)){let Ol='get'in Ou||'set'in Ou,OR=J(OS,String(Oj)),Oe=Oj in Om?OR?OR['value']:undefined:OC(Oj),Oo=OR?OR['writable']!==![]:!![],Og=OR?OR['enumerable']!==![]:!![],OG=OR?OR['configurable']!==![]:!![],OZ;if(Ol)OZ=Ou,Om[Oj]=0x1,Oj in Ow&&delete Ow[Oj],Oj in Oi&&delete Oi[Oj];else{let Or='value'in Ou?Ou['value']:Oe,OF='writable'in Ou?Ou['writable']:Oo,Ot='enumerable'in Ou?Ou['enumerable']:Og,Ok='configurable'in Ou?Ou['configurable']:OG;OZ={'value':Or,'writable':OF,'enumerable':Ot,'configurable':Ok},'value'in Ou&&(!(Oj in Om)&&(Oj<h4&&!(Oj in Oi)?Tw[Oj]=Ou['value']:(Ow[Oj]=Ou['value'],Oj in Oi&&delete Oi[Oj]))),'writable'in Ou&&Ou['writable']===![]&&(Om[Oj]=0x1,Oj in Ow&&delete Ow[Oj],Oj in Oi&&delete Oi[Oj]);}return M(OS,String(Oj),OZ),!![];}return M(OS,Oy,Ou),!![];},'deleteProperty':function(OS,Oy){if(Oy==='callee')return OP=!![],delete OS['callee'],!![];let Ou=Od(Oy);if(Oq(Ou)){let Ol=J(OS,String(Ou));if(Ol&&Ol['configurable']===![])return![];return Ou in Om&&delete Om[Ou],Ou<h4?Oi[Ou]=0x1:delete Ow[Ou],delete OS[Oy],!![];}let Oj=J(OS,Oy);if(Oj&&Oj['configurable']===![])return![];return delete OS[Oy],!![];},'preventExtensions':function(OS){let Oy=h4;for(let Ou=0x0;Ou<Oy;Ou++){!(Ou in Oi)&&!J(OS,String(Ou))&&M(OS,String(Ou),{'value':OC(Ou),'writable':!![],'enumerable':!![],'configurable':!![]});}for(let Oj in Ow){!J(OS,Oj)&&M(OS,Oj,{'value':Ow[Oj],'writable':!![],'enumerable':!![],'configurable':!![]});}return Object['preventExtensions'](OS),!![];},'getOwnPropertyDescriptor':function(OS,Oy){if(Oy==='callee'){if(OP)return undefined;return J(OS,'callee');}if(Oy==='length')return J(OS,'length');let Ou=Od(Oy);if(Oq(Ou)){if(Ou in Om)return J(OS,Oy);if(OW(Ou)){let Ol=J(OS,String(Ou));return{'value':OC(Ou),'writable':Ol?Ol['writable']:!![],'enumerable':Ol?Ol['enumerable']:!![],'configurable':Ol?Ol['configurable']:!![]};}return J(OS,Oy);}let Oj=J(OS,Oy);if(Oj)return Oj;return undefined;},'ownKeys':function(OS){let Oy=[],Ou=h4;for(let Ol=0x0;Ol<Ou;Ol++){!(Ol in Oi)&&Oy['push'](String(Ol));}for(let OR in Ow){Oy['indexOf'](OR)===-0x1&&Oy['push'](OR);}Oy['push']('length');!OP&&Oy['push']('callee');let Oj=Reflect['ownKeys'](OS);for(let Oe=0x0;Oe<Oj['length'];Oe++){Oy['indexOf'](Oj[Oe])===-0x1&&Oy['push'](Oj[Oe]);}return Oy;}});}}Tm[Td++]=h6,Tu++;break;}case 0x29:{let OS=Tm[--Td],Oy=J0(h1,OS),Ou=Tm[--Td];if(typeof Ou!=='function')throw new TypeError(Ou+'\x20is\x20not\x20a\x20constructor');if(U['call'](g,Ou))throw new TypeError(Ou['name']+'\x20is\x20not\x20a\x20constructor');let Oj=vmU_676943['_$kFSWSr'];vmU_676943['_$kFSWSr']=undefined;let Ol;try{Ol=Reflect['construct'](Ou,Oy);}finally{vmU_676943['_$kFSWSr']=Oj;}Tm[Td++]=Ol,Tu++;break;}case 0x32:{let OR=Tm[--Td],Oe=Tm[Td-0x1];Oe['push'](OR),Tu++;break;}case 0xc:{let Oo=Ty[hY];if((typeof Oo==='object'||typeof Oo==='function')&&Oo!==null){const Og=Oo[Symbol['toPrimitive']];if(Og!=null){Oo=Og['call'](Oo,'number');if(Oo!==null&&(typeof Oo==='object'||typeof Oo==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const OG=Oo['valueOf']();if(OG===null||typeof OG!=='object'&&typeof OG!=='function')Oo=OG;else{const OZ=Oo['toString']();if(OZ!==null&&(typeof OZ==='object'||typeof OZ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Oo=OZ;}}}Ty[hY]=typeof Oo===u?Oo-0x1n:+Oo-0x1,Tu++;break;}case 0x3b:{let Or=Tw[hY];if((typeof Or==='object'||typeof Or==='function')&&Or!==null){const OF=Or[Symbol['toPrimitive']];if(OF!=null){Or=OF['call'](Or,'number');if(Or!==null&&(typeof Or==='object'||typeof Or==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const Ot=Or['valueOf']();if(Ot===null||typeof Ot!=='object'&&typeof Ot!=='function')Or=Ot;else{const Ok=Or['toString']();if(Ok!==null&&(typeof Ok==='object'||typeof Ok==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Or=Ok;}}}Tw[hY]=typeof Or===u?Or-0x1n:+Or-0x1,Tu++;break;}case 0x3e:{let Oa=Tm[--Td],OQ=Tm[--Td];Tm[Td++]=OQ-Oa,Tu++;break;}case 0x36:{let OH=hY&0xffff,OX=hY>>>0x10;Tm[Td++]=Ty[OH]-TC[OX],Tu++;break;}case 0x0:{let Ob=Tm[--Td],Oz=TC[hY];if(Ob===null||Ob===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Ob+'\x20(reading\x20'+'\x27'+String(Oz)+'\x27'+')');Tm[Td++]=Ob[Oz],Tu++;break;}case 0x13:{let OB=Tm[--Td],Os=OB&&OB['i']?OB['i']:OB;if(Os!=null){if(TG!==null)try{let Op=Os['return'];typeof Op==='function'&&Op['call'](Os);}catch(OV){}else{let OA=Os['return'];if(OA!=null){if(typeof OA!=='function')throw new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable');let U0=OA['call'](Os);J6(U0);}}}Tu++;break;}case 0x5:{let U1=Tm[--Td],U2=Tm[--Td],U3=hY,U4=function(U5,U6){let U7=function(){let U8=G===U7;G=undefined;if(new.target===undefined&&!U8)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');if(U5){U6&&(vmU_676943['_$EaCyKG']=U7);let U9='_$hIuypo'in vmU_676943;!U9&&(vmU_676943['_$hIuypo']=new.target);try{let UJ=U5['apply'](this,JJ(arguments));if(U6&&UJ!==undefined&&(UJ===null||typeof UJ!=='object'&&typeof UJ!=='function'))throw new TypeError('Derived\x20constructors\x20may\x20only\x20return\x20object\x20or\x20undefined');return UJ;}finally{U6&&delete vmU_676943['_$EaCyKG'],!U9&&delete vmU_676943['_$hIuypo'];}}};return U7;}(U2,U3);U1&&M(U4,'name',{'value':U1,'configurable':!![]});U2&&M(U4,'length',{'value':U2['length'],'configurable':!![]});if(U2&&!a(U4)){let U5=k(U2);U5&&(U5['_$mmzF6F']=![],F(U4,U5));}Tm[Td++]=U4,Tu++;break;}case 0x2f:{let U6=Tm[--Td],U7=Tm[Td-0x1],U8=TC[hY],U9=JT(U7);M(U9,U8,{'get':U6,'enumerable':U9===U7,'configurable':!![]}),Tu++;break;}case 0x2:{let UJ=Tm[--Td],UT=Tm[--Td];Tm[Td++]=UT==UJ,Tu++;break;}case 0x3f:{let Uh=Tm[--Td],UN=Uh,UO=0x0&&typeof Uh!=='object'?TO(Uh,0x1):undefined,UU,Uc,Uf,Ux,UE,UK,UY,Uv;if(UO)Uc=UO[0x0]&0x1,Uf=UO[0x0]&0x2,Ux=UO[0x0]&0x4,UE=UO[0x0]&0x8,UY=UO[0x0]&0x10,UK=UO[0x1]||0x0,Uv=UO[0x2]||undefined,UU={'n':Uh};else{UU=typeof Uh==='object'?Uh:TO(Uh);let Ui=UU&&TJ(UU[0x20],UU[0x21]);Uc=UU&&UU[0xb*Ui[0x0]+Ui[0x1]&0x1f],Uf=UU&&UU[0x2*Ui[0x0]+Ui[0x1]&0x1f],Ux=UU&&UU[0xd*Ui[0x0]+Ui[0x1]&0x1f],UE=UU&&UU[0x11*Ui[0x0]+Ui[0x1]&0x1f],UK=UU&&UU[0x20]||0x0,UY=UU&&UU[0x4*Ui[0x0]+Ui[0x1]&0x1f];let Un=UU&&UU[0xa*Ui[0x0]+Ui[0x1]&0x1f];Uv=Un!==undefined?UU[0x8*Ui[0x0]+Ui[0x1]&0x1f][Un]:undefined;}Uh=0x0&&typeof UN!=='object'?{'n':UN}:UU;let UI=Uc?TV:undefined,UM=h3,Uw;if(Ux)Uw=Jv(Tc,Uh,UM,g,UY,vmx,Uf);else{if(Uf)Uc?Uw=JM(TU,Uh,UM,UI):Uw=JY(TU,Uh,UM,UY,vmx);else{if(Uc){Uw=JI(Jm,Uh,UM,UI);let UP=vmU_676943['_$EaCyKG'];UP===undefined&&Ti&&Q['has'](Ti)&&(UP=Q['get'](Ti)),UP!==undefined&&Q['set'](Uw,UP);}else Uw=JK(Jm,Uh,UM,UY,vmx,UE);}}A(Uw,'length',{'value':UK,'writable':![],'enumerable':![],'configurable':!![]});Uv!==undefined&&A(Uw,'name',{'value':Uv,'writable':![],'enumerable':![],'configurable':!![]});Tm[Td++]=Uw,Tu++;break;}case 0x10:{Tm[--Td]?Tu=TL[Tu]:Tu++;break;}case 0x1d:{let UD=Tm[--Td];if(UD==null)throw new TypeError(UD+'\x20is\x20not\x20iterable');let Um=UD[b];if(Array['isArray'](UD)&&Um===X)Tm[Td++]={['_$NeCntR']:UD,['_$M1JtwF']:0x0},Tu++;else{if(typeof Um!=='function')throw new TypeError(UD+'\x20is\x20not\x20iterable');let Ud=Y(Um,UD,[]);J6(Ud);let Uq=Ud['next'];Tm[Td++]={'i':Ud,'n':Uq},Tu++;}break;}case 0x33:{Tm[Td++]=TC[hY],Tu++;break;}}},hN=function(hK,hY){switch(hK){case 0x93:{Tm[Td++]=vmK[hY],Tu++;break;}case 0x5d:{let hI=Tm[--Td],hM=hI&&hI['_$NeCntR'];if(hM!==undefined){let hw=hI['_$M1JtwF'],hi;hw>=hM['length']?hi={'value':undefined,'done':!![]}:(hI['_$M1JtwF']=hw+0x1,hi={'value':hM[hw],'done':![]}),Tm[Td++]=hi,Tu++;}else{let hn=hI&&hI['i']?hI['i']:hI,hP=hI&&hI['n']?hI['n']:hn&&hn['next'];if(typeof hP!=='function')throw new TypeError('iterator.next\x20is\x20not\x20a\x20function');let hD=Y(hP,hn,[]);J6(hD),Tm[Td++]=hD,Tu++;}break;}case 0xa0:{let hm=Tm[--Td],hd=Tm[--Td];Tm[Td++]=hd>>>hm,Tu++;break;}case 0xa2:{let hq=h3['_$i74iiQ'];hq[hY]=hq,h3['_$BHRkoQ']=hY,Tu++;break;}case 0x4b:{Tm[Td-0x1]=~Tm[Td-0x1],Tu++;break;}case 0xa6:{Tm[Td++]=Ty[hY],Tu++;break;}case 0x8d:{let hC=Tm[--Td];if((typeof hC==='object'||typeof hC==='function')&&hC!==null){const hW=hC[Symbol['toPrimitive']];if(hW!=null){hC=hW['call'](hC,'number');if(hC!==null&&(typeof hC==='object'||typeof hC==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hL=hC['valueOf']();if(hL===null||typeof hL!=='object'&&typeof hL!=='function')hC=hL;else{const hS=hC['toString']();if(hS!==null&&(typeof hS==='object'||typeof hS==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hC=hS;}}}Tm[Td++]=typeof hC===u?hC+0x1n:+hC+0x1,Tu++;break;}case 0x7a:{let hy=Tm[--Td];Tm[Td++]=!!hy['done'],Tu++;break;}case 0x6f:{let hu=hY&0xffff,hj=hY>>>0x10;Tm[Td++]=Ty[hu]+TC[hj],Tu++;break;}case 0x80:{let hl=Tm[Td-0x1];Tm[Td++]=hl,Tu++;break;}case 0x6e:{debugger;Tu++;break;}case 0x79:{let hR=Tm[--Td],he=Tm[--Td],ho=Tm[Td-0x1];M(ho,he,{'get':hR,'enumerable':![],'configurable':!![]}),Tu++;break;}case 0x4d:{let hg=Tm[--Td],hG=Tm[--Td],hZ=Tm[--Td];M(hZ,hG,{'value':hg,'writable':!![],'enumerable':!![],'configurable':!![]});typeof hg==='function'&&(!vmU_676943['_$JwBwAz']&&(vmU_676943['_$JwBwAz']=new WeakMap()),N['call'](vmU_676943['_$JwBwAz'],hg,hZ));Tu++;break;}case 0x70:{let hr=hY&0xffff,hF=hY>>>0x10,ht=h3;for(let hQ=0x0;hQ<hF;hQ++){ht=ht['_$qprkR5'];}let hk=ht['_$i74iiQ'],ha=hk[hr];if(ha===hk){let hH=ht['_$fV4Gqs'];throw new ReferenceError('Cannot\x20access\x20\x27'+(hH&&hH[hr]||'variable')+'\x27\x20before\x20initialization');}Tm[Td++]=ha,Tu++;break;}case 0xa5:{let hX=Tm[--Td],hb=TC[hY];if(Tz&&!(hb in vmx)&&!(hb in vmU_676943))throw new ReferenceError(hb+'\x20is\x20not\x20defined');vmU_676943[hb]=hX,vmx[hb]=hX,Tm[Td++]=hX,Tu++;break;}case 0x5a:{Tm[Td++]={},Tu++;break;}case 0x48:{Tm[Td-0x1]=typeof Tm[Td-0x1],Tu++;break;}case 0x5e:{let hz=Tm[--Td],hB=Tm[--Td],hs={};if(hB!==null&&hB!==undefined){let hp=Object(hB),hV=Reflect['ownKeys'](hp);for(let hA=0x0;hA<hV['length'];hA++){let N0=hV[hA],N1=![];for(let N3=0x0;N3<hz['length'];N3++){let N4=hz[N3];if((typeof N4==='symbol'?N4:String(N4))===N0){N1=!![];break;}}if(N1)continue;let N2=J(hp,N0);N2!==undefined&&N2['enumerable']&&M(hs,N0,{'value':hp[N0],'writable':!![],'enumerable':!![],'configurable':!![]});}}Tm[Td++]=hs,Tu++;break;}case 0x7c:{let N5=Tm[--Td],N6=Tm[--Td],N7=Tm[--Td];if(typeof N6!=='function')throw new TypeError(N6+'\x20is\x20not\x20a\x20function');let N8=vmU_676943['_$JwBwAz'],N9=N8&&E['call'](N8,N6);!N9&&N8&&(N6===c||N6===I)&&(N9=E['call'](N8,N7));let NJ=vmU_676943['_$kFSWSr'];N9&&(vmU_676943['_$PNywNM']=!![],vmU_676943['_$kFSWSr']=N9);let NT;try{if(N5===0x0)NT=Y(N6,N7,j);else{if(N5===0x1){let Nh=Tm[--Td];NT=Nh&&typeof Nh==='object'&&U['call'](o,Nh)?Y(N6,N7,Nh['value']):Y(N6,N7,[Nh]);}else NT=Y(N6,N7,J0(h1,N5));}Tm[Td++]=NT;}finally{N9&&(vmU_676943['_$PNywNM']=![],vmU_676943['_$kFSWSr']=NJ);}Tu++;break;}case 0xa1:{let NN=Tm[Td-0x1];Tm[Td-0x1]=Tm[Td-0x2],Tm[Td-0x2]=NN,Tu++;break;}case 0x78:{Tm[Td-0x1]=!Tm[Td-0x1],Tu++;break;}case 0x6b:{let NO=Tm[--Td],NU=Tm[--Td];if(NU===null||NU===undefined){if(NO===Symbol['iterator'])throw new TypeError((NU===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+NU+'\x20(reading\x20'+(typeof NO==='symbol'?'\x27'+NO['toString']()+'\x27':typeof NO==='string'?'\x27'+NO+'\x27':typeof NO==='object'||typeof NO==='function'?'\x27<computed\x20key>\x27':'\x27'+String(NO)+'\x27')+')');}Tm[Td++]=NU[NO],Tu++;break;}case 0x8f:{let Nc=Tm[--Td],Nf;if(Nc===null||Nc===undefined)throw new TypeError(Nc+'\x20is\x20not\x20iterable');let Nx=Nc[b];if(Array['isArray'](Nc)&&Nx===X){let NK=Nc['length'];Nf=new Array(NK);for(let NY=0x0;NY<NK;NY++){Nf[NY]=Nc[NY];}}else{if(Nx===null||Nx===undefined||typeof Nx!=='function')throw new TypeError(Nc+'\x20is\x20not\x20iterable');let Nv=Y(Nx,Nc,[]);if(Nv===null||typeof Nv!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');Nf=[];while(!![]){let NI=Nv['next']();J6(NI);if(NI['done'])break;Nf['push'](NI['value']);}}let NE={'value':Nf};h['call'](o,NE),Tm[Td++]=NE,Tu++;break;}case 0x95:{Tm[Td++]=TP,Tu++;break;}case 0x90:{if(Ts&&!h7){let Ni=Jf(h3);if(Ni!==undefined)TD=Ni,h7=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let NM=TD,Nw=TC[hY];if(NM===null||NM===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+NM+'\x20(reading\x20'+'\x27'+String(Nw)+'\x27'+')');Tm[Td++]=NM[Nw],Tu++;break;}case 0xa4:{let Nn=Tm[--Td],NP=Tm[--Td],ND=(hY^0x9f43)>>>0x0,Nm;ND<0x10?ND<0x8?ND<0x4?ND<0x2?Nm=ND<0x1?NP^Nn:NP<<Nn:Nm=ND<0x3?NP>>Nn:NP/Nn:ND<0x6?Nm=ND<0x5?NP%Nn:NP==Nn:Nm=ND<0x7?NP!=Nn:NP**Nn:ND<0xc?ND<0xa?Nm=ND<0x9?NP&Nn:NP+Nn:Nm=ND<0xb?NP*Nn:NP|Nn:ND<0xe?Nm=ND<0xd?NP>>>Nn:NP!==Nn:Nm=ND<0xf?NP<=Nn:NP-Nn:ND<0x14?ND<0x12?Nm=ND<0x11?NP<Nn:NP>Nn:Nm=ND<0x13?NP>=Nn:NP===Nn:ND<0x18?Nm=ND<0x16?NP|Nn:NP&Nn:Nm=ND<0x1c?NP^Nn:Nn-NP;Tm[Td++]=Nm,Tu++;break;}case 0x83:{let Nd=H[hY],Nq=Tm[--Td];if(Nd){for(let NC=0x0;NC<Nq;NC++)Tm[--Td];for(let NW=0x0;NW<Nq;NW++)Tm[--Td];Tm[Td++]=Nd;}else{let NL=new Array(Nq);for(let Ny=Nq-0x1;Ny>=0x0;Ny--)NL[Ny]=Tm[--Td];let NS=new Array(Nq);for(let Nu=Nq-0x1;Nu>=0x0;Nu--)NS[Nu]=Tm[--Td];M(NS,'raw',{'value':Object['freeze'](NL)}),Object['freeze'](NS),H[hY]=NS,Tm[Td++]=NS;}Tu++;break;}case 0x68:{let Nj=TC[hY];Nj in vmU_676943?Tm[Td++]=typeof vmU_676943[Nj]:Tm[Td++]=typeof vmx[Nj];Tu++;break;}case 0x4f:{let Nl=hY&0xffff,NR=hY>>>0x10;Tm[Td++]=Ty[Nl]<TC[NR],Tu++;break;}case 0x82:{Tm[Td++]=[],Tu++;break;}case 0x54:{let Ne=Tm[--Td],No=JO(Tm[--Td]),Ng=Tm[--Td],NG=vmU_676943['_$kFSWSr'],NZ=NG?f(NG):Jh(Ng);if(NZ===null||NZ===undefined)throw new TypeError('Cannot\x20convert\x20'+NZ+'\x20to\x20object');let Nr=JN(NZ,No),NF=![];if(Nr['desc']){let Nt=Nr['desc'];if(Nt['set']){let Nk=vmU_676943['_$kFSWSr'];vmU_676943['_$kFSWSr']=Nr['proto']||NZ,vmU_676943['_$PNywNM']=!![];try{Nt['set']['call'](Ng,Ne);}finally{vmU_676943['_$PNywNM']=![],vmU_676943['_$kFSWSr']=Nk;}}else{if(Nt['get']||!('value'in Nt)){if(Tz)throw new TypeError('Cannot\x20set\x20property\x20\x27'+String(No)+'\x27\x20of\x20object\x20which\x20has\x20only\x20a\x20getter');}else{if(Nt['writable']===![]){if(Tz)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(No)+'\x27\x20of\x20object');}else NF=!![];}}}else NF=!![];if(NF){let Na=Object['getOwnPropertyDescriptor'](Ng,No);if(Na){if('value'in Na){if(Na['writable'])Ng[No]=Ne;else{if(Tz)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(No)+'\x27\x20of\x20object');}}else{if(Tz)throw new TypeError('Cannot\x20redefine\x20property:\x20'+String(No));}}else{let NQ=Reflect['defineProperty'](Ng,No,{'value':Ne,'writable':!![],'enumerable':!![],'configurable':!![]});if(!NQ&&Tz)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(No)+'\x27\x20of\x20object');}}Tm[Td++]=Ne,Tu++;break;}case 0x47:{let NH=TS[Tu];if(!Tg)Tg=[];Tg['push']({['_$2WDq1q']:NH[0x0]>=0x0?NH[0x0]:undefined,['_$bXBwlD']:NH[0x1]>=0x0?NH[0x1]:undefined,['_$COqIrN']:NH[0x2]>=0x0?NH[0x2]:undefined,['_$KIDAUO']:Td,['_$lntBsH']:Tu,['_$hgrJCW']:h3}),Tu++;break;}case 0x81:{Tm[Td++]=undefined,Tu++;break;}case 0x4c:{let NX=Tm[--Td],Nb=Tm[Td-0x1],Nz=TC[hY],NB=JT(Nb);M(NB,Nz,{'set':NX,'enumerable':NB===Nb,'configurable':!![]}),Tu++;break;}case 0x69:{Tm[Td-0x1]=-Tm[Td-0x1],Tu++;break;}case 0x7b:{let Ns=hY&0xffff,Np=hY>>>0x10,NV=TC[Ns],NA=TC[Np];Tm[Td++]=new RegExp(NV,NA),Tu++;break;}case 0x6a:{let O0=Tm[--Td];if((typeof O0==='object'||typeof O0==='function')&&O0!==null){const O1=O0[Symbol['toPrimitive']];if(O1!=null){O0=O1['call'](O0,'number');if(O0!==null&&(typeof O0==='object'||typeof O0==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const O2=O0['valueOf']();if(O2===null||typeof O2!=='object'&&typeof O2!=='function')O0=O2;else{const O3=O0['toString']();if(O3!==null&&(typeof O3==='object'||typeof O3==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');O0=O3;}}}Tm[Td++]=typeof O0===u?O0:+O0,Tu++;break;}case 0x64:{if(hY===-0x1)Tm[Td++]=Symbol();else{let O4=Tm[--Td];Tm[Td++]=Symbol(O4);}Tu++;break;}case 0x84:{let O5=TC[hY],O6=Tm[--Td],O7=Tm[--Td];if(typeof O6!=='function')throw new TypeError(O6+'\x20is\x20not\x20a\x20function');let O8=vmU_676943['_$JwBwAz'],O9=O8&&E['call'](O8,O6);!O9&&O8&&(O6===c||O6===I)&&(O9=E['call'](O8,O7));let OJ=vmU_676943['_$kFSWSr'];O9&&(vmU_676943['_$PNywNM']=!![],vmU_676943['_$kFSWSr']=O9);let OT;try{if(O5===0x0)OT=Y(O6,O7,j);else{if(O5===0x1){let Oh=Tm[--Td];OT=Oh&&typeof Oh==='object'&&U['call'](o,Oh)?Y(O6,O7,Oh['value']):Y(O6,O7,[Oh]);}else OT=Y(O6,O7,J0(h1,O5));}Tm[Td++]=OT;}finally{O9&&(vmU_676943['_$PNywNM']=![],vmU_676943['_$kFSWSr']=OJ);}Tu++;break;}case 0x8c:{if(typeof Tm[Td-0x1]==='symbol')throw new TypeError('Cannot\x20convert\x20a\x20Symbol\x20value\x20to\x20a\x20string');Tm[Td-0x1]=String(Tm[Td-0x1]),Tu++;break;}case 0x91:{J:{let ON=Tm[--Td],OO=Tm[Td-0x1];if(ON===null){x(OO['prototype'],null),x(OO,Function['prototype']),OO['_$lmqU8z']=null,Tu++;break J;}if(typeof ON!=='function')throw new TypeError('Class\x20extends\x20value\x20'+String(ON)+'\x20is\x20not\x20a\x20constructor\x20or\x20null');let OU=![],Oc=a(ON);if(!Oc){let Of=J(ON,'prototype');OU=!!Of&&Of['writable']===![];}if(OU){let Ox=OO,OE=vmU_676943,OK='_$hIuypo',OY='_$EaCyKG',Ov='_$Eyb2V2';function hv(...OI){if(new.target===undefined)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');let OM=T(ON['prototype']);OE[Ov]={'parent':ON,'newTarget':new.target||hv,'outer':hv},OE[OY]=new.target||hv;let Ow=OK in OE;!Ow&&(OE[OK]=new.target);try{let Oi=Z(Ox,OM,OI);Oi!==undefined&&Oi!==null&&J1(Oi)&&(OM=Oi);}finally{delete OE[Ov],delete OE[OY],!Ow&&delete OE[OK];}return OM;}hv['prototype']=T(ON['prototype']),hv['prototype']['constructor']=hv,x(hv,ON),O(Ox)['forEach'](function(OI){OI!=='prototype'&&OI!=='name'&&A(hv,OI,J(Ox,OI));});Ox['prototype']&&(O(Ox['prototype'])['forEach'](function(OI){OI!=='constructor'&&A(hv['prototype'],OI,J(Ox['prototype'],OI));}),v(Ox['prototype'])['forEach'](function(OI){A(hv['prototype'],OI,J(Ox['prototype'],OI));}));Tm[--Td],Tm[Td++]=hv,hv['_$lmqU8z']=ON,Tu++;break J;}x(OO['prototype'],ON['prototype']),x(OO,ON),OO['_$lmqU8z']=ON,Tu++;}break;}case 0x4a:{let OI=Tm[--Td],OM=Tm[Td-0x1];if(Array['isArray'](OI)&&OI[b]===X){let Ow=OM['length'],Oi=OI['length'];for(let On=0x0;On<Oi;On++){OM[Ow+On]=OI[On];}}else for(let OP of OI){OM['push'](OP);}Tu++;break;}case 0x5b:{let OD=hY&0xffff,Om=hY>>>0x10,Od=Ty[OD],Oq=TC[Om];if(Od===null||Od===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Od+'\x20(reading\x20'+'\x27'+String(Oq)+'\x27'+')');Tm[Td++]=Od[Oq],Tu++;break;}case 0x49:{Tm[Td++]=Tw[hY],Tu++;break;}case 0x7f:{let OC=Tm[--Td],OW=OC&&OC['i']?OC['i']:OC;if(TG!==null)try{OW&&typeof OW['return']==='function'?Tm[Td++]=Promise['resolve'](OW['return']())['catch'](function(){return undefined;}):Tm[Td++]=Promise['resolve']();}catch(OL){Tm[Td++]=Promise['resolve']();}else{let OS=OW!=null?OW['return']:undefined;if(OS==null)Tm[Td++]=Promise['resolve']();else typeof OS!=='function'?Tm[Td++]=Promise['reject'](new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable')):Tm[Td++]=Promise['resolve'](OS['call'](OW));}Tu++;break;}case 0x5f:{let Oy=Tm[--Td],Ou=Tm[--Td],Oj=Tm[Td-0x1],Ol=JT(Oj);M(Ol,Ou,{'get':Oy,'enumerable':Ol===Oj,'configurable':!![]}),Tu++;break;}case 0x94:{let OR=hY,Oe=Tm[--Td];h3['_$i74iiQ'][OR]=Oe,Tu++;break;}case 0x53:{let Oo=Tm[--Td],Og=Tm[--Td];Tm[Td++]=Og!==Oo,Tu++;break;}case 0xa3:{let OG=TC[hY],OZ=!![];OG in vmx&&(OZ=delete vmx[OG]);OZ&&OG in vmU_676943&&(OZ=delete vmU_676943[OG]);Tm[Td++]=OZ,Tu++;break;}case 0x51:{let Or=Tm[--Td];Tm[Td++]=Symbol['keyFor'](Or),Tu++;break;}case 0x92:{Tu=TL[Tu];break;}}},hO=function(hK,hY){switch(hK){case 0x11a:{Tm[Td++]=vmE[hY],Tu++;break;}case 0xa8:{Tm[Td++]=TC[hY],Tu++;break;}case 0xa9:{h3=h3['_$qprkR5'],Tu++;break;}case 0x100:{J:{let hI=TL[Tu];while(Tg&&Tg['length']>0x0){let hM=Tg[Tg['length']-0x1];if(hM['_$bXBwlD']!==undefined||!(hI>=hM['_$COqIrN']||hI<=hM['_$lntBsH']))break;Tg['pop']();}if(Tg&&Tg['length']>0x0){let hw=Tg[Tg['length']-0x1];if(hw['_$bXBwlD']!==undefined&&(hI>=hw['_$COqIrN']||hI<=hw['_$lntBsH'])){TG=null,TZ=![],Tr=undefined,Ta=![],TQ=0x0,TH=undefined,TF=!![],Tt=hI,Tk=h3,TX=hw['_$lntBsH'],Tb=hw['_$COqIrN'],Tu=hw['_$bXBwlD'];break J;}}(TZ||TF||Ta||TG!==null)&&(hI>=Tb||hI<=TX)&&(TZ=![],Tr=undefined,TF=![],Tt=0x0,Tk=undefined,Ta=![],TQ=0x0,TH=undefined,TG=null),Tu=hI;}break;}case 0xb5:{let hi=Tm[--Td],hn=Tm[--Td];Tm[Td++]=hn===hi,Tu++;break;}case 0xd5:{let hP=Tm[--Td],hD=Tm[--Td];Tm[Td++]=hD/hP,Tu++;break;}case 0x106:{Ty[hY]=Ty[hY]-0x1,Tu++;break;}case 0x10e:{let hm=hY&0xffff,hd=hY>>>0x10;Tm[Td++]=Tw[hm]-TC[hd],Tu++;break;}case 0xa7:{let hq=Tm[--Td],hC=Tm[--Td];Tm[Td++]=hC<hq,Tu++;break;}case 0x125:{let hW=Tm[--Td],hL=Tm[--Td];Tm[Td++]=hL*hW,Tu++;break;}case 0xfa:{!Tm[Td-0x1]?Tu=TL[Tu]:(Tm[--Td],Tu++);break;}case 0x11b:{let hS=Tm[--Td],hy=Tm[--Td];Tm[Td++]=hy!=hS,Tu++;break;}case 0x11f:{let hu,hj;hY>=0x0?(hj=Tm[--Td],hu=TC[hY]):(hu=Tm[--Td],hj=Tm[--Td]);let hl=delete hj[hu];if(Tz&&!hl)throw new TypeError('Cannot\x20delete\x20property\x20\x27'+String(hu)+'\x27\x20of\x20object');Tm[Td++]=hl,Tu++;break;}case 0x120:{let hR=Tm[--Td],he=Tm[--Td];Tm[Td++]=he>=hR,Tu++;break;}case 0xfb:{Tw[hY]=Tm[--Td],Tu++;break;}case 0x127:{let ho=Tm[--Td];Tm[Td++]=ho['next'](),Tu++;break;}case 0x117:{let hg=Ty[hY];if((typeof hg==='object'||typeof hg==='function')&&hg!==null){const hG=hg[Symbol['toPrimitive']];if(hG!=null){hg=hG['call'](hg,'number');if(hg!==null&&(typeof hg==='object'||typeof hg==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hZ=hg['valueOf']();if(hZ===null||typeof hZ!=='object'&&typeof hZ!=='function')hg=hZ;else{const hr=hg['toString']();if(hr!==null&&(typeof hr==='object'||typeof hr==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hg=hr;}}}Ty[hY]=typeof hg===u?hg+0x1n:+hg+0x1,Tu++;break;}case 0x116:{if(Ts&&!h7){let hF=Jf(h3);if(hF!==undefined)TD=hF,h7=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}Tm[Td++]=TD,Tu++;break;}case 0xb6:{let ht=Tm[--Td];Tm[Td++]=import(ht),Tu++;break;}case 0x109:{let hk=Tm[--Td],ha=Tm[--Td];Tm[Td++]=ha instanceof hk,Tu++;break;}case 0x12e:{let hQ=TC[hY],hH;if(vmU_676943['_$STbaUg']&&hQ in vmU_676943['_$STbaUg'])throw new ReferenceError('Cannot\x20access\x20\x27'+hQ+'\x27\x20before\x20initialization');if(hQ in vmU_676943)hH=vmU_676943[hQ];else{if(hQ in vmx)hH=vmx[hQ];else throw new ReferenceError(hQ+'\x20is\x20not\x20defined');}Tm[Td++]=hH,Tu++;break;}case 0x108:{let hX=Tm[--Td],hb=Tm[Td-0x1],hz=TC[hY];M(hb,hz,{'set':hX,'enumerable':![],'configurable':!![]}),Tu++;break;}case 0x126:{let hB=Tm[--Td],hs=Tm[--Td];Tm[Td++]=hs+hB,Tu++;break;}case 0x10b:{T:{let hp=Tm[--Td],hV=J0(h1,hp),hA=Tm[--Td];if(hY===0x1){Tm[Td++]=hV,Tu++;break T;}if(vmU_676943['_$aHV3Jt']){Tu++;break T;}let N0=vmU_676943['_$Eyb2V2'];if(N0){let N3=N0['outer'],N4=N3?f(N3):N0['parent'];if(typeof N4!=='function')throw new TypeError('Super\x20constructor\x20'+String(N4)+'\x20of\x20'+(N3&&N3['name']||'anonymous')+'\x20is\x20not\x20a\x20constructor');let N5=N0['newTarget'],N6=Reflect['construct'](N4,hV,N5);TD&&TD!==N6&&O(TD)['forEach'](function(N7){!(N7 in N6)&&(N6[N7]=TD[N7]);});TD=N6,h7=!![],Jc(h3,TD),Tu++;break T;}if(typeof hA!=='function')throw new TypeError('Super\x20expression\x20must\x20be\x20a\x20constructor');let N1;Q['has'](Ti)?N1=Jf(h3):N1=h7?TD:undefined;let N2=TP!==undefined?TP:vmU_676943['_$hIuypo'];vmU_676943['_$hIuypo']=TP;try{let N7;a(hA)?N7=Z(hA,TD,hV):N7=N2!==undefined?Reflect['construct'](hA,hV,N2):Reflect['construct'](hA,hV),N7!==undefined&&N7!==TD&&J1(N7)&&(TD&&Object['assign'](N7,TD),TD=N7,TP&&TP['prototype']&&f(TD)!==TP['prototype']&&x(TD,TP['prototype'])),h7=!![],Jc(h3,TD);}finally{delete vmU_676943['_$hIuypo'];}if(N1!==undefined)throw new ReferenceError('Super\x20constructor\x20may\x20only\x20be\x20called\x20once');Tu++;}break;}case 0x12f:{let N8=Tm[Td-0x1];if(N8==null){var hv=TC[hY];if(hv===null)throw new TypeError('Cannot\x20destructure\x20\x27'+N8+'\x27\x20as\x20it\x20is\x20'+N8+'.');throw new TypeError('Cannot\x20destructure\x20property\x20\x27'+hv+'\x27\x20of\x20\x27'+N8+'\x27\x20as\x20it\x20is\x20'+N8+'.');}Tu++;break;}case 0xfc:{h:{let N9=JO(Tm[--Td]),NJ=Tm[--Td],NT=vmU_676943['_$kFSWSr'],Nh=NT?f(NT):Jh(NJ),NN=JN(Nh,N9);if(NN['desc']&&NN['desc']['get']){let NU=vmU_676943['_$kFSWSr'];vmU_676943['_$kFSWSr']=NN['proto']||Nh,vmU_676943['_$PNywNM']=!![];let Nc;try{Nc=NN['desc']['get']['call'](NJ);}finally{vmU_676943['_$PNywNM']=![],vmU_676943['_$kFSWSr']=NU;}Tm[Td++]=Nc,Tu++;break h;}if(NN['desc']&&NN['desc']['set']&&!('value'in NN['desc'])){Tm[Td++]=undefined,Tu++;break h;}let NO=NN['proto']?NN['proto'][N9]:Nh[N9];if(typeof NO==='function'){let Nf=NN['proto']||Nh,Nx=NO['constructor']&&NO['constructor']['name'],NE=Nx==='GeneratorFunction'||Nx==='AsyncFunction'||Nx==='AsyncGeneratorFunction';!NE&&(!vmU_676943['_$JwBwAz']&&(vmU_676943['_$JwBwAz']=new WeakMap()),N['call'](vmU_676943['_$JwBwAz'],NO,Nf));}Tm[Td++]=NO,Tu++;}break;}case 0x119:{let NK=Tm[--Td],NY=Tm[--Td],Nv=Tm[Td-0x1];M(Nv,NY,{'set':NK,'enumerable':![],'configurable':!![]}),Tu++;break;}case 0x110:{let NI=Tm[--Td],NM=Tm[Td-0x1];if(NI!==null&&NI!==undefined){let Nw=Object(NI),Ni=Reflect['ownKeys'](Nw);for(let Nn=0x0;Nn<Ni['length'];Nn++){let NP=Ni[Nn],ND=J(Nw,NP);ND!==undefined&&ND['enumerable']&&M(NM,NP,{'value':Nw[NP],'writable':!![],'enumerable':!![],'configurable':!![]});}}Tu++;break;}case 0x12d:{let Nm=Tw[hY];if((typeof Nm==='object'||typeof Nm==='function')&&Nm!==null){const Nd=Nm[Symbol['toPrimitive']];if(Nd!=null){Nm=Nd['call'](Nm,'number');if(Nm!==null&&(typeof Nm==='object'||typeof Nm==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const Nq=Nm['valueOf']();if(Nq===null||typeof Nq!=='object'&&typeof Nq!=='function')Nm=Nq;else{const NC=Nm['toString']();if(NC!==null&&(typeof NC==='object'||typeof NC==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Nm=NC;}}}Tw[hY]=typeof Nm===u?Nm+0x1n:+Nm+0x1,Tu++;break;}case 0xb7:{let NW=Tm[--Td],NL=Tm[--Td],NS=Tm[Td-0x1],Ny=JT(NS);M(Ny,NL,{'set':NW,'enumerable':Ny===NS,'configurable':!![]}),Tu++;break;}case 0x11e:{let Nu=Tm[--Td],Nj=Tm[Td-0x1],Nl=TC[hY];M(Nj,Nl,{'get':Nu,'enumerable':![],'configurable':!![]}),Tu++;break;}case 0x10d:{let NR=Tm[--Td],Ne=TC[hY];if(vmU_676943['_$STbaUg']&&Ne in vmU_676943['_$STbaUg'])throw new ReferenceError('Cannot\x20access\x20\x27'+Ne+'\x27\x20before\x20initialization');let No=!(Ne in vmU_676943)&&!(Ne in vmx);vmU_676943[Ne]=NR;Ne in vmx&&(vmx[Ne]=NR);No&&(vmx[Ne]=NR);Tm[Td++]=NR,Tu++;break;}case 0x10a:{Tm[Td++]=null,Tu++;break;}case 0xfd:{let Ng=Tm[--Td],NG=Tm[Td-0x1];(Ng===null||J1(Ng))&&x(NG,Ng);Tu++;break;}case 0xd2:{Tu++;break;}case 0xc9:{let NZ=Ty[hY],Nr=NZ&&NZ['_$NeCntR'];if(Nr!==undefined){let NF=NZ['_$M1JtwF'];NF>=Nr['length']?Tu=TL[Tu]:(NZ['_$M1JtwF']=NF+0x1,Tm[Td++]=Nr[NF],Tu++);}else{let Nt=NZ['i'],Nk=Y(NZ['n'],Nt,[]);J6(Nk),Nk['done']?Tu=TL[Tu]:(Tm[Td++]=Nk['value'],Tu++);}break;}case 0xff:{let Na=Tm[--Td],NQ=Tm[--Td];Tm[Td++]=Na==null||typeof Na!=='object'&&typeof Na!=='function'?!![]:NQ in Na,Tu++;break;}case 0xb9:{let NH=Tm[--Td],NX=Tm[--Td];Tm[Td++]=NX|NH,Tu++;break;}case 0x107:{let Nb=hY&0xffff,Nz=hY>>>0x10;Tm[Td++]=Ty[Nb]*TC[Nz],Tu++;break;}case 0xb4:{Tm[Td++]=h3,Tu++;break;}case 0xfe:{let NB=Tm[--Td],Ns=Tm[--Td],Np=TC[hY];if(Ns===null||Ns===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+Ns+'\x20(setting\x20'+'\x27'+String(Np)+'\x27'+')');if(Tz){let NV=typeof Ns==='object'||typeof Ns==='function'?Ns:Object(Ns);if(!Reflect['set'](NV,Np,NB,Ns))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(Np)+'\x27\x20of\x20object');}else Ns[Np]=NB;Tm[Td++]=NB,Tu++;break;}case 0x11c:{Tm[--Td],Tm[Td++]=undefined,Tu++;break;}case 0x10c:{N:{let NA=TL[Tu];while(Tg&&Tg['length']>0x0){let O0=Tg[Tg['length']-0x1];if(O0['_$bXBwlD']!==undefined||!(NA>=O0['_$COqIrN']||NA<=O0['_$lntBsH']))break;Tg['pop']();}if(Tg&&Tg['length']>0x0){let O1=Tg[Tg['length']-0x1];if(O1['_$bXBwlD']!==undefined&&(NA>=O1['_$COqIrN']||NA<=O1['_$lntBsH'])){TG=null,TZ=![],Tr=undefined,TF=![],Tt=0x0,Tk=undefined,Ta=!![],TQ=NA,TH=h3,TX=O1['_$lntBsH'],Tb=O1['_$COqIrN'],Tu=O1['_$bXBwlD'];break N;}}(TZ||TF||Ta||TG!==null)&&(NA>=Tb||NA<=TX)&&(TZ=![],Tr=undefined,TF=![],Tt=0x0,Tk=undefined,Ta=![],TQ=0x0,TH=undefined,TG=null),Tu=NA;}break;}case 0x118:{let O2=Tm[Td-0x3],O3=Tm[Td-0x2],O4=Tm[Td-0x1];Tm[Td-0x3]=O3,Tm[Td-0x2]=O4,Tm[Td-0x1]=O2,Tu++;break;}case 0x12c:{Tm[Td-0x1]=+Tm[Td-0x1],Tu++;break;}case 0x111:{Ty[hY]=Tm[--Td],Tu++;break;}case 0x129:{Ty[hY]=Ty[hY]+0x1,Tu++;break;}case 0xb8:{Tm[Td-0x1]=Tm[Td-0x1]|0x0,Tu++;break;}case 0x114:{let O5=Tm[--Td],O6=Tm[--Td];Tm[Td++]=O6 in O5,Tu++;break;}case 0x115:{Tm[Td-0x1]=Tm[Td-0x1]>>>0x0,Tu++;break;}case 0x128:{let O7=Tm[Td-0x3],O8=Tm[Td-0x2],O9=Tm[Td-0x1];Tm[Td-0x3]=O9,Tm[Td-0x2]=O7,Tm[Td-0x1]=O8,Tu++;break;}case 0xd6:{throw Tm[--Td];break;}case 0x12a:{let OJ=Tm[--Td],OT=Tm[--Td],Oh=Tm[--Td];if(Oh===null||Oh===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+Oh+'\x20(setting\x20'+(typeof OT==='symbol'?'\x27'+OT['toString']()+'\x27':typeof OT==='string'?'\x27'+OT+'\x27':typeof OT==='object'||typeof OT==='function'?'\x27<computed\x20key>\x27':'\x27'+String(OT)+'\x27')+')');if(Tz){let ON=typeof Oh==='object'||typeof Oh==='function'?Oh:Object(Oh);if(!Reflect['set'](ON,OT,OJ,Oh))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(OT)+'\x27\x20of\x20object');}else Oh[OT]=OJ;Tm[Td++]=OJ,Tu++;break;}case 0xc8:{if(hY===-0x2){}else hY===-0x1?Tm[--Td]:h3['_$i74iiQ'][hY]=Tm[--Td];Tu++;break;}case 0xdc:{let OO=Tm[--Td],OU=Tm[--Td];Tm[Td++]=OU<=OO,Tu++;break;}case 0x112:{if(Tg&&Tg['length']>0x0){let Oc=Tg[Tg['length']-0x1];Oc['_$bXBwlD']===Tu&&(Oc['_$PeIOz2']!==undefined&&(TG=Oc['_$PeIOz2'],TX=Oc['_$lntBsH'],Tb=Oc['_$COqIrN']),Oc['_$hgrJCW']!==undefined&&(h3=Oc['_$hgrJCW']),Tg['pop']());}Tu++;break;}case 0x130:{let Of=Tm[--Td],Ox=Tm[--Td],OE=Tm[Td-0x1];M(OE,Ox,{'value':Of,'writable':!![],'enumerable':![],'configurable':!![]});typeof Of==='function'&&(!vmU_676943['_$JwBwAz']&&(vmU_676943['_$JwBwAz']=new WeakMap()),N['call'](vmU_676943['_$JwBwAz'],Of,OE));Tu++;break;}}};while(Tu<Tj){try{while(Tu<Tj){let hK=Tu<<To,hY=TW[TR+hK],hv=TW[Te+hK];switch(hU[hY]){case 0x1:{let hI=Tw[hv];if((typeof hI==='object'||typeof hI==='function')&&hI!==null){const hM=hI[Symbol['toPrimitive']];if(hM!=null){hI=hM['call'](hI,'number');if(hI!==null&&(typeof hI==='object'||typeof hI==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hw=hI['valueOf']();if(hw===null||typeof hw!=='object'&&typeof hw!=='function')hI=hw;else{const hi=hI['toString']();if(hi!==null&&(typeof hi==='object'||typeof hi==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hI=hi;}}}Tw[hv]=typeof hI===u?hI+0x1n:+hI+0x1,Tu++;continue;}case 0x2:{let hn=Tm[--Td],hP=Tm[--Td],hD=Tm[--Td];if(hD===null||hD===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+hD+'\x20(setting\x20'+(typeof hP==='symbol'?'\x27'+hP['toString']()+'\x27':typeof hP==='string'?'\x27'+hP+'\x27':typeof hP==='object'||typeof hP==='function'?'\x27<computed\x20key>\x27':'\x27'+String(hP)+'\x27')+')');if(Tz){let hm=typeof hD==='object'||typeof hD==='function'?hD:Object(hD);if(!Reflect['set'](hm,hP,hn,hD))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(hP)+'\x27\x20of\x20object');}else hD[hP]=hn;Tm[Td++]=hn,Tu++;continue;}case 0x3:{let hd=hv&0xffff,hq=hv>>>0x10;Tm[Td++]=Ty[hd]+TC[hq],Tu++;continue;}case 0x4:{let hC=hv&0xffff,hW=hv>>>0x10;Tm[Td++]=Tw[hC]-TC[hW],Tu++;continue;}case 0x5:{Ty[hv]=Ty[hv]-0x1,Tu++;continue;}case 0x6:{let hL=Tm[--Td];if((typeof hL==='object'||typeof hL==='function')&&hL!==null){const hS=hL[Symbol['toPrimitive']];if(hS!=null){hL=hS['call'](hL,'number');if(hL!==null&&(typeof hL==='object'||typeof hL==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hy=hL['valueOf']();if(hy===null||typeof hy!=='object'&&typeof hy!=='function')hL=hy;else{const hu=hL['toString']();if(hu!==null&&(typeof hu==='object'||typeof hu==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hL=hu;}}}Tm[Td++]=typeof hL===u?hL+0x1n:+hL+0x1,Tu++;continue;}case 0x7:{let hj=Ty[hv];if((typeof hj==='object'||typeof hj==='function')&&hj!==null){const hl=hj[Symbol['toPrimitive']];if(hl!=null){hj=hl['call'](hj,'number');if(hj!==null&&(typeof hj==='object'||typeof hj==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hR=hj['valueOf']();if(hR===null||typeof hR!=='object'&&typeof hR!=='function')hj=hR;else{const he=hj['toString']();if(he!==null&&(typeof he==='object'||typeof he==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hj=he;}}}Ty[hv]=typeof hj===u?hj-0x1n:+hj-0x1,Tu++;continue;}case 0x8:{let ho=Tm[--Td];if((typeof ho==='object'||typeof ho==='function')&&ho!==null){const hg=ho[Symbol['toPrimitive']];if(hg!=null){ho=hg['call'](ho,'number');if(ho!==null&&(typeof ho==='object'||typeof ho==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hG=ho['valueOf']();if(hG===null||typeof hG!=='object'&&typeof hG!=='function')ho=hG;else{const hZ=ho['toString']();if(hZ!==null&&(typeof hZ==='object'||typeof hZ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');ho=hZ;}}}Tm[Td++]=typeof ho===u?ho:+ho,Tu++;continue;}case 0x9:{let hr=hv&0xffff,hF=hv>>>0x10,ht=Ty[hr],hk=TC[hF];if(ht===null||ht===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+ht+'\x20(reading\x20'+'\x27'+String(hk)+'\x27'+')');Tm[Td++]=ht[hk],Tu++;continue;}case 0xa:{Tm[Td++]=undefined,Tu++;continue;}case 0xb:{Tm[Td++]=TC[hv],Tu++;continue;}case 0xc:{Tm[Td++]=null,Tu++;continue;}case 0xd:{Tm[--Td],Tu++;continue;}case 0xe:{let ha=Tm[--Td],hQ=TC[hv];if(ha===null||ha===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+ha+'\x20(reading\x20'+'\x27'+String(hQ)+'\x27'+')');Tm[Td++]=ha[hQ],Tu++;continue;}case 0xf:{Tm[Td++]=Ty[hv],Tu++;continue;}case 0x10:{!Tm[Td-0x1]?Tu=TL[Tu]:(Tm[--Td],Tu++);continue;}case 0x11:{Tm[Td-0x1]=Tm[Td-0x1]|0x0,Tu++;continue;}case 0x12:{let hH=hv&0xffff,hX=hv>>>0x10,hb=h3;for(let hs=0x0;hs<hX;hs++){hb=hb['_$qprkR5'];}let hz=hb['_$i74iiQ'],hB=hz[hH];if(hB===hz){let hp=hb['_$fV4Gqs'];throw new ReferenceError('Cannot\x20access\x20\x27'+(hp&&hp[hH]||'variable')+'\x27\x20before\x20initialization');}Tm[Td++]=hB,Tu++;continue;}case 0x13:{let hV=Tm[--Td],hA=Tm[--Td];Tm[Td++]=hA+hV,Tu++;continue;}case 0x14:{let N0=Tm[--Td],N1=Tm[--Td];Tm[Td++]=N1/N0,Tu++;continue;}case 0x15:{let N2=Tm[--Td],N3=Tm[--Td];if(N3===null||N3===undefined){if(N2===Symbol['iterator'])throw new TypeError((N3===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+N3+'\x20(reading\x20'+(typeof N2==='symbol'?'\x27'+N2['toString']()+'\x27':typeof N2==='string'?'\x27'+N2+'\x27':typeof N2==='object'||typeof N2==='function'?'\x27<computed\x20key>\x27':'\x27'+String(N2)+'\x27')+')');}Tm[Td++]=N3[N2],Tu++;continue;}case 0x16:{let N4=hv&0xffff,N5=hv>>>0x10;Tm[Td++]=Ty[N4]*TC[N5],Tu++;continue;}case 0x17:{Tm[--Td]?Tu=TL[Tu]:Tu++;continue;}case 0x18:{Ty[hv]=Ty[hv]+0x1,Tu++;continue;}case 0x19:{let N6=Tm[--Td],N7=Tm[--Td];Tm[Td++]=N7>=N6,Tu++;continue;}case 0x1a:{!Tm[--Td]?Tu=TL[Tu]:Tu++;continue;}case 0x1b:{Tm[Td-0x1]=Tm[Td-0x1]>>>0x0,Tu++;continue;}case 0x1c:{let N8=Tm[--Td],N9=Tm[--Td],NJ=TC[hv];if(N9===null||N9===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+N9+'\x20(setting\x20'+'\x27'+String(NJ)+'\x27'+')');if(Tz){let NT=typeof N9==='object'||typeof N9==='function'?N9:Object(N9);if(!Reflect['set'](NT,NJ,N8,N9))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(NJ)+'\x27\x20of\x20object');}else N9[NJ]=N8;Tm[Td++]=N8,Tu++;continue;}case 0x1d:{let Nh=Tm[--Td],NN=Tm[--Td];Tm[Td++]=NN<Nh,Tu++;continue;}case 0x1e:{let NO=Tm[--Td],NU=Tm[--Td];Tm[Td++]=NU==NO,Tu++;continue;}case 0x1f:{let Nc=Tm[--Td],Nf=Tm[--Td];Tm[Td++]=Nf!=Nc,Tu++;continue;}case 0x20:{let Nx=Tm[Td-0x1],NE=TC[hv];if(Nx===null||Nx===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Nx+'\x20(reading\x20'+'\x27'+String(NE)+'\x27'+')');Tm[Td++]=Nx[NE],Tu++;continue;}case 0x21:{let NK=Tm[--Td],NY=Tm[--Td];Tm[Td++]=NY!==NK,Tu++;continue;}case 0x22:{let Nv=Tm[--Td],NI=Tm[--Td];Tm[Td++]=NI>Nv,Tu++;continue;}case 0x23:{Tm[Td++]=Tw[hv],Tu++;continue;}case 0x24:{let NM=hv&0xffff,Nw=hv>>>0x10;Tm[Td++]=Ty[NM]<TC[Nw],Tu++;continue;}case 0x25:{let Ni=Tw[hv];if((typeof Ni==='object'||typeof Ni==='function')&&Ni!==null){const Nn=Ni[Symbol['toPrimitive']];if(Nn!=null){Ni=Nn['call'](Ni,'number');if(Ni!==null&&(typeof Ni==='object'||typeof Ni==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const NP=Ni['valueOf']();if(NP===null||typeof NP!=='object'&&typeof NP!=='function')Ni=NP;else{const ND=Ni['toString']();if(ND!==null&&(typeof ND==='object'||typeof ND==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Ni=ND;}}}Tw[hv]=typeof Ni===u?Ni-0x1n:+Ni-0x1,Tu++;continue;}case 0x26:{let Nm=Tm[--Td],Nd=Tm[--Td];Tm[Td++]=Nd*Nm,Tu++;continue;}case 0x27:{if(Ts&&!h7){let NW=Jf(h3);if(NW!==undefined)TD=NW,h7=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let Nq=TD,NC=TC[hv];if(Nq===null||Nq===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Nq+'\x20(reading\x20'+'\x27'+String(NC)+'\x27'+')');Tm[Td++]=Nq[NC],Tu++;continue;}case 0x28:{let NL=Tm[--Td],NS=Tm[--Td],Ny=(hv^0x9f43)>>>0x0,Nu;Ny<0x10?Ny<0x8?Ny<0x4?Ny<0x2?Nu=Ny<0x1?NS^NL:NS<<NL:Nu=Ny<0x3?NS>>NL:NS/NL:Ny<0x6?Nu=Ny<0x5?NS%NL:NS==NL:Nu=Ny<0x7?NS!=NL:NS**NL:Ny<0xc?Ny<0xa?Nu=Ny<0x9?NS&NL:NS+NL:Nu=Ny<0xb?NS*NL:NS|NL:Ny<0xe?Nu=Ny<0xd?NS>>>NL:NS!==NL:Nu=Ny<0xf?NS<=NL:NS-NL:Ny<0x14?Ny<0x12?Nu=Ny<0x11?NS<NL:NS>NL:Nu=Ny<0x13?NS>=NL:NS===NL:Ny<0x18?Nu=Ny<0x16?NS|NL:NS&NL:Nu=Ny<0x1c?NS^NL:NL-NS;Tm[Td++]=Nu,Tu++;continue;}case 0x29:{Tm[Td-0x1]?Tu=TL[Tu]:(Tm[--Td],Tu++);continue;}case 0x2a:{Tm[Td++]=TC[hv],Tu++;continue;}case 0x2b:{let Nj=Tm[--Td],Nl=Tm[--Td];Tm[Td++]=Nl<=Nj,Tu++;continue;}case 0x2c:{let NR=hv&0xffff,Ne=hv>>>0x10;Tm[Td++]=Ty[NR]-TC[Ne],Tu++;continue;}case 0x2d:{let No=Tm[Td-0x1];Tm[Td++]=No,Tu++;continue;}case 0x2e:{let Ng=hv&0xffff,NG=hv>>>0x10;Tm[Td++]=Tw[Ng]<=TC[NG],Tu++;continue;}case 0x2f:{let NZ=Tm[--Td],Nr=Tm[--Td];Tm[Td++]=Nr-NZ,Tu++;continue;}case 0x30:{Ty[hv]=Tm[--Td],Tu++;continue;}case 0x31:{Tu=TL[Tu];continue;}case 0x32:{let NF=Tm[--Td],Nt=Tm[--Td];Tm[Td++]=Nt%NF,Tu++;continue;}case 0x33:{let Nk=Tm[--Td];if((typeof Nk==='object'||typeof Nk==='function')&&Nk!==null){const Na=Nk[Symbol['toPrimitive']];if(Na!=null){Nk=Na['call'](Nk,'number');if(Nk!==null&&(typeof Nk==='object'||typeof Nk==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const NQ=Nk['valueOf']();if(NQ===null||typeof NQ!=='object'&&typeof NQ!=='function')Nk=NQ;else{const NH=Nk['toString']();if(NH!==null&&(typeof NH==='object'||typeof NH==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Nk=NH;}}}Tm[Td++]=typeof Nk===u?Nk-0x1n:+Nk-0x1,Tu++;continue;}case 0x34:{let NX=Tm[--Td];NX!==null&&NX!==undefined?Tu=TL[Tu]:Tu++;continue;}case 0x35:{Tw[hv]=Tm[--Td],Tu++;continue;}case 0x36:{let Nb=Tm[--Td],Nz=Tm[--Td];Tm[Td++]=Nz===Nb,Tu++;continue;}case 0x37:{let NB=Ty[hv];if((typeof NB==='object'||typeof NB==='function')&&NB!==null){const Ns=NB[Symbol['toPrimitive']];if(Ns!=null){NB=Ns['call'](NB,'number');if(NB!==null&&(typeof NB==='object'||typeof NB==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const Np=NB['valueOf']();if(Np===null||typeof Np!=='object'&&typeof Np!=='function')NB=Np;else{const NV=NB['toString']();if(NV!==null&&(typeof NV==='object'||typeof NV==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');NB=NV;}}}Ty[hv]=typeof NB===u?NB+0x1n:+NB+0x1,Tu++;continue;}}if(hY<0x47){if(hh(hY,hv)){if(hJ>0x0){for(let NA=h8-0x1;NA>=0x0;NA--){Ty[NA]=h9[--hJ];}h6=h9[--hJ],Tw=h9[--hJ],Td=h9[--hJ],h5=h9[--hJ],Tu=h9[--hJ],h3=h9[--hJ],Tm[Td++]=hT,Tu++;continue;}return hT;}}else{if(hY<0xa7){if(hN(hY,hv)){if(hJ>0x0){for(let O0=h8-0x1;O0>=0x0;O0--){Ty[O0]=h9[--hJ];}h6=h9[--hJ],Tw=h9[--hJ],Td=h9[--hJ],h5=h9[--hJ],Tu=h9[--hJ],h3=h9[--hJ],Tm[Td++]=hT,Tu++;continue;}return hT;}}else{if(hO(hY,hv)){if(hJ>0x0){for(let O1=h8-0x1;O1>=0x0;O1--){Ty[O1]=h9[--hJ];}h6=h9[--hJ],Tw=h9[--hJ],Td=h9[--hJ],h5=h9[--hJ],Tu=h9[--hJ],h3=h9[--hJ],Tm[Td++]=hT,Tu++;continue;}return hT;}}}}break;}catch(O2){l=0x0;if(Tg&&Tg['length']>0x0){let O3=Tg[Tg['length']-0x1];Td=O3['_$KIDAUO'];O3['_$hgrJCW']!==undefined&&(h3=O3['_$hgrJCW']);if(O3['_$2WDq1q']!==undefined)TG=null,h0(O2),Tu=O3['_$2WDq1q'],O3['_$2WDq1q']=undefined,O3['_$bXBwlD']===undefined&&Tg['pop']();else O3['_$bXBwlD']!==undefined?(Tu=O3['_$bXBwlD'],O3['_$PeIOz2']=O2):(Tu=O3['_$COqIrN'],Tg['pop']());continue;}throw O2;}}if(Ts&&!h7){let O4=Jf(h3);O4!==undefined&&(TD=O4,h7=!![]);}let hc=Td>0x0?Tm[--Td]:h7?TD:undefined;if(Ts&&!h7&&(hc===undefined||hc===null||typeof hc!=='object'&&typeof hc!=='function'))throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return hc;}function Ji(TM,Tw,Ti,Tn,TP,TD){let Tm=[void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0,void 0x0],Td=0x0,Tq=TJ(TM[0x20],TM[0x21]),TC,TW,TL,TS;switch(Tq[0x1]&0x3){case 0x0:TW=TM[0x0*Tq[0x0]+Tq[0x1]&0x1f],TC=TM[0x8*Tq[0x0]+Tq[0x1]&0x1f],TL=TM[0x19*Tq[0x0]+Tq[0x1]&0x1f]||j,TS=TM[0x13*Tq[0x0]+Tq[0x1]&0x1f]||j;break;case 0x1:TC=TM[0x8*Tq[0x0]+Tq[0x1]&0x1f],TL=TM[0x19*Tq[0x0]+Tq[0x1]&0x1f]||j,TS=TM[0x13*Tq[0x0]+Tq[0x1]&0x1f]||j,TW=TM[0x0*Tq[0x0]+Tq[0x1]&0x1f];break;case 0x2:TL=TM[0x19*Tq[0x0]+Tq[0x1]&0x1f]||j,TS=TM[0x13*Tq[0x0]+Tq[0x1]&0x1f]||j,TW=TM[0x0*Tq[0x0]+Tq[0x1]&0x1f],TC=TM[0x8*Tq[0x0]+Tq[0x1]&0x1f];break;default:TS=TM[0x13*Tq[0x0]+Tq[0x1]&0x1f]||j,TW=TM[0x0*Tq[0x0]+Tq[0x1]&0x1f],TC=TM[0x8*Tq[0x0]+Tq[0x1]&0x1f],TL=TM[0x19*Tq[0x0]+Tq[0x1]&0x1f]||j;break;}let Ty=new Array((TM[0x20]||0x0)+(TM[0x21]||0x0)),Tu=0x0,Tj=TW['length']>>0x1,Tl=(TM[0x20]*0x500f^TM[0x21]*0x1ced^Tj*0x97b3^TC['length']*0xadfd)>>>0x0&0x3,TR,Te,To;switch(Tl){case 0x1:TR=0x1,Te=0x0,To=0x1;break;case 0x2:TR=0x0,Te=Tj,To=0x0;break;case 0x3:TR=Tj,Te=0x0,To=0x0;break;default:TR=0x0,Te=0x1,To=0x1;break;}let Tg=null,TG=null,TZ=![],Tr=undefined,TF=![],Tt=0x0,Tk=undefined,Ta=![],TQ=0x0,TH=undefined,TX=-0x1,Tb=-0x1,Tz=!!TM[0x4*Tq[0x0]+Tq[0x1]&0x1f],TB=!!TM[0xc*Tq[0x0]+Tq[0x1]&0x1f],Ts=!!TM[0x6*Tq[0x0]+Tq[0x1]&0x1f],Tp=!!TM[0x5*Tq[0x0]+Tq[0x1]&0x1f],TV=TD,TA=!!TM[0xb*Tq[0x0]+Tq[0x1]&0x1f];!Tz&&!TA&&(TD===undefined||TD===null)&&(TD=vmx);let h0=TM[0x16*Tq[0x0]+Tq[0x1]&0x1f],h1,h2,h3,h4,h5,h6;if(h0!==undefined){let hf=hx=>typeof hx==='number'&&(hx|0x0)===hx&&!Object['is'](hx,-0x0)?hx^h0|0x0:hx;h1=hx=>{Tm[Td++]=hf(hx);},h2=()=>hf(Tm[--Td]),h3=()=>hf(Tm[Td-0x1]),h4=hx=>{Tm[Td-0x1]=hf(hx);},h5=hx=>hf(Tm[Td-hx]),h6=(hx,hE)=>{Tm[Td-hx]=hf(hE);};}else h1=hx=>{Tm[Td++]=hx;},h2=()=>Tm[--Td],h3=()=>Tm[Td-0x1],h4=hx=>{Tm[Td-0x1]=hx;},h5=hx=>Tm[Td-hx],h6=(hx,hE)=>{Tm[Td-hx]=hE;};let h7=TM[0x3*Tq[0x0]+Tq[0x1]&0x1f]||0x0,h8={['_$i74iiQ']:h7?new Array(h7)['fill'](void 0x0):j,['_$6RhBvz']:null,['_$BHRkoQ']:-0x1,['_$qprkR5']:Tn};if(Tw){let hx=TM[0x20]||0x0;for(let hE=0x0,hK=Tw['length']<hx?Tw['length']:hx;hE<hK;hE++){Ty[hE]=Tw[hE];}}let h9=Tw?Tw['length']:0x0,hJ=(Tz||!TB)&&Tw?JJ(Tw):null,hT=null,hh=![],hN=(TM[0x20]||0x0)+(TM[0x21]||0x0),hO=null,hU=0x0;JE(Ti,TM,Tn,Tq);function hc(hY,hv){if(hY===0x1)h1(hv);else{if(hY===0x2){if(Tg&&Tg['length']>0x0){let hD=Tg[Tg['length']-0x1];Td=hD['_$KIDAUO'];hD['_$hgrJCW']!==undefined&&(h8=hD['_$hgrJCW']);if(hD['_$2WDq1q']!==undefined)h1(hv),Tu=hD['_$2WDq1q'],hD['_$2WDq1q']=undefined,hD['_$bXBwlD']===undefined&&Tg['pop']();else hD['_$bXBwlD']!==undefined?(Tu=hD['_$bXBwlD'],hD['_$PeIOz2']=hv):(Tu=hD['_$COqIrN'],Tg['pop']());}else throw hv;}else{if(hY===0x3){let hm=hv;while(Tg&&Tg['length']>0x0){let hd=Tg[Tg['length']-0x1];if(hd['_$bXBwlD']!==undefined)break;Tg['pop']();}if(Tg&&Tg['length']>0x0){let hq=Tg[Tg['length']-0x1];if(hq['_$bXBwlD']!==undefined)TG=null,TF=![],Tt=0x0,Tk=undefined,Ta=![],TQ=0x0,TH=undefined,TZ=!![],Tr=hm,TX=hq['_$lntBsH'],Tb=hq['_$COqIrN'],Tu=hq['_$bXBwlD'];else return hm;}else return hm;}}}var hI,hM,hw,hi,hn;hn=[0xe,0x0,0x1e,0x0,0x0,0x0,0x0,0x0,0x29,0x0,0x22,0x33,0x7,0x0,0x0,0x0,0x17,0x0,0x0,0x0,0x0,0x32,0x0,0x0,0x0,0x0,0x34,0x0,0x0,0x0,0x0,0x0,0x20,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2e,0x0,0x0,0xd,0x0,0x0,0x0,0x0,0xb,0x0,0x0,0x2c,0x0,0x0,0x1a,0x0,0x25,0x0,0x0,0x2f,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x23,0x0,0x0,0x0,0x0,0x0,0x24,0x0,0x0,0x0,0x21,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x9,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x8,0x15,0x0,0x0,0x0,0x3,0x12,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2d,0xa,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x6,0x0,0x0,0x27,0x0,0x31,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x28,0x0,0xf,0x1d,0x2a,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x36,0x0,0x0,0x11,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x14,0x0,0x0,0x0,0x0,0x0,0x0,0x2b,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x10,0x35,0x0,0x0,0x1c,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x5,0x16,0x0,0x0,0xc,0x0,0x0,0x0,0x4,0x0,0x0,0x30,0x0,0x0,0x0,0x1b,0x0,0x37,0x0,0x0,0x0,0x1f,0x0,0x0,0x0,0x0,0x19,0x0,0x0,0x0,0x0,0x26,0x13,0x0,0x0,0x18,0x2,0x0,0x0,0x1,0x0,0x0,0x0],hM=function(hC,hW){switch(hC){case 0x16:{let hL=Tm[--Td],hS=Tm[--Td];Tm[Td++]=hS<<hL,Tu++;break;}case 0x2a:{let hy=hW;h8['_$i74iiQ'][hy]=Ti;let hu=h8['_$6RhBvz'];!hu&&(hu=T(null),h8['_$6RhBvz']=hu);hu[hy]=0x2,Tu++;break;}case 0xb:{let hj=Tm[--Td];if((typeof hj==='object'||typeof hj==='function')&&hj!==null){const hl=hj[Symbol['toPrimitive']];if(hl!=null){hj=hl['call'](hj,'number');if(hj!==null&&(typeof hj==='object'||typeof hj==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hR=hj['valueOf']();if(hR===null||typeof hR!=='object'&&typeof hR!=='function')hj=hR;else{const he=hj['toString']();if(he!==null&&(typeof he==='object'||typeof he==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hj=he;}}}Tm[Td++]=typeof hj===u?hj-0x1n:+hj-0x1,Tu++;break;}case 0x20:{let ho=Tm[Td-0x1],hg=TC[hW];if(ho===null||ho===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+ho+'\x20(reading\x20'+'\x27'+String(hg)+'\x27'+')');Tm[Td++]=ho[hg],Tu++;break;}case 0x12:{let hG=Tm[--Td],hZ=typeof hG;if(hG!==null&&(hZ==='object'||hZ==='function')){let hr=T(null);hr[hG]=0x0,hG=Reflect['ownKeys'](hr)[0x0];}else hZ!=='symbol'&&(hG=String(hG));Tm[Td++]=hG,Tu++;break;}case 0x11:{let hF=Tm[--Td],ht=Tm[Td-0x1],hk=TC[hW];M(ht,hk,{'value':hF,'writable':!![],'enumerable':![],'configurable':!![]});typeof hF==='function'&&(!vmU_676943['_$JwBwAz']&&(vmU_676943['_$JwBwAz']=new WeakMap()),N['call'](vmU_676943['_$JwBwAz'],hF,ht));Tu++;break;}case 0xe:{let ha=Tm[--Td],hQ=Tm[--Td],hH=TC[hW];M(hQ,hH,{'value':ha,'writable':!![],'enumerable':!![],'configurable':!![]});typeof ha==='function'&&(!vmU_676943['_$JwBwAz']&&(vmU_676943['_$JwBwAz']=new WeakMap()),N['call'](vmU_676943['_$JwBwAz'],ha,hQ));Tu++;break;}case 0x35:{J:{let hX=hW&0xffff,hb=hW>>>0x10,hz=Tm[--Td],hB=h8;for(let hA=0x0;hA<hb;hA++){hB=hB['_$qprkR5'];}let hs=hB['_$i74iiQ'];if(hs[hX]===hs){let N0=hB['_$fV4Gqs'];throw new ReferenceError('Cannot\x20access\x20\x27'+(N0&&N0[hX]||'variable')+'\x27\x20before\x20initialization');}let hp=hB['_$6RhBvz'],hV=hp&&hp[hX];if(hV){if(hV===0x2&&!Tz){Tu++;break J;}throw new TypeError('Assignment\x20to\x20constant\x20variable.');}hs[hX]=hz,Tu++;break J;}break;}case 0x4:{let N1=Tm[--Td];if(N1==null)throw new TypeError(N1+'\x20is\x20not\x20iterable');let N2=N1[Symbol['asyncIterator']];if(typeof N2==='function')Tm[Td++]=N2['call'](N1);else{let N3=N1[Symbol['iterator']];if(typeof N3!=='function')throw new TypeError(N1+'\x20is\x20not\x20iterable');let N4=N3['call'](N1);if(N4===null||typeof N4!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');let N5=async function(N7){if(N7===null||typeof N7!=='object')throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');let N8=await N7['value'];return{'value':N8,'done':!!N7['done']};},N6={'next':function(N7){let N8;try{N8=N4['next'](N7);}catch(N9){return Promise['reject'](N9);}return N5(N8);},'return':function(N7){if(typeof N4['return']!=='function')return Promise['resolve']({'value':N7,'done':!![]});let N8;try{N8=N4['return'](N7);}catch(N9){return Promise['reject'](N9);}return N5(N8);},'throw':function(N7){if(typeof N4['throw']!=='function')return Promise['reject'](N7);let N8;try{N8=N4['throw'](N7);}catch(N9){return Promise['reject'](N9);}return N5(N8);},[Symbol['asyncIterator']]:function(){return this;}};Tm[Td++]=N6;}Tu++;break;}case 0x3d:{let N7=Tm[--Td],N8=Tm[--Td];Tm[Td++]=N8>>N7,Tu++;break;}case 0x14:{Tm[Td++]=TV,Tu++;break;}case 0x18:{T:{let N9=TC[hW],NJ=Tm[--Td];if(typeof NJ!=='function')throw new TypeError(NJ+'\x20is\x20not\x20a\x20function');let NT=vmU_676943['_$JwBwAz'],Nh=!vmU_676943['_$kFSWSr']&&!vmU_676943['_$hIuypo']&&!(NT&&E['call'](NT,NJ))&&k(NJ);if(Nh&&Nh['_$mmzF6F']!==![]){let Nf=Nh['_$Dfd67N']||t(Nh,typeof Nh['_$8Z6ZUQ']==='object'?Nh['_$8Z6ZUQ']['n']!==undefined?0x0?TO(Nh['_$8Z6ZUQ']['n']):Nh['_$8Z6ZUQ']['d']||(Nh['_$8Z6ZUQ']['d']=TO(Nh['_$8Z6ZUQ']['n'])):Nh['_$8Z6ZUQ']:TN(Nh['_$8Z6ZUQ']));if(Nf){let Nx;if(N9===0x0)Nx=[];else{if(N9===0x1){let NY=Tm[--Td];Nx=NY&&typeof NY==='object'&&U['call'](o,NY)?NY['value']:[NY];}else Nx=J0(h2,N9);}let NE=Nf===TM?Tq:TJ(Nf[0x20],Nf[0x21]),NK=Nf[0x9*NE[0x0]+NE[0x1]&0x1f];if(NK&&Nf===TM&&!Nf[0x13*NE[0x0]+NE[0x1]&0x1f]&&Nh['_$TfMnEY']===Tn){!hO&&(hO=[]);hO[hU++]=h8,hO[hU++]=Tu,hO[hU++]=hJ,hO[hU++]=Td,hO[hU++]=Tw,hO[hU++]=hT;for(let Nv=0x0;Nv<hN;Nv++){hO[hU++]=Ty[Nv];}Tw=Nx,hT=null;if(Nf[0xc*NE[0x0]+NE[0x1]&0x1f]){hJ=null;let NI=Nf[0x20]||0x0;for(let NM=0x0;NM<NI&&NM<Nx['length'];NM++){Ty[NM]=Nx[NM];}for(let Nw=Nx['length']<NI?Nx['length']:NI;Nw<hN;Nw++){Ty[Nw]=undefined;}Tu=NK;}else{hJ=JJ(Nx);for(let Ni=0x0;Ni<hN;Ni++){Ty[Ni]=undefined;}Tu=0x0;}break T;}vmU_676943['_$PNywNM']?vmU_676943['_$PNywNM']=![]:vmU_676943['_$kFSWSr']=undefined;Tm[Td++]=Jw(Nf,Nx,NJ,Nh['_$TfMnEY'],undefined,undefined),Tu++;break T;}}let NN=vmU_676943['_$kFSWSr'],NO=vmU_676943['_$JwBwAz'],NU=NO&&E['call'](NO,NJ);NU?(vmU_676943['_$PNywNM']=!![],vmU_676943['_$kFSWSr']=NU):vmU_676943['_$kFSWSr']=undefined;let Nc;try{if(N9===0x0)Nc=NJ();else{if(N9===0x1){let Nn=Tm[--Td];Nc=Nn&&typeof Nn==='object'&&U['call'](o,Nn)?Y(NJ,undefined,Nn['value']):NJ(Nn);}else Nc=Y(NJ,undefined,J0(h2,N9));}Tm[Td++]=Nc;}finally{NU&&(vmU_676943['_$PNywNM']=![]),vmU_676943['_$kFSWSr']=NN;}Tu++;}break;}case 0x28:{Tg['pop'](),Tu++;break;}case 0x17:{let NP=hW&0xffff,ND=h8['_$i74iiQ'];ND[NP]=ND;let Nm=hW>>>0x10;Nm&&((h8['_$fV4Gqs']||(h8['_$fV4Gqs']={}))[NP]=TC[Nm-0x1]);Tu++;break;}case 0x7:{let Nd=Tm[--Td];Tm[Td++]=J9(Nd),Tu++;break;}case 0xf:{h:{while(Tg&&Tg['length']>0x0){let NC=Tg[Tg['length']-0x1];if(NC['_$bXBwlD']!==undefined)break;Tg['pop']();}if(Tg&&Tg['length']>0x0){let NW=Tg[Tg['length']-0x1];if(NW['_$bXBwlD']!==undefined){TG=null,TF=![],Tt=0x0,Tk=undefined,Ta=![],TQ=0x0,TH=undefined,TZ=!![],Tr=Tm[--Td],TX=NW['_$lntBsH'],Tb=NW['_$COqIrN'],Tu=NW['_$bXBwlD'];break h;}}(TZ||TF||Ta)&&(TZ=![],Tr=undefined,TF=![],Tt=0x0,Tk=undefined,Ta=![],TQ=0x0,TH=undefined);TG=null;let Nq=Tm[--Td];if(Ts&&Nq===undefined&&!hh)throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return hI=Nq,0x1;}break;}case 0xd:{let NL=Tm[--Td],NS=Tm[--Td];Tm[Td++]=NS^NL,Tu++;break;}case 0x39:{!Tm[--Td]?Tu=TL[Tu]:Tu++;break;}case 0x15:{let Ny=Tm[--Td],Nu=Tm[--Td];Tm[Td++]=Nu%Ny,Tu++;break;}case 0x3a:{let Nj=Tm[--Td],Nl=Nj&&Nj['i']?Nj['i']:Nj;try{if(Nl!=null){let NR=Nl['return'];typeof NR==='function'&&NR['call'](Nl);}}catch(Ne){}Tu++;break;}case 0xa:{let No=Tm[--Td],Ng=Tm[--Td];Tm[Td++]=Ng>No,Tu++;break;}case 0x2c:{let NG=vmU_676943['_$EaCyKG'];NG===undefined&&Ti&&Q['has'](Ti)&&(NG=Q['get'](Ti));if(NG===undefined)throw new ReferenceError('\x27super\x27\x20keyword\x20is\x20only\x20valid\x20inside\x20a\x20derived\x20constructor');Tm[Td++]=NG,Tu++;break;}case 0x37:{let NZ=Tm[--Td],Nr=Tm[Td-0x1],NF=TC[hW];M(Nr['prototype'],NF,{'value':NZ,'writable':!![],'enumerable':![],'configurable':!![]});typeof NZ==='function'&&(!vmU_676943['_$JwBwAz']&&(vmU_676943['_$JwBwAz']=new WeakMap()),N['call'](vmU_676943['_$JwBwAz'],NZ,Nr['prototype']));Tu++;break;}case 0x6:{let Nt=Tm[--Td],Nk=Tm[--Td];Tm[Td++]=Nk&Nt,Tu++;break;}case 0x9:{let Na=hW,NQ=Tm[--Td];h8['_$i74iiQ'][Na]=NQ;let NH=h8['_$6RhBvz'];!NH&&(NH=T(null),h8['_$6RhBvz']=NH);NH[Na]=0x1,Tu++;break;}case 0x1c:{let NX=TC[hW];Tm[Td++]=Symbol['for'](NX),Tu++;break;}case 0x46:{let Nb=Tm[Td-0x1];Nb['length']++,Tu++;break;}case 0x1b:{let Nz=Tm[--Td],NB=Tm[--Td],Ns=Tm[Td-0x1];M(Ns['prototype'],NB,{'value':Nz,'writable':!![],'enumerable':![],'configurable':!![]});typeof Nz==='function'&&(!vmU_676943['_$JwBwAz']&&(vmU_676943['_$JwBwAz']=new WeakMap()),N['call'](vmU_676943['_$JwBwAz'],Nz,Ns['prototype']));Tu++;break;}case 0x34:{let Np=Tm[--Td],NV={['_$i74iiQ']:new Array(hW),['_$6RhBvz']:null,['_$BHRkoQ']:-0x1,['_$qprkR5']:Np};h8=NV,Tu++;break;}case 0x2d:{N:{let NA=TL[Tu];if(NA===Tb){if(TG!==null){TZ=![],TF=![],Ta=![];let O0=TG;TG=null;throw O0;}if(TZ){while(Tg&&Tg['length']>0x0){let O2=Tg[Tg['length']-0x1];if(O2['_$bXBwlD']!==undefined)break;Tg['pop']();}if(Tg&&Tg['length']>0x0){let O3=Tg[Tg['length']-0x1];if(O3['_$bXBwlD']!==undefined){TX=O3['_$lntBsH'],Tb=O3['_$COqIrN'],Tu=O3['_$bXBwlD'];break N;}}let O1=Tr;return TZ=![],Tr=undefined,hI=O1,0x1;}if(TF){while(Tg&&Tg['length']>0x0){let O5=Tg[Tg['length']-0x1];if(O5['_$bXBwlD']!==undefined||!(Tt>=O5['_$COqIrN']||Tt<=O5['_$lntBsH']))break;Tg['pop']();}if(Tg&&Tg['length']>0x0){let O6=Tg[Tg['length']-0x1];if(O6['_$bXBwlD']!==undefined&&(Tt>=O6['_$COqIrN']||Tt<=O6['_$lntBsH'])){TX=O6['_$lntBsH'],Tb=O6['_$COqIrN'],Tu=O6['_$bXBwlD'];break N;}}let O4=Tt;TF=![],Tt=0x0;Tk!==undefined&&(h8=Tk,Tk=undefined);Tu=O4;break N;}if(Ta){while(Tg&&Tg['length']>0x0){let O8=Tg[Tg['length']-0x1];if(O8['_$bXBwlD']!==undefined||!(TQ>=O8['_$COqIrN']||TQ<=O8['_$lntBsH']))break;Tg['pop']();}if(Tg&&Tg['length']>0x0){let O9=Tg[Tg['length']-0x1];if(O9['_$bXBwlD']!==undefined&&(TQ>=O9['_$COqIrN']||TQ<=O9['_$lntBsH'])){TX=O9['_$lntBsH'],Tb=O9['_$COqIrN'],Tu=O9['_$bXBwlD'];break N;}}let O7=TQ;Ta=![],TQ=0x0;TH!==undefined&&(h8=TH,TH=undefined);Tu=O7;break N;}}Tu++;}break;}case 0x2e:{Tm[--Td],Tu++;break;}case 0x38:{O:{let OJ=Tm[--Td],OT=Tm[--Td];if(typeof OT!=='function')throw new TypeError(OT+'\x20is\x20not\x20a\x20function');let Oh=vmU_676943['_$JwBwAz'],ON=!vmU_676943['_$kFSWSr']&&!vmU_676943['_$hIuypo']&&!(Oh&&E['call'](Oh,OT))&&k(OT);if(ON&&ON['_$mmzF6F']!==![]){let Ox=ON['_$Dfd67N']||t(ON,typeof ON['_$8Z6ZUQ']==='object'?ON['_$8Z6ZUQ']['n']!==undefined?0x0?TO(ON['_$8Z6ZUQ']['n']):ON['_$8Z6ZUQ']['d']||(ON['_$8Z6ZUQ']['d']=TO(ON['_$8Z6ZUQ']['n'])):ON['_$8Z6ZUQ']:TN(ON['_$8Z6ZUQ']));if(Ox){let OE;if(OJ===0x0)OE=[];else{if(OJ===0x1){let Ov=Tm[--Td];OE=Ov&&typeof Ov==='object'&&U['call'](o,Ov)?Ov['value']:[Ov];}else OE=J0(h2,OJ);}let OK=Ox===TM?Tq:TJ(Ox[0x20],Ox[0x21]),OY=Ox[0x9*OK[0x0]+OK[0x1]&0x1f];if(OY&&Ox===TM&&!Ox[0x13*OK[0x0]+OK[0x1]&0x1f]&&ON['_$TfMnEY']===Tn){!hO&&(hO=[]);hO[hU++]=h8,hO[hU++]=Tu,hO[hU++]=hJ,hO[hU++]=Td,hO[hU++]=Tw,hO[hU++]=hT;for(let OI=0x0;OI<hN;OI++){hO[hU++]=Ty[OI];}Tw=OE,hT=null;if(Ox[0xc*OK[0x0]+OK[0x1]&0x1f]){hJ=null;let OM=Ox[0x20]||0x0;for(let Ow=0x0;Ow<OM&&Ow<OE['length'];Ow++){Ty[Ow]=OE[Ow];}for(let Oi=OE['length']<OM?OE['length']:OM;Oi<hN;Oi++){Ty[Oi]=undefined;}Tu=OY;}else{hJ=JJ(OE);for(let On=0x0;On<hN;On++){Ty[On]=undefined;}Tu=0x0;}break O;}vmU_676943['_$PNywNM']?vmU_676943['_$PNywNM']=![]:vmU_676943['_$kFSWSr']=undefined;Tm[Td++]=Jw(Ox,OE,OT,ON['_$TfMnEY'],undefined,undefined),Tu++;break O;}}let OO=vmU_676943['_$kFSWSr'],OU=vmU_676943['_$JwBwAz'],Oc=OU&&E['call'](OU,OT);Oc?(vmU_676943['_$PNywNM']=!![],vmU_676943['_$kFSWSr']=Oc):vmU_676943['_$kFSWSr']=undefined;let Of;try{if(OJ===0x0)Of=OT();else{if(OJ===0x1){let OP=Tm[--Td];Of=OP&&typeof OP==='object'&&U['call'](o,OP)?Y(OT,undefined,OP['value']):OT(OP);}else Of=Y(OT,undefined,J0(h2,OJ));}Tm[Td++]=Of;}finally{Oc&&(vmU_676943['_$PNywNM']=![]),vmU_676943['_$kFSWSr']=OO;}Tu++;}break;}case 0x1a:{let OD=Tm[--Td];OD!==null&&OD!==undefined?Tu=TL[Tu]:Tu++;break;}case 0x2b:{let Om=hW&0xffff,Od=hW>>>0x10;Tm[Td++]=Tw[Om]<=TC[Od],Tu++;break;}case 0x8:{Tm[Td-0x1]?Tu=TL[Tu]:(Tm[--Td],Tu++);break;}case 0x3:{!Tm[--Td]?Tu=TL[Tu]:(Tm[--Td],Tu++);break;}case 0x40:{let Oq=Tm[--Td],OC=Tm[--Td];Tm[Td++]=OC**Oq,Tu++;break;}case 0x19:{if(hT===null){if(Tz||!TB){let OW=hJ||Tw,OL=OW?OW['length']:0x0;hT=T(Object['prototype']);for(let OS=0x0;OS<OL;OS++){hT[OS]=OW[OS];}M(hT,'length',{'value':OL,'writable':!![],'enumerable':![],'configurable':!![]}),M(hT,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),hT=new Proxy(hT,{'has':function(Oy,Ou){if(Ou===Symbol['toStringTag'])return![];return Ou in Oy;},'get':function(Oy,Ou,Oj){if(Ou===Symbol['toStringTag'])return'Arguments';return Reflect['get'](Oy,Ou,Oj);}}),Tz?M(hT,'callee',{'get':R,'set':R,'enumerable':![],'configurable':![]}):M(hT,'callee',{'value':Ti,'writable':!![],'enumerable':![],'configurable':!![]});}else{let Oy=h9,Ou={},Oj={},Ol=Ti,OR=![],Oe=!![],Oo={},Og=function(Ot){if(typeof Ot!=='string')return NaN;let Ok=+Ot;return Ok>=0x0&&Ok%0x1===0x0&&String(Ok)===Ot?Ok:NaN;},OG=function(Ot){return!isNaN(Ot)&&Ot>=0x0;},OZ=function(Ot){if(Ot in Oj)return undefined;if(Ot in Ou)return Ou[Ot];return Ot<h9?Tw[Ot]:undefined;},Or=function(Ot){if(Ot in Oj)return![];if(Ot in Ou)return!![];return Ot<h9?Ot in Tw:![];},OF={};M(OF,'length',{'value':Oy,'writable':!![],'enumerable':![],'configurable':!![]}),M(OF,'callee',{'value':Ti,'writable':!![],'enumerable':![],'configurable':!![]}),M(OF,Symbol['iterator'],{'value':Array['prototype'][Symbol['iterator']],'writable':!![],'enumerable':![],'configurable':!![]}),hT=new Proxy(OF,{'get':function(Ot,Ok,Oa){if(Ok==='length')return Oy;if(Ok==='callee')return OR?undefined:Ol;if(Ok===Symbol['toStringTag'])return'Arguments';let OQ=Og(Ok);if(OG(OQ)){if(OQ in Oo)return Reflect['get'](Ot,Ok,Oa);return OZ(OQ);}return Reflect['get'](Ot,Ok,Oa);},'set':function(Ot,Ok,Oa){if(Ok==='length'){if(!Oe)return![];return Oy=Oa,Ot['length']=Oa,!![];}if(Ok==='callee')return Ol=Oa,OR=![],Ot['callee']=Oa,!![];let OQ=Og(Ok);if(OG(OQ)){if(OQ in Oo)return Reflect['set'](Ot,Ok,Oa);let OH=J(Ot,String(OQ));if(OH&&!OH['writable'])return![];if(OQ in Oj)delete Oj[OQ],Ou[OQ]=Oa;else OQ<h9?Tw[OQ]=Oa:Ou[OQ]=Oa;return!![];}return Ot[Ok]=Oa,!![];},'has':function(Ot,Ok){if(Ok==='length')return!![];if(Ok==='callee')return!OR;if(Ok===Symbol['toStringTag'])return![];let Oa=Og(Ok);if(OG(Oa)){if(String(Oa)in Ot)return!![];return Or(Oa);}return Ok in Ot;},'defineProperty':function(Ot,Ok,Oa){if(Ok==='length')return'value'in Oa&&(Oy=Oa['value']),'writable'in Oa&&(Oe=Oa['writable']),M(Ot,Ok,Oa),!![];if(Ok==='callee')return'value'in Oa&&(Ol=Oa['value']),OR=![],M(Ot,Ok,Oa),!![];let OQ=Og(Ok);if(OG(OQ)){let OH='get'in Oa||'set'in Oa,OX=J(Ot,String(OQ)),Ob=OQ in Oo?OX?OX['value']:undefined:OZ(OQ),Oz=OX?OX['writable']!==![]:!![],OB=OX?OX['enumerable']!==![]:!![],Os=OX?OX['configurable']!==![]:!![],Op;if(OH)Op=Oa,Oo[OQ]=0x1,OQ in Ou&&delete Ou[OQ],OQ in Oj&&delete Oj[OQ];else{let OV='value'in Oa?Oa['value']:Ob,OA='writable'in Oa?Oa['writable']:Oz,U0='enumerable'in Oa?Oa['enumerable']:OB,U1='configurable'in Oa?Oa['configurable']:Os;Op={'value':OV,'writable':OA,'enumerable':U0,'configurable':U1},'value'in Oa&&(!(OQ in Oo)&&(OQ<h9&&!(OQ in Oj)?Tw[OQ]=Oa['value']:(Ou[OQ]=Oa['value'],OQ in Oj&&delete Oj[OQ]))),'writable'in Oa&&Oa['writable']===![]&&(Oo[OQ]=0x1,OQ in Ou&&delete Ou[OQ],OQ in Oj&&delete Oj[OQ]);}return M(Ot,String(OQ),Op),!![];}return M(Ot,Ok,Oa),!![];},'deleteProperty':function(Ot,Ok){if(Ok==='callee')return OR=!![],delete Ot['callee'],!![];let Oa=Og(Ok);if(OG(Oa)){let OH=J(Ot,String(Oa));if(OH&&OH['configurable']===![])return![];return Oa in Oo&&delete Oo[Oa],Oa<h9?Oj[Oa]=0x1:delete Ou[Oa],delete Ot[Ok],!![];}let OQ=J(Ot,Ok);if(OQ&&OQ['configurable']===![])return![];return delete Ot[Ok],!![];},'preventExtensions':function(Ot){let Ok=h9;for(let Oa=0x0;Oa<Ok;Oa++){!(Oa in Oj)&&!J(Ot,String(Oa))&&M(Ot,String(Oa),{'value':OZ(Oa),'writable':!![],'enumerable':!![],'configurable':!![]});}for(let OQ in Ou){!J(Ot,OQ)&&M(Ot,OQ,{'value':Ou[OQ],'writable':!![],'enumerable':!![],'configurable':!![]});}return Object['preventExtensions'](Ot),!![];},'getOwnPropertyDescriptor':function(Ot,Ok){if(Ok==='callee'){if(OR)return undefined;return J(Ot,'callee');}if(Ok==='length')return J(Ot,'length');let Oa=Og(Ok);if(OG(Oa)){if(Oa in Oo)return J(Ot,Ok);if(Or(Oa)){let OH=J(Ot,String(Oa));return{'value':OZ(Oa),'writable':OH?OH['writable']:!![],'enumerable':OH?OH['enumerable']:!![],'configurable':OH?OH['configurable']:!![]};}return J(Ot,Ok);}let OQ=J(Ot,Ok);if(OQ)return OQ;return undefined;},'ownKeys':function(Ot){let Ok=[],Oa=h9;for(let OH=0x0;OH<Oa;OH++){!(OH in Oj)&&Ok['push'](String(OH));}for(let OX in Ou){Ok['indexOf'](OX)===-0x1&&Ok['push'](OX);}Ok['push']('length');!OR&&Ok['push']('callee');let OQ=Reflect['ownKeys'](Ot);for(let Ob=0x0;Ob<OQ['length'];Ob++){Ok['indexOf'](OQ[Ob])===-0x1&&Ok['push'](OQ[Ob]);}return Ok;}});}}Tm[Td++]=hT,Tu++;break;}case 0x29:{let Ot=Tm[--Td],Ok=J0(h2,Ot),Oa=Tm[--Td];if(typeof Oa!=='function')throw new TypeError(Oa+'\x20is\x20not\x20a\x20constructor');if(U['call'](g,Oa))throw new TypeError(Oa['name']+'\x20is\x20not\x20a\x20constructor');let OQ=vmU_676943['_$kFSWSr'];vmU_676943['_$kFSWSr']=undefined;let OH;try{OH=Reflect['construct'](Oa,Ok);}finally{vmU_676943['_$kFSWSr']=OQ;}Tm[Td++]=OH,Tu++;break;}case 0x32:{let OX=Tm[--Td],Ob=Tm[Td-0x1];Ob['push'](OX),Tu++;break;}case 0xc:{let Oz=Ty[hW];if((typeof Oz==='object'||typeof Oz==='function')&&Oz!==null){const OB=Oz[Symbol['toPrimitive']];if(OB!=null){Oz=OB['call'](Oz,'number');if(Oz!==null&&(typeof Oz==='object'||typeof Oz==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const Os=Oz['valueOf']();if(Os===null||typeof Os!=='object'&&typeof Os!=='function')Oz=Os;else{const Op=Oz['toString']();if(Op!==null&&(typeof Op==='object'||typeof Op==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Oz=Op;}}}Ty[hW]=typeof Oz===u?Oz-0x1n:+Oz-0x1,Tu++;break;}case 0x3b:{let OV=Tw[hW];if((typeof OV==='object'||typeof OV==='function')&&OV!==null){const OA=OV[Symbol['toPrimitive']];if(OA!=null){OV=OA['call'](OV,'number');if(OV!==null&&(typeof OV==='object'||typeof OV==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const U0=OV['valueOf']();if(U0===null||typeof U0!=='object'&&typeof U0!=='function')OV=U0;else{const U1=OV['toString']();if(U1!==null&&(typeof U1==='object'||typeof U1==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');OV=U1;}}}Tw[hW]=typeof OV===u?OV-0x1n:+OV-0x1,Tu++;break;}case 0x3e:{let U2=Tm[--Td],U3=Tm[--Td];Tm[Td++]=U3-U2,Tu++;break;}case 0x36:{let U4=hW&0xffff,U5=hW>>>0x10;Tm[Td++]=Ty[U4]-TC[U5],Tu++;break;}case 0x0:{let U6=Tm[--Td],U7=TC[hW];if(U6===null||U6===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+U6+'\x20(reading\x20'+'\x27'+String(U7)+'\x27'+')');Tm[Td++]=U6[U7],Tu++;break;}case 0x13:{let U8=Tm[--Td],U9=U8&&U8['i']?U8['i']:U8;if(U9!=null){if(TG!==null)try{let UJ=U9['return'];typeof UJ==='function'&&UJ['call'](U9);}catch(UT){}else{let Uh=U9['return'];if(Uh!=null){if(typeof Uh!=='function')throw new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable');let UN=Uh['call'](U9);J6(UN);}}}Tu++;break;}case 0x5:{let UO=Tm[--Td],UU=Tm[--Td],Uc=hW,Uf=function(Ux,UE){let UK=function(){let UY=G===UK;G=undefined;if(new.target===undefined&&!UY)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');if(Ux){UE&&(vmU_676943['_$EaCyKG']=UK);let Uv='_$hIuypo'in vmU_676943;!Uv&&(vmU_676943['_$hIuypo']=new.target);try{let UI=Ux['apply'](this,JJ(arguments));if(UE&&UI!==undefined&&(UI===null||typeof UI!=='object'&&typeof UI!=='function'))throw new TypeError('Derived\x20constructors\x20may\x20only\x20return\x20object\x20or\x20undefined');return UI;}finally{UE&&delete vmU_676943['_$EaCyKG'],!Uv&&delete vmU_676943['_$hIuypo'];}}};return UK;}(UU,Uc);UO&&M(Uf,'name',{'value':UO,'configurable':!![]});UU&&M(Uf,'length',{'value':UU['length'],'configurable':!![]});if(UU&&!a(Uf)){let Ux=k(UU);Ux&&(Ux['_$mmzF6F']=![],F(Uf,Ux));}Tm[Td++]=Uf,Tu++;break;}case 0x2f:{let UE=Tm[--Td],UK=Tm[Td-0x1],UY=TC[hW],Uv=JT(UK);M(Uv,UY,{'get':UE,'enumerable':Uv===UK,'configurable':!![]}),Tu++;break;}case 0x2:{let UI=Tm[--Td],UM=Tm[--Td];Tm[Td++]=UM==UI,Tu++;break;}case 0x3f:{let Uw=Tm[--Td],Ui=Uw,Un=0x0&&typeof Uw!=='object'?TO(Uw,0x1):undefined,UP,UD,Um,Ud,Uq,UC,UW,UL;if(Un)UD=Un[0x0]&0x1,Um=Un[0x0]&0x2,Ud=Un[0x0]&0x4,Uq=Un[0x0]&0x8,UW=Un[0x0]&0x10,UC=Un[0x1]||0x0,UL=Un[0x2]||undefined,UP={'n':Uw};else{UP=typeof Uw==='object'?Uw:TO(Uw);let Uj=UP&&TJ(UP[0x20],UP[0x21]);UD=UP&&UP[0xb*Uj[0x0]+Uj[0x1]&0x1f],Um=UP&&UP[0x2*Uj[0x0]+Uj[0x1]&0x1f],Ud=UP&&UP[0xd*Uj[0x0]+Uj[0x1]&0x1f],Uq=UP&&UP[0x11*Uj[0x0]+Uj[0x1]&0x1f],UC=UP&&UP[0x20]||0x0,UW=UP&&UP[0x4*Uj[0x0]+Uj[0x1]&0x1f];let Ul=UP&&UP[0xa*Uj[0x0]+Uj[0x1]&0x1f];UL=Ul!==undefined?UP[0x8*Uj[0x0]+Uj[0x1]&0x1f][Ul]:undefined;}Uw=0x0&&typeof Ui!=='object'?{'n':Ui}:UP;let US=UD?TV:undefined,Uy=h8,Uu;if(Ud)Uu=Jv(Tc,Uw,Uy,g,UW,vmx,Um);else{if(Um)UD?Uu=JM(TU,Uw,Uy,US):Uu=JY(TU,Uw,Uy,UW,vmx);else{if(UD){Uu=JI(Jm,Uw,Uy,US);let UR=vmU_676943['_$EaCyKG'];UR===undefined&&Ti&&Q['has'](Ti)&&(UR=Q['get'](Ti)),UR!==undefined&&Q['set'](Uu,UR);}else Uu=JK(Jm,Uw,Uy,UW,vmx,Uq);}}A(Uu,'length',{'value':UC,'writable':![],'enumerable':![],'configurable':!![]});UL!==undefined&&A(Uu,'name',{'value':UL,'writable':![],'enumerable':![],'configurable':!![]});Tm[Td++]=Uu,Tu++;break;}case 0x10:{Tm[--Td]?Tu=TL[Tu]:Tu++;break;}case 0x1d:{let Ue=Tm[--Td];if(Ue==null)throw new TypeError(Ue+'\x20is\x20not\x20iterable');let Uo=Ue[b];if(Array['isArray'](Ue)&&Uo===X)Tm[Td++]={['_$NeCntR']:Ue,['_$M1JtwF']:0x0},Tu++;else{if(typeof Uo!=='function')throw new TypeError(Ue+'\x20is\x20not\x20iterable');let Ug=Y(Uo,Ue,[]);J6(Ug);let UG=Ug['next'];Tm[Td++]={'i':Ug,'n':UG},Tu++;}break;}case 0x33:{Tm[Td++]=TC[hW],Tu++;break;}}},hw=function(hC,hW){switch(hC){case 0x93:{Tm[Td++]=vmK[hW],Tu++;break;}case 0x5d:{let hS=Tm[--Td],hy=hS&&hS['_$NeCntR'];if(hy!==undefined){let hu=hS['_$M1JtwF'],hj;hu>=hy['length']?hj={'value':undefined,'done':!![]}:(hS['_$M1JtwF']=hu+0x1,hj={'value':hy[hu],'done':![]}),Tm[Td++]=hj,Tu++;}else{let hl=hS&&hS['i']?hS['i']:hS,hR=hS&&hS['n']?hS['n']:hl&&hl['next'];if(typeof hR!=='function')throw new TypeError('iterator.next\x20is\x20not\x20a\x20function');let he=Y(hR,hl,[]);J6(he),Tm[Td++]=he,Tu++;}break;}case 0xa0:{let ho=Tm[--Td],hg=Tm[--Td];Tm[Td++]=hg>>>ho,Tu++;break;}case 0xa2:{let hG=h8['_$i74iiQ'];hG[hW]=hG,h8['_$BHRkoQ']=hW,Tu++;break;}case 0x4b:{Tm[Td-0x1]=~Tm[Td-0x1],Tu++;break;}case 0xa6:{Tm[Td++]=Ty[hW],Tu++;break;}case 0x8d:{let hZ=Tm[--Td];if((typeof hZ==='object'||typeof hZ==='function')&&hZ!==null){const hr=hZ[Symbol['toPrimitive']];if(hr!=null){hZ=hr['call'](hZ,'number');if(hZ!==null&&(typeof hZ==='object'||typeof hZ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hF=hZ['valueOf']();if(hF===null||typeof hF!=='object'&&typeof hF!=='function')hZ=hF;else{const ht=hZ['toString']();if(ht!==null&&(typeof ht==='object'||typeof ht==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hZ=ht;}}}Tm[Td++]=typeof hZ===u?hZ+0x1n:+hZ+0x1,Tu++;break;}case 0x7a:{let hk=Tm[--Td];Tm[Td++]=!!hk['done'],Tu++;break;}case 0x6f:{let ha=hW&0xffff,hQ=hW>>>0x10;Tm[Td++]=Ty[ha]+TC[hQ],Tu++;break;}case 0x80:{let hH=Tm[Td-0x1];Tm[Td++]=hH,Tu++;break;}case 0x6e:{debugger;Tu++;break;}case 0x79:{let hX=Tm[--Td],hb=Tm[--Td],hz=Tm[Td-0x1];M(hz,hb,{'get':hX,'enumerable':![],'configurable':!![]}),Tu++;break;}case 0x4d:{let hB=Tm[--Td],hs=Tm[--Td],hp=Tm[--Td];M(hp,hs,{'value':hB,'writable':!![],'enumerable':!![],'configurable':!![]});typeof hB==='function'&&(!vmU_676943['_$JwBwAz']&&(vmU_676943['_$JwBwAz']=new WeakMap()),N['call'](vmU_676943['_$JwBwAz'],hB,hp));Tu++;break;}case 0x70:{let hV=hW&0xffff,hA=hW>>>0x10,N0=h8;for(let N3=0x0;N3<hA;N3++){N0=N0['_$qprkR5'];}let N1=N0['_$i74iiQ'],N2=N1[hV];if(N2===N1){let N4=N0['_$fV4Gqs'];throw new ReferenceError('Cannot\x20access\x20\x27'+(N4&&N4[hV]||'variable')+'\x27\x20before\x20initialization');}Tm[Td++]=N2,Tu++;break;}case 0xa5:{let N5=Tm[--Td],N6=TC[hW];if(Tz&&!(N6 in vmx)&&!(N6 in vmU_676943))throw new ReferenceError(N6+'\x20is\x20not\x20defined');vmU_676943[N6]=N5,vmx[N6]=N5,Tm[Td++]=N5,Tu++;break;}case 0x5a:{Tm[Td++]={},Tu++;break;}case 0x48:{Tm[Td-0x1]=typeof Tm[Td-0x1],Tu++;break;}case 0x5e:{let N7=Tm[--Td],N8=Tm[--Td],N9={};if(N8!==null&&N8!==undefined){let NJ=Object(N8),NT=Reflect['ownKeys'](NJ);for(let Nh=0x0;Nh<NT['length'];Nh++){let NN=NT[Nh],NO=![];for(let Nc=0x0;Nc<N7['length'];Nc++){let Nf=N7[Nc];if((typeof Nf==='symbol'?Nf:String(Nf))===NN){NO=!![];break;}}if(NO)continue;let NU=J(NJ,NN);NU!==undefined&&NU['enumerable']&&M(N9,NN,{'value':NJ[NN],'writable':!![],'enumerable':!![],'configurable':!![]});}}Tm[Td++]=N9,Tu++;break;}case 0x7c:{let Nx=Tm[--Td],NE=Tm[--Td],NK=Tm[--Td];if(typeof NE!=='function')throw new TypeError(NE+'\x20is\x20not\x20a\x20function');let NY=vmU_676943['_$JwBwAz'],Nv=NY&&E['call'](NY,NE);!Nv&&NY&&(NE===c||NE===I)&&(Nv=E['call'](NY,NK));let NI=vmU_676943['_$kFSWSr'];Nv&&(vmU_676943['_$PNywNM']=!![],vmU_676943['_$kFSWSr']=Nv);let NM;try{if(Nx===0x0)NM=Y(NE,NK,j);else{if(Nx===0x1){let Nw=Tm[--Td];NM=Nw&&typeof Nw==='object'&&U['call'](o,Nw)?Y(NE,NK,Nw['value']):Y(NE,NK,[Nw]);}else NM=Y(NE,NK,J0(h2,Nx));}Tm[Td++]=NM;}finally{Nv&&(vmU_676943['_$PNywNM']=![],vmU_676943['_$kFSWSr']=NI);}Tu++;break;}case 0xa1:{let Ni=Tm[Td-0x1];Tm[Td-0x1]=Tm[Td-0x2],Tm[Td-0x2]=Ni,Tu++;break;}case 0x78:{Tm[Td-0x1]=!Tm[Td-0x1],Tu++;break;}case 0x6b:{let Nn=Tm[--Td],NP=Tm[--Td];if(NP===null||NP===undefined){if(Nn===Symbol['iterator'])throw new TypeError((NP===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+NP+'\x20(reading\x20'+(typeof Nn==='symbol'?'\x27'+Nn['toString']()+'\x27':typeof Nn==='string'?'\x27'+Nn+'\x27':typeof Nn==='object'||typeof Nn==='function'?'\x27<computed\x20key>\x27':'\x27'+String(Nn)+'\x27')+')');}Tm[Td++]=NP[Nn],Tu++;break;}case 0x8f:{let ND=Tm[--Td],Nm;if(ND===null||ND===undefined)throw new TypeError(ND+'\x20is\x20not\x20iterable');let Nd=ND[b];if(Array['isArray'](ND)&&Nd===X){let NC=ND['length'];Nm=new Array(NC);for(let NW=0x0;NW<NC;NW++){Nm[NW]=ND[NW];}}else{if(Nd===null||Nd===undefined||typeof Nd!=='function')throw new TypeError(ND+'\x20is\x20not\x20iterable');let NL=Y(Nd,ND,[]);if(NL===null||typeof NL!=='object')throw new TypeError('Iterator\x20method\x20returned\x20a\x20non-object\x20value');Nm=[];while(!![]){let NS=NL['next']();J6(NS);if(NS['done'])break;Nm['push'](NS['value']);}}let Nq={'value':Nm};h['call'](o,Nq),Tm[Td++]=Nq,Tu++;break;}case 0x95:{Tm[Td++]=TP,Tu++;break;}case 0x90:{if(Ts&&!hh){let Nj=Jf(h8);if(Nj!==undefined)TD=Nj,hh=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let Ny=TD,Nu=TC[hW];if(Ny===null||Ny===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Ny+'\x20(reading\x20'+'\x27'+String(Nu)+'\x27'+')');Tm[Td++]=Ny[Nu],Tu++;break;}case 0xa4:{let Nl=Tm[--Td],NR=Tm[--Td],Ne=(hW^0x9f43)>>>0x0,No;Ne<0x10?Ne<0x8?Ne<0x4?Ne<0x2?No=Ne<0x1?NR^Nl:NR<<Nl:No=Ne<0x3?NR>>Nl:NR/Nl:Ne<0x6?No=Ne<0x5?NR%Nl:NR==Nl:No=Ne<0x7?NR!=Nl:NR**Nl:Ne<0xc?Ne<0xa?No=Ne<0x9?NR&Nl:NR+Nl:No=Ne<0xb?NR*Nl:NR|Nl:Ne<0xe?No=Ne<0xd?NR>>>Nl:NR!==Nl:No=Ne<0xf?NR<=Nl:NR-Nl:Ne<0x14?Ne<0x12?No=Ne<0x11?NR<Nl:NR>Nl:No=Ne<0x13?NR>=Nl:NR===Nl:Ne<0x18?No=Ne<0x16?NR|Nl:NR&Nl:No=Ne<0x1c?NR^Nl:Nl-NR;Tm[Td++]=No,Tu++;break;}case 0x83:{let Ng=H[hW],NG=Tm[--Td];if(Ng){for(let NZ=0x0;NZ<NG;NZ++)Tm[--Td];for(let Nr=0x0;Nr<NG;Nr++)Tm[--Td];Tm[Td++]=Ng;}else{let NF=new Array(NG);for(let Nk=NG-0x1;Nk>=0x0;Nk--)NF[Nk]=Tm[--Td];let Nt=new Array(NG);for(let Na=NG-0x1;Na>=0x0;Na--)Nt[Na]=Tm[--Td];M(Nt,'raw',{'value':Object['freeze'](NF)}),Object['freeze'](Nt),H[hW]=Nt,Tm[Td++]=Nt;}Tu++;break;}case 0x68:{let NQ=TC[hW];NQ in vmU_676943?Tm[Td++]=typeof vmU_676943[NQ]:Tm[Td++]=typeof vmx[NQ];Tu++;break;}case 0x4f:{let NH=hW&0xffff,NX=hW>>>0x10;Tm[Td++]=Ty[NH]<TC[NX],Tu++;break;}case 0x82:{Tm[Td++]=[],Tu++;break;}case 0x54:{let Nb=Tm[--Td],Nz=JO(Tm[--Td]),NB=Tm[--Td],Ns=vmU_676943['_$kFSWSr'],Np=Ns?f(Ns):Jh(NB);if(Np===null||Np===undefined)throw new TypeError('Cannot\x20convert\x20'+Np+'\x20to\x20object');let NV=JN(Np,Nz),NA=![];if(NV['desc']){let O0=NV['desc'];if(O0['set']){let O1=vmU_676943['_$kFSWSr'];vmU_676943['_$kFSWSr']=NV['proto']||Np,vmU_676943['_$PNywNM']=!![];try{O0['set']['call'](NB,Nb);}finally{vmU_676943['_$PNywNM']=![],vmU_676943['_$kFSWSr']=O1;}}else{if(O0['get']||!('value'in O0)){if(Tz)throw new TypeError('Cannot\x20set\x20property\x20\x27'+String(Nz)+'\x27\x20of\x20object\x20which\x20has\x20only\x20a\x20getter');}else{if(O0['writable']===![]){if(Tz)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(Nz)+'\x27\x20of\x20object');}else NA=!![];}}}else NA=!![];if(NA){let O2=Object['getOwnPropertyDescriptor'](NB,Nz);if(O2){if('value'in O2){if(O2['writable'])NB[Nz]=Nb;else{if(Tz)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(Nz)+'\x27\x20of\x20object');}}else{if(Tz)throw new TypeError('Cannot\x20redefine\x20property:\x20'+String(Nz));}}else{let O3=Reflect['defineProperty'](NB,Nz,{'value':Nb,'writable':!![],'enumerable':!![],'configurable':!![]});if(!O3&&Tz)throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(Nz)+'\x27\x20of\x20object');}}Tm[Td++]=Nb,Tu++;break;}case 0x47:{let O4=TS[Tu];if(!Tg)Tg=[];Tg['push']({['_$2WDq1q']:O4[0x0]>=0x0?O4[0x0]:undefined,['_$bXBwlD']:O4[0x1]>=0x0?O4[0x1]:undefined,['_$COqIrN']:O4[0x2]>=0x0?O4[0x2]:undefined,['_$KIDAUO']:Td,['_$lntBsH']:Tu,['_$hgrJCW']:h8}),Tu++;break;}case 0x81:{Tm[Td++]=undefined,Tu++;break;}case 0x4c:{let O5=Tm[--Td],O6=Tm[Td-0x1],O7=TC[hW],O8=JT(O6);M(O8,O7,{'set':O5,'enumerable':O8===O6,'configurable':!![]}),Tu++;break;}case 0x69:{Tm[Td-0x1]=-Tm[Td-0x1],Tu++;break;}case 0x7b:{let O9=hW&0xffff,OJ=hW>>>0x10,OT=TC[O9],Oh=TC[OJ];Tm[Td++]=new RegExp(OT,Oh),Tu++;break;}case 0x6a:{let ON=Tm[--Td];if((typeof ON==='object'||typeof ON==='function')&&ON!==null){const OO=ON[Symbol['toPrimitive']];if(OO!=null){ON=OO['call'](ON,'number');if(ON!==null&&(typeof ON==='object'||typeof ON==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const OU=ON['valueOf']();if(OU===null||typeof OU!=='object'&&typeof OU!=='function')ON=OU;else{const Oc=ON['toString']();if(Oc!==null&&(typeof Oc==='object'||typeof Oc==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');ON=Oc;}}}Tm[Td++]=typeof ON===u?ON:+ON,Tu++;break;}case 0x64:{if(hW===-0x1)Tm[Td++]=Symbol();else{let Of=Tm[--Td];Tm[Td++]=Symbol(Of);}Tu++;break;}case 0x84:{let Ox=TC[hW],OE=Tm[--Td],OK=Tm[--Td];if(typeof OE!=='function')throw new TypeError(OE+'\x20is\x20not\x20a\x20function');let OY=vmU_676943['_$JwBwAz'],Ov=OY&&E['call'](OY,OE);!Ov&&OY&&(OE===c||OE===I)&&(Ov=E['call'](OY,OK));let OI=vmU_676943['_$kFSWSr'];Ov&&(vmU_676943['_$PNywNM']=!![],vmU_676943['_$kFSWSr']=Ov);let OM;try{if(Ox===0x0)OM=Y(OE,OK,j);else{if(Ox===0x1){let Ow=Tm[--Td];OM=Ow&&typeof Ow==='object'&&U['call'](o,Ow)?Y(OE,OK,Ow['value']):Y(OE,OK,[Ow]);}else OM=Y(OE,OK,J0(h2,Ox));}Tm[Td++]=OM;}finally{Ov&&(vmU_676943['_$PNywNM']=![],vmU_676943['_$kFSWSr']=OI);}Tu++;break;}case 0x8c:{if(typeof Tm[Td-0x1]==='symbol')throw new TypeError('Cannot\x20convert\x20a\x20Symbol\x20value\x20to\x20a\x20string');Tm[Td-0x1]=String(Tm[Td-0x1]),Tu++;break;}case 0x91:{J:{let Oi=Tm[--Td],On=Tm[Td-0x1];if(Oi===null){x(On['prototype'],null),x(On,Function['prototype']),On['_$lmqU8z']=null,Tu++;break J;}if(typeof Oi!=='function')throw new TypeError('Class\x20extends\x20value\x20'+String(Oi)+'\x20is\x20not\x20a\x20constructor\x20or\x20null');let OP=![],OD=a(Oi);if(!OD){let Om=J(Oi,'prototype');OP=!!Om&&Om['writable']===![];}if(OP){let Od=On,Oq=vmU_676943,OC='_$hIuypo',OW='_$EaCyKG',OL='_$Eyb2V2';function hL(...OS){if(new.target===undefined)throw new TypeError('Class\x20constructor\x20cannot\x20be\x20invoked\x20without\x20\x27new\x27');let Oy=T(Oi['prototype']);Oq[OL]={'parent':Oi,'newTarget':new.target||hL,'outer':hL},Oq[OW]=new.target||hL;let Ou=OC in Oq;!Ou&&(Oq[OC]=new.target);try{let Oj=Z(Od,Oy,OS);Oj!==undefined&&Oj!==null&&J1(Oj)&&(Oy=Oj);}finally{delete Oq[OL],delete Oq[OW],!Ou&&delete Oq[OC];}return Oy;}hL['prototype']=T(Oi['prototype']),hL['prototype']['constructor']=hL,x(hL,Oi),O(Od)['forEach'](function(OS){OS!=='prototype'&&OS!=='name'&&A(hL,OS,J(Od,OS));});Od['prototype']&&(O(Od['prototype'])['forEach'](function(OS){OS!=='constructor'&&A(hL['prototype'],OS,J(Od['prototype'],OS));}),v(Od['prototype'])['forEach'](function(OS){A(hL['prototype'],OS,J(Od['prototype'],OS));}));Tm[--Td],Tm[Td++]=hL,hL['_$lmqU8z']=Oi,Tu++;break J;}x(On['prototype'],Oi['prototype']),x(On,Oi),On['_$lmqU8z']=Oi,Tu++;}break;}case 0x4a:{let OS=Tm[--Td],Oy=Tm[Td-0x1];if(Array['isArray'](OS)&&OS[b]===X){let Ou=Oy['length'],Oj=OS['length'];for(let Ol=0x0;Ol<Oj;Ol++){Oy[Ou+Ol]=OS[Ol];}}else for(let OR of OS){Oy['push'](OR);}Tu++;break;}case 0x5b:{let Oe=hW&0xffff,Oo=hW>>>0x10,Og=Ty[Oe],OG=TC[Oo];if(Og===null||Og===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+Og+'\x20(reading\x20'+'\x27'+String(OG)+'\x27'+')');Tm[Td++]=Og[OG],Tu++;break;}case 0x49:{Tm[Td++]=Tw[hW],Tu++;break;}case 0x7f:{let OZ=Tm[--Td],Or=OZ&&OZ['i']?OZ['i']:OZ;if(TG!==null)try{Or&&typeof Or['return']==='function'?Tm[Td++]=Promise['resolve'](Or['return']())['catch'](function(){return undefined;}):Tm[Td++]=Promise['resolve']();}catch(OF){Tm[Td++]=Promise['resolve']();}else{let Ot=Or!=null?Or['return']:undefined;if(Ot==null)Tm[Td++]=Promise['resolve']();else typeof Ot!=='function'?Tm[Td++]=Promise['reject'](new TypeError('iterator\x20\x27return\x27\x20is\x20not\x20callable')):Tm[Td++]=Promise['resolve'](Ot['call'](Or));}Tu++;break;}case 0x5f:{let Ok=Tm[--Td],Oa=Tm[--Td],OQ=Tm[Td-0x1],OH=JT(OQ);M(OH,Oa,{'get':Ok,'enumerable':OH===OQ,'configurable':!![]}),Tu++;break;}case 0x94:{let OX=hW,Ob=Tm[--Td];h8['_$i74iiQ'][OX]=Ob,Tu++;break;}case 0x53:{let Oz=Tm[--Td],OB=Tm[--Td];Tm[Td++]=OB!==Oz,Tu++;break;}case 0xa3:{let Os=TC[hW],Op=!![];Os in vmx&&(Op=delete vmx[Os]);Op&&Os in vmU_676943&&(Op=delete vmU_676943[Os]);Tm[Td++]=Op,Tu++;break;}case 0x51:{let OV=Tm[--Td];Tm[Td++]=Symbol['keyFor'](OV),Tu++;break;}case 0x92:{Tu=TL[Tu];break;}}},hi=function(hC,hW){switch(hC){case 0x11a:{Tm[Td++]=vmE[hW],Tu++;break;}case 0xa8:{Tm[Td++]=TC[hW],Tu++;break;}case 0xa9:{h8=h8['_$qprkR5'],Tu++;break;}case 0x100:{J:{let hS=TL[Tu];while(Tg&&Tg['length']>0x0){let hy=Tg[Tg['length']-0x1];if(hy['_$bXBwlD']!==undefined||!(hS>=hy['_$COqIrN']||hS<=hy['_$lntBsH']))break;Tg['pop']();}if(Tg&&Tg['length']>0x0){let hu=Tg[Tg['length']-0x1];if(hu['_$bXBwlD']!==undefined&&(hS>=hu['_$COqIrN']||hS<=hu['_$lntBsH'])){TG=null,TZ=![],Tr=undefined,Ta=![],TQ=0x0,TH=undefined,TF=!![],Tt=hS,Tk=h8,TX=hu['_$lntBsH'],Tb=hu['_$COqIrN'],Tu=hu['_$bXBwlD'];break J;}}(TZ||TF||Ta||TG!==null)&&(hS>=Tb||hS<=TX)&&(TZ=![],Tr=undefined,TF=![],Tt=0x0,Tk=undefined,Ta=![],TQ=0x0,TH=undefined,TG=null),Tu=hS;}break;}case 0xb5:{let hj=Tm[--Td],hl=Tm[--Td];Tm[Td++]=hl===hj,Tu++;break;}case 0xd5:{let hR=Tm[--Td],he=Tm[--Td];Tm[Td++]=he/hR,Tu++;break;}case 0x106:{Ty[hW]=Ty[hW]-0x1,Tu++;break;}case 0x10e:{let ho=hW&0xffff,hg=hW>>>0x10;Tm[Td++]=Tw[ho]-TC[hg],Tu++;break;}case 0xa7:{let hG=Tm[--Td],hZ=Tm[--Td];Tm[Td++]=hZ<hG,Tu++;break;}case 0x125:{let hr=Tm[--Td],hF=Tm[--Td];Tm[Td++]=hF*hr,Tu++;break;}case 0xfa:{!Tm[Td-0x1]?Tu=TL[Tu]:(Tm[--Td],Tu++);break;}case 0x11b:{let ht=Tm[--Td],hk=Tm[--Td];Tm[Td++]=hk!=ht,Tu++;break;}case 0x11f:{let ha,hQ;hW>=0x0?(hQ=Tm[--Td],ha=TC[hW]):(ha=Tm[--Td],hQ=Tm[--Td]);let hH=delete hQ[ha];if(Tz&&!hH)throw new TypeError('Cannot\x20delete\x20property\x20\x27'+String(ha)+'\x27\x20of\x20object');Tm[Td++]=hH,Tu++;break;}case 0x120:{let hX=Tm[--Td],hb=Tm[--Td];Tm[Td++]=hb>=hX,Tu++;break;}case 0xfb:{Tw[hW]=Tm[--Td],Tu++;break;}case 0x127:{let hz=Tm[--Td];Tm[Td++]=hz['next'](),Tu++;break;}case 0x117:{let hB=Ty[hW];if((typeof hB==='object'||typeof hB==='function')&&hB!==null){const hs=hB[Symbol['toPrimitive']];if(hs!=null){hB=hs['call'](hB,'number');if(hB!==null&&(typeof hB==='object'||typeof hB==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hp=hB['valueOf']();if(hp===null||typeof hp!=='object'&&typeof hp!=='function')hB=hp;else{const hV=hB['toString']();if(hV!==null&&(typeof hV==='object'||typeof hV==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hB=hV;}}}Ty[hW]=typeof hB===u?hB+0x1n:+hB+0x1,Tu++;break;}case 0x116:{if(Ts&&!hh){let hA=Jf(h8);if(hA!==undefined)TD=hA,hh=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}Tm[Td++]=TD,Tu++;break;}case 0xb6:{let N0=Tm[--Td];Tm[Td++]=import(N0),Tu++;break;}case 0x109:{let N1=Tm[--Td],N2=Tm[--Td];Tm[Td++]=N2 instanceof N1,Tu++;break;}case 0x12e:{let N3=TC[hW],N4;if(vmU_676943['_$STbaUg']&&N3 in vmU_676943['_$STbaUg'])throw new ReferenceError('Cannot\x20access\x20\x27'+N3+'\x27\x20before\x20initialization');if(N3 in vmU_676943)N4=vmU_676943[N3];else{if(N3 in vmx)N4=vmx[N3];else throw new ReferenceError(N3+'\x20is\x20not\x20defined');}Tm[Td++]=N4,Tu++;break;}case 0x108:{let N5=Tm[--Td],N6=Tm[Td-0x1],N7=TC[hW];M(N6,N7,{'set':N5,'enumerable':![],'configurable':!![]}),Tu++;break;}case 0x126:{let N8=Tm[--Td],N9=Tm[--Td];Tm[Td++]=N9+N8,Tu++;break;}case 0x10b:{T:{let NJ=Tm[--Td],NT=J0(h2,NJ),Nh=Tm[--Td];if(hW===0x1){Tm[Td++]=NT,Tu++;break T;}if(vmU_676943['_$aHV3Jt']){Tu++;break T;}let NN=vmU_676943['_$Eyb2V2'];if(NN){let Nc=NN['outer'],Nf=Nc?f(Nc):NN['parent'];if(typeof Nf!=='function')throw new TypeError('Super\x20constructor\x20'+String(Nf)+'\x20of\x20'+(Nc&&Nc['name']||'anonymous')+'\x20is\x20not\x20a\x20constructor');let Nx=NN['newTarget'],NE=Reflect['construct'](Nf,NT,Nx);TD&&TD!==NE&&O(TD)['forEach'](function(NK){!(NK in NE)&&(NE[NK]=TD[NK]);});TD=NE,hh=!![],Jc(h8,TD),Tu++;break T;}if(typeof Nh!=='function')throw new TypeError('Super\x20expression\x20must\x20be\x20a\x20constructor');let NO;Q['has'](Ti)?NO=Jf(h8):NO=hh?TD:undefined;let NU=TP!==undefined?TP:vmU_676943['_$hIuypo'];vmU_676943['_$hIuypo']=TP;try{let NK;a(Nh)?NK=Z(Nh,TD,NT):NK=NU!==undefined?Reflect['construct'](Nh,NT,NU):Reflect['construct'](Nh,NT),NK!==undefined&&NK!==TD&&J1(NK)&&(TD&&Object['assign'](NK,TD),TD=NK,TP&&TP['prototype']&&f(TD)!==TP['prototype']&&x(TD,TP['prototype'])),hh=!![],Jc(h8,TD);}finally{delete vmU_676943['_$hIuypo'];}if(NO!==undefined)throw new ReferenceError('Super\x20constructor\x20may\x20only\x20be\x20called\x20once');Tu++;}break;}case 0x12f:{let NY=Tm[Td-0x1];if(NY==null){var hL=TC[hW];if(hL===null)throw new TypeError('Cannot\x20destructure\x20\x27'+NY+'\x27\x20as\x20it\x20is\x20'+NY+'.');throw new TypeError('Cannot\x20destructure\x20property\x20\x27'+hL+'\x27\x20of\x20\x27'+NY+'\x27\x20as\x20it\x20is\x20'+NY+'.');}Tu++;break;}case 0xfc:{h:{let Nv=JO(Tm[--Td]),NI=Tm[--Td],NM=vmU_676943['_$kFSWSr'],Nw=NM?f(NM):Jh(NI),Ni=JN(Nw,Nv);if(Ni['desc']&&Ni['desc']['get']){let NP=vmU_676943['_$kFSWSr'];vmU_676943['_$kFSWSr']=Ni['proto']||Nw,vmU_676943['_$PNywNM']=!![];let ND;try{ND=Ni['desc']['get']['call'](NI);}finally{vmU_676943['_$PNywNM']=![],vmU_676943['_$kFSWSr']=NP;}Tm[Td++]=ND,Tu++;break h;}if(Ni['desc']&&Ni['desc']['set']&&!('value'in Ni['desc'])){Tm[Td++]=undefined,Tu++;break h;}let Nn=Ni['proto']?Ni['proto'][Nv]:Nw[Nv];if(typeof Nn==='function'){let Nm=Ni['proto']||Nw,Nd=Nn['constructor']&&Nn['constructor']['name'],Nq=Nd==='GeneratorFunction'||Nd==='AsyncFunction'||Nd==='AsyncGeneratorFunction';!Nq&&(!vmU_676943['_$JwBwAz']&&(vmU_676943['_$JwBwAz']=new WeakMap()),N['call'](vmU_676943['_$JwBwAz'],Nn,Nm));}Tm[Td++]=Nn,Tu++;}break;}case 0x119:{let NC=Tm[--Td],NW=Tm[--Td],NL=Tm[Td-0x1];M(NL,NW,{'set':NC,'enumerable':![],'configurable':!![]}),Tu++;break;}case 0x110:{let NS=Tm[--Td],Ny=Tm[Td-0x1];if(NS!==null&&NS!==undefined){let Nu=Object(NS),Nj=Reflect['ownKeys'](Nu);for(let Nl=0x0;Nl<Nj['length'];Nl++){let NR=Nj[Nl],Ne=J(Nu,NR);Ne!==undefined&&Ne['enumerable']&&M(Ny,NR,{'value':Nu[NR],'writable':!![],'enumerable':!![],'configurable':!![]});}}Tu++;break;}case 0x12d:{let No=Tw[hW];if((typeof No==='object'||typeof No==='function')&&No!==null){const Ng=No[Symbol['toPrimitive']];if(Ng!=null){No=Ng['call'](No,'number');if(No!==null&&(typeof No==='object'||typeof No==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const NG=No['valueOf']();if(NG===null||typeof NG!=='object'&&typeof NG!=='function')No=NG;else{const NZ=No['toString']();if(NZ!==null&&(typeof NZ==='object'||typeof NZ==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');No=NZ;}}}Tw[hW]=typeof No===u?No+0x1n:+No+0x1,Tu++;break;}case 0xb7:{let Nr=Tm[--Td],NF=Tm[--Td],Nt=Tm[Td-0x1],Nk=JT(Nt);M(Nk,NF,{'set':Nr,'enumerable':Nk===Nt,'configurable':!![]}),Tu++;break;}case 0x11e:{let Na=Tm[--Td],NQ=Tm[Td-0x1],NH=TC[hW];M(NQ,NH,{'get':Na,'enumerable':![],'configurable':!![]}),Tu++;break;}case 0x10d:{let NX=Tm[--Td],Nb=TC[hW];if(vmU_676943['_$STbaUg']&&Nb in vmU_676943['_$STbaUg'])throw new ReferenceError('Cannot\x20access\x20\x27'+Nb+'\x27\x20before\x20initialization');let Nz=!(Nb in vmU_676943)&&!(Nb in vmx);vmU_676943[Nb]=NX;Nb in vmx&&(vmx[Nb]=NX);Nz&&(vmx[Nb]=NX);Tm[Td++]=NX,Tu++;break;}case 0x10a:{Tm[Td++]=null,Tu++;break;}case 0xfd:{let NB=Tm[--Td],Ns=Tm[Td-0x1];(NB===null||J1(NB))&&x(Ns,NB);Tu++;break;}case 0xd2:{Tu++;break;}case 0xc9:{let Np=Ty[hW],NV=Np&&Np['_$NeCntR'];if(NV!==undefined){let NA=Np['_$M1JtwF'];NA>=NV['length']?Tu=TL[Tu]:(Np['_$M1JtwF']=NA+0x1,Tm[Td++]=NV[NA],Tu++);}else{let O0=Np['i'],O1=Y(Np['n'],O0,[]);J6(O1),O1['done']?Tu=TL[Tu]:(Tm[Td++]=O1['value'],Tu++);}break;}case 0xff:{let O2=Tm[--Td],O3=Tm[--Td];Tm[Td++]=O2==null||typeof O2!=='object'&&typeof O2!=='function'?!![]:O3 in O2,Tu++;break;}case 0xb9:{let O4=Tm[--Td],O5=Tm[--Td];Tm[Td++]=O5|O4,Tu++;break;}case 0x107:{let O6=hW&0xffff,O7=hW>>>0x10;Tm[Td++]=Ty[O6]*TC[O7],Tu++;break;}case 0xb4:{Tm[Td++]=h8,Tu++;break;}case 0xfe:{let O8=Tm[--Td],O9=Tm[--Td],OJ=TC[hW];if(O9===null||O9===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+O9+'\x20(setting\x20'+'\x27'+String(OJ)+'\x27'+')');if(Tz){let OT=typeof O9==='object'||typeof O9==='function'?O9:Object(O9);if(!Reflect['set'](OT,OJ,O8,O9))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(OJ)+'\x27\x20of\x20object');}else O9[OJ]=O8;Tm[Td++]=O8,Tu++;break;}case 0x11c:{Tm[--Td],Tm[Td++]=undefined,Tu++;break;}case 0x10c:{N:{let Oh=TL[Tu];while(Tg&&Tg['length']>0x0){let ON=Tg[Tg['length']-0x1];if(ON['_$bXBwlD']!==undefined||!(Oh>=ON['_$COqIrN']||Oh<=ON['_$lntBsH']))break;Tg['pop']();}if(Tg&&Tg['length']>0x0){let OO=Tg[Tg['length']-0x1];if(OO['_$bXBwlD']!==undefined&&(Oh>=OO['_$COqIrN']||Oh<=OO['_$lntBsH'])){TG=null,TZ=![],Tr=undefined,TF=![],Tt=0x0,Tk=undefined,Ta=!![],TQ=Oh,TH=h8,TX=OO['_$lntBsH'],Tb=OO['_$COqIrN'],Tu=OO['_$bXBwlD'];break N;}}(TZ||TF||Ta||TG!==null)&&(Oh>=Tb||Oh<=TX)&&(TZ=![],Tr=undefined,TF=![],Tt=0x0,Tk=undefined,Ta=![],TQ=0x0,TH=undefined,TG=null),Tu=Oh;}break;}case 0x118:{let OU=Tm[Td-0x3],Oc=Tm[Td-0x2],Of=Tm[Td-0x1];Tm[Td-0x3]=Oc,Tm[Td-0x2]=Of,Tm[Td-0x1]=OU,Tu++;break;}case 0x12c:{Tm[Td-0x1]=+Tm[Td-0x1],Tu++;break;}case 0x111:{Ty[hW]=Tm[--Td],Tu++;break;}case 0x129:{Ty[hW]=Ty[hW]+0x1,Tu++;break;}case 0xb8:{Tm[Td-0x1]=Tm[Td-0x1]|0x0,Tu++;break;}case 0x114:{let Ox=Tm[--Td],OE=Tm[--Td];Tm[Td++]=OE in Ox,Tu++;break;}case 0x115:{Tm[Td-0x1]=Tm[Td-0x1]>>>0x0,Tu++;break;}case 0x128:{let OK=Tm[Td-0x3],OY=Tm[Td-0x2],Ov=Tm[Td-0x1];Tm[Td-0x3]=Ov,Tm[Td-0x2]=OK,Tm[Td-0x1]=OY,Tu++;break;}case 0xd6:{throw Tm[--Td];break;}case 0x12a:{let OI=Tm[--Td],OM=Tm[--Td],Ow=Tm[--Td];if(Ow===null||Ow===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+Ow+'\x20(setting\x20'+(typeof OM==='symbol'?'\x27'+OM['toString']()+'\x27':typeof OM==='string'?'\x27'+OM+'\x27':typeof OM==='object'||typeof OM==='function'?'\x27<computed\x20key>\x27':'\x27'+String(OM)+'\x27')+')');if(Tz){let Oi=typeof Ow==='object'||typeof Ow==='function'?Ow:Object(Ow);if(!Reflect['set'](Oi,OM,OI,Ow))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(OM)+'\x27\x20of\x20object');}else Ow[OM]=OI;Tm[Td++]=OI,Tu++;break;}case 0xc8:{if(hW===-0x2){}else hW===-0x1?Tm[--Td]:h8['_$i74iiQ'][hW]=Tm[--Td];Tu++;break;}case 0xdc:{let On=Tm[--Td],OP=Tm[--Td];Tm[Td++]=OP<=On,Tu++;break;}case 0x112:{if(Tg&&Tg['length']>0x0){let OD=Tg[Tg['length']-0x1];OD['_$bXBwlD']===Tu&&(OD['_$PeIOz2']!==undefined&&(TG=OD['_$PeIOz2'],TX=OD['_$lntBsH'],Tb=OD['_$COqIrN']),OD['_$hgrJCW']!==undefined&&(h8=OD['_$hgrJCW']),Tg['pop']());}Tu++;break;}case 0x130:{let Om=Tm[--Td],Od=Tm[--Td],Oq=Tm[Td-0x1];M(Oq,Od,{'value':Om,'writable':!![],'enumerable':![],'configurable':!![]});typeof Om==='function'&&(!vmU_676943['_$JwBwAz']&&(vmU_676943['_$JwBwAz']=new WeakMap()),N['call'](vmU_676943['_$JwBwAz'],Om,Oq));Tu++;break;}}};while(Tu<Tj){try{while(Tu<Tj){let hC=Tu<<To,hW=TW[TR+hC],hL=TW[Te+hC];if(hW===y){let hS=h2();return Tu++,{['_$8orFki']:d,['_$FB6SBr']:hS,['_$9PjtOz']:hc};}if(hW===L){let hy=h2();return Tu++,{['_$8orFki']:q,['_$FB6SBr']:hy,['_$9PjtOz']:hc};}if(hW===S){let hu=h2();return Tu++,{['_$8orFki']:C,['_$FB6SBr']:hu,['_$9PjtOz']:hc};}switch(hn[hW]){case 0x1:{let hj=Tw[hL];if((typeof hj==='object'||typeof hj==='function')&&hj!==null){const hl=hj[Symbol['toPrimitive']];if(hl!=null){hj=hl['call'](hj,'number');if(hj!==null&&(typeof hj==='object'||typeof hj==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hR=hj['valueOf']();if(hR===null||typeof hR!=='object'&&typeof hR!=='function')hj=hR;else{const he=hj['toString']();if(he!==null&&(typeof he==='object'||typeof he==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hj=he;}}}Tw[hL]=typeof hj===u?hj+0x1n:+hj+0x1,Tu++;continue;}case 0x2:{let ho=Tm[--Td],hg=Tm[--Td],hG=Tm[--Td];if(hG===null||hG===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+hG+'\x20(setting\x20'+(typeof hg==='symbol'?'\x27'+hg['toString']()+'\x27':typeof hg==='string'?'\x27'+hg+'\x27':typeof hg==='object'||typeof hg==='function'?'\x27<computed\x20key>\x27':'\x27'+String(hg)+'\x27')+')');if(Tz){let hZ=typeof hG==='object'||typeof hG==='function'?hG:Object(hG);if(!Reflect['set'](hZ,hg,ho,hG))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(hg)+'\x27\x20of\x20object');}else hG[hg]=ho;Tm[Td++]=ho,Tu++;continue;}case 0x3:{let hr=hL&0xffff,hF=hL>>>0x10;Tm[Td++]=Ty[hr]+TC[hF],Tu++;continue;}case 0x4:{let ht=hL&0xffff,hk=hL>>>0x10;Tm[Td++]=Tw[ht]-TC[hk],Tu++;continue;}case 0x5:{Ty[hL]=Ty[hL]-0x1,Tu++;continue;}case 0x6:{let ha=Tm[--Td];if((typeof ha==='object'||typeof ha==='function')&&ha!==null){const hQ=ha[Symbol['toPrimitive']];if(hQ!=null){ha=hQ['call'](ha,'number');if(ha!==null&&(typeof ha==='object'||typeof ha==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hH=ha['valueOf']();if(hH===null||typeof hH!=='object'&&typeof hH!=='function')ha=hH;else{const hX=ha['toString']();if(hX!==null&&(typeof hX==='object'||typeof hX==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');ha=hX;}}}Tm[Td++]=typeof ha===u?ha+0x1n:+ha+0x1,Tu++;continue;}case 0x7:{let hb=Ty[hL];if((typeof hb==='object'||typeof hb==='function')&&hb!==null){const hz=hb[Symbol['toPrimitive']];if(hz!=null){hb=hz['call'](hb,'number');if(hb!==null&&(typeof hb==='object'||typeof hb==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hB=hb['valueOf']();if(hB===null||typeof hB!=='object'&&typeof hB!=='function')hb=hB;else{const hs=hb['toString']();if(hs!==null&&(typeof hs==='object'||typeof hs==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hb=hs;}}}Ty[hL]=typeof hb===u?hb-0x1n:+hb-0x1,Tu++;continue;}case 0x8:{let hp=Tm[--Td];if((typeof hp==='object'||typeof hp==='function')&&hp!==null){const hV=hp[Symbol['toPrimitive']];if(hV!=null){hp=hV['call'](hp,'number');if(hp!==null&&(typeof hp==='object'||typeof hp==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const hA=hp['valueOf']();if(hA===null||typeof hA!=='object'&&typeof hA!=='function')hp=hA;else{const N0=hp['toString']();if(N0!==null&&(typeof N0==='object'||typeof N0==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');hp=N0;}}}Tm[Td++]=typeof hp===u?hp:+hp,Tu++;continue;}case 0x9:{let N1=hL&0xffff,N2=hL>>>0x10,N3=Ty[N1],N4=TC[N2];if(N3===null||N3===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+N3+'\x20(reading\x20'+'\x27'+String(N4)+'\x27'+')');Tm[Td++]=N3[N4],Tu++;continue;}case 0xa:{Tm[Td++]=undefined,Tu++;continue;}case 0xb:{Tm[Td++]=TC[hL],Tu++;continue;}case 0xc:{Tm[Td++]=null,Tu++;continue;}case 0xd:{Tm[--Td],Tu++;continue;}case 0xe:{let N5=Tm[--Td],N6=TC[hL];if(N5===null||N5===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+N5+'\x20(reading\x20'+'\x27'+String(N6)+'\x27'+')');Tm[Td++]=N5[N6],Tu++;continue;}case 0xf:{Tm[Td++]=Ty[hL],Tu++;continue;}case 0x10:{!Tm[Td-0x1]?Tu=TL[Tu]:(Tm[--Td],Tu++);continue;}case 0x11:{Tm[Td-0x1]=Tm[Td-0x1]|0x0,Tu++;continue;}case 0x12:{let N7=hL&0xffff,N8=hL>>>0x10,N9=h8;for(let Nh=0x0;Nh<N8;Nh++){N9=N9['_$qprkR5'];}let NJ=N9['_$i74iiQ'],NT=NJ[N7];if(NT===NJ){let NN=N9['_$fV4Gqs'];throw new ReferenceError('Cannot\x20access\x20\x27'+(NN&&NN[N7]||'variable')+'\x27\x20before\x20initialization');}Tm[Td++]=NT,Tu++;continue;}case 0x13:{let NO=Tm[--Td],NU=Tm[--Td];Tm[Td++]=NU+NO,Tu++;continue;}case 0x14:{let Nc=Tm[--Td],Nf=Tm[--Td];Tm[Td++]=Nf/Nc,Tu++;continue;}case 0x15:{let Nx=Tm[--Td],NE=Tm[--Td];if(NE===null||NE===undefined){if(Nx===Symbol['iterator'])throw new TypeError((NE===null?'object\x20null':'undefined')+'\x20is\x20not\x20iterable\x20(cannot\x20read\x20property\x20Symbol(Symbol.iterator))');throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+NE+'\x20(reading\x20'+(typeof Nx==='symbol'?'\x27'+Nx['toString']()+'\x27':typeof Nx==='string'?'\x27'+Nx+'\x27':typeof Nx==='object'||typeof Nx==='function'?'\x27<computed\x20key>\x27':'\x27'+String(Nx)+'\x27')+')');}Tm[Td++]=NE[Nx],Tu++;continue;}case 0x16:{let NK=hL&0xffff,NY=hL>>>0x10;Tm[Td++]=Ty[NK]*TC[NY],Tu++;continue;}case 0x17:{Tm[--Td]?Tu=TL[Tu]:Tu++;continue;}case 0x18:{Ty[hL]=Ty[hL]+0x1,Tu++;continue;}case 0x19:{let Nv=Tm[--Td],NI=Tm[--Td];Tm[Td++]=NI>=Nv,Tu++;continue;}case 0x1a:{!Tm[--Td]?Tu=TL[Tu]:Tu++;continue;}case 0x1b:{Tm[Td-0x1]=Tm[Td-0x1]>>>0x0,Tu++;continue;}case 0x1c:{let NM=Tm[--Td],Nw=Tm[--Td],Ni=TC[hL];if(Nw===null||Nw===undefined)throw new TypeError('Cannot\x20set\x20properties\x20of\x20'+Nw+'\x20(setting\x20'+'\x27'+String(Ni)+'\x27'+')');if(Tz){let Nn=typeof Nw==='object'||typeof Nw==='function'?Nw:Object(Nw);if(!Reflect['set'](Nn,Ni,NM,Nw))throw new TypeError('Cannot\x20assign\x20to\x20read\x20only\x20property\x20\x27'+String(Ni)+'\x27\x20of\x20object');}else Nw[Ni]=NM;Tm[Td++]=NM,Tu++;continue;}case 0x1d:{let NP=Tm[--Td],ND=Tm[--Td];Tm[Td++]=ND<NP,Tu++;continue;}case 0x1e:{let Nm=Tm[--Td],Nd=Tm[--Td];Tm[Td++]=Nd==Nm,Tu++;continue;}case 0x1f:{let Nq=Tm[--Td],NC=Tm[--Td];Tm[Td++]=NC!=Nq,Tu++;continue;}case 0x20:{let NW=Tm[Td-0x1],NL=TC[hL];if(NW===null||NW===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+NW+'\x20(reading\x20'+'\x27'+String(NL)+'\x27'+')');Tm[Td++]=NW[NL],Tu++;continue;}case 0x21:{let NS=Tm[--Td],Ny=Tm[--Td];Tm[Td++]=Ny!==NS,Tu++;continue;}case 0x22:{let Nu=Tm[--Td],Nj=Tm[--Td];Tm[Td++]=Nj>Nu,Tu++;continue;}case 0x23:{Tm[Td++]=Tw[hL],Tu++;continue;}case 0x24:{let Nl=hL&0xffff,NR=hL>>>0x10;Tm[Td++]=Ty[Nl]<TC[NR],Tu++;continue;}case 0x25:{let Ne=Tw[hL];if((typeof Ne==='object'||typeof Ne==='function')&&Ne!==null){const No=Ne[Symbol['toPrimitive']];if(No!=null){Ne=No['call'](Ne,'number');if(Ne!==null&&(typeof Ne==='object'||typeof Ne==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const Ng=Ne['valueOf']();if(Ng===null||typeof Ng!=='object'&&typeof Ng!=='function')Ne=Ng;else{const NG=Ne['toString']();if(NG!==null&&(typeof NG==='object'||typeof NG==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');Ne=NG;}}}Tw[hL]=typeof Ne===u?Ne-0x1n:+Ne-0x1,Tu++;continue;}case 0x26:{let NZ=Tm[--Td],Nr=Tm[--Td];Tm[Td++]=Nr*NZ,Tu++;continue;}case 0x27:{if(Ts&&!hh){let Nk=Jf(h8);if(Nk!==undefined)TD=Nk,hh=!![];else throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');}let NF=TD,Nt=TC[hL];if(NF===null||NF===undefined)throw new TypeError('Cannot\x20read\x20properties\x20of\x20'+NF+'\x20(reading\x20'+'\x27'+String(Nt)+'\x27'+')');Tm[Td++]=NF[Nt],Tu++;continue;}case 0x28:{let Na=Tm[--Td],NQ=Tm[--Td],NH=(hL^0x9f43)>>>0x0,NX;NH<0x10?NH<0x8?NH<0x4?NH<0x2?NX=NH<0x1?NQ^Na:NQ<<Na:NX=NH<0x3?NQ>>Na:NQ/Na:NH<0x6?NX=NH<0x5?NQ%Na:NQ==Na:NX=NH<0x7?NQ!=Na:NQ**Na:NH<0xc?NH<0xa?NX=NH<0x9?NQ&Na:NQ+Na:NX=NH<0xb?NQ*Na:NQ|Na:NH<0xe?NX=NH<0xd?NQ>>>Na:NQ!==Na:NX=NH<0xf?NQ<=Na:NQ-Na:NH<0x14?NH<0x12?NX=NH<0x11?NQ<Na:NQ>Na:NX=NH<0x13?NQ>=Na:NQ===Na:NH<0x18?NX=NH<0x16?NQ|Na:NQ&Na:NX=NH<0x1c?NQ^Na:Na-NQ;Tm[Td++]=NX,Tu++;continue;}case 0x29:{Tm[Td-0x1]?Tu=TL[Tu]:(Tm[--Td],Tu++);continue;}case 0x2a:{Tm[Td++]=TC[hL],Tu++;continue;}case 0x2b:{let Nb=Tm[--Td],Nz=Tm[--Td];Tm[Td++]=Nz<=Nb,Tu++;continue;}case 0x2c:{let NB=hL&0xffff,Ns=hL>>>0x10;Tm[Td++]=Ty[NB]-TC[Ns],Tu++;continue;}case 0x2d:{let Np=Tm[Td-0x1];Tm[Td++]=Np,Tu++;continue;}case 0x2e:{let NV=hL&0xffff,NA=hL>>>0x10;Tm[Td++]=Tw[NV]<=TC[NA],Tu++;continue;}case 0x2f:{let O0=Tm[--Td],O1=Tm[--Td];Tm[Td++]=O1-O0,Tu++;continue;}case 0x30:{Ty[hL]=Tm[--Td],Tu++;continue;}case 0x31:{Tu=TL[Tu];continue;}case 0x32:{let O2=Tm[--Td],O3=Tm[--Td];Tm[Td++]=O3%O2,Tu++;continue;}case 0x33:{let O4=Tm[--Td];if((typeof O4==='object'||typeof O4==='function')&&O4!==null){const O5=O4[Symbol['toPrimitive']];if(O5!=null){O4=O5['call'](O4,'number');if(O4!==null&&(typeof O4==='object'||typeof O4==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const O6=O4['valueOf']();if(O6===null||typeof O6!=='object'&&typeof O6!=='function')O4=O6;else{const O7=O4['toString']();if(O7!==null&&(typeof O7==='object'||typeof O7==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');O4=O7;}}}Tm[Td++]=typeof O4===u?O4-0x1n:+O4-0x1,Tu++;continue;}case 0x34:{let O8=Tm[--Td];O8!==null&&O8!==undefined?Tu=TL[Tu]:Tu++;continue;}case 0x35:{Tw[hL]=Tm[--Td],Tu++;continue;}case 0x36:{let O9=Tm[--Td],OJ=Tm[--Td];Tm[Td++]=OJ===O9,Tu++;continue;}case 0x37:{let OT=Ty[hL];if((typeof OT==='object'||typeof OT==='function')&&OT!==null){const Oh=OT[Symbol['toPrimitive']];if(Oh!=null){OT=Oh['call'](OT,'number');if(OT!==null&&(typeof OT==='object'||typeof OT==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');}else{const ON=OT['valueOf']();if(ON===null||typeof ON!=='object'&&typeof ON!=='function')OT=ON;else{const OO=OT['toString']();if(OO!==null&&(typeof OO==='object'||typeof OO==='function'))throw new TypeError('Cannot\x20convert\x20object\x20to\x20primitive\x20value');OT=OO;}}}Ty[hL]=typeof OT===u?OT+0x1n:+OT+0x1,Tu++;continue;}}if(hW<0x47){if(hM(hW,hL)){if(hU>0x0){for(let OU=hN-0x1;OU>=0x0;OU--){Ty[OU]=hO[--hU];}hT=hO[--hU],Tw=hO[--hU],Td=hO[--hU],hJ=hO[--hU],Tu=hO[--hU],h8=hO[--hU],Tm[Td++]=hI,Tu++;continue;}return hI;}}else{if(hW<0xa7){if(hw(hW,hL)){if(hU>0x0){for(let Oc=hN-0x1;Oc>=0x0;Oc--){Ty[Oc]=hO[--hU];}hT=hO[--hU],Tw=hO[--hU],Td=hO[--hU],hJ=hO[--hU],Tu=hO[--hU],h8=hO[--hU],Tm[Td++]=hI,Tu++;continue;}return hI;}}else{if(hi(hW,hL)){if(hU>0x0){for(let Of=hN-0x1;Of>=0x0;Of--){Ty[Of]=hO[--hU];}hT=hO[--hU],Tw=hO[--hU],Td=hO[--hU],hJ=hO[--hU],Tu=hO[--hU],h8=hO[--hU],Tm[Td++]=hI,Tu++;continue;}return hI;}}}}break;}catch(Ox){l=0x0;if(Tg&&Tg['length']>0x0){let OE=Tg[Tg['length']-0x1];Td=OE['_$KIDAUO'];OE['_$hgrJCW']!==undefined&&(h8=OE['_$hgrJCW']);if(OE['_$2WDq1q']!==undefined)TG=null,h1(Ox),Tu=OE['_$2WDq1q'],OE['_$2WDq1q']=undefined,OE['_$bXBwlD']===undefined&&Tg['pop']();else OE['_$bXBwlD']!==undefined?(Tu=OE['_$bXBwlD'],OE['_$PeIOz2']=Ox):(Tu=OE['_$COqIrN'],Tg['pop']());continue;}throw Ox;}}if(Ts&&!hh){let OK=Jf(h8);OK!==undefined&&(TD=OK,hh=!![]);}let hP=Td>0x0?Tm[--Td]:hh?TD:undefined;if(Ts&&!hh&&(hP===undefined||hP===null||typeof hP!=='object'&&typeof hP!=='function'))throw new ReferenceError('Must\x20call\x20super\x20constructor\x20in\x20derived\x20class\x20before\x20accessing\x20\x27this\x27\x20or\x20returning\x20from\x20derived\x20constructor');return hP;}return hc(0x0);}function*Jn(TM,Tw,Ti,Tn,TP,TD){let Tm=Ji(TM,Tw,Ti,Tn,TP,TD);while(!![]){if(Tm&&typeof Tm==='object'&&Tm['_$8orFki']!==undefined){let Td=Tm['_$9PjtOz'],Tq;try{Tq=yield Tm;}catch(TC){Tm=Td(0x2,TC);continue;}Tq&&typeof Tq==='object'&&Tq['_$8orFki']===W?Tm=Td(0x3,Tq['_$FB6SBr']):Tm=Td(0x1,Tq);}else return Tm;}}let JP=0x0,JD=function(TM){let Tw=TM['next'],Ti=TM['throw'],Tn=TM['return'];return TM['next']=function(TP){JP++;try{return Tw['call'](TM,TP);}finally{JP--;}},TM['throw']=function(TP){JP++;try{return Ti['call'](TM,TP);}finally{JP--;}},TM['return']=function(TP){JP++;try{return Tn['call'](TM,TP);}finally{JP--;}},TM;},Jm=function(TM,Tw,Ti,Tn,TP,TD){JP++;try{vmU_676943['_$PNywNM']?vmU_676943['_$PNywNM']=![]:vmU_676943['_$kFSWSr']=undefined;let Tm=typeof TM==='object'?TM['n']!==undefined?0x0?TO(TM['n']):TM['d']||(TM['d']=TO(TM['n'])):TM:TN(TM),Td=Tm&&TJ(Tm[0x20],Tm[0x21]);return Jw(Tm,Tw,Ti,Tn,TP,TD);}finally{JP--;}},Jd=0xa,Jq=0x0,JC=0x9,JW=0x3,JL=0x5,JS=0x8,Jy=0x2,Ju=0xb,Jj=0x6,Jl=0x1,JR=0x7,Je=0x4,Jo=0x200,Jg=0x2000,JG=0x20000,JZ=0x40,Jr=0x4000,JF=0x400,Jt=0x1000,Jk=0x8000,Ja=0x80,JQ=0x800,JH=0x4,JX=0x200000,Jb=0x2,Jz=0x40000,JB=0x400000,Js=0x20,Jp=0x80000,JV=0x10000,JA=0x100000,T0=0x8,T1=0x100,T2=0x1;function T3(TM){this['_$uShtPJ']=TM,this['_$Dkf3yR']=new n(TM['buffer'],TM['byteOffset'],TM['byteLength']),this['_$PiZvlT']=0x0;}T3['prototype']['_$WnmQeX']=function(){return this['_$uShtPJ'][this['_$PiZvlT']++];},T3['prototype']['_$68jj8D']=function(){let TM=this['_$Dkf3yR']['getUint16'](this['_$PiZvlT'],!![]);return this['_$PiZvlT']+=0x2,TM;},T3['prototype']['_$lkZeaP']=function(){let TM=this['_$Dkf3yR']['getUint32'](this['_$PiZvlT'],!![]);return this['_$PiZvlT']+=0x4,TM;},T3['prototype']['_$UB69uC']=function(){let TM=this['_$Dkf3yR']['getInt32'](this['_$PiZvlT'],!![]);return this['_$PiZvlT']+=0x4,TM;},T3['prototype']['_$wGs3sb']=function(){let TM=this['_$Dkf3yR']['getFloat64'](this['_$PiZvlT'],!![]);return this['_$PiZvlT']+=0x8,TM;},T3['prototype']['_$yKY99u']=function(){let TM=0x0,Tw=0x0,Ti;do{Ti=this['_$WnmQeX'](),TM|=(Ti&0x7f)<<Tw,Tw+=0x7;}while(Ti>=0x80);return TM>>>0x1^-(TM&0x1);},T3['prototype']['_$RaOBav']=function(){let TM=this['_$yKY99u'](),Tw=this['_$uShtPJ'],Ti=this['_$PiZvlT'],Tn=Ti+TM;this['_$PiZvlT']=Tn;var TP='';while(Ti<Tn){var TD=Tw[Ti++];if(TD<0x80)TP+=P(TD);else{if(TD<0xe0)TP+=P((TD&0x1f)<<0x6|Tw[Ti++]&0x3f);else{if(TD<0xf0)TP+=P((TD&0xf)<<0xc|(Tw[Ti++]&0x3f)<<0x6|Tw[Ti++]&0x3f);else{var Tm=(TD&0x7)<<0x12|(Tw[Ti++]&0x3f)<<0xc|(Tw[Ti++]&0x3f)<<0x6|Tw[Ti++]&0x3f;Tm-=0x10000,TP+=P((Tm>>0xa)+0xd800,(Tm&0x3ff)+0xdc00);}}}}return TP;};var T4='anClZ7OWd5keguxKRtVTMG3X+hNAivjBQS4pL2f/qUFo9HzIE60JYc8ybsDPmrw1',T5=new i(0x80);for(var T6=0x0;T6<T4['length'];T6++){T5[T4['charCodeAt'](T6)]=T6;}function T7(TM){var Tw=TM['charCodeAt'](TM['length']-0x1)===0x3d?TM['charCodeAt'](TM['length']-0x2)===0x3d?0x2:0x1:0x0,Ti=(TM['length']*0x3>>0x2)-Tw,Tn=new i(Ti),TP=0x0;for(var TD=0x0;TD<TM['length'];TD+=0x4){var Tm=T5[TM['charCodeAt'](TD)],Td=T5[TM['charCodeAt'](TD+0x1)],Tq=T5[TM['charCodeAt'](TD+0x2)],TC=T5[TM['charCodeAt'](TD+0x3)];Tn[TP++]=Tm<<0x2|Td>>0x4,TP<Ti&&(Tn[TP++]=(Td&0xf)<<0x4|Tq>>0x2),TP<Ti&&(Tn[TP++]=(Tq&0x3)<<0x6|TC);}return Tn;}function T8(TM,Tw,Ti){let Tn=TM['_$yKY99u'](),TP=(Ti^Tw*0x9e3779b1)>>>0x0||0x1,TD=0x0;var Tm='';function Td(){return TP=(TP^TP<<0xd)>>>0x0,TP=(TP^TP>>>0x11)>>>0x0,TP=(TP^TP<<0x5)>>>0x0,TD++,TM['_$WnmQeX']()^TP&0xff;}while(TD<Tn){var Tq=Td();if(Tq<0x80)Tm+=P(Tq);else{if(Tq<0xe0)Tm+=P((Tq&0x1f)<<0x6|Td()&0x3f);else{if(Tq<0xf0)Tm+=P((Tq&0xf)<<0xc|(Td()&0x3f)<<0x6|Td()&0x3f);else{var TC=((Tq&0x7)<<0x12|(Td()&0x3f)<<0xc|(Td()&0x3f)<<0x6|Td()&0x3f)-0x10000;Tm+=P((TC>>0xa)+0xd800,(TC&0x3ff)+0xdc00);}}}}return Tm;}function T9(TM,Tw,Ti){let Tn=TM['_$WnmQeX']();switch(Tn){case Jd:return null;case Jq:return undefined;case JC:return![];case JW:return!![];case JL:{let TP=TM['_$WnmQeX']();return TP>0x7f?TP-0x100:TP;}case JS:{let TD=TM['_$68jj8D']();return TD>0x7fff?TD-0x10000:TD;}case Jy:return TM['_$UB69uC']();case Ju:return TM['_$wGs3sb']();case Jj:return Ti?T8(TM,Tw,Ti):TM['_$RaOBav']();case Jl:return BigInt(TM['_$RaOBav']());case JR:{let Tm=TM['_$RaOBav'](),Td=TM['_$RaOBav']();return new RegExp(Tm,Td);}case Je:{let Tq=TM['_$yKY99u'](),TC=new i(Tq);for(let TW=0x0;TW<Tq;TW++){TC[TW]=TM['_$WnmQeX']();}return TT(TC);}default:return null;}}function TJ(TM,Tw){var Ti=(Math['imul']((TM>>>0x0)+0x1,0x3fcff63a|0x1)^Math['imul']((Tw>>>0x0)+0x1,0x3fcff63a>>>0x9|0x1)^0x3fcff63a)>>>0x0;return[(Ti|0x1)>>>0x0,Math['imul'](Ti,0xe5356e95)+0x5465a79>>>0x0];}function TT(TM){let Tw;if(TM&&TM['_$PiZvlT']!==undefined)Tw=TM;else{let Te=typeof TM==='string'?T7(TM):TM;Tw=new T3(Te);}let Ti=Tw['_$WnmQeX'](),Tn=(Tw['_$lkZeaP']()^0xb5e669b6)>>>0x0,TP=Tw['_$yKY99u'](),TD=Tw['_$yKY99u'](),Tm=[],Td=TJ(TP,TD);Tm[0x20]=TP,Tm[0x21]=TD;Tn&JF&&(Tm[0x17*Td[0x0]+Td[0x1]&0x1f]=Tw['_$lkZeaP']());Tn&JZ&&(Tm[0xa*Td[0x0]+Td[0x1]&0x1f]=Tw['_$yKY99u']());Tn&Jt&&(Tm[0x7*Td[0x0]+Td[0x1]&0x1f]=Tw['_$lkZeaP']());if(Tn&Jr){let To=Tw['_$yKY99u'](),Tg={};for(let TG=0x0;TG<To;TG++){let TZ=Tw['_$yKY99u'](),Tr=Tw['_$yKY99u']();Tg[TZ]=Tr;}Tm[0xe*Td[0x0]+Td[0x1]&0x1f]=Tg;}Tn&JH&&(Tm[0x16*Td[0x0]+Td[0x1]&0x1f]=Tw['_$lkZeaP']());Tn&JQ&&(Tm[0x18*Td[0x0]+Td[0x1]&0x1f]=Tw['_$yKY99u']());Tn&T1&&(Tm[0x3*Td[0x0]+Td[0x1]&0x1f]=Tw['_$yKY99u']());Tn&Jk&&(Tm[0x1*Td[0x0]+Td[0x1]&0x1f]=Tw['_$lkZeaP']());Tn&T0&&(Tm[0x9*Td[0x0]+Td[0x1]&0x1f]=Tw['_$yKY99u']());Tn&Ja&&(Tm[0x12*Td[0x0]+Td[0x1]&0x1f]=Tw['_$lkZeaP']());Tn&Jo&&(Tm[0xb*Td[0x0]+Td[0x1]&0x1f]=0x1);Tn&Jg&&(Tm[0x2*Td[0x0]+Td[0x1]&0x1f]=0x1);Tn&JG&&(Tm[0xd*Td[0x0]+Td[0x1]&0x1f]=0x1);Tn&JB&&(Tm[0x11*Td[0x0]+Td[0x1]&0x1f]=0x1);Tn&Js&&(Tm[0x4*Td[0x0]+Td[0x1]&0x1f]=0x1);Tn&Jp&&(Tm[0xc*Td[0x0]+Td[0x1]&0x1f]=0x1);Tn&JV&&(Tm[0x6*Td[0x0]+Td[0x1]&0x1f]=0x1);Tn&JA&&(Tm[0x5*Td[0x0]+Td[0x1]&0x1f]=0x1);Tn&Jz&&(Tm[0x15*Td[0x0]+Td[0x1]&0x1f]=0x1);let Tq=Tw['_$yKY99u'](),TC=[];J4(TC,null);let TW=Tm[0x1*Td[0x0]+Td[0x1]&0x1f]||0x0;for(let TF=0x0;TF<Tq;TF++){TC[TF]=T9(Tw,TF,TW);}Tm[0x8*Td[0x0]+Td[0x1]&0x1f]=TC;function TL(Tt){let Tk=Tt['_$WnmQeX']();switch(Tk){case Jd:return-0x1;case JL:{let Ta=Tt['_$WnmQeX']();return Ta>0x7f?Ta-0x100:Ta;}case JS:{let TQ=Tt['_$68jj8D']();return TQ>0x7fff?TQ-0x10000:TQ;}case Jy:return Tt['_$UB69uC']();case Ju:return Tt['_$wGs3sb']()|0x0;case Jj:return Tt['_$RaOBav']()|0x0;default:return-0x1;}}let TS=Tw['_$yKY99u'](),Ty=!!(Tn&T2),Tu=Ty?TS*0x3:TS<<0x1;if(TS<0x0||Tu<0x0)throw new RangeError('Invalid\x20array\x20length');let Tj=null,Tl={'__proto__':Tj,'length':Tu},TR=0x0;if(Ty){let Tt=Tm[0xf*Td[0x0]+Td[0x1]&0x1f]<=0x80;for(let Tk=0x0;Tk<TS;Tk++){Tl[TR++]=Tw['_$yKY99u'](),Tl[TR++]=TL(Tw);let Ta=0x0,TQ=0x0,TH;do{TH=Tw['_$WnmQeX'](),Ta|=(TH&0x7f)<<TQ,TQ+=0x7;}while(TH>=0x80);Ta=Ta>>>0x0,Tl[TR++]=Tt?(Ta&0x7f)<<0x14|(Ta>>>0x7&0x7f)<<0xa|Ta>>>0xe&0x7f:(Ta&0xfff)<<0x14|(Ta>>>0xc&0x3ff)<<0xa|Ta>>>0x16&0x3ff;}}else{let TX=(TP*0x500f^TD*0x1ced^TS*0x97b3^Tq*0xadfd)>>>0x0&0x3;switch(TX){case 0x1:for(let Tb=0x0;Tb<TS;Tb++){Tl[TR++]=TL(Tw),Tl[TR++]=Tw['_$yKY99u']();}break;case 0x2:for(let Tz=0x0;Tz<TS;Tz++){Tl[TR++]=Tw['_$yKY99u']();}for(let TB=0x0;TB<TS;TB++){Tl[TR++]=TL(Tw);}break;case 0x3:for(let Ts=0x0;Ts<TS;Ts++){Tl[TR++]=TL(Tw);}for(let Tp=0x0;Tp<TS;Tp++){Tl[TR++]=Tw['_$yKY99u']();}break;default:for(let TV=0x0;TV<TS;TV++){Tl[TR++]=Tw['_$yKY99u'](),Tl[TR++]=TL(Tw);}break;}}Tm[0x0*Td[0x0]+Td[0x1]&0x1f]=Tl;if(Tn&JX){let TA=Tw['_$yKY99u'](),h0={};for(let h1=0x0;h1<TA;h1++){let h2=Tw['_$yKY99u'](),h3=Tw['_$yKY99u']();h0[h2]=h3;}Tm[0x19*Td[0x0]+Td[0x1]&0x1f]=h0;}if(Tn&Jb){let h4=Tw['_$yKY99u'](),h5={};for(let h6=0x0;h6<h4;h6++){let h7=Tw['_$yKY99u'](),h8=Tw['_$yKY99u']()-0x1,h9=Tw['_$yKY99u']()-0x1,hJ=Tw['_$yKY99u']()-0x1;h5[h7]=[h8,h9,hJ];}Tm[0x13*Td[0x0]+Td[0x1]&0x1f]=h5;}return Tm;}let Th=function(TM,Tw){let Ti={};return function(Tn){if(Tw!==undefined&&Tn>>>0x0>=Tw>>>0x0)throw 0x0;let TP=Tn;if(Ti[TP])return Ti[TP];let TD=TM[TP];return typeof TD==='string'?Ti[TP]=TT(TD):Ti[TP]=TD,Ti[TP];};},TN=Th(w);w=null;let TO=Th(D,undefined,0x0);D=null;let TU=async function(TM,Tw,Ti,Tn,TP,TD,Tm){JP++;try{let Td=typeof TM==='object'?TM['n']!==undefined?0x0?TO(TM['n']):TM['d']||(TM['d']=TO(TM['n'])):TM:TN(TM),Tq=Td&&TJ(Td[0x20],Td[0x21]),TC=Jn(Td,Tw,Ti,Tn,TP,TD),TW=TC['next']();while(!TW['done']){if(TW['value']['_$8orFki']!==d)throw new Error('Unexpected\x20yield\x20in\x20async\x20context');try{let TL;TL=await TW['value']['_$FB6SBr'],vmU_676943['_$kFSWSr']=Tm,TW=TC['next'](TL);}catch(TS){vmU_676943['_$kFSWSr']=Tm,TW=TC['throw'](TS);}}return TW['value'];}finally{JP--;}},Tc=function(TM,Tw,Ti,Tn,TP,TD){let Tm,Td;JP++;try{Tm=typeof TM==='object'?TM['n']!==undefined?0x0?TO(TM['n']):TM['d']||(TM['d']=TO(TM['n'])):TM:TN(TM),Td=Tm&&TJ(Tm[0x20],Tm[0x21]);}finally{JP--;}let Tq=JD(Jn(Tm,Tw,Ti,Tn,undefined,TP)),TC=Tm&&Tm[0xd*Td[0x0]+Td[0x1]&0x1f]&&!Tm[0xc*Td[0x0]+Td[0x1]&0x1f],TW=null;TC&&(TW=Tq['next']());let TL=![],TS=![],Ty=null,Tu=undefined,Tj=![];function Tl(Tt,Tk){if(TL)return{'value':undefined,'done':!![]};TS=!![],vmU_676943['_$kFSWSr']=TD;if(Ty){let TQ,TH,TX;try{if(Tk){if(typeof Ty['throw']==='function')TQ=Ty['throw'](Tt);else{typeof Ty['return']==='function'&&Ty['return']();Ty=null;throw new TypeError('The\x20iterator\x20does\x20not\x20provide\x20a\x20\x27throw\x27\x20method.');}}else TQ=Ty['next'](Tt);try{J6(TQ);}catch(Tz){Ty=null;throw Tz;}let Tb=J7(TQ);TH=Tb['done'],TX=Tb['value'];}catch(TB){Ty=null;try{let Ts=Tq['throw'](TB);return TR(Ts);}catch(Tp){TL=!![];throw Tp;}}if(!TH)return TQ;Ty=null,Tt=TX,Tk=![];}let Ta;if(TW!==null)Ta=TW,TW=null;else try{Ta=Tk?Tq['throw'](Tt):Tq['next'](Tt);}catch(TV){TL=!![];throw TV;}return TR(Ta);}function TR(Tt){if(Tt['done'])return TL=!![],Tj=![],{'value':Tt['value'],'done':!![]};let Tk=Tt['value'];if(Tk['_$8orFki']===q)return{'value':Tk['_$FB6SBr'],'done':![]};if(Tk['_$8orFki']===C){let Ta=Tk['_$FB6SBr'],TQ;try{if(Ta==null)throw new TypeError(Ta+'\x20is\x20not\x20iterable');let Tz=Ta[Symbol['iterator']];if(typeof Tz!=='function')throw new TypeError(Ta+'\x20is\x20not\x20iterable');TQ=Tz['call'](Ta),J6(TQ);if(typeof TQ['next']!=='function')throw new TypeError('Iterator\x20next\x20is\x20not\x20a\x20function');}catch(TB){try{let Ts=Tq['throw'](TB);return TR(Ts);}catch(Tp){TL=!![];throw Tp;}}let TH,TX,Tb;try{TH=TQ['next'](undefined),J6(TH);let TV=J7(TH);TX=TV['done'],Tb=TV['value'];}catch(TA){try{let h0=Tq['throw'](TA);return TR(h0);}catch(h1){TL=!![];throw h1;}}if(!TX)return Ty=TQ,TH;return Tl(Tb,![]);}throw new Error('Unexpected\x20signal\x20in\x20generator');}let Te=Tm&&Tm[0x2*Td[0x0]+Td[0x1]&0x1f],To=async function(Tt){if(TL)return{'value':Tt,'done':!![]};if(!TS)return TL=!![],{'value':Tt,'done':!![]};if(Ty){let Ta=Ty,TQ;try{TQ=J5(Ta['iter'],'return');}catch(TH){Ty=null,TL=!![];throw TH;}if(TQ===undefined){Ty=null;try{Tt=await Promise['resolve'](Tt);}catch(TX){TL=!![];throw TX;}}else{let Tb;try{Tb=Y(TQ,Ta['iter'],[Tt]),!Ta['isSync']&&(Tb=await Tb);}catch(TV){Ty=null,TL=!![];throw TV;}if(Tb===null||typeof Tb!=='object'){Ty=null,TL=!![];throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');}let Tz,TB,Ts,Tp=![];try{Tz=Tb['done'],TB=Tb['value'];}catch(TA){Tp=!![],Ts=TA;}if(Tp){Ty=null;let h0;try{vmU_676943['_$kFSWSr']=TD,h0=Tq['throw'](Ts);}catch(h1){TL=!![];throw h1;}while(!h0['done']){let h2=h0['value'];if(h2&&h2['_$8orFki']===d){let h3;try{h3=await h2['_$FB6SBr'],vmU_676943['_$kFSWSr']=TD,h0=Tq['next'](h3);}catch(h4){vmU_676943['_$kFSWSr']=TD,h0=Tq['throw'](h4);}continue;}if(h2&&h2['_$8orFki']===q){let h5;try{h5=await Promise['resolve'](h2['_$FB6SBr']);}catch(h6){TL=!![];throw h6;}return{'value':h5,'done':![]};}break;}return TL=!![],{'value':h0['value'],'done':!![]};}if(!Tz){let h7;try{h7=await Promise['resolve'](TB);}catch(h8){Ty=null,TL=!![];throw h8;}return{'value':h7,'done':![]};}Ty=null;try{Tt=await Promise['resolve'](TB);}catch(h9){TL=!![];throw h9;}}}let Tk;try{vmU_676943['_$kFSWSr']=TD,Tk=Tq['next']({['_$8orFki']:W,['_$FB6SBr']:Tt});}catch(hJ){TL=!![];throw hJ;}while(!Tk['done']){let hT=Tk['value'];if(hT['_$8orFki']===d)try{let hh=await hT['_$FB6SBr'];vmU_676943['_$kFSWSr']=TD,Tk=Tq['next'](hh);}catch(hN){vmU_676943['_$kFSWSr']=TD,Tk=Tq['throw'](hN);}else{if(hT['_$8orFki']===q){let hO;try{hO=await Promise['resolve'](hT['_$FB6SBr']);}catch(hU){TL=!![];throw hU;}return{'value':hO,'done':![]};}else break;}}return TL=!![],{'value':Tk['value'],'done':!![]};},Tg=function(Tt){if(TL)return{'value':Tt,'done':!![]};if(!TS)return TL=!![],{'value':Tt,'done':!![]};if(Ty){let Ta,TQ=![];try{let TH=Ty['return'];typeof TH==='function'&&(TQ=!![],Ta=TH['call'](Ty,Tt),J6(Ta));}catch(TX){Ty=null;let Tb;try{Tb=Tq['throw'](TX);}catch(Tz){TL=!![];throw Tz;}return TR(Tb);}if(TQ){let TB;try{TB=Ta['done'];}catch(Tp){Ty=null;let TV;try{TV=Tq['throw'](Tp);}catch(TA){TL=!![];throw TA;}return TR(TV);}if(!TB)return Ta;let Ts;try{Ts=Ta['value'];}catch(h0){Ty=null;let h1;try{h1=Tq['throw'](h0);}catch(h2){TL=!![];throw h2;}return TR(h1);}Ty=null,Tt=Ts;}}Tu=Tt,Tj=!![];let Tk;try{vmU_676943['_$kFSWSr']=TD,Tk=Tq['next']({['_$8orFki']:W,['_$FB6SBr']:Tt});}catch(h3){TL=!![],Tj=![];throw h3;}return TR(Tk);};if(Te){async function Tt(TX,Tb){let Tz=Ty,TB;try{if(Tb){let h0;try{h0=J5(Tz['iter'],'throw');}catch(h1){Ty=null;try{return vmU_676943['_$kFSWSr']=TD,Tk(Tq['throw'](h1));}catch(h2){TL=!![];throw h2;}}if(h0===undefined){let h3;try{h3=J5(Tz['iter'],'return');}catch(h4){Ty=null;try{return vmU_676943['_$kFSWSr']=TD,Tk(Tq['throw'](h4));}catch(h5){TL=!![];throw h5;}}if(h3!==undefined)try{let h6=Y(h3,Tz['iter'],[]);!Tz['isSync']&&(h6=await h6);if(h6!==null&&typeof h6!=='object')throw new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object');}catch(h7){}Ty=null;try{return vmU_676943['_$kFSWSr']=TD,Tk(Tq['throw'](new TypeError('The\x20iterator\x20does\x20not\x20provide\x20a\x20throw\x20method')));}catch(h8){TL=!![];throw h8;}}TB=Y(h0,Tz['iter'],[TX]),!Tz['isSync']&&(TB=await TB);}else TB=Y(Tz['nextMethod'],Tz['iter'],[TX]),!Tz['isSync']&&(TB=await TB);}catch(h9){Ty=null;try{return vmU_676943['_$kFSWSr']=TD,Tk(Tq['throw'](h9));}catch(hJ){TL=!![];throw hJ;}}if(TB===null||typeof TB!=='object'){Ty=null;try{return vmU_676943['_$kFSWSr']=TD,Tk(Tq['throw'](new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object')));}catch(hT){TL=!![];throw hT;}}let Ts,Tp;try{Ts=TB['done'],Tp=TB['value'];}catch(hh){Ty=null;try{return vmU_676943['_$kFSWSr']=TD,Tk(Tq['throw'](hh));}catch(hN){TL=!![];throw hN;}}if(!Ts){let hO;try{hO=await Tp;}catch(hU){Ty=null,TL=!![];throw hU;}return{'value':hO,'done':![]};}Ty=null;let TV;try{TV=await Tp;}catch(hc){try{return vmU_676943['_$kFSWSr']=TD,Tk(Tq['throw'](hc));}catch(hf){TL=!![];throw hf;}}let TA;try{vmU_676943['_$kFSWSr']=TD,TA=Tq['next'](TV);}catch(hx){TL=!![];throw hx;}return Tk(TA);}function TF(TX,Tb){if(TL)return Promise['resolve']({'value':undefined,'done':!![]});TS=!![],vmU_676943['_$kFSWSr']=TD;if(Ty)return Tt(TX,Tb);let Tz;if(TW!==null)Tz=TW,TW=null;else try{Tz=Tb?Tq['throw'](TX):Tq['next'](TX);}catch(TB){return TL=!![],Promise['reject'](TB);}if(!Tz['done']){let Ts=Tz['value'];if(Ts&&Ts['_$8orFki']===q)return Promise['resolve'](Ts['_$FB6SBr'])['then'](function(Tp){return{'value':Tp,'done':![]};},function(Tp){TL=!![];throw Tp;});}return Tk(Tz);}async function Tk(TX){while(!TX['done']){let Tb=TX['value'];if(Tb['_$8orFki']===d){let Tz;try{Tz=await Tb['_$FB6SBr'],vmU_676943['_$kFSWSr']=TD,TX=Tq['next'](Tz);}catch(TB){vmU_676943['_$kFSWSr']=TD,TX=Tq['throw'](TB);}continue;}if(Tb['_$8orFki']===q){let Ts;try{Ts=await Tb['_$FB6SBr'];}catch(Tp){TL=!![];throw Tp;}return{'value':Ts,'done':![]};}if(Tb['_$8orFki']===C){let TV=Tb['_$FB6SBr'],TA;try{TA=J8(TV);}catch(h6){vmU_676943['_$kFSWSr']=TD;try{TX=Tq['throw'](h6);}catch(h7){TL=!![];throw h7;}continue;}let h0=TA['iter'],h1=TA['nextMethod'],h2=TA['isSync'],h3;try{h3=Y(h1,h0,[undefined]),!h2&&(h3=await h3);}catch(h8){vmU_676943['_$kFSWSr']=TD;try{TX=Tq['throw'](h8);}catch(h9){TL=!![];throw h9;}continue;}if(h3===null||typeof h3!=='object'){vmU_676943['_$kFSWSr']=TD;try{TX=Tq['throw'](new TypeError('Iterator\x20result\x20is\x20not\x20an\x20object'));}catch(hJ){TL=!![];throw hJ;}continue;}let h4,h5;try{h4=h3['done'],h5=h3['value'];}catch(hT){vmU_676943['_$kFSWSr']=TD;try{TX=Tq['throw'](hT);}catch(hh){TL=!![];throw hh;}continue;}if(h4){let hN;try{hN=await Promise['resolve'](h5);}catch(hO){vmU_676943['_$kFSWSr']=TD;try{TX=Tq['throw'](hO);}catch(hU){TL=!![];throw hU;}continue;}vmU_676943['_$kFSWSr']=TD,TX=Tq['next'](hN);continue;}Ty={'iter':h0,'nextMethod':h1,'isSync':h2};if(h2){let hc;try{hc=await Promise['resolve'](h5);}catch(hf){Ty=null,TL=!![];throw hf;}return{'value':hc,'done':![]};}return{'value':h5,'done':![]};}throw new Error('Unexpected\x20signal\x20in\x20async\x20generator');}TL=!![];if(Tj)return Tj=![],{'value':Tu,'done':!![]};return{'value':TX['value'],'done':!![]};}let Ta=null,TQ=0x0;function Tr(){}function TZ(){TQ--,TQ===0x0&&(Ta=null);}function TG(TX){let Tb;if(TQ===0x0)try{Tb=TX();}catch(Tz){Tb=Promise['reject'](Tz);}else Tb=Ta['then'](TX,TX);return TQ++,Ta=Tb,Tb['then'](TZ,TZ),Tb;}let TH=J3(Ti&&Ti['prototype'],p);return TH?T(TH,{'next':J2(function(TX){return TG(function(){return TF(TX,![]);});}),'return':J2(function(TX){return TG(function(){return To(TX);});}),'throw':J2(function(TX){return TG(function(){if(TL)return Promise['reject'](TX);return TF(TX,!![]);});}),[Symbol['asyncIterator']]:J2(function(){return this;})}):{'next':function(TX){return TG(function(){return TF(TX,![]);});},'return':function(TX){return TG(function(){return To(TX);});},'throw':function(TX){return TG(function(){if(TL)return Promise['reject'](TX);return TF(TX,!![]);});},[Symbol['asyncIterator']]:function(){return this;}};}else{let TX=J3(Ti&&Ti['prototype'],B);return TX?T(TX,{'next':J2(function(Tb){return Tl(Tb,![]);}),'return':J2(Tg),'throw':J2(function(Tb){if(TL)throw Tb;return Tl(Tb,!![]);}),[Symbol['iterator']]:J2(function(){return this;})}):{'next':function(Tb){return Tl(Tb,![]);},'return':Tg,'throw':function(Tb){if(TL)throw Tb;return Tl(Tb,!![]);},[Symbol['iterator']]:function(){return this;}};}};var Tf=function(TM,Tw,Ti,Tn,TP,TD){JP++;try{let Tm=TN(TD),Td=Tm&&TJ(Tm[0x20],Tm[0x21]),Tq=Tw;if(Tm&&Tm[0xd*Td[0x0]+Td[0x1]&0x1f]){let TC=vmU_676943['_$kFSWSr'];return Tc(Tm,TP,TM,Tn,Tq,TC);}if(Tm&&Tm[0x2*Td[0x0]+Td[0x1]&0x1f]){let TW=vmU_676943['_$kFSWSr'];return TU(Tm,TP,TM,Tn,Ti,Tq,TW);}return Jm(Tm,TP,TM,Tn,Ti,Tq);}finally{JP--;}};return Tf['_$0qtg6h']=function(TM,Tw){if(!TM)return;if(0x0||0x0){!a(TM)&&F(TM,{['_$8Z6ZUQ']:Tw,['_$TfMnEY']:undefined,['_$Dfd67N']:undefined,['_$mmzF6F']:undefined});return;}var Ti;JP++;try{Ti=TN(Tw);}finally{JP--;}if(!Ti)return;var Tn=TJ(Ti[0x20],Ti[0x21]);if(Ti[0x2*Tn[0x0]+Tn[0x1]&0x1f]||Ti[0xd*Tn[0x0]+Tn[0x1]&0x1f]||Ti[0xb*Tn[0x0]+Tn[0x1]&0x1f])return;!a(TM)&&F(TM,{['_$8Z6ZUQ']:Tw,['_$TfMnEY']:undefined,['_$Dfd67N']:Ti,['_$mmzF6F']:undefined});},Tf;}());vmO_9abb44['_$0qtg6h'](equipArmorStats,0xa),vmO_9abb44['_$0qtg6h'](unequipArmorStats,0xb),vmO_9abb44['_$0qtg6h'](rollArmorBlock,0xc),delete vmO_9abb44['_$0qtg6h'];try{NaN,Object['defineProperty'](vmU_676943,'NaN',{'get':function(){return NaN;},'set':function(J){NaN=J;},'configurable':!![]});}catch(vmUZ){}try{Number,Object['defineProperty'](vmU_676943,'Number',{'get':function(){return Number;},'set':function(J){Number=J;},'configurable':!![]});}catch(vmUr){}try{Object,Object['defineProperty'](vmU_676943,'Object',{'get':function(){return Object;},'set':function(J){Object=J;},'configurable':!![]});}catch(vmUF){}try{Math,Object['defineProperty'](vmU_676943,'Math',{'get':function(){return Math;},'set':function(J){Math=J;},'configurable':!![]});}catch(vmUt){}try{String,Object['defineProperty'](vmU_676943,'String',{'get':function(){return String;},'set':function(J){String=J;},'configurable':!![]});}catch(vmUk){}try{isFinite,Object['defineProperty'](vmU_676943,'isFinite',{'get':function(){return isFinite;},'set':function(J){isFinite=J;},'configurable':!![]});}catch(vmUa){}try{getUpgradeItemSellPrice,Object['defineProperty'](vmU_676943,'getUpgradeItemSellPrice',{'get':function(){return getUpgradeItemSellPrice;},'set':function(J){getUpgradeItemSellPrice=J;},'configurable':!![]});}catch(vmUQ){}vmU_676943['getItemSellPrice']=getItemSellPrice;globalThis['getItemSellPrice']=vmU_676943['getItemSellPrice'];vmU_676943['calcGearSellPrice']=calcGearSellPrice;globalThis['calcGearSellPrice']=vmU_676943['calcGearSellPrice'];vmU_676943['rollArmorBlock']=rollArmorBlock;globalThis['rollArmorBlock']=vmU_676943['rollArmorBlock'];vmU_676943['tickArmorRegeneration']=tickArmorRegeneration;globalThis['tickArmorRegeneration']=vmU_676943['tickArmorRegeneration'];vmU_676943['unequipArmorStats']=unequipArmorStats;globalThis['unequipArmorStats']=vmU_676943['unequipArmorStats'];vmU_676943['equipArmorStats']=equipArmorStats;globalThis['equipArmorStats']=vmU_676943['equipArmorStats'];vmU_676943['getArmorStats']=getArmorStats;globalThis['getArmorStats']=vmU_676943['getArmorStats'];vmU_676943['getAllAccessories']=getAllAccessories;globalThis['getAllAccessories']=vmU_676943['getAllAccessories'];vmU_676943['getAllRings']=getAllRings;globalThis['getAllRings']=vmU_676943['getAllRings'];vmU_676943['getLootableAccessoryDef']=getLootableAccessoryDef;globalThis['getLootableAccessoryDef']=vmU_676943['getLootableAccessoryDef'];vmU_676943['getLootableRingDef']=getLootableRingDef;globalThis['getLootableRingDef']=vmU_676943['getLootableRingDef'];vmU_676943['getLootableArmorDef']=getLootableArmorDef;globalThis['getLootableArmorDef']=vmU_676943['getLootableArmorDef'];vmU_676943['getAllArmors']=getAllArmors;globalThis['getAllArmors']=vmU_676943['getAllArmors'];vmU_676943['getArmor']=getArmor;globalThis['getArmor']=vmU_676943['getArmor'];vmU_676943['rollRequiredStat']=rollRequiredStat;globalThis['rollRequiredStat']=vmU_676943['rollRequiredStat'];vmU_676943['parseRequiredStat']=parseRequiredStat;globalThis['parseRequiredStat']=vmU_676943['parseRequiredStat'];vmU_676943['_$STbaUg']={'REQUIRED_STAT_RULES':!![],'ARMOR_TYPES':!![],'ARMOR_CONNECTED_STAT_FIELDS':!![],'SELL_PRICE_MIN':!![],'SELL_PRICE_MAX':!![],'SELL_PRICE_CURVE':!![],'SELL_STAT_MAX':!![]};const REQUIRED_STAT_RULES={'statForType':{'berserker':'pow','magemaster':'int','bullwark':'dex'},'perEnemyLevel':0x4,'maxEnemyLevel':0x32};delete vmU_676943['_$STbaUg']['REQUIRED_STAT_RULES'],vmU_676943['REQUIRED_STAT_RULES']=REQUIRED_STAT_RULES;globalThis['REQUIRED_STAT_RULES']=REQUIRED_STAT_RULES;function parseRequiredStat(J){return vmO_9abb44(typeof parseRequiredStat!=='undefined'?parseRequiredStat:undefined,this,new.target,{['_$i74iiQ']:[REQUIRED_STAT_RULES],['_$qprkR5']:undefined,['_$6RhBvz']:[0x1]},arguments,0x0,0x21);}function rollRequiredStat(J,T,h){return vmO_9abb44(typeof rollRequiredStat!=='undefined'?rollRequiredStat:undefined,this,new.target,{['_$i74iiQ']:[REQUIRED_STAT_RULES,parseRequiredStat],['_$qprkR5']:undefined,['_$6RhBvz']:[0x1,0x0]},arguments,0x1,0x21);}const ARMOR_TYPES={'armor1':{'name':'armor1','requiredType':'berserker','image':'image/armor1.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x493e0,'description':'Padded\x20scout\x20vest.\x20Light\x20and\x20quick\x20to\x20wear,\x20with\x20a\x20small\x20boost\x20to\x20defense\x20and\x20health.'},'armor2':{'name':'armor2','requiredType':'berserker','image':'image/armor2.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Leather\x20jacket\x20stitched\x20with\x20metal\x20plates.\x20Balanced\x20protection\x20for\x20new\x20fighters.'},'armor3':{'name':'armor3','requiredType':'berserker','image':'image/armor3.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Heavy\x20steel\x20chestplate.\x20Slow\x20to\x20wear,\x20but\x20soaks\x20up\x20serious\x20damage.'},'armor4':{'name':'armor4','requiredType':'berserker','image':'image/armor4.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Battle-scarred\x20plate\x20armor.\x20Dented,\x20but\x20it\x20still\x20turns\x20away\x20most\x20hits.'},'armor5':{'name':'armor5','requiredType':'berserker','image':'image/armor5.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Lightweight\x20mesh\x20armor.\x20Easy\x20to\x20move\x20in,\x20with\x20decent\x20defense.'},'armor6':{'name':'armor6','requiredType':'berserker','image':'image/armor6.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Riveted\x20combat\x20armor\x20built\x20for\x20long\x20fights.'},'armor7':{'name':'armor7','requiredType':'berserker','image':'image/armor7.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Heavy\x20bulwark\x20plating.\x20Layered\x20steel\x20for\x20fighters\x20who\x20hold\x20the\x20front\x20line.'},'armor8':{'name':'armor8','requiredType':'berserker','image':'image/armor8.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Reinforced\x20plate\x20with\x20extra\x20padding\x20at\x20the\x20joints.'},'armor9':{'name':'armor9','requiredType':'berserker','image':'image/armor9.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Weathered\x20veteran\x20armor.\x20Every\x20scratch\x20is\x20a\x20fight\x20survived.'},'armor10':{'name':'armor10','requiredType':'berserker','image':'image/armor10.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Slim\x20tactical\x20suit\x20with\x20light\x20plating.\x20Fast,\x20with\x20a\x20decent\x20chance\x20to\x20block.'},'armor11':{'name':'armor11','requiredType':'berserker','image':'image/armor11.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Field-tested\x20armor\x20with\x20balanced\x20defense\x20and\x20health.'},'armor12':{'name':'armor12','requiredType':'berserker','image':'image/armor12.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Thick\x20siege\x20armor\x20made\x20to\x20hold\x20the\x20line\x20against\x20heavy\x20fire.'},'armor13':{'name':'armor13','requiredType':'berserker','image':'image/armor13.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Reinforced\x20battle\x20armor\x20with\x20double-layered\x20chest\x20plates.'},'armor14':{'name':'armor14','requiredType':'berserker','image':'image/armor14.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Scorched\x20armor\x20from\x20countless\x20battles.\x20Rugged\x20and\x20reliable.'},'armor15':{'name':'armor15','requiredType':'bullwark','image':'image/armor15.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Agile\x20skirmisher\x20armor\x20that\x20trades\x20weight\x20for\x20speed.'},'armor16':{'name':'armor16','requiredType':'bullwark','image':'image/armor16.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Alloy-plated\x20armor\x20with\x20solid\x20protection\x20all\x20around.'},'armor17':{'name':'armor17','requiredType':'bullwark','image':'image/armor17.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Heavy\x20assault\x20armor\x20with\x20a\x20thick,\x20armored\x20shell.'},'armor18':{'name':'armor18','requiredType':'bullwark','image':'image/armor18.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Reinforced\x20guard\x20armor\x20with\x20braced\x20shoulders\x20and\x20a\x20hardened\x20core.'},'armor19':{'name':'armor19','requiredType':'bullwark','image':'image/armor19.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Old\x20war\x20armor\x20patched\x20with\x20scrap\x20steel.\x20Tough\x20and\x20proven.'},'armor20':{'name':'armor20','requiredType':'bullwark','image':'image/armor20.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Sleek\x20composite\x20armor\x20that\x20is\x20light\x20but\x20strong.'},'armor21':{'name':'armor21','requiredType':'bullwark','image':'image/armor21.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Officer\x27s\x20armor\x20with\x20polished\x20plates\x20and\x20strong\x20defense.'},'armor22':{'name':'armor22','requiredType':'bullwark','image':'image/armor22.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Fortress\x20armor.\x20Heavy\x20and\x20very\x20hard\x20to\x20break\x20through.'},'armor23':{'name':'armor23','requiredType':'bullwark','image':'image/armor23.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Reinforced\x20elite\x20plate\x20with\x20extra\x20health\x20and\x20defense.'},'armor24':{'name':'armor24','requiredType':'bullwark','image':'image/armor24.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Veteran\x20champion\x27s\x20armor,\x20worn\x20down\x20but\x20still\x20strong.'},'armor25':{'name':'armor25','requiredType':'bullwark','image':'image/armor25.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Featherweight\x20alloy\x20armor\x20for\x20fast,\x20evasive\x20fighters.'},'armor26':{'name':'armor26','requiredType':'bullwark','image':'image/armor26.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Commander\x27s\x20armor\x20built\x20to\x20take\x20hits\x20in\x20the\x20thick\x20of\x20battle.'},'armor27':{'name':'armor27','requiredType':'bullwark','image':'image/armor27.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Heavy\x20siege-breaker\x20armor\x20with\x20thick\x20layered\x20plating.'},'armor28':{'name':'armor28','requiredType':'bullwark','image':'image/armor28.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Reinforced\x20war\x20plate\x20with\x20an\x20energy-treated\x20finish.'},'armor29':{'name':'armor29','requiredType':'magemaster','image':'image/armor29.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Ancient\x20battle\x20armor,\x20scarred\x20and\x20still\x20standing.'},'armor30':{'name':'armor30','requiredType':'magemaster','image':'image/armor30.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Light\x20stealth\x20armor\x20with\x20a\x20smooth,\x20low-profile\x20finish.'},'armor31':{'name':'armor31','requiredType':'magemaster','image':'image/armor31.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Knight-grade\x20armor\x20with\x20balanced\x20protection.'},'armor32':{'name':'armor32','requiredType':'magemaster','image':'image/armor32.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Titan\x20armor.\x20Massive\x20plates\x20for\x20tanks\x20who\x20never\x20back\x20down.'},'armor33':{'name':'armor33','requiredType':'magemaster','image':'image/armor33.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Reinforced\x20vanguard\x20armor\x20made\x20for\x20leading\x20the\x20charge.'},'armor34':{'name':'armor34','requiredType':'magemaster','image':'image/armor34.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Relic\x20armor\x20pulled\x20from\x20old\x20battlefields,\x20strong\x20and\x20scarred.'},'armor35':{'name':'armor35','requiredType':'magemaster','image':'image/armor35.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Swift-guard\x20armor,\x20light\x20but\x20high\x20in\x20defense\x20for\x20its\x20weight.'},'armor36':{'name':'armor36','requiredType':'magemaster','image':'image/armor36.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Elite\x20armor\x20with\x20high\x20defense\x20and\x20health.'},'armor37':{'name':'armor37','requiredType':'magemaster','image':'image/armor37.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Colossus\x20armor.\x20A\x20heavy\x20shell\x20that\x20shrugs\x20off\x20blows.'},'armor38':{'name':'armor38','requiredType':'magemaster','image':'image/armor38.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Reinforced\x20champion\x20armor\x20with\x20hardened\x20plates\x20and\x20strong\x20shielding.'},'armor39':{'name':'armor39','requiredType':'magemaster','image':'image/armor39.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Legendary\x20battle-worn\x20armor,\x20feared\x20by\x20anyone\x20who\x20has\x20faced\x20its\x20wearer.'},'armor40':{'name':'armor40','requiredType':'magemaster','image':'image/armor40.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Phantom\x20armor,\x20thin\x20but\x20surprisingly\x20tough.'},'armor41':{'name':'armor41','requiredType':'magemaster','image':'image/armor41.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Warlord\x27s\x20armor\x20with\x20top-tier\x20protection.'},'armor42':{'name':'armor42','requiredType':'magemaster','image':'image/armor42.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Juggernaut\x20armor.\x20An\x20unstoppable\x20wall\x20of\x20metal.'},'armor43':{'name':'armor43','requiredType':'magemaster','image':'image/armor43.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Ultimate\x20reinforced\x20plate,\x20the\x20finest\x20armor\x20in\x20the\x20set.'},'armor44':{'name':'armor44','requiredType':'berserker','image':'image/armor44.png','radius':0xa,'category':'armor','physicalDamage':0x28,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x190,'mana':0x14,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.01,'criticalChance':0.01,'pow':0x14,'int':0x14,'dex':0x14,'vit':0x14,'spawnChance':0.025,'timeLife':0x7530,'description':'Warbringer\x20plate.\x20Crimson-forged\x20armor\x20for\x20fighters\x20who\x20live\x20for\x20brute\x20strength\x20and\x20never\x20back\x20down.'},'armor45':{'name':'armor45','requiredType':'magemaster','image':'image/armor45.png','radius':0xa,'category':'armor','magicalAttack':0x28,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x190,'mana':0x14,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.01,'criticalChance':0.01,'pow':0x14,'int':0x14,'dex':0x14,'vit':0x14,'spawnChance':0.025,'timeLife':0x7530,'description':'Arcane\x20Regalia.\x20Rune-etched\x20armor\x20that\x20hums\x20with\x20magic\x20and\x20sharpens\x20every\x20spell\x20its\x20wearer\x20casts.'},'armor46':{'name':'armor46','requiredType':'bullwark','image':'image/armor46.png','radius':0xa,'category':'armor','physicalDamage':0x28,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x190,'mana':0x14,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.01,'criticalChance':0.01,'pow':0x14,'int':0x14,'dex':0x14,'vit':0x14,'spawnChance':0.025,'timeLife':0x7530,'description':'Aegis\x20Bastion\x20plate.\x20A\x20towering\x20wall\x20of\x20steel\x20for\x20the\x20defenders\x20who\x20hold\x20the\x20line\x20and\x20outlast\x20everyone.'},'armor47':{'name':'Vanguard\x20Berserker\x20Plate','requiredType':'berserker','image':'image/armor12.png','radius':0xa,'category':'armor','physicalDamage':0x64,'physicalDefense':0x14,'magicalDefense':0x14,'health':0x3e8,'mana':0x32,'hpRegen':0.008,'manaRegen':0.008,'criticalDamage':0.021,'criticalChance':0.016,'pow':0x1e,'int':0x1e,'dex':0x1e,'vit':0x1e,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20armor\x20to\x20start\x20with.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'armor47a':{'name':'Vanguard\x20Berserker\x20Plate','requiredType':'berserker','image':'image/armor12.png','radius':0xa,'category':'armor','physicalDamage':0x32,'physicalDefense':0xa,'magicalDefense':0xa,'health':0x1f4,'mana':0x19,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.0105,'criticalChance':0.008,'pow':0xf,'int':0xf,'dex':0xf,'vit':0xf,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20armor\x20to\x20start\x20with.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'armor48':{'name':'Vanguard\x20Mage\x20Robe','requiredType':'magemaster','image':'image/armor41.png','radius':0xa,'category':'armor','magicalAttack':0x64,'physicalDefense':0x14,'magicalDefense':0x14,'health':0x3e8,'mana':0x32,'hpRegen':0.008,'manaRegen':0.008,'criticalDamage':0.021,'criticalChance':0.016,'pow':0x1e,'int':0x1e,'dex':0x1e,'vit':0x1e,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20armor\x20to\x20start\x20with.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'armor48a':{'name':'Vanguard\x20Mage\x20Robe','requiredType':'magemaster','image':'image/armor41.png','radius':0xa,'category':'armor','magicalAttack':0x32,'physicalDefense':0xa,'magicalDefense':0xa,'health':0x1f4,'mana':0x19,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.0105,'criticalChance':0.008,'pow':0xf,'int':0xf,'dex':0xf,'vit':0xf,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20armor\x20to\x20start\x20with.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'armor49':{'name':'Vanguard\x20Bullwark\x20Armor','requiredType':'bullwark','image':'image/armor26.png','radius':0xa,'category':'armor','physicalDamage':0x64,'physicalDefense':0x14,'magicalDefense':0x14,'health':0x3e8,'mana':0x32,'hpRegen':0.008,'manaRegen':0.008,'criticalDamage':0.021,'criticalChance':0.016,'pow':0x1e,'int':0x1e,'dex':0x1e,'vit':0x1e,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20armor\x20to\x20start\x20with.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'armor49a':{'name':'Vanguard\x20Bullwark\x20Armor','requiredType':'bullwark','image':'image/armor26.png','radius':0xa,'category':'armor','physicalDamage':0x32,'physicalDefense':0xa,'magicalDefense':0xa,'health':0x1f4,'mana':0x19,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.0105,'criticalChance':0.008,'pow':0xf,'int':0xf,'dex':0xf,'vit':0xf,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20armor\x20to\x20start\x20with.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'armor50':{'name':'Elite\x20Berserker\x20Plate','requiredType':'berserker','image':'image/armor13.png','radius':0xa,'category':'armor','physicalDamage':0x7d,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x4e2,'mana':62.5,'hpRegen':0.01,'manaRegen':0.01,'criticalDamage':0.02625,'criticalChance':0.02,'pow':37.5,'int':37.5,'dex':37.5,'vit':37.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20armor:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'armor50a':{'name':'Elite\x20Berserker\x20Plate','requiredType':'berserker','image':'image/armor13.png','radius':0xa,'category':'armor','physicalDamage':62.5,'physicalDefense':12.5,'magicalDefense':12.5,'health':0x271,'mana':31.25,'hpRegen':0.005,'manaRegen':0.005,'criticalDamage':0.013125,'criticalChance':0.01,'pow':18.75,'int':18.75,'dex':18.75,'vit':18.75,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20armor:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'armor51':{'name':'Elite\x20Mage\x20Robe','requiredType':'magemaster','image':'image/armor42.png','radius':0xa,'category':'armor','magicalAttack':0x7d,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x4e2,'mana':62.5,'hpRegen':0.01,'manaRegen':0.01,'criticalDamage':0.02625,'criticalChance':0.02,'pow':37.5,'int':37.5,'dex':37.5,'vit':37.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20armor:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'armor51a':{'name':'Elite\x20Mage\x20Robe','requiredType':'magemaster','image':'image/armor42.png','radius':0xa,'category':'armor','magicalAttack':62.5,'physicalDefense':12.5,'magicalDefense':12.5,'health':0x271,'mana':31.25,'hpRegen':0.005,'manaRegen':0.005,'criticalDamage':0.013125,'criticalChance':0.01,'pow':18.75,'int':18.75,'dex':18.75,'vit':18.75,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20armor:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'armor52':{'name':'Elite\x20Bullwark\x20Armor','requiredType':'bullwark','image':'image/armor27.png','radius':0xa,'category':'armor','physicalDamage':0x7d,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x4e2,'mana':62.5,'hpRegen':0.01,'manaRegen':0.01,'criticalDamage':0.02625,'criticalChance':0.02,'pow':37.5,'int':37.5,'dex':37.5,'vit':37.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20armor:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'armor52a':{'name':'Elite\x20Bullwark\x20Armor','requiredType':'bullwark','image':'image/armor27.png','radius':0xa,'category':'armor','physicalDamage':62.5,'physicalDefense':12.5,'magicalDefense':12.5,'health':0x271,'mana':31.25,'hpRegen':0.005,'manaRegen':0.005,'criticalDamage':0.013125,'criticalChance':0.01,'pow':18.75,'int':18.75,'dex':18.75,'vit':18.75,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20armor:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'armor53':{'name':'Mythic\x20Berserker\x20Plate','requiredType':'berserker','image':'image/armor14.png','radius':0xa,'category':'armor','physicalDamage':0x96,'physicalDefense':0x1e,'magicalDefense':0x1e,'health':0x5dc,'mana':0x4b,'hpRegen':0.012,'manaRegen':0.012,'criticalDamage':0.0315,'criticalChance':0.024,'pow':0x2d,'int':0x2d,'dex':0x2d,'vit':0x2d,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20armor:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'armor53a':{'name':'Mythic\x20Berserker\x20Plate','requiredType':'berserker','image':'image/armor14.png','radius':0xa,'category':'armor','physicalDamage':0x4b,'physicalDefense':0xf,'magicalDefense':0xf,'health':0x2ee,'mana':37.5,'hpRegen':0.006,'manaRegen':0.006,'criticalDamage':0.01575,'criticalChance':0.012,'pow':22.5,'int':22.5,'dex':22.5,'vit':22.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20armor:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'armor54':{'name':'Mythic\x20Mage\x20Robe','requiredType':'magemaster','image':'image/armor43.png','radius':0xa,'category':'armor','magicalAttack':0x96,'physicalDefense':0x1e,'magicalDefense':0x1e,'health':0x5dc,'mana':0x4b,'hpRegen':0.012,'manaRegen':0.012,'criticalDamage':0.0315,'criticalChance':0.024,'pow':0x2d,'int':0x2d,'dex':0x2d,'vit':0x2d,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20armor:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'armor54a':{'name':'Mythic\x20Mage\x20Robe','requiredType':'magemaster','image':'image/armor43.png','radius':0xa,'category':'armor','magicalAttack':0x4b,'physicalDefense':0xf,'magicalDefense':0xf,'health':0x2ee,'mana':37.5,'hpRegen':0.006,'manaRegen':0.006,'criticalDamage':0.01575,'criticalChance':0.012,'pow':22.5,'int':22.5,'dex':22.5,'vit':22.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20armor:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'armor55':{'name':'Mythic\x20Bullwark\x20Armor','requiredType':'bullwark','image':'image/armor28.png','radius':0xa,'category':'armor','physicalDamage':0x96,'physicalDefense':0x1e,'magicalDefense':0x1e,'health':0x5dc,'mana':0x4b,'hpRegen':0.012,'manaRegen':0.012,'criticalDamage':0.0315,'criticalChance':0.024,'pow':0x2d,'int':0x2d,'dex':0x2d,'vit':0x2d,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20armor:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'armor55a':{'name':'Mythic\x20Bullwark\x20Armor','requiredType':'bullwark','image':'image/armor28.png','radius':0xa,'category':'armor','physicalDamage':0x4b,'physicalDefense':0xf,'magicalDefense':0xf,'health':0x2ee,'mana':37.5,'hpRegen':0.006,'manaRegen':0.006,'criticalDamage':0.01575,'criticalChance':0.012,'pow':22.5,'int':22.5,'dex':22.5,'vit':22.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20armor:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'armor56':{'name':'Extreme\x20Berserker\x20Plate','requiredType':'berserker','image':'image/armor44.png','radius':0xa,'category':'armor','physicalDamage':0xaf,'physicalDefense':0x23,'magicalDefense':0x23,'health':0x6d6,'mana':87.5,'hpRegen':0.014,'manaRegen':0.014,'criticalDamage':0.03675,'criticalChance':0.028,'pow':52.5,'int':52.5,'dex':52.5,'vit':52.5,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20armor\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'armor56a':{'name':'Extreme\x20Berserker\x20Plate','requiredType':'berserker','image':'image/armor44.png','radius':0xa,'category':'armor','physicalDamage':87.5,'physicalDefense':17.5,'magicalDefense':17.5,'health':0x36b,'mana':43.75,'hpRegen':0.007,'manaRegen':0.007,'criticalDamage':0.018375,'criticalChance':0.014,'pow':26.25,'int':26.25,'dex':26.25,'vit':26.25,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20armor\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'armor57':{'name':'Extreme\x20Mage\x20Robe','requiredType':'magemaster','image':'image/armor45.png','radius':0xa,'category':'armor','magicalAttack':0xaf,'physicalDefense':0x23,'magicalDefense':0x23,'health':0x6d6,'mana':87.5,'hpRegen':0.014,'manaRegen':0.014,'criticalDamage':0.03675,'criticalChance':0.028,'pow':52.5,'int':52.5,'dex':52.5,'vit':52.5,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20armor\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'armor57a':{'name':'Extreme\x20Mage\x20Robe','requiredType':'magemaster','image':'image/armor45.png','radius':0xa,'category':'armor','magicalAttack':87.5,'physicalDefense':17.5,'magicalDefense':17.5,'health':0x36b,'mana':43.75,'hpRegen':0.007,'manaRegen':0.007,'criticalDamage':0.018375,'criticalChance':0.014,'pow':26.25,'int':26.25,'dex':26.25,'vit':26.25,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20armor\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'armor58':{'name':'Extreme\x20Bullwark\x20Armor','requiredType':'bullwark','image':'image/armor46.png','radius':0xa,'category':'armor','physicalDamage':0xaf,'physicalDefense':0x23,'magicalDefense':0x23,'health':0x6d6,'mana':87.5,'hpRegen':0.014,'manaRegen':0.014,'criticalDamage':0.03675,'criticalChance':0.028,'pow':52.5,'int':52.5,'dex':52.5,'vit':52.5,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20armor\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'armor58a':{'name':'Extreme\x20Bullwark\x20Armor','requiredType':'bullwark','image':'image/armor46.png','radius':0xa,'category':'armor','physicalDamage':87.5,'physicalDefense':17.5,'magicalDefense':17.5,'health':0x36b,'mana':43.75,'hpRegen':0.007,'manaRegen':0.007,'criticalDamage':0.018375,'criticalChance':0.014,'pow':26.25,'int':26.25,'dex':26.25,'vit':26.25,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20armor\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'armor1A':{'name':'armor1A','image':'image/armor43.png','radius':0xa,'category':'armor','spawnChance':0.025,'timeLife':0x7530,'description':'Mythic\x20armor\x20that\x20boosts\x20every\x20stat:\x20health,\x20mana,\x20regen,\x20damage,\x20and\x20critical\x20hits.'},'ring01':{'name':'ring01','requiredType':'berserker','image':'image/ring01.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x493e0,'description':'Blue\x20ring\x20with\x20a\x20bright\x20star.\x20A\x20starter\x20ring\x20that\x20adds\x20a\x20little\x20damage\x20and\x20crit\x20chance.'},'ring02':{'name':'ring02','requiredType':'berserker','image':'image/ring02.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Red\x20ring\x20with\x20a\x20burning\x20flame.\x20Fuels\x20your\x20attacks\x20with\x20fiery\x20power.'},'ring03':{'name':'ring03','requiredType':'berserker','image':'image/ring03.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Purple\x20ring\x20set\x20with\x20a\x20glowing\x20crystal.\x20Hums\x20with\x20arcane\x20energy.'},'ring04':{'name':'ring04','requiredType':'berserker','image':'image/ring04.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Green\x20ring\x20marked\x20with\x20a\x20leaf.\x20Carries\x20the\x20strength\x20of\x20living\x20nature.'},'ring05':{'name':'ring05','requiredType':'berserker','image':'image/ring05.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Golden\x20ring\x20with\x20a\x20crown.\x20A\x20symbol\x20of\x20rank\x20that\x20rewards\x20bold\x20fighters.'},'ring06':{'name':'ring06','requiredType':'berserker','image':'image/ring06.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Blue\x20ring\x20with\x20a\x20snowflake.\x20Cold,\x20sharp,\x20and\x20precise.'},'ring07':{'name':'ring07','requiredType':'berserker','image':'image/ring07.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Red\x20ring\x20with\x20a\x20skull.\x20Made\x20for\x20fighters\x20who\x20finish\x20what\x20they\x20start.'},'ring08':{'name':'ring08','requiredType':'berserker','image':'image/ring08.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Blue\x20ring\x20crackling\x20with\x20lightning.\x20Quick\x20strikes,\x20quick\x20kills.'},'ring09':{'name':'ring09','requiredType':'berserker','image':'image/ring09.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Purple\x20ring\x20with\x20a\x20hypnotic\x20swirl.\x20Bends\x20power\x20toward\x20the\x20wearer.'},'ring10':{'name':'ring10','requiredType':'berserker','image':'image/ring10.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Cyan\x20ring\x20with\x20a\x20crosshair.\x20Sharpens\x20your\x20aim\x20for\x20critical\x20hits.'},'ring11':{'name':'ring11','requiredType':'berserker','image':'image/ring11.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Orange\x20ring\x20with\x20a\x20wolf\x27s\x20head.\x20Gives\x20the\x20wearer\x20a\x20hunter\x27s\x20edge.'},'ring12':{'name':'ring12','requiredType':'berserker','image':'image/ring12.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Pink\x20ring\x20with\x20a\x20heart.\x20Warm\x20and\x20lucky,\x20a\x20favorite\x20of\x20survivors.'},'ring13':{'name':'ring13','requiredType':'berserker','image':'image/ring13.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Silver\x20ring\x20with\x20a\x20four-point\x20star.\x20Simple,\x20clean,\x20and\x20dependable.'},'ring14':{'name':'ring14','requiredType':'bullwark','image':'image/ring14.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Red\x20ring\x20with\x20a\x20trident\x20mark.\x20Pierces\x20through\x20enemy\x20defenses.'},'ring15':{'name':'ring15','requiredType':'bullwark','image':'image/ring15.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Blue\x20ring\x20with\x20flowing\x20waves.\x20Calm\x20on\x20the\x20outside,\x20powerful\x20underneath.'},'ring16':{'name':'ring16','requiredType':'bullwark','image':'image/ring16.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Purple\x20ring\x20with\x20a\x20horned\x20demon\x20face.\x20Whispers\x20for\x20more\x20damage.'},'ring17':{'name':'ring17','requiredType':'bullwark','image':'image/ring17.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Green\x20ring\x20with\x20a\x20biohazard\x20sign.\x20Toxic\x20power\x20for\x20ruthless\x20fighters.'},'ring18':{'name':'ring18','requiredType':'bullwark','image':'image/ring18.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Golden\x20ring\x20with\x20a\x20compass\x20star.\x20Points\x20the\x20way\x20to\x20critical\x20hits.'},'ring19':{'name':'ring19','requiredType':'bullwark','image':'image/ring19.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Red\x20ring\x20with\x20a\x20targeting\x20reticle.\x20Locks\x20onto\x20weak\x20points.'},'ring20':{'name':'ring20','requiredType':'bullwark','image':'image/ring20.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Blue\x20ring\x20with\x20a\x20bright\x20diamond.\x20Clear,\x20sharp,\x20and\x20valuable.'},'ring21':{'name':'ring21','requiredType':'bullwark','image':'image/ring21.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Spiked\x20ring\x20with\x20a\x20blue\x20crystal.\x20Forged\x20in\x20frozen\x20caverns.'},'ring22':{'name':'ring22','requiredType':'bullwark','image':'image/ring22.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Dark\x20spiked\x20ring\x20with\x20a\x20red\x20dragon\x20crest.\x20Radiates\x20raw\x20aggression.'},'ring23':{'name':'ring23','requiredType':'bullwark','image':'image/ring23.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Spiked\x20ring\x20with\x20a\x20purple\x20crystal.\x20Pulses\x20with\x20unstable\x20magic.'},'ring24':{'name':'ring24','requiredType':'bullwark','image':'image/ring24.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Golden\x20spiked\x20ring\x20with\x20a\x20star.\x20A\x20rare\x20ring\x20for\x20decorated\x20veterans.'},'ring25':{'name':'ring25','requiredType':'bullwark','image':'image/ring25.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Frost-covered\x20ring\x20with\x20a\x20snowflake.\x20Freezes\x20the\x20air\x20around\x20it.'},'ring26':{'name':'ring26','requiredType':'bullwark','image':'image/ring26.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Dark\x20green\x20ring\x20with\x20a\x20radiation\x20mark.\x20Glows\x20with\x20dangerous\x20energy.'},'ring27':{'name':'ring27','requiredType':'magemaster','image':'image/ring27.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Golden\x20spiked\x20ring\x20with\x20a\x20blazing\x20flame.\x20Burns\x20with\x20fierce\x20power.'},'ring28':{'name':'ring28','requiredType':'magemaster','image':'image/ring28.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Blue\x20ring\x20with\x20a\x20ringed\x20planet.\x20Draws\x20on\x20the\x20power\x20of\x20the\x20cosmos.'},'ring29':{'name':'ring29','requiredType':'magemaster','image':'image/ring29.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Spiked\x20ring\x20with\x20a\x20purple\x20vortex.\x20Pulls\x20power\x20in\x20from\x20the\x20void.'},'ring30':{'name':'ring30','requiredType':'magemaster','image':'image/ring30.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Dark\x20ring\x20with\x20a\x20white\x20skull.\x20Worn\x20by\x20fighters\x20who\x20show\x20no\x20mercy.'},'ring31':{'name':'ring31','requiredType':'magemaster','image':'image/ring31.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Silver\x20and\x20green\x20ring\x20with\x20a\x20leaf.\x20Heals\x20the\x20spirit\x20and\x20sharpens\x20the\x20blade.'},'ring32':{'name':'ring32','requiredType':'magemaster','image':'image/ring32.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Spiked\x20ring\x20with\x20a\x20lightning\x20bolt.\x20Packs\x20a\x20shocking\x20amount\x20of\x20power.'},'ring33':{'name':'ring33','requiredType':'magemaster','image':'image/ring33.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Red\x20spiked\x20ring\x20with\x20a\x20golden\x20crown.\x20Made\x20for\x20rulers\x20of\x20the\x20battlefield.'},'ring34':{'name':'ring34','requiredType':'magemaster','image':'image/ring34.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Spiked\x20ring\x20with\x20a\x20purple\x20crystal.\x20Rich\x20with\x20deep\x20arcane\x20power.'},'ring35':{'name':'ring35','requiredType':'magemaster','image':'image/ring35.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Gold\x20and\x20cyan\x20ring\x20with\x20a\x20shield\x20crest.\x20Strong,\x20proud,\x20and\x20well-balanced.'},'ring36':{'name':'ring36','requiredType':'magemaster','image':'image/ring36.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Bronze\x20ring\x20with\x20a\x20golden\x20dragon.\x20Carries\x20the\x20might\x20of\x20an\x20ancient\x20beast.'},'ring37':{'name':'ring37','requiredType':'magemaster','image':'image/ring37.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Spiked\x20ring\x20with\x20a\x20glowing\x20snowflake.\x20Bitter\x20cold\x20that\x20cuts\x20like\x20a\x20blade.'},'ring38':{'name':'ring38','requiredType':'magemaster','image':'image/ring38.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Dark\x20green\x20ring\x20with\x20a\x20biohazard\x20sign.\x20Highly\x20toxic,\x20highly\x20deadly.'},'ring39':{'name':'ring39','requiredType':'magemaster','image':'image/ring39.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Spiked\x20ring\x20with\x20a\x20purple\x20demon\x20face.\x20Hungers\x20for\x20destruction.'},'ring40':{'name':'ring40','requiredType':'magemaster','image':'image/ring40.png','radius':0xa,'category':'ring','spawnChance':0.025,'timeLife':0x7530,'description':'Dark\x20red\x20spiked\x20ring\x20with\x20a\x20crosshair.\x20Perfect\x20aim\x20for\x20lethal\x20critical\x20hits.'},'ring41':{'name':'ring41','requiredType':'berserker','image':'image/ring41.png','radius':0xa,'category':'ring','physicalDamage':0x28,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x190,'mana':0x14,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.01,'criticalChance':0.01,'pow':0x14,'int':0x14,'dex':0x14,'vit':0x14,'spawnChance':0.025,'timeLife':0x7530,'description':'Blood\x20Crest\x20ring.\x20A\x20heavy\x20red\x20band\x20that\x20feeds\x20a\x20fighter\x27s\x20raw\x20power\x20and\x20killing\x20instinct.'},'ring42':{'name':'ring42','requiredType':'magemaster','image':'image/ring42.png','radius':0xa,'category':'ring','magicalAttack':0x28,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x190,'mana':0x14,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.01,'criticalChance':0.01,'pow':0x14,'int':0x14,'dex':0x14,'vit':0x14,'spawnChance':0.025,'timeLife':0x7530,'description':'Astral\x20Sigil\x20ring.\x20A\x20glowing\x20violet\x20ring\x20that\x20channels\x20pure\x20magic\x20into\x20every\x20spell.'},'ring43':{'name':'ring43','requiredType':'bullwark','image':'image/ring43.png','radius':0xa,'category':'ring','physicalDamage':0x28,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x190,'mana':0x14,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.01,'criticalChance':0.01,'pow':0x14,'int':0x14,'dex':0x14,'vit':0x14,'spawnChance':0.025,'timeLife':0x7530,'description':'Ironclad\x20Seal\x20ring.\x20A\x20thick\x20steel\x20band\x20that\x20hardens\x20its\x20wearer\x20against\x20every\x20blow.'},'ring44':{'name':'Vanguard\x20Berserker\x20Ring','requiredType':'berserker','image':'image/ring11.png','radius':0xa,'category':'ring','physicalDamage':0x64,'physicalDefense':0x14,'magicalDefense':0x14,'health':0x3e8,'mana':0x32,'hpRegen':0.008,'manaRegen':0.008,'criticalDamage':0.021,'criticalChance':0.016,'pow':0x1e,'int':0x1e,'dex':0x1e,'vit':0x1e,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20ring\x20to\x20start\x20with.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'ring44a':{'name':'Vanguard\x20Berserker\x20Ring','requiredType':'berserker','image':'image/ring11.png','radius':0xa,'category':'ring','physicalDamage':0x32,'physicalDefense':0xa,'magicalDefense':0xa,'health':0x1f4,'mana':0x19,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.0105,'criticalChance':0.008,'pow':0xf,'int':0xf,'dex':0xf,'vit':0xf,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20ring\x20to\x20start\x20with.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'ring45':{'name':'Vanguard\x20Mage\x20Ring','requiredType':'magemaster','image':'image/ring38.png','radius':0xa,'category':'ring','magicalAttack':0x64,'physicalDefense':0x14,'magicalDefense':0x14,'health':0x3e8,'mana':0x32,'hpRegen':0.008,'manaRegen':0.008,'criticalDamage':0.021,'criticalChance':0.016,'pow':0x1e,'int':0x1e,'dex':0x1e,'vit':0x1e,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20ring\x20to\x20start\x20with.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'ring45a':{'name':'Vanguard\x20Mage\x20Ring','requiredType':'magemaster','image':'image/ring38.png','radius':0xa,'category':'ring','magicalAttack':0x32,'physicalDefense':0xa,'magicalDefense':0xa,'health':0x1f4,'mana':0x19,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.0105,'criticalChance':0.008,'pow':0xf,'int':0xf,'dex':0xf,'vit':0xf,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20ring\x20to\x20start\x20with.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'ring46':{'name':'Vanguard\x20Bullwark\x20Ring','requiredType':'bullwark','image':'image/ring24.png','radius':0xa,'category':'ring','physicalDamage':0x64,'physicalDefense':0x14,'magicalDefense':0x14,'health':0x3e8,'mana':0x32,'hpRegen':0.008,'manaRegen':0.008,'criticalDamage':0.021,'criticalChance':0.016,'pow':0x1e,'int':0x1e,'dex':0x1e,'vit':0x1e,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20ring\x20to\x20start\x20with.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'ring46a':{'name':'Vanguard\x20Bullwark\x20Ring','requiredType':'bullwark','image':'image/ring24.png','radius':0xa,'category':'ring','physicalDamage':0x32,'physicalDefense':0xa,'magicalDefense':0xa,'health':0x1f4,'mana':0x19,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.0105,'criticalChance':0.008,'pow':0xf,'int':0xf,'dex':0xf,'vit':0xf,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20ring\x20to\x20start\x20with.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'ring47':{'name':'Elite\x20Berserker\x20Ring','requiredType':'berserker','image':'image/ring12.png','radius':0xa,'category':'ring','physicalDamage':0x7d,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x4e2,'mana':62.5,'hpRegen':0.01,'manaRegen':0.01,'criticalDamage':0.02625,'criticalChance':0.02,'pow':37.5,'int':37.5,'dex':37.5,'vit':37.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20ring:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'ring47a':{'name':'Elite\x20Berserker\x20Ring','requiredType':'berserker','image':'image/ring12.png','radius':0xa,'category':'ring','physicalDamage':62.5,'physicalDefense':12.5,'magicalDefense':12.5,'health':0x271,'mana':31.25,'hpRegen':0.005,'manaRegen':0.005,'criticalDamage':0.013125,'criticalChance':0.01,'pow':18.75,'int':18.75,'dex':18.75,'vit':18.75,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20ring:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'ring48':{'name':'Elite\x20Mage\x20Ring','requiredType':'magemaster','image':'image/ring39.png','radius':0xa,'category':'ring','magicalAttack':0x7d,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x4e2,'mana':62.5,'hpRegen':0.01,'manaRegen':0.01,'criticalDamage':0.02625,'criticalChance':0.02,'pow':37.5,'int':37.5,'dex':37.5,'vit':37.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20ring:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'ring48a':{'name':'Elite\x20Mage\x20Ring','requiredType':'magemaster','image':'image/ring39.png','radius':0xa,'category':'ring','magicalAttack':62.5,'physicalDefense':12.5,'magicalDefense':12.5,'health':0x271,'mana':31.25,'hpRegen':0.005,'manaRegen':0.005,'criticalDamage':0.013125,'criticalChance':0.01,'pow':18.75,'int':18.75,'dex':18.75,'vit':18.75,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20ring:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'ring49':{'name':'Elite\x20Bullwark\x20Ring','requiredType':'bullwark','image':'image/ring25.png','radius':0xa,'category':'ring','physicalDamage':0x7d,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x4e2,'mana':62.5,'hpRegen':0.01,'manaRegen':0.01,'criticalDamage':0.02625,'criticalChance':0.02,'pow':37.5,'int':37.5,'dex':37.5,'vit':37.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20ring:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'ring49a':{'name':'Elite\x20Bullwark\x20Ring','requiredType':'bullwark','image':'image/ring25.png','radius':0xa,'category':'ring','physicalDamage':62.5,'physicalDefense':12.5,'magicalDefense':12.5,'health':0x271,'mana':31.25,'hpRegen':0.005,'manaRegen':0.005,'criticalDamage':0.013125,'criticalChance':0.01,'pow':18.75,'int':18.75,'dex':18.75,'vit':18.75,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20ring:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'ring50':{'name':'Mythic\x20Berserker\x20Ring','requiredType':'berserker','image':'image/ring13.png','radius':0xa,'category':'ring','physicalDamage':0x96,'physicalDefense':0x1e,'magicalDefense':0x1e,'health':0x5dc,'mana':0x4b,'hpRegen':0.012,'manaRegen':0.012,'criticalDamage':0.0315,'criticalChance':0.024,'pow':0x2d,'int':0x2d,'dex':0x2d,'vit':0x2d,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20ring:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'ring50a':{'name':'Mythic\x20Berserker\x20Ring','requiredType':'berserker','image':'image/ring13.png','radius':0xa,'category':'ring','physicalDamage':0x4b,'physicalDefense':0xf,'magicalDefense':0xf,'health':0x2ee,'mana':37.5,'hpRegen':0.006,'manaRegen':0.006,'criticalDamage':0.01575,'criticalChance':0.012,'pow':22.5,'int':22.5,'dex':22.5,'vit':22.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20ring:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'ring51':{'name':'Mythic\x20Mage\x20Ring','requiredType':'magemaster','image':'image/ring40.png','radius':0xa,'category':'ring','magicalAttack':0x96,'physicalDefense':0x1e,'magicalDefense':0x1e,'health':0x5dc,'mana':0x4b,'hpRegen':0.012,'manaRegen':0.012,'criticalDamage':0.0315,'criticalChance':0.024,'pow':0x2d,'int':0x2d,'dex':0x2d,'vit':0x2d,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20ring:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'ring51a':{'name':'Mythic\x20Mage\x20Ring','requiredType':'magemaster','image':'image/ring40.png','radius':0xa,'category':'ring','magicalAttack':0x4b,'physicalDefense':0xf,'magicalDefense':0xf,'health':0x2ee,'mana':37.5,'hpRegen':0.006,'manaRegen':0.006,'criticalDamage':0.01575,'criticalChance':0.012,'pow':22.5,'int':22.5,'dex':22.5,'vit':22.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20ring:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'ring52':{'name':'Mythic\x20Bullwark\x20Ring','requiredType':'bullwark','image':'image/ring26.png','radius':0xa,'category':'ring','physicalDamage':0x96,'physicalDefense':0x1e,'magicalDefense':0x1e,'health':0x5dc,'mana':0x4b,'hpRegen':0.012,'manaRegen':0.012,'criticalDamage':0.0315,'criticalChance':0.024,'pow':0x2d,'int':0x2d,'dex':0x2d,'vit':0x2d,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20ring:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'ring52a':{'name':'Mythic\x20Bullwark\x20Ring','requiredType':'bullwark','image':'image/ring26.png','radius':0xa,'category':'ring','physicalDamage':0x4b,'physicalDefense':0xf,'magicalDefense':0xf,'health':0x2ee,'mana':37.5,'hpRegen':0.006,'manaRegen':0.006,'criticalDamage':0.01575,'criticalChance':0.012,'pow':22.5,'int':22.5,'dex':22.5,'vit':22.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20ring:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'ring53':{'name':'Extreme\x20Berserker\x20Ring','requiredType':'berserker','image':'image/ring41.png','radius':0xa,'category':'ring','physicalDamage':0xaf,'physicalDefense':0x23,'magicalDefense':0x23,'health':0x6d6,'mana':87.5,'hpRegen':0.014,'manaRegen':0.014,'criticalDamage':0.03675,'criticalChance':0.028,'pow':52.5,'int':52.5,'dex':52.5,'vit':52.5,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20ring\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'ring53a':{'name':'Extreme\x20Berserker\x20Ring','requiredType':'berserker','image':'image/ring41.png','radius':0xa,'category':'ring','physicalDamage':87.5,'physicalDefense':17.5,'magicalDefense':17.5,'health':0x36b,'mana':43.75,'hpRegen':0.007,'manaRegen':0.007,'criticalDamage':0.018375,'criticalChance':0.014,'pow':26.25,'int':26.25,'dex':26.25,'vit':26.25,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20ring\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'ring54':{'name':'Extreme\x20Mage\x20Ring','requiredType':'magemaster','image':'image/ring42.png','radius':0xa,'category':'ring','magicalAttack':0xaf,'physicalDefense':0x23,'magicalDefense':0x23,'health':0x6d6,'mana':87.5,'hpRegen':0.014,'manaRegen':0.014,'criticalDamage':0.03675,'criticalChance':0.028,'pow':52.5,'int':52.5,'dex':52.5,'vit':52.5,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20ring\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'ring54a':{'name':'Extreme\x20Mage\x20Ring','requiredType':'magemaster','image':'image/ring42.png','radius':0xa,'category':'ring','magicalAttack':87.5,'physicalDefense':17.5,'magicalDefense':17.5,'health':0x36b,'mana':43.75,'hpRegen':0.007,'manaRegen':0.007,'criticalDamage':0.018375,'criticalChance':0.014,'pow':26.25,'int':26.25,'dex':26.25,'vit':26.25,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20ring\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'ring55':{'name':'Extreme\x20Bullwark\x20Ring','requiredType':'bullwark','image':'image/ring43.png','radius':0xa,'category':'ring','physicalDamage':0xaf,'physicalDefense':0x23,'magicalDefense':0x23,'health':0x6d6,'mana':87.5,'hpRegen':0.014,'manaRegen':0.014,'criticalDamage':0.03675,'criticalChance':0.028,'pow':52.5,'int':52.5,'dex':52.5,'vit':52.5,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20ring\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'ring55a':{'name':'Extreme\x20Bullwark\x20Ring','requiredType':'bullwark','image':'image/ring43.png','radius':0xa,'category':'ring','physicalDamage':87.5,'physicalDefense':17.5,'magicalDefense':17.5,'health':0x36b,'mana':43.75,'hpRegen':0.007,'manaRegen':0.007,'criticalDamage':0.018375,'criticalChance':0.014,'pow':26.25,'int':26.25,'dex':26.25,'vit':26.25,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20ring\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'accessory01':{'name':'accessory01','requiredType':'berserker','image':'image/accessory01.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x493e0,'description':'Blue\x20spiked\x20circlet\x20with\x20a\x20glowing\x20crystal.\x20Light\x20on\x20the\x20head,\x20strong\x20in\x20the\x20mind.'},'accessory02':{'name':'accessory02','requiredType':'berserker','image':'image/accessory02.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Blue\x20glowing\x20wings.\x20Light\x20as\x20air,\x20with\x20a\x20boost\x20to\x20health\x20and\x20mana.'},'accessory03':{'name':'accessory03','requiredType':'berserker','image':'image/accessory03.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Blue\x20cloak\x20with\x20glowing\x20edges.\x20Flows\x20behind\x20you\x20like\x20a\x20night\x20wave.'},'accessory04':{'name':'accessory04','requiredType':'berserker','image':'image/accessory04.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Blue\x20horned\x20headset.\x20Keeps\x20your\x20focus\x20sharp\x20in\x20the\x20middle\x20of\x20battle.'},'accessory05':{'name':'accessory05','requiredType':'berserker','image':'image/accessory05.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Blue\x20companion\x20drone\x20that\x20floats\x20beside\x20you\x20and\x20watches\x20your\x20back.'},'accessory06':{'name':'accessory06','requiredType':'berserker','image':'image/accessory06.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Blue\x20crystal\x20pendant\x20on\x20a\x20dark\x20chain.\x20Calm\x20and\x20full\x20of\x20energy.'},'accessory07':{'name':'accessory07','requiredType':'berserker','image':'image/accessory07.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Red\x20spiked\x20crown.\x20A\x20fierce\x20mark\x20of\x20a\x20fighter\x20who\x20never\x20backs\x20down.'},'accessory08':{'name':'accessory08','requiredType':'berserker','image':'image/accessory08.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Red\x20flaming\x20wings.\x20Burn\x20bright\x20and\x20keep\x20your\x20health\x20high.'},'accessory09':{'name':'accessory09','requiredType':'berserker','image':'image/accessory09.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Dark\x20red\x20cloak.\x20Wrapped\x20in\x20the\x20heat\x20of\x20battle.'},'accessory10':{'name':'accessory10','requiredType':'berserker','image':'image/accessory10.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Red\x20horned\x20headset.\x20Fills\x20you\x20with\x20rage\x20and\x20fighting\x20spirit.'},'accessory11':{'name':'accessory11','requiredType':'berserker','image':'image/accessory11.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Red\x20combat\x20drone\x20with\x20glowing\x20eyes.\x20Small,\x20angry,\x20and\x20loyal.'},'accessory12':{'name':'accessory12','requiredType':'berserker','image':'image/accessory12.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Red\x20crystal\x20pendant\x20on\x20a\x20dark\x20chain.\x20Beats\x20like\x20a\x20second\x20heart.'},'accessory13':{'name':'accessory13','requiredType':'bullwark','image':'image/accessory13.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Green\x20spiked\x20circlet\x20with\x20a\x20glowing\x20gem.\x20Draws\x20strength\x20from\x20nature.'},'accessory14':{'name':'accessory14','requiredType':'bullwark','image':'image/accessory14.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Green\x20crystal\x20wings.\x20Fast\x20and\x20light,\x20with\x20a\x20fresh\x20burst\x20of\x20life.'},'accessory15':{'name':'accessory15','requiredType':'bullwark','image':'image/accessory15.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Green\x20hooded\x20cloak.\x20Blends\x20into\x20the\x20wild.'},'accessory16':{'name':'accessory16','requiredType':'bullwark','image':'image/accessory16.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Green\x20night-vision\x20goggles.\x20See\x20clearly,\x20even\x20in\x20the\x20dark.'},'accessory17':{'name':'accessory17','requiredType':'bullwark','image':'image/accessory17.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Green\x20companion\x20drone\x20with\x20glowing\x20spikes.\x20Keeps\x20you\x20company\x20and\x20keeps\x20you\x20safe.'},'accessory18':{'name':'accessory18','requiredType':'bullwark','image':'image/accessory18.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Green\x20crystal\x20pendant\x20on\x20a\x20dark\x20chain.\x20Quietly\x20restores\x20your\x20energy.'},'accessory19':{'name':'accessory19','requiredType':'bullwark','image':'image/accessory19.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Purple\x20spiked\x20crown\x20with\x20a\x20glowing\x20gem.\x20Carries\x20a\x20dark,\x20royal\x20power.'},'accessory20':{'name':'accessory20','requiredType':'bullwark','image':'image/accessory20.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Purple\x20shadow\x20wings.\x20Soft\x20in\x20flight\x20and\x20sharp\x20in\x20the\x20dark.'},'accessory21':{'name':'accessory21','requiredType':'bullwark','image':'image/accessory21.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Purple\x20cloak\x20with\x20torn\x20edges.\x20Stirs\x20up\x20whispers\x20of\x20the\x20void.'},'accessory22':{'name':'accessory22','requiredType':'bullwark','image':'image/accessory22.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Purple\x20horned\x20headset.\x20Hums\x20with\x20strange\x20energy.'},'accessory23':{'name':'accessory23','requiredType':'bullwark','image':'image/accessory23.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Purple\x20companion\x20drone\x20with\x20glowing\x20spikes.\x20Floats\x20close\x20and\x20never\x20sleeps.'},'accessory24':{'name':'accessory24','requiredType':'bullwark','image':'image/accessory24.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Purple\x20crystal\x20pendant\x20on\x20a\x20dark\x20chain.\x20Glows\x20with\x20mysterious\x20power.'},'accessory25':{'name':'accessory25','requiredType':'magemaster','image':'image/accessory25.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Golden\x20crown\x20with\x20a\x20bright\x20star.\x20Only\x20the\x20best\x20fighters\x20wear\x20it.'},'accessory26':{'name':'accessory26','requiredType':'magemaster','image':'image/accessory26.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'White\x20and\x20gold\x20wings.\x20Radiant,\x20graceful,\x20and\x20full\x20of\x20life.'},'accessory27':{'name':'accessory27','requiredType':'magemaster','image':'image/accessory27.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'White\x20and\x20gold\x20cloak.\x20Regal\x20and\x20glowing\x20like\x20morning\x20light.'},'accessory28':{'name':'accessory28','requiredType':'magemaster','image':'image/accessory28.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Golden\x20winged\x20headset.\x20Sharp\x20focus\x20and\x20a\x20feather-light\x20feel.'},'accessory29':{'name':'accessory29','requiredType':'magemaster','image':'image/accessory29.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Golden\x20companion\x20drone\x20with\x20white\x20wings.\x20Shines\x20bright\x20and\x20guards\x20you\x20well.'},'accessory30':{'name':'accessory30','requiredType':'magemaster','image':'image/accessory30.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Golden\x20star\x20pendant.\x20A\x20treasured\x20charm\x20that\x20boosts\x20health\x20and\x20mana.'},'accessory31':{'name':'accessory31','requiredType':'magemaster','image':'image/accessory31.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Blue\x20jetpack\x20with\x20glowing\x20thrusters.\x20Gives\x20you\x20energy\x20to\x20keep\x20going.'},'accessory32':{'name':'accessory32','requiredType':'magemaster','image':'image/accessory32.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Red\x20armored\x20backpack\x20with\x20glowing\x20cells.\x20Packed\x20with\x20power\x20for\x20long\x20fights.'},'accessory33':{'name':'accessory33','requiredType':'magemaster','image':'image/accessory33.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Purple\x20armored\x20backpack\x20with\x20glowing\x20cells.\x20Stores\x20strange\x20and\x20heavy\x20energy.'},'accessory34':{'name':'accessory34','requiredType':'magemaster','image':'image/accessory34.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Green\x20armored\x20backpack\x20with\x20glowing\x20cells.\x20Keeps\x20your\x20health\x20and\x20mana\x20flowing.'},'accessory35':{'name':'accessory35','requiredType':'magemaster','image':'image/accessory35.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Blue\x20battle\x20banner\x20with\x20a\x20winged\x20crest.\x20Lifts\x20the\x20spirit\x20of\x20everyone\x20who\x20sees\x20it.'},'accessory36':{'name':'accessory36','requiredType':'magemaster','image':'image/accessory36.png','radius':0xa,'category':'accessory','spawnChance':0.025,'timeLife':0x7530,'description':'Red\x20battle\x20banner\x20with\x20a\x20fiery\x20crest.\x20A\x20warning\x20to\x20every\x20enemy\x20that\x20sees\x20it.'},'accessory37':{'name':'accessory37','requiredType':'berserker','image':'image/accessory37.png','radius':0xa,'category':'accessory','physicalDamage':0x28,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x190,'mana':0x14,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.01,'criticalChance':0.01,'pow':0x14,'int':0x14,'dex':0x14,'vit':0x14,'spawnChance':0.025,'timeLife':0x7530,'description':'Warlord\x27s\x20Fang.\x20A\x20jagged\x20trophy\x20charm\x20that\x20stirs\x20the\x20fury\x20of\x20anyone\x20who\x20wears\x20it.'},'accessory38':{'name':'accessory38','requiredType':'magemaster','image':'image/accessory38.png','radius':0xa,'category':'accessory','magicalAttack':0x28,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x190,'mana':0x14,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.01,'criticalChance':0.01,'pow':0x14,'int':0x14,'dex':0x14,'vit':0x14,'spawnChance':0.025,'timeLife':0x7530,'description':'Mystic\x20Orb\x20Pendant.\x20A\x20floating\x20crystal\x20charm\x20that\x20overflows\x20with\x20arcane\x20energy.'},'accessory39':{'name':'accessory39','requiredType':'bullwark','image':'image/accessory39.png','radius':0xa,'category':'accessory','physicalDamage':0x28,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x190,'mana':0x14,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.01,'criticalChance':0.01,'pow':0x14,'int':0x14,'dex':0x14,'vit':0x14,'spawnChance':0.025,'timeLife':0x7530,'description':'Guardian\x27s\x20Crest.\x20A\x20sturdy\x20emblem\x20of\x20the\x20unbreakable\x20defender,\x20steady\x20under\x20any\x20attack.'},'accessory40':{'name':'Vanguard\x20Berserker\x20Amulet','requiredType':'berserker','image':'image/accessory10.png','radius':0xa,'category':'accessory','physicalDamage':0x64,'physicalDefense':0x14,'magicalDefense':0x14,'health':0x3e8,'mana':0x32,'hpRegen':0.008,'manaRegen':0.008,'criticalDamage':0.021,'criticalChance':0.016,'pow':0x1e,'int':0x1e,'dex':0x1e,'vit':0x1e,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20accessory\x20to\x20start\x20with.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'accessory40a':{'name':'Vanguard\x20Berserker\x20Amulet','requiredType':'berserker','image':'image/accessory10.png','radius':0xa,'category':'accessory','physicalDamage':0x32,'physicalDefense':0xa,'magicalDefense':0xa,'health':0x1f4,'mana':0x19,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.0105,'criticalChance':0.008,'pow':0xf,'int':0xf,'dex':0xf,'vit':0xf,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20accessory\x20to\x20start\x20with.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'accessory41':{'name':'Vanguard\x20Mage\x20Amulet','requiredType':'magemaster','image':'image/accessory34.png','radius':0xa,'category':'accessory','magicalAttack':0x64,'physicalDefense':0x14,'magicalDefense':0x14,'health':0x3e8,'mana':0x32,'hpRegen':0.008,'manaRegen':0.008,'criticalDamage':0.021,'criticalChance':0.016,'pow':0x1e,'int':0x1e,'dex':0x1e,'vit':0x1e,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20accessory\x20to\x20start\x20with.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'accessory41a':{'name':'Vanguard\x20Mage\x20Amulet','requiredType':'magemaster','image':'image/accessory34.png','radius':0xa,'category':'accessory','magicalAttack':0x32,'physicalDefense':0xa,'magicalDefense':0xa,'health':0x1f4,'mana':0x19,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.0105,'criticalChance':0.008,'pow':0xf,'int':0xf,'dex':0xf,'vit':0xf,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20accessory\x20to\x20start\x20with.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'accessory42':{'name':'Vanguard\x20Bullwark\x20Amulet','requiredType':'bullwark','image':'image/accessory22.png','radius':0xa,'category':'accessory','physicalDamage':0x64,'physicalDefense':0x14,'magicalDefense':0x14,'health':0x3e8,'mana':0x32,'hpRegen':0.008,'manaRegen':0.008,'criticalDamage':0.021,'criticalChance':0.016,'pow':0x1e,'int':0x1e,'dex':0x1e,'vit':0x1e,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20accessory\x20to\x20start\x20with.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'accessory42a':{'name':'Vanguard\x20Bullwark\x20Amulet','requiredType':'bullwark','image':'image/accessory22.png','radius':0xa,'category':'accessory','physicalDamage':0x32,'physicalDefense':0xa,'magicalDefense':0xa,'health':0x1f4,'mana':0x19,'hpRegen':0.004,'manaRegen':0.004,'criticalDamage':0.0105,'criticalChance':0.008,'pow':0xf,'int':0xf,'dex':0xf,'vit':0xf,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20well\x20balanced\x20and\x20strong\x20accessory\x20to\x20start\x20with.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'accessory43':{'name':'Elite\x20Berserker\x20Amulet','requiredType':'berserker','image':'image/accessory11.png','radius':0xa,'category':'accessory','physicalDamage':0x7d,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x4e2,'mana':62.5,'hpRegen':0.01,'manaRegen':0.01,'criticalDamage':0.02625,'criticalChance':0.02,'pow':37.5,'int':37.5,'dex':37.5,'vit':37.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20accessory:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'accessory43a':{'name':'Elite\x20Berserker\x20Amulet','requiredType':'berserker','image':'image/accessory11.png','radius':0xa,'category':'accessory','physicalDamage':62.5,'physicalDefense':12.5,'magicalDefense':12.5,'health':0x271,'mana':31.25,'hpRegen':0.005,'manaRegen':0.005,'criticalDamage':0.013125,'criticalChance':0.01,'pow':18.75,'int':18.75,'dex':18.75,'vit':18.75,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20accessory:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'accessory44':{'name':'Elite\x20Mage\x20Amulet','requiredType':'magemaster','image':'image/accessory35.png','radius':0xa,'category':'accessory','magicalAttack':0x7d,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x4e2,'mana':62.5,'hpRegen':0.01,'manaRegen':0.01,'criticalDamage':0.02625,'criticalChance':0.02,'pow':37.5,'int':37.5,'dex':37.5,'vit':37.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20accessory:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'accessory44a':{'name':'Elite\x20Mage\x20Amulet','requiredType':'magemaster','image':'image/accessory35.png','radius':0xa,'category':'accessory','magicalAttack':62.5,'physicalDefense':12.5,'magicalDefense':12.5,'health':0x271,'mana':31.25,'hpRegen':0.005,'manaRegen':0.005,'criticalDamage':0.013125,'criticalChance':0.01,'pow':18.75,'int':18.75,'dex':18.75,'vit':18.75,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20accessory:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'accessory45':{'name':'Elite\x20Bullwark\x20Amulet','requiredType':'bullwark','image':'image/accessory23.png','radius':0xa,'category':'accessory','physicalDamage':0x7d,'physicalDefense':0x19,'magicalDefense':0x19,'health':0x4e2,'mana':62.5,'hpRegen':0.01,'manaRegen':0.01,'criticalDamage':0.02625,'criticalChance':0.02,'pow':37.5,'int':37.5,'dex':37.5,'vit':37.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20accessory:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'accessory45a':{'name':'Elite\x20Bullwark\x20Amulet','requiredType':'bullwark','image':'image/accessory23.png','radius':0xa,'category':'accessory','physicalDamage':62.5,'physicalDefense':12.5,'magicalDefense':12.5,'health':0x271,'mana':31.25,'hpRegen':0.005,'manaRegen':0.005,'criticalDamage':0.013125,'criticalChance':0.01,'pow':18.75,'int':18.75,'dex':18.75,'vit':18.75,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20stronger\x20accessory:\x2025%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'accessory46':{'name':'Mythic\x20Berserker\x20Amulet','requiredType':'berserker','image':'image/accessory12.png','radius':0xa,'category':'accessory','physicalDamage':0x96,'physicalDefense':0x1e,'magicalDefense':0x1e,'health':0x5dc,'mana':0x4b,'hpRegen':0.012,'manaRegen':0.012,'criticalDamage':0.0315,'criticalChance':0.024,'pow':0x2d,'int':0x2d,'dex':0x2d,'vit':0x2d,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20accessory:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'accessory46a':{'name':'Mythic\x20Berserker\x20Amulet','requiredType':'berserker','image':'image/accessory12.png','radius':0xa,'category':'accessory','physicalDamage':0x4b,'physicalDefense':0xf,'magicalDefense':0xf,'health':0x2ee,'mana':37.5,'hpRegen':0.006,'manaRegen':0.006,'criticalDamage':0.01575,'criticalChance':0.012,'pow':22.5,'int':22.5,'dex':22.5,'vit':22.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20accessory:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'accessory47':{'name':'Mythic\x20Mage\x20Amulet','requiredType':'magemaster','image':'image/accessory36.png','radius':0xa,'category':'accessory','magicalAttack':0x96,'physicalDefense':0x1e,'magicalDefense':0x1e,'health':0x5dc,'mana':0x4b,'hpRegen':0.012,'manaRegen':0.012,'criticalDamage':0.0315,'criticalChance':0.024,'pow':0x2d,'int':0x2d,'dex':0x2d,'vit':0x2d,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20accessory:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'accessory47a':{'name':'Mythic\x20Mage\x20Amulet','requiredType':'magemaster','image':'image/accessory36.png','radius':0xa,'category':'accessory','magicalAttack':0x4b,'physicalDefense':0xf,'magicalDefense':0xf,'health':0x2ee,'mana':37.5,'hpRegen':0.006,'manaRegen':0.006,'criticalDamage':0.01575,'criticalChance':0.012,'pow':22.5,'int':22.5,'dex':22.5,'vit':22.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20accessory:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'accessory48':{'name':'Mythic\x20Bullwark\x20Amulet','requiredType':'bullwark','image':'image/accessory24.png','radius':0xa,'category':'accessory','physicalDamage':0x96,'physicalDefense':0x1e,'magicalDefense':0x1e,'health':0x5dc,'mana':0x4b,'hpRegen':0.012,'manaRegen':0.012,'criticalDamage':0.0315,'criticalChance':0.024,'pow':0x2d,'int':0x2d,'dex':0x2d,'vit':0x2d,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20accessory:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'accessory48a':{'name':'Mythic\x20Bullwark\x20Amulet','requiredType':'bullwark','image':'image/accessory24.png','radius':0xa,'category':'accessory','physicalDamage':0x4b,'physicalDefense':0xf,'magicalDefense':0xf,'health':0x2ee,'mana':37.5,'hpRegen':0.006,'manaRegen':0.006,'criticalDamage':0.01575,'criticalChance':0.012,'pow':22.5,'int':22.5,'dex':22.5,'vit':22.5,'spawnChance':0.025,'timeLife':0x7530,'description':'A\x20mythic-grade\x20accessory:\x2050%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'accessory49':{'name':'Extreme\x20Berserker\x20Amulet','requiredType':'berserker','image':'image/accessory37.png','radius':0xa,'category':'accessory','physicalDamage':0xaf,'physicalDefense':0x23,'magicalDefense':0x23,'health':0x6d6,'mana':87.5,'hpRegen':0.014,'manaRegen':0.014,'criticalDamage':0.03675,'criticalChance':0.028,'pow':52.5,'int':52.5,'dex':52.5,'vit':52.5,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20accessory\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'accessory49a':{'name':'Extreme\x20Berserker\x20Amulet','requiredType':'berserker','image':'image/accessory37.png','radius':0xa,'category':'accessory','physicalDamage':87.5,'physicalDefense':17.5,'magicalDefense':17.5,'health':0x36b,'mana':43.75,'hpRegen':0.007,'manaRegen':0.007,'criticalDamage':0.018375,'criticalChance':0.014,'pow':26.25,'int':26.25,'dex':26.25,'vit':26.25,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20accessory\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20berserkers:\x20raw\x20physical\x20damage\x20with\x20solid\x20defense.'},'accessory50':{'name':'Extreme\x20Mage\x20Amulet','requiredType':'magemaster','image':'image/accessory38.png','radius':0xa,'category':'accessory','magicalAttack':0xaf,'physicalDefense':0x23,'magicalDefense':0x23,'health':0x6d6,'mana':87.5,'hpRegen':0.014,'manaRegen':0.014,'criticalDamage':0.03675,'criticalChance':0.028,'pow':52.5,'int':52.5,'dex':52.5,'vit':52.5,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20accessory\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'accessory50a':{'name':'Extreme\x20Mage\x20Amulet','requiredType':'magemaster','image':'image/accessory38.png','radius':0xa,'category':'accessory','magicalAttack':87.5,'physicalDefense':17.5,'magicalDefense':17.5,'health':0x36b,'mana':43.75,'hpRegen':0.007,'manaRegen':0.007,'criticalDamage':0.018375,'criticalChance':0.014,'pow':26.25,'int':26.25,'dex':26.25,'vit':26.25,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20accessory\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20mage\x20masters:\x20boosts\x20magical\x20attack\x20and\x20mana.'},'accessory51':{'name':'Extreme\x20Bullwark\x20Amulet','requiredType':'bullwark','image':'image/accessory39.png','radius':0xa,'category':'accessory','physicalDamage':0xaf,'physicalDefense':0x23,'magicalDefense':0x23,'health':0x6d6,'mana':87.5,'hpRegen':0.014,'manaRegen':0.014,'criticalDamage':0.03675,'criticalChance':0.028,'pow':52.5,'int':52.5,'dex':52.5,'vit':52.5,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20accessory\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'},'accessory51a':{'name':'Extreme\x20Bullwark\x20Amulet','requiredType':'bullwark','image':'image/accessory39.png','radius':0xa,'category':'accessory','physicalDamage':87.5,'physicalDefense':17.5,'magicalDefense':17.5,'health':0x36b,'mana':43.75,'hpRegen':0.007,'manaRegen':0.007,'criticalDamage':0.018375,'criticalChance':0.014,'pow':26.25,'int':26.25,'dex':26.25,'vit':26.25,'spawnChance':0.025,'timeLife':0x7530,'description':'The\x20strongest\x20accessory\x20of\x20the\x20shop\x20sets:\x2075%\x20more\x20power\x20than\x20the\x20Vanguard\x20set.\x20Built\x20for\x20bullwarks:\x20heavy\x20defense\x20and\x20health\x20to\x20outlast\x20everyone.'}};delete vmU_676943['_$STbaUg']['ARMOR_TYPES'],vmU_676943['ARMOR_TYPES']=ARMOR_TYPES;globalThis['ARMOR_TYPES']=ARMOR_TYPES;function getArmor(J){return vmO_9abb44(typeof getArmor!=='undefined'?getArmor:undefined,this,new.target,{['_$i74iiQ']:[ARMOR_TYPES],['_$qprkR5']:undefined,['_$6RhBvz']:[0x1]},arguments,0x2,0x21);}function getAllArmors(){return vmO_9abb44(typeof getAllArmors!=='undefined'?getAllArmors:undefined,this,new.target,{['_$i74iiQ']:[ARMOR_TYPES],['_$qprkR5']:undefined,['_$6RhBvz']:[0x1]},arguments,0x3,0x21);}function getLootableArmorDef(J){return vmO_9abb44(typeof getLootableArmorDef!=='undefined'?getLootableArmorDef:undefined,this,new.target,{['_$i74iiQ']:[ARMOR_TYPES],['_$qprkR5']:undefined,['_$6RhBvz']:[0x1]},arguments,0x4,0x21);}function getLootableRingDef(J){return vmO_9abb44(typeof getLootableRingDef!=='undefined'?getLootableRingDef:undefined,this,new.target,{['_$i74iiQ']:[ARMOR_TYPES],['_$qprkR5']:undefined,['_$6RhBvz']:[0x1]},arguments,0x5,0x21);}function getLootableAccessoryDef(J){return vmO_9abb44(typeof getLootableAccessoryDef!=='undefined'?getLootableAccessoryDef:undefined,this,new.target,{['_$i74iiQ']:[ARMOR_TYPES],['_$qprkR5']:undefined,['_$6RhBvz']:[0x1]},arguments,0x6,0x21);}function getAllRings(){return vmO_9abb44(typeof getAllRings!=='undefined'?getAllRings:undefined,this,new.target,{['_$i74iiQ']:[ARMOR_TYPES],['_$qprkR5']:undefined,['_$6RhBvz']:[0x1]},arguments,0x7,0x21);}function getAllAccessories(){return vmO_9abb44(typeof getAllAccessories!=='undefined'?getAllAccessories:undefined,this,new.target,{['_$i74iiQ']:[ARMOR_TYPES],['_$qprkR5']:undefined,['_$6RhBvz']:[0x1]},arguments,0x8,0x21);}const ARMOR_CONNECTED_STAT_FIELDS=['physicalDamage','magicalAttack','magicalDefense','criticalChance','criticalDamage','mana','movementSpeed','hpRegen','manaRegen'];delete vmU_676943['_$STbaUg']['ARMOR_CONNECTED_STAT_FIELDS'],vmU_676943['ARMOR_CONNECTED_STAT_FIELDS']=ARMOR_CONNECTED_STAT_FIELDS;globalThis['ARMOR_CONNECTED_STAT_FIELDS']=ARMOR_CONNECTED_STAT_FIELDS;function getArmorStats(J){return vmO_9abb44(typeof getArmorStats!=='undefined'?getArmorStats:undefined,this,new.target,{['_$i74iiQ']:[ARMOR_CONNECTED_STAT_FIELDS,getArmor],['_$qprkR5']:undefined,['_$6RhBvz']:[0x1,0x0]},arguments,0x9,0x21);}function equipArmorStats(J,T){return vmO_9abb44(typeof equipArmorStats!=='undefined'?equipArmorStats:undefined,this,new.target,undefined,arguments,0xa,0x21);}function unequipArmorStats(J){return vmO_9abb44(typeof unequipArmorStats!=='undefined'?unequipArmorStats:undefined,this,new.target,undefined,arguments,0xb,0x21);}function tickArmorRegeneration(J,T){}function rollArmorBlock(J){return vmO_9abb44(typeof rollArmorBlock!=='undefined'?rollArmorBlock:undefined,this,new.target,undefined,arguments,0xc,0x21);}const SELL_PRICE_MIN=0x1;delete vmU_676943['_$STbaUg']['SELL_PRICE_MIN'],vmU_676943['SELL_PRICE_MIN']=SELL_PRICE_MIN;globalThis['SELL_PRICE_MIN']=SELL_PRICE_MIN;const SELL_PRICE_MAX=0xc350;delete vmU_676943['_$STbaUg']['SELL_PRICE_MAX'],vmU_676943['SELL_PRICE_MAX']=SELL_PRICE_MAX;globalThis['SELL_PRICE_MAX']=SELL_PRICE_MAX;const SELL_PRICE_CURVE=0x2;delete vmU_676943['_$STbaUg']['SELL_PRICE_CURVE'],vmU_676943['SELL_PRICE_CURVE']=SELL_PRICE_CURVE;globalThis['SELL_PRICE_CURVE']=SELL_PRICE_CURVE;const SELL_STAT_MAX={'physicalDamage':0x64,'physicalDefense':0x19,'magicalAttack':0x64,'magicalDefense':0x19,'hpRegen':0.02,'manaRegen':0.02,'pow':0x32,'vit':0x32,'dex':0x32,'int':0x32,'criticalChance':0.05,'criticalDamage':0.05};delete vmU_676943['_$STbaUg']['SELL_STAT_MAX'],vmU_676943['SELL_STAT_MAX']=SELL_STAT_MAX;globalThis['SELL_STAT_MAX']=SELL_STAT_MAX;function calcGearSellPrice(J,T){return vmO_9abb44(typeof calcGearSellPrice!=='undefined'?calcGearSellPrice:undefined,this,new.target,{['_$i74iiQ']:[SELL_PRICE_CURVE,SELL_PRICE_MAX,SELL_PRICE_MIN,SELL_STAT_MAX],['_$qprkR5']:undefined,['_$6RhBvz']:[0x1,0x1,0x1,0x1]},arguments,0xd,0x21);}function getItemSellPrice(J){return vmO_9abb44(typeof getItemSellPrice!=='undefined'?getItemSellPrice:undefined,this,new.target,{['_$i74iiQ']:[calcGearSellPrice],['_$qprkR5']:undefined},arguments,0xe,0x21);}typeof module!=='undefined'&&module['exports']&&(module['exports']={'ARMOR_TYPES':ARMOR_TYPES,'getArmor':getArmor,'getAllArmors':getAllArmors,'getLootableArmorDef':getLootableArmorDef,'getLootableRingDef':getLootableRingDef,'getLootableAccessoryDef':getLootableAccessoryDef,'getAllRings':getAllRings,'getAllAccessories':getAllAccessories,'getArmorStats':getArmorStats,'equipArmorStats':equipArmorStats,'unequipArmorStats':unequipArmorStats,'tickArmorRegeneration':tickArmorRegeneration,'rollArmorBlock':rollArmorBlock,'calcGearSellPrice':calcGearSellPrice,'getItemSellPrice':getItemSellPrice});if(typeof module!=='undefined')module['exports']={'ARMOR_TYPES':ARMOR_TYPES,'parseRequiredStat':parseRequiredStat,'rollRequiredStat':rollRequiredStat,'calcGearSellPrice':calcGearSellPrice,'getItemSellPrice':getItemSellPrice};
+// =============================================================================
+// armor_server.js  —  ONLINE MODE copy of armor.js
+// =============================================================================
+// Edit the numbers in here to change how the game behaves in ONLINE mode.
+// armor.js (the public file) only controls OFFLINE mode.
+//
+// This file lives on the SERVER (Render), NOT in the public game website, so
+// players cannot open or edit it. server.js sends these tables to each player
+// when they join an online match; the game then uses them instead of the
+// offline tables until the player leaves.
+// =============================================================================
+
+// armor.js
+//
+// Armor items — equippable gear placed in the Armor slot (or the Gear
+// slot) of the inventory. Same overall shape/convention as WEAPONS in
+// weapon.js and STONE_TYPES/ORB_TYPES in upgrade.js: a flat lookup
+// object (ARMOR_TYPES) plus small accessor helpers at the bottom.
+//
+// FIELDS (per armor entry):
+//   name          — armor's own key/name, matches the object key.
+//   physicalDefense — flat armor value granted while equipped. Added to
+//                   player.physicalDefense (or bot.physicalDefense), same
+//                   stat that applyDamageToPlayer() in item.js already
+//                   subtracts from incoming damage.
+//   category      — "armor", marks it as equippable/lootable/storable
+//                   in the inventory grid, same idea as category:
+//                   "weapon" in weapon.js.
+//   block         — percent chance (0-100) to fully block an incoming
+//                   bullet and take zero damage from it.
+//   spawnChance   — chance to drop when an enemy bot dies, IF that bot's
+//                   spawnItem list (BOT_TYPES in bot.js) includes this
+//                   armor's name — same system weapon.js/upgrade.js
+//                   already use for their own spawnChance.
+//   radius        — ground-drawn / inventory icon size (drawn size is
+//                   radius * 2, same convention as item.js). Bump this
+//                   up or down if the armor's image looks too small/big
+//                   sitting in the inventory grid or on the ground.
+//
+// CONNECTED STATS — any of these are also optional on an armor entry (or
+// a weapon.js entry). If set, character.js's combineEquipmentStats() adds
+// it straight onto the matching character stat while equipped, plain
+// addition, same as physicalDefense above (e.g. hpRegen: 1 on
+// a character already at hpRegen: 0.01 becomes 1.01, health: 30 on a
+// character already at health: 80 becomes 110):
+//   health, physicalDamage, magicalAttack, criticalChance, criticalDamage,
+//   mana, movementSpeed, magicalDefense, hpRegen, manaRegen,
+//   vit, dex, int, pow (see character.js's applyAttributeBonus() for
+//   what vit/dex/int/pow convert into).
+// None of these are set on the entries below yet — add whichever ones a
+// given armor should grant.
+//
+// Load order suggestion: weapon.js -> armor.js -> character.js ->
+// effect.js -> level.js -> bot.js -> item.js -> upgrade.js -> game.js
+//
+// CHARACTERS (character.js) and BOT_TYPES (bot.js) now write their
+// `physicalDefense` field as one of these armor NAMES (e.g.
+// physicalDefense: "armor1") instead of a flat number — see
+// getArmorStats() below, which is what resolves that name into real
+// numbers when a character/bot is built.
+//
+// NOTE: armor is wired into item.js's drop/pickup system (see
+// getLootableArmorDef() below, called from item.js's createItemDrop()/
+// spawnItemsOnBotDeath()/pickUpArmorDrop()) and into index.html's equip
+// UI (the Armor/Gear slots and applyEquippedArmorToPlayer). item.js's
+// pickUpArmorDrop() maps this file's `physicalDefense` field onto a
+// `defense` field on the inventory copy, since that's the name
+// index.html's equip bonus math / upgrade formula / stats popup already
+// use for armor items.
+
+
+
+// ---------------------------------------------------------------------------
+// REQUIRED STAT (ONLINE rules) — a stat the PLAYER must have before the item
+// can be equipped. Works on weapon.js AND armor.js entries (rings and
+// accessories too). The numbers below are the ONLINE ones; the same block lives in
+// armor.js (offline mode has its own copy of these numbers).
+//
+// requiredType already decides WHICH characters may wear an item. The stat
+// that goes with each type (only these three exist):
+//     berserker  -> pow
+//     magemaster -> int
+//     bullwark   -> dex
+//
+// Two ways an item gets a requiredStat:
+//
+//  1) DROPPED BY AN ENEMY (automatic, no field needed) — the amount is the
+//     enemy's level x perEnemyLevel, so it grows with the enemy:
+//         enemy lvl 1  -> 4      lvl 2 -> 8      ...   lvl 10 -> 40
+//         enemy lvl 11-20 -> 44-80     lvl 21-30 -> 84-120
+//         enemy lvl 31-40 -> 124-160   lvl 41-50 -> 164-200
+//     The stat comes from the item's requiredType (a berserker item rolls
+//     pow=<amount>, a magemaster item int=<amount>, a bullwark item dex=<amount>).
+//     Enemies above maxEnemyLevel use the top amount (200).
+//
+//  2) FIXED ON THE ITEM — write it on the entry itself and every copy of the
+//     item needs exactly that, whatever dropped it:
+//         requiredStat: "pow=20",     // cannot be equipped below 20 pow
+//     (the object form requiredStat: { pow: 20 } works too).
+//
+// The check uses the player's OWN stat (the character's base stat + the
+// points gained from levels / spent in the POINTS panel). Stats that other
+// gear adds do NOT count, otherwise an item could unlock itself.
+// ---------------------------------------------------------------------------
+const REQUIRED_STAT_RULES = {
+  statForType: { berserker: "pow", magemaster: "int", bullwark: "dex" },
+  perEnemyLevel: 4,      // requirement per enemy level (level 10 -> 40, level 50 -> 200)
+  maxEnemyLevel: 50      // enemies above this level use the top amount
+};
+
+// "pow=20" (or { pow: 20 }) -> { stat: "pow", amount: 20 }; null when it is
+// missing, not one of the three stats, or not a positive number.
+function parseRequiredStat(value) {
+  if (!value) return null;
+  let stat = null, amount = NaN;
+  if (typeof value === "string") {
+    const m = value.trim().match(/^([a-z]+)\s*=\s*(\d+(?:\.\d+)?)$/i);
+    if (m) { stat = m[1].toLowerCase(); amount = Number(m[2]); }
+  } else if (typeof value === "object") {
+    const k = Object.keys(value)[0];
+    if (k) { stat = k.toLowerCase(); amount = Number(value[k]); }
+  }
+  const allowed = Object.values(REQUIRED_STAT_RULES.statForType);
+  if (!stat || allowed.indexOf(stat) === -1 || !(amount > 0)) return null;
+  return { stat: stat, amount: Math.round(amount) };
+}
+
+// The requiredStat text ("pow=40") a freshly DROPPED item gets. fixedRequiredStat
+// is the item entry's own requiredStat (way 2 above) — when it has one it wins;
+// otherwise the amount comes from the dropping enemy's level (way 1). Returns null
+// when the item has no requiredType (nothing to base a stat on).
+function rollRequiredStat(requiredType, enemyLevel, fixedRequiredStat) {
+  const fixed = parseRequiredStat(fixedRequiredStat);
+  if (fixed) return fixed.stat + "=" + fixed.amount;
+  const stat = REQUIRED_STAT_RULES.statForType[String(requiredType || "").toLowerCase()];
+  if (!stat) return null;
+  const lvl = Math.max(1, Math.min(REQUIRED_STAT_RULES.maxEnemyLevel, Math.floor(Number(enemyLevel)) || 1));
+  return stat + "=" + (lvl * REQUIRED_STAT_RULES.perEnemyLevel);
+}
+
+
+
+// ---------------------------------------------------------------------------
+// ARMOR TYPES
+// ---------------------------------------------------------------------------
+const ARMOR_TYPES = {
+
+  armor1: {
+    name: "armor1",
+    requiredType: "berserker",
+    image: "image/armor1.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 300000,    // ms — despawns if not looted within 30 sec
+    description: "Padded scout vest. Light and quick to wear, with a small boost to defense and health."
+  },
+
+  armor2: {
+    name: "armor2",
+    requiredType: "berserker",
+    image: "image/armor2.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Leather jacket stitched with metal plates. Balanced protection for new fighters."
+  },
+
+  armor3: {
+    name: "armor3",
+    requiredType: "berserker",
+    image: "image/armor3.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Heavy steel chestplate. Slow to wear, but soaks up serious damage."
+  },
+
+  armor4: {
+    name: "armor4",
+    requiredType: "berserker",
+    image: "image/armor4.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Battle-scarred plate armor. Dented, but it still turns away most hits."
+  },
+
+  armor5: {
+    name: "armor5",
+    requiredType: "berserker",
+    image: "image/armor5.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Lightweight mesh armor. Easy to move in, with decent defense."
+  },
+
+  armor6: {
+    name: "armor6",
+    requiredType: "berserker",
+    image: "image/armor6.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Riveted combat armor built for long fights."
+  },
+
+  armor7: {
+    name: "armor7",
+    requiredType: "berserker",
+    image: "image/armor7.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Heavy bulwark plating. Layered steel for fighters who hold the front line."
+  },
+
+  armor8: {
+    name: "armor8",
+    requiredType: "berserker",
+    image: "image/armor8.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced plate with extra padding at the joints."
+  },
+
+  armor9: {
+    name: "armor9",
+    requiredType: "berserker",
+    image: "image/armor9.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Weathered veteran armor. Every scratch is a fight survived."
+  },
+
+  armor10: {
+    name: "armor10",
+    requiredType: "berserker",
+    image: "image/armor10.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Slim tactical suit with light plating. Fast, with a decent chance to block."
+  },
+
+  armor11: {
+    name: "armor11",
+    requiredType: "berserker",
+    image: "image/armor11.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Field-tested armor with balanced defense and health."
+  },
+
+  armor12: {
+    name: "armor12",
+    requiredType: "berserker",
+    image: "image/armor12.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Thick siege armor made to hold the line against heavy fire."
+  },
+
+  armor13: {
+    name: "armor13",
+    requiredType: "berserker",
+    image: "image/armor13.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced battle armor with double-layered chest plates."
+  },
+
+  armor14: {
+    name: "armor14",
+    requiredType: "berserker",
+    image: "image/armor14.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Scorched armor from countless battles. Rugged and reliable."
+  },
+
+  armor15: {
+    name: "armor15",
+    requiredType: "bullwark",
+    image: "image/armor15.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Agile skirmisher armor that trades weight for speed."
+  },
+
+  armor16: {
+    name: "armor16",
+    requiredType: "bullwark",
+    image: "image/armor16.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Alloy-plated armor with solid protection all around."
+  },
+
+  armor17: {
+    name: "armor17",
+    requiredType: "bullwark",
+    image: "image/armor17.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Heavy assault armor with a thick, armored shell."
+  },
+
+  armor18: {
+    name: "armor18",
+    requiredType: "bullwark",
+    image: "image/armor18.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced guard armor with braced shoulders and a hardened core."
+  },
+
+  armor19: {
+    name: "armor19",
+    requiredType: "bullwark",
+    image: "image/armor19.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Old war armor patched with scrap steel. Tough and proven."
+  },
+
+  armor20: {
+    name: "armor20",
+    requiredType: "bullwark",
+    image: "image/armor20.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Sleek composite armor that is light but strong."
+  },
+
+  armor21: {
+    name: "armor21",
+    requiredType: "bullwark",
+    image: "image/armor21.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Officer's armor with polished plates and strong defense."
+  },
+
+  armor22: {
+    name: "armor22",
+    requiredType: "bullwark",
+    image: "image/armor22.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Fortress armor. Heavy and very hard to break through."
+  },
+
+  armor23: {
+    name: "armor23",
+    requiredType: "bullwark",
+    image: "image/armor23.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced elite plate with extra health and defense."
+  },
+
+  armor24: {
+    name: "armor24",
+    requiredType: "bullwark",
+    image: "image/armor24.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Veteran champion's armor, worn down but still strong."
+  },
+
+  armor25: {
+    name: "armor25",
+    requiredType: "bullwark",
+    image: "image/armor25.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Featherweight alloy armor for fast, evasive fighters."
+  },
+
+  armor26: {
+    name: "armor26",
+    requiredType: "bullwark",
+    image: "image/armor26.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Commander's armor built to take hits in the thick of battle."
+  },
+
+  armor27: {
+    name: "armor27",
+    requiredType: "bullwark",
+    image: "image/armor27.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Heavy siege-breaker armor with thick layered plating."
+  },
+
+  armor28: {
+    name: "armor28",
+    requiredType: "bullwark",
+    image: "image/armor28.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced war plate with an energy-treated finish."
+  },
+
+  armor29: {
+    name: "armor29",
+    requiredType: "magemaster",
+    image: "image/armor29.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Ancient battle armor, scarred and still standing."
+  },
+
+  armor30: {
+    name: "armor30",
+    requiredType: "magemaster",
+    image: "image/armor30.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Light stealth armor with a smooth, low-profile finish."
+  },
+
+  armor31: {
+    name: "armor31",
+    requiredType: "magemaster",
+    image: "image/armor31.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Knight-grade armor with balanced protection."
+  },
+
+  armor32: {
+    name: "armor32",
+    requiredType: "magemaster",
+    image: "image/armor32.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Titan armor. Massive plates for tanks who never back down."
+  },
+
+  armor33: {
+    name: "armor33",
+    requiredType: "magemaster",
+    image: "image/armor33.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced vanguard armor made for leading the charge."
+  },
+
+  armor34: {
+    name: "armor34",
+    requiredType: "magemaster",
+    image: "image/armor34.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Relic armor pulled from old battlefields, strong and scarred."
+  },
+
+  armor35: {
+    name: "armor35",
+    requiredType: "magemaster",
+    image: "image/armor35.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Swift-guard armor, light but high in defense for its weight."
+  },
+
+  armor36: {
+    name: "armor36",
+    requiredType: "magemaster",
+    image: "image/armor36.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Elite armor with high defense and health."
+  },
+
+  armor37: {
+    name: "armor37",
+    requiredType: "magemaster",
+    image: "image/armor37.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Colossus armor. A heavy shell that shrugs off blows."
+  },
+
+  armor38: {
+    name: "armor38",
+    requiredType: "magemaster",
+    image: "image/armor38.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Reinforced champion armor with hardened plates and strong shielding."
+  },
+
+  armor39: {
+    name: "armor39",
+    requiredType: "magemaster",
+    image: "image/armor39.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Legendary battle-worn armor, feared by anyone who has faced its wearer."
+  },
+
+  armor40: {
+    name: "armor40",
+    requiredType: "magemaster",
+    image: "image/armor40.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Phantom armor, thin but surprisingly tough."
+  },
+
+  armor41: {
+    name: "armor41",
+    requiredType: "magemaster",
+    image: "image/armor41.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Warlord's armor with top-tier protection."
+  },
+
+  armor42: {
+    name: "armor42",
+    requiredType: "magemaster",
+    image: "image/armor42.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Juggernaut armor. An unstoppable wall of metal."
+  },
+
+  armor43: {
+    name: "armor43",
+    requiredType: "magemaster",
+    image: "image/armor43.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Ultimate reinforced plate, the finest armor in the set."
+  },
+  
+  armor44: {
+    name: "armor44",
+    requiredType: "berserker",
+    image: "image/armor44.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Warbringer plate. Crimson-forged armor for fighters who live for brute strength and never back down."
+  },
+
+  armor45: {
+    name: "armor45",
+    requiredType: "magemaster",
+    image: "image/armor45.png",
+    radius: 10,
+    category: "armor",
+    magicalAttack: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Arcane Regalia. Rune-etched armor that hums with magic and sharpens every spell its wearer casts."
+  },
+
+  armor46: {
+    name: "armor46",
+    requiredType: "bullwark",
+    image: "image/armor46.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Aegis Bastion plate. A towering wall of steel for the defenders who hold the line and outlast everyone."
+  },
+
+  // ---- SHOP ARMOR SETS (4 tiers x berserker / magemaster / bullwark; each tier +25% of the Vanguard stats) ----
+
+  armor47: {
+    name: "Vanguard Berserker Plate",
+    requiredType: "berserker",
+    image: "image/armor12.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 100,
+    physicalDefense: 20,
+    magicalDefense: 20,
+    health: 1000,
+    mana: 50,
+    hpRegen: 0.008,
+    manaRegen: 0.008,
+    criticalDamage: 0.021,
+    criticalChance: 0.016,
+    pow: 30,
+    int: 30,
+    dex: 30,
+    vit: 30,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong armor to start with. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  armor47a: {
+    name: "Vanguard Berserker Plate",
+    requiredType: "berserker",
+    image: "image/armor12.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 50,
+    physicalDefense: 10,
+    magicalDefense: 10,
+    health: 500,
+    mana: 25,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.0105,
+    criticalChance: 0.008,
+    pow: 15,
+    int: 15,
+    dex: 15,
+    vit: 15,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong armor to start with. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  armor48: {
+    name: "Vanguard Mage Robe",
+    requiredType: "magemaster",
+    image: "image/armor41.png",
+    radius: 10,
+    category: "armor",
+    magicalAttack: 100,
+    physicalDefense: 20,
+    magicalDefense: 20,
+    health: 1000,
+    mana: 50,
+    hpRegen: 0.008,
+    manaRegen: 0.008,
+    criticalDamage: 0.021,
+    criticalChance: 0.016,
+    pow: 30,
+    int: 30,
+    dex: 30,
+    vit: 30,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong armor to start with. Built for mage masters: boosts magical attack and mana."
+  },
+
+  armor48a: {
+    name: "Vanguard Mage Robe",
+    requiredType: "magemaster",
+    image: "image/armor41.png",
+    radius: 10,
+    category: "armor",
+    magicalAttack: 50,
+    physicalDefense: 10,
+    magicalDefense: 10,
+    health: 500,
+    mana: 25,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.0105,
+    criticalChance: 0.008,
+    pow: 15,
+    int: 15,
+    dex: 15,
+    vit: 15,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong armor to start with. Built for mage masters: boosts magical attack and mana."
+  },
+
+  armor49: {
+    name: "Vanguard Bullwark Armor",
+    requiredType: "bullwark",
+    image: "image/armor26.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 100,
+    physicalDefense: 20,
+    magicalDefense: 20,
+    health: 1000,
+    mana: 50,
+    hpRegen: 0.008,
+    manaRegen: 0.008,
+    criticalDamage: 0.021,
+    criticalChance: 0.016,
+    pow: 30,
+    int: 30,
+    dex: 30,
+    vit: 30,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong armor to start with. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  armor49a: {
+    name: "Vanguard Bullwark Armor",
+    requiredType: "bullwark",
+    image: "image/armor26.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 50,
+    physicalDefense: 10,
+    magicalDefense: 10,
+    health: 500,
+    mana: 25,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.0105,
+    criticalChance: 0.008,
+    pow: 15,
+    int: 15,
+    dex: 15,
+    vit: 15,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong armor to start with. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  armor50: {
+    name: "Elite Berserker Plate",
+    requiredType: "berserker",
+    image: "image/armor13.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 125,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 1250,
+    mana: 62.5,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+    criticalDamage: 0.02625,
+    criticalChance: 0.02,
+    pow: 37.5,
+    int: 37.5,
+    dex: 37.5,
+    vit: 37.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger armor: 25% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  armor50a: {
+    name: "Elite Berserker Plate",
+    requiredType: "berserker",
+    image: "image/armor13.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 62.5,
+    physicalDefense: 12.5,
+    magicalDefense: 12.5,
+    health: 625,
+    mana: 31.25,
+    hpRegen: 0.005,
+    manaRegen: 0.005,
+    criticalDamage: 0.013125,
+    criticalChance: 0.01,
+    pow: 18.75,
+    int: 18.75,
+    dex: 18.75,
+    vit: 18.75,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger armor: 25% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  armor51: {
+    name: "Elite Mage Robe",
+    requiredType: "magemaster",
+    image: "image/armor42.png",
+    radius: 10,
+    category: "armor",
+    magicalAttack: 125,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 1250,
+    mana: 62.5,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+    criticalDamage: 0.02625,
+    criticalChance: 0.02,
+    pow: 37.5,
+    int: 37.5,
+    dex: 37.5,
+    vit: 37.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger armor: 25% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  armor51a: {
+    name: "Elite Mage Robe",
+    requiredType: "magemaster",
+    image: "image/armor42.png",
+    radius: 10,
+    category: "armor",
+    magicalAttack: 62.5,
+    physicalDefense: 12.5,
+    magicalDefense: 12.5,
+    health: 625,
+    mana: 31.25,
+    hpRegen: 0.005,
+    manaRegen: 0.005,
+    criticalDamage: 0.013125,
+    criticalChance: 0.01,
+    pow: 18.75,
+    int: 18.75,
+    dex: 18.75,
+    vit: 18.75,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger armor: 25% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  armor52: {
+    name: "Elite Bullwark Armor",
+    requiredType: "bullwark",
+    image: "image/armor27.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 125,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 1250,
+    mana: 62.5,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+    criticalDamage: 0.02625,
+    criticalChance: 0.02,
+    pow: 37.5,
+    int: 37.5,
+    dex: 37.5,
+    vit: 37.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger armor: 25% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  armor52a: {
+    name: "Elite Bullwark Armor",
+    requiredType: "bullwark",
+    image: "image/armor27.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 62.5,
+    physicalDefense: 12.5,
+    magicalDefense: 12.5,
+    health: 625,
+    mana: 31.25,
+    hpRegen: 0.005,
+    manaRegen: 0.005,
+    criticalDamage: 0.013125,
+    criticalChance: 0.01,
+    pow: 18.75,
+    int: 18.75,
+    dex: 18.75,
+    vit: 18.75,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger armor: 25% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  armor53: {
+    name: "Mythic Berserker Plate",
+    requiredType: "berserker",
+    image: "image/armor14.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 150,
+    physicalDefense: 30,
+    magicalDefense: 30,
+    health: 1500,
+    mana: 75,
+    hpRegen: 0.012,
+    manaRegen: 0.012,
+    criticalDamage: 0.0315,
+    criticalChance: 0.024,
+    pow: 45,
+    int: 45,
+    dex: 45,
+    vit: 45,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade armor: 50% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  armor53a: {
+    name: "Mythic Berserker Plate",
+    requiredType: "berserker",
+    image: "image/armor14.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 75,
+    physicalDefense: 15,
+    magicalDefense: 15,
+    health: 750,
+    mana: 37.5,
+    hpRegen: 0.006,
+    manaRegen: 0.006,
+    criticalDamage: 0.01575,
+    criticalChance: 0.012,
+    pow: 22.5,
+    int: 22.5,
+    dex: 22.5,
+    vit: 22.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade armor: 50% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  armor54: {
+    name: "Mythic Mage Robe",
+    requiredType: "magemaster",
+    image: "image/armor43.png",
+    radius: 10,
+    category: "armor",
+    magicalAttack: 150,
+    physicalDefense: 30,
+    magicalDefense: 30,
+    health: 1500,
+    mana: 75,
+    hpRegen: 0.012,
+    manaRegen: 0.012,
+    criticalDamage: 0.0315,
+    criticalChance: 0.024,
+    pow: 45,
+    int: 45,
+    dex: 45,
+    vit: 45,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade armor: 50% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  armor54a: {
+    name: "Mythic Mage Robe",
+    requiredType: "magemaster",
+    image: "image/armor43.png",
+    radius: 10,
+    category: "armor",
+    magicalAttack: 75,
+    physicalDefense: 15,
+    magicalDefense: 15,
+    health: 750,
+    mana: 37.5,
+    hpRegen: 0.006,
+    manaRegen: 0.006,
+    criticalDamage: 0.01575,
+    criticalChance: 0.012,
+    pow: 22.5,
+    int: 22.5,
+    dex: 22.5,
+    vit: 22.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade armor: 50% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  armor55: {
+    name: "Mythic Bullwark Armor",
+    requiredType: "bullwark",
+    image: "image/armor28.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 150,
+    physicalDefense: 30,
+    magicalDefense: 30,
+    health: 1500,
+    mana: 75,
+    hpRegen: 0.012,
+    manaRegen: 0.012,
+    criticalDamage: 0.0315,
+    criticalChance: 0.024,
+    pow: 45,
+    int: 45,
+    dex: 45,
+    vit: 45,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade armor: 50% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  armor55a: {
+    name: "Mythic Bullwark Armor",
+    requiredType: "bullwark",
+    image: "image/armor28.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 75,
+    physicalDefense: 15,
+    magicalDefense: 15,
+    health: 750,
+    mana: 37.5,
+    hpRegen: 0.006,
+    manaRegen: 0.006,
+    criticalDamage: 0.01575,
+    criticalChance: 0.012,
+    pow: 22.5,
+    int: 22.5,
+    dex: 22.5,
+    vit: 22.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade armor: 50% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  armor56: {
+    name: "Extreme Berserker Plate",
+    requiredType: "berserker",
+    image: "image/armor44.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 175,
+    physicalDefense: 35,
+    magicalDefense: 35,
+    health: 1750,
+    mana: 87.5,
+    hpRegen: 0.014,
+    manaRegen: 0.014,
+    criticalDamage: 0.03675,
+    criticalChance: 0.028,
+    pow: 52.5,
+    int: 52.5,
+    dex: 52.5,
+    vit: 52.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest armor of the shop sets: 75% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  armor56a: {
+    name: "Extreme Berserker Plate",
+    requiredType: "berserker",
+    image: "image/armor44.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 87.5,
+    physicalDefense: 17.5,
+    magicalDefense: 17.5,
+    health: 875,
+    mana: 43.75,
+    hpRegen: 0.007,
+    manaRegen: 0.007,
+    criticalDamage: 0.018375,
+    criticalChance: 0.014,
+    pow: 26.25,
+    int: 26.25,
+    dex: 26.25,
+    vit: 26.25,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest armor of the shop sets: 75% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  armor57: {
+    name: "Extreme Mage Robe",
+    requiredType: "magemaster",
+    image: "image/armor45.png",
+    radius: 10,
+    category: "armor",
+    magicalAttack: 175,
+    physicalDefense: 35,
+    magicalDefense: 35,
+    health: 1750,
+    mana: 87.5,
+    hpRegen: 0.014,
+    manaRegen: 0.014,
+    criticalDamage: 0.03675,
+    criticalChance: 0.028,
+    pow: 52.5,
+    int: 52.5,
+    dex: 52.5,
+    vit: 52.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest armor of the shop sets: 75% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  armor57a: {
+    name: "Extreme Mage Robe",
+    requiredType: "magemaster",
+    image: "image/armor45.png",
+    radius: 10,
+    category: "armor",
+    magicalAttack: 87.5,
+    physicalDefense: 17.5,
+    magicalDefense: 17.5,
+    health: 875,
+    mana: 43.75,
+    hpRegen: 0.007,
+    manaRegen: 0.007,
+    criticalDamage: 0.018375,
+    criticalChance: 0.014,
+    pow: 26.25,
+    int: 26.25,
+    dex: 26.25,
+    vit: 26.25,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest armor of the shop sets: 75% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  armor58: {
+    name: "Extreme Bullwark Armor",
+    requiredType: "bullwark",
+    image: "image/armor46.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 175,
+    physicalDefense: 35,
+    magicalDefense: 35,
+    health: 1750,
+    mana: 87.5,
+    hpRegen: 0.014,
+    manaRegen: 0.014,
+    criticalDamage: 0.03675,
+    criticalChance: 0.028,
+    pow: 52.5,
+    int: 52.5,
+    dex: 52.5,
+    vit: 52.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest armor of the shop sets: 75% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  armor58a: {
+    name: "Extreme Bullwark Armor",
+    requiredType: "bullwark",
+    image: "image/armor46.png",
+    radius: 10,
+    category: "armor",
+    physicalDamage: 87.5,
+    physicalDefense: 17.5,
+    magicalDefense: 17.5,
+    health: 875,
+    mana: 43.75,
+    hpRegen: 0.007,
+    manaRegen: 0.007,
+    criticalDamage: 0.018375,
+    criticalChance: 0.014,
+    pow: 26.25,
+    int: 26.25,
+    dex: 26.25,
+    vit: 26.25,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest armor of the shop sets: 75% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  armor1A: {
+    name: "armor1A",
+    image: "image/armor43.png",
+    radius: 10,
+    category: "armor",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Mythic armor that boosts every stat: health, mana, regen, damage, and critical hits."
+  },
+
+  // ---------------------------------------------------------------------------
+  // RINGS — category: "ring" (sprites ring01.png - ring43.png)
+  // ---------------------------------------------------------------------------
+
+  ring01: {
+    name: "ring01",
+    requiredType: "berserker",
+    image: "image/ring01.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 300000,    // ms — despawns if not looted within 30 sec
+    description: "Blue ring with a bright star. A starter ring that adds a little damage and crit chance."
+  },
+
+  ring02: {
+    name: "ring02",
+    requiredType: "berserker",
+    image: "image/ring02.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red ring with a burning flame. Fuels your attacks with fiery power."
+  },
+
+  ring03: {
+    name: "ring03",
+    requiredType: "berserker",
+    image: "image/ring03.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple ring set with a glowing crystal. Hums with arcane energy."
+  },
+
+  ring04: {
+    name: "ring04",
+    requiredType: "berserker",
+    image: "image/ring04.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green ring marked with a leaf. Carries the strength of living nature."
+  },
+
+  ring05: {
+    name: "ring05",
+    requiredType: "berserker",
+    image: "image/ring05.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden ring with a crown. A symbol of rank that rewards bold fighters."
+  },
+
+  ring06: {
+    name: "ring06",
+    requiredType: "berserker",
+    image: "image/ring06.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue ring with a snowflake. Cold, sharp, and precise."
+  },
+
+  ring07: {
+    name: "ring07",
+    requiredType: "berserker",
+    image: "image/ring07.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red ring with a skull. Made for fighters who finish what they start."
+  },
+
+  ring08: {
+    name: "ring08",
+    requiredType: "berserker",
+    image: "image/ring08.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue ring crackling with lightning. Quick strikes, quick kills."
+  },
+
+  ring09: {
+    name: "ring09",
+    requiredType: "berserker",
+    image: "image/ring09.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple ring with a hypnotic swirl. Bends power toward the wearer."
+  },
+
+  ring10: {
+    name: "ring10",
+    requiredType: "berserker",
+    image: "image/ring10.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Cyan ring with a crosshair. Sharpens your aim for critical hits."
+  },
+
+  ring11: {
+    name: "ring11",
+    requiredType: "berserker",
+    image: "image/ring11.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Orange ring with a wolf's head. Gives the wearer a hunter's edge."
+  },
+
+  ring12: {
+    name: "ring12",
+    requiredType: "berserker",
+    image: "image/ring12.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Pink ring with a heart. Warm and lucky, a favorite of survivors."
+  },
+
+  ring13: {
+    name: "ring13",
+    requiredType: "berserker",
+    image: "image/ring13.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Silver ring with a four-point star. Simple, clean, and dependable."
+  },
+
+  ring14: {
+    name: "ring14",
+    requiredType: "bullwark",
+    image: "image/ring14.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red ring with a trident mark. Pierces through enemy defenses."
+  },
+
+  ring15: {
+    name: "ring15",
+    requiredType: "bullwark",
+    image: "image/ring15.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue ring with flowing waves. Calm on the outside, powerful underneath."
+  },
+
+  ring16: {
+    name: "ring16",
+    requiredType: "bullwark",
+    image: "image/ring16.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple ring with a horned demon face. Whispers for more damage."
+  },
+
+  ring17: {
+    name: "ring17",
+    requiredType: "bullwark",
+    image: "image/ring17.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green ring with a biohazard sign. Toxic power for ruthless fighters."
+  },
+
+  ring18: {
+    name: "ring18",
+    requiredType: "bullwark",
+    image: "image/ring18.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden ring with a compass star. Points the way to critical hits."
+  },
+
+  ring19: {
+    name: "ring19",
+    requiredType: "bullwark",
+    image: "image/ring19.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red ring with a targeting reticle. Locks onto weak points."
+  },
+
+  ring20: {
+    name: "ring20",
+    requiredType: "bullwark",
+    image: "image/ring20.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue ring with a bright diamond. Clear, sharp, and valuable."
+  },
+
+  ring21: {
+    name: "ring21",
+    requiredType: "bullwark",
+    image: "image/ring21.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Spiked ring with a blue crystal. Forged in frozen caverns."
+  },
+
+  ring22: {
+    name: "ring22",
+    requiredType: "bullwark",
+    image: "image/ring22.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Dark spiked ring with a red dragon crest. Radiates raw aggression."
+  },
+
+  ring23: {
+    name: "ring23",
+    requiredType: "bullwark",
+    image: "image/ring23.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Spiked ring with a purple crystal. Pulses with unstable magic."
+  },
+
+  ring24: {
+    name: "ring24",
+    requiredType: "bullwark",
+    image: "image/ring24.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden spiked ring with a star. A rare ring for decorated veterans."
+  },
+
+  ring25: {
+    name: "ring25",
+    requiredType: "bullwark",
+    image: "image/ring25.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Frost-covered ring with a snowflake. Freezes the air around it."
+  },
+
+  ring26: {
+    name: "ring26",
+    requiredType: "bullwark",
+    image: "image/ring26.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Dark green ring with a radiation mark. Glows with dangerous energy."
+  },
+
+  ring27: {
+    name: "ring27",
+    requiredType: "magemaster",
+    image: "image/ring27.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden spiked ring with a blazing flame. Burns with fierce power."
+  },
+
+  ring28: {
+    name: "ring28",
+    requiredType: "magemaster",
+    image: "image/ring28.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue ring with a ringed planet. Draws on the power of the cosmos."
+  },
+
+  ring29: {
+    name: "ring29",
+    requiredType: "magemaster",
+    image: "image/ring29.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Spiked ring with a purple vortex. Pulls power in from the void."
+  },
+
+  ring30: {
+    name: "ring30",
+    requiredType: "magemaster",
+    image: "image/ring30.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Dark ring with a white skull. Worn by fighters who show no mercy."
+  },
+
+  ring31: {
+    name: "ring31",
+    requiredType: "magemaster",
+    image: "image/ring31.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Silver and green ring with a leaf. Heals the spirit and sharpens the blade."
+  },
+
+  ring32: {
+    name: "ring32",
+    requiredType: "magemaster",
+    image: "image/ring32.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Spiked ring with a lightning bolt. Packs a shocking amount of power."
+  },
+
+  ring33: {
+    name: "ring33",
+    requiredType: "magemaster",
+    image: "image/ring33.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red spiked ring with a golden crown. Made for rulers of the battlefield."
+  },
+
+  ring34: {
+    name: "ring34",
+    requiredType: "magemaster",
+    image: "image/ring34.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Spiked ring with a purple crystal. Rich with deep arcane power."
+  },
+
+  ring35: {
+    name: "ring35",
+    requiredType: "magemaster",
+    image: "image/ring35.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Gold and cyan ring with a shield crest. Strong, proud, and well-balanced."
+  },
+
+  ring36: {
+    name: "ring36",
+    requiredType: "magemaster",
+    image: "image/ring36.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Bronze ring with a golden dragon. Carries the might of an ancient beast."
+  },
+
+  ring37: {
+    name: "ring37",
+    requiredType: "magemaster",
+    image: "image/ring37.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Spiked ring with a glowing snowflake. Bitter cold that cuts like a blade."
+  },
+
+  ring38: {
+    name: "ring38",
+    requiredType: "magemaster",
+    image: "image/ring38.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Dark green ring with a biohazard sign. Highly toxic, highly deadly."
+  },
+
+  ring39: {
+    name: "ring39",
+    requiredType: "magemaster",
+    image: "image/ring39.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Spiked ring with a purple demon face. Hungers for destruction."
+  },
+
+  ring40: {
+    name: "ring40",
+    requiredType: "magemaster",
+    image: "image/ring40.png",
+    radius: 10,
+    category: "ring",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Dark red spiked ring with a crosshair. Perfect aim for lethal critical hits."
+  },
+
+  ring41: {
+    name: "ring41",
+    requiredType: "berserker",
+    image: "image/ring41.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blood Crest ring. A heavy red band that feeds a fighter's raw power and killing instinct."
+  },
+
+  ring42: {
+    name: "ring42",
+    requiredType: "magemaster",
+    image: "image/ring42.png",
+    radius: 10,
+    category: "ring",
+    magicalAttack: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Astral Sigil ring. A glowing violet ring that channels pure magic into every spell."
+  },
+
+  ring43: {
+    name: "ring43",
+    requiredType: "bullwark",
+    image: "image/ring43.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Ironclad Seal ring. A thick steel band that hardens its wearer against every blow."
+  },
+
+  // ---- SHOP RING SETS (4 tiers x 3 characters, +25% per tier) ----
+
+  ring44: {
+    name: "Vanguard Berserker Ring",
+    requiredType: "berserker",
+    image: "image/ring11.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 100,
+    physicalDefense: 20,
+    magicalDefense: 20,
+    health: 1000,
+    mana: 50,
+    hpRegen: 0.008,
+    manaRegen: 0.008,
+    criticalDamage: 0.021,
+    criticalChance: 0.016,
+    pow: 30,
+    int: 30,
+    dex: 30,
+    vit: 30,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong ring to start with. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  ring44a: {
+    name: "Vanguard Berserker Ring",
+    requiredType: "berserker",
+    image: "image/ring11.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 50,
+    physicalDefense: 10,
+    magicalDefense: 10,
+    health: 500,
+    mana: 25,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.0105,
+    criticalChance: 0.008,
+    pow: 15,
+    int: 15,
+    dex: 15,
+    vit: 15,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong ring to start with. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  ring45: {
+    name: "Vanguard Mage Ring",
+    requiredType: "magemaster",
+    image: "image/ring38.png",
+    radius: 10,
+    category: "ring",
+    magicalAttack: 100,
+    physicalDefense: 20,
+    magicalDefense: 20,
+    health: 1000,
+    mana: 50,
+    hpRegen: 0.008,
+    manaRegen: 0.008,
+    criticalDamage: 0.021,
+    criticalChance: 0.016,
+    pow: 30,
+    int: 30,
+    dex: 30,
+    vit: 30,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong ring to start with. Built for mage masters: boosts magical attack and mana."
+  },
+
+  ring45a: {
+    name: "Vanguard Mage Ring",
+    requiredType: "magemaster",
+    image: "image/ring38.png",
+    radius: 10,
+    category: "ring",
+    magicalAttack: 50,
+    physicalDefense: 10,
+    magicalDefense: 10,
+    health: 500,
+    mana: 25,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.0105,
+    criticalChance: 0.008,
+    pow: 15,
+    int: 15,
+    dex: 15,
+    vit: 15,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong ring to start with. Built for mage masters: boosts magical attack and mana."
+  },
+
+  ring46: {
+    name: "Vanguard Bullwark Ring",
+    requiredType: "bullwark",
+    image: "image/ring24.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 100,
+    physicalDefense: 20,
+    magicalDefense: 20,
+    health: 1000,
+    mana: 50,
+    hpRegen: 0.008,
+    manaRegen: 0.008,
+    criticalDamage: 0.021,
+    criticalChance: 0.016,
+    pow: 30,
+    int: 30,
+    dex: 30,
+    vit: 30,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong ring to start with. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  ring46a: {
+    name: "Vanguard Bullwark Ring",
+    requiredType: "bullwark",
+    image: "image/ring24.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 50,
+    physicalDefense: 10,
+    magicalDefense: 10,
+    health: 500,
+    mana: 25,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.0105,
+    criticalChance: 0.008,
+    pow: 15,
+    int: 15,
+    dex: 15,
+    vit: 15,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong ring to start with. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  ring47: {
+    name: "Elite Berserker Ring",
+    requiredType: "berserker",
+    image: "image/ring12.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 125,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 1250,
+    mana: 62.5,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+    criticalDamage: 0.02625,
+    criticalChance: 0.02,
+    pow: 37.5,
+    int: 37.5,
+    dex: 37.5,
+    vit: 37.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger ring: 25% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  ring47a: {
+    name: "Elite Berserker Ring",
+    requiredType: "berserker",
+    image: "image/ring12.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 62.5,
+    physicalDefense: 12.5,
+    magicalDefense: 12.5,
+    health: 625,
+    mana: 31.25,
+    hpRegen: 0.005,
+    manaRegen: 0.005,
+    criticalDamage: 0.013125,
+    criticalChance: 0.01,
+    pow: 18.75,
+    int: 18.75,
+    dex: 18.75,
+    vit: 18.75,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger ring: 25% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  ring48: {
+    name: "Elite Mage Ring",
+    requiredType: "magemaster",
+    image: "image/ring39.png",
+    radius: 10,
+    category: "ring",
+    magicalAttack: 125,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 1250,
+    mana: 62.5,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+    criticalDamage: 0.02625,
+    criticalChance: 0.02,
+    pow: 37.5,
+    int: 37.5,
+    dex: 37.5,
+    vit: 37.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger ring: 25% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  ring48a: {
+    name: "Elite Mage Ring",
+    requiredType: "magemaster",
+    image: "image/ring39.png",
+    radius: 10,
+    category: "ring",
+    magicalAttack: 62.5,
+    physicalDefense: 12.5,
+    magicalDefense: 12.5,
+    health: 625,
+    mana: 31.25,
+    hpRegen: 0.005,
+    manaRegen: 0.005,
+    criticalDamage: 0.013125,
+    criticalChance: 0.01,
+    pow: 18.75,
+    int: 18.75,
+    dex: 18.75,
+    vit: 18.75,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger ring: 25% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  ring49: {
+    name: "Elite Bullwark Ring",
+    requiredType: "bullwark",
+    image: "image/ring25.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 125,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 1250,
+    mana: 62.5,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+    criticalDamage: 0.02625,
+    criticalChance: 0.02,
+    pow: 37.5,
+    int: 37.5,
+    dex: 37.5,
+    vit: 37.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger ring: 25% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  ring49a: {
+    name: "Elite Bullwark Ring",
+    requiredType: "bullwark",
+    image: "image/ring25.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 62.5,
+    physicalDefense: 12.5,
+    magicalDefense: 12.5,
+    health: 625,
+    mana: 31.25,
+    hpRegen: 0.005,
+    manaRegen: 0.005,
+    criticalDamage: 0.013125,
+    criticalChance: 0.01,
+    pow: 18.75,
+    int: 18.75,
+    dex: 18.75,
+    vit: 18.75,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger ring: 25% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  ring50: {
+    name: "Mythic Berserker Ring",
+    requiredType: "berserker",
+    image: "image/ring13.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 150,
+    physicalDefense: 30,
+    magicalDefense: 30,
+    health: 1500,
+    mana: 75,
+    hpRegen: 0.012,
+    manaRegen: 0.012,
+    criticalDamage: 0.0315,
+    criticalChance: 0.024,
+    pow: 45,
+    int: 45,
+    dex: 45,
+    vit: 45,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade ring: 50% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  ring50a: {
+    name: "Mythic Berserker Ring",
+    requiredType: "berserker",
+    image: "image/ring13.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 75,
+    physicalDefense: 15,
+    magicalDefense: 15,
+    health: 750,
+    mana: 37.5,
+    hpRegen: 0.006,
+    manaRegen: 0.006,
+    criticalDamage: 0.01575,
+    criticalChance: 0.012,
+    pow: 22.5,
+    int: 22.5,
+    dex: 22.5,
+    vit: 22.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade ring: 50% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  ring51: {
+    name: "Mythic Mage Ring",
+    requiredType: "magemaster",
+    image: "image/ring40.png",
+    radius: 10,
+    category: "ring",
+    magicalAttack: 150,
+    physicalDefense: 30,
+    magicalDefense: 30,
+    health: 1500,
+    mana: 75,
+    hpRegen: 0.012,
+    manaRegen: 0.012,
+    criticalDamage: 0.0315,
+    criticalChance: 0.024,
+    pow: 45,
+    int: 45,
+    dex: 45,
+    vit: 45,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade ring: 50% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  ring51a: {
+    name: "Mythic Mage Ring",
+    requiredType: "magemaster",
+    image: "image/ring40.png",
+    radius: 10,
+    category: "ring",
+    magicalAttack: 75,
+    physicalDefense: 15,
+    magicalDefense: 15,
+    health: 750,
+    mana: 37.5,
+    hpRegen: 0.006,
+    manaRegen: 0.006,
+    criticalDamage: 0.01575,
+    criticalChance: 0.012,
+    pow: 22.5,
+    int: 22.5,
+    dex: 22.5,
+    vit: 22.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade ring: 50% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  ring52: {
+    name: "Mythic Bullwark Ring",
+    requiredType: "bullwark",
+    image: "image/ring26.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 150,
+    physicalDefense: 30,
+    magicalDefense: 30,
+    health: 1500,
+    mana: 75,
+    hpRegen: 0.012,
+    manaRegen: 0.012,
+    criticalDamage: 0.0315,
+    criticalChance: 0.024,
+    pow: 45,
+    int: 45,
+    dex: 45,
+    vit: 45,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade ring: 50% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  ring52a: {
+    name: "Mythic Bullwark Ring",
+    requiredType: "bullwark",
+    image: "image/ring26.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 75,
+    physicalDefense: 15,
+    magicalDefense: 15,
+    health: 750,
+    mana: 37.5,
+    hpRegen: 0.006,
+    manaRegen: 0.006,
+    criticalDamage: 0.01575,
+    criticalChance: 0.012,
+    pow: 22.5,
+    int: 22.5,
+    dex: 22.5,
+    vit: 22.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade ring: 50% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  ring53: {
+    name: "Extreme Berserker Ring",
+    requiredType: "berserker",
+    image: "image/ring41.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 175,
+    physicalDefense: 35,
+    magicalDefense: 35,
+    health: 1750,
+    mana: 87.5,
+    hpRegen: 0.014,
+    manaRegen: 0.014,
+    criticalDamage: 0.03675,
+    criticalChance: 0.028,
+    pow: 52.5,
+    int: 52.5,
+    dex: 52.5,
+    vit: 52.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest ring of the shop sets: 75% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  ring53a: {
+    name: "Extreme Berserker Ring",
+    requiredType: "berserker",
+    image: "image/ring41.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 87.5,
+    physicalDefense: 17.5,
+    magicalDefense: 17.5,
+    health: 875,
+    mana: 43.75,
+    hpRegen: 0.007,
+    manaRegen: 0.007,
+    criticalDamage: 0.018375,
+    criticalChance: 0.014,
+    pow: 26.25,
+    int: 26.25,
+    dex: 26.25,
+    vit: 26.25,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest ring of the shop sets: 75% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  ring54: {
+    name: "Extreme Mage Ring",
+    requiredType: "magemaster",
+    image: "image/ring42.png",
+    radius: 10,
+    category: "ring",
+    magicalAttack: 175,
+    physicalDefense: 35,
+    magicalDefense: 35,
+    health: 1750,
+    mana: 87.5,
+    hpRegen: 0.014,
+    manaRegen: 0.014,
+    criticalDamage: 0.03675,
+    criticalChance: 0.028,
+    pow: 52.5,
+    int: 52.5,
+    dex: 52.5,
+    vit: 52.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest ring of the shop sets: 75% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  ring54a: {
+    name: "Extreme Mage Ring",
+    requiredType: "magemaster",
+    image: "image/ring42.png",
+    radius: 10,
+    category: "ring",
+    magicalAttack: 87.5,
+    physicalDefense: 17.5,
+    magicalDefense: 17.5,
+    health: 875,
+    mana: 43.75,
+    hpRegen: 0.007,
+    manaRegen: 0.007,
+    criticalDamage: 0.018375,
+    criticalChance: 0.014,
+    pow: 26.25,
+    int: 26.25,
+    dex: 26.25,
+    vit: 26.25,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest ring of the shop sets: 75% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  ring55: {
+    name: "Extreme Bullwark Ring",
+    requiredType: "bullwark",
+    image: "image/ring43.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 175,
+    physicalDefense: 35,
+    magicalDefense: 35,
+    health: 1750,
+    mana: 87.5,
+    hpRegen: 0.014,
+    manaRegen: 0.014,
+    criticalDamage: 0.03675,
+    criticalChance: 0.028,
+    pow: 52.5,
+    int: 52.5,
+    dex: 52.5,
+    vit: 52.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest ring of the shop sets: 75% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  ring55a: {
+    name: "Extreme Bullwark Ring",
+    requiredType: "bullwark",
+    image: "image/ring43.png",
+    radius: 10,
+    category: "ring",
+    physicalDamage: 87.5,
+    physicalDefense: 17.5,
+    magicalDefense: 17.5,
+    health: 875,
+    mana: 43.75,
+    hpRegen: 0.007,
+    manaRegen: 0.007,
+    criticalDamage: 0.018375,
+    criticalChance: 0.014,
+    pow: 26.25,
+    int: 26.25,
+    dex: 26.25,
+    vit: 26.25,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest ring of the shop sets: 75% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  // ---------------------------------------------------------------------------
+  // ACCESSORIES — category: "accessory" (sprites accessory01.png - accessory39.png)
+  // ---------------------------------------------------------------------------
+
+  accessory01: {
+    name: "accessory01",
+    requiredType: "berserker",
+    image: "image/accessory01.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 300000,    // ms — despawns if not looted within 30 sec
+    description: "Blue spiked circlet with a glowing crystal. Light on the head, strong in the mind."
+  },
+
+  accessory02: {
+    name: "accessory02",
+    requiredType: "berserker",
+    image: "image/accessory02.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue glowing wings. Light as air, with a boost to health and mana."
+  },
+
+  accessory03: {
+    name: "accessory03",
+    requiredType: "berserker",
+    image: "image/accessory03.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue cloak with glowing edges. Flows behind you like a night wave."
+  },
+
+  accessory04: {
+    name: "accessory04",
+    requiredType: "berserker",
+    image: "image/accessory04.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue horned headset. Keeps your focus sharp in the middle of battle."
+  },
+
+  accessory05: {
+    name: "accessory05",
+    requiredType: "berserker",
+    image: "image/accessory05.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue companion drone that floats beside you and watches your back."
+  },
+
+  accessory06: {
+    name: "accessory06",
+    requiredType: "berserker",
+    image: "image/accessory06.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue crystal pendant on a dark chain. Calm and full of energy."
+  },
+
+  accessory07: {
+    name: "accessory07",
+    requiredType: "berserker",
+    image: "image/accessory07.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red spiked crown. A fierce mark of a fighter who never backs down."
+  },
+
+  accessory08: {
+    name: "accessory08",
+    requiredType: "berserker",
+    image: "image/accessory08.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red flaming wings. Burn bright and keep your health high."
+  },
+
+  accessory09: {
+    name: "accessory09",
+    requiredType: "berserker",
+    image: "image/accessory09.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Dark red cloak. Wrapped in the heat of battle."
+  },
+
+  accessory10: {
+    name: "accessory10",
+    requiredType: "berserker",
+    image: "image/accessory10.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red horned headset. Fills you with rage and fighting spirit."
+  },
+
+  accessory11: {
+    name: "accessory11",
+    requiredType: "berserker",
+    image: "image/accessory11.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red combat drone with glowing eyes. Small, angry, and loyal."
+  },
+
+  accessory12: {
+    name: "accessory12",
+    requiredType: "berserker",
+    image: "image/accessory12.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red crystal pendant on a dark chain. Beats like a second heart."
+  },
+
+  accessory13: {
+    name: "accessory13",
+    requiredType: "bullwark",
+    image: "image/accessory13.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green spiked circlet with a glowing gem. Draws strength from nature."
+  },
+
+  accessory14: {
+    name: "accessory14",
+    requiredType: "bullwark",
+    image: "image/accessory14.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green crystal wings. Fast and light, with a fresh burst of life."
+  },
+
+  accessory15: {
+    name: "accessory15",
+    requiredType: "bullwark",
+    image: "image/accessory15.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green hooded cloak. Blends into the wild."
+  },
+
+  accessory16: {
+    name: "accessory16",
+    requiredType: "bullwark",
+    image: "image/accessory16.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green night-vision goggles. See clearly, even in the dark."
+  },
+
+  accessory17: {
+    name: "accessory17",
+    requiredType: "bullwark",
+    image: "image/accessory17.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green companion drone with glowing spikes. Keeps you company and keeps you safe."
+  },
+
+  accessory18: {
+    name: "accessory18",
+    requiredType: "bullwark",
+    image: "image/accessory18.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green crystal pendant on a dark chain. Quietly restores your energy."
+  },
+
+  accessory19: {
+    name: "accessory19",
+    requiredType: "bullwark",
+    image: "image/accessory19.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple spiked crown with a glowing gem. Carries a dark, royal power."
+  },
+
+  accessory20: {
+    name: "accessory20",
+    requiredType: "bullwark",
+    image: "image/accessory20.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple shadow wings. Soft in flight and sharp in the dark."
+  },
+
+  accessory21: {
+    name: "accessory21",
+    requiredType: "bullwark",
+    image: "image/accessory21.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple cloak with torn edges. Stirs up whispers of the void."
+  },
+
+  accessory22: {
+    name: "accessory22",
+    requiredType: "bullwark",
+    image: "image/accessory22.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple horned headset. Hums with strange energy."
+  },
+
+  accessory23: {
+    name: "accessory23",
+    requiredType: "bullwark",
+    image: "image/accessory23.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple companion drone with glowing spikes. Floats close and never sleeps."
+  },
+
+  accessory24: {
+    name: "accessory24",
+    requiredType: "bullwark",
+    image: "image/accessory24.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple crystal pendant on a dark chain. Glows with mysterious power."
+  },
+
+  accessory25: {
+    name: "accessory25",
+    requiredType: "magemaster",
+    image: "image/accessory25.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden crown with a bright star. Only the best fighters wear it."
+  },
+
+  accessory26: {
+    name: "accessory26",
+    requiredType: "magemaster",
+    image: "image/accessory26.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "White and gold wings. Radiant, graceful, and full of life."
+  },
+
+  accessory27: {
+    name: "accessory27",
+    requiredType: "magemaster",
+    image: "image/accessory27.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "White and gold cloak. Regal and glowing like morning light."
+  },
+
+  accessory28: {
+    name: "accessory28",
+    requiredType: "magemaster",
+    image: "image/accessory28.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden winged headset. Sharp focus and a feather-light feel."
+  },
+
+  accessory29: {
+    name: "accessory29",
+    requiredType: "magemaster",
+    image: "image/accessory29.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden companion drone with white wings. Shines bright and guards you well."
+  },
+
+  accessory30: {
+    name: "accessory30",
+    requiredType: "magemaster",
+    image: "image/accessory30.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Golden star pendant. A treasured charm that boosts health and mana."
+  },
+
+  accessory31: {
+    name: "accessory31",
+    requiredType: "magemaster",
+    image: "image/accessory31.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue jetpack with glowing thrusters. Gives you energy to keep going."
+  },
+
+  accessory32: {
+    name: "accessory32",
+    requiredType: "magemaster",
+    image: "image/accessory32.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red armored backpack with glowing cells. Packed with power for long fights."
+  },
+
+  accessory33: {
+    name: "accessory33",
+    requiredType: "magemaster",
+    image: "image/accessory33.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Purple armored backpack with glowing cells. Stores strange and heavy energy."
+  },
+
+  accessory34: {
+    name: "accessory34",
+    requiredType: "magemaster",
+    image: "image/accessory34.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Green armored backpack with glowing cells. Keeps your health and mana flowing."
+  },
+
+  accessory35: {
+    name: "accessory35",
+    requiredType: "magemaster",
+    image: "image/accessory35.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Blue battle banner with a winged crest. Lifts the spirit of everyone who sees it."
+  },
+
+  accessory36: {
+    name: "accessory36",
+    requiredType: "magemaster",
+    image: "image/accessory36.png",
+    radius: 10,
+    category: "accessory",
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Red battle banner with a fiery crest. A warning to every enemy that sees it."
+  },
+
+  accessory37: {
+    name: "accessory37",
+    requiredType: "berserker",
+    image: "image/accessory37.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Warlord's Fang. A jagged trophy charm that stirs the fury of anyone who wears it."
+  },
+
+  accessory38: {
+    name: "accessory38",
+    requiredType: "magemaster",
+    image: "image/accessory38.png",
+    radius: 10,
+    category: "accessory",
+    magicalAttack: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Mystic Orb Pendant. A floating crystal charm that overflows with arcane energy."
+  },
+
+  accessory39: {
+    name: "accessory39",
+    requiredType: "bullwark",
+    image: "image/accessory39.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 40,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 400,
+    mana: 20,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.01,
+    criticalChance: 0.01,
+    pow: 20,
+    int: 20,
+    dex: 20,
+    vit: 20,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "Guardian's Crest. A sturdy emblem of the unbreakable defender, steady under any attack."
+  },
+
+  // ---- SHOP ACCESSORY SETS (4 tiers x 3 characters, +25% per tier) ----
+
+  accessory40: {
+    name: "Vanguard Berserker Amulet",
+    requiredType: "berserker",
+    image: "image/accessory10.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 100,
+    physicalDefense: 20,
+    magicalDefense: 20,
+    health: 1000,
+    mana: 50,
+    hpRegen: 0.008,
+    manaRegen: 0.008,
+    criticalDamage: 0.021,
+    criticalChance: 0.016,
+    pow: 30,
+    int: 30,
+    dex: 30,
+    vit: 30,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong accessory to start with. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  accessory40a: {
+    name: "Vanguard Berserker Amulet",
+    requiredType: "berserker",
+    image: "image/accessory10.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 50,
+    physicalDefense: 10,
+    magicalDefense: 10,
+    health: 500,
+    mana: 25,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.0105,
+    criticalChance: 0.008,
+    pow: 15,
+    int: 15,
+    dex: 15,
+    vit: 15,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong accessory to start with. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  accessory41: {
+    name: "Vanguard Mage Amulet",
+    requiredType: "magemaster",
+    image: "image/accessory34.png",
+    radius: 10,
+    category: "accessory",
+    magicalAttack: 100,
+    physicalDefense: 20,
+    magicalDefense: 20,
+    health: 1000,
+    mana: 50,
+    hpRegen: 0.008,
+    manaRegen: 0.008,
+    criticalDamage: 0.021,
+    criticalChance: 0.016,
+    pow: 30,
+    int: 30,
+    dex: 30,
+    vit: 30,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong accessory to start with. Built for mage masters: boosts magical attack and mana."
+  },
+
+  accessory41a: {
+    name: "Vanguard Mage Amulet",
+    requiredType: "magemaster",
+    image: "image/accessory34.png",
+    radius: 10,
+    category: "accessory",
+    magicalAttack: 50,
+    physicalDefense: 10,
+    magicalDefense: 10,
+    health: 500,
+    mana: 25,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.0105,
+    criticalChance: 0.008,
+    pow: 15,
+    int: 15,
+    dex: 15,
+    vit: 15,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong accessory to start with. Built for mage masters: boosts magical attack and mana."
+  },
+
+  accessory42: {
+    name: "Vanguard Bullwark Amulet",
+    requiredType: "bullwark",
+    image: "image/accessory22.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 100,
+    physicalDefense: 20,
+    magicalDefense: 20,
+    health: 1000,
+    mana: 50,
+    hpRegen: 0.008,
+    manaRegen: 0.008,
+    criticalDamage: 0.021,
+    criticalChance: 0.016,
+    pow: 30,
+    int: 30,
+    dex: 30,
+    vit: 30,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong accessory to start with. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  accessory42a: {
+    name: "Vanguard Bullwark Amulet",
+    requiredType: "bullwark",
+    image: "image/accessory22.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 50,
+    physicalDefense: 10,
+    magicalDefense: 10,
+    health: 500,
+    mana: 25,
+    hpRegen: 0.004,
+    manaRegen: 0.004,
+    criticalDamage: 0.0105,
+    criticalChance: 0.008,
+    pow: 15,
+    int: 15,
+    dex: 15,
+    vit: 15,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A well balanced and strong accessory to start with. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  accessory43: {
+    name: "Elite Berserker Amulet",
+    requiredType: "berserker",
+    image: "image/accessory11.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 125,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 1250,
+    mana: 62.5,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+    criticalDamage: 0.02625,
+    criticalChance: 0.02,
+    pow: 37.5,
+    int: 37.5,
+    dex: 37.5,
+    vit: 37.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger accessory: 25% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  accessory43a: {
+    name: "Elite Berserker Amulet",
+    requiredType: "berserker",
+    image: "image/accessory11.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 62.5,
+    physicalDefense: 12.5,
+    magicalDefense: 12.5,
+    health: 625,
+    mana: 31.25,
+    hpRegen: 0.005,
+    manaRegen: 0.005,
+    criticalDamage: 0.013125,
+    criticalChance: 0.01,
+    pow: 18.75,
+    int: 18.75,
+    dex: 18.75,
+    vit: 18.75,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger accessory: 25% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  accessory44: {
+    name: "Elite Mage Amulet",
+    requiredType: "magemaster",
+    image: "image/accessory35.png",
+    radius: 10,
+    category: "accessory",
+    magicalAttack: 125,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 1250,
+    mana: 62.5,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+    criticalDamage: 0.02625,
+    criticalChance: 0.02,
+    pow: 37.5,
+    int: 37.5,
+    dex: 37.5,
+    vit: 37.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger accessory: 25% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  accessory44a: {
+    name: "Elite Mage Amulet",
+    requiredType: "magemaster",
+    image: "image/accessory35.png",
+    radius: 10,
+    category: "accessory",
+    magicalAttack: 62.5,
+    physicalDefense: 12.5,
+    magicalDefense: 12.5,
+    health: 625,
+    mana: 31.25,
+    hpRegen: 0.005,
+    manaRegen: 0.005,
+    criticalDamage: 0.013125,
+    criticalChance: 0.01,
+    pow: 18.75,
+    int: 18.75,
+    dex: 18.75,
+    vit: 18.75,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger accessory: 25% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  accessory45: {
+    name: "Elite Bullwark Amulet",
+    requiredType: "bullwark",
+    image: "image/accessory23.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 125,
+    physicalDefense: 25,
+    magicalDefense: 25,
+    health: 1250,
+    mana: 62.5,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+    criticalDamage: 0.02625,
+    criticalChance: 0.02,
+    pow: 37.5,
+    int: 37.5,
+    dex: 37.5,
+    vit: 37.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger accessory: 25% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  accessory45a: {
+    name: "Elite Bullwark Amulet",
+    requiredType: "bullwark",
+    image: "image/accessory23.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 62.5,
+    physicalDefense: 12.5,
+    magicalDefense: 12.5,
+    health: 625,
+    mana: 31.25,
+    hpRegen: 0.005,
+    manaRegen: 0.005,
+    criticalDamage: 0.013125,
+    criticalChance: 0.01,
+    pow: 18.75,
+    int: 18.75,
+    dex: 18.75,
+    vit: 18.75,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A stronger accessory: 25% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  accessory46: {
+    name: "Mythic Berserker Amulet",
+    requiredType: "berserker",
+    image: "image/accessory12.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 150,
+    physicalDefense: 30,
+    magicalDefense: 30,
+    health: 1500,
+    mana: 75,
+    hpRegen: 0.012,
+    manaRegen: 0.012,
+    criticalDamage: 0.0315,
+    criticalChance: 0.024,
+    pow: 45,
+    int: 45,
+    dex: 45,
+    vit: 45,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade accessory: 50% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  accessory46a: {
+    name: "Mythic Berserker Amulet",
+    requiredType: "berserker",
+    image: "image/accessory12.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 75,
+    physicalDefense: 15,
+    magicalDefense: 15,
+    health: 750,
+    mana: 37.5,
+    hpRegen: 0.006,
+    manaRegen: 0.006,
+    criticalDamage: 0.01575,
+    criticalChance: 0.012,
+    pow: 22.5,
+    int: 22.5,
+    dex: 22.5,
+    vit: 22.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade accessory: 50% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  accessory47: {
+    name: "Mythic Mage Amulet",
+    requiredType: "magemaster",
+    image: "image/accessory36.png",
+    radius: 10,
+    category: "accessory",
+    magicalAttack: 150,
+    physicalDefense: 30,
+    magicalDefense: 30,
+    health: 1500,
+    mana: 75,
+    hpRegen: 0.012,
+    manaRegen: 0.012,
+    criticalDamage: 0.0315,
+    criticalChance: 0.024,
+    pow: 45,
+    int: 45,
+    dex: 45,
+    vit: 45,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade accessory: 50% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  accessory47a: {
+    name: "Mythic Mage Amulet",
+    requiredType: "magemaster",
+    image: "image/accessory36.png",
+    radius: 10,
+    category: "accessory",
+    magicalAttack: 75,
+    physicalDefense: 15,
+    magicalDefense: 15,
+    health: 750,
+    mana: 37.5,
+    hpRegen: 0.006,
+    manaRegen: 0.006,
+    criticalDamage: 0.01575,
+    criticalChance: 0.012,
+    pow: 22.5,
+    int: 22.5,
+    dex: 22.5,
+    vit: 22.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade accessory: 50% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  accessory48: {
+    name: "Mythic Bullwark Amulet",
+    requiredType: "bullwark",
+    image: "image/accessory24.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 150,
+    physicalDefense: 30,
+    magicalDefense: 30,
+    health: 1500,
+    mana: 75,
+    hpRegen: 0.012,
+    manaRegen: 0.012,
+    criticalDamage: 0.0315,
+    criticalChance: 0.024,
+    pow: 45,
+    int: 45,
+    dex: 45,
+    vit: 45,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade accessory: 50% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  accessory48a: {
+    name: "Mythic Bullwark Amulet",
+    requiredType: "bullwark",
+    image: "image/accessory24.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 75,
+    physicalDefense: 15,
+    magicalDefense: 15,
+    health: 750,
+    mana: 37.5,
+    hpRegen: 0.006,
+    manaRegen: 0.006,
+    criticalDamage: 0.01575,
+    criticalChance: 0.012,
+    pow: 22.5,
+    int: 22.5,
+    dex: 22.5,
+    vit: 22.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "A mythic-grade accessory: 50% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  accessory49: {
+    name: "Extreme Berserker Amulet",
+    requiredType: "berserker",
+    image: "image/accessory37.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 175,
+    physicalDefense: 35,
+    magicalDefense: 35,
+    health: 1750,
+    mana: 87.5,
+    hpRegen: 0.014,
+    manaRegen: 0.014,
+    criticalDamage: 0.03675,
+    criticalChance: 0.028,
+    pow: 52.5,
+    int: 52.5,
+    dex: 52.5,
+    vit: 52.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest accessory of the shop sets: 75% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  accessory49a: {
+    name: "Extreme Berserker Amulet",
+    requiredType: "berserker",
+    image: "image/accessory37.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 87.5,
+    physicalDefense: 17.5,
+    magicalDefense: 17.5,
+    health: 875,
+    mana: 43.75,
+    hpRegen: 0.007,
+    manaRegen: 0.007,
+    criticalDamage: 0.018375,
+    criticalChance: 0.014,
+    pow: 26.25,
+    int: 26.25,
+    dex: 26.25,
+    vit: 26.25,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest accessory of the shop sets: 75% more power than the Vanguard set. Built for berserkers: raw physical damage with solid defense."
+  },
+
+  accessory50: {
+    name: "Extreme Mage Amulet",
+    requiredType: "magemaster",
+    image: "image/accessory38.png",
+    radius: 10,
+    category: "accessory",
+    magicalAttack: 175,
+    physicalDefense: 35,
+    magicalDefense: 35,
+    health: 1750,
+    mana: 87.5,
+    hpRegen: 0.014,
+    manaRegen: 0.014,
+    criticalDamage: 0.03675,
+    criticalChance: 0.028,
+    pow: 52.5,
+    int: 52.5,
+    dex: 52.5,
+    vit: 52.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest accessory of the shop sets: 75% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  accessory50a: {
+    name: "Extreme Mage Amulet",
+    requiredType: "magemaster",
+    image: "image/accessory38.png",
+    radius: 10,
+    category: "accessory",
+    magicalAttack: 87.5,
+    physicalDefense: 17.5,
+    magicalDefense: 17.5,
+    health: 875,
+    mana: 43.75,
+    hpRegen: 0.007,
+    manaRegen: 0.007,
+    criticalDamage: 0.018375,
+    criticalChance: 0.014,
+    pow: 26.25,
+    int: 26.25,
+    dex: 26.25,
+    vit: 26.25,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest accessory of the shop sets: 75% more power than the Vanguard set. Built for mage masters: boosts magical attack and mana."
+  },
+
+  accessory51: {
+    name: "Extreme Bullwark Amulet",
+    requiredType: "bullwark",
+    image: "image/accessory39.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 175,
+    physicalDefense: 35,
+    magicalDefense: 35,
+    health: 1750,
+    mana: 87.5,
+    hpRegen: 0.014,
+    manaRegen: 0.014,
+    criticalDamage: 0.03675,
+    criticalChance: 0.028,
+    pow: 52.5,
+    int: 52.5,
+    dex: 52.5,
+    vit: 52.5,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest accessory of the shop sets: 75% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+  accessory51a: {
+    name: "Extreme Bullwark Amulet",
+    requiredType: "bullwark",
+    image: "image/accessory39.png",
+    radius: 10,
+    category: "accessory",
+    physicalDamage: 87.5,
+    physicalDefense: 17.5,
+    magicalDefense: 17.5,
+    health: 875,
+    mana: 43.75,
+    hpRegen: 0.007,
+    manaRegen: 0.007,
+    criticalDamage: 0.018375,
+    criticalChance: 0.014,
+    pow: 26.25,
+    int: 26.25,
+    dex: 26.25,
+    vit: 26.25,
+    spawnChance: 0.025,
+    timeLife: 30000,    // ms — despawns if not looted within 30 sec
+    description: "The strongest accessory of the shop sets: 75% more power than the Vanguard set. Built for bullwarks: heavy defense and health to outlast everyone."
+  },
+
+};
+
+
+
+// ---------------------------------------------------------------------------
+// ACCESSORS — same pattern as getWeapon()/getAllWeapons() in weapon.js
+// ---------------------------------------------------------------------------
+function getArmor(name) {
+  return ARMOR_TYPES[name] || null;
+}
+
+function getAllArmors() {
+  return Object.values(ARMOR_TYPES);
+}
+
+// Same idea as getLootableWeaponDef() in item.js — looks up an armor
+// entry only if it's flagged category: "armor", for whenever some other
+// file just has a type name and needs to know if it's a lootable armor.
+function getLootableArmorDef(typeName) {
+  const def = ARMOR_TYPES[typeName];
+  return (def && def.category === "armor") ? def : null;
+}
+
+// RING / ACCESSORY — same lookup idea as getLootableArmorDef() above, one
+// per new category. Entries live in ARMOR_TYPES (so online sync of
+// ARMOR_TYPES carries them too) but are flagged category: "ring" /
+// "accessory" instead of "armor".
+function getLootableRingDef(typeName) {
+  const def = ARMOR_TYPES[typeName];
+  return (def && def.category === "ring") ? def : null;
+}
+
+function getLootableAccessoryDef(typeName) {
+  const def = ARMOR_TYPES[typeName];
+  return (def && def.category === "accessory") ? def : null;
+}
+
+function getAllRings() {
+  return Object.values(ARMOR_TYPES).filter(d => d.category === "ring");
+}
+
+function getAllAccessories() {
+  return Object.values(ARMOR_TYPES).filter(d => d.category === "accessory");
+}
+
+
+
+// ---------------------------------------------------------------------------
+// NAME RESOLUTION — character.js's CHARACTERS and bot.js's BOT_TYPES
+// write `armor` as an armor NAME string (e.g. "armor1"). Call this
+// wherever a character/bot gets built (getCharacter(), createBot(),
+// respawnBot()) to turn that name into the real armor value + health
+// bonus to apply. Still backward compatible with a plain number (old
+// style, no armor.js bonuses) and with null/undefined (no armor at
+// all — e.g. bot.js's shooter).
+// ---------------------------------------------------------------------------
+// Every OTHER stat an armor entry can carry besides physicalDefense/
+// health (see the CONNECTED STATS list in the file header comment
+// above). Kept as its own list here (rather than reusing character.js's
+// EQUIPMENT_STAT_MAP) since armor.js loads BEFORE character.js (see the
+// load-order comment above) — this only needs to exist by the time
+// getArmorStats() actually gets CALLED at runtime (createBot(), well
+// after every script has loaded), but there's no reason to depend on
+// character.js's list order anyway.
+const ARMOR_CONNECTED_STAT_FIELDS = [
+  "physicalDamage", "magicalAttack", "magicalDefense", "criticalChance",
+  "criticalDamage", "mana", "movementSpeed", "hpRegen", "manaRegen"
+];
+
+function getArmorStats(armorField) {
+
+  if (typeof armorField === "number") {
+    return { armorValue: armorField, health: 0, def: null, bonuses: {} };
+  }
+
+  const def = getArmor(armorField);
+  if (!def) return { armorValue: 0, health: 0, def: null, bonuses: {} };
+
+  // bonuses — every other connected stat this armor def carries.
+  // createBot() (bot.js) folds these onto the bot object the same way
+  // combineEquipmentStats() (character.js) already does for the player
+  // — previously ONLY armorValue/health made it onto a bot at all, so
+  // an armor's magicalDefense/magicalAttack/etc. were silently dropped
+  // for every bot wearing it (a bot's magicalDefense was always 0, so
+  // any magicalDamage a player dealt went through completely
+  // unmitigated, regardless of the armor equipped).
+  const bonuses = {};
+  ARMOR_CONNECTED_STAT_FIELDS.forEach(field => {
+    if (typeof def[field] === "number") bonuses[field] = def[field];
+  });
+
+  return {
+    armorValue: def.physicalDefense || 0,
+    health: def.health || 0,
+    def: def,
+    bonuses: bonuses
+  };
+}
+
+
+
+// ---------------------------------------------------------------------------
+// EQUIP — apply/remove an armor's flat armor + max-health bonus on a
+// player (or bot). Mirrors the base/bonus split game.js already uses
+// for player.baseArmor vs player.armor (see applyEquippedArmorToPlayer
+// in index.html) — call unequipArmorStats() before equipping a new
+// armor so bonuses never stack.
+// ---------------------------------------------------------------------------
+function equipArmorStats(target, armorDef) {
+  if (!target || !armorDef) return;
+
+  if (typeof target.basePhysicalDefense !== "number") target.basePhysicalDefense = target.physicalDefense || 0;
+  if (typeof target.baseMaxHealth !== "number") target.baseMaxHealth = target.health || 0;
+
+  target.physicalDefense = target.basePhysicalDefense + (armorDef.physicalDefense || 0);
+
+  target.health = target.baseMaxHealth + (armorDef.health || 0);
+  if (typeof target.currentHealth === "number") {
+    target.currentHealth = Math.min(target.health, target.currentHealth + (armorDef.health || 0));
+  }
+
+  target.equippedArmor = armorDef;
+}
+
+function unequipArmorStats(target) {
+  if (!target) return;
+
+  if (typeof target.basePhysicalDefense === "number") target.physicalDefense = target.basePhysicalDefense;
+  if (typeof target.baseMaxHealth === "number") {
+    target.health = target.baseMaxHealth;
+    if (typeof target.currentHealth === "number") {
+      target.currentHealth = Math.min(target.currentHealth, target.health);
+    }
+  }
+
+  target.equippedArmor = null;
+}
+
+
+
+// ---------------------------------------------------------------------------
+// REGENERATION — RETIRED. Armor's hpRegen/manaRegen used to be a separate
+// flat points-per-millisecond tick, applied here every frame. They're now
+// just two more entries in character.js's EQUIPMENT_STAT_MAP: an armor
+// (or weapon) with hpRegen/manaRegen set gets that value added straight
+// onto the character's own percent-based hpRegen/manaRegen the moment
+// it's equipped (see combineEquipmentStats() in character.js), and
+// tickCharacterRegen() (also character.js) ticks the combined total —
+// one regen system instead of two. This function is kept as a harmless
+// no-op so existing call sites (game.js, bot.js) don't need to change.
+// ---------------------------------------------------------------------------
+function tickArmorRegeneration(target, dt) {
+  // Intentionally empty — see comment above.
+}
+
+
+
+// ---------------------------------------------------------------------------
+// BLOCK CHANCE — call when a bullet is about to hit someone wearing
+// armor. Returns true if the hit should be fully blocked (zero damage).
+// ---------------------------------------------------------------------------
+function rollArmorBlock(target) {
+  if (!target || !target.equippedArmor) return false;
+
+  const blockPercent = target.equippedArmor.block || 0;
+  if (blockPercent <= 0) return false;
+
+  return Math.random() * 100 < blockPercent;
+}
+
+
+
+// ---------------------------------------------------------------------------
+// SELL PRICE (gold orb) — what the SELL button in the item popup pays.
+// Used for weapons (weapon.js), armor, rings and accessories (this file).
+// Stones/orbs are priced in upgrade.js (getUpgradeItemSellPrice).
+//
+// HOW IT IS CALCULATED
+//   Every stat below has a MAX. A stat's "fill" is value / max (0 to 1, never
+//   above 1). The price grows with BOTH how many stats the item has AND how
+//   high each number is:
+//        total  = sum of all fills            (0 .. number of stats)
+//        share  = total / number of stats      (0 .. 1)
+//        price  = SELL_PRICE_MAX * share ^ SELL_PRICE_CURVE   (min SELL_PRICE_MIN)
+//   - ONE stat with 1 point (e.g. physicalDamage 1)  -> 1 gold orb
+//   - EVERY stat at its max                          -> 500000 gold orb
+//   - more stats, or bigger numbers                  -> higher price
+//   SELL_PRICE_CURVE 1 = straight line, 2 = cheap items stay cheap (current).
+//   An item with none of these stats is worth SELL_PRICE_MIN.
+// This is the ONLINE copy (the offline one is armor.js) — keep both the same.
+// ---------------------------------------------------------------------------
+const SELL_PRICE_MIN = 1;
+const SELL_PRICE_MAX = 50000;
+const SELL_PRICE_CURVE = 2;
+const SELL_STAT_MAX = {
+  physicalDamage: 100,
+  physicalDefense: 25,
+  magicalAttack: 100,
+  magicalDefense: 25,
+  hpRegen: 0.02,
+  manaRegen: 0.02,
+  pow: 50,
+  vit: 50,
+  dex: 50,
+  int: 50,
+  criticalChance: 0.05,
+  criticalDamage: 0.05
+};
+
+// Gold orb price of one weapon / armor / ring / accessory. `data` is the item's
+// own stats (rolled drop stats + upgrades included), `type` its kind.
+function calcGearSellPrice(data, type) {
+  if (!data || typeof data !== "object") return SELL_PRICE_MIN;
+  const stats = Object.keys(SELL_STAT_MAX);
+  let total = 0;
+  for (let i = 0; i < stats.length; i++) {
+    const stat = stats[i];
+    let v = data[stat];
+    // Armor copies in the inventory keep physical defense in `defense`
+    // (upgrades raise it); rings/accessories use physicalDefense first.
+    if (stat === "physicalDefense") {
+      const a = data.defense, b = data.physicalDefense;
+      v = (type === "armor") ? (typeof a === "number" ? a : b) : (typeof b === "number" ? b : a);
+    }
+    if (typeof v !== "number" || !isFinite(v) || v <= 0) continue;
+    total += Math.min(1, v / SELL_STAT_MAX[stat]);
+  }
+  if (total <= 0) return SELL_PRICE_MIN;
+  const price = Math.round(SELL_PRICE_MAX * Math.pow(total / stats.length, SELL_PRICE_CURVE));
+  return Math.max(SELL_PRICE_MIN, Math.min(SELL_PRICE_MAX, price));
+}
+
+// Price of ANY inventory entry { type, name, data } — 0 means "can't be sold".
+function getItemSellPrice(entry) {
+  if (!entry) return 0;
+  const type = entry.type || entry.kind;
+  if (type === "weapon" || type === "armor" || type === "ring" || type === "accessory") {
+    return calcGearSellPrice(entry.data, type);
+  }
+  if (type === "stone" || type === "orb") {
+    return typeof getUpgradeItemSellPrice === "function" ? getUpgradeItemSellPrice(entry.name) : 0;
+  }
+  return 0;
+}
+
+
+
+if (typeof module !== "undefined" && module.exports) {
+
+  module.exports = {
+    ARMOR_TYPES,
+    getArmor,
+    getAllArmors,
+    getLootableArmorDef,
+    getLootableRingDef,
+    getLootableAccessoryDef,
+    getAllRings,
+    getAllAccessories,
+    getArmorStats,
+    equipArmorStats,
+    unequipArmorStats,
+    tickArmorRegeneration,
+    rollArmorBlock,
+    calcGearSellPrice,
+    getItemSellPrice
+  };
+
+}
+
+
+// ---- export for server.js (Node) ----
+if (typeof module !== "undefined") module.exports = { ARMOR_TYPES, parseRequiredStat, rollRequiredStat, calcGearSellPrice, getItemSellPrice };
