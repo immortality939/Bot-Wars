@@ -1600,11 +1600,24 @@ function categoryForDrop(drop) {
 // returns the ids that were removed (empty array if none). Pure bookkeeping —
 // callers decide whether/how to tell anyone (see dropList(), which just needs
 // the list clean, vs sweepExpiredDrops() below, which also broadcasts).
+// How long THIS drop may lie on the ground. Uses the item's own `timeLife` (weapon_server.js /
+// armor_server.js / item_server.js) exactly like the client does, so the server never deletes
+// an item earlier than the client's countdown says. Falls back to the 30s default.
+function lifeForDrop(d) {
+  if (d.k === "inv" || d.t === "goldOrb") return DROP_MAX_AGE_MS;
+  const t = d.t;
+  const def = (GAME_DATA.WEAPONS && GAME_DATA.WEAPONS[t]) ||
+              (GAME_DATA.ARMOR_TYPES && GAME_DATA.ARMOR_TYPES[t]) ||
+              (GAME_DATA.STONE_TYPES && GAME_DATA.STONE_TYPES[t]) ||
+              (GAME_DATA.ORB_TYPES && GAME_DATA.ORB_TYPES[t]) ||
+              (GAME_DATA.ITEM_TYPES && GAME_DATA.ITEM_TYPES[t]) || null;
+  return (def && typeof def.timeLife === "number" && def.timeLife > 0) ? def.timeLife : DROP_MAX_AGE_MS;
+}
 function pruneDrops(room) {
-  const cutoff = Date.now() - DROP_MAX_AGE_MS;
+  const now = Date.now();
   const removed = [];
   for (const [id, d] of room.drops) {
-    if (d.at < cutoff) { room.drops.delete(id); removed.push(id); }
+    if (now - d.at > lifeForDrop(d)) { room.drops.delete(id); removed.push(id); }
   }
   return removed;
 }
