@@ -1600,35 +1600,38 @@ function categoryForDrop(drop) {
 // returns the ids that were removed (empty array if none). Pure bookkeeping —
 // callers decide whether/how to tell anyone (see dropList(), which just needs
 // the list clean, vs sweepExpiredDrops() below, which also broadcasts).
-// How long THIS drop may lie on the ground. Uses the item's own `timeLife` (weapon_server.js /
-// armor_server.js / item_server.js) exactly like the client does, so the server never deletes
-// an item earlier than the client's countdown says. Falls back to the 30s default.
-function lifeForDrop(d) {
-  if (d.k === "inv" || d.t === "goldOrb") return DROP_MAX_AGE_MS;
-  const t = d.t;
+// How long THIS drop lives. Each item has its own "timeLife" in the *_server.js
+// tables (most are 30s, but e.g. sword1 / armor1 / ring01 / accessory01 are 5 min).
+// The old code expired EVERY drop after a flat 30s, so a 5-min item vanished from
+// the server's list (and for anyone who logged out / changed map and came back)
+// long before its real timer ended. Gold orbs and manual inventory drops use the
+// default (ITEM_DESPAWN_TIME), same as the client.
+function dropLifeMs(drop) {
+  if (!drop || drop.k === "inv" || drop.t === "goldOrb") return DROP_MAX_AGE_MS;
+  const t = drop.t;
   const def = (GAME_DATA.WEAPONS && GAME_DATA.WEAPONS[t]) ||
-              (GAME_DATA.ARMOR_TYPES && GAME_DATA.ARMOR_TYPES[t]) ||
-              (GAME_DATA.STONE_TYPES && GAME_DATA.STONE_TYPES[t]) ||
-              (GAME_DATA.ORB_TYPES && GAME_DATA.ORB_TYPES[t]) ||
-              (GAME_DATA.ITEM_TYPES && GAME_DATA.ITEM_TYPES[t]) || null;
-  return (def && typeof def.timeLife === "number" && def.timeLife > 0) ? def.timeLife : DROP_MAX_AGE_MS;
+    (GAME_DATA.ARMOR_TYPES && GAME_DATA.ARMOR_TYPES[t]) ||
+    (GAME_DATA.STONE_TYPES && GAME_DATA.STONE_TYPES[t]) ||
+    (GAME_DATA.ORB_TYPES && GAME_DATA.ORB_TYPES[t]) ||
+    (GAME_DATA.ITEM_TYPES && GAME_DATA.ITEM_TYPES[t]) || null;
+  return def && typeof def.timeLife === "number" && def.timeLife > 0 ? def.timeLife : DROP_MAX_AGE_MS;
 }
 function pruneDrops(room) {
   const now = Date.now();
   const removed = [];
   for (const [id, d] of room.drops) {
-    if (now - d.at > lifeForDrop(d)) { room.drops.delete(id); removed.push(id); }
+    if (now - d.at >= dropLifeMs(d)) { room.drops.delete(id); removed.push(id); }
   }
   return removed;
 }
 function dropList(room) {
   pruneDrops(room);
-  // `age` = how old the drop is by the SERVER's clock (ms). Clients use it instead of
-  // comparing `at` with their own phone clock, which can be seconds off.
-  const nowMs = Date.now();
+  // "age" = how old the drop is in ms, measured by the SERVER's own clock. Clients use it
+  // instead of comparing "at" with their own (possibly wrong) phone clock.
+  const now = Date.now();
   return [...room.drops.values()].map((d) => d.k === "inv"
-    ? { id: d.id, k: "inv", invType: d.invType, name: d.name, data: d.data, qty: d.qty, x: d.x, y: d.y, at: d.at, age: Math.max(0, nowMs - d.at) }
-    : { id: d.id, t: d.t, x: d.x, y: d.y, at: d.at, age: Math.max(0, nowMs - d.at), stats: d.stats });
+    ? { id: d.id, k: "inv", invType: d.invType, name: d.name, data: d.data, qty: d.qty, x: d.x, y: d.y, at: d.at, age: now - d.at }
+    : { id: d.id, t: d.t, x: d.x, y: d.y, amt: d.amt, at: d.at, age: now - d.at, stats: d.stats });
 }
 function clearDropsIfEmpty() { /* intentionally keeps loot in empty rooms */ }
 
@@ -2143,7 +2146,7 @@ wss.on("connection", (ws) => {
           added.push(drop);
         }
         while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
-        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y, amt, at, stats }) => ({ id, t, x, y, amt, at, age: 0, stats })) }, -1);
+        if (added.length) broadcast(me.room, { type: "dropAdd", drops: added.map(({ id, t, x, y, amt, at, stats }) => ({ id, t, x, y, amt, at, stats })) }, -1);
         break;
       }
 
@@ -2174,7 +2177,7 @@ wss.on("connection", (ws) => {
         while (me.room.drops.size > MAX_ROOM_DROPS) me.room.drops.delete(me.room.drops.keys().next().value);
         broadcast(me.room, {
           type: "invDropAdd",
-          drop: { id: drop.id, k: "inv", invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty, x: drop.x, y: drop.y, at: drop.at, age: 0 }
+          drop: { id: drop.id, k: "inv", invType: drop.invType, name: drop.name, data: drop.data, qty: drop.qty, x: drop.x, y: drop.y, at: drop.at }
         }, -1);
         break;
       }
