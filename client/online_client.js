@@ -523,11 +523,8 @@ function netApplyDrops(list) {
       // player who joined/rejoined a minute later saw a fresh 30 seconds on
       // an item everyone else had already watched vanish. This makes every
       // client agree on when the item actually despawns.
-      // Prefer the server-measured age (immune to a wrong phone clock); fall back to "at".
-      if (typeof s.age === "number") {
-        d.spawnTime = performance.now() - Math.max(0, s.age);
-      } else if (typeof s.at === "number") {
-        d.spawnTime = performance.now() - Math.max(0, Date.now() - s.at);
+      if (typeof s.at === "number") {
+        d.spawnTime = performance.now() - (Date.now() - s.at);
       }
       // Already expired by the time it arrived (e.g. a slow join) — skip it
       // outright instead of letting it flash on screen for one frame before
@@ -5063,14 +5060,21 @@ function olLeaveOnlineProfile() {
 // we restore the whole character: level, exp, unspent stat points and the points
 // already spent (with their stat bonuses), straight from the account's profile.
 function olApplySavedCharacter(name) {
-  const prog = onlineProfile && onlineProfile.characterProgress ? onlineProfile.characterProgress[name] : null;
+  let prog = onlineProfile && onlineProfile.characterProgress ? onlineProfile.characterProgress[name] : null;
   if (typeof player === "undefined") return;
   if (!prog) {
     // Brand-new character: nothing saved, so NO points either. (The previous character's
     // unspent/spent points were still sitting in memory and showed up on the new one.)
-    player.statPoints = 0;
-    player.spentVit = 0; player.spentDex = 0; player.spentInt = 0; player.spentPow = 0;
-    return;
+    // The previous character's level / exp / HP / MP were ALSO still sitting in memory
+    // (e.g. HP 500 on a fresh character until the next login), so start from the
+    // character's own starting level and fall through to the same baseline reset
+    // a returning character gets below.
+    const def = (typeof CHARACTERS !== "undefined" && CHARACTERS) ? CHARACTERS[name] : null;
+    prog = {
+      level: (def && Number(def.level)) || 1,
+      exp: (def && Number(def.exp)) || 0,
+      statPoints: 0, spentVit: 0, spentDex: 0, spentInt: 0, spentPow: 0
+    };
   }
 
   const cap = (typeof gameRule === "function") ? gameRule("MAX_LEVEL") : 40;
