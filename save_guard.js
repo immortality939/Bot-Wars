@@ -24,8 +24,8 @@
 //           (weapon_server.js / armor_server.js) doesn't match the selected
 //           character's `type` (character_server.js) is taken out of the equip
 //           slot and put back in the inventory grid. Same for `requiredStat`
-//           ("pow=40": the character's own pow / int / dex — base + level and
-//           spent points — must reach it). A character's own starter
+//           ("pow=40": the character's pow / int / dex — base + level and
+//           spent points + the same stat on the other equipped gear — must reach it). A character's own starter
 //           weapon/armor is always allowed.
 //   LEVEL   a character's level can't jump faster than a refilling slack
 //           allows and can't pass MAX_LEVEL. A jump that is too fast is
@@ -49,6 +49,7 @@ const LIMITS = {
   LEVEL_SLACK_PER_SEC: 1 / 30,      // ...refilling this fast
   GRID_MAX: 64,                     // inventory grid size (INVENTORY_GRID_SIZE in index.html)
   ENTRY_DATA_MAX_BYTES: 2000,       // one item's "data" blob
+  ITEM_STAT_CAP: 73,                // most pow/vit/dex/int one item may add to a requirement check (roll max 50 x 1.45 for +9 upgrade)
   MAX_QTY: 9999,
   MAX_CHARACTERS: 12,
   MAX_FRIENDS_BYTES: 20 * 1024,
@@ -189,8 +190,8 @@ function createSaveGuard(GAME_DATA) {
     const def = e.type === "weapon" ? (D.WEAPONS || {})[e.name] : (D.ARMOR_TYPES || {})[e.name];
     return def ? D.parseRequiredStat(def.requiredStat) : null;
   }
-  // the character's OWN stat: base (character_server.js) + points spent / gained from levels
-  // (characterProgress). Gear bonuses don't count, an item must not unlock itself.
+  // the character's stat for item requirements: base (character_server.js) + points spent / gained
+  // from levels (characterProgress). The stats on equipped gear are added in enforceRequiredType().
   function ownStat(charName, stat, cp) {
     const ch = (charName && CHARS[rc(charName)]) || null;
     const base = ch && typeof ch[stat] === "number" ? ch[stat] : 0;
@@ -198,28 +199,68 @@ function createSaveGuard(GAME_DATA) {
     const spent = prog ? (Number(prog["spent" + stat.charAt(0).toUpperCase() + stat.slice(1)]) || 0) : 0;
     return base + spent;
   }
+  // equip slots whose pow/vit/dex/int count towards requirements (same slots the client counts)
+  const STAT_GEAR_SLOTS = ["weapon", "armor", "accessory", "ring1", "ring2", "accessory2"];
+  // what one equipped item adds to `stat`. The value is in the client's save, so it is capped:
+  // by ITEM_STAT_CAP, or by the item table's own value x 1.45 (max upgrade) when that is higher.
+  function gearStatOf(e, stat) {
+    const v = e && e.data && e.data[stat];
+    if (typeof v !== "number" || !isFinite(v) || v <= 0) return 0;
+    const def = e.type === "weapon" ? (D.WEAPONS || {})[e.name] : (D.ARMOR_TYPES || {})[e.name];
+    const fixed = def && typeof def[stat] === "number" ? def[stat] : 0;
+    return Math.min(v, Math.max(LIMITS.ITEM_STAT_CAP, Math.ceil(fixed * 1.45)));
+  }
   function enforceRequiredType(charName, inv, notes, cp) {
     if (!inv.equip) return;
     const ch = (charName && CHARS[rc(charName)]) || null;
     const myType = ch && ch.type ? String(ch.type).toLowerCase() : null;
     const starter = new Set(ch ? [ch.weaponName, ch.armor].filter(Boolean).map(String) : []);
+    const accepted = [];   // slots that stay equipped
+    const pending = [];    // slots still to prove they meet their stat requirement
+    const why = {};        // slot -> reason it comes off
     for (const slot of EQUIP_SLOTS) {
       const e = inv.equip[slot];
-      if (!e || starter.has(String(e.name))) continue;
+      if (!e) continue;
+      if (starter.has(String(e.name))) { accepted.push(slot); continue; }
       const req = requiredTypeOf(e);
-      const typeBad = !!req && !(myType && myType === req);
-      const need = requiredStatOf(e);
-      const statBad = !!need && ownStat(charName, need.stat, cp) < need.amount;
-      if (!typeBad && !statBad) continue;
-      const why = typeBad ? "needs " + req : "needs " + need.amount + " " + need.stat;
+      if (req && !(myType && myType === req)) { why[slot] = "needs " + req; continue; }   // wrong type never counts
+      pending.push(slot);
+    }
+    const haveFor = (stat) => {
+      let have = ownStat(charName, stat, cp);
+      for (const s of accepted) if (STAT_GEAR_SLOTS.indexOf(s) !== -1) have += gearStatOf(inv.equip[s], stat);
+      return have;
+    };
+    // An item is accepted once base + spent points + the stats of gear ALREADY accepted reach its
+    // need; repeat until nothing changes. Order of the slots doesn't matter, an item never counts
+    // for itself, and two pieces that only unlock each other both stay out.
+    let changed = true;
+    while (changed) {
+      changed = false;
+      for (let i = pending.length - 1; i >= 0; i--) {
+        const need = requiredStatOf(inv.equip[pending[i]]);
+        if (!need || haveFor(need.stat) >= need.amount) {
+          accepted.push(pending[i]);
+          pending.splice(i, 1);
+          changed = true;
+        }
+      }
+    }
+    for (const slot of pending) {
+      const need = requiredStatOf(inv.equip[slot]);
+      why[slot] = "needs " + need.amount + " " + need.stat;
+    }
+    for (const slot of EQUIP_SLOTS) {
+      if (!why[slot]) continue;
+      const e = inv.equip[slot];
       inv.equip[slot] = null;
       let free = inv.grid.indexOf(null);
       if (free < 0 && inv.grid.length < LIMITS.GRID_MAX) { inv.grid.push(null); free = inv.grid.length - 1; }
       if (free >= 0) {
         inv.grid[free] = e;
-        notes.push("unequipped " + e.name + " (" + why + ")");
+        notes.push("unequipped " + e.name + " (" + why[slot] + ")");
       } else {
-        notes.push("removed " + e.name + " (" + why + ", grid full)");
+        notes.push("removed " + e.name + " (" + why[slot] + ", grid full)");
       }
     }
   }
