@@ -6602,22 +6602,56 @@ async function olSyncCharacterImages() {
 // (index.html openCharacterStatsPopup) — the real numbers from the server's
 // character_server.js, kept apart from offline mode's own CHARACTERS table.
 let olCharStats = {};
+let olCharStatsLoaded = false;
+let olCharStatsSyncing = false;
 window.olCharacterStats = function (name) {
+  // Not loaded yet (server still waking up / first request failed): keep asking, so the
+  // picker doesn't stay on the OFFLINE character.js numbers (e.g. 125 HP instead of 200).
+  if (!olCharStatsLoaded) olSyncCharacterStats();
   return olCharStats[name] || null;
 };
-async function olSyncCharacterStats() {
+// If the stats popup is already open when the server's numbers arrive, redraw it
+// with the online values instead of leaving the offline ones on screen.
+function olRefreshOpenStatsPopup() {
   try {
-    const ctl = new AbortController();
-    const timer = setTimeout(() => ctl.abort(), 60000);
-    const base = getOnlineServerUrl().replace(/^ws/i, "http");
-    const res = await fetch(base + "/characterstats", { signal: ctl.signal, cache: "no-store" });
-    clearTimeout(timer);
-    if (!res.ok) return;
-    const data = await res.json();
-    if (data && typeof data === "object") olCharStats = data;
-  } catch (e) { /* keep the offline numbers */ }
+    const pop = document.getElementById("charStatsPopup");
+    const nm = document.getElementById("charStatsName");
+    if (pop && nm && pop.style.display !== "none" && pop.style.display !== "" &&
+        typeof openCharacterStatsPopup === "function" && olCharStats[nm.textContent]) {
+      openCharacterStatsPopup(nm.textContent);
+    }
+  } catch (e) {}
+}
+async function olSyncCharacterStats() {
+  if (olCharStatsSyncing) return;
+  olCharStatsSyncing = true;
+  try {
+    // Free hosting can be asleep for ~1 minute: retry until the server answers.
+    for (let attempt = 0; attempt < 8 && !olCharStatsLoaded; attempt++) {
+      try {
+        const ctl = new AbortController();
+        const timer = setTimeout(() => ctl.abort(), 60000);
+        const base = getOnlineServerUrl().replace(/^ws/i, "http");
+        const res = await fetch(base + "/characterstats", { signal: ctl.signal, cache: "no-store" });
+        clearTimeout(timer);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && typeof data === "object" && Object.keys(data).length) {
+            olCharStats = data;
+            olCharStatsLoaded = true;
+            olRefreshOpenStatsPopup();
+            break;
+          }
+        }
+      } catch (e) { /* keep the offline numbers until the server answers */ }
+      await new Promise((r) => setTimeout(r, 3000));
+    }
+  } finally {
+    olCharStatsSyncing = false;
+  }
 }
 
+olSyncCharacterStats();    // and the server's real stats, so the picker shows 200 HP, not the offline 125
 olSyncCharacterImages();   // start fetching the server's character list as soon as online mode loads
 
 // Called right after a successful login / account creation.
