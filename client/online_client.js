@@ -775,6 +775,12 @@ function netTableRefs() {
   add("ATTACK_MODES", () => ATTACK_MODES);
   add("CHARACTERS", () => CHARACTERS);
   add("EQUIPMENT_STAT_MAP", () => EQUIPMENT_STAT_MAP);
+  // The number tables behind every stat formula (vit/dex/int/pow rates, stat points per
+  // level, health growth ...). character.js keeps its own formulas private, so swapping
+  // functions alone never changed what they use: these live objects must be overwritten
+  // with the server's copy (and put back on leaving) or online keeps the OFFLINE rates.
+  add("ATTRIBUTE_RATES", () => ATTRIBUTE_RATES);
+  add("GAME_RULES", () => GAME_RULES);
   add("SKILLS", () => SKILLS);
   add("SKILL_SCALABLE_STATS", () => SKILL_SCALABLE_STATS);
   add("STONE_TYPES", () => STONE_TYPES);
@@ -917,12 +923,23 @@ function netInstallServerCode(code) {
   for (const file of Object.keys(code)) {
     try {
       const src = String(code[file]);
-      const names = [];
-      src.replace(/^function\s+([A-Za-z_$][\w$]*)\s*\(/gm, (m, n) => { names.push(n); return m; });
-      const body = src.replace(/^const ([A-Za-z_$][\w$]*) = ([\[{])/gm, (m, name, open) =>
+      // Works for readable files AND for minified/obfuscated one-line files (the old
+      // "function at the start of a line" scan found 0 functions in those, so the
+      // server's formulas were silently never installed).
+      const nameSet = new Set();
+      src.replace(/\bfunction\s+([A-Za-z$][\w$]*)\s*\(/g, (m, n) => { if (!/^_0x/.test(n)) nameSet.add(n); return m; });
+      const names = Array.from(nameSet);
+      const body = src.replace(/\bconst\s+([A-Za-z_$][\w$]*)\s*=\s*([\[{])/g, (m, name, open) =>
         tables[name] ? "const " + name + " = __tables." + name + "; const __server_" + name + " = " + open : m);
-      const fns = new Function("__tables", "module", "exports", body + "\nreturn { " + names.join(", ") + " };")(tables, {}, {});
-      for (const n of names) {
+      // typeof guards: a name that is not a top-level function is skipped instead of throwing
+      const pick = names.map((n) => JSON.stringify(n) + ": (typeof " + n + " === 'function' ? " + n + " : undefined)").join(", ");
+      const mod = { exports: {} };
+      const found = new Function("__tables", "module", "exports", body + "\nreturn { " + pick + " };")(tables, mod, mod.exports);
+      const fns = Object.assign({}, found);
+      if (mod.exports && typeof mod.exports === "object") {
+        for (const k of Object.keys(mod.exports)) if (typeof mod.exports[k] === "function" && !fns[k]) fns[k] = mod.exports[k];
+      }
+      for (const n of Object.keys(fns)) {
         if (NET_PROTECTED_FUNCTIONS.has(n)) continue;
         if (typeof fns[n] !== "function") continue;
         if (typeof window[n] !== "function" && !NET_SERVER_ONLY_FUNCTIONS.has(n)) continue;
