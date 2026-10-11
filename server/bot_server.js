@@ -1,1 +1,8222 @@
-function _0x5323(_0x56856e,_0x566b53){_0x56856e=_0x56856e-0x15a;const _0x5a8ecc=_0x449e();let _0x422c94=_0x5a8ecc[_0x56856e];return _0x422c94;}const _0x524323=_0x5323;(function(_0x19b92e,_0x12668b){const _0x45d06c=_0x5323,_0x498cc4=_0x19b92e();while(!![]){try{const _0x505b2d=-parseInt(_0x45d06c(0x30e))/0x1+parseInt(_0x45d06c(0x20b))/0x2+parseInt(_0x45d06c(0x26f))/0x3+-parseInt(_0x45d06c(0x2dc))/0x4+-parseInt(_0x45d06c(0x237))/0x5*(parseInt(_0x45d06c(0x1b7))/0x6)+-parseInt(_0x45d06c(0x208))/0x7+parseInt(_0x45d06c(0x22c))/0x8;if(_0x505b2d===_0x12668b)break;else _0x498cc4['push'](_0x498cc4['shift']());}catch(_0x12dc42){_0x498cc4['push'](_0x498cc4['shift']());}}}(_0x449e,0xaa7c4));const _0x43234d=(function(){let _0x216afc=!![];return function(_0x7c76a5,_0x41b648){const _0x8e367d=_0x216afc?function(){const _0x227ae6=_0x5323;if(_0x41b648){const _0x161e96=_0x41b648[_0x227ae6(0x20c)](_0x7c76a5,arguments);return _0x41b648=null,_0x161e96;}}:function(){};return _0x216afc=![],_0x8e367d;};}()),_0x40ce8d=_0x43234d(this,function(){const _0x3be94f=_0x5323;if(_0x40ce8d[_0x3be94f(0x1e2)]()[_0x3be94f(0x18b)]()[_0x3be94f(0x322)]('\x0a')!==-0x1)return;return _0x40ce8d['toString']()['search']('(((.+)+)+)+$')[_0x3be94f(0x18b)]()[_0x3be94f(0x285)](_0x40ce8d)[_0x3be94f(0x2b7)](_0x3be94f(0x255));});function _0x449e(){const _0xc22056=['A\x20dark\x20dragon-type\x20boss\x20bot\x20with\x20large\x20purple\x20horns\x20and\x20glowing\x20violet\x20plating.\x20Its\x20towering\x20frame\x20overwhelms\x20enemies\x20with\x20heavy,\x20slashing\x20attacks.','image/bot_05.png','A\x20red-hot\x20armored\x20sphere\x20with\x20a\x20blazing\x20flame\x20emblem.\x20It\x20burns\x20with\x20rage\x20and\x20hits\x20with\x20scorching\x20force.','Elite\x20Cyber\x20Falcon\x20Mk\x20II','image/bot_14.png','cannonblast,fireball','speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor14,armor28,armor38,accessory10,accessory22,accessory34,ring05,ring18,ring40','Bone\x20Reaper','speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor1,armor15,armor38,accessory01,accessory13,accessory25,ring07,ring20,ring27','Golden\x20Tyrant','speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27','Elite\x20Inferno\x20Core','speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor2,armor16,armor29,accessory04,accessory16,accessory28,ring03,ring16,ring28','image/bot_22.png','Void\x20Seer\x20III','Glacier\x20Warden','Crown\x20Commander','fillText','Crimson\x20Demon\x20II','armor6','bloodburst,flamespiral','Ember\x20Fox','toString','A\x20green\x20sphere\x20with\x20a\x20biohazard\x20emblem.\x20It\x20spreads\x20decay\x20wherever\x20it\x20patrols.','A\x20cyber-type\x20bot\x20with\x20neon\x20purple\x20and\x20cyan\x20lights\x20and\x20a\x20glowing\x20power\x20symbol.\x20It\x20moves\x20like\x20a\x20machine\x20that\x20never\x20shuts\x20down\x20and\x20attacks\x20with\x20electric\x20energy.','Elite\x20Inferno\x20Core\x20Mk\x20II','armor8','Elite\x20Racer','Elite\x20Alien\x20Overlord','log','speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor10,armor24,armor32,accessory10,accessory22,accessory34,ring03,ring16,ring36','image/bot_15.png','A\x20storm-type\x20boss\x20bot\x20with\x20silver\x20plating\x20and\x20a\x20swirling\x20blue\x20energy\x20core.\x20It\x20lashes\x20out\x20with\x20crackling\x20bursts\x20of\x20lightning\x20and\x20keeps\x20enemies\x20off\x20balance.','facingAngle','image/bot_12.png','voidvortex,slash1','Elite\x20Samurai','Inferno\x20Core\x20Mk\x20II','speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor6,armor20,armor31,accessory12,accessory24,accessory36,ring09,ring22,ring32','Elite\x20Hell\x20Trident','Elite\x20Marshal','speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39','speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor11,armor25,armor33,accessory11,accessory23,accessory35,ring04,ring17,ring37','Plague\x20Reaper','{}.constructor(\x22return\x20this\x22)(\x20)','A\x20dark\x20purple\x20sphere\x20with\x20a\x20winged\x20raven\x20crest.\x20It\x20hunts\x20from\x20the\x20shadows\x20and\x20strikes\x20from\x20odd\x20angles.','image/boss14.png','image/swat.png','A\x20hero-type\x20bot\x20in\x20red\x20and\x20blue\x20armor\x20with\x20a\x20heroic\x20faction\x20emblem.\x20It\x20defends\x20its\x20area\x20bravely\x20and\x20never\x20backs\x20down\x20from\x20a\x20fight.','save','speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor10,armor24,armor36,accessory02,accessory14,accessory26,ring12,ring25,ring36','An\x20ice-type\x20boss\x20bot\x20armored\x20in\x20silver\x20plates\x20and\x20jagged\x20blue\x20crystals.\x20It\x20freezes\x20the\x20battlefield\x20with\x20icy\x20blasts\x20and\x20slows\x20down\x20anyone\x20who\x20stays\x20near\x20it.','image/bot_13.png','restore','Bloodsight\x20Hunter\x20II','length','Plague\x20Reaper\x20III','poisonburst,voidvortex','speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor10,armor24,armor31,accessory12,accessory24,accessory36,ring04,ring17,ring36','voidslash,voidvortex','speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor12,armor26,armor36,accessory08,accessory20,accessory32,ring03,ring16,ring38','speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor10,armor24,armor33,accessory08,accessory20,accessory32,ring02,ring15,ring36','A\x20stealth-type\x20ninja\x20bot\x20in\x20black\x20armor\x20with\x20glowing\x20red\x20eyes\x20and\x20a\x20masked\x20face.\x20It\x20moves\x20quietly\x20and\x20strikes\x20quickly\x20before\x20slipping\x20away.','Elite\x20Tidal\x20Wave','speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor14,armor28,armor36,accessory02,accessory14,accessory26,ring07,ring20,ring40','image/bot_27.png','3174BPPSgk','A\x20void-type\x20boss\x20bot\x20with\x20a\x20glowing\x20violet\x20eye\x20and\x20jagged\x20spiked\x20armor.\x20It\x20watches\x20from\x20afar\x20and\x20strikes\x20with\x20warped\x20dark\x20energy.','Elite\x20Void\x20Raven\x20Mk\x20II','speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor1,armor15,armor39,accessory11,accessory23,accessory35,ring06,ring19,ring27','Sniper\x20Prime','speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor1,armor15,armor36,accessory05,accessory17,accessory29,ring09,ring22,ring27','image/bot_24.png','Crimson\x20Eagle\x20Mk\x20II','speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33','Elite\x20Bone\x20Reaper\x20Mk\x20II','A\x20hazmat-suit\x20bot\x20built\x20tougher\x20than\x20the\x20rest\x20of\x20its\x20pack.\x20It\x20hits\x20harder\x20and\x20takes\x20far\x20more\x20punishment.','A\x20green\x20sphere\x20with\x20a\x20biohazard\x20emblem.\x20It\x20spreads\x20decay\x20wherever\x20it\x20patrols.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','Forest\x20Spirit\x20Mk\x20II','armor5','A\x20cyan\x20sphere\x20with\x20a\x20hexagon\x20shield\x20emblem.\x20It\x20holds\x20its\x20ground\x20behind\x20layered\x20armor.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor4,armor18,armor41,accessory04,accessory16,accessory28,ring10,ring23,ring30','guard','speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor5,armor19,armor42,accessory05,accessory17,accessory29,ring11,ring24,ring31','A\x20red\x20and\x20black\x20sphere\x20with\x20a\x20trident\x20emblem.\x20It\x20pierces\x20armor\x20with\x20savage\x20thrusts.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','Elite\x20Crimson\x20Eagle','A\x20green-lit\x20sphere\x20marked\x20with\x20a\x20radiation\x20symbol.\x20It\x20poisons\x20the\x20air\x20around\x20it\x20and\x20hits\x20with\x20irradiated\x20rounds.','Hell\x20Trident\x20Mk\x20II','Elite\x20Storm\x20Surge','speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor4,armor18,armor42,accessory02,accessory14,accessory26,ring09,ring22,ring30','Elite\x20Sniper\x20Prime','image/bot_31.png','Magma\x20Dragon\x20II','A\x20soot-black\x20sphere\x20with\x20orange\x20glowing\x20plates\x20and\x20a\x20white\x20skull\x20emblem.\x20It\x20reaps\x20anything\x20that\x20wanders\x20into\x20its\x20patrol.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','A\x20frost-white\x20sphere\x20with\x20a\x20blue\x20snowflake\x20core.\x20It\x20guards\x20its\x20ground\x20coldly\x20and\x20never\x20tires.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','Elite\x20Ember\x20Fox\x20Mk\x20II','A\x20green\x20sphere\x20with\x20a\x20leaf\x20emblem.\x20It\x20looks\x20calm\x20but\x20recovers\x20and\x20fights\x20with\x20ancient\x20strength.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','level','energybeam,voidslash','image/bot_23.png','Inferno\x20Warlord','image/boss7.png','Crimson\x20Eagle','speedup,powerup,sword17,gun17,gauntlet17,armor7,armor21,armor30,accessory05,accessory17,accessory29,ring12,ring25,ring33','A\x20samurai-type\x20bot\x20in\x20purple\x20and\x20gold\x20armor\x20with\x20a\x20horned\x20oni\x20mask.\x20It\x20fights\x20with\x20fierce\x20honor\x20and\x20strikes\x20with\x20heavy,\x20powerful\x20blows.','Magma\x20Dragon\x20III','speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor3,armor17,armor39,accessory05,accessory17,accessory29,ring10,ring23,ring29','speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor2,armor16,armor38,accessory04,accessory16,accessory28,ring09,ring22,ring28','Violet\x20Warlord','bind','number','A\x20frost-white\x20sphere\x20with\x20a\x20blue\x20snowflake\x20core.\x20It\x20guards\x20its\x20ground\x20coldly\x20and\x20never\x20tires.','speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor11,armor25,armor39,accessory11,accessory23,accessory35,ring11,ring24,ring37','Sniper\x20Prime\x20Mk\x20II','speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor14,armor28,armor40,accessory06,accessory18,accessory30,ring03,ring16,ring40','Shadow\x20Drake\x20III','speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor13,armor27,armor34,accessory03,accessory15,accessory27,ring07,ring20,ring39','speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor11,armor25,armor38,accessory01,accessory13,accessory25,ring12,ring25,ring37','speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor1,armor15,armor29,accessory01,accessory13,accessory25,ring01,ring14,ring27','speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor7,armor21,armor34,accessory09,accessory21,accessory33,ring08,ring21,ring33','speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor2,armor16,armor37,accessory06,accessory18,accessory30,ring10,ring23,ring28','image/bot_28.png','speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor6,armor20,armor43,accessory06,accessory18,accessory30,ring12,ring25,ring32','speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor3,armor17,armor30,accessory05,accessory17,accessory29,ring04,ring17,ring29','console','Frost\x20Guard','A\x20heavy\x20artillery-type\x20boss\x20bot\x20with\x20a\x20glowing\x20skull\x20core\x20and\x20cannon\x20pods\x20on\x20its\x20armor.\x20It\x20bombards\x20enemies\x20with\x20explosive\x20blasts\x20from\x20a\x20distance.','speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor1,armor15,armor37,accessory03,accessory15,accessory27,ring08,ring21,ring27','image/bot_10.png','speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29','Elite\x20Invader','Fire\x20Marshal','speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor14,armor28,armor35,accessory04,accessory16,accessory28,ring08,ring21,ring40','Toxic\x20Plague\x20Mk\x20II','Elite\x20Hex\x20Guardian','shield,speedup,powerup,health,sword4,gun4,gauntlet4,armor4,armor18,armor32,accessory04,accessory16,accessory28,ring04,ring17,ring30','image/bot_36.png','Frostbite\x20Colossus\x20II','Inferno\x20Warlord\x20III','An\x20orange\x20sphere\x20with\x20a\x20fox\x20emblem.\x20It\x20is\x20cunning,\x20quick\x20to\x20react\x20and\x20hard\x20to\x20pin\x20down.','speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor3,armor17,armor29,accessory07,accessory19,accessory31,ring05,ring18,ring29','A\x20huge\x20poison-type\x20boss\x20bot\x20with\x20heavy\x20green\x20plating\x20and\x20curved\x20claws\x20around\x20a\x20biohazard\x20core.\x20It\x20is\x20slow\x20but\x20extremely\x20tough,\x20and\x20it\x20poisons\x20the\x20ground\x20it\x20walks\x20on.','image/boss12.png','A\x20white\x20and\x20gold\x20sphere\x20with\x20a\x20radiant\x20star\x20emblem.\x20It\x20shines\x20with\x20explosive\x20power.','image/bot_34.png','Elite\x20Toxic\x20Plague','Storm\x20Surge','1012690iInFRJ','image/bot_33.png','A\x20military-type\x20bot\x20in\x20green\x20camouflage\x20plating\x20with\x20a\x20white\x20star.\x20It\x20holds\x20its\x20ground\x20like\x20a\x20veteran\x20soldier\x20and\x20follows\x20its\x20targets\x20with\x20discipline.','1804084EAJJGr','apply','speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor3,armor17,armor40,accessory03,accessory15,accessory27,ring09,ring22,ring29','An\x20ice-type\x20boss\x20bot\x20with\x20a\x20snowflake\x20core\x20and\x20sharp\x20crystal\x20spikes.\x20It\x20guards\x20its\x20area\x20coldly\x20and\x20punishes\x20anyone\x20who\x20steps\x20in.','prototype','A\x20purple\x20sphere\x20with\x20a\x20swirling\x20vortex\x20core.\x20It\x20pulls\x20enemies\x20in\x20and\x20wears\x20them\x20down.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','A\x20cyan\x20armored\x20sphere\x20with\x20a\x20glowing\x20winged-falcon\x20emblem.\x20It\x20swoops\x20in\x20fast\x20and\x20strikes\x20with\x20precise\x20bursts.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','speedup,powerup,sword3,gun3,gauntlet3,armor3,armor17,armor31,accessory03,accessory15,accessory27,ring03,ring16,ring29','A\x20rescue-type\x20bot\x20in\x20red\x20and\x20yellow\x20armor\x20with\x20a\x20firefighter\x20emblem.\x20It\x20charges\x20into\x20danger\x20without\x20fear\x20and\x20shrugs\x20off\x20heavy\x20damage.','A\x20cyan\x20sphere\x20with\x20a\x20hexagon\x20shield\x20emblem.\x20It\x20holds\x20its\x20ground\x20behind\x20layered\x20armor.','A\x20gold-plated\x20royal\x20sphere\x20with\x20a\x20crown\x20emblem.\x20It\x20commands\x20its\x20area\x20and\x20takes\x20heavy\x20hits\x20to\x20bring\x20down.','speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30','A\x20demon-type\x20boss\x20bot\x20with\x20black\x20armor,\x20glowing\x20red\x20veins\x20and\x20curved\x20horns.\x20It\x20hunts\x20relentlessly\x20and\x20hits\x20with\x20brutal\x20force.','speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor11,armor25,armor34,accessory09,accessory21,accessory33,ring03,ring16,ring37','A\x20wolf-type\x20bot\x20in\x20blue\x20and\x20silver\x20armor\x20with\x20a\x20snarling\x20wolf\x20emblem.\x20It\x20hunts\x20its\x20territory\x20with\x20sharp\x20senses\x20and\x20strikes\x20fast.','Nuclear\x20Warden\x20Mk\x20II','Elite\x20Hell\x20Trident\x20Mk\x20II','Elite\x20Wolf','Crown\x20Commander\x20II','image/bot_20.png','A\x20purple\x20sphere\x20with\x20a\x20swirling\x20vortex\x20core.\x20It\x20pulls\x20enemies\x20in\x20and\x20wears\x20them\x20down.','speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35','Elite\x20Demon','speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32','image/boss15.png','Hex\x20Guardian\x20Mk\x20II','speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor9,armor23,armor33,accessory05,accessory17,accessory29,ring13,ring26,ring35','fillStyle','armor3','9px\x20\x27Courier\x20New\x27,\x20Courier,\x20monospace','error','Alien\x20Invader','A\x20hunter-type\x20boss\x20bot\x20with\x20a\x20red\x20targeting\x20eye\x20and\x20spiked\x20black\x20armor.\x20It\x20locks\x20onto\x20its\x20prey\x20and\x20never\x20lets\x20it\x20escape.','20322896qdpZxn','speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor1,armor15,armor41,accessory07,accessory19,accessory31,ring04,ring17,ring27','speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor6,armor20,armor33,accessory08,accessory20,accessory32,ring07,ring20,ring32','speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor13,armor27,armor39,accessory05,accessory17,accessory29,ring02,ring15,ring39','The\x20most\x20feared\x20boss\x20bot,\x20a\x20heavy\x20artillery\x20machine\x20with\x20a\x20white\x20skull\x20core\x20and\x20cannon\x20barrels\x20on\x20its\x20armor.\x20It\x20shows\x20no\x20mercy\x20and\x20wipes\x20out\x20anything\x20in\x20its\x20range.','Alien\x20Overlord','image/bot_11.png','speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor14,armor28,armor41,accessory04,accessory16,accessory28,ring02,ring15,ring40','Toxic\x20Behemoth','Inferno\x20Core','Violet\x20Wyrm\x20II','13045hpoMCt','image/bot_39.png','Deathbringer\x20II','speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor11,armor25,armor37,accessory03,accessory15,accessory27,ring13,ring26,ring37','armor11','An\x20alien-type\x20bot\x20with\x20a\x20glowing\x20green\x20shell\x20and\x20an\x20alien\x20face\x20emblem.\x20It\x20wanders\x20strangely\x20and\x20attacks\x20without\x20warning.','warn','An\x20orange\x20sphere\x20with\x20a\x20fox\x20emblem.\x20It\x20is\x20cunning,\x20quick\x20to\x20react\x20and\x20hard\x20to\x20pin\x20down.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','radius','image/boss8.png','Crimson\x20Fiend','Golden\x20Tyrant\x20II','Void\x20Seer','speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor1,armor15,armor42,accessory05,accessory17,accessory29,ring03,ring16,ring27','Elite\x20Hazmat\x20Bot','image/bot_25.png','left','speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor12,armor26,armor37,accessory06,accessory18,accessory30,ring02,ring15,ring38','isMoving','A\x20blue\x20sphere\x20crackling\x20with\x20a\x20lightning-bolt\x20emblem.\x20It\x20moves\x20in\x20quick\x20bursts\x20and\x20shocks\x20everything\x20nearby.','speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor11,armor25,armor35,accessory07,accessory19,accessory31,ring02,ring15,ring37','speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor3,armor17,armor41,accessory01,accessory13,accessory25,ring08,ring21,ring29','image/bot_06.png','naturalWidth','__proto__','Nuclear\x20Warden','image/bot_03.png','fill','image/redbot.png','speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor8,armor22,armor32,accessory04,accessory16,accessory28,ring12,ring25,ring34','(((.+)+)+)+$','image/boss13.png','image/bot_04.png','toUpperCase','#ff3b3b','image/bot_32.png','A\x20dark\x20purple\x20sphere\x20with\x20a\x20winged\x20raven\x20crest.\x20It\x20hunts\x20from\x20the\x20shadows\x20and\x20strikes\x20from\x20odd\x20angles.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','fireexplosion,fireball','speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor7,armor21,armor29,accessory07,accessory19,accessory31,ring13,ring26,ring33','speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor6,armor20,armor30,accessory02,accessory14,accessory26,ring10,ring23,ring32','Elite\x20Cyber\x20Falcon','complete','A\x20white\x20and\x20blue\x20sphere\x20with\x20a\x20targeting\x20crosshair.\x20It\x20spots\x20threats\x20from\x20far\x20away\x20and\x20rarely\x20misses.','speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40','Elite\x20Officer','Hazmat\x20Bot','image/bot_16.png','Elite\x20Assassin','Void\x20Seer\x20II','Inferno\x20Warlord\x20II','speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor8,armor22,armor36,accessory08,accessory20,accessory32,ring08,ring21,ring34','Elite\x20Trooper','A\x20blood-red\x20sphere\x20with\x20a\x20horned\x20demon\x20face.\x20It\x20is\x20relentless\x20and\x20brutal\x20in\x20close\x20fights.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','Patrol\x20Officer','A\x20dragon-type\x20boss\x20bot\x20in\x20silver\x20armor\x20with\x20a\x20glowing\x20blue\x20dragon\x20emblem.\x20It\x20fiercely\x20guards\x20its\x20territory\x20and\x20unleashes\x20bursts\x20of\x20blue\x20energy.','armor4','1665573bqDXDZ','Cosmic\x20Voyager','speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor8,armor22,armor34,accessory12,accessory24,accessory36,ring10,ring23,ring34','trace','armor1','shooter','A\x20white\x20and\x20blue\x20sphere\x20with\x20a\x20targeting\x20crosshair.\x20It\x20spots\x20threats\x20from\x20far\x20away\x20and\x20rarely\x20misses.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor4,armor18,armor40,accessory06,accessory18,accessory30,ring11,ring24,ring30','speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor2,armor16,armor40,accessory12,accessory24,accessory36,ring07,ring20,ring28','Steel\x20Wolf','image/bot_19.png','speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor5,armor19,armor41,accessory07,accessory19,accessory31,ring12,ring25,ring31','Cyber\x20Core','Camo\x20Commando','speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor12,armor26,armor33,accessory02,accessory14,accessory26,ring06,ring19,ring38','Vortex\x20Spiral','A\x20heavy\x20dragon-type\x20boss\x20bot\x20studded\x20with\x20golden\x20spikes\x20over\x20black\x20plating.\x20It\x20charges\x20straight\x20into\x20enemies\x20and\x20crushes\x20anything\x20that\x20gets\x20too\x20close.','Elite\x20Guardian','speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor7,armor21,armor31,accessory03,accessory15,accessory27,ring11,ring24,ring33','Elite\x20Golden\x20Monarch','speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor5,armor19,armor39,accessory11,accessory23,accessory35,ring01,ring14,ring31','image/boss11.png','constructor','Azure\x20Dragon\x20II','arc','Bone\x20Reaper\x20Mk\x20II','image/police.png','shield,speedup,powerup,health,sword2,gun2,gauntlet2,armor2,armor16,armor30,accessory02,accessory14,accessory26,ring02,ring15,ring28','melee','Magma\x20Dragon','icespear,shockring','speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor5,armor19,armor30,accessory11,accessory23,accessory35,ring08,ring21,ring31','A\x20death-type\x20bot\x20in\x20black\x20and\x20red\x20armor\x20with\x20a\x20white\x20skull\x20on\x20its\x20chest.\x20It\x20raids\x20the\x20area\x20without\x20mercy\x20and\x20finishes\x20off\x20anything\x20it\x20catches.','speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor6,armor20,armor42,accessory08,accessory20,accessory32,ring13,ring26,ring32','Elite\x20Ember\x20Fox','image/bot_26.png','A\x20molten\x20dragon-type\x20boss\x20bot\x20built\x20from\x20black\x20armor\x20plates\x20glowing\x20with\x20orange\x20heat.\x20It\x20burns\x20everything\x20around\x20it\x20and\x20gets\x20tougher\x20the\x20longer\x20the\x20fight\x20lasts.','image/boss3.png','image/bot_37.png','speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor3,armor17,armor43,accessory09,accessory21,accessory33,ring06,ring19,ring29','Glacier\x20Warden\x20III','max','Elite\x20Nuclear\x20Warden','Shadow\x20Drake\x20II','#f44','A\x20green-lit\x20sphere\x20marked\x20with\x20a\x20radiation\x20symbol.\x20It\x20poisons\x20the\x20air\x20around\x20it\x20and\x20hits\x20with\x20irradiated\x20rounds.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','A\x20dark\x20dragon-type\x20boss\x20bot\x20wrapped\x20in\x20black\x20armor\x20and\x20glowing\x20violet\x20energy.\x20It\x20strikes\x20from\x20the\x20shadows\x20with\x20sharp,\x20piercing\x20attacks.','Hell\x20Trident','Oni\x20Samurai','armor10','Solar\x20Nova','Crimson\x20Demon','Road\x20Racer','A\x20space-type\x20bot\x20with\x20a\x20deep\x20blue\x20shell\x20and\x20a\x20glowing\x20planet\x20emblem.\x20It\x20drifts\x20across\x20the\x20map\x20like\x20a\x20wandering\x20star\x20and\x20attacks\x20with\x20strange\x20bursts\x20of\x20energy.','image/boss17.png','speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36','speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37','health','image/boss10.png','image/bot_30.png','speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor13,armor27,armor38,accessory07,accessory19,accessory31,ring03,ring16,ring39','Bloodsight\x20Hunter','speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor13,armor27,armor35,accessory01,accessory13,accessory25,ring06,ring19,ring39','Violet\x20Wyrm','assaulter','Frostbite\x20Colossus','fireexplosion,cannonblast','image/bot_07.png','translate','Toxic\x20Behemoth\x20III','speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31','image/boss5.png','search','A\x20blood-red\x20sphere\x20with\x20a\x20horned\x20demon\x20face.\x20It\x20is\x20relentless\x20and\x20brutal\x20in\x20close\x20fights.','image/bot_29.png','A\x20deep-blue\x20sphere\x20with\x20a\x20wave\x20emblem.\x20It\x20crashes\x20into\x20enemies\x20in\x20heavy\x20waves\x20of\x20fire.','A\x20deep-blue\x20sphere\x20with\x20a\x20wave\x20emblem.\x20It\x20crashes\x20into\x20enemies\x20in\x20heavy\x20waves\x20of\x20fire.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','Elite\x20Tidal\x20Wave\x20Mk\x20II','speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor7,armor21,armor33,accessory11,accessory23,accessory35,ring09,ring22,ring33','shotgun','A\x20demon-type\x20bot\x20in\x20black\x20armor\x20with\x20glowing\x20red\x20veins,\x20curved\x20horns\x20and\x20burning\x20eyes.\x20It\x20is\x20ruthless\x20and\x20hits\x20with\x20brutal\x20force.','Justice\x20Guardian','image','Void\x20Raven\x20Mk\x20II','Doom\x20Skull','Golden\x20Monarch','speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor13,armor27,armor37,accessory09,accessory21,accessory33,ring04,ring17,ring39','alive','speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor5,armor19,armor43,accessory03,accessory15,accessory27,ring10,ring23,ring31','Tidal\x20Wave','A\x20blue\x20sphere\x20crackling\x20with\x20a\x20lightning-bolt\x20emblem.\x20It\x20moves\x20in\x20quick\x20bursts\x20and\x20shocks\x20everything\x20nearby.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','armor9','Elite\x20Frost','Golden\x20Tyrant\x20III','speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor12,armor26,armor39,accessory02,accessory14,accessory26,ring13,ring26,ring38','image/boss9.png','A\x20royal\x20elite\x20boss\x20bot\x20in\x20blue\x20and\x20gold\x20armor\x20marked\x20with\x20a\x20golden\x20crown.\x20It\x20commands\x20the\x20battlefield\x20with\x20disciplined,\x20powerful\x20strikes.','A\x20red\x20and\x20white\x20sphere\x20with\x20an\x20eagle\x20emblem.\x20It\x20dives\x20on\x20targets\x20with\x20disciplined\x20aggression.','speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor5,armor19,armor29,accessory01,accessory13,accessory25,ring09,ring22,ring31','A\x20speed-type\x20bot\x20in\x20red\x20and\x20white\x20armor\x20with\x20a\x20checkered\x20flag\x20emblem.\x20It\x20is\x20built\x20for\x20fast\x20movement\x20and\x20rushes\x20at\x20enemies\x20before\x20they\x20can\x20react.','image/boss4.png','SWAT\x20Trooper','Deathbringer','A\x20green\x20sphere\x20with\x20a\x20leaf\x20emblem.\x20It\x20looks\x20calm\x20but\x20recovers\x20and\x20fights\x20with\x20ancient\x20strength.','speedup,powerup,sword5,gun5,gauntlet5,armor5,armor19,armor33,accessory05,accessory17,accessory29,ring05,ring18,ring31','A\x20gold-plated\x20royal\x20sphere\x20with\x20a\x20crown\x20emblem.\x20It\x20commands\x20its\x20area\x20and\x20takes\x20heavy\x20hits\x20to\x20bring\x20down.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','iceburst,barrage','A\x20cyan\x20armored\x20sphere\x20with\x20a\x20glowing\x20winged-falcon\x20emblem.\x20It\x20swoops\x20in\x20fast\x20and\x20strikes\x20with\x20precise\x20bursts.','speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28','5519496nRHpLs','speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor2,armor16,armor39,accessory02,accessory14,accessory26,ring08,ring21,ring28','Elite\x20Solar\x20Nova','Doom\x20Skull\x20II','speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor8,armor22,armor29,accessory10,accessory22,accessory34,ring02,ring15,ring34','image/bot_38.png','speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor13,armor27,armor41,accessory01,accessory13,accessory25,ring13,ring26,ring39','A\x20red\x20and\x20black\x20sphere\x20with\x20a\x20trident\x20emblem.\x20It\x20pierces\x20armor\x20with\x20savage\x20thrusts.','drawImage','image/bot_21.png','toLowerCase','bloodburst,slash1','speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor9,armor23,armor34,accessory03,accessory15,accessory27,ring12,ring25,ring35','speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor14,armor28,armor39,accessory08,accessory20,accessory32,ring04,ring17,ring40','A\x20police-type\x20patrol\x20bot\x20with\x20a\x20blue\x20armored\x20shell\x20and\x20a\x20star\x20badge\x20on\x20its\x20chest.\x20It\x20keeps\x20watch\x20over\x20its\x20area\x20and\x20moves\x20in\x20fast\x20on\x20anything\x20suspicious.','speedup,powerup,sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29','Toxic\x20Plague','uzi','A\x20poison-type\x20boss\x20bot\x20with\x20a\x20biohazard\x20core\x20and\x20razor-sharp\x20green\x20claws.\x20It\x20spreads\x20toxic\x20energy\x20across\x20the\x20area\x20and\x20wears\x20enemies\x20down\x20over\x20time.','Hooded\x20Assassin','voidhole,deadlystrike','image/boss16.png','speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor11,armor25,armor36,accessory05,accessory17,accessory29,ring01,ring14,ring37','speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor10,armor24,armor38,accessory10,accessory22,accessory34,ring10,ring23,ring36','Shadow\x20Drake','undefined','Blizzard\x20Sentinel\x20Mk\x20II','unitexplode','exports','speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor7,armor21,armor35,accessory07,accessory19,accessory31,ring07,ring20,ring33','speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor8,armor22,armor31,accessory06,accessory18,accessory30,ring13,ring26,ring34','holynova,slash1','deadlystrike,barrage','Bloodsight\x20Hunter\x20III','armor7','Elite\x20Sniper\x20Prime\x20Mk\x20II','speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor13,armor27,armor36,accessory11,accessory23,accessory35,ring05,ring18,ring39','speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor12,armor26,armor38,accessory04,accessory16,accessory28,ring01,ring14,ring38','speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor4,armor18,armor29,accessory10,accessory22,accessory34,ring07,ring20,ring30','Tempest\x20Sentinel','table','A\x20red\x20and\x20white\x20sphere\x20with\x20an\x20eagle\x20emblem.\x20It\x20dives\x20on\x20targets\x20with\x20disciplined\x20aggression.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','lightningbolt,shockring','beginPath','Lv\x20','weapon','Forest\x20Spirit','Elite\x20Blizzard\x20Sentinel\x20Mk\x20II','speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor5,armor19,armor31,accessory09,accessory21,accessory33,ring07,ring20,ring31','speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34','394582MvQWbS','Elite\x20Hex\x20Guardian\x20Mk\x20II','armor2','Azure\x20Dragon','replace','image/boss1.png','speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor11,armor25,armor32,accessory01,accessory13,accessory25,ring05,ring18,ring37','textAlign','speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor7,armor21,armor32,accessory01,accessory13,accessory25,ring10,ring23,ring33','A\x20war-machine\x20bot\x20with\x20purple\x20and\x20silver\x20armor\x20and\x20a\x20menacing\x20faction\x20emblem\x20on\x20its\x20chest.\x20It\x20leads\x20from\x20the\x20front\x20and\x20hits\x20hard\x20with\x20cold,\x20mechanical\x20precision.','Azure\x20Dragon\x20III','image/bot_40.png','upgradeLevel','Toxic\x20Behemoth\x20II','speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor12,armor26,armor40,accessory12,accessory24,accessory36,ring12,ring25,ring38','speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor4,armor18,armor43,accessory12,accessory24,accessory36,ring08,ring21,ring30','image/boss2.png','speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor9,armor23,armor35,accessory01,accessory13,accessory25,ring11,ring24,ring35','speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor9,armor23,armor32,accessory07,accessory19,accessory31,ring01,ring14,ring35','Tidal\x20Wave\x20Mk\x20II','indexOf','Cyber\x20Falcon\x20Mk\x20II','Cyber\x20Falcon','A\x20tactical\x20assault\x20bot\x20in\x20black\x20armor\x20marked\x20SWAT,\x20with\x20flashing\x20blue\x20lights.\x20It\x20pushes\x20into\x20enemy\x20positions\x20and\x20fights\x20with\x20strict\x20discipline.','rotate','armor12','speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor8,armor22,armor35,accessory10,accessory22,accessory34,ring09,ring22,ring34','A\x20powerful\x20fire-type\x20boss\x20bot\x20covered\x20in\x20heavy\x20armor\x20and\x20blazing\x20energy.\x20It\x20attacks\x20enemies\x20with\x20explosive\x20fire\x20strikes\x20and\x20becomes\x20more\x20dangerous\x20when\x20enraged.','A\x20soot-black\x20sphere\x20with\x20orange\x20glowing\x20plates\x20and\x20a\x20white\x20skull\x20emblem.\x20It\x20reaps\x20anything\x20that\x20wanders\x20into\x20its\x20patrol.','sniper','speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30','Elite\x20Toxic\x20Plague\x20Mk\x20II','image/bot_35.png','speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor9,armor23,armor37,accessory09,accessory21,accessory33,ring09,ring22,ring35','image/bot_09.png','image/boss6.png','Elite\x20Commando','#ffe066','A\x20stealth-type\x20assassin\x20bot\x20in\x20dark\x20purple\x20armor\x20with\x20a\x20hooded\x20face.\x20It\x20hides\x20in\x20the\x20shadows\x20and\x20ambushes\x20its\x20targets.','speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor10,armor24,armor34,accessory06,accessory18,accessory30,ring01,ring14,ring36','iceburst,cannonblast','An\x20elite\x20guard\x20bot\x20in\x20gold\x20and\x20black\x20armor\x20with\x20a\x20crown\x20emblem.\x20It\x20protects\x20its\x20territory\x20with\x20pride\x20and\x20heavy,\x20disciplined\x20strikes.','Storm\x20Surge\x20Mk\x20II','Vortex\x20Spiral\x20Mk\x20II','poisonburst,energybeam','Crown\x20Commander\x20III','image/bot_18.png','ak47'];_0x449e=function(){return _0xc22056;};return _0x449e();}_0x40ce8d();const _0x4aebb2=(function(){let _0x3396c9=!![];return function(_0x3c54da,_0x580978){const _0x141fe3=_0x3396c9?function(){const _0x379292=_0x5323;if(_0x580978){const _0x11af6e=_0x580978[_0x379292(0x20c)](_0x3c54da,arguments);return _0x580978=null,_0x11af6e;}}:function(){};return _0x3396c9=![],_0x141fe3;};}()),_0x422c94=_0x4aebb2(this,function(){const _0x35be81=_0x5323;let _0x3d1f8e;try{const _0x2f3eaf=Function('return\x20(function()\x20'+_0x35be81(0x1a1)+');');_0x3d1f8e=_0x2f3eaf();}catch(_0x2bd38a){_0x3d1f8e=window;}const _0x1c9e67=_0x3d1f8e[_0x35be81(0x1f1)]=_0x3d1f8e[_0x35be81(0x1f1)]||{},_0x4818ca=[_0x35be81(0x192),_0x35be81(0x23d),'info',_0x35be81(0x229),'exception',_0x35be81(0x304),_0x35be81(0x272)];for(let _0x4abff2=0x0;_0x4abff2<_0x4818ca[_0x35be81(0x1ac)];_0x4abff2++){const _0x2dbecb=_0x4aebb2[_0x35be81(0x285)][_0x35be81(0x20f)][_0x35be81(0x1e2)](_0x4aebb2),_0x1d1029=_0x4818ca[_0x4abff2],_0x200448=_0x1c9e67[_0x1d1029]||_0x2dbecb;_0x2dbecb[_0x35be81(0x24f)]=_0x4aebb2[_0x35be81(0x1e2)](_0x4aebb2),_0x2dbecb[_0x35be81(0x18b)]=_0x200448[_0x35be81(0x18b)]['bind'](_0x200448),_0x1c9e67[_0x1d1029]=_0x2dbecb;}});_0x422c94();const BOT_TYPES={'rusher':{'name':'rusher','health':0x64,'physicalDefense':'armor1','movementSpeed':0x6e,'weaponName':'uzi','image':_0x524323(0x289),'radius':0xb,'viewRange':0x104,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x5dc,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x1eb),'spawnGoldOrbChance':0.8,'goldOrbAmount':0x1e,'unitExplode':'unitexplode','level':0x1,'increaseSpawnGet':0x0,'expGet':0x1e,'attackSpeed':0x1,'physicalDamage':0xb,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'guard':{'name':_0x524323(0x1c7),'health':0xa0,'physicalDefense':_0x524323(0x227),'movementSpeed':0x46,'weaponName':_0x524323(0x2be),'image':_0x524323(0x1a4),'radius':0xf,'viewRange':0xb4,'viewAngle':0x6e,'patrolInterval':0xdac,'patrolRadius':0x32,'lookDuration':0x898,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x28a),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x64,'unitExplode':_0x524323(0x2f7),'level':0x1,'increaseSpawnGet':0x0,'expGet':0x1e,'attackSpeed':0x1,'physicalDamage':0xb,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'assaulter':{'name':_0x524323(0x2af),'health':0x78,'physicalDefense':'armor2','movementSpeed':0x64,'weaponName':_0x524323(0x174),'image':'image/soldier.png','radius':0xd,'viewRange':0x140,'viewAngle':0x8c,'patrolInterval':0xdac,'patrolRadius':0x46,'lookDuration':0x898,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x212),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x4b,'unitExplode':_0x524323(0x2f7),'level':0x1,'increaseSpawnGet':0x0,'expGet':0x1e,'attackSpeed':0x1,'physicalDamage':0xb,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01},'shooter':{'name':_0x524323(0x274),'health':0x78,'physicalDefense':0x0,'movementSpeed':0x32,'weaponName':_0x524323(0x162),'image':_0x524323(0x253),'radius':0xb,'viewRange':0x1f4,'viewAngle':0x28,'patrolInterval':0xfa0,'patrolRadius':0x1e,'lookDuration':0x9c4,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x1fc),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x32,'unitExplode':_0x524323(0x2f7),'level':0x1,'increaseSpawnGet':0x0,'expGet':0x1e,'attackSpeed':0x1,'physicalDamage':0xb,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01},'bot01':{'name':_0x524323(0x26c),'description':'A\x20police-type\x20patrol\x20bot\x20with\x20a\x20blue\x20armored\x20shell\x20and\x20a\x20star\x20badge\x20on\x20its\x20chest.\x20It\x20keeps\x20watch\x20over\x20its\x20area\x20and\x20moves\x20in\x20fast\x20on\x20anything\x20suspicious.','health':0xc8,'physicalDefense':_0x524323(0x273),'movementSpeed':0x5a,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x289),'radius':0xb,'viewRange':0xdc,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x2d7),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x4,'unitExplode':_0x524323(0x2f7),'level':0x1,'increaseSpawnGet':0x0,'expGet':0x8,'attackSpeed':0x1,'physicalDamage':0x8,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot01elite':{'name':_0x524323(0x263),'description':_0x524323(0x2ea),'health':0x190,'physicalDefense':_0x524323(0x273),'movementSpeed':0x5a,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x289),'radius':0xd,'viewRange':0xdc,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor6,armor20,armor34,accessory06,accessory18,accessory30,ring06,ring19,ring32','spawnGoldOrbChance':0.65,'goldOrbAmount':0x7,'unitExplode':'unitexplode','level':0x1,'increaseSpawnGet':0x0,'expGet':0xb,'attackSpeed':0x1,'physicalDamage':0xe,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot02':{'name':'Shadow\x20Ninja','description':_0x524323(0x1b3),'health':0xfa,'physicalDefense':_0x524323(0x310),'movementSpeed':0x5a,'weaponName':_0x524323(0x2be),'image':'image/bot_02.png','radius':0xb,'viewRange':0xdc,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x2f9),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x6,'unitExplode':_0x524323(0x2f7),'level':0x1,'increaseSpawnGet':0x0,'expGet':0xc,'attackSpeed':0x1,'physicalDamage':0x9,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot03':{'name':_0x524323(0x1e1),'description':_0x524323(0x317),'health':0xfa,'physicalDefense':_0x524323(0x310),'movementSpeed':0x5a,'weaponName':_0x524323(0x174),'image':_0x524323(0x251),'radius':0xb,'viewRange':0xdc,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x269),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x8,'unitExplode':'unitexplode','level':0x2,'increaseSpawnGet':0x0,'expGet':0x10,'attackSpeed':0x1,'physicalDamage':0x9,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot03elite':{'name':'Elite\x20Warlord','description':_0x524323(0x317),'health':0x1f4,'physicalDefense':_0x524323(0x310),'movementSpeed':0x5a,'weaponName':_0x524323(0x174),'image':_0x524323(0x251),'radius':0xd,'viewRange':0xdc,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x166),'spawnGoldOrbChance':0.75,'goldOrbAmount':0xe,'unitExplode':_0x524323(0x2f7),'level':0x2,'increaseSpawnGet':0x0,'expGet':0x13,'attackSpeed':0x1,'physicalDamage':0xf,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot04':{'name':_0x524323(0x2d4),'description':_0x524323(0x15c),'health':0x12c,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x257),'radius':0xb,'viewRange':0xdc,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x2f3),'spawnGoldOrbChance':0.7,'goldOrbAmount':0xa,'unitExplode':_0x524323(0x2f7),'level':0x3,'increaseSpawnGet':0x0,'expGet':0x12,'attackSpeed':0x1,'physicalDamage':0xb,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot04elite':{'name':_0x524323(0x26a),'description':_0x524323(0x15c),'health':0x258,'physicalDefense':_0x524323(0x310),'movementSpeed':0x5a,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x257),'radius':0xb,'viewRange':0xdc,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1e5),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x10,'unitExplode':_0x524323(0x2f7),'level':0x3,'increaseSpawnGet':0x0,'expGet':0x16,'attackSpeed':0x1,'physicalDamage':0x10,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot05':{'name':_0x524323(0x1f8),'description':_0x524323(0x213),'health':0x15e,'physicalDefense':_0x524323(0x227),'movementSpeed':0x5a,'weaponName':_0x524323(0x2ed),'magicAttack':0x8,'image':_0x524323(0x176),'radius':0xb,'viewRange':0x104,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x31c),'spawnGoldOrbChance':0.65,'goldOrbAmount':0xd,'unitExplode':_0x524323(0x2f7),'level':0x4,'increaseSpawnGet':0x0,'expGet':0x14,'attackSpeed':0x1,'physicalDamage':0xd,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot05elite':{'name':_0x524323(0x19d),'description':_0x524323(0x213),'health':0x2ee,'physicalDefense':_0x524323(0x227),'movementSpeed':0x5a,'weaponName':'uzi','magicAttack':0x8,'image':_0x524323(0x176),'radius':0xd,'viewRange':0x104,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x2e2),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x13,'unitExplode':_0x524323(0x2f7),'level':0x4,'increaseSpawnGet':0x0,'expGet':0x19,'attackSpeed':0x1,'physicalDamage':0x12,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot06':{'name':_0x524323(0x270),'description':_0x524323(0x2a4),'health':0x1c7,'physicalDefense':_0x524323(0x273),'movementSpeed':0x5a,'weaponName':_0x524323(0x2be),'image':_0x524323(0x24d),'radius':0xb,'viewRange':0x104,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor14,armor28,armor42,accessory02,accessory14,accessory26,ring01,ring14,ring40','spawnGoldOrbChance':0.7,'goldOrbAmount':0xf,'unitExplode':'unitexplode','level':0x4,'increaseSpawnGet':0x0,'expGet':0x17,'attackSpeed':0x1,'physicalDamage':0x11,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot07':{'name':_0x524323(0x27c),'description':_0x524323(0x20a),'health':0x1f4,'physicalDefense':_0x524323(0x310),'movementSpeed':0x5a,'weaponName':_0x524323(0x174),'image':_0x524323(0x2b2),'radius':0xb,'viewRange':0x104,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor1,armor15,armor43,accessory03,accessory15,accessory27,ring02,ring15,ring27','spawnGoldOrbChance':0.75,'goldOrbAmount':0x12,'unitExplode':_0x524323(0x2f7),'level':0x5,'increaseSpawnGet':0x0,'expGet':0x19,'attackSpeed':0x1,'physicalDamage':0x17,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot07elite':{'name':_0x524323(0x169),'description':_0x524323(0x20a),'health':0x3e8,'physicalDefense':_0x524323(0x310),'movementSpeed':0x5a,'weaponName':_0x524323(0x174),'image':_0x524323(0x2b2),'radius':0xd,'viewRange':0x104,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x181),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x19,'unitExplode':_0x524323(0x2f7),'level':0x5,'increaseSpawnGet':0x0,'expGet':0x1e,'attackSpeed':0x1,'physicalDamage':0x1d,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot08':{'name':'Red\x20Dragon','description':'A\x20dragon-type\x20bot\x20in\x20fiery\x20red\x20armor\x20with\x20a\x20golden\x20dragon\x20emblem.\x20It\x20is\x20proud\x20and\x20aggressive,\x20and\x20it\x20attacks\x20with\x20fierce,\x20burning\x20force.','health':0x258,'physicalDefense':_0x524323(0x227),'movementSpeed':0x5a,'weaponName':'sniper','image':'image/bot_08.png','radius':0xb,'viewRange':0x104,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x1f0),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x14,'unitExplode':_0x524323(0x2f7),'level':0x5,'increaseSpawnGet':0x0,'expGet':0x1c,'attackSpeed':0x1,'physicalDamage':0x1c,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot09':{'name':_0x524323(0x1f2),'description':'An\x20ice-type\x20bot\x20with\x20pale\x20blue\x20and\x20silver\x20armor\x20and\x20a\x20snowflake\x20core.\x20It\x20stays\x20cool\x20and\x20calm,\x20guarding\x20its\x20area\x20and\x20chilling\x20anything\x20that\x20gets\x20close.','health':0x320,'physicalDefense':_0x524323(0x273),'movementSpeed':0x5a,'weaponName':_0x524323(0x2ed),'magicAttack':0xa,'image':_0x524323(0x167),'radius':0xb,'viewRange':0x12c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor4,armor18,armor31,accessory06,accessory18,accessory30,ring05,ring18,ring30','spawnGoldOrbChance':0.65,'goldOrbAmount':0x19,'unitExplode':_0x524323(0x2f7),'level':0x6,'increaseSpawnGet':0x0,'expGet':0x20,'attackSpeed':0x1,'physicalDamage':0x25,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot09elite':{'name':_0x524323(0x2cb),'description':'An\x20ice-type\x20bot\x20with\x20pale\x20blue\x20and\x20silver\x20armor\x20and\x20a\x20snowflake\x20core.\x20It\x20stays\x20cool\x20and\x20calm,\x20guarding\x20its\x20area\x20and\x20chilling\x20anything\x20that\x20gets\x20close.','health':0x640,'physicalDefense':_0x524323(0x273),'movementSpeed':0x5a,'weaponName':_0x524323(0x2ed),'magicAttack':0xa,'image':'image/bot_09.png','radius':0xd,'viewRange':0x12c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor5,armor19,armor32,accessory07,accessory19,accessory31,ring06,ring19,ring31','spawnGoldOrbChance':0.65,'goldOrbAmount':0x20,'unitExplode':_0x524323(0x2f7),'level':0x6,'increaseSpawnGet':0x0,'expGet':0x25,'attackSpeed':0x1,'physicalDamage':0x2d,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot10':{'name':'Horned\x20Demon','description':_0x524323(0x2bf),'health':0x44c,'physicalDefense':_0x524323(0x310),'movementSpeed':0x5a,'weaponName':_0x524323(0x2be),'image':_0x524323(0x1f5),'radius':0xb,'viewRange':0x12c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x22e),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x1e,'unitExplode':_0x524323(0x2f7),'level':0x7,'increaseSpawnGet':0x0,'expGet':0x26,'attackSpeed':0x1,'physicalDamage':0x2b,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot10elite':{'name':_0x524323(0x221),'description':_0x524323(0x2bf),'health':0x898,'physicalDefense':_0x524323(0x310),'movementSpeed':0x5a,'weaponName':_0x524323(0x2be),'image':'image/bot_10.png','radius':0xd,'viewRange':0x12c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1ec),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x26,'unitExplode':_0x524323(0x2f7),'level':0x7,'increaseSpawnGet':0x0,'expGet':0x2e,'attackSpeed':0x1,'physicalDamage':0x31,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot11':{'name':_0x524323(0x22a),'description':'An\x20alien-type\x20bot\x20with\x20a\x20glowing\x20green\x20shell\x20and\x20an\x20alien\x20face\x20emblem.\x20It\x20wanders\x20strangely\x20and\x20attacks\x20without\x20warning.','health':0x60e,'physicalDefense':_0x524323(0x227),'movementSpeed':0x5a,'weaponName':_0x524323(0x174),'image':_0x524323(0x232),'radius':0xb,'viewRange':0x12c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x15f),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x25,'unitExplode':_0x524323(0x2f7),'level':0x8,'increaseSpawnGet':0x0,'expGet':0x2a,'attackSpeed':0x1,'physicalDamage':0x30,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot11elite':{'name':_0x524323(0x1f7),'description':_0x524323(0x23c),'health':0xc1c,'physicalDefense':_0x524323(0x227),'movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_11.png','radius':0xd,'viewRange':0x12c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor9,armor23,armor36,accessory11,accessory23,accessory35,ring10,ring23,ring35','spawnGoldOrbChance':0.75,'goldOrbAmount':0x2f,'unitExplode':_0x524323(0x2f7),'level':0x8,'increaseSpawnGet':0x0,'expGet':0x32,'attackSpeed':0x1,'physicalDamage':0x3a,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot12':{'name':_0x524323(0x2a3),'description':_0x524323(0x2d2),'health':0x708,'physicalDefense':_0x524323(0x273),'movementSpeed':0x5a,'weaponName':_0x524323(0x162),'image':'image/bot_12.png','radius':0xb,'viewRange':0x12c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor10,armor24,armor37,accessory12,accessory24,accessory36,ring11,ring24,ring36','spawnGoldOrbChance':0.6,'goldOrbAmount':0x2d,'unitExplode':_0x524323(0x2f7),'level':0x9,'increaseSpawnGet':0x0,'expGet':0x2e,'attackSpeed':0x1,'physicalDamage':0x35,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot12elite':{'name':_0x524323(0x190),'description':'A\x20speed-type\x20bot\x20in\x20red\x20and\x20white\x20armor\x20with\x20a\x20checkered\x20flag\x20emblem.\x20It\x20is\x20built\x20for\x20fast\x20movement\x20and\x20rushes\x20at\x20enemies\x20before\x20they\x20can\x20react.','health':0xe10,'physicalDefense':_0x524323(0x273),'movementSpeed':0x5a,'weaponName':_0x524323(0x162),'image':_0x524323(0x197),'radius':0xd,'viewRange':0x12c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1ea),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x34,'unitExplode':_0x524323(0x2f7),'level':0x9,'increaseSpawnGet':0x0,'expGet':0x34,'attackSpeed':0x1,'physicalDamage':0x3b,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot13':{'name':_0x524323(0x2ef),'description':_0x524323(0x16b),'health':0x898,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x1a9),'radius':0xb,'viewRange':0x154,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x2cd),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x32,'unitExplode':_0x524323(0x2f7),'level':0x9,'increaseSpawnGet':0x0,'expGet':0x32,'attackSpeed':0x1,'physicalDamage':0x3c,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot13elite':{'name':_0x524323(0x266),'description':_0x524323(0x16b),'health':0x1130,'physicalDefense':_0x524323(0x310),'movementSpeed':0x5a,'weaponName':'uzi','image':_0x524323(0x1a9),'radius':0xd,'viewRange':0x154,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor13,armor27,armor40,accessory03,accessory15,accessory27,ring01,ring14,ring39','spawnGoldOrbChance':0.65,'goldOrbAmount':0x3c,'unitExplode':_0x524323(0x2f7),'level':0x9,'increaseSpawnGet':0x0,'expGet':0x3a,'attackSpeed':0x1,'physicalDamage':0x46,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot14':{'name':_0x524323(0x2c0),'description':_0x524323(0x1a5),'health':0xa2d,'physicalDefense':_0x524323(0x227),'movementSpeed':0x5a,'weaponName':_0x524323(0x2be),'image':_0x524323(0x179),'radius':0xb,'viewRange':0x154,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x233),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x39,'unitExplode':_0x524323(0x2f7),'level':0xa,'increaseSpawnGet':0x0,'expGet':0x41,'attackSpeed':0x1,'physicalDamage':0x43,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot14elite':{'name':_0x524323(0x280),'description':_0x524323(0x1a5),'health':0x1072,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':'shotgun','image':_0x524323(0x179),'radius':0xd,'viewRange':0x154,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x244),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x43,'unitExplode':'unitexplode','level':0xa,'increaseSpawnGet':0x0,'expGet':0x4b,'attackSpeed':0x1,'physicalDamage':0x4b,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot15':{'name':'Royal\x20Guard','description':_0x524323(0x16e),'health':0xbb8,'physicalDefense':_0x524323(0x273),'movementSpeed':0x5a,'weaponName':_0x524323(0x174),'image':_0x524323(0x194),'radius':0xb,'viewRange':0x154,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor2,armor16,armor43,accessory06,accessory18,accessory30,ring04,ring17,ring28','spawnGoldOrbChance':0.75,'goldOrbAmount':0x46,'unitExplode':_0x524323(0x2f7),'level':0xa,'increaseSpawnGet':0x0,'expGet':0x4b,'attackSpeed':0x1,'physicalDamage':0x4e,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot16':{'name':_0x524323(0x27b),'description':_0x524323(0x18d),'health':0xdac,'physicalDefense':_0x524323(0x310),'movementSpeed':0x5a,'weaponName':'sniper','image':_0x524323(0x265),'radius':0xb,'viewRange':0x154,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x201),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x50,'unitExplode':_0x524323(0x2f7),'level':0xb,'increaseSpawnGet':0x0,'expGet':0x55,'attackSpeed':0x1,'physicalDamage':0x5f,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot16elite':{'name':'Elite\x20Cyber\x20Core','description':_0x524323(0x18d),'health':0x1b58,'physicalDefense':'armor2','movementSpeed':0x5a,'weaponName':_0x524323(0x162),'image':_0x524323(0x265),'radius':0xd,'viewRange':0x154,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor4,armor18,armor30,accessory08,accessory20,accessory32,ring06,ring19,ring30','spawnGoldOrbChance':0.6,'goldOrbAmount':0x5a,'unitExplode':'unitexplode','level':0xb,'increaseSpawnGet':0x0,'expGet':0x5a,'attackSpeed':0x1,'physicalDamage':0x69,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot17':{'name':'Skull\x20Raider','description':_0x524323(0x28f),'health':0x1068,'physicalDefense':_0x524323(0x227),'movementSpeed':0x5a,'weaponName':'uzi','magicAttack':0x14,'image':'image/bot_17.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x30c),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x6e,'unitExplode':_0x524323(0x2f7),'level':0xb,'increaseSpawnGet':0x0,'expGet':0x69,'attackSpeed':0x1,'physicalDamage':0x78,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot18':{'name':_0x524323(0x278),'description':_0x524323(0x219),'health':0x12c0,'physicalDefense':_0x524323(0x273),'movementSpeed':0x5a,'weaponName':_0x524323(0x2be),'image':_0x524323(0x173),'radius':0xc,'viewRange':0x17c,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor6,armor20,armor32,accessory10,accessory22,accessory34,ring08,ring21,ring32','spawnGoldOrbChance':0.7,'goldOrbAmount':0x7d,'unitExplode':_0x524323(0x2f7),'level':0xb,'increaseSpawnGet':0x0,'expGet':0x82,'attackSpeed':0x1,'physicalDamage':0x8c,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot18elite':{'name':_0x524323(0x21c),'description':'A\x20wolf-type\x20bot\x20in\x20blue\x20and\x20silver\x20armor\x20with\x20a\x20snarling\x20wolf\x20emblem.\x20It\x20hunts\x20its\x20territory\x20with\x20sharp\x20senses\x20and\x20strikes\x20fast.','health':0x2580,'physicalDefense':'armor1','movementSpeed':0x5a,'weaponName':_0x524323(0x2be),'image':_0x524323(0x173),'radius':0xd,'viewRange':0x17c,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x2bd),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x8c,'unitExplode':'unitexplode','level':0xc,'increaseSpawnGet':0x0,'expGet':0x8c,'attackSpeed':0x1,'physicalDamage':0x96,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot19':{'name':_0x524323(0x264),'description':'A\x20toxic-type\x20bot\x20in\x20yellow\x20and\x20black\x20armor\x20with\x20a\x20biohazard\x20emblem.\x20It\x20spreads\x20poison\x20around\x20it\x20and\x20wears\x20its\x20enemies\x20down.','health':0x157c,'physicalDefense':_0x524323(0x310),'movementSpeed':0x5a,'weaponName':_0x524323(0x174),'image':_0x524323(0x279),'radius':0xb,'viewRange':0x17c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x271),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x91,'unitExplode':'unitexplode','level':0xc,'increaseSpawnGet':0x0,'expGet':0x91,'attackSpeed':0x1,'physicalDamage':0xa0,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot20':{'name':_0x524323(0x29f),'description':_0x524323(0x1dd),'health':0x1964,'physicalDefense':_0x524323(0x227),'movementSpeed':0x5a,'weaponName':'sniper','image':_0x524323(0x21e),'radius':0xb,'magicAttack':0x14,'viewRange':0x17c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x31f),'spawnGoldOrbChance':0.6,'goldOrbAmount':0xaa,'unitExplode':_0x524323(0x2f7),'level':0xd,'increaseSpawnGet':0x0,'expGet':0xa0,'attackSpeed':0x1,'physicalDamage':0xb4,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot20elite':{'name':_0x524323(0x199),'description':'A\x20samurai-type\x20bot\x20in\x20purple\x20and\x20gold\x20armor\x20with\x20a\x20horned\x20oni\x20mask.\x20It\x20fights\x20with\x20fierce\x20honor\x20and\x20strikes\x20with\x20heavy,\x20powerful\x20blows.','health':0x32c8,'physicalDefense':_0x524323(0x227),'movementSpeed':0x5a,'weaponName':_0x524323(0x162),'image':_0x524323(0x21e),'radius':0xd,'magicAttack':0x14,'viewRange':0x17c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1a7),'spawnGoldOrbChance':0.6,'goldOrbAmount':0xbe,'unitExplode':'unitexplode','level':0xd,'increaseSpawnGet':0x0,'expGet':0xaa,'attackSpeed':0x1,'physicalDamage':0xbe,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot19elite':{'name':_0x524323(0x245),'description':_0x524323(0x1c1),'health':0x2af8,'physicalDefense':_0x524323(0x310),'movementSpeed':0x5a,'weaponName':'ak47','image':_0x524323(0x279),'radius':0xd,'viewRange':0x17c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x23a),'spawnGoldOrbChance':0.75,'goldOrbAmount':0xa0,'unitExplode':_0x524323(0x2f7),'level':0xc,'increaseSpawnGet':0x0,'expGet':0x9b,'attackSpeed':0x1,'physicalDamage':0xaa,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot21':{'name':_0x524323(0x15b),'description':_0x524323(0x2da),'health':0x1d4c,'physicalDefense':_0x524323(0x227),'movementSpeed':0x5a,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x2e5),'radius':0xb,'viewRange':0x154,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x301),'spawnGoldOrbChance':0.65,'goldOrbAmount':0xcd,'unitExplode':'unitexplode','level':0xe,'increaseSpawnGet':0x0,'expGet':0xb4,'attackSpeed':0x1,'physicalDamage':0xc8,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot22':{'name':_0x524323(0x17c),'description':_0x524323(0x161),'health':0x2328,'physicalDefense':_0x524323(0x227),'movementSpeed':0x5a,'weaponName':'shotgun','image':_0x524323(0x182),'radius':0xb,'viewRange':0x17c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x22f),'spawnGoldOrbChance':0.7,'goldOrbAmount':0xe6,'unitExplode':_0x524323(0x2f7),'level':0xf,'increaseSpawnGet':0x0,'expGet':0xd2,'attackSpeed':0x1,'physicalDamage':0xe6,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot23':{'name':'Blizzard\x20Sentinel','description':_0x524323(0x1e4),'health':0x2cec,'physicalDefense':_0x524323(0x227),'movementSpeed':0x5a,'weaponName':_0x524323(0x174),'image':'image/bot_23.png','radius':0xb,'viewRange':0x17c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x1e7),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x118,'unitExplode':_0x524323(0x2f7),'level':0x10,'increaseSpawnGet':0x0,'expGet':0xfa,'attackSpeed':0x1,'physicalDamage':0x104,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot24':{'name':_0x524323(0x250),'description':_0x524323(0x1cb),'health':0x32c8,'physicalDefense':'armor4','movementSpeed':0x5a,'weaponName':'sniper','image':_0x524323(0x1bd),'radius':0xb,'viewRange':0x17c,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x22d),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x12c,'unitExplode':_0x524323(0x2f7),'level':0x11,'increaseSpawnGet':0x0,'expGet':0x113,'attackSpeed':0x1,'physicalDamage':0x116,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot25':{'name':'Void\x20Raven','description':'A\x20dark\x20purple\x20sphere\x20with\x20a\x20winged\x20raven\x20crest.\x20It\x20hunts\x20from\x20the\x20shadows\x20and\x20strikes\x20from\x20odd\x20angles.','health':0x3778,'physicalDefense':'armor4','movementSpeed':0x5a,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x246),'radius':0xb,'viewRange':0x17c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor2,armor16,armor42,accessory08,accessory20,accessory32,ring05,ring18,ring28','spawnGoldOrbChance':0.7,'goldOrbAmount':0x145,'unitExplode':_0x524323(0x2f7),'level':0x12,'increaseSpawnGet':0x0,'expGet':0x122,'attackSpeed':0x1,'physicalDamage':0x127,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot26':{'name':_0x524323(0x235),'description':_0x524323(0x177),'health':0x3c8c,'physicalDefense':_0x524323(0x26e),'movementSpeed':0x5a,'weaponName':_0x524323(0x2be),'image':_0x524323(0x292),'radius':0xb,'viewRange':0x17c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x296),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x15e,'unitExplode':_0x524323(0x2f7),'level':0x13,'increaseSpawnGet':0x0,'expGet':0x136,'attackSpeed':0x1,'physicalDamage':0x140,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot27':{'name':_0x524323(0x207),'description':_0x524323(0x24a),'health':0x445c,'physicalDefense':_0x524323(0x26e),'movementSpeed':0x5a,'weaponName':_0x524323(0x174),'image':_0x524323(0x1b6),'radius':0xb,'viewRange':0x17c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x302),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x172,'unitExplode':_0x524323(0x2f7),'level':0x14,'increaseSpawnGet':0x0,'expGet':0x14a,'attackSpeed':0x1,'physicalDamage':0x154,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot28':{'name':_0x524323(0x2c4),'description':_0x524323(0x215),'health':0x4650,'physicalDefense':_0x524323(0x1c4),'movementSpeed':0x5a,'weaponName':_0x524323(0x162),'image':_0x524323(0x1ee),'radius':0xb,'viewRange':0x17c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x28e),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x17c,'unitExplode':_0x524323(0x2f7),'level':0x15,'increaseSpawnGet':0x0,'expGet':0x154,'attackSpeed':0x1,'physicalDamage':0x168,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot29':{'name':_0x524323(0x241),'description':_0x524323(0x2b8),'health':0x4a9c,'physicalDefense':_0x524323(0x1c4),'movementSpeed':0x5a,'weaponName':'uzi','image':_0x524323(0x2b9),'radius':0xb,'viewRange':0x17c,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x19b),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x191,'unitExplode':_0x524323(0x2f7),'level':0x16,'increaseSpawnGet':0x0,'expGet':0x167,'attackSpeed':0x1,'physicalDamage':0x17a,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot30':{'name':_0x524323(0x1bb),'description':_0x524323(0x261),'health':0x4ee8,'physicalDefense':_0x524323(0x1c4),'movementSpeed':0x5b,'weaponName':'shotgun','image':_0x524323(0x2aa),'radius':0xb,'viewRange':0x17c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x316),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x1a7,'unitExplode':_0x524323(0x2f7),'level':0x17,'increaseSpawnGet':0x0,'expGet':0x17a,'attackSpeed':0x1,'physicalDamage':0x18d,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot31':{'name':_0x524323(0x2ec),'description':_0x524323(0x18c),'health':0x5398,'physicalDefense':_0x524323(0x1c4),'movementSpeed':0x5b,'weaponName':_0x524323(0x174),'image':_0x524323(0x1d0),'radius':0xb,'viewRange':0x17c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor8,armor22,armor33,accessory02,accessory14,accessory26,ring11,ring24,ring34','spawnGoldOrbChance':0.65,'goldOrbAmount':0x1bd,'unitExplode':_0x524323(0x2f7),'level':0x18,'increaseSpawnGet':0x0,'expGet':0x18e,'attackSpeed':0x1,'physicalDamage':0x1a0,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot32':{'name':_0x524323(0x27e),'description':_0x524323(0x21f),'health':0x5848,'physicalDefense':'armor6','movementSpeed':0x5c,'weaponName':'sniper','image':_0x524323(0x25a),'radius':0xb,'viewRange':0x17c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x2e8),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x1d4,'unitExplode':_0x524323(0x2f7),'level':0x19,'increaseSpawnGet':0x0,'expGet':0x1a3,'attackSpeed':0x1,'physicalDamage':0x1b3,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot33':{'name':_0x524323(0x1db),'description':'A\x20red\x20and\x20white\x20sphere\x20with\x20an\x20eagle\x20emblem.\x20It\x20dives\x20on\x20targets\x20with\x20disciplined\x20aggression.','health':0x5d2a,'physicalDefense':'armor6','movementSpeed':0x5c,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x209),'radius':0xb,'viewRange':0x186,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor10,armor24,armor35,accessory04,accessory16,accessory28,ring13,ring26,ring36','spawnGoldOrbChance':0.75,'goldOrbAmount':0x1ed,'unitExplode':_0x524323(0x2f7),'level':0x1a,'increaseSpawnGet':0x0,'expGet':0x1b9,'attackSpeed':0x1,'physicalDamage':0x1c8,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot34':{'name':'Hex\x20Guardian','description':_0x524323(0x214),'health':0x623e,'physicalDefense':_0x524323(0x188),'movementSpeed':0x5d,'weaponName':_0x524323(0x2be),'image':_0x524323(0x205),'radius':0xb,'viewRange':0x186,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x2f2),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x206,'unitExplode':_0x524323(0x2f7),'level':0x1b,'increaseSpawnGet':0x0,'expGet':0x1cf,'attackSpeed':0x1,'physicalDamage':0x1dd,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot35':{'name':_0x524323(0x18a),'description':'An\x20orange\x20sphere\x20with\x20a\x20fox\x20emblem.\x20It\x20is\x20cunning,\x20quick\x20to\x20react\x20and\x20hard\x20to\x20pin\x20down.','health':0x6784,'physicalDefense':_0x524323(0x188),'movementSpeed':0x5d,'weaponName':_0x524323(0x174),'image':'image/bot_35.png','radius':0xb,'viewRange':0x186,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x248),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x21f,'unitExplode':'unitexplode','level':0x1c,'increaseSpawnGet':0x0,'expGet':0x1e6,'attackSpeed':0x1,'physicalDamage':0x1f2,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot36':{'name':_0x524323(0x2c8),'description':_0x524323(0x2ba),'health':0x6cfc,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x5e,'weaponName':_0x524323(0x162),'image':_0x524323(0x1fd),'radius':0xb,'viewRange':0x186,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x2ab),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x23a,'unitExplode':_0x524323(0x2f7),'level':0x1d,'increaseSpawnGet':0x0,'expGet':0x1fe,'attackSpeed':0x1,'physicalDamage':0x208,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot37':{'name':_0x524323(0x29e),'description':_0x524323(0x2e3),'health':0x72a6,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x5e,'weaponName':'uzi','image':_0x524323(0x295),'radius':0xb,'viewRange':0x186,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x2e9),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x255,'unitExplode':_0x524323(0x2f7),'level':0x1e,'increaseSpawnGet':0x0,'expGet':0x216,'attackSpeed':0x1,'physicalDamage':0x21e,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot38':{'name':_0x524323(0x30a),'description':_0x524323(0x2d6),'health':0x7882,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x5f,'weaponName':_0x524323(0x2be),'image':'image/bot_38.png','radius':0xb,'viewRange':0x190,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor1,armor15,armor40,accessory09,accessory21,accessory33,ring05,ring18,ring27','spawnGoldOrbChance':0.75,'goldOrbAmount':0x272,'unitExplode':_0x524323(0x2f7),'level':0x1f,'increaseSpawnGet':0x0,'expGet':0x230,'attackSpeed':0x1,'physicalDamage':0x235,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot39':{'name':_0x524323(0x231),'description':'A\x20purple\x20sphere\x20with\x20an\x20alien\x20skull\x20emblem.\x20It\x20commands\x20its\x20patrol\x20with\x20strange,\x20deadly\x20power.','health':0x7e90,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x5f,'weaponName':_0x524323(0x174),'image':_0x524323(0x238),'radius':0xb,'viewRange':0x190,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor2,armor16,armor41,accessory10,accessory22,accessory34,ring06,ring19,ring28','spawnGoldOrbChance':0.6,'goldOrbAmount':0x28f,'unitExplode':'unitexplode','level':0x20,'increaseSpawnGet':0x0,'expGet':0x24a,'attackSpeed':0x1,'physicalDamage':0x24c,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot40':{'name':_0x524323(0x2a1),'description':_0x524323(0x204),'health':0x849e,'physicalDefense':'armor8','movementSpeed':0x60,'weaponName':_0x524323(0x162),'image':_0x524323(0x319),'radius':0xb,'viewRange':0x190,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor3,armor17,armor42,accessory11,accessory23,accessory35,ring07,ring20,ring29','spawnGoldOrbChance':0.7,'goldOrbAmount':0x2ac,'unitExplode':_0x524323(0x2f7),'level':0x21,'increaseSpawnGet':0x0,'expGet':0x264,'attackSpeed':0x1,'physicalDamage':0x264,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot41':{'name':_0x524323(0x15a),'description':_0x524323(0x211),'health':0x8ade,'physicalDefense':_0x524323(0x18f),'movementSpeed':0x60,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x2e5),'radius':0xb,'viewRange':0x190,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x31d),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x2cb,'unitExplode':_0x524323(0x2f7),'level':0x22,'increaseSpawnGet':0x0,'expGet':0x280,'attackSpeed':0x1,'physicalDamage':0x27d,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot42':{'name':_0x524323(0x288),'description':'A\x20soot-black\x20sphere\x20with\x20orange\x20glowing\x20plates\x20and\x20a\x20white\x20skull\x20emblem.\x20It\x20reaps\x20anything\x20that\x20wanders\x20into\x20its\x20patrol.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x9150,'physicalDefense':_0x524323(0x18f),'movementSpeed':0x61,'weaponName':'shotgun','image':_0x524323(0x182),'radius':0xb,'viewRange':0x190,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x2d1),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x2ea,'unitExplode':_0x524323(0x2f7),'level':0x23,'increaseSpawnGet':0x0,'expGet':0x29c,'attackSpeed':0x1,'physicalDamage':0x295,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot43':{'name':_0x524323(0x2f6),'description':_0x524323(0x1d3),'health':0x97f4,'physicalDefense':_0x524323(0x18f),'movementSpeed':0x61,'weaponName':_0x524323(0x174),'image':_0x524323(0x1d8),'radius':0xb,'viewRange':0x19a,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x25e),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x30a,'unitExplode':_0x524323(0x2f7),'level':0x24,'increaseSpawnGet':0x0,'expGet':0x2b8,'attackSpeed':0x1,'physicalDamage':0x2ae,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot44':{'name':_0x524323(0x21a),'description':_0x524323(0x29c),'health':0x9eca,'physicalDefense':'armor9','movementSpeed':0x62,'weaponName':_0x524323(0x162),'image':_0x524323(0x1bd),'radius':0xb,'viewRange':0x19a,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x281),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x32b,'unitExplode':_0x524323(0x2f7),'level':0x25,'increaseSpawnGet':0x0,'expGet':0x2d6,'attackSpeed':0x1,'physicalDamage':0x2c8,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot45':{'name':_0x524323(0x2c2),'description':_0x524323(0x25b),'health':0xa5a0,'physicalDefense':'armor9','movementSpeed':0x62,'weaponName':'uzi','image':'image/bot_25.png','radius':0xb,'viewRange':0x19a,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x254),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x34c,'unitExplode':_0x524323(0x2f7),'level':0x26,'increaseSpawnGet':0x0,'expGet':0x2f4,'attackSpeed':0x1,'physicalDamage':0x2e2,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot46':{'name':_0x524323(0x19a),'description':'A\x20red-hot\x20armored\x20sphere\x20with\x20a\x20blazing\x20flame\x20emblem.\x20It\x20burns\x20with\x20rage\x20and\x20hits\x20with\x20scorching\x20force.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xaca8,'physicalDefense':_0x524323(0x2ca),'movementSpeed':0x63,'weaponName':_0x524323(0x2be),'image':_0x524323(0x292),'radius':0xb,'viewRange':0x19a,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x225),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x36f,'unitExplode':'unitexplode','level':0x27,'increaseSpawnGet':0x0,'expGet':0x312,'attackSpeed':0x1,'physicalDamage':0x2fc,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot47':{'name':_0x524323(0x16f),'description':_0x524323(0x2c9),'health':0xb3e2,'physicalDefense':_0x524323(0x2ca),'movementSpeed':0x63,'weaponName':_0x524323(0x174),'image':_0x524323(0x1b6),'radius':0xb,'viewRange':0x19a,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x16c),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x391,'unitExplode':_0x524323(0x2f7),'level':0x28,'increaseSpawnGet':0x0,'expGet':0x331,'attackSpeed':0x1,'physicalDamage':0x316,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot48':{'name':'Golden\x20Monarch\x20Mk\x20II','description':_0x524323(0x2d8),'health':0xbb1c,'physicalDefense':'armor10','movementSpeed':0x64,'weaponName':_0x524323(0x162),'image':_0x524323(0x1ee),'radius':0xb,'viewRange':0x1a4,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x24b),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x3b5,'unitExplode':_0x524323(0x2f7),'level':0x29,'increaseSpawnGet':0x0,'expGet':0x351,'attackSpeed':0x1,'physicalDamage':0x331,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot49':{'name':'Crimson\x20Fiend\x20Mk\x20II','description':'A\x20blood-red\x20sphere\x20with\x20a\x20horned\x20demon\x20face.\x20It\x20is\x20relentless\x20and\x20brutal\x20in\x20close\x20fights.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xc288,'physicalDefense':_0x524323(0x2a0),'movementSpeed':0x64,'weaponName':'uzi','image':_0x524323(0x2b9),'radius':0xb,'viewRange':0x1a4,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x1b1),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x3d8,'unitExplode':'unitexplode','level':0x2a,'increaseSpawnGet':0x0,'expGet':0x371,'attackSpeed':0x1,'physicalDamage':0x34b,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot50':{'name':_0x524323(0x1e6),'description':_0x524323(0x275),'health':0xc9f4,'physicalDefense':'armor10','movementSpeed':0x65,'weaponName':_0x524323(0x2be),'image':'image/bot_30.png','radius':0xb,'viewRange':0x1a4,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x2c5),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x3fd,'unitExplode':'unitexplode','level':0x2b,'increaseSpawnGet':0x0,'expGet':0x391,'attackSpeed':0x1,'physicalDamage':0x366,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot51':{'name':_0x524323(0x1fa),'description':_0x524323(0x1c2),'health':0xd160,'physicalDefense':_0x524323(0x2a0),'movementSpeed':0x65,'weaponName':_0x524323(0x174),'image':_0x524323(0x1d0),'radius':0xb,'viewRange':0x1a4,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x17b),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x421,'unitExplode':_0x524323(0x2f7),'level':0x2c,'increaseSpawnGet':0x0,'expGet':0x3b2,'attackSpeed':0x1,'physicalDamage':0x381,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot52':{'name':_0x524323(0x170),'description':_0x524323(0x210),'health':0xd8fe,'physicalDefense':'armor11','movementSpeed':0x66,'weaponName':'sniper','image':_0x524323(0x25a),'radius':0xb,'viewRange':0x1a4,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x1ba),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x447,'unitExplode':_0x524323(0x2f7),'level':0x2d,'increaseSpawnGet':0x0,'expGet':0x3d3,'attackSpeed':0x1,'physicalDamage':0x39c,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot53':{'name':_0x524323(0x1be),'description':_0x524323(0x305),'health':0xe09c,'physicalDefense':_0x524323(0x23b),'movementSpeed':0x66,'weaponName':'uzi','image':'image/bot_33.png','radius':0xb,'viewRange':0x1ae,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x277),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x46c,'unitExplode':_0x524323(0x2f7),'level':0x2e,'increaseSpawnGet':0x0,'expGet':0x3f5,'attackSpeed':0x1,'physicalDamage':0x3b7,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot54':{'name':_0x524323(0x224),'description':_0x524323(0x1c5),'health':0xe83a,'physicalDefense':'armor11','movementSpeed':0x67,'weaponName':'shotgun','image':_0x524323(0x205),'radius':0xb,'viewRange':0x1ae,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x24c),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x492,'unitExplode':_0x524323(0x2f7),'level':0x2f,'increaseSpawnGet':0x0,'expGet':0x417,'attackSpeed':0x1,'physicalDamage':0x3d2,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot55':{'name':'Ember\x20Fox\x20Mk\x20II','description':_0x524323(0x23e),'health':0xf00a,'physicalDefense':'armor11','movementSpeed':0x67,'weaponName':_0x524323(0x174),'image':_0x524323(0x165),'radius':0xb,'viewRange':0x1ae,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x1ce),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x4b8,'unitExplode':_0x524323(0x2f7),'level':0x30,'increaseSpawnGet':0x0,'expGet':0x439,'attackSpeed':0x1,'physicalDamage':0x3ed,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot56':{'name':_0x524323(0x321),'description':_0x524323(0x2bb),'health':0xf7a8,'physicalDefense':'armor12','movementSpeed':0x68,'weaponName':_0x524323(0x162),'image':_0x524323(0x1fd),'radius':0xb,'viewRange':0x1ae,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x2c7),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x4df,'unitExplode':_0x524323(0x2f7),'level':0x31,'increaseSpawnGet':0x0,'expGet':0x45b,'attackSpeed':0x1,'physicalDamage':0x408,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot57':{'name':_0x524323(0x1cc),'description':'A\x20red\x20and\x20black\x20sphere\x20with\x20a\x20trident\x20emblem.\x20It\x20pierces\x20armor\x20with\x20savage\x20thrusts.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0xff78,'physicalDefense':'armor12','movementSpeed':0x68,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x295),'radius':0xb,'viewRange':0x1ae,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':'speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor6,armor20,armor29,accessory04,accessory16,accessory28,ring11,ring24,ring32','spawnGoldOrbChance':0.7,'goldOrbAmount':0x505,'unitExplode':_0x524323(0x2f7),'level':0x32,'increaseSpawnGet':0x0,'expGet':0x47e,'attackSpeed':0x1,'physicalDamage':0x423,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot58':{'name':_0x524323(0x1c3),'description':_0x524323(0x1d5),'health':0x10716,'physicalDefense':_0x524323(0x15e),'movementSpeed':0x69,'weaponName':_0x524323(0x2be),'image':_0x524323(0x2e1),'radius':0xb,'viewRange':0x1b8,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xa,'active':![],'spawnItem':_0x524323(0x1dc),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x52c,'unitExplode':_0x524323(0x2f7),'level':0x33,'increaseSpawnGet':0x0,'expGet':0x4a0,'attackSpeed':0x1,'physicalDamage':0x43d,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot21elite':{'name':_0x524323(0x25f),'description':_0x524323(0x2da),'health':0x3a98,'physicalDefense':_0x524323(0x227),'movementSpeed':0x5a,'weaponName':_0x524323(0x2ed),'image':'image/bot_21.png','radius':0xd,'viewRange':0x154,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x2fa),'spawnGoldOrbChance':0.65,'goldOrbAmount':0xe6,'unitExplode':_0x524323(0x2f7),'level':0xe,'increaseSpawnGet':0x0,'expGet':0xc2,'attackSpeed':0x1,'physicalDamage':0xd8,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot22elite':{'name':'Elite\x20Bone\x20Reaper','description':_0x524323(0x161),'health':0x4650,'physicalDefense':'armor3','movementSpeed':0x5a,'weaponName':_0x524323(0x2be),'image':_0x524323(0x182),'radius':0xd,'viewRange':0x17c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x320),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x102,'unitExplode':'unitexplode','level':0xf,'increaseSpawnGet':0x0,'expGet':0xe3,'attackSpeed':0x1,'physicalDamage':0xf8,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot23elite':{'name':'Elite\x20Blizzard\x20Sentinel','description':_0x524323(0x1e4),'health':0x59d8,'physicalDefense':_0x524323(0x227),'movementSpeed':0x5a,'weaponName':'ak47','image':_0x524323(0x1d8),'radius':0xd,'viewRange':0x17c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1b2),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x13a,'unitExplode':_0x524323(0x2f7),'level':0x10,'increaseSpawnGet':0x0,'expGet':0x10e,'attackSpeed':0x1,'physicalDamage':0x119,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot24elite':{'name':_0x524323(0x299),'description':'A\x20green-lit\x20sphere\x20marked\x20with\x20a\x20radiation\x20symbol.\x20It\x20poisons\x20the\x20air\x20around\x20it\x20and\x20hits\x20with\x20irradiated\x20rounds.','health':0x6590,'physicalDefense':_0x524323(0x26e),'movementSpeed':0x5a,'weaponName':_0x524323(0x162),'image':_0x524323(0x1bd),'radius':0xd,'viewRange':0x17c,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x218),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x150,'unitExplode':'unitexplode','level':0x11,'increaseSpawnGet':0x0,'expGet':0x129,'attackSpeed':0x1,'physicalDamage':0x12c,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot25elite':{'name':'Elite\x20Void\x20Raven','description':_0x524323(0x1a2),'health':0x6ef0,'physicalDefense':'armor4','movementSpeed':0x5a,'weaponName':_0x524323(0x2ed),'image':'image/bot_25.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor12,armor26,armor35,accessory10,accessory22,accessory34,ring04,ring17,ring38','spawnGoldOrbChance':0.7,'goldOrbAmount':0x16c,'unitExplode':_0x524323(0x2f7),'level':0x12,'increaseSpawnGet':0x0,'expGet':0x139,'attackSpeed':0x1,'physicalDamage':0x13f,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot26elite':{'name':_0x524323(0x180),'description':_0x524323(0x177),'health':0x7918,'physicalDefense':'armor4','movementSpeed':0x5a,'weaponName':_0x524323(0x2be),'image':_0x524323(0x292),'radius':0xd,'viewRange':0x17c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x300),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x188,'unitExplode':_0x524323(0x2f7),'level':0x13,'increaseSpawnGet':0x0,'expGet':0x14f,'attackSpeed':0x1,'physicalDamage':0x15a,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot27elite':{'name':_0x524323(0x1cd),'description':_0x524323(0x24a),'health':0x88b8,'physicalDefense':'armor4','movementSpeed':0x5a,'weaponName':'ak47','image':'image/bot_27.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor14,armor28,armor37,accessory12,accessory24,accessory36,ring06,ring19,ring40','spawnGoldOrbChance':0.7,'goldOrbAmount':0x19e,'unitExplode':'unitexplode','level':0x14,'increaseSpawnGet':0x0,'expGet':0x164,'attackSpeed':0x1,'physicalDamage':0x16f,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot28elite':{'name':_0x524323(0x282),'description':_0x524323(0x215),'health':0x8ca0,'physicalDefense':_0x524323(0x1c4),'movementSpeed':0x5a,'weaponName':'sniper','image':'image/bot_28.png','radius':0xd,'viewRange':0x17c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x17d),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x1aa,'unitExplode':'unitexplode','level':0x15,'increaseSpawnGet':0x0,'expGet':0x16f,'attackSpeed':0x1,'physicalDamage':0x185,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot29elite':{'name':'Elite\x20Crimson\x20Fiend','description':'A\x20blood-red\x20sphere\x20with\x20a\x20horned\x20demon\x20face.\x20It\x20is\x20relentless\x20and\x20brutal\x20in\x20close\x20fights.','health':0x9538,'physicalDefense':_0x524323(0x1c4),'movementSpeed':0x5a,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x2b9),'radius':0xd,'viewRange':0x17c,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x2dd),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x1c1,'unitExplode':'unitexplode','level':0x16,'increaseSpawnGet':0x0,'expGet':0x184,'attackSpeed':0x1,'physicalDamage':0x198,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot30elite':{'name':_0x524323(0x1cf),'description':_0x524323(0x261),'health':0x9dd0,'physicalDefense':'armor5','movementSpeed':0x5b,'weaponName':_0x524323(0x2be),'image':_0x524323(0x2aa),'radius':0xd,'viewRange':0x17c,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x20d),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x1da,'unitExplode':_0x524323(0x2f7),'level':0x17,'increaseSpawnGet':0x0,'expGet':0x198,'attackSpeed':0x1,'physicalDamage':0x1ad,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot31elite':{'name':_0x524323(0x206),'description':'A\x20green\x20sphere\x20with\x20a\x20biohazard\x20emblem.\x20It\x20spreads\x20decay\x20wherever\x20it\x20patrols.','health':0xa730,'physicalDefense':'armor5','movementSpeed':0x5b,'weaponName':_0x524323(0x174),'image':_0x524323(0x1d0),'radius':0xd,'viewRange':0x17c,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1c6),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x1f2,'unitExplode':'unitexplode','level':0x18,'increaseSpawnGet':0x0,'expGet':0x1ae,'attackSpeed':0x1,'physicalDamage':0x1c1,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot32elite':{'name':'Elite\x20Vortex\x20Spiral','description':_0x524323(0x21f),'health':0xb090,'physicalDefense':_0x524323(0x188),'movementSpeed':0x5c,'weaponName':_0x524323(0x162),'image':_0x524323(0x25a),'radius':0xd,'viewRange':0x17c,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1c8),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x20c,'unitExplode':_0x524323(0x2f7),'level':0x19,'increaseSpawnGet':0x0,'expGet':0x1c5,'attackSpeed':0x1,'physicalDamage':0x1d6,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot33elite':{'name':_0x524323(0x1ca),'description':_0x524323(0x2d0),'health':0xba54,'physicalDefense':_0x524323(0x188),'movementSpeed':0x5c,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x209),'radius':0xd,'viewRange':0x186,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1ef),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x228,'unitExplode':'unitexplode','level':0x1a,'increaseSpawnGet':0x0,'expGet':0x1dc,'attackSpeed':0x1,'physicalDamage':0x1ec,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot34elite':{'name':_0x524323(0x1fb),'description':_0x524323(0x214),'health':0xc47c,'physicalDefense':'armor6','movementSpeed':0x5d,'weaponName':_0x524323(0x2be),'image':_0x524323(0x205),'radius':0xd,'viewRange':0x186,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x25d),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x244,'unitExplode':'unitexplode','level':0x1b,'increaseSpawnGet':0x0,'expGet':0x1f4,'attackSpeed':0x1,'physicalDamage':0x203,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot35elite':{'name':_0x524323(0x291),'description':_0x524323(0x200),'health':0xcf08,'physicalDefense':_0x524323(0x188),'movementSpeed':0x5d,'weaponName':_0x524323(0x174),'image':_0x524323(0x165),'radius':0xd,'viewRange':0x186,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor8,armor22,armor30,accessory08,accessory20,accessory32,ring01,ring14,ring34','spawnGoldOrbChance':0.7,'goldOrbAmount':0x260,'unitExplode':_0x524323(0x2f7),'level':0x1c,'increaseSpawnGet':0x0,'expGet':0x20d,'attackSpeed':0x1,'physicalDamage':0x21a,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot36elite':{'name':_0x524323(0x1b4),'description':'A\x20deep-blue\x20sphere\x20with\x20a\x20wave\x20emblem.\x20It\x20crashes\x20into\x20enemies\x20in\x20heavy\x20waves\x20of\x20fire.','health':0xd9f8,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x5e,'weaponName':_0x524323(0x162),'image':_0x524323(0x1fd),'radius':0xd,'viewRange':0x186,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor9,armor23,armor31,accessory09,accessory21,accessory33,ring02,ring15,ring35','spawnGoldOrbChance':0.65,'goldOrbAmount':0x27e,'unitExplode':_0x524323(0x2f7),'level':0x1d,'increaseSpawnGet':0x0,'expGet':0x227,'attackSpeed':0x1,'physicalDamage':0x232,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot37elite':{'name':_0x524323(0x19c),'description':_0x524323(0x2e3),'health':0xe54c,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x5e,'weaponName':_0x524323(0x2ed),'image':'image/bot_37.png','radius':0xd,'viewRange':0x186,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x193),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x29d,'unitExplode':_0x524323(0x2f7),'level':0x1e,'increaseSpawnGet':0x0,'expGet':0x241,'attackSpeed':0x1,'physicalDamage':0x249,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot38elite':{'name':'Elite\x20Forest\x20Spirit','description':_0x524323(0x2d6),'health':0xf104,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x5f,'weaponName':_0x524323(0x2be),'image':_0x524323(0x2e1),'radius':0xd,'viewRange':0x190,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x19f),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x2bd,'unitExplode':'unitexplode','level':0x1f,'increaseSpawnGet':0x0,'expGet':0x25d,'attackSpeed':0x1,'physicalDamage':0x262,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot39elite':{'name':_0x524323(0x191),'description':'A\x20purple\x20sphere\x20with\x20an\x20alien\x20skull\x20emblem.\x20It\x20commands\x20its\x20patrol\x20with\x20strange,\x20deadly\x20power.','health':0xfd20,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x5f,'weaponName':_0x524323(0x174),'image':_0x524323(0x238),'radius':0xd,'viewRange':0x190,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor12,armor26,armor34,accessory12,accessory24,accessory36,ring05,ring18,ring38','spawnGoldOrbChance':0.6,'goldOrbAmount':0x2de,'unitExplode':_0x524323(0x2f7),'level':0x20,'increaseSpawnGet':0x0,'expGet':0x279,'attackSpeed':0x1,'physicalDamage':0x27b,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot40elite':{'name':_0x524323(0x2de),'description':'A\x20white\x20and\x20gold\x20sphere\x20with\x20a\x20radiant\x20star\x20emblem.\x20It\x20shines\x20with\x20explosive\x20power.','health':0x1093c,'physicalDefense':_0x524323(0x18f),'movementSpeed':0x60,'weaponName':'sniper','image':_0x524323(0x319),'radius':0xd,'viewRange':0x190,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x2ad),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x2fe,'unitExplode':_0x524323(0x2f7),'level':0x21,'increaseSpawnGet':0x0,'expGet':0x295,'attackSpeed':0x1,'physicalDamage':0x295,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot41elite':{'name':_0x524323(0x178),'description':_0x524323(0x211),'health':0x115bc,'physicalDefense':_0x524323(0x18f),'movementSpeed':0x60,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x2e5),'radius':0xd,'viewRange':0x190,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1b5),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x321,'unitExplode':_0x524323(0x2f7),'level':0x22,'increaseSpawnGet':0x0,'expGet':0x2b3,'attackSpeed':0x1,'physicalDamage':0x2b0,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot42elite':{'name':_0x524323(0x1c0),'description':_0x524323(0x1d2),'health':0x122a0,'physicalDefense':_0x524323(0x18f),'movementSpeed':0x61,'weaponName':_0x524323(0x2be),'image':_0x524323(0x182),'radius':0xd,'viewRange':0x190,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1f4),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x344,'unitExplode':'unitexplode','level':0x23,'increaseSpawnGet':0x0,'expGet':0x2d1,'attackSpeed':0x1,'physicalDamage':0x2ca,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot43elite':{'name':_0x524323(0x30b),'description':_0x524323(0x1d3),'health':0x12fe8,'physicalDefense':_0x524323(0x18f),'movementSpeed':0x61,'weaponName':_0x524323(0x174),'image':'image/bot_23.png','radius':0xd,'viewRange':0x19a,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1e0),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x367,'unitExplode':_0x524323(0x2f7),'level':0x24,'increaseSpawnGet':0x0,'expGet':0x2f0,'attackSpeed':0x1,'physicalDamage':0x2e5,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot44elite':{'name':'Elite\x20Nuclear\x20Warden\x20Mk\x20II','description':_0x524323(0x29c),'health':0x13d94,'physicalDefense':_0x524323(0x2ca),'movementSpeed':0x62,'weaponName':'sniper','image':_0x524323(0x1bd),'radius':0xd,'viewRange':0x19a,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1df),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x38c,'unitExplode':_0x524323(0x2f7),'level':0x25,'increaseSpawnGet':0x0,'expGet':0x310,'attackSpeed':0x1,'physicalDamage':0x301,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot45elite':{'name':_0x524323(0x1b9),'description':'A\x20dark\x20purple\x20sphere\x20with\x20a\x20winged\x20raven\x20crest.\x20It\x20hunts\x20from\x20the\x20shadows\x20and\x20strikes\x20from\x20odd\x20angles.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x14b40,'physicalDefense':_0x524323(0x2ca),'movementSpeed':0x62,'weaponName':'uzi','image':_0x524323(0x246),'radius':0xd,'viewRange':0x19a,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x276),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x3b1,'unitExplode':_0x524323(0x2f7),'level':0x26,'increaseSpawnGet':0x0,'expGet':0x330,'attackSpeed':0x1,'physicalDamage':0x31d,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot46elite':{'name':_0x524323(0x18e),'description':'A\x20red-hot\x20armored\x20sphere\x20with\x20a\x20blazing\x20flame\x20emblem.\x20It\x20burns\x20with\x20rage\x20and\x20hits\x20with\x20scorching\x20force.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x15950,'physicalDefense':_0x524323(0x2ca),'movementSpeed':0x63,'weaponName':_0x524323(0x2be),'image':_0x524323(0x292),'radius':0xd,'viewRange':0x19a,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x27a),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x3d8,'unitExplode':_0x524323(0x2f7),'level':0x27,'increaseSpawnGet':0x0,'expGet':0x351,'attackSpeed':0x1,'physicalDamage':0x339,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot47elite':{'name':'Elite\x20Storm\x20Surge\x20Mk\x20II','description':'A\x20blue\x20sphere\x20crackling\x20with\x20a\x20lightning-bolt\x20emblem.\x20It\x20moves\x20in\x20quick\x20bursts\x20and\x20shocks\x20everything\x20nearby.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x167c4,'physicalDefense':_0x524323(0x2ca),'movementSpeed':0x63,'weaponName':_0x524323(0x174),'image':_0x524323(0x1b6),'radius':0xd,'viewRange':0x19a,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x290),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x3ff,'unitExplode':_0x524323(0x2f7),'level':0x28,'increaseSpawnGet':0x0,'expGet':0x372,'attackSpeed':0x1,'physicalDamage':0x355,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot48elite':{'name':'Elite\x20Golden\x20Monarch\x20Mk\x20II','description':_0x524323(0x2d8),'health':0x17638,'physicalDefense':_0x524323(0x2a0),'movementSpeed':0x64,'weaponName':'sniper','image':_0x524323(0x1ee),'radius':0xd,'viewRange':0x1a4,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor7,armor21,armor43,accessory09,accessory21,accessory33,ring01,ring14,ring33','spawnGoldOrbChance':0.75,'goldOrbAmount':0x427,'unitExplode':'unitexplode','level':0x29,'increaseSpawnGet':0x0,'expGet':0x395,'attackSpeed':0x1,'physicalDamage':0x372,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot49elite':{'name':'Elite\x20Crimson\x20Fiend\x20Mk\x20II','description':_0x524323(0x26b),'health':0x18510,'physicalDefense':_0x524323(0x2a0),'movementSpeed':0x64,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x2b9),'radius':0xd,'viewRange':0x1a4,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x2e0),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x44e,'unitExplode':_0x524323(0x2f7),'level':0x2a,'increaseSpawnGet':0x0,'expGet':0x3b7,'attackSpeed':0x1,'physicalDamage':0x38e,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot50elite':{'name':_0x524323(0x2ff),'description':_0x524323(0x275),'health':0x193e8,'physicalDefense':'armor10','movementSpeed':0x65,'weaponName':_0x524323(0x2be),'image':_0x524323(0x2aa),'radius':0xd,'viewRange':0x1a4,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':'speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor9,armor23,armor30,accessory11,accessory23,accessory35,ring03,ring16,ring35','spawnGoldOrbChance':0.7,'goldOrbAmount':0x478,'unitExplode':_0x524323(0x2f7),'level':0x2b,'increaseSpawnGet':0x0,'expGet':0x3da,'attackSpeed':0x1,'physicalDamage':0x3ac,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot51elite':{'name':_0x524323(0x164),'description':_0x524323(0x1c2),'health':0x1a2c0,'physicalDefense':_0x524323(0x2a0),'movementSpeed':0x65,'weaponName':_0x524323(0x174),'image':_0x524323(0x1d0),'radius':0xd,'viewRange':0x1a4,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1af),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x4a0,'unitExplode':_0x524323(0x2f7),'level':0x2c,'increaseSpawnGet':0x0,'expGet':0x3fe,'attackSpeed':0x1,'physicalDamage':0x3c9,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot52elite':{'name':'Elite\x20Vortex\x20Spiral\x20Mk\x20II','description':_0x524323(0x210),'health':0x1b1fc,'physicalDefense':_0x524323(0x23b),'movementSpeed':0x66,'weaponName':_0x524323(0x162),'image':_0x524323(0x25a),'radius':0xd,'viewRange':0x1a4,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x314),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x4ca,'unitExplode':_0x524323(0x2f7),'level':0x2d,'increaseSpawnGet':0x0,'expGet':0x421,'attackSpeed':0x1,'physicalDamage':0x3e6,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot53elite':{'name':'Elite\x20Crimson\x20Eagle\x20Mk\x20II','description':_0x524323(0x305),'health':0x1c138,'physicalDefense':_0x524323(0x23b),'movementSpeed':0x66,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x209),'radius':0xd,'viewRange':0x1ae,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x27d),'spawnGoldOrbChance':0.75,'goldOrbAmount':0x4f4,'unitExplode':_0x524323(0x2f7),'level':0x2e,'increaseSpawnGet':0x0,'expGet':0x446,'attackSpeed':0x1,'physicalDamage':0x403,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot54elite':{'name':_0x524323(0x30f),'description':_0x524323(0x1c5),'health':0x1d074,'physicalDefense':_0x524323(0x23b),'movementSpeed':0x67,'weaponName':_0x524323(0x2be),'image':'image/bot_34.png','radius':0xd,'viewRange':0x1ae,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1e9),'spawnGoldOrbChance':0.6,'goldOrbAmount':0x51e,'unitExplode':_0x524323(0x2f7),'level':0x2f,'increaseSpawnGet':0x0,'expGet':0x46b,'attackSpeed':0x1,'physicalDamage':0x420,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot55elite':{'name':_0x524323(0x1d4),'description':'An\x20orange\x20sphere\x20with\x20a\x20fox\x20emblem.\x20It\x20is\x20cunning,\x20quick\x20to\x20react\x20and\x20hard\x20to\x20pin\x20down.\x20Upgraded\x20Mk\x20II\x20version:\x20tougher\x20and\x20hits\x20harder.','health':0x1e014,'physicalDefense':'armor11','movementSpeed':0x67,'weaponName':'ak47','image':_0x524323(0x165),'radius':0xd,'viewRange':0x1ae,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1f9),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x549,'unitExplode':_0x524323(0x2f7),'level':0x30,'increaseSpawnGet':0x0,'expGet':0x48f,'attackSpeed':0x1,'physicalDamage':0x43d,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot56elite':{'name':_0x524323(0x2bc),'description':_0x524323(0x2bb),'health':0x1ef50,'physicalDefense':_0x524323(0x15e),'movementSpeed':0x68,'weaponName':'sniper','image':_0x524323(0x1fd),'radius':0xd,'viewRange':0x1ae,'viewAngle':0x46,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1bc),'spawnGoldOrbChance':0.65,'goldOrbAmount':0x575,'unitExplode':'unitexplode','level':0x31,'increaseSpawnGet':0x0,'expGet':0x4b4,'attackSpeed':0x1,'physicalDamage':0x45b,'attack':'melee','criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'bot57elite':{'name':_0x524323(0x21b),'description':_0x524323(0x1c9),'health':0x1fef0,'physicalDefense':_0x524323(0x15e),'movementSpeed':0x68,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x295),'radius':0xd,'viewRange':0x1ae,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x3c,'active':!![],'spawnItem':_0x524323(0x1ed),'spawnGoldOrbChance':0.7,'goldOrbAmount':0x59f,'unitExplode':_0x524323(0x2f7),'level':0x32,'increaseSpawnGet':0x0,'expGet':0x4da,'attackSpeed':0x1,'physicalDamage':0x478,'attack':_0x524323(0x28b),'criticalChance':0.08,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.01,'manaRegen':0.01,'botSkill':''},'boss1':{'name':_0x524323(0x1d9),'description':_0x524323(0x160),'health':0xc350,'physicalDefense':_0x524323(0x227),'movementSpeed':0x3c,'weaponName':'uzi','image':_0x524323(0x313),'radius':0x10,'viewRange':0x12c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0x1e,'active':![],'spawnItem':_0x524323(0x2eb),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x96,'unitExplode':_0x524323(0x2f7),'level':0x19,'increaseSpawnGet':0.4,'expGet':0x96,'attackSpeed':0x1,'magicalAttack':0x1f4,'attack':_0x524323(0x28b),'criticalChance':0.1,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x25c)},'boss2':{'name':_0x524323(0x303),'description':_0x524323(0x195),'health':0xcabc,'physicalDefense':_0x524323(0x227),'movementSpeed':0x3e,'weaponName':'shotgun','image':_0x524323(0x31e),'radius':0x10,'viewRange':0x135,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x7d0,'respawn':0x1e,'active':![],'spawnItem':'speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30','spawnGoldOrbChance':0x1,'goldOrbAmount':0xbe,'unitExplode':_0x524323(0x2f7),'level':0x1a,'increaseSpawnGet':0x0,'expGet':0xb9,'attackSpeed':0x1,'physicalDamage':0x1a9,'attack':_0x524323(0x28b),'criticalChance':0.105,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'lightningbolt,shockring'},'boss3':{'name':'Shadow\x20Drake','description':'A\x20dark\x20dragon-type\x20boss\x20bot\x20wrapped\x20in\x20black\x20armor\x20and\x20glowing\x20violet\x20energy.\x20It\x20strikes\x20from\x20the\x20shadows\x20with\x20sharp,\x20piercing\x20attacks.','health':0xd228,'physicalDefense':_0x524323(0x26e),'movementSpeed':0x3a,'weaponName':_0x524323(0x174),'image':_0x524323(0x294),'radius':0x10,'viewRange':0x13e,'viewAngle':0x55,'patrolInterval':0xbb8,'patrolRadius':0x32,'lookDuration':0x898,'respawn':0x1e,'active':![],'spawnItem':_0x524323(0x2b5),'spawnGoldOrbChance':0x1,'goldOrbAmount':0xe6,'unitExplode':'unitexplode','level':0x1a,'increaseSpawnGet':0x0,'expGet':0xdc,'attackSpeed':0x1,'physicalDamage':0x1c2,'attack':_0x524323(0x28b),'criticalChance':0.11,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x1b0)},'boss4':{'name':_0x524323(0x17e),'description':_0x524323(0x27f),'health':0xd930,'physicalDefense':_0x524323(0x26e),'movementSpeed':0x46,'weaponName':'sniper','image':'image/boss4.png','radius':0x10,'viewRange':0x147,'viewAngle':0x5f,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x960,'respawn':0x1e,'active':![],'spawnItem':_0x524323(0x222),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x10e,'unitExplode':_0x524323(0x2f7),'level':0x1b,'increaseSpawnGet':0x0,'expGet':0xff,'attackSpeed':0x1,'physicalDamage':0x1db,'attack':_0x524323(0x28b),'criticalChance':0.115,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2e7)},'boss5':{'name':_0x524323(0x2b0),'description':'An\x20ice-type\x20boss\x20bot\x20armored\x20in\x20silver\x20plates\x20and\x20jagged\x20blue\x20crystals.\x20It\x20freezes\x20the\x20battlefield\x20with\x20icy\x20blasts\x20and\x20slows\x20down\x20anyone\x20who\x20stays\x20near\x20it.','health':0xe09c,'physicalDefense':_0x524323(0x1c4),'movementSpeed':0x4b,'weaponName':_0x524323(0x2ed),'image':'image/boss5.png','radius':0x10,'viewRange':0x150,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x1e,'active':![],'spawnItem':_0x524323(0x1bf),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x136,'unitExplode':'unitexplode','level':0x1b,'increaseSpawnGet':0x0,'expGet':0x122,'attackSpeed':0x1,'magicalAttack':0x36b,'attack':_0x524323(0x28b),'criticalChance':0.12,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x16d)},'boss6':{'name':_0x524323(0x1a0),'description':_0x524323(0x2ee),'health':0xe808,'physicalDefense':_0x524323(0x1c4),'movementSpeed':0x48,'weaponName':_0x524323(0x2be),'image':_0x524323(0x168),'radius':0x10,'viewRange':0x159,'viewAngle':0x78,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x7d0,'respawn':0x1e,'active':![],'spawnItem':'speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34','spawnGoldOrbChance':0x1,'goldOrbAmount':0x15e,'unitExplode':_0x524323(0x2f7),'level':0x1c,'increaseSpawnGet':0x0,'expGet':0x145,'attackSpeed':0x1,'physicalDamage':0x20d,'attack':_0x524323(0x28b),'criticalChance':0.125,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x171)},'boss7':{'name':_0x524323(0x2c3),'description':_0x524323(0x1f3),'health':0xef10,'physicalDefense':_0x524323(0x188),'movementSpeed':0x40,'weaponName':_0x524323(0x174),'image':_0x524323(0x1da),'radius':0x10,'viewRange':0x162,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x898,'respawn':0x1e,'active':![],'spawnItem':_0x524323(0x220),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x186,'unitExplode':_0x524323(0x2f7),'level':0x1d,'increaseSpawnGet':0x0,'expGet':0x168,'attackSpeed':0x1,'magicalAttack':0x424,'attack':_0x524323(0x28b),'criticalChance':0.13,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'cannonblast,fireball'},'boss8':{'name':_0x524323(0x243),'description':_0x524323(0x1b8),'health':0xf67c,'physicalDefense':'armor6','movementSpeed':0x50,'weaponName':'sniper','image':_0x524323(0x240),'radius':0x10,'viewRange':0x16b,'viewAngle':0x69,'patrolInterval':0xbb8,'patrolRadius':0x6e,'lookDuration':0x960,'respawn':0x1e,'active':![],'spawnItem':_0x524323(0x2a6),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x1ae,'unitExplode':_0x524323(0x2f7),'level':0x1d,'increaseSpawnGet':0x0,'expGet':0x18b,'attackSpeed':0x1,'magicalAttack':0x483,'attack':'melee','criticalChance':0.135,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2f0)},'boss9':{'name':_0x524323(0x185),'description':'A\x20royal\x20elite\x20boss\x20bot\x20in\x20blue\x20and\x20gold\x20armor\x20marked\x20with\x20a\x20golden\x20crown.\x20It\x20commands\x20the\x20battlefield\x20with\x20disciplined,\x20powerful\x20strikes.','health':0xfde8,'physicalDefense':'armor7','movementSpeed':0x55,'weaponName':_0x524323(0x2ed),'image':'image/boss9.png','radius':0x10,'viewRange':0x174,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x78,'lookDuration':0x708,'respawn':0x1e,'active':![],'spawnItem':_0x524323(0x2a7),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x1d6,'unitExplode':_0x524323(0x2f7),'level':0x1e,'increaseSpawnGet':0x0,'expGet':0x1ae,'attackSpeed':0x1,'physicalDamage':0x258,'attack':_0x524323(0x28b),'criticalChance':0.14,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2fb)},'boss10':{'name':_0x524323(0x2a2),'description':_0x524323(0x217),'health':0x10554,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x3c,'weaponName':_0x524323(0x2be),'image':'image/boss10.png','radius':0x10,'viewRange':0x17d,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x28,'lookDuration':0x7d0,'respawn':0x1e,'active':![],'spawnItem':'speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38','spawnGoldOrbChance':0x1,'goldOrbAmount':0x1fe,'unitExplode':'unitexplode','level':0x1f,'increaseSpawnGet':0x0,'expGet':0x1d1,'attackSpeed':0x1,'physicalDamage':0x271,'attack':_0x524323(0x28b),'criticalChance':0.145,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x189)},'boss11':{'name':_0x524323(0x2ac),'description':'A\x20hunter-type\x20boss\x20bot\x20with\x20a\x20red\x20targeting\x20eye\x20and\x20spiked\x20black\x20armor.\x20It\x20locks\x20onto\x20its\x20prey\x20and\x20never\x20lets\x20it\x20escape.','health':0x10cc0,'physicalDefense':'armor7','movementSpeed':0x42,'weaponName':_0x524323(0x174),'image':'image/boss11.png','radius':0x10,'viewRange':0x186,'viewAngle':0x55,'patrolInterval':0xbb8,'patrolRadius':0x37,'lookDuration':0x898,'respawn':0x1e,'active':![],'spawnItem':_0x524323(0x19e),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x226,'unitExplode':'unitexplode','level':0x1f,'increaseSpawnGet':0x0,'expGet':0x1f4,'attackSpeed':0x1,'physicalDamage':0x28a,'attack':'melee','criticalChance':0.15,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x1d7)},'boss12':{'name':_0x524323(0x311),'description':_0x524323(0x26d),'health':0x113c8,'physicalDefense':'armor8','movementSpeed':0x4e,'weaponName':_0x524323(0x162),'image':_0x524323(0x203),'radius':0x10,'viewRange':0x18f,'viewAngle':0x5f,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x960,'respawn':0x1e,'active':![],'spawnItem':_0x524323(0x262),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x24e,'unitExplode':_0x524323(0x2f7),'level':0x20,'increaseSpawnGet':0x0,'expGet':0x217,'attackSpeed':0x1,'magicalAttack':0x5fa,'attack':_0x524323(0x28b),'criticalChance':0.155,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'iceburst,barrage'},'boss13':{'name':'Violet\x20Wyrm','description':_0x524323(0x175),'health':0x11b34,'physicalDefense':_0x524323(0x18f),'movementSpeed':0x52,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x256),'radius':0x10,'viewRange':0x198,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0x1e,'active':![],'spawnItem':_0x524323(0x17f),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x276,'unitExplode':_0x524323(0x2f7),'level':0x21,'increaseSpawnGet':0x0,'expGet':0x23a,'attackSpeed':0x1,'physicalDamage':0x2bc,'attack':_0x524323(0x28b),'criticalChance':0.16,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x198)},'boss14':{'name':'Magma\x20Dragon','description':'A\x20molten\x20dragon-type\x20boss\x20bot\x20built\x20from\x20black\x20armor\x20plates\x20glowing\x20with\x20orange\x20heat.\x20It\x20burns\x20everything\x20around\x20it\x20and\x20gets\x20tougher\x20the\x20longer\x20the\x20fight\x20lasts.','health':0x122a0,'physicalDefense':'armor9','movementSpeed':0x4a,'weaponName':_0x524323(0x2be),'image':_0x524323(0x1a3),'radius':0x10,'viewRange':0x1a1,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x7d0,'respawn':0x1e,'active':![],'spawnItem':'speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28','spawnGoldOrbChance':0x1,'goldOrbAmount':0x29e,'unitExplode':'unitexplode','level':0x21,'increaseSpawnGet':0x0,'expGet':0x25d,'attackSpeed':0x1,'magicalAttack':0x6b8,'attack':_0x524323(0x28b),'criticalChance':0.165,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2b1)},'boss15':{'name':_0x524323(0x184),'description':_0x524323(0x20e),'health':0x129a8,'physicalDefense':_0x524323(0x2ca),'movementSpeed':0x58,'weaponName':_0x524323(0x174),'image':'image/boss15.png','radius':0x10,'viewRange':0x1aa,'viewAngle':0x73,'patrolInterval':0xbb8,'patrolRadius':0x6e,'lookDuration':0x898,'respawn':0x1e,'active':![],'spawnItem':_0x524323(0x1f6),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x2c6,'unitExplode':_0x524323(0x2f7),'level':0x22,'increaseSpawnGet':0x0,'expGet':0x280,'attackSpeed':0x1,'physicalDamage':0x2ee,'attack':_0x524323(0x28b),'criticalChance':0.17,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x28d)},'boss16':{'name':_0x524323(0x234),'description':_0x524323(0x202),'health':0x13114,'physicalDefense':_0x524323(0x2a0),'movementSpeed':0x5a,'weaponName':_0x524323(0x162),'image':_0x524323(0x2f1),'radius':0x10,'viewRange':0x1b3,'viewAngle':0x69,'patrolInterval':0xbb8,'patrolRadius':0x78,'lookDuration':0x960,'respawn':0x1e,'active':![],'spawnItem':'speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30','spawnGoldOrbChance':0x1,'goldOrbAmount':0x2ee,'unitExplode':_0x524323(0x2f7),'level':0x22,'increaseSpawnGet':0x0,'expGet':0x2a3,'attackSpeed':0x1,'physicalDamage':0x307,'attack':'melee','criticalChance':0.175,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x1ae)},'boss17':{'name':_0x524323(0x2d5),'description':'The\x20most\x20feared\x20boss\x20bot,\x20a\x20heavy\x20artillery\x20machine\x20with\x20a\x20white\x20skull\x20core\x20and\x20cannon\x20barrels\x20on\x20its\x20armor.\x20It\x20shows\x20no\x20mercy\x20and\x20wipes\x20out\x20anything\x20in\x20its\x20range.','health':0x13880,'physicalDefense':_0x524323(0x2a0),'movementSpeed':0x44,'weaponName':'uzi','image':_0x524323(0x2a5),'radius':0x10,'viewRange':0x1bc,'viewAngle':0x78,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0x1e,'active':![],'spawnItem':_0x524323(0x283),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x316,'unitExplode':_0x524323(0x2f7),'level':0x23,'increaseSpawnGet':0x0,'expGet':0x2c6,'attackSpeed':0x1,'magicalAttack':0x7d0,'attack':_0x524323(0x28b),'criticalChance':0.18,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2fc)},'boss1a':{'name':_0x524323(0x1d9),'description':_0x524323(0x160),'health':0x708,'physicalDefense':_0x524323(0x227),'movementSpeed':0x3c,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x313),'radius':0x10,'viewRange':0x12c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x2eb),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x96,'unitExplode':'unitexplode','level':0x1,'increaseSpawnGet':0.4,'expGet':0x96,'attackSpeed':0x1,'magicalAttack':0x64,'attack':'melee','criticalChance':0.1,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x25c)},'boss2a':{'name':_0x524323(0x303),'description':_0x524323(0x195),'health':0xd48,'physicalDefense':_0x524323(0x227),'movementSpeed':0x3e,'weaponName':_0x524323(0x2be),'image':_0x524323(0x31e),'radius':0x10,'viewRange':0x135,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x7d0,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x216),'spawnGoldOrbChance':0x1,'goldOrbAmount':0xbe,'unitExplode':_0x524323(0x2f7),'level':0x2,'increaseSpawnGet':0x0,'expGet':0xb9,'attackSpeed':0x1,'physicalDamage':0x78,'attack':_0x524323(0x28b),'criticalChance':0.105,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x306)},'boss3a':{'name':_0x524323(0x2f4),'description':_0x524323(0x29d),'health':0x1388,'physicalDefense':_0x524323(0x26e),'movementSpeed':0x3a,'weaponName':_0x524323(0x174),'image':_0x524323(0x294),'radius':0x10,'viewRange':0x13e,'viewAngle':0x55,'patrolInterval':0xbb8,'patrolRadius':0x32,'lookDuration':0x898,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x2b5),'spawnGoldOrbChance':0x1,'goldOrbAmount':0xe6,'unitExplode':_0x524323(0x2f7),'level':0x3,'increaseSpawnGet':0x0,'expGet':0xdc,'attackSpeed':0x1,'physicalDamage':0x87,'attack':_0x524323(0x28b),'criticalChance':0.11,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'voidslash,voidvortex'},'boss4a':{'name':'Golden\x20Tyrant','description':_0x524323(0x27f),'health':0x19c8,'physicalDefense':_0x524323(0x26e),'movementSpeed':0x46,'weaponName':'sniper','image':'image/boss4.png','radius':0x10,'viewRange':0x147,'viewAngle':0x5f,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x960,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x222),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x10e,'unitExplode':_0x524323(0x2f7),'level':0x4,'increaseSpawnGet':0x0,'expGet':0xff,'attackSpeed':0x1,'physicalDamage':0x9b,'attack':_0x524323(0x28b),'criticalChance':0.115,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2e7)},'boss5a':{'name':_0x524323(0x2b0),'description':_0x524323(0x1a8),'health':0x2008,'physicalDefense':_0x524323(0x1c4),'movementSpeed':0x4b,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x2b6),'radius':0x10,'viewRange':0x150,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x1bf),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x136,'unitExplode':_0x524323(0x2f7),'level':0x5,'increaseSpawnGet':0x0,'expGet':0x122,'attackSpeed':0x1,'magicalAttack':0xaf,'attack':_0x524323(0x28b),'criticalChance':0.12,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x16d)},'boss6a':{'name':'Plague\x20Reaper','description':'A\x20poison-type\x20boss\x20bot\x20with\x20a\x20biohazard\x20core\x20and\x20razor-sharp\x20green\x20claws.\x20It\x20spreads\x20toxic\x20energy\x20across\x20the\x20area\x20and\x20wears\x20enemies\x20down\x20over\x20time.','health':0x2648,'physicalDefense':_0x524323(0x1c4),'movementSpeed':0x48,'weaponName':_0x524323(0x2be),'image':_0x524323(0x168),'radius':0x10,'viewRange':0x159,'viewAngle':0x78,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x7d0,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x30d),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x15e,'unitExplode':'unitexplode','level':0x6,'increaseSpawnGet':0x0,'expGet':0x145,'attackSpeed':0x1,'physicalDamage':0xbe,'attack':_0x524323(0x28b),'criticalChance':0.125,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x171)},'boss7a':{'name':'Doom\x20Skull','description':_0x524323(0x1f3),'health':0x2c88,'physicalDefense':'armor6','movementSpeed':0x40,'weaponName':'ak47','image':'image/boss7.png','radius':0x10,'viewRange':0x162,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x898,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x220),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x186,'unitExplode':_0x524323(0x2f7),'level':0x7,'increaseSpawnGet':0x0,'expGet':0x168,'attackSpeed':0x1,'magicalAttack':0xd2,'attack':_0x524323(0x28b),'criticalChance':0.13,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'cannonblast,fireball'},'boss8a':{'name':_0x524323(0x243),'description':_0x524323(0x1b8),'health':0x3296,'physicalDefense':_0x524323(0x188),'movementSpeed':0x50,'weaponName':_0x524323(0x162),'image':'image/boss8.png','radius':0x10,'viewRange':0x16b,'viewAngle':0x69,'patrolInterval':0xbb8,'patrolRadius':0x6e,'lookDuration':0x960,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x2a6),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x1ae,'unitExplode':_0x524323(0x2f7),'level':0x8,'increaseSpawnGet':0x0,'expGet':0x18b,'attackSpeed':0x1,'magicalAttack':0xe6,'attack':'melee','criticalChance':0.135,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2f0)},'boss9a':{'name':_0x524323(0x185),'description':'A\x20royal\x20elite\x20boss\x20bot\x20in\x20blue\x20and\x20gold\x20armor\x20marked\x20with\x20a\x20golden\x20crown.\x20It\x20commands\x20the\x20battlefield\x20with\x20disciplined,\x20powerful\x20strikes.','health':0x38d6,'physicalDefense':'armor7','movementSpeed':0x55,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x2ce),'radius':0x10,'viewRange':0x174,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x78,'lookDuration':0x708,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x2a7),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x1d6,'unitExplode':_0x524323(0x2f7),'level':0x9,'increaseSpawnGet':0x0,'expGet':0x1ae,'attackSpeed':0x1,'physicalDamage':0xf5,'attack':_0x524323(0x28b),'criticalChance':0.14,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2fb)},'boss10a':{'name':_0x524323(0x2a2),'description':_0x524323(0x217),'health':0x3f16,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x3c,'weaponName':_0x524323(0x2be),'image':_0x524323(0x2a9),'radius':0x10,'viewRange':0x17d,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x28,'lookDuration':0x7d0,'respawn':0xe10,'active':![],'spawnItem':'speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38','spawnGoldOrbChance':0x1,'goldOrbAmount':0x1fe,'unitExplode':'unitexplode','level':0xa,'increaseSpawnGet':0x0,'expGet':0x1d1,'attackSpeed':0x1,'physicalDamage':0x109,'attack':_0x524323(0x28b),'criticalChance':0.145,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x189)},'boss11a':{'name':_0x524323(0x2ac),'description':_0x524323(0x22b),'health':0x4556,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x42,'weaponName':'ak47','image':_0x524323(0x284),'radius':0x10,'viewRange':0x186,'viewAngle':0x55,'patrolInterval':0xbb8,'patrolRadius':0x37,'lookDuration':0x898,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x19e),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x226,'unitExplode':_0x524323(0x2f7),'level':0xb,'increaseSpawnGet':0x0,'expGet':0x1f4,'attackSpeed':0x1,'physicalDamage':0x11d,'attack':_0x524323(0x28b),'criticalChance':0.15,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x1d7)},'boss12a':{'name':'Azure\x20Dragon','description':'A\x20dragon-type\x20boss\x20bot\x20in\x20silver\x20armor\x20with\x20a\x20glowing\x20blue\x20dragon\x20emblem.\x20It\x20fiercely\x20guards\x20its\x20territory\x20and\x20unleashes\x20bursts\x20of\x20blue\x20energy.','health':0x4b96,'physicalDefense':_0x524323(0x18f),'movementSpeed':0x4e,'weaponName':'sniper','image':_0x524323(0x203),'radius':0x10,'viewRange':0x18f,'viewAngle':0x5f,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x960,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x262),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x24e,'unitExplode':'unitexplode','level':0xc,'increaseSpawnGet':0x0,'expGet':0x217,'attackSpeed':0x1,'magicalAttack':0x12c,'attack':_0x524323(0x28b),'criticalChance':0.155,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2d9)},'boss13a':{'name':_0x524323(0x2ae),'description':'A\x20dark\x20dragon-type\x20boss\x20bot\x20with\x20large\x20purple\x20horns\x20and\x20glowing\x20violet\x20plating.\x20Its\x20towering\x20frame\x20overwhelms\x20enemies\x20with\x20heavy,\x20slashing\x20attacks.','health':0x51d6,'physicalDefense':'armor8','movementSpeed':0x52,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x256),'radius':0x10,'viewRange':0x198,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xe10,'active':![],'spawnItem':'speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27','spawnGoldOrbChance':0x1,'goldOrbAmount':0x276,'unitExplode':'unitexplode','level':0xd,'increaseSpawnGet':0x0,'expGet':0x23a,'attackSpeed':0x1,'physicalDamage':0x140,'attack':_0x524323(0x28b),'criticalChance':0.16,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x198)},'boss14a':{'name':_0x524323(0x28c),'description':_0x524323(0x293),'health':0x5816,'physicalDefense':_0x524323(0x2ca),'movementSpeed':0x4a,'weaponName':'shotgun','image':_0x524323(0x1a3),'radius':0x10,'viewRange':0x1a1,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x7d0,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x2db),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x29e,'unitExplode':_0x524323(0x2f7),'level':0xe,'increaseSpawnGet':0x0,'expGet':0x25d,'attackSpeed':0x1,'magicalAttack':0x154,'attack':'melee','criticalChance':0.165,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2b1)},'boss15a':{'name':_0x524323(0x184),'description':_0x524323(0x20e),'health':0x5e56,'physicalDefense':'armor9','movementSpeed':0x58,'weaponName':_0x524323(0x174),'image':'image/boss15.png','radius':0x10,'viewRange':0x1aa,'viewAngle':0x73,'patrolInterval':0xbb8,'patrolRadius':0x6e,'lookDuration':0x898,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x1f6),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x2c6,'unitExplode':_0x524323(0x2f7),'level':0xf,'increaseSpawnGet':0x0,'expGet':0x280,'attackSpeed':0x1,'physicalDamage':0x163,'attack':'melee','criticalChance':0.17,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x28d)},'boss16a':{'name':_0x524323(0x234),'description':'A\x20huge\x20poison-type\x20boss\x20bot\x20with\x20heavy\x20green\x20plating\x20and\x20curved\x20claws\x20around\x20a\x20biohazard\x20core.\x20It\x20is\x20slow\x20but\x20extremely\x20tough,\x20and\x20it\x20poisons\x20the\x20ground\x20it\x20walks\x20on.','health':0x6496,'physicalDefense':_0x524323(0x2a0),'movementSpeed':0x5a,'weaponName':'sniper','image':_0x524323(0x2f1),'radius':0x10,'viewRange':0x1b3,'viewAngle':0x69,'patrolInterval':0xbb8,'patrolRadius':0x78,'lookDuration':0x960,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x163),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x2ee,'unitExplode':_0x524323(0x2f7),'level':0x10,'increaseSpawnGet':0x0,'expGet':0x2a3,'attackSpeed':0x1,'physicalDamage':0x177,'attack':_0x524323(0x28b),'criticalChance':0.175,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'poisonburst,voidvortex'},'boss17a':{'name':_0x524323(0x2d5),'description':_0x524323(0x230),'health':0x6ad6,'physicalDefense':'armor10','movementSpeed':0x44,'weaponName':_0x524323(0x2ed),'image':'image/boss17.png','radius':0x10,'viewRange':0x1bc,'viewAngle':0x78,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x283),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x316,'unitExplode':'unitexplode','level':0x11,'increaseSpawnGet':0x0,'expGet':0x2c6,'attackSpeed':0x1,'magicalAttack':0x18b,'attack':_0x524323(0x28b),'criticalChance':0.18,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2fc)},'boss18a':{'name':_0x524323(0x268),'description':'A\x20powerful\x20fire-type\x20boss\x20bot\x20covered\x20in\x20heavy\x20armor\x20and\x20blazing\x20energy.\x20It\x20attacks\x20enemies\x20with\x20explosive\x20fire\x20strikes\x20and\x20becomes\x20more\x20dangerous\x20when\x20enraged.','health':0x7116,'physicalDefense':_0x524323(0x227),'movementSpeed':0x3c,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x313),'radius':0x10,'viewRange':0x12c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x2eb),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x96,'unitExplode':_0x524323(0x2f7),'level':0x12,'increaseSpawnGet':0.4,'expGet':0x96,'attackSpeed':0x1,'magicalAttack':0x19a,'attack':_0x524323(0x28b),'criticalChance':0.1,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x25c)},'boss19a':{'name':'Tempest\x20Sentinel\x20II','description':_0x524323(0x195),'health':0x7756,'physicalDefense':_0x524323(0x227),'movementSpeed':0x3e,'weaponName':'shotgun','image':_0x524323(0x31e),'radius':0x10,'viewRange':0x135,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x7d0,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x216),'spawnGoldOrbChance':0x1,'goldOrbAmount':0xbe,'unitExplode':'unitexplode','level':0x13,'increaseSpawnGet':0x0,'expGet':0xb9,'attackSpeed':0x1,'physicalDamage':0x1ae,'attack':_0x524323(0x28b),'criticalChance':0.105,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x306)},'boss20a':{'name':_0x524323(0x29a),'description':_0x524323(0x29d),'health':0x7d64,'physicalDefense':_0x524323(0x26e),'movementSpeed':0x3a,'weaponName':'ak47','image':_0x524323(0x294),'radius':0x10,'viewRange':0x13e,'viewAngle':0x55,'patrolInterval':0xbb8,'patrolRadius':0x32,'lookDuration':0x898,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x2b5),'spawnGoldOrbChance':0x1,'goldOrbAmount':0xe6,'unitExplode':'unitexplode','level':0x14,'increaseSpawnGet':0x0,'expGet':0xdc,'attackSpeed':0x1,'physicalDamage':0x1c2,'attack':'melee','criticalChance':0.11,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x1b0)},'boss21a':{'name':_0x524323(0x242),'description':'A\x20heavy\x20dragon-type\x20boss\x20bot\x20studded\x20with\x20golden\x20spikes\x20over\x20black\x20plating.\x20It\x20charges\x20straight\x20into\x20enemies\x20and\x20crushes\x20anything\x20that\x20gets\x20too\x20close.','health':0x83a4,'physicalDefense':_0x524323(0x26e),'movementSpeed':0x46,'weaponName':_0x524323(0x162),'image':_0x524323(0x2d3),'radius':0x10,'viewRange':0x147,'viewAngle':0x5f,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x960,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x222),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x10e,'unitExplode':_0x524323(0x2f7),'level':0x15,'increaseSpawnGet':0x0,'expGet':0xff,'attackSpeed':0x1,'physicalDamage':0x1d1,'attack':'melee','criticalChance':0.115,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2e7)},'boss22a':{'name':_0x524323(0x1fe),'description':_0x524323(0x1a8),'health':0x89e4,'physicalDefense':_0x524323(0x1c4),'movementSpeed':0x4b,'weaponName':_0x524323(0x2ed),'image':'image/boss5.png','radius':0x10,'viewRange':0x150,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xe10,'active':![],'spawnItem':'speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33','spawnGoldOrbChance':0x1,'goldOrbAmount':0x136,'unitExplode':_0x524323(0x2f7),'level':0x16,'increaseSpawnGet':0x0,'expGet':0x122,'attackSpeed':0x1,'magicalAttack':0x1e5,'attack':_0x524323(0x28b),'criticalChance':0.12,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x16d)},'boss23a':{'name':'Plague\x20Reaper\x20II','description':_0x524323(0x2ee),'health':0x9024,'physicalDefense':'armor5','movementSpeed':0x48,'weaponName':'shotgun','image':_0x524323(0x168),'radius':0x10,'viewRange':0x159,'viewAngle':0x78,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x7d0,'respawn':0xe10,'active':![],'spawnItem':'speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34','spawnGoldOrbChance':0x1,'goldOrbAmount':0x15e,'unitExplode':_0x524323(0x2f7),'level':0x17,'increaseSpawnGet':0x0,'expGet':0x145,'attackSpeed':0x1,'physicalDamage':0x1f9,'attack':_0x524323(0x28b),'criticalChance':0.125,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'poisonburst,energybeam'},'boss24a':{'name':_0x524323(0x2df),'description':_0x524323(0x1f3),'health':0x9664,'physicalDefense':_0x524323(0x188),'movementSpeed':0x40,'weaponName':'ak47','image':'image/boss7.png','radius':0x10,'viewRange':0x162,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x898,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x220),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x186,'unitExplode':'unitexplode','level':0x18,'increaseSpawnGet':0x0,'expGet':0x168,'attackSpeed':0x1,'magicalAttack':0x208,'attack':'melee','criticalChance':0.13,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x17a)},'boss25a':{'name':_0x524323(0x267),'description':_0x524323(0x1b8),'health':0x9ca4,'physicalDefense':_0x524323(0x188),'movementSpeed':0x50,'weaponName':'sniper','image':_0x524323(0x240),'radius':0x10,'viewRange':0x16b,'viewAngle':0x69,'patrolInterval':0xbb8,'patrolRadius':0x6e,'lookDuration':0x960,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x2a6),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x1ae,'unitExplode':_0x524323(0x2f7),'level':0x19,'increaseSpawnGet':0x0,'expGet':0x18b,'attackSpeed':0x1,'magicalAttack':0x21c,'attack':'melee','criticalChance':0.135,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2f0)},'boss26a':{'name':_0x524323(0x21d),'description':_0x524323(0x2cf),'health':0xa2e4,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x55,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x2ce),'radius':0x10,'viewRange':0x174,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x78,'lookDuration':0x708,'respawn':0xe10,'active':![],'spawnItem':'speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37','spawnGoldOrbChance':0x1,'goldOrbAmount':0x1d6,'unitExplode':_0x524323(0x2f7),'level':0x1a,'increaseSpawnGet':0x0,'expGet':0x1ae,'attackSpeed':0x1,'physicalDamage':0x230,'attack':_0x524323(0x28b),'criticalChance':0.14,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2fb)},'boss27a':{'name':_0x524323(0x187),'description':_0x524323(0x217),'health':0xa924,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x3c,'weaponName':'shotgun','image':_0x524323(0x2a9),'radius':0x10,'viewRange':0x17d,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x28,'lookDuration':0x7d0,'respawn':0xe10,'active':![],'spawnItem':'speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38','spawnGoldOrbChance':0x1,'goldOrbAmount':0x1fe,'unitExplode':_0x524323(0x2f7),'level':0x1b,'increaseSpawnGet':0x0,'expGet':0x1d1,'attackSpeed':0x1,'physicalDamage':0x244,'attack':_0x524323(0x28b),'criticalChance':0.145,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x189)},'boss28a':{'name':_0x524323(0x1ab),'description':_0x524323(0x22b),'health':0xaf64,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x42,'weaponName':_0x524323(0x174),'image':'image/boss11.png','radius':0x10,'viewRange':0x186,'viewAngle':0x55,'patrolInterval':0xbb8,'patrolRadius':0x37,'lookDuration':0x898,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x19e),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x226,'unitExplode':'unitexplode','level':0x1c,'increaseSpawnGet':0x0,'expGet':0x1f4,'attackSpeed':0x1,'physicalDamage':0x253,'attack':_0x524323(0x28b),'criticalChance':0.15,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x1d7)},'boss29a':{'name':_0x524323(0x286),'description':_0x524323(0x26d),'health':0xb5a4,'physicalDefense':_0x524323(0x18f),'movementSpeed':0x4e,'weaponName':'sniper','image':_0x524323(0x203),'radius':0x10,'viewRange':0x18f,'viewAngle':0x5f,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x960,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x262),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x24e,'unitExplode':_0x524323(0x2f7),'level':0x1d,'increaseSpawnGet':0x0,'expGet':0x217,'attackSpeed':0x1,'magicalAttack':0x267,'attack':_0x524323(0x28b),'criticalChance':0.155,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'iceburst,barrage'},'boss30a':{'name':_0x524323(0x236),'description':_0x524323(0x175),'health':0xbbe4,'physicalDefense':'armor8','movementSpeed':0x52,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x256),'radius':0x10,'viewRange':0x198,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x17f),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x276,'unitExplode':_0x524323(0x2f7),'level':0x1e,'increaseSpawnGet':0x0,'expGet':0x23a,'attackSpeed':0x1,'physicalDamage':0x27b,'attack':_0x524323(0x28b),'criticalChance':0.16,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'voidvortex,slash1'},'boss31a':{'name':_0x524323(0x1d1),'description':_0x524323(0x293),'health':0xc224,'physicalDefense':'armor9','movementSpeed':0x4a,'weaponName':'shotgun','image':_0x524323(0x1a3),'radius':0x10,'viewRange':0x1a1,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x7d0,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x2db),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x29e,'unitExplode':'unitexplode','level':0x1f,'increaseSpawnGet':0x0,'expGet':0x25d,'attackSpeed':0x1,'magicalAttack':0x28a,'attack':_0x524323(0x28b),'criticalChance':0.165,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2b1)},'boss32a':{'name':'Glacier\x20Warden\x20II','description':_0x524323(0x20e),'health':0xc832,'physicalDefense':_0x524323(0x2ca),'movementSpeed':0x58,'weaponName':_0x524323(0x174),'image':_0x524323(0x223),'radius':0x10,'viewRange':0x1aa,'viewAngle':0x73,'patrolInterval':0xbb8,'patrolRadius':0x6e,'lookDuration':0x898,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x1f6),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x2c6,'unitExplode':_0x524323(0x2f7),'level':0x20,'increaseSpawnGet':0x0,'expGet':0x280,'attackSpeed':0x1,'physicalDamage':0x29e,'attack':_0x524323(0x28b),'criticalChance':0.17,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x28d)},'boss33a':{'name':_0x524323(0x31b),'description':'A\x20huge\x20poison-type\x20boss\x20bot\x20with\x20heavy\x20green\x20plating\x20and\x20curved\x20claws\x20around\x20a\x20biohazard\x20core.\x20It\x20is\x20slow\x20but\x20extremely\x20tough,\x20and\x20it\x20poisons\x20the\x20ground\x20it\x20walks\x20on.','health':0xce72,'physicalDefense':_0x524323(0x2a0),'movementSpeed':0x5a,'weaponName':_0x524323(0x162),'image':'image/boss16.png','radius':0x10,'viewRange':0x1b3,'viewAngle':0x69,'patrolInterval':0xbb8,'patrolRadius':0x78,'lookDuration':0x960,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x163),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x2ee,'unitExplode':_0x524323(0x2f7),'level':0x21,'increaseSpawnGet':0x0,'expGet':0x2a3,'attackSpeed':0x1,'physicalDamage':0x2b2,'attack':_0x524323(0x28b),'criticalChance':0.175,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x1ae)},'boss34a':{'name':_0x524323(0x239),'description':_0x524323(0x230),'health':0xd4b2,'physicalDefense':_0x524323(0x2a0),'movementSpeed':0x44,'weaponName':_0x524323(0x2ed),'image':'image/boss17.png','radius':0x10,'viewRange':0x1bc,'viewAngle':0x78,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x708,'respawn':0xe10,'active':![],'spawnItem':'speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor5,armor19,armor39,accessory11,accessory23,accessory35,ring01,ring14,ring31','spawnGoldOrbChance':0x1,'goldOrbAmount':0x316,'unitExplode':_0x524323(0x2f7),'level':0x22,'increaseSpawnGet':0x0,'expGet':0x2c6,'attackSpeed':0x1,'magicalAttack':0x2c1,'attack':'melee','criticalChance':0.18,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'deadlystrike,barrage'},'boss35a':{'name':_0x524323(0x1ff),'description':_0x524323(0x160),'health':0xdaf2,'physicalDefense':_0x524323(0x227),'movementSpeed':0x3c,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x313),'radius':0x10,'viewRange':0x12c,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x708,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x2eb),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x96,'unitExplode':'unitexplode','level':0x23,'increaseSpawnGet':0.4,'expGet':0x96,'attackSpeed':0x1,'magicalAttack':0x2d5,'attack':_0x524323(0x28b),'criticalChance':0.1,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'fireexplosion,fireball'},'boss36a':{'name':'Tempest\x20Sentinel\x20III','description':_0x524323(0x195),'health':0xe132,'physicalDefense':'armor3','movementSpeed':0x3e,'weaponName':_0x524323(0x2be),'image':_0x524323(0x31e),'radius':0x10,'viewRange':0x135,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x7d0,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x216),'spawnGoldOrbChance':0x1,'goldOrbAmount':0xbe,'unitExplode':_0x524323(0x2f7),'level':0x24,'increaseSpawnGet':0x0,'expGet':0xb9,'attackSpeed':0x1,'physicalDamage':0x2e9,'attack':'melee','criticalChance':0.105,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x306)},'boss37a':{'name':_0x524323(0x1e8),'description':_0x524323(0x29d),'health':0xe772,'physicalDefense':_0x524323(0x26e),'movementSpeed':0x3a,'weaponName':'ak47','image':_0x524323(0x294),'radius':0x10,'viewRange':0x13e,'viewAngle':0x55,'patrolInterval':0xbb8,'patrolRadius':0x32,'lookDuration':0x898,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x2b5),'spawnGoldOrbChance':0x1,'goldOrbAmount':0xe6,'unitExplode':'unitexplode','level':0x25,'increaseSpawnGet':0x0,'expGet':0xdc,'attackSpeed':0x1,'physicalDamage':0x2f8,'attack':_0x524323(0x28b),'criticalChance':0.11,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x1b0)},'boss38a':{'name':_0x524323(0x2cc),'description':_0x524323(0x27f),'health':0xedb2,'physicalDefense':_0x524323(0x26e),'movementSpeed':0x46,'weaponName':_0x524323(0x162),'image':_0x524323(0x2d3),'radius':0x10,'viewRange':0x147,'viewAngle':0x5f,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x960,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x222),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x10e,'unitExplode':_0x524323(0x2f7),'level':0x26,'increaseSpawnGet':0x0,'expGet':0xff,'attackSpeed':0x1,'physicalDamage':0x30c,'attack':_0x524323(0x28b),'criticalChance':0.115,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2e7)},'boss39a':{'name':'Frostbite\x20Colossus\x20III','description':_0x524323(0x1a8),'health':0xf3f2,'physicalDefense':_0x524323(0x1c4),'movementSpeed':0x4b,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x2b6),'radius':0x10,'viewRange':0x150,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x1bf),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x136,'unitExplode':_0x524323(0x2f7),'level':0x27,'increaseSpawnGet':0x0,'expGet':0x122,'attackSpeed':0x1,'magicalAttack':0x320,'attack':_0x524323(0x28b),'criticalChance':0.12,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x16d)},'boss40a':{'name':_0x524323(0x1ad),'description':_0x524323(0x2ee),'health':0xfa32,'physicalDefense':_0x524323(0x1c4),'movementSpeed':0x48,'weaponName':_0x524323(0x2be),'image':_0x524323(0x168),'radius':0x10,'viewRange':0x159,'viewAngle':0x78,'patrolInterval':0xbb8,'patrolRadius':0x50,'lookDuration':0x7d0,'respawn':0xe10,'active':![],'spawnItem':'speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34','spawnGoldOrbChance':0x1,'goldOrbAmount':0x15e,'unitExplode':_0x524323(0x2f7),'level':0x28,'increaseSpawnGet':0x0,'expGet':0x145,'attackSpeed':0x1,'physicalDamage':0x32f,'attack':_0x524323(0x28b),'criticalChance':0.125,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x171)},'boss41a':{'name':'Doom\x20Skull\x20III','description':_0x524323(0x1f3),'health':0x10072,'physicalDefense':_0x524323(0x188),'movementSpeed':0x40,'weaponName':_0x524323(0x174),'image':_0x524323(0x1da),'radius':0x10,'viewRange':0x162,'viewAngle':0x5a,'patrolInterval':0xbb8,'patrolRadius':0x3c,'lookDuration':0x898,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x220),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x186,'unitExplode':'unitexplode','level':0x29,'increaseSpawnGet':0x0,'expGet':0x168,'attackSpeed':0x1,'magicalAttack':0x343,'attack':_0x524323(0x28b),'criticalChance':0.13,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x17a)},'boss42a':{'name':_0x524323(0x183),'description':_0x524323(0x1b8),'health':0x106b2,'physicalDefense':_0x524323(0x188),'movementSpeed':0x50,'weaponName':_0x524323(0x162),'image':_0x524323(0x240),'radius':0x10,'viewRange':0x16b,'viewAngle':0x69,'patrolInterval':0xbb8,'patrolRadius':0x6e,'lookDuration':0x960,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x2a6),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x1ae,'unitExplode':'unitexplode','level':0x2a,'increaseSpawnGet':0x0,'expGet':0x18b,'attackSpeed':0x1,'magicalAttack':0x357,'attack':'melee','criticalChance':0.135,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2f0)},'boss43a':{'name':_0x524323(0x172),'description':_0x524323(0x2cf),'health':0x10cf2,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x55,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x2ce),'radius':0x10,'viewRange':0x174,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x78,'lookDuration':0x708,'respawn':0xe10,'active':![],'spawnItem':'speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37','spawnGoldOrbChance':0x1,'goldOrbAmount':0x1d6,'unitExplode':_0x524323(0x2f7),'level':0x2b,'increaseSpawnGet':0x0,'expGet':0x1ae,'attackSpeed':0x1,'physicalDamage':0x366,'attack':_0x524323(0x28b),'criticalChance':0.14,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'holynova,slash1'},'boss44a':{'name':'Crimson\x20Demon\x20III','description':_0x524323(0x217),'health':0x11300,'physicalDefense':'armor7','movementSpeed':0x3c,'weaponName':_0x524323(0x2be),'image':_0x524323(0x2a9),'radius':0x10,'viewRange':0x17d,'viewAngle':0x50,'patrolInterval':0xbb8,'patrolRadius':0x28,'lookDuration':0x7d0,'respawn':0xe10,'active':![],'spawnItem':'speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38','spawnGoldOrbChance':0x1,'goldOrbAmount':0x1fe,'unitExplode':_0x524323(0x2f7),'level':0x2c,'increaseSpawnGet':0x0,'expGet':0x1d1,'attackSpeed':0x1,'physicalDamage':0x37a,'attack':'melee','criticalChance':0.145,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'bloodburst,flamespiral'},'boss45a':{'name':_0x524323(0x2fd),'description':'A\x20hunter-type\x20boss\x20bot\x20with\x20a\x20red\x20targeting\x20eye\x20and\x20spiked\x20black\x20armor.\x20It\x20locks\x20onto\x20its\x20prey\x20and\x20never\x20lets\x20it\x20escape.','health':0x11940,'physicalDefense':_0x524323(0x2fe),'movementSpeed':0x42,'weaponName':_0x524323(0x174),'image':_0x524323(0x284),'radius':0x10,'viewRange':0x186,'viewAngle':0x55,'patrolInterval':0xbb8,'patrolRadius':0x37,'lookDuration':0x898,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x19e),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x226,'unitExplode':_0x524323(0x2f7),'level':0x2d,'increaseSpawnGet':0x0,'expGet':0x1f4,'attackSpeed':0x1,'physicalDamage':0x38e,'attack':_0x524323(0x28b),'criticalChance':0.15,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x1d7)},'boss46a':{'name':_0x524323(0x318),'description':_0x524323(0x26d),'health':0x11f80,'physicalDefense':'armor8','movementSpeed':0x4e,'weaponName':_0x524323(0x162),'image':'image/boss12.png','radius':0x10,'viewRange':0x18f,'viewAngle':0x5f,'patrolInterval':0xbb8,'patrolRadius':0x46,'lookDuration':0x960,'respawn':0xe10,'active':![],'spawnItem':'speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40','spawnGoldOrbChance':0x1,'goldOrbAmount':0x24e,'unitExplode':_0x524323(0x2f7),'level':0x2e,'increaseSpawnGet':0x0,'expGet':0x217,'attackSpeed':0x1,'magicalAttack':0x39d,'attack':_0x524323(0x28b),'criticalChance':0.155,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'iceburst,barrage'},'boss47a':{'name':'Violet\x20Wyrm\x20III','description':_0x524323(0x175),'health':0x125c0,'physicalDefense':_0x524323(0x18f),'movementSpeed':0x52,'weaponName':_0x524323(0x2ed),'image':_0x524323(0x256),'radius':0x10,'viewRange':0x198,'viewAngle':0x6e,'patrolInterval':0xbb8,'patrolRadius':0x64,'lookDuration':0x708,'respawn':0xe10,'active':![],'spawnItem':'speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27','spawnGoldOrbChance':0x1,'goldOrbAmount':0x276,'unitExplode':'unitexplode','level':0x2f,'increaseSpawnGet':0x0,'expGet':0x23a,'attackSpeed':0x1,'physicalDamage':0x3b1,'attack':_0x524323(0x28b),'criticalChance':0.16,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':'voidvortex,slash1'},'boss48a':{'name':_0x524323(0x1de),'description':_0x524323(0x293),'health':0x12c00,'physicalDefense':'armor9','movementSpeed':0x4a,'weaponName':'shotgun','image':_0x524323(0x1a3),'radius':0x10,'viewRange':0x1a1,'viewAngle':0x64,'patrolInterval':0xbb8,'patrolRadius':0x5a,'lookDuration':0x7d0,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x2db),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x29e,'unitExplode':_0x524323(0x2f7),'level':0x30,'increaseSpawnGet':0x0,'expGet':0x25d,'attackSpeed':0x1,'magicalAttack':0x3c5,'attack':_0x524323(0x28b),'criticalChance':0.165,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x2b1)},'boss49a':{'name':_0x524323(0x297),'description':_0x524323(0x20e),'health':0x13240,'physicalDefense':_0x524323(0x2ca),'movementSpeed':0x58,'weaponName':_0x524323(0x174),'image':'image/boss15.png','radius':0x10,'viewRange':0x1aa,'viewAngle':0x73,'patrolInterval':0xbb8,'patrolRadius':0x6e,'lookDuration':0x898,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x1f6),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x2c6,'unitExplode':_0x524323(0x2f7),'level':0x31,'increaseSpawnGet':0x0,'expGet':0x280,'attackSpeed':0x1,'physicalDamage':0x3d4,'attack':_0x524323(0x28b),'criticalChance':0.17,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x28d)},'boss50a':{'name':_0x524323(0x2b4),'description':_0x524323(0x202),'health':0x13880,'physicalDefense':_0x524323(0x2a0),'movementSpeed':0x5a,'weaponName':'sniper','image':_0x524323(0x2f1),'radius':0x10,'viewRange':0x1b3,'viewAngle':0x69,'patrolInterval':0xbb8,'patrolRadius':0x78,'lookDuration':0x960,'respawn':0xe10,'active':![],'spawnItem':_0x524323(0x163),'spawnGoldOrbChance':0x1,'goldOrbAmount':0x2ee,'unitExplode':'unitexplode','level':0x32,'increaseSpawnGet':0x0,'expGet':0x2a3,'attackSpeed':0x1,'physicalDamage':0x3e8,'attack':'melee','criticalChance':0.175,'criticalDamage':0.05,'mana':0x64,'hpRegen':0.005,'manaRegen':0.01,'botSkill':_0x524323(0x1ae)}};function shouldBotLevelAggro(_0x239629,_0x33b896){const _0x5ed39c=_0x524323;if(typeof _0x33b896!==_0x5ed39c(0x1e3))return![];return(_0x239629[_0x5ed39c(0x1d6)]||0x1)-_0x33b896>=0x4;}function drawBots(_0x519c38,_0x34fbbb,_0xaf623c,_0x5245af){const _0x589531=_0x524323;for(const _0x49a2df of _0x34fbbb){if(!_0x49a2df[_0x589531(0x2c6)])continue;const _0x38d9fe=_0xaf623c+_0x49a2df['x'],_0x379b8a=_0x5245af+_0x49a2df['y'],_0x8633b6=_0x49a2df[_0x589531(0x23f)]*0x2;_0x519c38[_0x589531(0x1a6)](),_0x519c38[_0x589531(0x2b3)](_0x38d9fe,_0x379b8a);_0x49a2df[_0x589531(0x2c1)]&&_0x49a2df[_0x589531(0x2c1)]['complete']&&_0x49a2df[_0x589531(0x2c1)]['naturalWidth']>0x0?_0x519c38[_0x589531(0x2e4)](_0x49a2df[_0x589531(0x2c1)],-_0x8633b6/0x2,-_0x8633b6/0x2,_0x8633b6,_0x8633b6):(_0x519c38[_0x589531(0x226)]=_0x589531(0x29b),_0x519c38[_0x589531(0x307)](),_0x519c38[_0x589531(0x287)](0x0,0x0,_0x49a2df[_0x589531(0x23f)],0x0,Math['PI']*0x2),_0x519c38[_0x589531(0x252)]());if(_0x49a2df[_0x589531(0x249)]&&botArrowImage[_0x589531(0x260)]&&botArrowImage[_0x589531(0x24e)]>0x0){const _0x4a1ff0=Math[_0x589531(0x298)](0xe,_0x49a2df['radius']*0.9),_0x2f4643=_0x49a2df[_0x589531(0x23f)]+0x6+_0x4a1ff0/0x2;_0x519c38[_0x589531(0x1a6)](),_0x519c38[_0x589531(0x15d)](_0x49a2df[_0x589531(0x196)]),_0x519c38[_0x589531(0x2b3)](_0x2f4643,0x0),_0x519c38[_0x589531(0x2e4)](botArrowImage,-_0x4a1ff0/0x2,-_0x4a1ff0/0x2,_0x4a1ff0,_0x4a1ff0),_0x519c38[_0x589531(0x1aa)]();}typeof drawWeaponUpgradeAura==='function'&&drawWeaponUpgradeAura(_0x519c38,_0x49a2df[_0x589531(0x23f)],_0x49a2df['weapon']&&_0x49a2df[_0x589531(0x309)][_0x589531(0x31a)]);_0x519c38[_0x589531(0x1aa)]();const _0x225cb5=Math['max'](0x0,_0x49a2df[_0x589531(0x2a8)]/_0x49a2df['maxHealth']),_0x46ddc9=0x1e,_0x2d8c3f=0x4;drawImageHealthBar(_0x519c38,_0x38d9fe-_0x46ddc9/0x2,_0x379b8a-_0x49a2df[_0x589531(0x23f)]-0xa,_0x46ddc9,_0x2d8c3f,_0x225cb5,healthBorderImage1,healthHudImage1,healthEmptyImage),_0x519c38['font']=_0x589531(0x228),_0x519c38['textAlign']='center';const _0x4147ff=typeof BOT_TYPES!==_0x589531(0x2f5)&&BOT_TYPES[_0x49a2df['type']]||null;let _0x1bc6cf=_0x4147ff&&_0x4147ff['name']?String(_0x4147ff['name']):'';_0x1bc6cf&&_0x1bc6cf===_0x1bc6cf[_0x589531(0x2e6)]()&&(_0x1bc6cf=_0x1bc6cf[_0x589531(0x312)](/\b[a-z]/g,_0x5b883e=>_0x5b883e[_0x589531(0x258)]()));const _0x130d65=_0x379b8a-_0x49a2df[_0x589531(0x23f)]-0xd,_0x48c64a=_0x589531(0x308)+(_0x49a2df[_0x589531(0x1d6)]||0x1),_0x437ebc=_0x1bc6cf?_0x130d65-0xa:_0x130d65;_0x1bc6cf&&(_0x519c38['fillStyle']='rgba(0,0,0,0.9)',_0x519c38[_0x589531(0x186)](_0x1bc6cf,_0x38d9fe+0x1,_0x130d65+0x1),_0x519c38[_0x589531(0x226)]=_0x589531(0x259),_0x519c38[_0x589531(0x186)](_0x1bc6cf,_0x38d9fe,_0x130d65)),_0x519c38[_0x589531(0x226)]='rgba(0,0,0,0.9)',_0x519c38[_0x589531(0x186)](_0x48c64a,_0x38d9fe+0x1,_0x437ebc+0x1),_0x519c38[_0x589531(0x226)]=_0x589531(0x16a),_0x519c38[_0x589531(0x186)](_0x48c64a,_0x38d9fe,_0x437ebc),_0x519c38[_0x589531(0x315)]=_0x589531(0x247);}}if(typeof module!=='undefined')module[_0x524323(0x2f8)]={'BOT_TYPES':BOT_TYPES};
+// =============================================================================
+// bot_server.js  —  ONLINE MODE copy of bot.js's BOT_TYPES table
+// =============================================================================
+// Edit the numbers in here to change enemy stats in ONLINE mode.
+// bot.js (the public file) only controls OFFLINE mode — AND only decides
+// what a bot LOOKS like / how it patrols/spawns for someone who happens to
+// be simulating it. The actual numbers (health, damage, speed, view range,
+// respawn time, drops, ...) always come from THIS file once online: server.js
+// sends it to every player when they join (same as weapon_server.js,
+// armor_server.js, character_server.js, ...), and online.js swaps it into
+// the page's BOT_TYPES table before any enemy is spawned or simulated.
+//
+// This file lives on the SERVER (Render), NOT in the public game website, so
+// players cannot open or edit it. Editing the public bot.js's BOT_TYPES only
+// changes OFFLINE enemies now — it can no longer buff/nerf enemies online,
+// even for whoever ends up hosting a room's fight (see server.js's comment
+// on the bot-host model for what a hacked HOST can still affect, and what
+// this file closes off).
+//
+// Every entry can carry a display `name` and a `description` (flavor text).
+// Keep this in sync with bot.js's BOT_TYPES by hand (add a new bot type in
+// both places) — bot.js's AI code (movement/vision/attack state machine)
+// still runs from the public file, since it has to execute in the host's
+// own browser; only the STATS TABLE is duplicated here and enforced.
+// =============================================================================
+
+const BOT_TYPES = {
+
+  // RUSHER — aggressive, moderate FOV, closes distance fast
+  rusher: {
+    name: "rusher",
+    health: 100,
+    physicalDefense: "armor1",
+    movementSpeed: 110,
+    weaponName: "uzi",
+    image: "image/police.png",
+    radius: 11,
+    viewRange: 260,
+    viewAngle: 80,
+    patrolInterval: 3000,
+    patrolRadius: 100,
+    lookDuration: 1500,
+    respawn: 10,
+    active: false,
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor1,armor15,armor29,accessory01,accessory13,accessory25,ring01,ring14,ring27",
+    spawnGoldOrbChance: 0.8, // 80% chance to drop a gold orb on death
+    goldOrbAmount: 30,       // gold given when this bot's orb is picked up
+    unitExplode: "unitexplode",
+    level: 1,
+    increaseSpawnGet: 0,
+    expGet: 30,
+    attackSpeed: 1,
+    physicalDamage: 11,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+    // BOT SKILL — see the full explanation on the guard entry below, and
+    // on bot.js's BOT_TYPES.rusher. Keep in sync by hand.
+    botSkill: ""
+  },
+
+  // GUARD — slow, heavily armored, holds ground, wide FOV (hard to flank
+  // from the side, but doesn't chase far and fires a short-range shotgun)
+  guard: {
+    name: "guard",
+    health: 160,
+    physicalDefense: "armor3",
+    movementSpeed: 70,
+    weaponName: "shotgun",
+    image: "image/swat.png",
+    radius: 15,
+    viewRange: 180,
+    viewAngle: 110,
+    patrolInterval: 3500,
+    patrolRadius: 50,
+    lookDuration: 2200,
+    respawn: 10,
+    active: false,
+    spawnItem: "shield,speedup,powerup,health,sword2,gun2,gauntlet2,armor2,armor16,armor30,accessory02,accessory14,accessory26,ring02,ring15,ring28",
+    spawnGoldOrbChance: 0.75, // 75% chance to drop a gold orb on death
+    goldOrbAmount: 100,       // gold given when this bot's orb is picked up
+    unitExplode: "unitexplode",
+    level: 1,
+    increaseSpawnGet: 0,
+    expGet: 30,
+    attackSpeed: 1,
+    physicalDamage: 11,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    // BOT SKILL — mirrors bot.js's BOT_TYPES.guard comment/field exactly.
+    // bot.js's AI (tryBotUseSkill(), running in the room host's own
+    // browser) reads this list from whichever BOT_TYPES table is
+    // currently active — online.js swaps THIS server-enforced copy in
+    // for the duration of the match, so a player can't remove/edit
+    // guard's skills locally to make it easier. Keep in sync with
+    // bot.js by hand, same as every other field in this file.
+    botSkill: ""
+  },
+
+  assaulter: {
+    name: "assaulter",
+    health: 120,
+    physicalDefense: "armor2",
+    movementSpeed: 100,
+    weaponName: "ak47",
+    image: "image/soldier.png",
+    radius: 13,
+    viewRange: 320,
+    viewAngle: 140,
+    patrolInterval: 3500,
+    patrolRadius: 70,
+    lookDuration: 2200,
+    respawn: 10,
+    active: false,
+    spawnItem: "speedup,powerup,sword3,gun3,gauntlet3,armor3,armor17,armor31,accessory03,accessory15,accessory27,ring03,ring16,ring29",
+    spawnGoldOrbChance: 0.75, // 75% chance to drop a gold orb on death
+    goldOrbAmount: 75,        // gold given when this bot's orb is picked up
+    unitExplode: "unitexplode",
+    level: 1,
+    increaseSpawnGet: 0,
+    expGet: 30,
+    attackSpeed: 1,
+    physicalDamage: 11,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01
+  },
+
+  // SNIPER — barely moves, long range, but a narrow FOV makes it easy to
+  // flank: sneak up outside its cone and it won't react until it's hit
+  shooter: {
+    name: "shooter",
+    health: 120,
+    physicalDefense: 0,
+    movementSpeed: 50,
+    weaponName: "sniper",
+    image: "image/redbot.png",
+    radius: 11,
+    viewRange: 500,
+    viewAngle: 40,
+    patrolInterval: 4000,
+    patrolRadius: 30,
+    lookDuration: 2500,
+    respawn: 10,
+    active: false,
+    spawnItem: "shield,speedup,powerup,health,sword4,gun4,gauntlet4,armor4,armor18,armor32,accessory04,accessory16,accessory28,ring04,ring17,ring30",
+    spawnGoldOrbChance: 0.75, // 75% chance to drop a gold orb on death
+    goldOrbAmount: 50,        // gold given when this bot's orb is picked up
+    unitExplode: "unitexplode",
+    level: 1,
+    increaseSpawnGet: 0,
+    expGet: 30,
+    attackSpeed: 1,
+    physicalDamage: 11,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01
+  },
+
+  // ---------------------------------------------------------------------
+  // bot01–bot20 — 20 extra enemy types using your own bot_01.png..bot_20.png
+  // artwork. Stats step up gradually every 4 bots (5 difficulty tiers) so
+  // higher-numbered bots hit harder/tankier/see farther. Tweak freely.
+  // ---------------------------------------------------------------------
+  bot01: {
+    name: "Patrol Officer",
+    description: "A police-type patrol bot with a blue armored shell and a star badge on its chest. It keeps watch over its area and moves in fast on anything suspicious.",
+    health: 200,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    image: "image/police.png",
+    radius: 11,
+    viewRange: 220,
+    viewAngle: 80,
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,sword5,gun5,gauntlet5,armor5,armor19,armor33,accessory05,accessory17,accessory29,ring05,ring18,ring31",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 4,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 1,
+    increaseSpawnGet: 0,
+    expGet: 8,
+
+    attackSpeed: 1,
+    physicalDamage: 8,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+  bot01elite: {
+    name: "Elite Officer",
+    description: "A police-type patrol bot with a blue armored shell and a star badge on its chest. It keeps watch over its area and moves in fast on anything suspicious.",
+    health: 400,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    image: "image/police.png",
+    radius: 13,
+    viewRange: 220,
+    viewAngle: 80,
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor6,armor20,armor34,accessory06,accessory18,accessory30,ring06,ring19,ring32",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 7,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 1,
+    increaseSpawnGet: 0,
+    expGet: 11,
+
+    attackSpeed: 1,
+    physicalDamage: 14,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot02: {
+    name: "Shadow Ninja",
+    description: "A stealth-type ninja bot in black armor with glowing red eyes and a masked face. It moves quietly and strikes quickly before slipping away.",
+
+    health: 250,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_02.png",
+    radius: 11,
+
+    viewRange: 220,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor7,armor21,armor35,accessory07,accessory19,accessory31,ring07,ring20,ring33",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 6,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 1,
+    increaseSpawnGet: 0,
+    expGet: 12,
+
+    attackSpeed: 1,
+    physicalDamage: 9,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot03: {
+    name: "Violet Warlord",
+    description: "A war-machine bot with purple and silver armor and a menacing faction emblem on its chest. It leads from the front and hits hard with cold, mechanical precision.",
+
+    health: 250,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_03.png",
+    radius: 11,
+
+    viewRange: 220,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor8,armor22,armor36,accessory08,accessory20,accessory32,ring08,ring21,ring34",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 8,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 2,
+    increaseSpawnGet: 0,
+    expGet: 16,
+
+    attackSpeed: 1,
+    physicalDamage: 9,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+  bot03elite: {
+    name: "Elite Warlord",
+    description: "A war-machine bot with purple and silver armor and a menacing faction emblem on its chest. It leads from the front and hits hard with cold, mechanical precision.",
+
+    health: 500,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_03.png",
+    radius: 13,
+
+    viewRange: 220,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor9,armor23,armor37,accessory09,accessory21,accessory33,ring09,ring22,ring35",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 14,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 2,
+    increaseSpawnGet: 0,
+    expGet: 19,
+
+    attackSpeed: 1,
+    physicalDamage: 15,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot04: {
+    name: "SWAT Trooper",
+    description: "A tactical assault bot in black armor marked SWAT, with flashing blue lights. It pushes into enemy positions and fights with strict discipline.",
+
+    health: 300,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_04.png",
+    radius: 11,
+
+    viewRange: 220,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor10,armor24,armor38,accessory10,accessory22,accessory34,ring10,ring23,ring36",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 10,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 3,
+    increaseSpawnGet: 0,
+    expGet: 18,
+
+    attackSpeed: 1,
+    physicalDamage: 11,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot04elite: {
+    name: "Elite Trooper",
+    description: "A tactical assault bot in black armor marked SWAT, with flashing blue lights. It pushes into enemy positions and fights with strict discipline.",
+
+    health: 600,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_04.png",
+    radius: 11,
+
+    viewRange: 220,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor11,armor25,armor39,accessory11,accessory23,accessory35,ring11,ring24,ring37",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 16,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 3,
+    increaseSpawnGet: 0,
+    expGet: 22,
+
+    attackSpeed: 1,
+    physicalDamage: 16,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot05: {
+    name: "Fire Marshal",
+    description: "A rescue-type bot in red and yellow armor with a firefighter emblem. It charges into danger without fear and shrugs off heavy damage.",
+
+    health: 350,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:8,
+    image: "image/bot_05.png",
+    radius: 11,
+
+    viewRange: 260,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor12,armor26,armor40,accessory12,accessory24,accessory36,ring12,ring25,ring38",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 13,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 4,
+    increaseSpawnGet: 0,
+    expGet: 20,
+
+    attackSpeed: 1,
+    physicalDamage: 13,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+ 
+   bot05elite: {
+    name: "Elite Marshal",
+    description: "A rescue-type bot in red and yellow armor with a firefighter emblem. It charges into danger without fear and shrugs off heavy damage.",
+
+    health: 750,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:8,
+    image: "image/bot_05.png",
+    radius: 13,
+
+    viewRange: 260,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor13,armor27,armor41,accessory01,accessory13,accessory25,ring13,ring26,ring39",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 19,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 4,
+    increaseSpawnGet: 0,
+    expGet: 25,
+
+    attackSpeed: 1,
+    physicalDamage: 18,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot06: {
+    name: "Cosmic Voyager",
+    description: "A space-type bot with a deep blue shell and a glowing planet emblem. It drifts across the map like a wandering star and attacks with strange bursts of energy.",
+
+    health: 455,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_06.png",
+    radius: 11,
+
+    viewRange: 260,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor14,armor28,armor42,accessory02,accessory14,accessory26,ring01,ring14,ring40",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 15,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 4,
+    increaseSpawnGet: 0,
+    expGet: 23,
+
+    attackSpeed: 1,
+    physicalDamage: 17,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot07: {
+    name: "Camo Commando",
+    description: "A military-type bot in green camouflage plating with a white star. It holds its ground like a veteran soldier and follows its targets with discipline.",
+
+    health: 500,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_07.png",
+    radius: 11,
+
+    viewRange: 260,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor1,armor15,armor43,accessory03,accessory15,accessory27,ring02,ring15,ring27",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 18,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 5,
+    increaseSpawnGet: 0,
+    expGet: 25,
+
+    attackSpeed: 1,
+    physicalDamage: 23,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot07elite: {
+    name: "Elite Commando",
+    description: "A military-type bot in green camouflage plating with a white star. It holds its ground like a veteran soldier and follows its targets with discipline.",
+
+    health: 1000,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_07.png",
+    radius: 13,
+
+    viewRange: 260,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor2,armor16,armor29,accessory04,accessory16,accessory28,ring03,ring16,ring28",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 25,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 5,
+    increaseSpawnGet: 0,
+    expGet: 30,
+
+    attackSpeed: 1,
+    physicalDamage: 29,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot08: {
+    name: "Red Dragon",
+    description: "A dragon-type bot in fiery red armor with a golden dragon emblem. It is proud and aggressive, and it attacks with fierce, burning force.",
+
+    health: 600,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_08.png",
+    radius: 11,
+
+    viewRange: 260,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor3,armor17,armor30,accessory05,accessory17,accessory29,ring04,ring17,ring29",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 20,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 5,
+    increaseSpawnGet: 0,
+    expGet: 28,
+
+    attackSpeed: 1,
+    physicalDamage: 28,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot09: {
+    name: "Frost Guard",
+    description: "An ice-type bot with pale blue and silver armor and a snowflake core. It stays cool and calm, guarding its area and chilling anything that gets close.",
+
+    health: 800,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:10,
+    image: "image/bot_09.png",
+    radius: 11,
+
+    viewRange: 300,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor4,armor18,armor31,accessory06,accessory18,accessory30,ring05,ring18,ring30",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 25,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 6,
+    increaseSpawnGet: 0,
+    expGet: 32,
+
+    attackSpeed: 1,
+    physicalDamage: 37,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot09elite: {
+    name: "Elite Frost",
+    description: "An ice-type bot with pale blue and silver armor and a snowflake core. It stays cool and calm, guarding its area and chilling anything that gets close.",
+
+    health: 1600,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:10,
+    image: "image/bot_09.png",
+    radius: 13,
+
+    viewRange: 300,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor5,armor19,armor32,accessory07,accessory19,accessory31,ring06,ring19,ring31",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 32,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 6,
+    increaseSpawnGet: 0,
+    expGet: 37,
+
+    attackSpeed: 1,
+    physicalDamage: 45,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot10: {
+    name: "Horned Demon",
+    description: "A demon-type bot in black armor with glowing red veins, curved horns and burning eyes. It is ruthless and hits with brutal force.",
+
+    health: 1100,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_10.png",
+    radius: 11,
+
+    viewRange: 300,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor6,armor20,armor33,accessory08,accessory20,accessory32,ring07,ring20,ring32",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 30,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 7,
+    increaseSpawnGet: 0,
+    expGet: 38,
+
+    attackSpeed: 1,
+    physicalDamage: 43,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot10elite: {
+    name: "Elite Demon",
+    description: "A demon-type bot in black armor with glowing red veins, curved horns and burning eyes. It is ruthless and hits with brutal force.",
+
+    health: 2200,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_10.png",
+    radius: 13,
+
+    viewRange: 300,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor7,armor21,armor34,accessory09,accessory21,accessory33,ring08,ring21,ring33",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 38,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 7,
+    increaseSpawnGet: 0,
+    expGet: 46,
+
+    attackSpeed: 1,
+    physicalDamage: 49,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot11: {
+    name: "Alien Invader",
+    description: "An alien-type bot with a glowing green shell and an alien face emblem. It wanders strangely and attacks without warning.",
+
+    health: 1550,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_11.png",
+    radius: 11,
+
+    viewRange: 300,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor8,armor22,armor35,accessory10,accessory22,accessory34,ring09,ring22,ring34",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 37,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 8,
+    increaseSpawnGet: 0,
+    expGet: 42,
+
+    attackSpeed: 1,
+    physicalDamage: 48,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot11elite: {
+    name: "Elite Invader",
+    description: "An alien-type bot with a glowing green shell and an alien face emblem. It wanders strangely and attacks without warning.",
+
+    health: 3100,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_11.png",
+    radius: 13,
+
+    viewRange: 300,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor9,armor23,armor36,accessory11,accessory23,accessory35,ring10,ring23,ring35",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 47,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 8,
+    increaseSpawnGet: 0,
+    expGet: 50,
+
+    attackSpeed: 1,
+    physicalDamage: 58,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot12: {
+    name: "Road Racer",
+    description: "A speed-type bot in red and white armor with a checkered flag emblem. It is built for fast movement and rushes at enemies before they can react.",
+
+    health: 1800,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_12.png",
+    radius: 11,
+
+    viewRange: 300,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor10,armor24,armor37,accessory12,accessory24,accessory36,ring11,ring24,ring36",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 45,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 9,
+    increaseSpawnGet: 0,
+    expGet: 46,
+
+    attackSpeed: 1,
+    physicalDamage: 53,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot12elite: {
+    name: "Elite Racer",
+    description: "A speed-type bot in red and white armor with a checkered flag emblem. It is built for fast movement and rushes at enemies before they can react.",
+
+    health: 3600,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_12.png",
+    radius: 13,
+
+    viewRange: 300,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor11,armor25,armor38,accessory01,accessory13,accessory25,ring12,ring25,ring37",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 52,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 9,
+    increaseSpawnGet: 0,
+    expGet: 52,
+
+    attackSpeed: 1,
+    physicalDamage: 59,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot13: {
+    name: "Hooded Assassin",
+    description: "A stealth-type assassin bot in dark purple armor with a hooded face. It hides in the shadows and ambushes its targets.",
+
+    health: 2200,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_13.png",
+    radius: 11,
+
+    viewRange: 340,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor12,armor26,armor39,accessory02,accessory14,accessory26,ring13,ring26,ring38",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 50,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 9,
+    increaseSpawnGet: 0,
+    expGet: 50,
+
+    attackSpeed: 1,
+    physicalDamage: 60,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot13elite: {
+    name: "Elite Assassin",
+    description: "A stealth-type assassin bot in dark purple armor with a hooded face. It hides in the shadows and ambushes its targets.",
+
+    health: 4400,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_13.png",
+    radius: 13,
+
+    viewRange: 340,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor13,armor27,armor40,accessory03,accessory15,accessory27,ring01,ring14,ring39",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 60,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 9,
+    increaseSpawnGet: 0,
+    expGet: 58,
+
+    attackSpeed: 1,
+    physicalDamage: 70,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot14: {
+    name: "Justice Guardian",
+    description: "A hero-type bot in red and blue armor with a heroic faction emblem. It defends its area bravely and never backs down from a fight.",
+
+    health: 2605,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_14.png",
+    radius: 11,
+
+    viewRange: 340,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor14,armor28,armor41,accessory04,accessory16,accessory28,ring02,ring15,ring40",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 57,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 10,
+    increaseSpawnGet: 0,
+    expGet: 65,
+
+    attackSpeed: 1,
+    physicalDamage: 67,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot14elite: {
+    name: "Elite Guardian",
+    description: "A hero-type bot in red and blue armor with a heroic faction emblem. It defends its area bravely and never backs down from a fight.",
+
+    health: 4210,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_14.png",
+    radius: 13,
+
+    viewRange: 340,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor1,armor15,armor42,accessory05,accessory17,accessory29,ring03,ring16,ring27",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 67,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 10,
+    increaseSpawnGet: 0,
+    expGet: 75,
+
+    attackSpeed: 1,
+    physicalDamage: 75,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot15: {
+    name: "Royal Guard",
+    description: "An elite guard bot in gold and black armor with a crown emblem. It protects its territory with pride and heavy, disciplined strikes.",
+
+    health: 3000,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_15.png",
+    radius: 11,
+
+    viewRange: 340,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor2,armor16,armor43,accessory06,accessory18,accessory30,ring04,ring17,ring28",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 70,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 10,
+    increaseSpawnGet: 0,
+    expGet: 75,
+
+    attackSpeed: 1,
+    physicalDamage: 78,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot16: {
+    name: "Cyber Core",
+    description: "A cyber-type bot with neon purple and cyan lights and a glowing power symbol. It moves like a machine that never shuts down and attacks with electric energy.",
+
+    health: 3500,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_16.png",
+    radius: 11,
+
+    viewRange: 340,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor3,armor17,armor29,accessory07,accessory19,accessory31,ring05,ring18,ring29",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 80,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 11,
+    increaseSpawnGet: 0,
+    expGet: 85,
+
+    attackSpeed: 1,
+    physicalDamage: 95,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot16elite: {
+    name: "Elite Cyber Core",
+    description: "A cyber-type bot with neon purple and cyan lights and a glowing power symbol. It moves like a machine that never shuts down and attacks with electric energy.",
+
+    health: 7000,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_16.png",
+    radius: 13,
+
+    viewRange: 340,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor4,armor18,armor30,accessory08,accessory20,accessory32,ring06,ring19,ring30",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 90,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 11,
+    increaseSpawnGet: 0,
+    expGet: 90,
+
+    attackSpeed: 1,
+    physicalDamage: 105,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot17: {
+    name: "Skull Raider",
+    description: "A death-type bot in black and red armor with a white skull on its chest. It raids the area without mercy and finishes off anything it catches.",
+
+    health: 4200,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "uzi",
+    magicAttack:20,
+    image: "image/bot_17.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor5,armor19,armor31,accessory09,accessory21,accessory33,ring07,ring20,ring31",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 110,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 11,
+    increaseSpawnGet: 0,
+    expGet: 105,
+
+    attackSpeed: 1,
+    physicalDamage: 120,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot18: {
+    name: "Steel Wolf",
+    description: "A wolf-type bot in blue and silver armor with a snarling wolf emblem. It hunts its territory with sharp senses and strikes fast.",
+
+    health: 4800,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_18.png",
+    radius: 12,
+
+    viewRange: 380,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor6,armor20,armor32,accessory10,accessory22,accessory34,ring08,ring21,ring32",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 125,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 11,
+    increaseSpawnGet: 0,
+    expGet: 130,
+
+    attackSpeed: 1,
+    physicalDamage: 140,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot18elite: {
+    name: "Elite Wolf",
+    description: "A wolf-type bot in blue and silver armor with a snarling wolf emblem. It hunts its territory with sharp senses and strikes fast.",
+
+    health: 9600,
+    physicalDefense: "armor1",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_18.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor7,armor21,armor33,accessory11,accessory23,accessory35,ring09,ring22,ring33",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 140,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 12,
+    increaseSpawnGet: 0,
+    expGet: 140,
+
+    attackSpeed: 1,
+    physicalDamage: 150,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot19: {
+    name: "Hazmat Bot",
+    description: "A toxic-type bot in yellow and black armor with a biohazard emblem. It spreads poison around it and wears its enemies down.",
+
+    health: 5500,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_19.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor8,armor22,armor34,accessory12,accessory24,accessory36,ring10,ring23,ring34",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 145,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 12,
+    increaseSpawnGet: 0,
+    expGet: 145,
+
+    attackSpeed: 1,
+    physicalDamage: 160,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  bot20: {
+    name: "Oni Samurai",
+    description: "A samurai-type bot in purple and gold armor with a horned oni mask. It fights with fierce honor and strikes with heavy, powerful blows.",
+
+    health: 6500,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_20.png",
+    radius: 11,
+    magicAttack:20,
+    viewRange: 380,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor9,armor23,armor35,accessory01,accessory13,accessory25,ring11,ring24,ring35",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 170,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 13,
+    increaseSpawnGet: 0,
+    expGet: 160,
+
+    attackSpeed: 1,
+    physicalDamage: 180,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  
+    bot20elite: {
+    name: "Elite Samurai",
+    description: "A samurai-type bot in purple and gold armor with a horned oni mask. It fights with fierce honor and strikes with heavy, powerful blows.",
+
+    health: 13000,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_20.png",
+    radius: 13,
+    magicAttack:20,
+    viewRange: 380,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor10,armor24,armor36,accessory02,accessory14,accessory26,ring12,ring25,ring36",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 190,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 13,
+    increaseSpawnGet: 0,
+    expGet: 170,
+
+    attackSpeed: 1,
+    physicalDamage: 190,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  // ---------------------------------------------------------------------
+  // bot19elite — missing elite for the LEVEL12 map (one elite per map).
+  // ---------------------------------------------------------------------
+  bot19elite: {
+    name: "Elite Hazmat Bot",
+    description: "A hazmat-suit bot built tougher than the rest of its pack. It hits harder and takes far more punishment.",
+
+    health: 11000,
+    physicalDefense: "armor2",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_19.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor11,armor25,armor37,accessory03,accessory15,accessory27,ring13,ring26,ring37",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 160,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 12,
+    increaseSpawnGet: 0,
+    expGet: 155,
+
+    attackSpeed: 1,
+    physicalDamage: 170,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  // =====================================================================
+  // bot21–bot40 — 20 NEW enemy types using bot_21.png..bot_40.png (one
+  // type per level, LEVEL 14 .. LEVEL 33).
+  // bot41–bot58 — 18 "Mk II" versions that REUSE bot_21..bot_38.png art
+  // for LEVEL 34 .. LEVEL 51 (same trick as before: reuse a picture, give
+  // it new name + much stronger numbers).
+  //
+  // STAT CURVE (health / physicalDamage / expGet / goldOrbAmount):
+  //   L14-L21 = your own numbers from the old table, kept as-is.
+  //   L22-L51 = grows every level, but the % growth shrinks from
+  //             ~6% down to ~3% so it never explodes.
+  //   NOTE: `health` here is the LEVEL-1 baseline; the game multiplies it by
+  //   1.03 per level (HEALTH_GROWTH_RATE) when the bot spawns.
+  //   Every type has an "elite" twin (health x2, a bit more dmg/exp/gold,
+  //   respawn 60, active) — each map spawns exactly ONE elite of its own level.
+  // =====================================================================
+  bot21: {
+    name: "Cyber Falcon",
+    description: "A cyan armored sphere with a glowing winged-falcon emblem. It swoops in fast and strikes with precise bursts.",
+
+    health: 7500,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_21.png",
+    radius: 11,
+
+    viewRange: 340,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor12,armor26,armor38,accessory04,accessory16,accessory28,ring01,ring14,ring38",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 205,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 14,
+    increaseSpawnGet: 0,
+    expGet: 180,
+
+    attackSpeed: 1,
+    physicalDamage: 200,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot22: {
+    name: "Bone Reaper",
+    description: "A soot-black sphere with orange glowing plates and a white skull emblem. It reaps anything that wanders into its patrol.",
+
+    health: 9000,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_22.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor13,armor27,armor39,accessory05,accessory17,accessory29,ring02,ring15,ring39",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 230,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 15,
+    increaseSpawnGet: 0,
+    expGet: 210,
+
+    attackSpeed: 1,
+    physicalDamage: 230,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot23: {
+    name: "Blizzard Sentinel",
+    description: "A frost-white sphere with a blue snowflake core. It guards its ground coldly and never tires.",
+
+    health: 11500,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_23.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor14,armor28,armor40,accessory06,accessory18,accessory30,ring03,ring16,ring40",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 280,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 16,
+    increaseSpawnGet: 0,
+    expGet: 250,
+
+    attackSpeed: 1,
+    physicalDamage: 260,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot24: {
+    name: "Nuclear Warden",
+    description: "A green-lit sphere marked with a radiation symbol. It poisons the air around it and hits with irradiated rounds.",
+
+    health: 13000,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_24.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor1,armor15,armor41,accessory07,accessory19,accessory31,ring04,ring17,ring27",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 300,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 17,
+    increaseSpawnGet: 0,
+    expGet: 275,
+
+    attackSpeed: 1,
+    physicalDamage: 278,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot25: {
+    name: "Void Raven",
+    description: "A dark purple sphere with a winged raven crest. It hunts from the shadows and strikes from odd angles.",
+
+    health: 14200,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_25.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor2,armor16,armor42,accessory08,accessory20,accessory32,ring05,ring18,ring28",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 325,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 18,
+    increaseSpawnGet: 0,
+    expGet: 290,
+
+    attackSpeed: 1,
+    physicalDamage: 295,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot26: {
+    name: "Inferno Core",
+    description: "A red-hot armored sphere with a blazing flame emblem. It burns with rage and hits with scorching force.",
+
+    health: 15500,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_26.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor3,armor17,armor43,accessory09,accessory21,accessory33,ring06,ring19,ring29",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 350,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 19,
+    increaseSpawnGet: 0,
+    expGet: 310,
+
+    attackSpeed: 1,
+    physicalDamage: 320,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot27: {
+    name: "Storm Surge",
+    description: "A blue sphere crackling with a lightning-bolt emblem. It moves in quick bursts and shocks everything nearby.",
+
+    health: 17500,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_27.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor4,armor18,armor29,accessory10,accessory22,accessory34,ring07,ring20,ring30",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 370,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 20,
+    increaseSpawnGet: 0,
+    expGet: 330,
+
+    attackSpeed: 1,
+    physicalDamage: 340,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot28: {
+    name: "Golden Monarch",
+    description: "A gold-plated royal sphere with a crown emblem. It commands its area and takes heavy hits to bring down.",
+
+    health: 18000,
+    physicalDefense: "armor5",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_28.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor5,armor19,armor30,accessory11,accessory23,accessory35,ring08,ring21,ring31",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 380,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 21,
+    increaseSpawnGet: 0,
+    expGet: 340,
+
+    attackSpeed: 1,
+    physicalDamage: 360,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot29: {
+    name: "Crimson Fiend",
+    description: "A blood-red sphere with a horned demon face. It is relentless and brutal in close fights.",
+
+    health: 19100,
+    physicalDefense: "armor5",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_29.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor6,armor20,armor31,accessory12,accessory24,accessory36,ring09,ring22,ring32",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 401,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 22,
+    increaseSpawnGet: 0,
+    expGet: 359,
+
+    attackSpeed: 1,
+    physicalDamage: 378,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot30: {
+    name: "Sniper Prime",
+    description: "A white and blue sphere with a targeting crosshair. It spots threats from far away and rarely misses.",
+
+    health: 20200,
+    physicalDefense: "armor5",
+    movementSpeed: 91,
+    weaponName: "shotgun",
+
+    image: "image/bot_30.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor7,armor21,armor32,accessory01,accessory13,accessory25,ring10,ring23,ring33",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 423,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 23,
+    increaseSpawnGet: 0,
+    expGet: 378,
+
+    attackSpeed: 1,
+    physicalDamage: 397,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot31: {
+    name: "Toxic Plague",
+    description: "A green sphere with a biohazard emblem. It spreads decay wherever it patrols.",
+
+    health: 21400,
+    physicalDefense: "armor5",
+    movementSpeed: 91,
+    weaponName: "ak47",
+
+    image: "image/bot_31.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor8,armor22,armor33,accessory02,accessory14,accessory26,ring11,ring24,ring34",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 445,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 24,
+    increaseSpawnGet: 0,
+    expGet: 398,
+
+    attackSpeed: 1,
+    physicalDamage: 416,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot32: {
+    name: "Vortex Spiral",
+    description: "A purple sphere with a swirling vortex core. It pulls enemies in and wears them down.",
+
+    health: 22600,
+    physicalDefense: "armor6",
+    movementSpeed: 92,
+    weaponName: "sniper",
+
+    image: "image/bot_32.png",
+    radius: 11,
+
+    viewRange: 380,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor9,armor23,armor34,accessory03,accessory15,accessory27,ring12,ring25,ring35",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 468,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 25,
+    increaseSpawnGet: 0,
+    expGet: 419,
+
+    attackSpeed: 1,
+    physicalDamage: 435,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot33: {
+    name: "Crimson Eagle",
+    description: "A red and white sphere with an eagle emblem. It dives on targets with disciplined aggression.",
+
+    health: 23850,
+    physicalDefense: "armor6",
+    movementSpeed: 92,
+    weaponName: "uzi",
+
+    image: "image/bot_33.png",
+    radius: 11,
+
+    viewRange: 390,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor10,armor24,armor35,accessory04,accessory16,accessory28,ring13,ring26,ring36",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 493,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 26,
+    increaseSpawnGet: 0,
+    expGet: 441,
+
+    attackSpeed: 1,
+    physicalDamage: 456,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot34: {
+    name: "Hex Guardian",
+    description: "A cyan sphere with a hexagon shield emblem. It holds its ground behind layered armor.",
+
+    health: 25150,
+    physicalDefense: "armor6",
+    movementSpeed: 93,
+    weaponName: "shotgun",
+
+    image: "image/bot_34.png",
+    radius: 11,
+
+    viewRange: 390,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor11,armor25,armor36,accessory05,accessory17,accessory29,ring01,ring14,ring37",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 518,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 27,
+    increaseSpawnGet: 0,
+    expGet: 463,
+
+    attackSpeed: 1,
+    physicalDamage: 477,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot35: {
+    name: "Ember Fox",
+    description: "An orange sphere with a fox emblem. It is cunning, quick to react and hard to pin down.",
+
+    health: 26500,
+    physicalDefense: "armor6",
+    movementSpeed: 93,
+    weaponName: "ak47",
+
+    image: "image/bot_35.png",
+    radius: 11,
+
+    viewRange: 390,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor12,armor26,armor37,accessory06,accessory18,accessory30,ring02,ring15,ring38",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 543,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 28,
+    increaseSpawnGet: 0,
+    expGet: 486,
+
+    attackSpeed: 1,
+    physicalDamage: 498,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot36: {
+    name: "Tidal Wave",
+    description: "A deep-blue sphere with a wave emblem. It crashes into enemies in heavy waves of fire.",
+
+    health: 27900,
+    physicalDefense: "armor7",
+    movementSpeed: 94,
+    weaponName: "sniper",
+
+    image: "image/bot_36.png",
+    radius: 11,
+
+    viewRange: 390,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor13,armor27,armor38,accessory07,accessory19,accessory31,ring03,ring16,ring39",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 570,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 29,
+    increaseSpawnGet: 0,
+    expGet: 510,
+
+    attackSpeed: 1,
+    physicalDamage: 520,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot37: {
+    name: "Hell Trident",
+    description: "A red and black sphere with a trident emblem. It pierces armor with savage thrusts.",
+
+    health: 29350,
+    physicalDefense: "armor7",
+    movementSpeed: 94,
+    weaponName: "uzi",
+
+    image: "image/bot_37.png",
+    radius: 11,
+
+    viewRange: 390,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor14,armor28,armor39,accessory08,accessory20,accessory32,ring04,ring17,ring40",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 597,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 30,
+    increaseSpawnGet: 0,
+    expGet: 534,
+
+    attackSpeed: 1,
+    physicalDamage: 542,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot38: {
+    name: "Forest Spirit",
+    description: "A green sphere with a leaf emblem. It looks calm but recovers and fights with ancient strength.",
+
+    health: 30850,
+    physicalDefense: "armor7",
+    movementSpeed: 95,
+    weaponName: "shotgun",
+
+    image: "image/bot_38.png",
+    radius: 11,
+
+    viewRange: 400,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor1,armor15,armor40,accessory09,accessory21,accessory33,ring05,ring18,ring27",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 626,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 31,
+    increaseSpawnGet: 0,
+    expGet: 560,
+
+    attackSpeed: 1,
+    physicalDamage: 565,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot39: {
+    name: "Alien Overlord",
+    description: "A purple sphere with an alien skull emblem. It commands its patrol with strange, deadly power.",
+
+    health: 32400,
+    physicalDefense: "armor7",
+    movementSpeed: 95,
+    weaponName: "ak47",
+
+    image: "image/bot_39.png",
+    radius: 11,
+
+    viewRange: 400,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor2,armor16,armor41,accessory10,accessory22,accessory34,ring06,ring19,ring28",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 655,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 32,
+    increaseSpawnGet: 0,
+    expGet: 586,
+
+    attackSpeed: 1,
+    physicalDamage: 588,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot40: {
+    name: "Solar Nova",
+    description: "A white and gold sphere with a radiant star emblem. It shines with explosive power.",
+
+    health: 33950,
+    physicalDefense: "armor8",
+    movementSpeed: 96,
+    weaponName: "sniper",
+
+    image: "image/bot_40.png",
+    radius: 11,
+
+    viewRange: 400,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor3,armor17,armor42,accessory11,accessory23,accessory35,ring07,ring20,ring29",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 684,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 33,
+    increaseSpawnGet: 0,
+    expGet: 612,
+
+    attackSpeed: 1,
+    physicalDamage: 612,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot41: {
+    name: "Cyber Falcon Mk II",
+    description: "A cyan armored sphere with a glowing winged-falcon emblem. It swoops in fast and strikes with precise bursts. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 35550,
+    physicalDefense: "armor8",
+    movementSpeed: 96,
+    weaponName: "uzi",
+
+    image: "image/bot_21.png",
+    radius: 11,
+
+    viewRange: 400,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor4,armor18,armor43,accessory12,accessory24,accessory36,ring08,ring21,ring30",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 715,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 34,
+    increaseSpawnGet: 0,
+    expGet: 640,
+
+    attackSpeed: 1,
+    physicalDamage: 637,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot42: {
+    name: "Bone Reaper Mk II",
+    description: "A soot-black sphere with orange glowing plates and a white skull emblem. It reaps anything that wanders into its patrol. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 37200,
+    physicalDefense: "armor8",
+    movementSpeed: 97,
+    weaponName: "shotgun",
+
+    image: "image/bot_22.png",
+    radius: 11,
+
+    viewRange: 400,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor5,armor19,armor29,accessory01,accessory13,accessory25,ring09,ring22,ring31",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 746,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 35,
+    increaseSpawnGet: 0,
+    expGet: 668,
+
+    attackSpeed: 1,
+    physicalDamage: 661,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot43: {
+    name: "Blizzard Sentinel Mk II",
+    description: "A frost-white sphere with a blue snowflake core. It guards its ground coldly and never tires. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 38900,
+    physicalDefense: "armor8",
+    movementSpeed: 97,
+    weaponName: "ak47",
+
+    image: "image/bot_23.png",
+    radius: 11,
+
+    viewRange: 410,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor6,armor20,armor30,accessory02,accessory14,accessory26,ring10,ring23,ring32",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 778,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 36,
+    increaseSpawnGet: 0,
+    expGet: 696,
+
+    attackSpeed: 1,
+    physicalDamage: 686,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot44: {
+    name: "Nuclear Warden Mk II",
+    description: "A green-lit sphere marked with a radiation symbol. It poisons the air around it and hits with irradiated rounds. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 40650,
+    physicalDefense: "armor9",
+    movementSpeed: 98,
+    weaponName: "sniper",
+
+    image: "image/bot_24.png",
+    radius: 11,
+
+    viewRange: 410,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor7,armor21,armor31,accessory03,accessory15,accessory27,ring11,ring24,ring33",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 811,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 37,
+    increaseSpawnGet: 0,
+    expGet: 726,
+
+    attackSpeed: 1,
+    physicalDamage: 712,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot45: {
+    name: "Void Raven Mk II",
+    description: "A dark purple sphere with a winged raven crest. It hunts from the shadows and strikes from odd angles. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 42400,
+    physicalDefense: "armor9",
+    movementSpeed: 98,
+    weaponName: "uzi",
+
+    image: "image/bot_25.png",
+    radius: 11,
+
+    viewRange: 410,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor8,armor22,armor32,accessory04,accessory16,accessory28,ring12,ring25,ring34",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 844,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 38,
+    increaseSpawnGet: 0,
+    expGet: 756,
+
+    attackSpeed: 1,
+    physicalDamage: 738,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot46: {
+    name: "Inferno Core Mk II",
+    description: "A red-hot armored sphere with a blazing flame emblem. It burns with rage and hits with scorching force. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 44200,
+    physicalDefense: "armor9",
+    movementSpeed: 99,
+    weaponName: "shotgun",
+
+    image: "image/bot_26.png",
+    radius: 11,
+
+    viewRange: 410,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor9,armor23,armor33,accessory05,accessory17,accessory29,ring13,ring26,ring35",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 879,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 39,
+    increaseSpawnGet: 0,
+    expGet: 786,
+
+    attackSpeed: 1,
+    physicalDamage: 764,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot47: {
+    name: "Storm Surge Mk II",
+    description: "A blue sphere crackling with a lightning-bolt emblem. It moves in quick bursts and shocks everything nearby. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 46050,
+    physicalDefense: "armor9",
+    movementSpeed: 99,
+    weaponName: "ak47",
+
+    image: "image/bot_27.png",
+    radius: 11,
+
+    viewRange: 410,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor10,armor24,armor34,accessory06,accessory18,accessory30,ring01,ring14,ring36",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 913,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 40,
+    increaseSpawnGet: 0,
+    expGet: 817,
+
+    attackSpeed: 1,
+    physicalDamage: 790,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot48: {
+    name: "Golden Monarch Mk II",
+    description: "A gold-plated royal sphere with a crown emblem. It commands its area and takes heavy hits to bring down. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 47900,
+    physicalDefense: "armor10",
+    movementSpeed: 100,
+    weaponName: "sniper",
+
+    image: "image/bot_28.png",
+    radius: 11,
+
+    viewRange: 420,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor11,armor25,armor35,accessory07,accessory19,accessory31,ring02,ring15,ring37",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 949,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 41,
+    increaseSpawnGet: 0,
+    expGet: 849,
+
+    attackSpeed: 1,
+    physicalDamage: 817,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot49: {
+    name: "Crimson Fiend Mk II",
+    description: "A blood-red sphere with a horned demon face. It is relentless and brutal in close fights. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 49800,
+    physicalDefense: "armor10",
+    movementSpeed: 100,
+    weaponName: "uzi",
+
+    image: "image/bot_29.png",
+    radius: 11,
+
+    viewRange: 420,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor12,armor26,armor36,accessory08,accessory20,accessory32,ring03,ring16,ring38",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 984,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 42,
+    increaseSpawnGet: 0,
+    expGet: 881,
+
+    attackSpeed: 1,
+    physicalDamage: 843,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot50: {
+    name: "Sniper Prime Mk II",
+    description: "A white and blue sphere with a targeting crosshair. It spots threats from far away and rarely misses. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 51700,
+    physicalDefense: "armor10",
+    movementSpeed: 101,
+    weaponName: "shotgun",
+
+    image: "image/bot_30.png",
+    radius: 11,
+
+    viewRange: 420,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor13,armor27,armor37,accessory09,accessory21,accessory33,ring04,ring17,ring39",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1021,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 43,
+    increaseSpawnGet: 0,
+    expGet: 913,
+
+    attackSpeed: 1,
+    physicalDamage: 870,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot51: {
+    name: "Toxic Plague Mk II",
+    description: "A green sphere with a biohazard emblem. It spreads decay wherever it patrols. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 53600,
+    physicalDefense: "armor10",
+    movementSpeed: 101,
+    weaponName: "ak47",
+
+    image: "image/bot_31.png",
+    radius: 11,
+
+    viewRange: 420,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor14,armor28,armor38,accessory10,accessory22,accessory34,ring05,ring18,ring40",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 1057,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 44,
+    increaseSpawnGet: 0,
+    expGet: 946,
+
+    attackSpeed: 1,
+    physicalDamage: 897,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot52: {
+    name: "Vortex Spiral Mk II",
+    description: "A purple sphere with a swirling vortex core. It pulls enemies in and wears them down. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 55550,
+    physicalDefense: "armor11",
+    movementSpeed: 102,
+    weaponName: "sniper",
+
+    image: "image/bot_32.png",
+    radius: 11,
+
+    viewRange: 420,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor1,armor15,armor39,accessory11,accessory23,accessory35,ring06,ring19,ring27",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1095,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 45,
+    increaseSpawnGet: 0,
+    expGet: 979,
+
+    attackSpeed: 1,
+    physicalDamage: 924,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot53: {
+    name: "Crimson Eagle Mk II",
+    description: "A red and white sphere with an eagle emblem. It dives on targets with disciplined aggression. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 57500,
+    physicalDefense: "armor11",
+    movementSpeed: 102,
+    weaponName: "uzi",
+
+    image: "image/bot_33.png",
+    radius: 11,
+
+    viewRange: 430,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor2,armor16,armor40,accessory12,accessory24,accessory36,ring07,ring20,ring28",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 1132,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 46,
+    increaseSpawnGet: 0,
+    expGet: 1013,
+
+    attackSpeed: 1,
+    physicalDamage: 951,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot54: {
+    name: "Hex Guardian Mk II",
+    description: "A cyan sphere with a hexagon shield emblem. It holds its ground behind layered armor. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 59450,
+    physicalDefense: "armor11",
+    movementSpeed: 103,
+    weaponName: "shotgun",
+
+    image: "image/bot_34.png",
+    radius: 11,
+
+    viewRange: 430,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor3,armor17,armor41,accessory01,accessory13,accessory25,ring08,ring21,ring29",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 1170,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 47,
+    increaseSpawnGet: 0,
+    expGet: 1047,
+
+    attackSpeed: 1,
+    physicalDamage: 978,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot55: {
+    name: "Ember Fox Mk II",
+    description: "An orange sphere with a fox emblem. It is cunning, quick to react and hard to pin down. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 61450,
+    physicalDefense: "armor11",
+    movementSpeed: 103,
+    weaponName: "ak47",
+
+    image: "image/bot_35.png",
+    radius: 11,
+
+    viewRange: 430,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor4,armor18,armor42,accessory02,accessory14,accessory26,ring09,ring22,ring30",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1208,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 48,
+    increaseSpawnGet: 0,
+    expGet: 1081,
+
+    attackSpeed: 1,
+    physicalDamage: 1005,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot56: {
+    name: "Tidal Wave Mk II",
+    description: "A deep-blue sphere with a wave emblem. It crashes into enemies in heavy waves of fire. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 63400,
+    physicalDefense: "armor12",
+    movementSpeed: 104,
+    weaponName: "sniper",
+
+    image: "image/bot_36.png",
+    radius: 11,
+
+    viewRange: 430,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor5,armor19,armor43,accessory03,accessory15,accessory27,ring10,ring23,ring31",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 1247,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 49,
+    increaseSpawnGet: 0,
+    expGet: 1115,
+
+    attackSpeed: 1,
+    physicalDamage: 1032,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot57: {
+    name: "Hell Trident Mk II",
+    description: "A red and black sphere with a trident emblem. It pierces armor with savage thrusts. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 65400,
+    physicalDefense: "armor12",
+    movementSpeed: 104,
+    weaponName: "uzi",
+
+    image: "image/bot_37.png",
+    radius: 11,
+
+    viewRange: 430,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor6,armor20,armor29,accessory04,accessory16,accessory28,ring11,ring24,ring32",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1285,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 50,
+    increaseSpawnGet: 0,
+    expGet: 1150,
+
+    attackSpeed: 1,
+    physicalDamage: 1059,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot58: {
+    name: "Forest Spirit Mk II",
+    description: "A green sphere with a leaf emblem. It looks calm but recovers and fights with ancient strength. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 67350,
+    physicalDefense: "armor12",
+    movementSpeed: 105,
+    weaponName: "shotgun",
+
+    image: "image/bot_38.png",
+    radius: 11,
+
+    viewRange: 440,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 10,
+    active: false,
+
+    spawnItem: "speedup,powerup,sword17,gun17,gauntlet17,armor7,armor21,armor30,accessory05,accessory17,accessory29,ring12,ring25,ring33",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 1324,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 51,
+    increaseSpawnGet: 0,
+    expGet: 1184,
+
+    attackSpeed: 1,
+    physicalDamage: 1085,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot21elite: {
+    name: "Elite Cyber Falcon",
+    description: "A cyan armored sphere with a glowing winged-falcon emblem. It swoops in fast and strikes with precise bursts.",
+
+    health: 15000,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_21.png",
+    radius: 13,
+
+    viewRange: 340,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor8,armor22,armor31,accessory06,accessory18,accessory30,ring13,ring26,ring34",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 230,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 14,
+    increaseSpawnGet: 0,
+    expGet: 194,
+
+    attackSpeed: 1,
+    physicalDamage: 216,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot22elite: {
+    name: "Elite Bone Reaper",
+    description: "A soot-black sphere with orange glowing plates and a white skull emblem. It reaps anything that wanders into its patrol.",
+
+    health: 18000,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_22.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor9,armor23,armor32,accessory07,accessory19,accessory31,ring01,ring14,ring35",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 258,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 15,
+    increaseSpawnGet: 0,
+    expGet: 227,
+
+    attackSpeed: 1,
+    physicalDamage: 248,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot23elite: {
+    name: "Elite Blizzard Sentinel",
+    description: "A frost-white sphere with a blue snowflake core. It guards its ground coldly and never tires.",
+
+    health: 23000,
+    physicalDefense: "armor3",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_23.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor10,armor24,armor33,accessory08,accessory20,accessory32,ring02,ring15,ring36",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 314,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 16,
+    increaseSpawnGet: 0,
+    expGet: 270,
+
+    attackSpeed: 1,
+    physicalDamage: 281,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot24elite: {
+    name: "Elite Nuclear Warden",
+    description: "A green-lit sphere marked with a radiation symbol. It poisons the air around it and hits with irradiated rounds.",
+
+    health: 26000,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_24.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor11,armor25,armor34,accessory09,accessory21,accessory33,ring03,ring16,ring37",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 336,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 17,
+    increaseSpawnGet: 0,
+    expGet: 297,
+
+    attackSpeed: 1,
+    physicalDamage: 300,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot25elite: {
+    name: "Elite Void Raven",
+    description: "A dark purple sphere with a winged raven crest. It hunts from the shadows and strikes from odd angles.",
+
+    health: 28400,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_25.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor12,armor26,armor35,accessory10,accessory22,accessory34,ring04,ring17,ring38",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 364,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 18,
+    increaseSpawnGet: 0,
+    expGet: 313,
+
+    attackSpeed: 1,
+    physicalDamage: 319,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot26elite: {
+    name: "Elite Inferno Core",
+    description: "A red-hot armored sphere with a blazing flame emblem. It burns with rage and hits with scorching force.",
+
+    health: 31000,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "shotgun",
+
+    image: "image/bot_26.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor13,armor27,armor36,accessory11,accessory23,accessory35,ring05,ring18,ring39",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 392,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 19,
+    increaseSpawnGet: 0,
+    expGet: 335,
+
+    attackSpeed: 1,
+    physicalDamage: 346,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot27elite: {
+    name: "Elite Storm Surge",
+    description: "A blue sphere crackling with a lightning-bolt emblem. It moves in quick bursts and shocks everything nearby.",
+
+    health: 35000,
+    physicalDefense: "armor4",
+    movementSpeed: 90,
+    weaponName: "ak47",
+
+    image: "image/bot_27.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor14,armor28,armor37,accessory12,accessory24,accessory36,ring06,ring19,ring40",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 414,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 20,
+    increaseSpawnGet: 0,
+    expGet: 356,
+
+    attackSpeed: 1,
+    physicalDamage: 367,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot28elite: {
+    name: "Elite Golden Monarch",
+    description: "A gold-plated royal sphere with a crown emblem. It commands its area and takes heavy hits to bring down.",
+
+    health: 36000,
+    physicalDefense: "armor5",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/bot_28.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor1,armor15,armor38,accessory01,accessory13,accessory25,ring07,ring20,ring27",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 426,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 21,
+    increaseSpawnGet: 0,
+    expGet: 367,
+
+    attackSpeed: 1,
+    physicalDamage: 389,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot29elite: {
+    name: "Elite Crimson Fiend",
+    description: "A blood-red sphere with a horned demon face. It is relentless and brutal in close fights.",
+
+    health: 38200,
+    physicalDefense: "armor5",
+    movementSpeed: 90,
+    weaponName: "uzi",
+
+    image: "image/bot_29.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor2,armor16,armor39,accessory02,accessory14,accessory26,ring08,ring21,ring28",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 449,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 22,
+    increaseSpawnGet: 0,
+    expGet: 388,
+
+    attackSpeed: 1,
+    physicalDamage: 408,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot30elite: {
+    name: "Elite Sniper Prime",
+    description: "A white and blue sphere with a targeting crosshair. It spots threats from far away and rarely misses.",
+
+    health: 40400,
+    physicalDefense: "armor5",
+    movementSpeed: 91,
+    weaponName: "shotgun",
+
+    image: "image/bot_30.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor3,armor17,armor40,accessory03,accessory15,accessory27,ring09,ring22,ring29",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 474,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 23,
+    increaseSpawnGet: 0,
+    expGet: 408,
+
+    attackSpeed: 1,
+    physicalDamage: 429,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot31elite: {
+    name: "Elite Toxic Plague",
+    description: "A green sphere with a biohazard emblem. It spreads decay wherever it patrols.",
+
+    health: 42800,
+    physicalDefense: "armor5",
+    movementSpeed: 91,
+    weaponName: "ak47",
+
+    image: "image/bot_31.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor4,armor18,armor41,accessory04,accessory16,accessory28,ring10,ring23,ring30",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 498,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 24,
+    increaseSpawnGet: 0,
+    expGet: 430,
+
+    attackSpeed: 1,
+    physicalDamage: 449,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot32elite: {
+    name: "Elite Vortex Spiral",
+    description: "A purple sphere with a swirling vortex core. It pulls enemies in and wears them down.",
+
+    health: 45200,
+    physicalDefense: "armor6",
+    movementSpeed: 92,
+    weaponName: "sniper",
+
+    image: "image/bot_32.png",
+    radius: 13,
+
+    viewRange: 380,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor5,armor19,armor42,accessory05,accessory17,accessory29,ring11,ring24,ring31",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 524,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 25,
+    increaseSpawnGet: 0,
+    expGet: 453,
+
+    attackSpeed: 1,
+    physicalDamage: 470,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot33elite: {
+    name: "Elite Crimson Eagle",
+    description: "A red and white sphere with an eagle emblem. It dives on targets with disciplined aggression.",
+
+    health: 47700,
+    physicalDefense: "armor6",
+    movementSpeed: 92,
+    weaponName: "uzi",
+
+    image: "image/bot_33.png",
+    radius: 13,
+
+    viewRange: 390,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor6,armor20,armor43,accessory06,accessory18,accessory30,ring12,ring25,ring32",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 552,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 26,
+    increaseSpawnGet: 0,
+    expGet: 476,
+
+    attackSpeed: 1,
+    physicalDamage: 492,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot34elite: {
+    name: "Elite Hex Guardian",
+    description: "A cyan sphere with a hexagon shield emblem. It holds its ground behind layered armor.",
+
+    health: 50300,
+    physicalDefense: "armor6",
+    movementSpeed: 93,
+    weaponName: "shotgun",
+
+    image: "image/bot_34.png",
+    radius: 13,
+
+    viewRange: 390,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor7,armor21,armor29,accessory07,accessory19,accessory31,ring13,ring26,ring33",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 580,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 27,
+    increaseSpawnGet: 0,
+    expGet: 500,
+
+    attackSpeed: 1,
+    physicalDamage: 515,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot35elite: {
+    name: "Elite Ember Fox",
+    description: "An orange sphere with a fox emblem. It is cunning, quick to react and hard to pin down.",
+
+    health: 53000,
+    physicalDefense: "armor6",
+    movementSpeed: 93,
+    weaponName: "ak47",
+
+    image: "image/bot_35.png",
+    radius: 13,
+
+    viewRange: 390,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor8,armor22,armor30,accessory08,accessory20,accessory32,ring01,ring14,ring34",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 608,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 28,
+    increaseSpawnGet: 0,
+    expGet: 525,
+
+    attackSpeed: 1,
+    physicalDamage: 538,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot36elite: {
+    name: "Elite Tidal Wave",
+    description: "A deep-blue sphere with a wave emblem. It crashes into enemies in heavy waves of fire.",
+
+    health: 55800,
+    physicalDefense: "armor7",
+    movementSpeed: 94,
+    weaponName: "sniper",
+
+    image: "image/bot_36.png",
+    radius: 13,
+
+    viewRange: 390,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor9,armor23,armor31,accessory09,accessory21,accessory33,ring02,ring15,ring35",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 638,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 29,
+    increaseSpawnGet: 0,
+    expGet: 551,
+
+    attackSpeed: 1,
+    physicalDamage: 562,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot37elite: {
+    name: "Elite Hell Trident",
+    description: "A red and black sphere with a trident emblem. It pierces armor with savage thrusts.",
+
+    health: 58700,
+    physicalDefense: "armor7",
+    movementSpeed: 94,
+    weaponName: "uzi",
+
+    image: "image/bot_37.png",
+    radius: 13,
+
+    viewRange: 390,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor10,armor24,armor32,accessory10,accessory22,accessory34,ring03,ring16,ring36",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 669,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 30,
+    increaseSpawnGet: 0,
+    expGet: 577,
+
+    attackSpeed: 1,
+    physicalDamage: 585,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot38elite: {
+    name: "Elite Forest Spirit",
+    description: "A green sphere with a leaf emblem. It looks calm but recovers and fights with ancient strength.",
+
+    health: 61700,
+    physicalDefense: "armor7",
+    movementSpeed: 95,
+    weaponName: "shotgun",
+
+    image: "image/bot_38.png",
+    radius: 13,
+
+    viewRange: 400,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword15,gun15,gauntlet15,armor11,armor25,armor33,accessory11,accessory23,accessory35,ring04,ring17,ring37",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 701,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 31,
+    increaseSpawnGet: 0,
+    expGet: 605,
+
+    attackSpeed: 1,
+    physicalDamage: 610,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot39elite: {
+    name: "Elite Alien Overlord",
+    description: "A purple sphere with an alien skull emblem. It commands its patrol with strange, deadly power.",
+
+    health: 64800,
+    physicalDefense: "armor7",
+    movementSpeed: 95,
+    weaponName: "ak47",
+
+    image: "image/bot_39.png",
+    radius: 13,
+
+    viewRange: 400,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor12,armor26,armor34,accessory12,accessory24,accessory36,ring05,ring18,ring38",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 734,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 32,
+    increaseSpawnGet: 0,
+    expGet: 633,
+
+    attackSpeed: 1,
+    physicalDamage: 635,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot40elite: {
+    name: "Elite Solar Nova",
+    description: "A white and gold sphere with a radiant star emblem. It shines with explosive power.",
+
+    health: 67900,
+    physicalDefense: "armor8",
+    movementSpeed: 96,
+    weaponName: "sniper",
+
+    image: "image/bot_40.png",
+    radius: 13,
+
+    viewRange: 400,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor13,armor27,armor35,accessory01,accessory13,accessory25,ring06,ring19,ring39",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 766,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 33,
+    increaseSpawnGet: 0,
+    expGet: 661,
+
+    attackSpeed: 1,
+    physicalDamage: 661,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot41elite: {
+    name: "Elite Cyber Falcon Mk II",
+    description: "A cyan armored sphere with a glowing winged-falcon emblem. It swoops in fast and strikes with precise bursts. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 71100,
+    physicalDefense: "armor8",
+    movementSpeed: 96,
+    weaponName: "uzi",
+
+    image: "image/bot_21.png",
+    radius: 13,
+
+    viewRange: 400,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor14,armor28,armor36,accessory02,accessory14,accessory26,ring07,ring20,ring40",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 801,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 34,
+    increaseSpawnGet: 0,
+    expGet: 691,
+
+    attackSpeed: 1,
+    physicalDamage: 688,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot42elite: {
+    name: "Elite Bone Reaper Mk II",
+    description: "A soot-black sphere with orange glowing plates and a white skull emblem. It reaps anything that wanders into its patrol. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 74400,
+    physicalDefense: "armor8",
+    movementSpeed: 97,
+    weaponName: "shotgun",
+
+    image: "image/bot_22.png",
+    radius: 13,
+
+    viewRange: 400,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor1,armor15,armor37,accessory03,accessory15,accessory27,ring08,ring21,ring27",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 836,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 35,
+    increaseSpawnGet: 0,
+    expGet: 721,
+
+    attackSpeed: 1,
+    physicalDamage: 714,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot43elite: {
+    name: "Elite Blizzard Sentinel Mk II",
+    description: "A frost-white sphere with a blue snowflake core. It guards its ground coldly and never tires. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 77800,
+    physicalDefense: "armor8",
+    movementSpeed: 97,
+    weaponName: "ak47",
+
+    image: "image/bot_23.png",
+    radius: 13,
+
+    viewRange: 410,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor2,armor16,armor38,accessory04,accessory16,accessory28,ring09,ring22,ring28",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 871,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 36,
+    increaseSpawnGet: 0,
+    expGet: 752,
+
+    attackSpeed: 1,
+    physicalDamage: 741,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot44elite: {
+    name: "Elite Nuclear Warden Mk II",
+    description: "A green-lit sphere marked with a radiation symbol. It poisons the air around it and hits with irradiated rounds. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 81300,
+    physicalDefense: "armor9",
+    movementSpeed: 98,
+    weaponName: "sniper",
+
+    image: "image/bot_24.png",
+    radius: 13,
+
+    viewRange: 410,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor3,armor17,armor39,accessory05,accessory17,accessory29,ring10,ring23,ring29",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 908,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 37,
+    increaseSpawnGet: 0,
+    expGet: 784,
+
+    attackSpeed: 1,
+    physicalDamage: 769,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot45elite: {
+    name: "Elite Void Raven Mk II",
+    description: "A dark purple sphere with a winged raven crest. It hunts from the shadows and strikes from odd angles. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 84800,
+    physicalDefense: "armor9",
+    movementSpeed: 98,
+    weaponName: "uzi",
+
+    image: "image/bot_25.png",
+    radius: 13,
+
+    viewRange: 410,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor4,armor18,armor40,accessory06,accessory18,accessory30,ring11,ring24,ring30",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 945,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 38,
+    increaseSpawnGet: 0,
+    expGet: 816,
+
+    attackSpeed: 1,
+    physicalDamage: 797,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot46elite: {
+    name: "Elite Inferno Core Mk II",
+    description: "A red-hot armored sphere with a blazing flame emblem. It burns with rage and hits with scorching force. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 88400,
+    physicalDefense: "armor9",
+    movementSpeed: 99,
+    weaponName: "shotgun",
+
+    image: "image/bot_26.png",
+    radius: 13,
+
+    viewRange: 410,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor5,armor19,armor41,accessory07,accessory19,accessory31,ring12,ring25,ring31",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 984,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 39,
+    increaseSpawnGet: 0,
+    expGet: 849,
+
+    attackSpeed: 1,
+    physicalDamage: 825,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot47elite: {
+    name: "Elite Storm Surge Mk II",
+    description: "A blue sphere crackling with a lightning-bolt emblem. It moves in quick bursts and shocks everything nearby. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 92100,
+    physicalDefense: "armor9",
+    movementSpeed: 99,
+    weaponName: "ak47",
+
+    image: "image/bot_27.png",
+    radius: 13,
+
+    viewRange: 410,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor6,armor20,armor42,accessory08,accessory20,accessory32,ring13,ring26,ring32",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1023,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 40,
+    increaseSpawnGet: 0,
+    expGet: 882,
+
+    attackSpeed: 1,
+    physicalDamage: 853,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot48elite: {
+    name: "Elite Golden Monarch Mk II",
+    description: "A gold-plated royal sphere with a crown emblem. It commands its area and takes heavy hits to bring down. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 95800,
+    physicalDefense: "armor10",
+    movementSpeed: 100,
+    weaponName: "sniper",
+
+    image: "image/bot_28.png",
+    radius: 13,
+
+    viewRange: 420,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor7,armor21,armor43,accessory09,accessory21,accessory33,ring01,ring14,ring33",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 1063,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 41,
+    increaseSpawnGet: 0,
+    expGet: 917,
+
+    attackSpeed: 1,
+    physicalDamage: 882,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot49elite: {
+    name: "Elite Crimson Fiend Mk II",
+    description: "A blood-red sphere with a horned demon face. It is relentless and brutal in close fights. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 99600,
+    physicalDefense: "armor10",
+    movementSpeed: 100,
+    weaponName: "uzi",
+
+    image: "image/bot_29.png",
+    radius: 13,
+
+    viewRange: 420,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor8,armor22,armor29,accessory10,accessory22,accessory34,ring02,ring15,ring34",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 1102,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 42,
+    increaseSpawnGet: 0,
+    expGet: 951,
+
+    attackSpeed: 1,
+    physicalDamage: 910,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot50elite: {
+    name: "Elite Sniper Prime Mk II",
+    description: "A white and blue sphere with a targeting crosshair. It spots threats from far away and rarely misses. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 103400,
+    physicalDefense: "armor10",
+    movementSpeed: 101,
+    weaponName: "shotgun",
+
+    image: "image/bot_30.png",
+    radius: 13,
+
+    viewRange: 420,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor9,armor23,armor30,accessory11,accessory23,accessory35,ring03,ring16,ring35",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1144,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 43,
+    increaseSpawnGet: 0,
+    expGet: 986,
+
+    attackSpeed: 1,
+    physicalDamage: 940,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot51elite: {
+    name: "Elite Toxic Plague Mk II",
+    description: "A green sphere with a biohazard emblem. It spreads decay wherever it patrols. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 107200,
+    physicalDefense: "armor10",
+    movementSpeed: 101,
+    weaponName: "ak47",
+
+    image: "image/bot_31.png",
+    radius: 13,
+
+    viewRange: 420,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor10,armor24,armor31,accessory12,accessory24,accessory36,ring04,ring17,ring36",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 1184,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 44,
+    increaseSpawnGet: 0,
+    expGet: 1022,
+
+    attackSpeed: 1,
+    physicalDamage: 969,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot52elite: {
+    name: "Elite Vortex Spiral Mk II",
+    description: "A purple sphere with a swirling vortex core. It pulls enemies in and wears them down. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 111100,
+    physicalDefense: "armor11",
+    movementSpeed: 102,
+    weaponName: "sniper",
+
+    image: "image/bot_32.png",
+    radius: 13,
+
+    viewRange: 420,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor11,armor25,armor32,accessory01,accessory13,accessory25,ring05,ring18,ring37",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1226,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 45,
+    increaseSpawnGet: 0,
+    expGet: 1057,
+
+    attackSpeed: 1,
+    physicalDamage: 998,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot53elite: {
+    name: "Elite Crimson Eagle Mk II",
+    description: "A red and white sphere with an eagle emblem. It dives on targets with disciplined aggression. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 115000,
+    physicalDefense: "armor11",
+    movementSpeed: 102,
+    weaponName: "uzi",
+
+    image: "image/bot_33.png",
+    radius: 13,
+
+    viewRange: 430,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor12,armor26,armor33,accessory02,accessory14,accessory26,ring06,ring19,ring38",
+    spawnGoldOrbChance: 0.75, // chance to drop a gold orb on death
+    goldOrbAmount: 1268,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 46,
+    increaseSpawnGet: 0,
+    expGet: 1094,
+
+    attackSpeed: 1,
+    physicalDamage: 1027,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot54elite: {
+    name: "Elite Hex Guardian Mk II",
+    description: "A cyan sphere with a hexagon shield emblem. It holds its ground behind layered armor. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 118900,
+    physicalDefense: "armor11",
+    movementSpeed: 103,
+    weaponName: "shotgun",
+
+    image: "image/bot_34.png",
+    radius: 13,
+
+    viewRange: 430,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor13,armor27,armor34,accessory03,accessory15,accessory27,ring07,ring20,ring39",
+    spawnGoldOrbChance: 0.6, // chance to drop a gold orb on death
+    goldOrbAmount: 1310,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 47,
+    increaseSpawnGet: 0,
+    expGet: 1131,
+
+    attackSpeed: 1,
+    physicalDamage: 1056,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot55elite: {
+    name: "Elite Ember Fox Mk II",
+    description: "An orange sphere with a fox emblem. It is cunning, quick to react and hard to pin down. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 122900,
+    physicalDefense: "armor11",
+    movementSpeed: 103,
+    weaponName: "ak47",
+
+    image: "image/bot_35.png",
+    radius: 13,
+
+    viewRange: 430,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword12,gun12,gauntlet12,armor14,armor28,armor35,accessory04,accessory16,accessory28,ring08,ring21,ring40",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1353,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 48,
+    increaseSpawnGet: 0,
+    expGet: 1167,
+
+    attackSpeed: 1,
+    physicalDamage: 1085,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot56elite: {
+    name: "Elite Tidal Wave Mk II",
+    description: "A deep-blue sphere with a wave emblem. It crashes into enemies in heavy waves of fire. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 126800,
+    physicalDefense: "armor12",
+    movementSpeed: 104,
+    weaponName: "sniper",
+
+    image: "image/bot_36.png",
+    radius: 13,
+
+    viewRange: 430,
+    viewAngle: 70,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword13,gun13,gauntlet13,armor1,armor15,armor36,accessory05,accessory17,accessory29,ring09,ring22,ring27",
+    spawnGoldOrbChance: 0.65, // chance to drop a gold orb on death
+    goldOrbAmount: 1397,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 49,
+    increaseSpawnGet: 0,
+    expGet: 1204,
+
+    attackSpeed: 1,
+    physicalDamage: 1115,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+  bot57elite: {
+    name: "Elite Hell Trident Mk II",
+    description: "A red and black sphere with a trident emblem. It pierces armor with savage thrusts. Upgraded Mk II version: tougher and hits harder.",
+
+    health: 130800,
+    physicalDefense: "armor12",
+    movementSpeed: 104,
+    weaponName: "uzi",
+
+    image: "image/bot_37.png",
+    radius: 13,
+
+    viewRange: 430,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 60,
+    active: true,
+
+    spawnItem: "speedup,powerup,specialstone,sword14,gun14,gauntlet14,armor2,armor16,armor37,accessory06,accessory18,accessory30,ring10,ring23,ring28",
+    spawnGoldOrbChance: 0.7, // chance to drop a gold orb on death
+    goldOrbAmount: 1439,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 50,
+    increaseSpawnGet: 0,
+    expGet: 1242,
+
+    attackSpeed: 1,
+    physicalDamage: 1144,
+    attack: "melee",
+    criticalChance: 0.08,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.01,
+    manaRegen: 0.01,
+
+    botSkill: ""
+  },
+
+  // ---------------------------------------------------------------------
+  // boss1–boss17 — 17 BOSS enemies using boss1.png..boss17.png. Bigger
+  // (radius), much tankier and harder hitting than bot01–bot20, slower to
+  // move, and they respawn much later (respawn = seconds). Stats step up
+  // gradually from boss1 (weakest) to boss17 (strongest); each has its own
+  // display name + description. Tweak freely.
+  // ---------------------------------------------------------------------
+  boss1: {
+    name: "Inferno Warlord",
+    description: "A powerful fire-type boss bot covered in heavy armor and blazing energy. It attacks enemies with explosive fire strikes and becomes more dangerous when enraged.",
+
+    health: 50000,
+    physicalDefense: "armor3",
+    movementSpeed: 60,
+    weaponName: "uzi",
+
+    image: "image/boss1.png",
+    radius: 16,
+
+    viewRange: 300,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 150,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 25,
+    increaseSpawnGet: 0.4,
+    expGet: 150,
+
+    attackSpeed: 1,
+    magicalAttack: 500,
+    attack: "melee",
+    criticalChance: 0.1,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "fireexplosion,fireball"
+  },
+
+  boss2: {
+    name: "Tempest Sentinel",
+    description: "A storm-type boss bot with silver plating and a swirling blue energy core. It lashes out with crackling bursts of lightning and keeps enemies off balance.",
+
+    health: 51900,
+    physicalDefense: "armor3",
+    movementSpeed: 62,
+    weaponName: "shotgun",
+    image: "image/boss2.png",
+    radius: 16,
+
+    viewRange: 309,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 2000,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 190,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 26,
+    increaseSpawnGet: 0,
+    expGet: 185,
+
+    attackSpeed: 1,
+    physicalDamage: 425,
+    attack: "melee",
+    criticalChance: 0.105,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "lightningbolt,shockring"
+  },
+
+  boss3: {
+    name: "Shadow Drake",
+    description: "A dark dragon-type boss bot wrapped in black armor and glowing violet energy. It strikes from the shadows with sharp, piercing attacks.",
+
+    health: 53800,
+    physicalDefense: "armor4",
+    movementSpeed: 58,
+    weaponName: "ak47",
+
+    image: "image/boss3.png",
+    radius: 16,
+
+    viewRange: 318,
+    viewAngle: 85,
+
+    patrolInterval: 3000,
+    patrolRadius: 50,
+
+    lookDuration: 2200,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 230,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 26,
+    increaseSpawnGet: 0,
+    expGet: 220,
+
+    attackSpeed: 1,
+    physicalDamage: 450,
+    attack: "melee",
+    criticalChance: 0.11,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "voidslash,voidvortex"
+  },
+
+  boss4: {
+    name: "Golden Tyrant",
+    description: "A heavy dragon-type boss bot studded with golden spikes over black plating. It charges straight into enemies and crushes anything that gets too close.",
+
+    health: 55600,
+    physicalDefense: "armor4",
+    movementSpeed: 70,
+    weaponName: "sniper",
+
+    image: "image/boss4.png",
+    radius: 16,
+
+    viewRange: 327,
+    viewAngle: 95,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 2400,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 270,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 27,
+    increaseSpawnGet: 0,
+    expGet: 255,
+
+    attackSpeed: 1,
+    physicalDamage: 475,
+    attack: "melee",
+    criticalChance: 0.115,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "bloodburst,slash1"
+  },
+
+  boss5: {
+    name: "Frostbite Colossus",
+    description: "An ice-type boss bot armored in silver plates and jagged blue crystals. It freezes the battlefield with icy blasts and slows down anyone who stays near it.",
+
+    health: 57500,
+    physicalDefense: "armor5",
+    movementSpeed: 75,
+    weaponName: "uzi",
+
+    image: "image/boss5.png",
+    radius: 16,
+
+    viewRange: 336,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 310,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 27,
+    increaseSpawnGet: 0,
+    expGet: 290,
+
+    attackSpeed: 1,
+    magicalAttack: 875,
+    attack: "melee",
+    criticalChance: 0.12,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "iceburst,cannonblast"
+  },
+
+  boss6: {
+    name: "Plague Reaper",
+    description: "A poison-type boss bot with a biohazard core and razor-sharp green claws. It spreads toxic energy across the area and wears enemies down over time.",
+
+    health: 59400,
+    physicalDefense: "armor5",
+    movementSpeed: 72,
+    weaponName: "shotgun",
+
+    image: "image/boss6.png",
+    radius: 16,
+
+    viewRange: 345,
+    viewAngle: 120,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 2000,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 350,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 28,
+    increaseSpawnGet: 0,
+    expGet: 325,
+
+    attackSpeed: 1,
+    physicalDamage: 525,
+    attack: "melee",
+    criticalChance: 0.125,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "poisonburst,energybeam"
+  },
+
+  boss7: {
+    name: "Doom Skull",
+    description: "A heavy artillery-type boss bot with a glowing skull core and cannon pods on its armor. It bombards enemies with explosive blasts from a distance.",
+
+    health: 61200,
+    physicalDefense: "armor6",
+    movementSpeed: 64,
+    weaponName: "ak47",
+
+    image: "image/boss7.png",
+    radius: 16,
+
+    viewRange: 354,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 2200,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 390,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 29,
+    increaseSpawnGet: 0,
+    expGet: 360,
+
+    attackSpeed: 1,
+    magicalAttack: 1060,
+    attack: "melee",
+    criticalChance: 0.13,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "cannonblast,fireball"
+  },
+
+  boss8: {
+    name: "Void Seer",
+    description: "A void-type boss bot with a glowing violet eye and jagged spiked armor. It watches from afar and strikes with warped dark energy.",
+
+    health: 63100,
+    physicalDefense: "armor6",
+    movementSpeed: 80,
+    weaponName: "sniper",
+
+    image: "image/boss8.png",
+    radius: 16,
+
+    viewRange: 363,
+    viewAngle: 105,
+
+    patrolInterval: 3000,
+    patrolRadius: 110,
+
+    lookDuration: 2400,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 430,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 29,
+    increaseSpawnGet: 0,
+    expGet: 395,
+
+    attackSpeed: 1,
+    magicalAttack: 1155,
+    attack: "melee",
+    criticalChance: 0.135,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "voidhole,deadlystrike"
+  },
+
+  boss9: {
+    name: "Crown Commander",
+    description: "A royal elite boss bot in blue and gold armor marked with a golden crown. It commands the battlefield with disciplined, powerful strikes.",
+
+    health: 65000,
+    physicalDefense: "armor7",
+    movementSpeed: 85,
+    weaponName: "uzi",
+
+    image: "image/boss9.png",
+    radius: 16,
+
+    viewRange: 372,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 120,
+
+    lookDuration: 1800,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 470,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 30,
+    increaseSpawnGet: 0,
+    expGet: 430,
+
+    attackSpeed: 1,
+    physicalDamage: 600,
+    attack: "melee",
+    criticalChance: 0.14,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "holynova,slash1"
+  },
+
+  boss10: {
+    name: "Crimson Demon",
+    description: "A demon-type boss bot with black armor, glowing red veins and curved horns. It hunts relentlessly and hits with brutal force.",
+
+    health: 66900,
+    physicalDefense: "armor7",
+    movementSpeed: 60,
+    weaponName: "shotgun",
+
+    image: "image/boss10.png",
+    radius: 16,
+
+    viewRange: 381,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 40,
+
+    lookDuration: 2000,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 510,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 31,
+    increaseSpawnGet: 0,
+    expGet: 465,
+
+    attackSpeed: 1,
+    physicalDamage: 625,
+    attack: "melee",
+    criticalChance: 0.145,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "bloodburst,flamespiral"
+  },
+
+  boss11: {
+    name: "Bloodsight Hunter",
+    description: "A hunter-type boss bot with a red targeting eye and spiked black armor. It locks onto its prey and never lets it escape.",
+
+    health: 68800,
+    physicalDefense: "armor7",
+    movementSpeed: 66,
+    weaponName: "ak47",
+
+    image: "image/boss11.png",
+    radius: 16,
+
+    viewRange: 390,
+    viewAngle: 85,
+
+    patrolInterval: 3000,
+    patrolRadius: 55,
+
+    lookDuration: 2200,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 550,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 31,
+    increaseSpawnGet: 0,
+    expGet: 500,
+
+    attackSpeed: 1,
+    physicalDamage: 650,
+    attack: "melee",
+    criticalChance: 0.15,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "energybeam,voidslash"
+  },
+
+  boss12: {
+    name: "Azure Dragon",
+    description: "A dragon-type boss bot in silver armor with a glowing blue dragon emblem. It fiercely guards its territory and unleashes bursts of blue energy.",
+
+    health: 70600,
+    physicalDefense: "armor8",
+    movementSpeed: 78,
+    weaponName: "sniper",
+
+    image: "image/boss12.png",
+    radius: 16,
+
+    viewRange: 399,
+    viewAngle: 95,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 2400,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 590,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 32,
+    increaseSpawnGet: 0,
+    expGet: 535,
+
+    attackSpeed: 1,
+    magicalAttack: 1530,
+    attack: "melee",
+    criticalChance: 0.155,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "iceburst,barrage"
+  },
+
+  boss13: {
+    name: "Violet Wyrm",
+    description: "A dark dragon-type boss bot with large purple horns and glowing violet plating. Its towering frame overwhelms enemies with heavy, slashing attacks.",
+
+    health: 72500,
+    physicalDefense: "armor8",
+    movementSpeed: 82,
+    weaponName: "uzi",
+
+    image: "image/boss13.png",
+    radius: 16,
+
+    viewRange: 408,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 630,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 33,
+    increaseSpawnGet: 0,
+    expGet: 570,
+
+    attackSpeed: 1,
+    physicalDamage: 700,
+    attack: "melee",
+    criticalChance: 0.16,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "voidvortex,slash1"
+  },
+
+  boss14: {
+    name: "Magma Dragon",
+    description: "A molten dragon-type boss bot built from black armor plates glowing with orange heat. It burns everything around it and gets tougher the longer the fight lasts.",
+
+    health: 74400,
+    physicalDefense: "armor9",
+    movementSpeed: 74,
+    weaponName: "shotgun",
+
+    image: "image/boss14.png",
+    radius: 16,
+
+    viewRange: 417,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 2000,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 670,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 33,
+    increaseSpawnGet: 0,
+    expGet: 605,
+
+    attackSpeed: 1,
+    magicalAttack: 1720,
+    attack: "melee",
+    criticalChance: 0.165,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "fireexplosion,cannonblast"
+  },
+
+  boss15: {
+    name: "Glacier Warden",
+    description: "An ice-type boss bot with a snowflake core and sharp crystal spikes. It guards its area coldly and punishes anyone who steps in.",
+
+    health: 76200,
+    physicalDefense: "armor9",
+    movementSpeed: 88,
+    weaponName: "ak47",
+
+    image: "image/boss15.png",
+    radius: 16,
+
+    viewRange: 426,
+    viewAngle: 115,
+
+    patrolInterval: 3000,
+    patrolRadius: 110,
+
+    lookDuration: 2200,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 710,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 34,
+    increaseSpawnGet: 0,
+    expGet: 640,
+
+    attackSpeed: 1,
+    physicalDamage: 750,
+    attack: "melee",
+    criticalChance: 0.17,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "icespear,shockring"
+  },
+
+  boss16: {
+    name: "Toxic Behemoth",
+    description: "A huge poison-type boss bot with heavy green plating and curved claws around a biohazard core. It is slow but extremely tough, and it poisons the ground it walks on.",
+
+    health: 78100,
+    physicalDefense: "armor10",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/boss16.png",
+    radius: 16,
+
+    viewRange: 435,
+    viewAngle: 105,
+
+    patrolInterval: 3000,
+    patrolRadius: 120,
+
+    lookDuration: 2400,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 750,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 34,
+    increaseSpawnGet: 0,
+    expGet: 675,
+
+    attackSpeed: 1,
+    physicalDamage: 775,
+    attack: "melee",
+    criticalChance: 0.175,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "poisonburst,voidvortex"
+  },
+
+  boss17: {
+    name: "Deathbringer",
+    description: "The most feared boss bot, a heavy artillery machine with a white skull core and cannon barrels on its armor. It shows no mercy and wipes out anything in its range.",
+
+    health: 80000,
+    physicalDefense: "armor10",
+    movementSpeed: 68,
+    weaponName: "uzi",
+
+    image: "image/boss17.png",
+    radius: 16,
+
+    viewRange: 444,
+    viewAngle: 120,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 30,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor5,armor19,armor39,accessory11,accessory23,accessory35,ring01,ring14,ring31",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 790,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 35,
+    increaseSpawnGet: 0,
+    expGet: 710,
+
+    attackSpeed: 1,
+    magicalAttack: 2000,
+    attack: "melee",
+    criticalChance: 0.18,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "deadlystrike,barrage"
+  },
+
+  // ---------------------------------------------------------------------
+  // boss1a–boss50a — HOURLY WORLD BOSSES (one per map: LEVEL N has bossNa,
+  // see worldmap_server.js). Copies of boss1–boss17 (boss18a+ reuse the same
+  // 17 pictures/skills again, name gets " II" / " III"). bossNa is level N:
+  // level 1..50, health 1800..80000, physicalDamage OR magicalAttack
+  // 100..1000 (same attack type as the boss it was copied from), respawn 3600
+  // (1 hour). NOTE: `health` is the LEVEL-1 baseline — the game multiplies it
+  // by HEALTH_GROWTH_RATE per level when the boss spawns (see bot.js).
+  // ---------------------------------------------------------------------
+  boss1a: {
+    name: "Inferno Warlord",
+    description: "A powerful fire-type boss bot covered in heavy armor and blazing energy. It attacks enemies with explosive fire strikes and becomes more dangerous when enraged.",
+
+    health: 1800,
+    physicalDefense: "armor3",
+    movementSpeed: 60,
+    weaponName: "uzi",
+
+    image: "image/boss1.png",
+    radius: 16,
+
+    viewRange: 300,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 150,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 1,
+    increaseSpawnGet: 0.4,
+    expGet: 150,
+
+    attackSpeed: 1,
+    magicalAttack: 100,
+    attack: "melee",
+    criticalChance: 0.1,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "fireexplosion,fireball"
+  },
+
+  boss2a: {
+    name: "Tempest Sentinel",
+    description: "A storm-type boss bot with silver plating and a swirling blue energy core. It lashes out with crackling bursts of lightning and keeps enemies off balance.",
+
+    health: 3400,
+    physicalDefense: "armor3",
+    movementSpeed: 62,
+    weaponName: "shotgun",
+    image: "image/boss2.png",
+    radius: 16,
+
+    viewRange: 309,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 2000,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 190,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 2,
+    increaseSpawnGet: 0,
+    expGet: 185,
+
+    attackSpeed: 1,
+    physicalDamage: 120,
+    attack: "melee",
+    criticalChance: 0.105,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "lightningbolt,shockring"
+  },
+
+  boss3a: {
+    name: "Shadow Drake",
+    description: "A dark dragon-type boss bot wrapped in black armor and glowing violet energy. It strikes from the shadows with sharp, piercing attacks.",
+
+    health: 5000,
+    physicalDefense: "armor4",
+    movementSpeed: 58,
+    weaponName: "ak47",
+
+    image: "image/boss3.png",
+    radius: 16,
+
+    viewRange: 318,
+    viewAngle: 85,
+
+    patrolInterval: 3000,
+    patrolRadius: 50,
+
+    lookDuration: 2200,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 230,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 3,
+    increaseSpawnGet: 0,
+    expGet: 220,
+
+    attackSpeed: 1,
+    physicalDamage: 135,
+    attack: "melee",
+    criticalChance: 0.11,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "voidslash,voidvortex"
+  },
+
+  boss4a: {
+    name: "Golden Tyrant",
+    description: "A heavy dragon-type boss bot studded with golden spikes over black plating. It charges straight into enemies and crushes anything that gets too close.",
+
+    health: 6600,
+    physicalDefense: "armor4",
+    movementSpeed: 70,
+    weaponName: "sniper",
+
+    image: "image/boss4.png",
+    radius: 16,
+
+    viewRange: 327,
+    viewAngle: 95,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 2400,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 270,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 4,
+    increaseSpawnGet: 0,
+    expGet: 255,
+
+    attackSpeed: 1,
+    physicalDamage: 155,
+    attack: "melee",
+    criticalChance: 0.115,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "bloodburst,slash1"
+  },
+
+  boss5a: {
+    name: "Frostbite Colossus",
+    description: "An ice-type boss bot armored in silver plates and jagged blue crystals. It freezes the battlefield with icy blasts and slows down anyone who stays near it.",
+
+    health: 8200,
+    physicalDefense: "armor5",
+    movementSpeed: 75,
+    weaponName: "uzi",
+
+    image: "image/boss5.png",
+    radius: 16,
+
+    viewRange: 336,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 310,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 5,
+    increaseSpawnGet: 0,
+    expGet: 290,
+
+    attackSpeed: 1,
+    magicalAttack: 175,
+    attack: "melee",
+    criticalChance: 0.12,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "iceburst,cannonblast"
+  },
+
+  boss6a: {
+    name: "Plague Reaper",
+    description: "A poison-type boss bot with a biohazard core and razor-sharp green claws. It spreads toxic energy across the area and wears enemies down over time.",
+
+    health: 9800,
+    physicalDefense: "armor5",
+    movementSpeed: 72,
+    weaponName: "shotgun",
+
+    image: "image/boss6.png",
+    radius: 16,
+
+    viewRange: 345,
+    viewAngle: 120,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 2000,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 350,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 6,
+    increaseSpawnGet: 0,
+    expGet: 325,
+
+    attackSpeed: 1,
+    physicalDamage: 190,
+    attack: "melee",
+    criticalChance: 0.125,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "poisonburst,energybeam"
+  },
+
+  boss7a: {
+    name: "Doom Skull",
+    description: "A heavy artillery-type boss bot with a glowing skull core and cannon pods on its armor. It bombards enemies with explosive blasts from a distance.",
+
+    health: 11400,
+    physicalDefense: "armor6",
+    movementSpeed: 64,
+    weaponName: "ak47",
+
+    image: "image/boss7.png",
+    radius: 16,
+
+    viewRange: 354,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 2200,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 390,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 7,
+    increaseSpawnGet: 0,
+    expGet: 360,
+
+    attackSpeed: 1,
+    magicalAttack: 210,
+    attack: "melee",
+    criticalChance: 0.13,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "cannonblast,fireball"
+  },
+
+  boss8a: {
+    name: "Void Seer",
+    description: "A void-type boss bot with a glowing violet eye and jagged spiked armor. It watches from afar and strikes with warped dark energy.",
+
+    health: 12950,
+    physicalDefense: "armor6",
+    movementSpeed: 80,
+    weaponName: "sniper",
+
+    image: "image/boss8.png",
+    radius: 16,
+
+    viewRange: 363,
+    viewAngle: 105,
+
+    patrolInterval: 3000,
+    patrolRadius: 110,
+
+    lookDuration: 2400,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 430,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 8,
+    increaseSpawnGet: 0,
+    expGet: 395,
+
+    attackSpeed: 1,
+    magicalAttack: 230,
+    attack: "melee",
+    criticalChance: 0.135,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "voidhole,deadlystrike"
+  },
+
+  boss9a: {
+    name: "Crown Commander",
+    description: "A royal elite boss bot in blue and gold armor marked with a golden crown. It commands the battlefield with disciplined, powerful strikes.",
+
+    health: 14550,
+    physicalDefense: "armor7",
+    movementSpeed: 85,
+    weaponName: "uzi",
+
+    image: "image/boss9.png",
+    radius: 16,
+
+    viewRange: 372,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 120,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 470,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 9,
+    increaseSpawnGet: 0,
+    expGet: 430,
+
+    attackSpeed: 1,
+    physicalDamage: 245,
+    attack: "melee",
+    criticalChance: 0.14,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "holynova,slash1"
+  },
+
+  boss10a: {
+    name: "Crimson Demon",
+    description: "A demon-type boss bot with black armor, glowing red veins and curved horns. It hunts relentlessly and hits with brutal force.",
+
+    health: 16150,
+    physicalDefense: "armor7",
+    movementSpeed: 60,
+    weaponName: "shotgun",
+
+    image: "image/boss10.png",
+    radius: 16,
+
+    viewRange: 381,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 40,
+
+    lookDuration: 2000,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 510,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 10,
+    increaseSpawnGet: 0,
+    expGet: 465,
+
+    attackSpeed: 1,
+    physicalDamage: 265,
+    attack: "melee",
+    criticalChance: 0.145,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "bloodburst,flamespiral"
+  },
+
+  boss11a: {
+    name: "Bloodsight Hunter",
+    description: "A hunter-type boss bot with a red targeting eye and spiked black armor. It locks onto its prey and never lets it escape.",
+
+    health: 17750,
+    physicalDefense: "armor7",
+    movementSpeed: 66,
+    weaponName: "ak47",
+
+    image: "image/boss11.png",
+    radius: 16,
+
+    viewRange: 390,
+    viewAngle: 85,
+
+    patrolInterval: 3000,
+    patrolRadius: 55,
+
+    lookDuration: 2200,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 550,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 11,
+    increaseSpawnGet: 0,
+    expGet: 500,
+
+    attackSpeed: 1,
+    physicalDamage: 285,
+    attack: "melee",
+    criticalChance: 0.15,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "energybeam,voidslash"
+  },
+
+  boss12a: {
+    name: "Azure Dragon",
+    description: "A dragon-type boss bot in silver armor with a glowing blue dragon emblem. It fiercely guards its territory and unleashes bursts of blue energy.",
+
+    health: 19350,
+    physicalDefense: "armor8",
+    movementSpeed: 78,
+    weaponName: "sniper",
+
+    image: "image/boss12.png",
+    radius: 16,
+
+    viewRange: 399,
+    viewAngle: 95,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 2400,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 590,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 12,
+    increaseSpawnGet: 0,
+    expGet: 535,
+
+    attackSpeed: 1,
+    magicalAttack: 300,
+    attack: "melee",
+    criticalChance: 0.155,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "iceburst,barrage"
+  },
+
+  boss13a: {
+    name: "Violet Wyrm",
+    description: "A dark dragon-type boss bot with large purple horns and glowing violet plating. Its towering frame overwhelms enemies with heavy, slashing attacks.",
+
+    health: 20950,
+    physicalDefense: "armor8",
+    movementSpeed: 82,
+    weaponName: "uzi",
+
+    image: "image/boss13.png",
+    radius: 16,
+
+    viewRange: 408,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 630,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 13,
+    increaseSpawnGet: 0,
+    expGet: 570,
+
+    attackSpeed: 1,
+    physicalDamage: 320,
+    attack: "melee",
+    criticalChance: 0.16,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "voidvortex,slash1"
+  },
+
+  boss14a: {
+    name: "Magma Dragon",
+    description: "A molten dragon-type boss bot built from black armor plates glowing with orange heat. It burns everything around it and gets tougher the longer the fight lasts.",
+
+    health: 22550,
+    physicalDefense: "armor9",
+    movementSpeed: 74,
+    weaponName: "shotgun",
+
+    image: "image/boss14.png",
+    radius: 16,
+
+    viewRange: 417,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 2000,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 670,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 14,
+    increaseSpawnGet: 0,
+    expGet: 605,
+
+    attackSpeed: 1,
+    magicalAttack: 340,
+    attack: "melee",
+    criticalChance: 0.165,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "fireexplosion,cannonblast"
+  },
+
+  boss15a: {
+    name: "Glacier Warden",
+    description: "An ice-type boss bot with a snowflake core and sharp crystal spikes. It guards its area coldly and punishes anyone who steps in.",
+
+    health: 24150,
+    physicalDefense: "armor9",
+    movementSpeed: 88,
+    weaponName: "ak47",
+
+    image: "image/boss15.png",
+    radius: 16,
+
+    viewRange: 426,
+    viewAngle: 115,
+
+    patrolInterval: 3000,
+    patrolRadius: 110,
+
+    lookDuration: 2200,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 710,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 15,
+    increaseSpawnGet: 0,
+    expGet: 640,
+
+    attackSpeed: 1,
+    physicalDamage: 355,
+    attack: "melee",
+    criticalChance: 0.17,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "icespear,shockring"
+  },
+
+  boss16a: {
+    name: "Toxic Behemoth",
+    description: "A huge poison-type boss bot with heavy green plating and curved claws around a biohazard core. It is slow but extremely tough, and it poisons the ground it walks on.",
+
+    health: 25750,
+    physicalDefense: "armor10",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/boss16.png",
+    radius: 16,
+
+    viewRange: 435,
+    viewAngle: 105,
+
+    patrolInterval: 3000,
+    patrolRadius: 120,
+
+    lookDuration: 2400,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 750,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 16,
+    increaseSpawnGet: 0,
+    expGet: 675,
+
+    attackSpeed: 1,
+    physicalDamage: 375,
+    attack: "melee",
+    criticalChance: 0.175,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "poisonburst,voidvortex"
+  },
+
+  boss17a: {
+    name: "Deathbringer",
+    description: "The most feared boss bot, a heavy artillery machine with a white skull core and cannon barrels on its armor. It shows no mercy and wipes out anything in its range.",
+
+    health: 27350,
+    physicalDefense: "armor10",
+    movementSpeed: 68,
+    weaponName: "uzi",
+
+    image: "image/boss17.png",
+    radius: 16,
+
+    viewRange: 444,
+    viewAngle: 120,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor5,armor19,armor39,accessory11,accessory23,accessory35,ring01,ring14,ring31",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 790,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 17,
+    increaseSpawnGet: 0,
+    expGet: 710,
+
+    attackSpeed: 1,
+    magicalAttack: 395,
+    attack: "melee",
+    criticalChance: 0.18,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "deadlystrike,barrage"
+  },
+
+  boss18a: {
+    name: "Inferno Warlord II",
+    description: "A powerful fire-type boss bot covered in heavy armor and blazing energy. It attacks enemies with explosive fire strikes and becomes more dangerous when enraged.",
+
+    health: 28950,
+    physicalDefense: "armor3",
+    movementSpeed: 60,
+    weaponName: "uzi",
+
+    image: "image/boss1.png",
+    radius: 16,
+
+    viewRange: 300,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 150,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 18,
+    increaseSpawnGet: 0.4,
+    expGet: 150,
+
+    attackSpeed: 1,
+    magicalAttack: 410,
+    attack: "melee",
+    criticalChance: 0.1,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "fireexplosion,fireball"
+  },
+
+  boss19a: {
+    name: "Tempest Sentinel II",
+    description: "A storm-type boss bot with silver plating and a swirling blue energy core. It lashes out with crackling bursts of lightning and keeps enemies off balance.",
+
+    health: 30550,
+    physicalDefense: "armor3",
+    movementSpeed: 62,
+    weaponName: "shotgun",
+    image: "image/boss2.png",
+    radius: 16,
+
+    viewRange: 309,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 2000,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 190,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 19,
+    increaseSpawnGet: 0,
+    expGet: 185,
+
+    attackSpeed: 1,
+    physicalDamage: 430,
+    attack: "melee",
+    criticalChance: 0.105,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "lightningbolt,shockring"
+  },
+
+  boss20a: {
+    name: "Shadow Drake II",
+    description: "A dark dragon-type boss bot wrapped in black armor and glowing violet energy. It strikes from the shadows with sharp, piercing attacks.",
+
+    health: 32100,
+    physicalDefense: "armor4",
+    movementSpeed: 58,
+    weaponName: "ak47",
+
+    image: "image/boss3.png",
+    radius: 16,
+
+    viewRange: 318,
+    viewAngle: 85,
+
+    patrolInterval: 3000,
+    patrolRadius: 50,
+
+    lookDuration: 2200,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 230,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 20,
+    increaseSpawnGet: 0,
+    expGet: 220,
+
+    attackSpeed: 1,
+    physicalDamage: 450,
+    attack: "melee",
+    criticalChance: 0.11,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "voidslash,voidvortex"
+  },
+
+  boss21a: {
+    name: "Golden Tyrant II",
+    description: "A heavy dragon-type boss bot studded with golden spikes over black plating. It charges straight into enemies and crushes anything that gets too close.",
+
+    health: 33700,
+    physicalDefense: "armor4",
+    movementSpeed: 70,
+    weaponName: "sniper",
+
+    image: "image/boss4.png",
+    radius: 16,
+
+    viewRange: 327,
+    viewAngle: 95,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 2400,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 270,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 21,
+    increaseSpawnGet: 0,
+    expGet: 255,
+
+    attackSpeed: 1,
+    physicalDamage: 465,
+    attack: "melee",
+    criticalChance: 0.115,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "bloodburst,slash1"
+  },
+
+  boss22a: {
+    name: "Frostbite Colossus II",
+    description: "An ice-type boss bot armored in silver plates and jagged blue crystals. It freezes the battlefield with icy blasts and slows down anyone who stays near it.",
+
+    health: 35300,
+    physicalDefense: "armor5",
+    movementSpeed: 75,
+    weaponName: "uzi",
+
+    image: "image/boss5.png",
+    radius: 16,
+
+    viewRange: 336,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 310,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 22,
+    increaseSpawnGet: 0,
+    expGet: 290,
+
+    attackSpeed: 1,
+    magicalAttack: 485,
+    attack: "melee",
+    criticalChance: 0.12,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "iceburst,cannonblast"
+  },
+
+  boss23a: {
+    name: "Plague Reaper II",
+    description: "A poison-type boss bot with a biohazard core and razor-sharp green claws. It spreads toxic energy across the area and wears enemies down over time.",
+
+    health: 36900,
+    physicalDefense: "armor5",
+    movementSpeed: 72,
+    weaponName: "shotgun",
+
+    image: "image/boss6.png",
+    radius: 16,
+
+    viewRange: 345,
+    viewAngle: 120,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 2000,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 350,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 23,
+    increaseSpawnGet: 0,
+    expGet: 325,
+
+    attackSpeed: 1,
+    physicalDamage: 505,
+    attack: "melee",
+    criticalChance: 0.125,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "poisonburst,energybeam"
+  },
+
+  boss24a: {
+    name: "Doom Skull II",
+    description: "A heavy artillery-type boss bot with a glowing skull core and cannon pods on its armor. It bombards enemies with explosive blasts from a distance.",
+
+    health: 38500,
+    physicalDefense: "armor6",
+    movementSpeed: 64,
+    weaponName: "ak47",
+
+    image: "image/boss7.png",
+    radius: 16,
+
+    viewRange: 354,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 2200,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 390,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 24,
+    increaseSpawnGet: 0,
+    expGet: 360,
+
+    attackSpeed: 1,
+    magicalAttack: 520,
+    attack: "melee",
+    criticalChance: 0.13,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "cannonblast,fireball"
+  },
+
+  boss25a: {
+    name: "Void Seer II",
+    description: "A void-type boss bot with a glowing violet eye and jagged spiked armor. It watches from afar and strikes with warped dark energy.",
+
+    health: 40100,
+    physicalDefense: "armor6",
+    movementSpeed: 80,
+    weaponName: "sniper",
+
+    image: "image/boss8.png",
+    radius: 16,
+
+    viewRange: 363,
+    viewAngle: 105,
+
+    patrolInterval: 3000,
+    patrolRadius: 110,
+
+    lookDuration: 2400,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 430,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 25,
+    increaseSpawnGet: 0,
+    expGet: 395,
+
+    attackSpeed: 1,
+    magicalAttack: 540,
+    attack: "melee",
+    criticalChance: 0.135,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "voidhole,deadlystrike"
+  },
+
+  boss26a: {
+    name: "Crown Commander II",
+    description: "A royal elite boss bot in blue and gold armor marked with a golden crown. It commands the battlefield with disciplined, powerful strikes.",
+
+    health: 41700,
+    physicalDefense: "armor7",
+    movementSpeed: 85,
+    weaponName: "uzi",
+
+    image: "image/boss9.png",
+    radius: 16,
+
+    viewRange: 372,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 120,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 470,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 26,
+    increaseSpawnGet: 0,
+    expGet: 430,
+
+    attackSpeed: 1,
+    physicalDamage: 560,
+    attack: "melee",
+    criticalChance: 0.14,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "holynova,slash1"
+  },
+
+  boss27a: {
+    name: "Crimson Demon II",
+    description: "A demon-type boss bot with black armor, glowing red veins and curved horns. It hunts relentlessly and hits with brutal force.",
+
+    health: 43300,
+    physicalDefense: "armor7",
+    movementSpeed: 60,
+    weaponName: "shotgun",
+
+    image: "image/boss10.png",
+    radius: 16,
+
+    viewRange: 381,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 40,
+
+    lookDuration: 2000,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 510,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 27,
+    increaseSpawnGet: 0,
+    expGet: 465,
+
+    attackSpeed: 1,
+    physicalDamage: 580,
+    attack: "melee",
+    criticalChance: 0.145,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "bloodburst,flamespiral"
+  },
+
+  boss28a: {
+    name: "Bloodsight Hunter II",
+    description: "A hunter-type boss bot with a red targeting eye and spiked black armor. It locks onto its prey and never lets it escape.",
+
+    health: 44900,
+    physicalDefense: "armor7",
+    movementSpeed: 66,
+    weaponName: "ak47",
+
+    image: "image/boss11.png",
+    radius: 16,
+
+    viewRange: 390,
+    viewAngle: 85,
+
+    patrolInterval: 3000,
+    patrolRadius: 55,
+
+    lookDuration: 2200,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 550,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 28,
+    increaseSpawnGet: 0,
+    expGet: 500,
+
+    attackSpeed: 1,
+    physicalDamage: 595,
+    attack: "melee",
+    criticalChance: 0.15,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "energybeam,voidslash"
+  },
+
+  boss29a: {
+    name: "Azure Dragon II",
+    description: "A dragon-type boss bot in silver armor with a glowing blue dragon emblem. It fiercely guards its territory and unleashes bursts of blue energy.",
+
+    health: 46500,
+    physicalDefense: "armor8",
+    movementSpeed: 78,
+    weaponName: "sniper",
+
+    image: "image/boss12.png",
+    radius: 16,
+
+    viewRange: 399,
+    viewAngle: 95,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 2400,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 590,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 29,
+    increaseSpawnGet: 0,
+    expGet: 535,
+
+    attackSpeed: 1,
+    magicalAttack: 615,
+    attack: "melee",
+    criticalChance: 0.155,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "iceburst,barrage"
+  },
+
+  boss30a: {
+    name: "Violet Wyrm II",
+    description: "A dark dragon-type boss bot with large purple horns and glowing violet plating. Its towering frame overwhelms enemies with heavy, slashing attacks.",
+
+    health: 48100,
+    physicalDefense: "armor8",
+    movementSpeed: 82,
+    weaponName: "uzi",
+
+    image: "image/boss13.png",
+    radius: 16,
+
+    viewRange: 408,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 630,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 30,
+    increaseSpawnGet: 0,
+    expGet: 570,
+
+    attackSpeed: 1,
+    physicalDamage: 635,
+    attack: "melee",
+    criticalChance: 0.16,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "voidvortex,slash1"
+  },
+
+  boss31a: {
+    name: "Magma Dragon II",
+    description: "A molten dragon-type boss bot built from black armor plates glowing with orange heat. It burns everything around it and gets tougher the longer the fight lasts.",
+
+    health: 49700,
+    physicalDefense: "armor9",
+    movementSpeed: 74,
+    weaponName: "shotgun",
+
+    image: "image/boss14.png",
+    radius: 16,
+
+    viewRange: 417,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 2000,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 670,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 31,
+    increaseSpawnGet: 0,
+    expGet: 605,
+
+    attackSpeed: 1,
+    magicalAttack: 650,
+    attack: "melee",
+    criticalChance: 0.165,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "fireexplosion,cannonblast"
+  },
+
+  boss32a: {
+    name: "Glacier Warden II",
+    description: "An ice-type boss bot with a snowflake core and sharp crystal spikes. It guards its area coldly and punishes anyone who steps in.",
+
+    health: 51250,
+    physicalDefense: "armor9",
+    movementSpeed: 88,
+    weaponName: "ak47",
+
+    image: "image/boss15.png",
+    radius: 16,
+
+    viewRange: 426,
+    viewAngle: 115,
+
+    patrolInterval: 3000,
+    patrolRadius: 110,
+
+    lookDuration: 2200,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 710,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 32,
+    increaseSpawnGet: 0,
+    expGet: 640,
+
+    attackSpeed: 1,
+    physicalDamage: 670,
+    attack: "melee",
+    criticalChance: 0.17,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "icespear,shockring"
+  },
+
+  boss33a: {
+    name: "Toxic Behemoth II",
+    description: "A huge poison-type boss bot with heavy green plating and curved claws around a biohazard core. It is slow but extremely tough, and it poisons the ground it walks on.",
+
+    health: 52850,
+    physicalDefense: "armor10",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/boss16.png",
+    radius: 16,
+
+    viewRange: 435,
+    viewAngle: 105,
+
+    patrolInterval: 3000,
+    patrolRadius: 120,
+
+    lookDuration: 2400,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 750,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 33,
+    increaseSpawnGet: 0,
+    expGet: 675,
+
+    attackSpeed: 1,
+    physicalDamage: 690,
+    attack: "melee",
+    criticalChance: 0.175,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "poisonburst,voidvortex"
+  },
+
+  boss34a: {
+    name: "Deathbringer II",
+    description: "The most feared boss bot, a heavy artillery machine with a white skull core and cannon barrels on its armor. It shows no mercy and wipes out anything in its range.",
+
+    health: 54450,
+    physicalDefense: "armor10",
+    movementSpeed: 68,
+    weaponName: "uzi",
+
+    image: "image/boss17.png",
+    radius: 16,
+
+    viewRange: 444,
+    viewAngle: 120,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword11,gun11,gauntlet11,armor5,armor19,armor39,accessory11,accessory23,accessory35,ring01,ring14,ring31",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 790,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 34,
+    increaseSpawnGet: 0,
+    expGet: 710,
+
+    attackSpeed: 1,
+    magicalAttack: 705,
+    attack: "melee",
+    criticalChance: 0.18,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "deadlystrike,barrage"
+  },
+
+  boss35a: {
+    name: "Inferno Warlord III",
+    description: "A powerful fire-type boss bot covered in heavy armor and blazing energy. It attacks enemies with explosive fire strikes and becomes more dangerous when enraged.",
+
+    health: 56050,
+    physicalDefense: "armor3",
+    movementSpeed: 60,
+    weaponName: "uzi",
+
+    image: "image/boss1.png",
+    radius: 16,
+
+    viewRange: 300,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,sword15,gun15,gauntlet15,armor3,armor17,armor38,accessory07,accessory19,accessory31,ring11,ring24,ring29",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 150,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 35,
+    increaseSpawnGet: 0.4,
+    expGet: 150,
+
+    attackSpeed: 1,
+    magicalAttack: 725,
+    attack: "melee",
+    criticalChance: 0.1,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "fireexplosion,fireball"
+  },
+
+  boss36a: {
+    name: "Tempest Sentinel III",
+    description: "A storm-type boss bot with silver plating and a swirling blue energy core. It lashes out with crackling bursts of lightning and keeps enemies off balance.",
+
+    health: 57650,
+    physicalDefense: "armor3",
+    movementSpeed: 62,
+    weaponName: "shotgun",
+    image: "image/boss2.png",
+    radius: 16,
+
+    viewRange: 309,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 2000,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword16,gun16,gauntlet16,armor4,armor18,armor39,accessory08,accessory20,accessory32,ring12,ring25,ring30",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 190,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 36,
+    increaseSpawnGet: 0,
+    expGet: 185,
+
+    attackSpeed: 1,
+    physicalDamage: 745,
+    attack: "melee",
+    criticalChance: 0.105,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "lightningbolt,shockring"
+  },
+
+  boss37a: {
+    name: "Shadow Drake III",
+    description: "A dark dragon-type boss bot wrapped in black armor and glowing violet energy. It strikes from the shadows with sharp, piercing attacks.",
+
+    health: 59250,
+    physicalDefense: "armor4",
+    movementSpeed: 58,
+    weaponName: "ak47",
+
+    image: "image/boss3.png",
+    radius: 16,
+
+    viewRange: 318,
+    viewAngle: 85,
+
+    patrolInterval: 3000,
+    patrolRadius: 50,
+
+    lookDuration: 2200,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword17,gun17,gauntlet17,armor5,armor19,armor40,accessory09,accessory21,accessory33,ring13,ring26,ring31",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 230,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 37,
+    increaseSpawnGet: 0,
+    expGet: 220,
+
+    attackSpeed: 1,
+    physicalDamage: 760,
+    attack: "melee",
+    criticalChance: 0.11,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "voidslash,voidvortex"
+  },
+
+  boss38a: {
+    name: "Golden Tyrant III",
+    description: "A heavy dragon-type boss bot studded with golden spikes over black plating. It charges straight into enemies and crushes anything that gets too close.",
+
+    health: 60850,
+    physicalDefense: "armor4",
+    movementSpeed: 70,
+    weaponName: "sniper",
+
+    image: "image/boss4.png",
+    radius: 16,
+
+    viewRange: 327,
+    viewAngle: 95,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 2400,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword18,gun18,gauntlet18,armor6,armor20,armor41,accessory10,accessory22,accessory34,ring01,ring14,ring32",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 270,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 38,
+    increaseSpawnGet: 0,
+    expGet: 255,
+
+    attackSpeed: 1,
+    physicalDamage: 780,
+    attack: "melee",
+    criticalChance: 0.115,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "bloodburst,slash1"
+  },
+
+  boss39a: {
+    name: "Frostbite Colossus III",
+    description: "An ice-type boss bot armored in silver plates and jagged blue crystals. It freezes the battlefield with icy blasts and slows down anyone who stays near it.",
+
+    health: 62450,
+    physicalDefense: "armor5",
+    movementSpeed: 75,
+    weaponName: "uzi",
+
+    image: "image/boss5.png",
+    radius: 16,
+
+    viewRange: 336,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword19,gun19,gauntlet19,armor7,armor21,armor42,accessory11,accessory23,accessory35,ring02,ring15,ring33",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 310,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 39,
+    increaseSpawnGet: 0,
+    expGet: 290,
+
+    attackSpeed: 1,
+    magicalAttack: 800,
+    attack: "melee",
+    criticalChance: 0.12,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "iceburst,cannonblast"
+  },
+
+  boss40a: {
+    name: "Plague Reaper III",
+    description: "A poison-type boss bot with a biohazard core and razor-sharp green claws. It spreads toxic energy across the area and wears enemies down over time.",
+
+    health: 64050,
+    physicalDefense: "armor5",
+    movementSpeed: 72,
+    weaponName: "shotgun",
+
+    image: "image/boss6.png",
+    radius: 16,
+
+    viewRange: 345,
+    viewAngle: 120,
+
+    patrolInterval: 3000,
+    patrolRadius: 80,
+
+    lookDuration: 2000,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword20,gun20,gauntlet20,armor8,armor22,armor43,accessory12,accessory24,accessory36,ring03,ring16,ring34",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 350,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 40,
+    increaseSpawnGet: 0,
+    expGet: 325,
+
+    attackSpeed: 1,
+    physicalDamage: 815,
+    attack: "melee",
+    criticalChance: 0.125,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "poisonburst,energybeam"
+  },
+
+  boss41a: {
+    name: "Doom Skull III",
+    description: "A heavy artillery-type boss bot with a glowing skull core and cannon pods on its armor. It bombards enemies with explosive blasts from a distance.",
+
+    health: 65650,
+    physicalDefense: "armor6",
+    movementSpeed: 64,
+    weaponName: "ak47",
+
+    image: "image/boss7.png",
+    radius: 16,
+
+    viewRange: 354,
+    viewAngle: 90,
+
+    patrolInterval: 3000,
+    patrolRadius: 60,
+
+    lookDuration: 2200,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword1,gun1,gauntlet1,armor9,armor23,armor29,accessory01,accessory13,accessory25,ring04,ring17,ring35",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 390,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 41,
+    increaseSpawnGet: 0,
+    expGet: 360,
+
+    attackSpeed: 1,
+    magicalAttack: 835,
+    attack: "melee",
+    criticalChance: 0.13,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "cannonblast,fireball"
+  },
+
+  boss42a: {
+    name: "Void Seer III",
+    description: "A void-type boss bot with a glowing violet eye and jagged spiked armor. It watches from afar and strikes with warped dark energy.",
+
+    health: 67250,
+    physicalDefense: "armor6",
+    movementSpeed: 80,
+    weaponName: "sniper",
+
+    image: "image/boss8.png",
+    radius: 16,
+
+    viewRange: 363,
+    viewAngle: 105,
+
+    patrolInterval: 3000,
+    patrolRadius: 110,
+
+    lookDuration: 2400,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword2,gun2,gauntlet2,armor10,armor24,armor30,accessory02,accessory14,accessory26,ring05,ring18,ring36",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 430,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 42,
+    increaseSpawnGet: 0,
+    expGet: 395,
+
+    attackSpeed: 1,
+    magicalAttack: 855,
+    attack: "melee",
+    criticalChance: 0.135,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "voidhole,deadlystrike"
+  },
+
+  boss43a: {
+    name: "Crown Commander III",
+    description: "A royal elite boss bot in blue and gold armor marked with a golden crown. It commands the battlefield with disciplined, powerful strikes.",
+
+    health: 68850,
+    physicalDefense: "armor7",
+    movementSpeed: 85,
+    weaponName: "uzi",
+
+    image: "image/boss9.png",
+    radius: 16,
+
+    viewRange: 372,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 120,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword3,gun3,gauntlet3,armor11,armor25,armor31,accessory03,accessory15,accessory27,ring06,ring19,ring37",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 470,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 43,
+    increaseSpawnGet: 0,
+    expGet: 430,
+
+    attackSpeed: 1,
+    physicalDamage: 870,
+    attack: "melee",
+    criticalChance: 0.14,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "holynova,slash1"
+  },
+
+  boss44a: {
+    name: "Crimson Demon III",
+    description: "A demon-type boss bot with black armor, glowing red veins and curved horns. It hunts relentlessly and hits with brutal force.",
+
+    health: 70400,
+    physicalDefense: "armor7",
+    movementSpeed: 60,
+    weaponName: "shotgun",
+
+    image: "image/boss10.png",
+    radius: 16,
+
+    viewRange: 381,
+    viewAngle: 80,
+
+    patrolInterval: 3000,
+    patrolRadius: 40,
+
+    lookDuration: 2000,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword4,gun4,gauntlet4,armor12,armor26,armor32,accessory04,accessory16,accessory28,ring07,ring20,ring38",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 510,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 44,
+    increaseSpawnGet: 0,
+    expGet: 465,
+
+    attackSpeed: 1,
+    physicalDamage: 890,
+    attack: "melee",
+    criticalChance: 0.145,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "bloodburst,flamespiral"
+  },
+
+  boss45a: {
+    name: "Bloodsight Hunter III",
+    description: "A hunter-type boss bot with a red targeting eye and spiked black armor. It locks onto its prey and never lets it escape.",
+
+    health: 72000,
+    physicalDefense: "armor7",
+    movementSpeed: 66,
+    weaponName: "ak47",
+
+    image: "image/boss11.png",
+    radius: 16,
+
+    viewRange: 390,
+    viewAngle: 85,
+
+    patrolInterval: 3000,
+    patrolRadius: 55,
+
+    lookDuration: 2200,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword5,gun5,gauntlet5,armor13,armor27,armor33,accessory05,accessory17,accessory29,ring08,ring21,ring39",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 550,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 45,
+    increaseSpawnGet: 0,
+    expGet: 500,
+
+    attackSpeed: 1,
+    physicalDamage: 910,
+    attack: "melee",
+    criticalChance: 0.15,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "energybeam,voidslash"
+  },
+
+  boss46a: {
+    name: "Azure Dragon III",
+    description: "A dragon-type boss bot in silver armor with a glowing blue dragon emblem. It fiercely guards its territory and unleashes bursts of blue energy.",
+
+    health: 73600,
+    physicalDefense: "armor8",
+    movementSpeed: 78,
+    weaponName: "sniper",
+
+    image: "image/boss12.png",
+    radius: 16,
+
+    viewRange: 399,
+    viewAngle: 95,
+
+    patrolInterval: 3000,
+    patrolRadius: 70,
+
+    lookDuration: 2400,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword6,gun6,gauntlet6,armor14,armor28,armor34,accessory06,accessory18,accessory30,ring09,ring22,ring40",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 590,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 46,
+    increaseSpawnGet: 0,
+    expGet: 535,
+
+    attackSpeed: 1,
+    magicalAttack: 925,
+    attack: "melee",
+    criticalChance: 0.155,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "iceburst,barrage"
+  },
+
+  boss47a: {
+    name: "Violet Wyrm III",
+    description: "A dark dragon-type boss bot with large purple horns and glowing violet plating. Its towering frame overwhelms enemies with heavy, slashing attacks.",
+
+    health: 75200,
+    physicalDefense: "armor8",
+    movementSpeed: 82,
+    weaponName: "uzi",
+
+    image: "image/boss13.png",
+    radius: 16,
+
+    viewRange: 408,
+    viewAngle: 110,
+
+    patrolInterval: 3000,
+    patrolRadius: 100,
+
+    lookDuration: 1800,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword7,gun7,gauntlet7,armor1,armor15,armor35,accessory07,accessory19,accessory31,ring10,ring23,ring27",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 630,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 47,
+    increaseSpawnGet: 0,
+    expGet: 570,
+
+    attackSpeed: 1,
+    physicalDamage: 945,
+    attack: "melee",
+    criticalChance: 0.16,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "voidvortex,slash1"
+  },
+
+  boss48a: {
+    name: "Magma Dragon III",
+    description: "A molten dragon-type boss bot built from black armor plates glowing with orange heat. It burns everything around it and gets tougher the longer the fight lasts.",
+
+    health: 76800,
+    physicalDefense: "armor9",
+    movementSpeed: 74,
+    weaponName: "shotgun",
+
+    image: "image/boss14.png",
+    radius: 16,
+
+    viewRange: 417,
+    viewAngle: 100,
+
+    patrolInterval: 3000,
+    patrolRadius: 90,
+
+    lookDuration: 2000,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword8,gun8,gauntlet8,armor2,armor16,armor36,accessory08,accessory20,accessory32,ring11,ring24,ring28",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 670,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 48,
+    increaseSpawnGet: 0,
+    expGet: 605,
+
+    attackSpeed: 1,
+    magicalAttack: 965,
+    attack: "melee",
+    criticalChance: 0.165,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "fireexplosion,cannonblast"
+  },
+
+  boss49a: {
+    name: "Glacier Warden III",
+    description: "An ice-type boss bot with a snowflake core and sharp crystal spikes. It guards its area coldly and punishes anyone who steps in.",
+
+    health: 78400,
+    physicalDefense: "armor9",
+    movementSpeed: 88,
+    weaponName: "ak47",
+
+    image: "image/boss15.png",
+    radius: 16,
+
+    viewRange: 426,
+    viewAngle: 115,
+
+    patrolInterval: 3000,
+    patrolRadius: 110,
+
+    lookDuration: 2200,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword9,gun9,gauntlet9,armor3,armor17,armor37,accessory09,accessory21,accessory33,ring12,ring25,ring29",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 710,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 49,
+    increaseSpawnGet: 0,
+    expGet: 640,
+
+    attackSpeed: 1,
+    physicalDamage: 980,
+    attack: "melee",
+    criticalChance: 0.17,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "icespear,shockring"
+  },
+
+  boss50a: {
+    name: "Toxic Behemoth III",
+    description: "A huge poison-type boss bot with heavy green plating and curved claws around a biohazard core. It is slow but extremely tough, and it poisons the ground it walks on.",
+
+    health: 80000,
+    physicalDefense: "armor10",
+    movementSpeed: 90,
+    weaponName: "sniper",
+
+    image: "image/boss16.png",
+    radius: 16,
+
+    viewRange: 435,
+    viewAngle: 105,
+
+    patrolInterval: 3000,
+    patrolRadius: 120,
+
+    lookDuration: 2400,
+
+    respawn: 3600,
+    active: false,
+
+    spawnItem: "speedup,powerup,specialstone,sword10,gun10,gauntlet10,armor4,armor18,armor38,accessory10,accessory22,accessory34,ring13,ring26,ring30",
+    spawnGoldOrbChance: 1.0, // chance to drop a gold orb on death
+    goldOrbAmount: 750,       // gold given when this bot's orb is picked up
+
+    unitExplode: "unitexplode",
+
+    level: 50,
+    increaseSpawnGet: 0,
+    expGet: 675,
+
+    attackSpeed: 1,
+    physicalDamage: 1000,
+    attack: "melee",
+    criticalChance: 0.175,
+    criticalDamage: 0.05,
+    mana: 100,
+    hpRegen: 0.005,
+    manaRegen: 0.01,
+
+    botSkill: "poisonburst,voidvortex"
+  },
+
+  // Add more bot classes the same way — and mirror the same entry in the
+  // public bot.js's BOT_TYPES (that copy only matters for OFFLINE mode now,
+  // but keeping the two in sync avoids confusion later).
+
+};
+
+// =============================================================================
+// ONLINE DRAWING — drawBots() (enemy sprite, health bar, NAME and LEVEL)
+// =============================================================================
+// Functions in a *_server.js file replace the game's own function of the same
+// name while you are ONLINE (online.js's netInstallServerCode() — the same way
+// character_server.js's functions work), and the original comes back when you
+// leave. So this is the real online look of an enemy: change the name/level
+// layout here and it only affects online mode. bot.js has its own copy for
+// OFFLINE. The name shown is each bot type's `name` field above.
+// (server.js only loads this file in Node to read BOT_TYPES — it never calls
+// drawBots, so the browser-only names used inside are fine.)
+// =============================================================================
+
+// =============================================================================
+// LEVEL AGGRO (ONLINE) — should a passive (active:false) bot attack a player of
+// targetLevel on sight? True when the bot is 4 or more levels higher than the
+// player (enemy level 10 vs player level 6 -> attacks). bot.js's AI calls this
+// from updateSingleBot(); while playing online the game swaps THIS copy in for
+// bot.js's own (offline) one, so the gap is enforced from the server file and
+// can't be changed by editing the public bot.js. Change the 4 here to tune it.
+// =============================================================================
+function shouldBotLevelAggro(bot, targetLevel) {
+  if (typeof targetLevel !== "number") return false;
+  return (bot.level || 1) - targetLevel >= 4;
+}
+
+function drawBots(ctx, bots, worldOffsetX, worldOffsetY) {
+
+  for (const bot of bots) {
+    if (!bot.alive) continue;
+
+    const screenX = worldOffsetX + bot.x;
+    const screenY = worldOffsetY + bot.y;
+    const imgSize = bot.radius * 2;
+
+    ctx.save();
+    ctx.translate(screenX, screenY);
+
+    if (bot.image && bot.image.complete && bot.image.naturalWidth > 0) {
+      ctx.drawImage(bot.image, -imgSize / 2, -imgSize / 2, imgSize, imgSize);
+    } else {
+      ctx.fillStyle = "#f44";
+      ctx.beginPath();
+      ctx.arc(0, 0, bot.radius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Movement direction arrow — image/arrow.png, rotated to bot.facingAngle
+    // and shown only while the bot is actually moving (bot.isMoving, set in
+    // updateBot()'s chase/search/patrol cases above). Sits just outside the
+    // bot's own circle, pointing the way it's walking.
+    if (bot.isMoving && botArrowImage.complete && botArrowImage.naturalWidth > 0) {
+      const arrowSize = Math.max(14, bot.radius * 0.9);
+      const arrowDist = bot.radius + 6 + arrowSize / 2;
+
+      ctx.save();
+      ctx.rotate(bot.facingAngle);
+      ctx.translate(arrowDist, 0);
+      // arrow.png is drawn pointing right (angle 0) by default; rotate an
+      // extra 90deg here only if the source art actually points up instead.
+      ctx.drawImage(botArrowImage, -arrowSize / 2, -arrowSize / 2, arrowSize, arrowSize);
+      ctx.restore();
+    }
+
+    // WEAPON UPGRADE AURA — colored glow tiered by bot.weapon.upgradeLevel
+    if (typeof drawWeaponUpgradeAura === "function") {
+      drawWeaponUpgradeAura(ctx, bot.radius, bot.weapon && bot.weapon.upgradeLevel);
+    }
+
+    ctx.restore();
+
+    // Health bar — enemy palette (healthborder1.png / healthhud1.png,
+    // shared healthempty.png backdrop). drawImageHealthBar is defined in
+    // effect.js (loads before bot.js — see index.html script order).
+    const hpPercent = Math.max(0, bot.health / bot.maxHealth);
+    const barWidth = 30;
+    const barHeight = 4;
+
+    drawImageHealthBar(
+      ctx,
+      screenX - barWidth / 2, screenY - bot.radius - 10, barWidth, barHeight,
+      hpPercent,
+      healthBorderImage1, healthHudImage1, healthEmptyImage
+    );
+
+    // NAME + LEVEL — stacked above the health bar, top to bottom:
+    //     Lv 1
+    //     Patrol Officer
+    //     [health bar]
+    // The name is the bot type's `name` field (BOT_TYPES here offline,
+    // bot_server.js online — BOT_TYPES is swapped for the server's table
+    // while playing online, and guests' puppet bots keep the same `type`,
+    // so this works for everyone). A plain lowercase name (old types like
+    // "rusher") is shown Title Cased.
+    ctx.font = "9px 'Courier New', Courier, monospace";
+    ctx.textAlign = "center";
+    const botDef = (typeof BOT_TYPES !== "undefined" && BOT_TYPES[bot.type]) || null;
+    let nameLabel = (botDef && botDef.name) ? String(botDef.name) : "";
+    if (nameLabel && nameLabel === nameLabel.toLowerCase()) {
+      nameLabel = nameLabel.replace(/\b[a-z]/g, (c) => c.toUpperCase());
+    }
+    const nameLabelY = screenY - bot.radius - 13;
+    const levelLabel = "Lv " + (bot.level || 1);
+    // With a name: name sits right above the bar, Lv stacked above it.
+    // Without one: the old single Lv line.
+    const levelLabelY = nameLabel ? nameLabelY - 10 : nameLabelY;
+    // Cheap "shadow" — draw the text once in dark, 1px offset, then the
+    // real color on top. Same readable pop as shadowBlur, no blur cost.
+    if (nameLabel) {
+      ctx.fillStyle = "rgba(0,0,0,0.9)";
+      ctx.fillText(nameLabel, screenX + 1, nameLabelY + 1);
+      ctx.fillStyle = "#ff3b3b";   // enemy bots can always be attacked -> red name
+      ctx.fillText(nameLabel, screenX, nameLabelY);
+    }
+    ctx.fillStyle = "rgba(0,0,0,0.9)";
+    ctx.fillText(levelLabel, screenX + 1, levelLabelY + 1);
+    ctx.fillStyle = "#ffe066";
+    ctx.fillText(levelLabel, screenX, levelLabelY);
+    ctx.textAlign = "left";
+  }
+}
+
+// ---- export for server.js (Node) ----
+if (typeof module !== "undefined") module.exports = { BOT_TYPES };
