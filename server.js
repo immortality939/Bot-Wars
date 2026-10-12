@@ -363,6 +363,17 @@ const parties = new Map(); // partyId -> { id, members: [ids], lootTurnIndex }
 // value in character_server.js's GAME_RULES so the two can never drift apart.
 const PARTY_MAX_SIZE = ONLINE_RULES.PARTY_MAX_SIZE;   // see server/online_server.js
 
+// Same range the exp share uses (GAME_RULES.PARTY_EXP_SHARE_RANGE = 300). Party gold and
+// item loot now follow it too: a member who is on another map or farther than this from
+// the player who picked the drop up gets no gold / item / buff from it.
+const PARTY_SHARE_RANGE = (typeof GAME_DATA.gameRule === "function" && Number(GAME_DATA.gameRule("PARTY_EXP_SHARE_RANGE"))) || 300;
+function partyMemberInShareRange(picker, m) {
+  if (!picker || !m) return false;
+  if (m.id === picker.id) return true;
+  if (m.room !== picker.room) return false;
+  return Math.hypot((m.x || 0) - (picker.x || 0), (m.y || 0) - (picker.y || 0)) <= PARTY_SHARE_RANGE;
+}
+
 // Friendly-fire helper and party-loot-turn helpers, same pure functions
 // online.js's client code uses (see character_server.js's "PARTY FRIENDLY
 // FIRE" and "PARTY LOOT TURN" sections) — pulled from GAME_DATA so both
@@ -1327,6 +1338,24 @@ function removeFromClan(p) {
     clanDb(() => sbRest("PATCH", "clans?id=eq." + q(clan.id), { leader_uid: clan.leaderUid }));
   }
   broadcastClanUpdate(clan);
+}
+
+// Leader kicked a member (works for online AND offline members, by account uid).
+// The kicked member's clan is cleared at once if they're online; offline members
+// simply find no clan next login. Everyone left gets the new roster.
+function kickUidFromClan(clan, uid) {
+  if (!clan || !uid || uid === clan.leaderUid) return false;
+  if (!clan.members.some((m) => m.uid === uid)) return false;
+  clan.members = clan.members.filter((m) => m.uid !== uid);
+  clanOfUid.delete(uid);
+  const o = onlineByUid.get(uid);
+  if (o) {
+    o.clanId = null;
+    send(o.ws, { type: "clanUpdate", clanId: null, members: [] });
+  }
+  clanDb(() => sbRest("DELETE", "clan_members?uid=eq." + q(uid)));
+  broadcastClanUpdate(clan);
+  return true;
 }
 
 // Leader pressed DISBAND (after CONFIRM): the whole clan is removed and
@@ -2311,9 +2340,11 @@ wss.on("connection", (ws) => {
             // above, instead of a single shared amount looked up from
             // ITEM_TYPES.
             const total = drop.amt || 0;
-            const share = Math.floor(total / party.members.length);
-            let remainder = total - share * party.members.length;
-            for (const pid of party.members) {
+            // Only members within PARTY_SHARE_RANGE of the picker (same map) share the gold.
+            const gold_ids = party.members.filter((pid) => partyMemberInShareRange(me, players.get(pid)));
+            const share = Math.floor(total / gold_ids.length);
+            let remainder = total - share * gold_ids.length;
+            for (const pid of gold_ids) {
               const m = players.get(pid);
               if (!m) continue;
               const amount = share + (remainder > 0 ? 1 : 0);
@@ -2324,15 +2355,24 @@ wss.on("connection", (ws) => {
           } else if (rule === "SHARED") {
             for (const pid of party.members) {
               const m = players.get(pid);
-              if (!m) continue;
+              if (!m || !partyMemberInShareRange(me, m)) continue;
               send(m.ws, { type: "partyLootAward", mode: "effect", itemType: drop.t });
             }
           } else { // ALTERNATE
             // party.members is now pruned to live ids only (see above), so
             // this should always resolve to a real, connected player — the
             // "|| me" is just a last-resort safety net, not the normal path.
-            const recipientId = getPartyLootTurnId(party);
-            const recipient = (recipientId != null && players.get(recipientId)) || me;
+            // Walk the turn order until we reach a member who is in range of the picker;
+            // out-of-range members are skipped (the picker is always in range, so this
+            // always finds someone).
+            let recipient = null;
+            for (let i = 0; i < party.members.length; i++) {
+              const rid = getPartyLootTurnId(party);
+              advancePartyLootTurn(party);
+              const cand = rid != null ? players.get(rid) : null;
+              if (cand && partyMemberInShareRange(me, cand)) { recipient = cand; break; }
+            }
+            if (!recipient) recipient = me;
             if (pickupNear) saveGuard.creditItems(recipient.uid, drop.k === "inv" ? drop.qty : 1);
             // itemPayload spread FIRST, { type, mode } applied LAST — so the
             // "partyLootAward" discriminator always wins even if itemPayload
@@ -2341,7 +2381,6 @@ wss.on("connection", (ws) => {
             // above; the itemType rename alone already fixes today's case,
             // this just stops the same class of bug from coming back.
             send(recipient.ws, Object.assign({}, itemPayload, { type: "partyLootAward", mode: "item" }));
-            advancePartyLootTurn(party);
           }
         } else if (pickupNear) {
           // Not in a party: the picker's own client applies the award, the server just records it.
@@ -2753,6 +2792,22 @@ wss.on("connection", (ws) => {
         if (!clanOf(me)) { send(ws, { type: "clanUpdate", clanId: null, members: [] }); break; }
         removeFromClan(me);
         break;
+
+      // KICK — leader only. index.html: tap a member's name in the CLAN window ->
+      // KICK / CANCEL -> sends { type: "clanKick", targetId } (the id from the roster).
+      case "clanKick": {
+        const c = clanOf(me);
+        if (!c) { send(ws, { type: "clanUpdate", clanId: null, members: [] }); break; }
+        if (c.leaderUid !== me.uid) { send(ws, { type: "clanError", reason: "Only the leader can kick members" }); break; }
+        const tid = String(msg.targetId);
+        const target = c.members.find((m) => {
+          const o = onlineByUid.get(m.uid);
+          return String(o ? o.id : "u:" + m.uid) === tid;
+        });
+        if (!target || target.uid === me.uid) break;
+        kickUidFromClan(c, target.uid);
+        break;
+      }
 
       // DISBAND — leader only; removes the clan and all its members.
       case "clanDisband": {
