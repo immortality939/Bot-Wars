@@ -5040,6 +5040,7 @@ function olFreshProfile() {
     invEquip: null,
     invGrid: null,
     skillEquip: [],
+    skillLevels: {},
     friendsList: []
   };
 }
@@ -5058,6 +5059,7 @@ function olCloudProfile(snap) {
     invEquip: snap.invEquip,
     invGrid: snap.invGrid,
     skillEquip: snap.skillEquip,
+    skillLevels: snap.skillLevels || {},
     friendsList: Array.isArray(window.friendsList) ? window.friendsList : []
   };
   // LAST POSITION — map + x/y where the player is right now, so logging in again
