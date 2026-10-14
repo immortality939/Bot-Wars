@@ -26,7 +26,7 @@
 // snapshot carries the result back out to the room — so everyone sees the
 // same enemies, in the same place, dying at the same time. If the host
 // leaves, hosting duty is silently handed to whoever's left (see
-// reassignHost below).
+// reassignHost below). 
 //
 // ONLINE GAME DATA: the numbers used in online mode (weapons, armor,
 // characters, skills, ...) live in the ./server/*_server.js files. They are
@@ -1905,8 +1905,43 @@ function publicInfo(p) {
     // Equipped gear names only (see the "state" case below) — lets a
     // newly-joined client's VIEW popup (online.js) show what everyone
     // already on the map has on before their next "state" tick arrives.
-    weapon: p.weapon, armor: p.armor, accessory: p.accessory
+    weapon: p.weapon, armor: p.armor, accessory: p.accessory,
+    gear: p.gear || null   // full stats of that gear, for the VIEW popup
   };
+}
+
+// Equipped-gear stats a client sends for other players' VIEW popup: display
+// only (nothing server-side trusts it), so just whitelist keys, force numbers
+// to be finite and cap string lengths.
+const GEAR_NUM_KEYS = [
+  "physicalDamage", "magicalAttack", "physicalDefense", "magicalDefense", "defense",
+  "health", "mana", "hpRegen", "manaRegen", "movementSpeed", "vit", "pow", "dex", "int",
+  "criticalDamage", "criticalChance", "block", "upgradeLevel"
+];
+const GEAR_STR_KEYS = { name: 40, requiredType: 24, requiredStat: 24, description: 200 };
+function cleanGearItem(g) {
+  if (!g || typeof g !== "object") return null;
+  const o = {};
+  for (const k of GEAR_NUM_KEYS) {
+    const v = g[k];
+    if (typeof v === "number" && isFinite(v)) o[k] = Math.max(-1e7, Math.min(1e7, v));
+  }
+  for (const k of Object.keys(GEAR_STR_KEYS)) {
+    if (typeof g[k] === "string") o[k] = g[k].slice(0, GEAR_STR_KEYS[k]);
+  }
+  const orb = g.attachedOrb;
+  if (orb && typeof orb === "object") {
+    o.attachedOrb = {
+      effect: String(orb.effect || "").slice(0, 12),
+      effectChance: Math.max(0, Math.min(1, Number(orb.effectChance) || 0)),
+      effectDuration: Math.max(0, Math.min(600000, Number(orb.effectDuration) || 0))
+    };
+  }
+  return o;
+}
+function cleanGear(g) {
+  if (!g || typeof g !== "object") return null;
+  return { weapon: cleanGearItem(g.weapon), armor: cleanGearItem(g.armor), accessory: cleanGearItem(g.accessory) };
 }
 
 wss.on("connection", (ws) => {
@@ -2036,12 +2071,14 @@ wss.on("connection", (ws) => {
         me.weapon = equipName(msg.weapon);
         me.armor = equipName(msg.armor);
         me.accessory = equipName(msg.accessory);
+        if (msg.gear) me.gear = cleanGear(msg.gear);   // client only sends it when it changed
         broadcast(me.room, {
           type: "state", id: me.id,
           x: me.x, y: me.y, health: me.health, maxHealth: me.maxHealth,
           mana: me.mana, maxMana: me.maxMana, exp: me.exp, maxExp: me.maxExp,
           level: me.level, alive: me.alive,
-          weapon: me.weapon, armor: me.armor, accessory: me.accessory
+          weapon: me.weapon, armor: me.armor, accessory: me.accessory,
+          gear: msg.gear ? me.gear : undefined
         }, me.id);
         break;
       }
