@@ -1787,7 +1787,10 @@ function netAddRemote(p) {
     // messages that follow this initial snapshot.
     weapon: p.weapon || null,
     armor: p.armor || null,
-    accessory: p.accessory || null
+    accessory: p.accessory || null,
+    // Full stats of that gear (rolled stats, upgrade level, orb...) so the
+    // VIEW popup can show the real numbers, not just the base item.
+    gear: p.gear || null
   });
 }
 
@@ -2123,7 +2126,7 @@ function netCloseViewPopup() {
   if (playerViewOverlay) playerViewOverlay.style.display = "none";
 }
 
-function netFillViewRingSlot(slotEl, itemName, lookupFn, itemType) {
+function netFillViewRingSlot(slotEl, itemName, lookupFn, itemType, gearData) {
   if (!slotEl) return;
   const img = slotEl.querySelector(".invSlotImg");
   const label = slotEl.querySelector(".invSlotLabel");
@@ -2136,6 +2139,16 @@ function netFillViewRingSlot(slotEl, itemName, lookupFn, itemType) {
   const entry = (def && typeof buildCdmEntryFromDef === "function")
     ? buildCdmEntryFromDef(itemType, def)
     : (itemName ? { type: itemType, name: itemName, data: {} } : null);
+  // The owner's REAL item numbers (rolled stats, upgrade level, orb) win over
+  // the base item from the table.
+  if (entry && gearData && typeof gearData === "object") {
+    const keepImage = entry.data && entry.data.image;
+    entry.data = Object.assign({}, entry.data, gearData);
+    if (keepImage) entry.data.image = keepImage;
+    if (itemType === "armor" && typeof entry.data.defense !== "number" && typeof entry.data.physicalDefense === "number") {
+      entry.data.defense = entry.data.physicalDefense;
+    }
+  }
   const imageSrc = itemName ? ((entry && entry.data && entry.data.image) || ("image/" + itemName + ".png")) : null;
 
   if (itemName && imageSrc) {
@@ -2191,11 +2204,13 @@ function netShowPlayerViewPopup(remotePlayer) {
   const levelEl = document.getElementById("pViewLevelVal");
   if (levelEl) levelEl.textContent = remotePlayer.level || 1;
 
+  const gear = remotePlayer.gear || {};
   netFillViewRingSlot(document.getElementById("pViewWeaponSlot"), remotePlayer.weapon,
-    typeof getWeapon === "function" ? getWeapon : null, "weapon");
+    typeof getWeapon === "function" ? getWeapon : null, "weapon", gear.weapon);
   netFillViewRingSlot(document.getElementById("pViewArmorSlot"), remotePlayer.armor,
-    typeof getArmor === "function" ? getArmor : null, "armor");
-  netFillViewRingSlot(document.getElementById("pViewAccessorySlot"), remotePlayer.accessory, null, "accessory");
+    typeof getArmor === "function" ? getArmor : null, "armor", gear.armor);
+  netFillViewRingSlot(document.getElementById("pViewAccessorySlot"), remotePlayer.accessory,
+    typeof getArmor === "function" ? getArmor : null, "accessory", gear.accessory);
 
   const setText = (id, value) => {
     const el = document.getElementById(id);
@@ -4116,6 +4131,33 @@ function netUpdate(dt) {
   }
 }
 
+// Stats of an equipped item that other players may see in the VIEW popup.
+// Numbers only + a few short strings (the server re-checks all of it).
+const NET_GEAR_NUM_KEYS = [
+  "physicalDamage", "magicalAttack", "physicalDefense", "magicalDefense", "defense",
+  "health", "mana", "hpRegen", "manaRegen", "movementSpeed", "vit", "pow", "dex", "int",
+  "criticalDamage", "criticalChance", "block", "upgradeLevel"
+];
+function netPackGear(entry) {
+  if (!entry || !entry.data) return null;
+  const d = entry.data, o = {};
+  NET_GEAR_NUM_KEYS.forEach((k) => { if (typeof d[k] === "number" && isFinite(d[k])) o[k] = d[k]; });
+  [["name", 40], ["requiredType", 24], ["requiredStat", 24], ["description", 200]].forEach(([k, n]) => {
+    if (typeof d[k] === "string") o[k] = d[k].slice(0, n);
+  });
+  const orb = d.attachedOrb;
+  if (orb && typeof orb === "object") {
+    o.attachedOrb = {
+      effect: String(orb.effect || "").slice(0, 12),
+      effectChance: Number(orb.effectChance) || 0,
+      effectDuration: Number(orb.effectDuration) || 0
+    };
+  }
+  return o;
+}
+let netLastGearSig = "";
+let netLastGearSentAt = 0;
+
 function netSendState() {
   // invSlotData (index.html) holds the currently equipped
   // weapon/armor/accessory ({name, data} | null per slot) — only the
@@ -4137,7 +4179,21 @@ function netSendState() {
     alive: !isDead,
     weapon: (eq && eq.weapon) ? eq.weapon.name : null,
     armor: (eq && eq.armor) ? eq.armor.name : null,
-    accessory: (eq && eq.accessory) ? eq.accessory.name : null
+    accessory: (eq && eq.accessory) ? eq.accessory.name : null,
+    // full gear stats: only when they changed (or every 10s as a safety
+    // resend), so the state message stays small
+    gear: (() => {
+      const g = {
+        weapon: netPackGear(eq && eq.weapon),
+        armor: netPackGear(eq && eq.armor),
+        accessory: netPackGear(eq && eq.accessory)
+      };
+      const sig = JSON.stringify(g);
+      const now = Date.now();
+      if (sig === netLastGearSig && now - netLastGearSentAt < 10000) return undefined;
+      netLastGearSig = sig; netLastGearSentAt = now;
+      return g;
+    })()
   });
 }
 
@@ -4389,6 +4445,7 @@ function netHandle(msg) {
       p.weapon = msg.weapon || null;
       p.armor = msg.armor || null;
       p.accessory = msg.accessory || null;
+      if (msg.gear) p.gear = msg.gear;   // only sent when it changed
       // Snap (don't glide) after they respawn somewhere else.
       if (!wasAlive && p.alive) { p.x = p.tx; p.y = p.ty; }
       break;
