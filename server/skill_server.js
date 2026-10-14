@@ -733,8 +733,8 @@ const SKILLS = {
 // SKILL UPGRADE — the UPGRADE button on a skill's stats card (index.html).
 //   * Max level 5. Upgrade #1 costs 2000 gold orb, #2 costs 4000, #3 6000 ...
 //     (GOLD_COST_STEP x the level you are going TO).
-//   * Every upgrade adds PERCENT_STEP (0.2) to whichever of these the skill
-//     has: physicalPercent, magicalPercent, attackIncrease, defenseIncrease.
+//   * Every upgrade adds PERCENT_STEP (0.2, divided by shotTimes x hitNum when
+//     the skill has them) to whichever of these the skill has: physicalPercent, magicalPercent, attackIncrease, defenseIncrease.
 //     EXAMPLE: fireexplosion magicalPercent 3.0 -> 3.2 -> 3.4 ...
 //     EXAMPLE: powerboost attackIncrease 0.5 -> 0.7 -> 0.9 ...
 //   * Every upgrade adds MANA_STEP (20%) of the BASE manaCost:
@@ -776,8 +776,15 @@ function getSkillUpgradedData(skill, level) {
   if (!isSkillUpgradable(skill)) lv = 0;
   out.upgradeLevel = lv;
   if (lv > 0) {
+    // A skill that hits more than once per cast gets the step SPLIT across its
+    // hits: step = PERCENT_STEP / (shotTimes x hitNum), so the total gain per
+    // cast stays PERCENT_STEP. EXAMPLE: shotTimes 5 -> +0.04 per upgrade,
+    // hitNum 2 -> +0.1 per upgrade. (No shotTimes / hitNum = 1.)
+    const shots = Math.max(1, Math.floor(Number(skill.shotTimes) || 1));
+    const hits = Math.max(1, Math.floor(Number(skill.hitNum) || 1));
+    const step = SKILL_UPGRADE_RULES.PERCENT_STEP / (shots * hits);
     for (const f of SKILL_UPGRADE_FIELDS) {
-      if (typeof skill[f] === "number") out[f] = Math.round((skill[f] + SKILL_UPGRADE_RULES.PERCENT_STEP * lv) * 100) / 100;
+      if (typeof skill[f] === "number") out[f] = Math.round((skill[f] + step * lv) * 10000) / 10000;
     }
     if (typeof skill.manaCost === "number") {
       out.manaCost = Math.round(skill.manaCost * (1 + SKILL_UPGRADE_RULES.MANA_STEP * lv));
