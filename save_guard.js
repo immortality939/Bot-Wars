@@ -401,6 +401,37 @@ function createSaveGuard(GAME_DATA) {
       prof.invGrid = inv.grid;
       if (inv.equip) prof.invEquip = inv.equip; else prof.invEquip = null;
 
+      // ---------- skill upgrade levels ----------
+      // { skillName: level }. Only real, upgradable skills (skill_server.js), clamped to
+      // the max level. A level can only go UP by what the gold that left the account
+      // since the last save could have paid (upgrade #n costs n x 2000 gold orb — rules in
+      // skill_server.js); an unpaid level is taken back. Going down is always allowed.
+      {
+        const skillDefs = isObj(D.SKILLS) ? D.SKILLS : {};
+        const costOf = (typeof D.getSkillUpgradeCost === "function") ? D.getSkillUpgradeCost : null;
+        const upgradable = (typeof D.isSkillUpgradable === "function") ? D.isSkillUpgradable : null;
+        let skillMax = 0;
+        if (costOf) while (skillMax < 50 && costOf(skillMax) > 0) skillMax++;
+        const oldLv = (oldProf && isObj(oldProf.skillLevels)) ? oldProf.skillLevels : {};
+        const newLv = {};
+        if (costOf && upgradable && isObj(ip.skillLevels)) {
+          for (const name of Object.keys(ip.skillLevels).slice(0, 64)) {
+            const def = skillDefs[name];
+            if (!def || !SAFE_NAME.test(name) || !upgradable(def)) continue;
+            const want = clampInt(ip.skillLevels[name], 0, skillMax, 0);
+            const prev = clampInt(oldLv[name], 0, skillMax, 0);
+            let reached = Math.min(want, prev);
+            while (reached < want) {
+              const price = costOf(reached);
+              if (price > 0 && spent >= price) { spent -= price; reached++; } else break;
+            }
+            if (reached < want) notes.push("skill upgrade on " + name + " reverted (not paid)");
+            if (reached > 0) newLv[name] = reached;
+          }
+        }
+        prof.skillLevels = newLv;
+      }
+
       // ---------- the rest ----------
       prof.skillEquip = Array.isArray(ip.skillEquip)
         ? ip.skillEquip.slice(0, 24).map((s) => (typeof s === "string" && s.length <= 40) ? s : null) : [];
