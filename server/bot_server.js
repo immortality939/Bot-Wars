@@ -5101,6 +5101,7 @@ const BOT_TYPES = {
 
     level: 25,
     increaseSpawnGet: 0.4,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 150,
 
     attackSpeed: 1,
@@ -5145,6 +5146,7 @@ const BOT_TYPES = {
 
     level: 26,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 185,
 
     attackSpeed: 1,
@@ -5190,6 +5192,7 @@ const BOT_TYPES = {
 
     level: 26,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 220,
 
     attackSpeed: 1,
@@ -5235,6 +5238,7 @@ const BOT_TYPES = {
 
     level: 27,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 255,
 
     attackSpeed: 1,
@@ -5280,6 +5284,7 @@ const BOT_TYPES = {
 
     level: 27,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 290,
 
     attackSpeed: 1,
@@ -5325,6 +5330,7 @@ const BOT_TYPES = {
 
     level: 28,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 325,
 
     attackSpeed: 1,
@@ -5370,6 +5376,7 @@ const BOT_TYPES = {
 
     level: 29,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 360,
 
     attackSpeed: 1,
@@ -5415,6 +5422,7 @@ const BOT_TYPES = {
 
     level: 29,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 395,
 
     attackSpeed: 1,
@@ -5460,6 +5468,7 @@ const BOT_TYPES = {
 
     level: 30,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 430,
 
     attackSpeed: 1,
@@ -5505,6 +5514,7 @@ const BOT_TYPES = {
 
     level: 31,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 465,
 
     attackSpeed: 1,
@@ -5550,6 +5560,7 @@ const BOT_TYPES = {
 
     level: 31,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 500,
 
     attackSpeed: 1,
@@ -5595,6 +5606,7 @@ const BOT_TYPES = {
 
     level: 32,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 535,
 
     attackSpeed: 1,
@@ -5640,6 +5652,7 @@ const BOT_TYPES = {
 
     level: 33,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 570,
 
     attackSpeed: 1,
@@ -5685,6 +5698,7 @@ const BOT_TYPES = {
 
     level: 33,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 605,
 
     attackSpeed: 1,
@@ -5730,6 +5744,7 @@ const BOT_TYPES = {
 
     level: 34,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 640,
 
     attackSpeed: 1,
@@ -5775,6 +5790,7 @@ const BOT_TYPES = {
 
     level: 34,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 675,
 
     attackSpeed: 1,
@@ -5820,6 +5836,7 @@ const BOT_TYPES = {
 
     level: 35,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 710,
 
     attackSpeed: 1,
@@ -5874,6 +5891,7 @@ const BOT_TYPES = {
 
     level: 1,
     increaseSpawnGet: 0.4,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 150,
 
     attackSpeed: 1,
@@ -5918,6 +5936,7 @@ const BOT_TYPES = {
 
     level: 2,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 185,
 
     attackSpeed: 1,
@@ -5963,6 +5982,7 @@ const BOT_TYPES = {
 
     level: 3,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 220,
 
     attackSpeed: 1,
@@ -6008,6 +6028,7 @@ const BOT_TYPES = {
 
     level: 4,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 255,
 
     attackSpeed: 1,
@@ -6053,6 +6074,7 @@ const BOT_TYPES = {
 
     level: 5,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 290,
 
     attackSpeed: 1,
@@ -6098,6 +6120,7 @@ const BOT_TYPES = {
 
     level: 6,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 325,
 
     attackSpeed: 1,
@@ -6143,6 +6166,7 @@ const BOT_TYPES = {
 
     level: 7,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 360,
 
     attackSpeed: 1,
@@ -6188,6 +6212,7 @@ const BOT_TYPES = {
 
     level: 8,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 395,
 
     attackSpeed: 1,
@@ -6233,6 +6258,7 @@ const BOT_TYPES = {
 
     level: 9,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 430,
 
     attackSpeed: 1,
@@ -6278,6 +6304,7 @@ const BOT_TYPES = {
 
     level: 10,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 465,
 
     attackSpeed: 1,
@@ -6323,6 +6350,7 @@ const BOT_TYPES = {
 
     level: 11,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 500,
 
     attackSpeed: 1,
@@ -6368,6 +6396,7 @@ const BOT_TYPES = {
 
     level: 12,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 535,
 
     attackSpeed: 1,
@@ -6413,6 +6442,7 @@ const BOT_TYPES = {
 
     level: 13,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 570,
 
     attackSpeed: 1,
@@ -6458,6 +6488,7 @@ const BOT_TYPES = {
 
     level: 14,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 605,
 
     attackSpeed: 1,
@@ -6503,6 +6534,7 @@ const BOT_TYPES = {
 
     level: 15,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 640,
 
     attackSpeed: 1,
@@ -6548,6 +6580,7 @@ const BOT_TYPES = {
 
     level: 16,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 675,
 
     attackSpeed: 1,
@@ -6593,6 +6626,7 @@ const BOT_TYPES = {
 
     level: 17,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 710,
 
     attackSpeed: 1,
@@ -6638,6 +6672,7 @@ const BOT_TYPES = {
 
     level: 18,
     increaseSpawnGet: 0.4,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 150,
 
     attackSpeed: 1,
@@ -6682,6 +6717,7 @@ const BOT_TYPES = {
 
     level: 19,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 185,
 
     attackSpeed: 1,
@@ -6727,6 +6763,7 @@ const BOT_TYPES = {
 
     level: 20,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 220,
 
     attackSpeed: 1,
@@ -6772,6 +6809,7 @@ const BOT_TYPES = {
 
     level: 21,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 255,
 
     attackSpeed: 1,
@@ -6817,6 +6855,7 @@ const BOT_TYPES = {
 
     level: 22,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 290,
 
     attackSpeed: 1,
@@ -6862,6 +6901,7 @@ const BOT_TYPES = {
 
     level: 23,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 325,
 
     attackSpeed: 1,
@@ -6907,6 +6947,7 @@ const BOT_TYPES = {
 
     level: 24,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 360,
 
     attackSpeed: 1,
@@ -6952,6 +6993,7 @@ const BOT_TYPES = {
 
     level: 25,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 395,
 
     attackSpeed: 1,
@@ -6997,6 +7039,7 @@ const BOT_TYPES = {
 
     level: 26,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 430,
 
     attackSpeed: 1,
@@ -7042,6 +7085,7 @@ const BOT_TYPES = {
 
     level: 27,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 465,
 
     attackSpeed: 1,
@@ -7087,6 +7131,7 @@ const BOT_TYPES = {
 
     level: 28,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 500,
 
     attackSpeed: 1,
@@ -7132,6 +7177,7 @@ const BOT_TYPES = {
 
     level: 29,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 535,
 
     attackSpeed: 1,
@@ -7177,6 +7223,7 @@ const BOT_TYPES = {
 
     level: 30,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 570,
 
     attackSpeed: 1,
@@ -7222,6 +7269,7 @@ const BOT_TYPES = {
 
     level: 31,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 605,
 
     attackSpeed: 1,
@@ -7267,6 +7315,7 @@ const BOT_TYPES = {
 
     level: 32,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 640,
 
     attackSpeed: 1,
@@ -7312,6 +7361,7 @@ const BOT_TYPES = {
 
     level: 33,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 675,
 
     attackSpeed: 1,
@@ -7357,6 +7407,7 @@ const BOT_TYPES = {
 
     level: 34,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 710,
 
     attackSpeed: 1,
@@ -7402,6 +7453,7 @@ const BOT_TYPES = {
 
     level: 35,
     increaseSpawnGet: 0.4,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 150,
 
     attackSpeed: 1,
@@ -7446,6 +7498,7 @@ const BOT_TYPES = {
 
     level: 36,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 185,
 
     attackSpeed: 1,
@@ -7491,6 +7544,7 @@ const BOT_TYPES = {
 
     level: 37,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 220,
 
     attackSpeed: 1,
@@ -7536,6 +7590,7 @@ const BOT_TYPES = {
 
     level: 38,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 255,
 
     attackSpeed: 1,
@@ -7581,6 +7636,7 @@ const BOT_TYPES = {
 
     level: 39,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 290,
 
     attackSpeed: 1,
@@ -7626,6 +7682,7 @@ const BOT_TYPES = {
 
     level: 40,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 325,
 
     attackSpeed: 1,
@@ -7671,6 +7728,7 @@ const BOT_TYPES = {
 
     level: 41,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 360,
 
     attackSpeed: 1,
@@ -7716,6 +7774,7 @@ const BOT_TYPES = {
 
     level: 42,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 395,
 
     attackSpeed: 1,
@@ -7761,6 +7820,7 @@ const BOT_TYPES = {
 
     level: 43,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 430,
 
     attackSpeed: 1,
@@ -7806,6 +7866,7 @@ const BOT_TYPES = {
 
     level: 44,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 465,
 
     attackSpeed: 1,
@@ -7851,6 +7912,7 @@ const BOT_TYPES = {
 
     level: 45,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 500,
 
     attackSpeed: 1,
@@ -7896,6 +7958,7 @@ const BOT_TYPES = {
 
     level: 46,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 535,
 
     attackSpeed: 1,
@@ -7941,6 +8004,7 @@ const BOT_TYPES = {
 
     level: 47,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 570,
 
     attackSpeed: 1,
@@ -7986,6 +8050,7 @@ const BOT_TYPES = {
 
     level: 48,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 605,
 
     attackSpeed: 1,
@@ -8031,6 +8096,7 @@ const BOT_TYPES = {
 
     level: 49,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 640,
 
     attackSpeed: 1,
@@ -8076,6 +8142,7 @@ const BOT_TYPES = {
 
     level: 50,
     increaseSpawnGet: 0,
+    increaseSpawnChance: 0.5, // boss: +50% to every item's spawnChance on drop (item_server.js)
     expGet: 675,
 
     attackSpeed: 1,
